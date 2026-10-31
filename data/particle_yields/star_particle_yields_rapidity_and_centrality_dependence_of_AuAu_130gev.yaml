@@ -1,10 +1,8 @@
----
 observable_type: particle_yields
 inspire_id: '621642'
 version: 1
 hepdata_file: fig2a.yaml
-hepdata_table_label: Rapidity distribution of $p$. Combined statitiscal uncertainty and systematic uncertainty from PID contramination.
-  Systematic uncertainties from the track reconstruction efficiency are $\pm$25%.
+hepdata_table_label: Rapidity distribution of $p$. Combined statitiscal uncertainty and systematic uncertainty from PID contramination. Systematic uncertainties from the track reconstruction efficiency are $\pm$25%.
 qualifiers:
   centrality: 58.0 TO 85.0
   particles: $p$
@@ -44,8 +42,7 @@ observable_type: particle_yields
 inspire_id: '621642'
 version: 1
 hepdata_file: fig2b.yaml
-hepdata_table_label: Rapidity distribution of $\bar{p}$. Combined statitiscal uncertainty and systematic uncertainty from
-  PID contramination. Systematic uncertainties from the track reconstruction efficiency are $\pm$25%.
+hepdata_table_label: Rapidity distribution of $\bar{p}$. Combined statitiscal uncertainty and systematic uncertainty from PID contramination. Systematic uncertainties from the track reconstruction efficiency are $\pm$25%.
 qualifiers:
   centrality: 58.0 TO 85.0
   particles: $\bar{p}$
@@ -78,169 +75,5 @@ kinematic_range:
     bins:
     - 0.15
     - 10
-observable: dN_dy
-value_type: dN_dy
----
-observable_type: particle_yields
-inspire_id: '621642'
-version: 1
-hepdata_file: fig3.1.yaml
-hepdata_table_label: $dN/dy$ vs. centrality. Systematic error bands in figure are $\pm$25% for dN/dy.
-qualifiers:
-  particles: $p$
-  pt: 0.35 TO 1.0
-  rapidity: -0.5 TO 0.5
-  sqrt(s)/nucleon: '130'
-collision_system:
-  energy_gev: 130.0
-  reaction: AU AU --> p
-centrality:
-  classes: []
-  notes: centrality classes not auto-parsed from HEPData qualifiers
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
-particle_id:
-  species: p
-kinematic_range:
-  pT:
-    min: 0.35
-    max: 1.0
-    bins:
-    - 0.15
-    - 10
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-observable: dN_dy
-value_type: dN_dy
----
-observable_type: particle_yields
-inspire_id: '621642'
-version: 1
-hepdata_file: fig3.1_nhm.yaml
-hepdata_table_label: $dN/dy$ vs. the number of negative hadrons. Systematic error bands in figure are $\pm$25% for dN/dy.
-qualifiers:
-  particles: $p$
-  pt: 0.35 TO 1.0
-  rapidity: -0.5 TO 0.5
-  sqrt(s)/nucleon: '130'
-collision_system:
-  energy_gev: 130.0
-  reaction: AU AU --> p
-centrality:
-  classes: []
-  notes: centrality classes not auto-parsed from HEPData qualifiers
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
-particle_id:
-  species: p
-kinematic_range:
-  pT:
-    min: 0.35
-    max: 1.0
-    bins:
-    - 0.15
-    - 10
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-observable: dN_dy
-value_type: dN_dy
----
-observable_type: particle_yields
-inspire_id: '621642'
-version: 1
-hepdata_file: fig3.2.yaml
-hepdata_table_label: $dN/dy$ vs. centrality. Systematic error bands in figure are $\pm$25% for dN/dy.
-qualifiers:
-  particles: $\bar{p}$
-  pt: 0.35 TO 1.0
-  rapidity: -0.5 TO 0.5
-  sqrt(s)/nucleon: '130'
-collision_system:
-  energy_gev: 130.0
-  reaction: AU AU --> p
-centrality:
-  classes: []
-  notes: centrality classes not auto-parsed from HEPData qualifiers
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
-particle_id:
-  species: p
-kinematic_range:
-  pT:
-    min: 0.35
-    max: 1.0
-    bins:
-    - 0.15
-    - 10
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-observable: dN_dy
-value_type: dN_dy
----
-observable_type: particle_yields
-inspire_id: '621642'
-version: 1
-hepdata_file: fig3.2_nhm.yaml
-hepdata_table_label: $dN/dy$ vs. the number of negative hadrons. Systematic error bands in figure are $\pm$25% for dN/dy.
-qualifiers:
-  particles: $\bar{p}$
-  pt: 0.35 TO 1.0
-  rapidity: -0.5 TO 0.5
-  sqrt(s)/nucleon: '130'
-collision_system:
-  energy_gev: 130.0
-  reaction: AU AU --> p
-centrality:
-  classes: []
-  notes: centrality classes not auto-parsed from HEPData qualifiers
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
-particle_id:
-  species: p
-kinematic_range:
-  pT:
-    min: 0.35
-    max: 1.0
-    bins:
-    - 0.15
-    - 10
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
 observable: dN_dy
 value_type: dN_dy

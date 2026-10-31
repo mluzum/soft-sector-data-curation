@@ -174,6 +174,10 @@ python scripts/run_pipeline.py --sim-package <package> --design-point 5 --varian
     --type flow_vn particle_yields --reaction '^Ru\+Ru$' --energy 200 --output dp0005_CE.h5
 ```
 
+Records kept outside this repository (preliminary results, records being
+vetted) join a run with `--extra-records DIR` (same `<type>/` layout);
+records marked `status: preliminary` need `--include-preliminary`.
+
 The output's file attrs record `sim_package_*` (name, manifest, data root,
 adapter module/file/version/commit, analysis commit), `variant` and
 `pipeline_argv`.  Each system group holds `values`, `errors`, `covariance`

@@ -153,8 +153,10 @@ def test_curated_records_carry_the_scale():
                     n_scaled += 1
                 if _vm.check_value_scale(doc):
                     bad.append(f'{fn} doc{i}: {doc.get("source_column") or doc.get("value_type")!r}')
+    # 35 public flow_vn records declare one (46 before the records that do not
+    # compute end to end moved out of data/); guards against an empty scan.
     check(f'{n_scaled} flow_vn records carry an explicit value_scale',
-          n_scaled >= 46, f'got {n_scaled}')
+          n_scaled >= 35, f'got {n_scaled}')
     check('no flow_vn record has an undeclared scale', not bad,
           '; '.join(bad[:5]))
 

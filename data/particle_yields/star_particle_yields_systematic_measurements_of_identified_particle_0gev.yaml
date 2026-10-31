@@ -1,11 +1,8 @@
----
 observable_type: particle_yields
 inspire_id: '793126'
 version: 1
 hepdata_file: Fig01_AuAuMult_200GeV.yaml
-hepdata_table_label: Uncorrected charged particle multiplicity distribution measured in the TPC in $|\eta| < 0.5$ for Au+Au
-  collisions at 62.4 GeV and 200 GeV. The shaded regions indicate the centrality bins used in the analysis. The 200 GeV data
-  are scaled by a factor 5 for clarity.
+hepdata_table_label: Uncorrected charged particle multiplicity distribution measured in the TPC in $|\eta| < 0.5$ for Au+Au collisions at 62.4 GeV and 200 GeV. The shaded regions indicate the centrality bins used in the analysis. The 200 GeV data are scaled by a factor 5 for clarity.
 qualifiers:
   n^{raw}_{ch} (|\eta|<0.5): 200 GeV (scaled x5)
 collision_system:
@@ -43,9 +40,7 @@ observable_type: particle_yields
 inspire_id: '793126'
 version: 1
 hepdata_file: Fig01_AuAuMult_62GeV.yaml
-hepdata_table_label: Uncorrected charged particle multiplicity distribution measured in the TPC in $|\eta| < 0.5$ for Au+Au
-  collisions at 62.4 GeV and 200 GeV. The shaded regions indicate the centrality bins used in the analysis. The 200 GeV data
-  are scaled by a factor 5 for clarity.
+hepdata_table_label: Uncorrected charged particle multiplicity distribution measured in the TPC in $|\eta| < 0.5$ for Au+Au collisions at 62.4 GeV and 200 GeV. The shaded regions indicate the centrality bins used in the analysis. The 200 GeV data are scaled by a factor 5 for clarity.
 qualifiers:
   n^{raw}_{ch} (|\eta|<0.5): 62.4 GeV
 collision_system:
@@ -83,8 +78,7 @@ observable_type: particle_yields
 inspire_id: '793126'
 version: 1
 hepdata_file: Fig02a_dAuMult.yaml
-hepdata_table_label: Uncorrected charged particle multiplicity distribution measured in the E-FTPC (Au-direction) within $−3.8
-  < |\eta| < −2.8$ in d+Au collisions at 200 GeV. The shaded regions indicate the centrality bins used in the analysis.
+hepdata_table_label: Uncorrected charged particle multiplicity distribution measured in the E-FTPC (Au-direction) within $−3.8 < |\eta| < −2.8$ in d+Au collisions at 200 GeV. The shaded regions indicate the centrality bins used in the analysis.
 qualifiers:
   n^{raw}_{ch} (-3.8<\eta<-2.8): d+Au 200 GeV
 collision_system:
@@ -122,8 +116,7 @@ observable_type: particle_yields
 inspire_id: '793126'
 version: 1
 hepdata_file: Fig02b_dAuMult.yaml
-hepdata_table_label: The TPC mid-rapidity multiplicity distributions ($|\eta|$ < 0.5) for the corresponding E-FTPC selected
-  centrality bins.
+hepdata_table_label: The TPC mid-rapidity multiplicity distributions ($|\eta|$ < 0.5) for the corresponding E-FTPC selected centrality bins.
 qualifiers:
   n^{raw}_{ch} (|\eta|<0.5): 40-100%
 collision_system:
@@ -161,8 +154,7 @@ observable_type: particle_yields
 inspire_id: '793126'
 version: 1
 hepdata_file: Fig03_ppMult.yaml
-hepdata_table_label: Uncorrected charged particle multiplicity distribution measured in the TPC within $|\eta|$ < 0.5 in pp
-  collisions at 200 GeV.
+hepdata_table_label: Uncorrected charged particle multiplicity distribution measured in the TPC within $|\eta|$ < 0.5 in pp collisions at 200 GeV.
 qualifiers:
   n^{raw}_{ch} (|\eta|<0.5): pp 200 GeV
 collision_system:
@@ -199,122 +191,8 @@ value_type: dN_dy
 observable_type: particle_yields
 inspire_id: '793126'
 version: 1
-hepdata_file: Fig04b_S_AuAu200.yaml
-hepdata_table_label: The ratio of the charged pion multiplicity to the transverse overlap area $dN_{\pi}/dy/S_{⊥}$ versus
-  $N_{coll}/N_{part}$. Errors shown are total errors, dominated by systematic uncertainties. The systematic uncertainties
-  are correlated between Npart, Ncoll, and S⊥, and are largely canceled in the plotted ratio quantities.
-qualifiers:
-  n_{coll}/(n_{part}/2): Au+Au 200 GeV
-collision_system:
-  energy_gev: 0.0
-  reaction: unknown
-centrality:
-  classes:
-  - 1.82-2%
-  - 2-2.17%
-  - 2.17-2.35%
-  - 2.35-2.61%
-  - 2.61-2.81%
-  - 2.81-3.11%
-  - 3.11-3.35%
-  - 3.35-3.65%
-  - 3.65-3.91%
-  - 3.91-4.2%
-  - 4.2-4.5%
-  - 4.5-4.72%
-  - 4.72-5.13%
-  - 5.13-5.14%
-  - 5.14-5.47%
-  - 5.47-5.65%
-  - 5.65-6.07%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-  pT:
-    min: 0.15
-    max: 10
-    bins:
-    - 0.15
-    - 10
-observable: dN_dy
-value_type: dN_dy
----
-observable_type: particle_yields
-inspire_id: '793126'
-version: 1
-hepdata_file: Fig04b_S_AuAu62.yaml
-hepdata_table_label: The ratio of the charged pion multiplicity to the transverse overlap area $dN_{\pi}/dy/S_{⊥}$ versus
-  $N_{coll}/N_{part}$. Errors shown are total errors, dominated by systematic uncertainties. The systematic uncertainties
-  are correlated between Npart, Ncoll, and S⊥, and are largely canceled in the plotted ratio quantities.
-qualifiers:
-  n_{coll}/(n_{part}/2): Au+Au 62.4 GeV
-collision_system:
-  energy_gev: 0.0
-  reaction: unknown
-centrality:
-  classes:
-  - 1.76-1.92%
-  - 1.92-2.06%
-  - 2.06-2.24%
-  - 2.24-2.46%
-  - 2.46-2.64%
-  - 2.64-2.89%
-  - 2.89-3.11%
-  - 3.11-3.34%
-  - 3.34-3.6%
-  - 3.6-3.82%
-  - 3.82-4.12%
-  - 4.12-4.24%
-  - 4.24-4.58%
-  - 4.58-4.66%
-  - 4.66-4.85%
-  - 4.85-5.08%
-  - 5.08-5.43%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-  pT:
-    min: 0.15
-    max: 10
-    bins:
-    - 0.15
-    - 10
-observable: dN_dy
-value_type: dN_dy
----
-observable_type: particle_yields
-inspire_id: '793126'
-version: 1
 hepdata_file: Fig04b_S_ppMB200.yaml
-hepdata_table_label: The ratio of the charged pion multiplicity to the transverse overlap area $dN_{\pi}/dy/S_{⊥}$ versus
-  $N_{coll}/N_{part}$. Errors shown are total errors, dominated by systematic uncertainties. The systematic uncertainties
-  are correlated between Npart, Ncoll, and S⊥, and are largely canceled in the plotted ratio quantities.
+hepdata_table_label: The ratio of the charged pion multiplicity to the transverse overlap area $dN_{\pi}/dy/S_{⊥}$ versus $N_{coll}/N_{part}$. Errors shown are total errors, dominated by systematic uncertainties. The systematic uncertainties are correlated between Npart, Ncoll, and S⊥, and are largely canceled in the plotted ratio quantities.
 qualifiers:
   n_{coll}/(n_{part}/2): pp MB 200 GeV
 collision_system:

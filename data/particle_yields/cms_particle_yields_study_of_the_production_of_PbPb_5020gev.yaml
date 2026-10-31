@@ -1,4 +1,3 @@
----
 observable_type: particle_yields
 inspire_id: '1242440'
 version: 1
@@ -185,48 +184,6 @@ collision_system:
 centrality:
   classes:
   - MB
-  estimator:
-    name: HF
-    observable: ET
-    detector: HF
-  eta:
-  - min: -5.2
-    max: -2.9
-  - min: 2.9
-    max: 5.2
-particle_id:
-  species: charged
-kinematic_range:
-  eta:
-    min: -2.4
-    max: 2.4
-    bins:
-    - -2.4
-    - 2.4
-  pT:
-    min: 0.3
-    max: 20
-observable: dN_dy
-value_type: dN_dy
----
-observable_type: particle_yields
-inspire_id: '1242440'
-version: 1
-hepdata_file: Table46.yaml
-hepdata_table_label: '.
-
-  '
-qualifiers:
-  abs(yrap): < 1
-  fit: B
-  re: P PB --> PBAR X
-  sqrt(s)/nucleon: '5020.0'
-collision_system:
-  energy_gev: 5020.0
-  reaction: P PB --> PBAR X
-centrality:
-  classes: []
-  notes: centrality classes not auto-parsed from HEPData qualifiers
   estimator:
     name: HF
     observable: ET

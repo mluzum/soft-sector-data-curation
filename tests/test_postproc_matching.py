@@ -21,6 +21,9 @@ v2(eta) comparison (found Sep 2026 via the JETSCAPE cross-validation):
 Also pins the value correspondence that fixes the 16-bin binning against
 the paper (arXiv:nucl-ex/0407012, PRC 72 051901) Fig-5 table.
 
+The PHOBOS v2(eta) record is curated outside the public database until its
+ASCII tables are converted to value tables; tests/fixtures/ holds a copy.
+
 Run: python3 tests/test_postproc_matching.py
 """
 import importlib.util
@@ -41,6 +44,10 @@ _RP_SPEC = importlib.util.spec_from_file_location(
     'run_pipeline', os.path.join(_ROOT, 'scripts', 'run_pipeline.py'))
 rp = importlib.util.module_from_spec(_RP_SPEC)
 _RP_SPEC.loader.exec_module(rp)
+
+PHOBOS_V2_ETA = os.path.join(
+    _ROOT, 'tests', 'fixtures',
+    'phobos_flow_vn_centrality_and_pseudorapidity_dependence_of_AuAu_200gev.yaml')
 
 FAM = ('v22_eta', 'PHOB')
 EDGES = cp.MODEL_DIFF_BINS[FAM]
@@ -122,9 +129,7 @@ def test_value_correspondence_matches_paper():
 def test_overlap_mapping_and_mirror_fallback():
     print('test_overlap_mapping_and_mirror_fallback')
     import yaml
-    fpath = os.path.join(
-        _ROOT, 'data', 'flow_vn',
-        'phobos_flow_vn_centrality_and_pseudorapidity_dependence_of_AuAu_200gev.yaml')
+    fpath = PHOBOS_V2_ETA
     docs = [d for d in yaml.safe_load_all(open(fpath)) if d]
     # doc10 = Fig-5 combined, forward-only, 8 bins; doc4 = hit-based,
     # two-sided, 14 bins.
@@ -178,9 +183,7 @@ def test_flow_reference_from_record():
     print('test_flow_reference_from_record')
     import yaml
     from analysis.dispatcher import extract_measurement_params
-    fpath = os.path.join(
-        _ROOT, 'data', 'flow_vn',
-        'phobos_flow_vn_centrality_and_pseudorapidity_dependence_of_AuAu_200gev.yaml')
+    fpath = PHOBOS_V2_ETA
     docs = [d for d in yaml.safe_load_all(open(fpath)) if d]
     check('13 docs', len(docs) == 13, f'got {len(docs)}')
     # The blanket |Delta-eta| guess is gone everywhere.
@@ -439,6 +442,26 @@ def test_per_bin_wrapper_is_harmonic_major():
     check('extracted v2 is [11, 21, 31]', v2 == [11, 21, 32 - 1], f'{v2}')
 
 
+def test_inventory_row_must_match_the_document():
+    """An inventory row names a record by file and document index; after the
+    file changes, the index can point at another record.  is_row_record
+    rejects a document of another table, value type or centrality class."""
+    print('test_inventory_row_must_match_the_document')
+    import copy
+    import yaml
+    docs = [d for d in yaml.safe_load_all(open(PHOBOS_V2_ETA)) if d]
+    row = {'hepdata_file': docs[4]['hepdata_file'], 'value_type': 'v2',
+           'record_cent_lo': '25.0', 'record_cent_hi': '50.0'}
+    check('the row matches its document', cp.is_row_record(docs[4], row))
+    check('a sibling of another centrality class is rejected', not cp.is_row_record(docs[5], row))
+    other = copy.deepcopy(docs[4])
+    other['hepdata_file'] = 'Table1.yaml'
+    check('a document of another table is rejected', not cp.is_row_record(other, row))
+    check('a row without a centrality class checks table and value type',
+          cp.is_row_record(docs[5], {'hepdata_file': docs[5]['hepdata_file'], 'value_type': 'v2'}))
+    check('no document is rejected', not cp.is_row_record(None, row))
+
+
 if __name__ == '__main__':
     for fn in (test_edge_count_and_mirroring,
                test_value_correspondence_matches_paper,
@@ -448,7 +471,8 @@ if __name__ == '__main__':
                test_mirror_reference_window_selection,
                test_segment_selection_by_overlap,
                test_per_bin_reference_core_equivalence,
-               test_per_bin_wrapper_is_harmonic_major):
+               test_per_bin_wrapper_is_harmonic_major,
+               test_inventory_row_must_match_the_document):
         fn()
     total = _n_pass + _n_fail
     # run_all.sh tallies lines of the form "N/M passed".

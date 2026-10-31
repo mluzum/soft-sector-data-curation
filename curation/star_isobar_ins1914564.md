@@ -17,11 +17,14 @@ table numerically with the curated ones.
 | ⟨N_trk^offline⟩ ratio | Fig. 3 (bottom) | `observable_ratios` with `efficiency_cancels: true` |
 | P(N_trk^offline), Ru+Ru and Zr+Zr, and their ratio | Fig. 2 (data) | `multiplicity_distribution` (`efficiency_corrected: false`) and `observable_ratios` |
 
-These are not dispatched:
-- **v₂{ZDC}** is measured relative to the spectator plane (`flow_reference.plane: spectator`).
-- **N_trk^offline and P(N_trk^offline)** are not corrected for the 85–90% tracking efficiency (Secs. II–III).
+In this repository, as computable records:
+- the flow coefficients except v₂{ZDC}, and their ratios;
+- the ⟨N_trk⟩ ratio, which is computed as a ratio of corrected multiplicities because STAR applies no efficiency correction precisely because it cancels in such ratios;
+- the per-system ⟨N_trk^offline⟩ records it links to.
 
-The ratio ⟨N_trk⟩_Ru/⟨N_trk⟩_Zr is usable, because STAR applies no efficiency correction precisely because it cancels in such ratios.
+Curated but kept outside this repository until they can be computed:
+- **v₂{ZDC}** and its ratio, measured relative to the spectator plane (`flow_reference.plane: spectator`);
+- **P(N_trk^offline)** and its ratio, not corrected for the 85–90% tracking efficiency (Secs. II–III), so they need a detector-response model.
 
 Not curated:
 - **Identical copies** of curated tables: Fig. 6 (v₂{EP} and its ratio), the per-system and ratio panels of Fig. 10 that repeat Fig. 4 or each other, and Fig. 23's v₂{4} and v₂{ZDC} with their ratios. All agree with the curated tables exactly.
@@ -31,4 +34,4 @@ Not curated:
 
 ## CME observables
 
-The γ₁₁₂ and Δγ correlators, Δδ, κ, r(m_inv), the R_Ψ₂ widths and their ratios are curated in `charge_dependent_correlations` and `observable_ratios`. The curation is partial: Figs. 7–9, 11–14, 18–19, 22 and 26–27 are uncurated, and the method fields of the curated tables were not individually verified. A hydrodynamic model without charge-dependent initial conditions and local charge conservation gives only their flow-driven background, so a dedicated CME curation pass is needed before they are used.
+The γ₁₁₂ and Δγ correlators, Δδ, κ, r(m_inv), the R_Ψ₂ widths and their ratios are curated (`charge_dependent_correlations`, `observable_ratios`), outside this repository, since no computation exists for them. The curation is partial: Figs. 7–9, 11–14, 18–19, 22 and 26–27 are uncurated, and the method fields of the curated tables were not individually verified. A hydrodynamic model without charge-dependent initial conditions and local charge conservation gives only their flow-driven background, so a dedicated CME curation pass is needed before they are used.

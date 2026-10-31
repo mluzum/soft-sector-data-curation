@@ -1,10 +1,8 @@
----
 observable_type: particle_yields
 inspire_id: '2825521'
 version: 1
 hepdata_file: Table_1.yaml
-hepdata_table_label: Charged-hadron $\mathrm{d}N_{\mathrm{ch}}/\mathrm{d}\eta$ distributions in PbPb collisions at 5.36 TeV
-  for events in the 0--80%, 0--5% and 50--55% centrality class.
+hepdata_table_label: Charged-hadron $\mathrm{d}N_{\mathrm{ch}}/\mathrm{d}\eta$ distributions in PbPb collisions at 5.36 TeV for events in the 0--80%, 0--5% and 50--55% centrality class.
 qualifiers:
   centrality: 50 - 55
   re: PB PB --> CHARGED X
@@ -68,8 +66,7 @@ observable_type: particle_yields
 inspire_id: '2825521'
 version: 1
 hepdata_file: Table_2a.yaml
-hepdata_table_label: Charged-hadron $\mathrm{d}N_{\mathrm{ch}}/\mathrm{d}\eta$ in PbPb collisions at 5.36 TeV at midrapidity
-  as a function of event centrality.
+hepdata_table_label: Charged-hadron $\mathrm{d}N_{\mathrm{ch}}/\mathrm{d}\eta$ in PbPb collisions at 5.36 TeV at midrapidity as a function of event centrality.
 qualifiers:
   re: PB PB --> CHARGED X
   sqrt(s): '5360'
@@ -123,8 +120,7 @@ observable_type: particle_yields
 inspire_id: '2825521'
 version: 1
 hepdata_file: Table_2b.yaml
-hepdata_table_label: Charged-hadron $\mathrm{d}N_{\mathrm{ch}}/\mathrm{d}\eta/2A$ in PbPb collisions at 5.36 TeV at midrapidity
-  as a function of event centrality.
+hepdata_table_label: Charged-hadron $\mathrm{d}N_{\mathrm{ch}}/\mathrm{d}\eta/2A$ in PbPb collisions at 5.36 TeV at midrapidity as a function of event centrality.
 qualifiers:
   re: PB PB --> CHARGED X
   sqrt(s): '5360'
@@ -150,101 +146,6 @@ centrality:
   - 65-70%
   - 70-75%
   - 75-80%
-  estimator:
-    name: HF
-    observable: ET
-    detector: HF
-  eta:
-  - min: -5.2
-    max: -2.9
-  - min: 2.9
-    max: 5.2
-particle_id:
-  species: charged
-kinematic_range:
-  eta:
-    min: -2.4
-    max: 2.4
-    bins:
-    - -2.4
-    - 2.4
-  pT:
-    min: 0.3
-    max: 20
-observable: dN_dy
-value_type: dN_dy
----
-observable_type: particle_yields
-inspire_id: '2825521'
-version: 1
-hepdata_file: Table_3a.yaml
-hepdata_table_label: Charged-hadron $\mathrm{d}N_{\mathrm{ch}}/\mathrm{d}\eta/N_{part}$ in PbPb collisions at 5.36 TeV at
-  midrapidity as a function of $N_{part}$.
-qualifiers:
-  re: PB PB --> CHARGED X
-  sqrt(s): '5360'
-  '|\eta|': < 0.5
-collision_system:
-  energy_gev: 5360.0
-  reaction: PB PB --> CHARGED X
-centrality:
-  classes: []
-  notes: centrality classes not auto-parsed from HEPData qualifiers
-  estimator:
-    name: HF
-    observable: ET
-    detector: HF
-  eta:
-  - min: -5.2
-    max: -2.9
-  - min: 2.9
-    max: 5.2
-particle_id:
-  species: charged
-kinematic_range:
-  eta:
-    min: -2.4
-    max: 2.4
-    bins:
-    - -2.4
-    - 2.4
-  pT:
-    min: 0.3
-    max: 20
-observable: dN_dy
-value_type: dN_dy
----
-observable_type: particle_yields
-inspire_id: '2825521'
-version: 1
-hepdata_file: Table_3b.yaml
-hepdata_table_label: Charged-hadron $\mathrm{d}N_{\mathrm{ch}}/\mathrm{d}\eta/N_{part}$ in PbPb collisions at 5.36 TeV at
-  midrapidity as a function of $N_{part}/2A$.
-qualifiers:
-  re: PB PB --> CHARGED X
-  sqrt(s): '5360'
-  '|\eta|': < 0.5
-collision_system:
-  energy_gev: 5360.0
-  reaction: PB PB --> CHARGED X
-centrality:
-  classes:
-  - 0.02-0.04%
-  - 0.04-0.055%
-  - 0.055-0.075%
-  - 0.075-0.1%
-  - 0.1-0.13%
-  - 0.13-0.17%
-  - 0.17-0.21%
-  - 0.21-0.255%
-  - 0.255-0.31%
-  - 0.31-0.375%
-  - 0.375-0.45%
-  - 0.45-0.535%
-  - 0.535-0.63%
-  - 0.63-0.74%
-  - 0.74-0.86%
-  - 0.86-0.98%
   estimator:
     name: HF
     observable: ET

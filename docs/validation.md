@@ -66,8 +66,11 @@ stored model observables (model output and converted experimental tables
 from [IFUSP-Heavy-Ions/hic-bayes](https://github.com/IFUSP-Heavy-Ions/hic-bayes)),
 matched record by record, centrality class by class and bin by bin. The
 matching layer is `data_validation/jetscape_bayes/compare_postproc.py`,
-tested by `tests/test_postproc_matching.py`. At design point 0, over 3.7
-million comparisons:
+tested by `tests/test_postproc_matching.py`. Many of the matched records
+(the PHOBOS tables among them) are curated outside this repository until
+they compute end to end; `--extra-records` points the matching layer at
+them, and it checks every inventory row against the document it names. At
+design point 0, over 3.7 million comparisons:
 
 - PHOBOS dN/dη (3.4 million comparisons): median difference from the model
   −0.15%.

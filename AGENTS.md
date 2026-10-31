@@ -31,7 +31,7 @@ external adapters.
 ```
 observables/   schemas: _common.yaml (collision_system, particle_id, kinematic_range,
                reference), centrality.yaml, one file per observable type
-data/<type>/   curated records, one multi-document YAML file per HEPData table
+data/<type>/   curated records, one multi-document YAML file per HEPData table (all computable)
 hepdata_raw/   raw HEPData YAML by INSPIRE id (records/ins<id>/), PHOBOS tables, record_index.yaml
 curation/      curation decisions used by several records (e.g. flow_reference.yaml)
 analysis/      library: dispatcher, containers, cores, weights, jackknife, toy MC, sim packages
@@ -75,6 +75,22 @@ Each YAML document has:
 
 Validate after every edit (`python scripts/validate.py data/`). Records are
 the product. Never fix a value in code that belongs in a record.
+
+**What goes in data/:** published records that compute and compare end to
+end: resolve() dispatches them, their centrality classes are percentile
+bins, and their experimental values load.  Ratio records qualify when both
+linked sides do, and their link targets stay with them.
+`tests/test_public_records.py` enforces this; it is the practical test of a
+fully vetted record.  Everything else lives in a separate collection with
+the same layout (data/<type>/, records carry `staging_reason`), used through
+`--extra-records`, and moves here once it is vetted and computable:
+- observable types without a computation;
+- minimum-bias or p+p records (the pipeline needs centrality classes);
+- PHOBOS ASCII tables until converted to a `value_table`;
+- preliminary results (`status: preliminary`, with `source`).
+
+Out-of-scope observables (jets, heavy flavor, electromagnetic probes) are
+not curated here.
 
 Fields that change dispatch:
 - `efficiency_corrected: false`: a detector-level quantity (uncorrected
@@ -153,6 +169,13 @@ bias-corrected central value θ̂ = Nθ − (N−1)θ̄.
 - **Reproducibility**: outputs agree run to run to about 1e-16, not bit for
   bit (numpy SIMD reductions depend on memory alignment). Compare outputs
   with a relative tolerance, and containers exactly.
+- **References by document index go stale**: record files change (records
+  added, files split, records moved out of data/).
+  - `run_pipeline --manifest` checks each `fpath`/`doc_index` pin against
+    the entry's id and `centrality_classes`, and skips a stale pin rather
+    than guessing.
+  - `compare_postproc.py` checks inventory rows the same way.
+  - Ratio links are checked by `tests/test_ratio_links.py`.
 
 ## Tests
 

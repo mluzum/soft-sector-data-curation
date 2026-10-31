@@ -591,45 +591,6 @@ qualifiers:
 value_type: (dN_{ch}/d\eta)/(N_{qp}/2)
 version: 1
 ---
-collision_system:
-  energy_gev: 200.0
-  reaction: ^3He Au --> CHARGED X
-dimensionality: integrated
-flow_reference:
-  detector: BBC
-  eta:
-  - max: -3.1
-    min: -3.9
-  notes: v_2 from the event plane method with "the event plane defined by the Al-
-    or Au-going BBC covering -3.9 < eta < -3.1" -- a SINGLE arm (the "going" side,
-    at negative eta for these beam configurations), not the two-arm sum. Multiplicity
-    is likewise selected from the same negative- eta BBC. v_2 is corrected with AMPT
-    + GEANT-3 to correspond to hadrons integrated over all pT within each pseudorapidity
-    bin, so a simulated v_2 restricted to the record's pT acceptance is NOT directly
-    comparable to the published value without that correction.
-  provenance: paper
-  reference: arXiv:1807.11928 (INSPIRE 1684475) pseudorapidity-dependence section
-harmonic: 2
-hepdata_file: ppg221fig3e.yaml
-hepdata_table_label: Midrapidity charged hadron $dN_{ch}/d\eta$ per participating
-  quark pair ($N_{qp}$/2) as a function of the number of participating quarks ($N_{qp}$).
-inspire_id: '1684475'
-kinematic_range:
-  eta:
-    max: 0.35
-    min: -0.35
-  pT:
-    max: 20
-    min: 0.2
-method: event_plane
-observable_type: flow_vn
-particle_id:
-  species: charged
-qualifiers:
-  system: $p$+$p$ (PHOBOS)
-value_type: (dN_{ch}/d\eta)/(N_{qp}/2)
-version: 1
----
 centrality:
   classes:
   - MB

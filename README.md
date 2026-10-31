@@ -14,17 +14,24 @@ The pipeline reads those fields and applies the record's exact cuts to the
 simulation. A model is then compared with the data on the same footing,
 record by record, for any selection of measurements.
 
-- **19,465 records** in 20 observable types from about 925 publications
-  (RHIC and LHC: STAR, PHENIX, PHOBOS, BRAHMS, ALICE, ATLAS, CMS, LHCb).
-  They are built from the HEPData tables in `hepdata_raw/` and the PHOBOS
-  public data.
+- **5,282 records** from 319 publications (STAR, PHENIX, BRAHMS, PHOBOS,
+  ALICE, ATLAS, CMS, LHCb), built from the HEPData tables in `hepdata_raw/`.
+  **Every record can be computed from a simulation and compared with its
+  data by the tools here**: it dispatches to a computation, its centrality
+  classes are percentile bins, and its experimental values load
+  (`tests/test_public_records.py` enforces this).  The point of the
+  database is that automation; the bare numbers are already on HEPData.
+  Measurements that cannot be computed yet (observable types without a
+  computation, minimum-bias or p+p records, tables without a reader) are
+  curated separately and join as they become computable.
 - **Observables computed from simulations:**
   - flow: v_n{2,4,6,8}, with η-gap and subevent methods, and pT- and
     η-differential;
   - correlations: scalar-product and event-plane estimators, symmetric
     cumulants and normalized correlations;
-  - identified and charged yields, spectra, mean pT, pT fluctuations and
-    dE_T/dη.
+  - identified and charged yields, spectra, mean pT and dE_T/dη;
+  - ratios between collision systems (e.g. Ru+Ru / Zr+Zr) from two
+    simulation sets.
   - Errors are a block jackknife with a full covariance matrix across
     observables.
 - **Any simulation:** a simulation enters through one of two in-memory
@@ -60,6 +67,12 @@ python scripts/search_records.py --type flow_vn --reaction "Pb Pb" --count-only
 python scripts/search_records.py --type flow_vn --harmonic 2 --output manifest.yaml
 python scripts/export_for_analysis.py --type flow_vn             # records + raw values as JSON
 ```
+
+Records kept outside this repository (preliminary results, records being
+vetted) use the same layout and tools: pass their directory with
+`--extra-records DIR` (or `$SOFT_SECTOR_EXTRA_RECORDS`).  A record without
+a HEPData table carries its own HEPData-format `value_table`, and records
+marked `status: preliminary` are only computed with `--include-preliminary`.
 
 Each record gives its HEPData source (`inspire_id`, `version`,
 `hepdata_file`, `value_type`). The schemas in `observables/` define both
