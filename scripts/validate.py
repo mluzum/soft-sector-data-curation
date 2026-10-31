@@ -392,7 +392,14 @@ def validate_doc(record, record_path, doc_index=None, verbose=False):
     known_sections = set(resolved["sections"].keys())
     known_conds = set(resolved["conditional_fields"].keys())
     _implicit = {"observable_type", "inspire_id", "hepdata_id", "version",
-                 "hepdata_file", "hepdata_table_label", "table_doi"}
+                 "hepdata_file", "hepdata_table_label", "table_doi",
+                 "status", "value_table", "source", "staging_reason"}
+    if record.get("status", "published") not in ("published", "preliminary"):
+        errors.append(f"'{record_name}': 'status': must be published or preliminary, "
+                      f"got {record.get('status')!r}")
+    if record.get("status") == "preliminary" and not record.get("source"):
+        errors.append(f"'{record_name}': preliminary records need 'source' (where the "
+                      f"values come from: proceedings, figure, how they were obtained)")
     known = known_top | known_sections | known_conds | _implicit
     for key in record:
         if key not in known:

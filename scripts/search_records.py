@@ -235,6 +235,8 @@ def main():
                         help="Filter by cumulant order (e.g. 2, 4)")
     parser.add_argument("--include-undispatchable", action="store_true",
                         help="Include records that can't be dispatched (no compute function)")
+    parser.add_argument("--extra-records", action="append", default=None, metavar="DIR",
+                        help="Additional record directory laid out like data/ (repeatable)")
     parser.add_argument("--count-only", action="store_true",
                         help="Just print the count, no details")
     parser.add_argument("--output", "-o", default=None,
@@ -242,13 +244,15 @@ def main():
 
     args = parser.parse_args()
 
-    data_dir = os.path.join("data", args.type)
-    if not os.path.isdir(data_dir):
-        print(f"Data directory not found: {data_dir}")
+    from analysis.dispatcher import record_roots
+    dirs = [os.path.join(root, args.type) for root in record_roots(args.extra_records)]
+    dirs = [d for d in dirs if os.path.isdir(d)]
+    if not dirs:
+        print(f"Data directory not found: {os.path.join('data', args.type)}")
         sys.exit(1)
 
     # Load and filter
-    all_records = list(load_records(data_dir))
+    all_records = [r for d in dirs for r in load_records(d)]
     filtered = []
     for fpath, idx, doc in all_records:
         if matches(doc, args):

@@ -311,3 +311,43 @@ reference:
       type: float
       required: false
       description: Reference energy if different from the main collision energy.
+
+record_status:
+  description: >
+    Top-level fields any record may carry (documentation; validate.py knows them).
+  fields:
+    status:
+      type: string
+      required: false
+      allowed: [published, preliminary]
+      description: >
+        `published` (default) or `preliminary` (conference / proceedings
+        results).  run_pipeline.py excludes preliminary records unless
+        --include-preliminary.  Preliminary records live outside this
+        repository (--extra-records); they must give `source`.
+      example: preliminary
+    source:
+      type: object
+      required: false
+      description: >
+        Where the values of a record without a HEPData table come from: the
+        publication or proceedings, figure, and how the numbers were obtained
+        (provided by the authors, read from the vector graphics, digitized),
+        with the estimated precision of that step.
+      example: {reference: "arXiv:2208.06149", figure: "3", method: "provided by the authors"}
+    value_table:
+      type: string
+      required: false
+      description: >
+        Path of a HEPData-format YAML table holding the record's values,
+        relative to the record file; replaces the hepdata_raw/ lookup by
+        inspire_id / hepdata_file.
+      example: "../tables/star_isobar_meanpt_ratio_prelim.yaml"
+    staging_reason:
+      type: string
+      required: false
+      description: >
+        For records kept outside this repository until they can be computed
+        and are vetted: what is missing (dispatch, centrality classes,
+        experimental-value reader, curation check).
+      example: "no dispatch entry for this observable type"

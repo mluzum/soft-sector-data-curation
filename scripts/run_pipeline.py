@@ -35,7 +35,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from analysis.jackknife import jackknife_blocks
 from analysis.dispatcher import (
     DISPATCH_TABLE, resolve, extract_measurement_params, load_experimental,
-    iter_records
+    iter_records, record_roots
 )
 from analysis.qvector import QVectorData, QGridData
 from analysis.simulation_data import load_3d_grid, load_3d_species_grids
@@ -62,7 +62,8 @@ def selection_fingerprint(dispatchable):
     for fpath, doc, _entry in sorted(dispatchable, key=lambda x: (str(x[0]), json.dumps(
             x[1], sort_keys=True, default=str))):
         rec.update(str(fpath).encode())
-        rec.update(json.dumps(doc, sort_keys=True, default=str).encode())
+        rec.update(json.dumps({k: v for k, v in doc.items() if k != "_record_file"},
+                              sort_keys=True, default=str).encode())
         raw = os.path.join(_PROJECT_ROOT, "hepdata_raw/records", f"ins{doc.get('inspire_id')}",
                            f"HEPData-ins{doc.get('inspire_id')}-v{doc.get('version')}-yaml",
                            str(doc.get('hepdata_file')))
@@ -352,6 +353,13 @@ def main():
     parser.add_argument("--data-root", default=None,
                         help="--sim-package: data location, overriding the "
                              "manifest's data_root.")
+    parser.add_argument("--extra-records", action="append", default=None, metavar="DIR",
+                        help="Additional record directory laid out like data/<type>/ "
+                             "(repeatable; also $SOFT_SECTOR_EXTRA_RECORDS), e.g. a "
+                             "private collection of preliminary or not yet vetted records.")
+    parser.add_argument("--include-preliminary", action="store_true",
+                        help="Also compute records marked status: preliminary "
+                             "(excluded by default).")
     parser.add_argument("--print-fingerprint", action="store_true",
                         help="Print the fingerprint of the selected records "
                              "and of the pipeline code as JSON (last line) "
@@ -559,11 +567,12 @@ def main():
             manifest = yaml.safe_load(f)
         key_lookup = {}
         id_lookup = {}
-        for t in types:
-            record_dir = os.path.join("data", t)
-            if os.path.isdir(record_dir):
-                key_lookup.update(build_key_to_lookup(record_dir))
-                id_lookup.update(build_lookup(record_dir)[0])
+        for root in record_roots(args.extra_records):
+            for t in types:
+                record_dir = os.path.join(root, t)
+                if os.path.isdir(record_dir):
+                    key_lookup.update(build_key_to_lookup(record_dir))
+                    id_lookup.update(build_lookup(record_dir)[0])
         dispatchable = []
         for entry in manifest.get("records", []):
             if entry.get("select") is False:
@@ -608,6 +617,7 @@ def main():
                 print(f"  WARNING: record not found in database: {entry.get('id','?')} "
                       f"({entry.get('value_type','?')}) — skipping")
                 continue
+            found["doc"]["_record_file"] = os.path.abspath(found["file_path"])
             try:
                 dispatch_entry = resolve(found["doc"])
                 dispatchable.append((found["file_path"], found["doc"], dispatch_entry))
@@ -619,12 +629,16 @@ def main():
     else:
         # ── Directory scan mode ──────────────────────────────────────────
         all_records = []
-        for t in types:
-            record_dir = os.path.join("data", t)
-            if not os.path.isdir(record_dir):
-                print(f"Record directory not found: {record_dir}")
-                continue
-            all_records.extend(list(iter_records(record_dir, value_type_filter=args.value_type)))
+        for root in record_roots(args.extra_records):
+            for t in types:
+                record_dir = os.path.join(root, t)
+                if not os.path.isdir(record_dir):
+                    if root == "data":
+                        print(f"Record directory not found: {record_dir}")
+                    continue
+                for fp, d in iter_records(record_dir, value_type_filter=args.value_type):
+                    d["_record_file"] = os.path.abspath(fp)
+                    all_records.append((fp, d))
         dispatchable = []
         for fpath, doc in all_records:
             # Apply additional filters
@@ -669,6 +683,10 @@ def main():
                 pass
         print(f"  Found {len(dispatchable)} dispatchable records")
 
+    n_prelim = sum(1 for _, d, _ in dispatchable if d.get("status") == "preliminary")
+    if n_prelim and not args.include_preliminary:
+        dispatchable = [x for x in dispatchable if x[1].get("status") != "preliminary"]
+        print(f"  Excluded {n_prelim} preliminary records (--include-preliminary to compute them)")
     fingerprint = selection_fingerprint(dispatchable)
     if args.print_fingerprint:
         import json
@@ -1306,6 +1324,7 @@ def main():
                 exp_vals, exp_errs = load_experimental(params)
                 rec_grp = grp.create_group(f"exp_{rec_idx}")
                 rec_grp.attrs['value_type'] = rec.get('value_type', '?')
+                rec_grp.attrs['status'] = rec.get('status', 'published')
                 rec_grp.attrs['record_file'] = os.path.abspath(str(fpath))
                 rec_grp.attrs['doc_index'] = int(rec.get('_doc_index', -1)
                                                  if rec.get('_doc_index') is not None else -1)

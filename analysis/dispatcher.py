@@ -16,6 +16,22 @@ import yaml
 
 _PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+RECORD_STATUSES = ("published", "preliminary")
+
+
+def record_roots(extra=None):
+    """Record directories laid out like data/<observable_type>/: this repository's
+    data/ (relative, as the scripts run from the repository root), then each
+    directory of `extra` and of $SOFT_SECTOR_EXTRA_RECORDS (os.pathsep-separated),
+    e.g. a private collection of preliminary or not yet vetted records."""
+    roots = ["data"]
+    env = os.environ.get("SOFT_SECTOR_EXTRA_RECORDS", "")
+    for d in list(extra or []) + [p for p in env.split(os.pathsep) if p]:
+        d = os.path.abspath(d)
+        if d not in roots:
+            roots.append(d)
+    return roots
+
 
 # ── Dispatch table ──────────────────────────────────────────────────────────
 # Keys: (method, cumulant_order, particles_pattern, dimensionality)
@@ -600,6 +616,9 @@ def extract_measurement_params(exp_rec):
         'cent_edges': cent_edges,
         'cent_estimator': cent.get('estimator', {}),
         'hepdata_file': exp_rec.get('hepdata_file', ''),
+        'value_table': exp_rec.get('value_table'),
+        'record_file': exp_rec.get('_record_file'),
+        'status': exp_rec.get('status', 'published'),
         'inspire_id': exp_rec.get('inspire_id', 0),
         'version': int(exp_rec.get('version', 1)),
         'value_type': exp_rec.get('value_type', ''),
@@ -775,14 +794,21 @@ def _safe_float(v, default=np.nan):
 def load_experimental(params):
     """Load experimental values from the raw HEPData YAML table."""
     inspire_id = params['inspire_id']
-    
+    # A record may carry its own HEPData-format table (data without a HEPData
+    # record, e.g. preliminary results): `value_table`, relative to the record file.
+    value_table = params.get('value_table')
+    if value_table:
+        base = os.path.dirname(params.get('record_file') or '') or _PROJECT_ROOT
+        params = dict(params, _raw_file=value_table if os.path.isabs(value_table)
+                      else os.path.join(base, value_table))
+
     # PHOBOS records use non-standard inspire_id strings (not numeric INSPIRE IDs)
     # and store data as plain ASCII text, not HEPData YAML — skip with clear message
-    if isinstance(inspire_id, str) and inspire_id.startswith('PHOBOS'):
+    if not value_table and isinstance(inspire_id, str) and inspire_id.startswith('PHOBOS'):
         print(f"  PHOBOS experimental data not in HEPData YAML format — skipped")
         return None, None
     
-    raw_file = os.path.join(
+    raw_file = params.get('_raw_file') or os.path.join(
         _PROJECT_ROOT,
         "hepdata_raw/records",
         f"ins{inspire_id}",

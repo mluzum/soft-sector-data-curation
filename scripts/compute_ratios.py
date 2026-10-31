@@ -43,7 +43,8 @@ import yaml
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from analysis.dispatcher import extract_measurement_params, iter_records, load_experimental  # noqa: E402
+from analysis.dispatcher import (extract_measurement_params, iter_records,  # noqa: E402
+                                 load_experimental, record_roots)
 from analysis.ratios import joint_jackknife, label_key, resolve_link, side_record  # noqa: E402
 
 
@@ -54,7 +55,10 @@ def select_ratio_records(a):
         for f in a.ratio_records:
             out += [(f, d) for d in yaml.safe_load_all(open(f)) if d]
     else:
-        out = list(iter_records(str(ROOT / "data" / "observable_ratios")))
+        for root in record_roots(a.extra_records):
+            d = os.path.join(ROOT, root, "observable_ratios") if root == "data" else os.path.join(root, "observable_ratios")
+            if os.path.isdir(d):
+                out += list(iter_records(d))
     sel = []
     for f, d in out:
         cs = d.get("collision_system") or {}
@@ -84,6 +88,8 @@ def run_side(side, a, entries, work, extra):
         cmd += ["--data-root", getattr(a, f"{side}_data_root")]
     if a.adapter_path:
         cmd += ["--adapter-path", a.adapter_path]
+    for d in a.extra_records or []:
+        cmd += ["--extra-records", d]
     cmd += extra
     with open(work / f"{side}.log", "w") as log:
         r = subprocess.run(cmd, cwd=ROOT, stdout=log, stderr=subprocess.STDOUT)
@@ -117,6 +123,7 @@ def experimental(ratio):
     """{centrality class: (value, error)} of the ratio record's own table."""
     try:
         params = extract_measurement_params(ratio)
+        params["record_file"] = ratio.get("_record_file")
         vals, errs = load_experimental(params)
     except Exception:          # noqa: BLE001 -- a ratio without a readable table has no points
         return {}
@@ -138,6 +145,8 @@ def main():
         ap.add_argument(f"--{side}-variant", default=None)
         ap.add_argument(f"--{side}-data-root", default=None)
     ap.add_argument("--adapter-path", default=None)
+    ap.add_argument("--extra-records", action="append", default=None, metavar="DIR",
+                    help="additional record directory (like data/), also passed to the side runs")
     ap.add_argument("--ratio-records", nargs="+", default=None,
                     help="record files to use instead of data/observable_ratios")
     ap.add_argument("--reaction", default=None, help="regex on the ratio record's reaction")
@@ -153,6 +162,7 @@ def main():
     work = Path(a.work_dir) if a.work_dir else Path(tempfile.mkdtemp(prefix="ratios_"))
     work.mkdir(parents=True, exist_ok=True)
     for f, r in select_ratio_records(a):
+        r["_record_file"] = os.path.abspath(f)
         if not (r.get("numerator_record") and r.get("denominator_record")):
             skipped.append((r.get("value_type"), "no numerator/denominator records linked"))
             continue
