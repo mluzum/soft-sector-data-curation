@@ -1,0 +1,55 @@
+observable_type: polarization
+description: >
+  Spin polarization of hyperons (Lambda, Xi, Omega) measured from the angular
+  distribution of their weak-decay daughters.  `global`: polarization along
+  the system's orbital angular momentum, relative to the first-order
+  (spectator) event plane.  `longitudinal`: polarization along the beam
+  direction and its modulation with the hyperon azimuth relative to an
+  n-th order event plane (P_z sin[n(phi - Psi_n)]).  The analysis pipeline
+  does not dispatch these records: a model needs the thermal vorticity and
+  shear at freeze-out, which the containers do not carry.
+
+composes:
+  - _common#collision_system
+  - centrality#centrality
+  - _common#particle_id
+  - _common#kinematic_range
+
+optional_composes:
+  - _common#notes
+
+required_fields:
+  observable:
+    type: string
+    required: true
+    description: Short identifier of the measured quantity.
+    example: "global_polarization"
+  value_type:
+    type: string
+    required: true
+    description: The quantity as labelled by the publication.
+    example: "P_H"
+  polarization_type:
+    type: string
+    required: true
+    allowed: [global, longitudinal]
+    description: Global (along -J) or longitudinal (along the beam) polarization.
+    example: "global"
+
+optional_fields:
+  harmonic:
+    type: integer
+    required: false
+    description: Order n of the event plane for longitudinal polarization, P_z sin[n(phi - Psi_n)].
+    example: 2
+  event_plane:
+    type: string
+    required: false
+    description: Detector and order of the event plane the polarization is measured against.
+    example: "Psi_1 from the ZDC-SMDs"
+  dimensionality:
+    type: string
+    required: false
+    allowed: [integrated, differential_pT, differential_eta, differential_centrality, differential_Npart, differential_azimuth]
+    description: Independent variable of the table.
+    example: "differential_pT"

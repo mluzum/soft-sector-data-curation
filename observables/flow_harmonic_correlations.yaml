@@ -33,7 +33,12 @@ required_fields:
       - symmetric_cumulant
       - event_plane_correlation
       - multi_harmonic_correlation
-    description: "Sub-type of the correlation observable."
+      - longitudinal_decorrelation
+    description: >
+      Sub-type of the correlation observable.  `longitudinal_decorrelation`:
+      decorrelation of the flow vector or flow plane between pseudorapidity
+      windows (r_n(eta), multi-plane cumulants T_n); needs a model with
+      longitudinal dynamics.
     example: "symmetric_cumulant"
   harmonics:
     type: list

@@ -1,0 +1,1123 @@
+observable_type: polarization
+inspire_id: '2919644'
+version: 1
+hepdata_file: Figure3.yaml
+hepdata_table_label: Global polarization of $\Lambda$ and $\bar\Lambda$ and their difference as a function of centrality in
+  combined Ru+Ru and Zr+Zr collisions at $\sqrt{s_{NN}}$ = 200 GeV.
+collision_system:
+  energy_gev: 200.0
+  reaction: Ru+Ru and Zr+Zr
+centrality:
+  classes:
+  - 0-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  - 60-70%
+  - 70-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+dv_index: 0
+particle_id:
+  species: Lambda
+observable: global_polarization
+value_type: $P_{H}$ [%]
+polarization_type: global
+dimensionality: differential_centrality
+event_plane: Psi_1 from the ZDC-SMDs
+notes:
+  value: 'Refiled 2026-10-31 from a wrong observable_type (bulk auto-classification); built from the HEPData table and the
+    paper. Column 0: $P_{H}$ [%] Centrality [%]=$\Lambda$'
+---
+observable_type: polarization
+inspire_id: '2919644'
+version: 1
+hepdata_file: Figure3.yaml
+hepdata_table_label: Global polarization of $\Lambda$ and $\bar\Lambda$ and their difference as a function of centrality in
+  combined Ru+Ru and Zr+Zr collisions at $\sqrt{s_{NN}}$ = 200 GeV.
+collision_system:
+  energy_gev: 200.0
+  reaction: Ru+Ru and Zr+Zr
+centrality:
+  classes:
+  - 0-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  - 60-70%
+  - 70-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+dv_index: 1
+particle_id:
+  species: anti-Lambda
+observable: global_polarization
+value_type: $P_{H}$ [%]
+polarization_type: global
+dimensionality: differential_centrality
+event_plane: Psi_1 from the ZDC-SMDs
+notes:
+  value: 'Refiled 2026-10-31 from a wrong observable_type (bulk auto-classification); built from the HEPData table and the
+    paper. Column 1: $P_{H}$ [%] Centrality [%]=$\bar\Lambda$'
+---
+observable_type: polarization
+inspire_id: '2919644'
+version: 1
+hepdata_file: Figure3.yaml
+hepdata_table_label: Global polarization of $\Lambda$ and $\bar\Lambda$ and their difference as a function of centrality in
+  combined Ru+Ru and Zr+Zr collisions at $\sqrt{s_{NN}}$ = 200 GeV.
+collision_system:
+  energy_gev: 200.0
+  reaction: Ru+Ru and Zr+Zr
+centrality:
+  classes:
+  - 0-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  - 60-70%
+  - 70-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+dv_index: 2
+particle_id:
+  species: anti-Lambda minus Lambda
+observable: global_polarization
+value_type: $P_{H}$ [%]
+polarization_type: global
+dimensionality: differential_centrality
+event_plane: Psi_1 from the ZDC-SMDs
+notes:
+  value: 'Refiled 2026-10-31 from a wrong observable_type (bulk auto-classification); built from the HEPData table and the
+    paper. Column 2: $P_{H}$ [%] Centrality [%]=$\bar\Lambda$ - $\Lambda$'
+---
+observable_type: polarization
+inspire_id: '2919644'
+version: 1
+hepdata_file: Figure4_Npart.yaml
+hepdata_table_label: Global polarization of $\Lambda$+$\bar\Lambda$ as a function of the average number of participants $\langle
+  N_{\rm part} \rangle$ in the combined Ru+Ru and Zr+Zr collisions at $\sqrt{s_{NN}}$ = 200 GeV. The data in Au+Au collisions
+  is from Phys. Rev. C 98 (2018) 014910.
+collision_system:
+  energy_gev: 200.0
+  reaction: Ru+Ru and Zr+Zr
+centrality:
+  classes:
+  - 20-50%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: Lambda + anti-Lambda
+observable: global_polarization
+value_type: $P_{H}$ [%]
+polarization_type: global
+dimensionality: differential_Npart
+event_plane: Psi_1 from the ZDC-SMDs
+notes:
+  value: 'Refiled 2026-10-31 from a wrong observable_type (bulk auto-classification); built from the HEPData table and the
+    paper. Column 0: $P_{H}$ [%] $\langle N_{\rm part} \rangle$=$\Lambda$+$\bar\Lambda$'
+---
+observable_type: polarization
+inspire_id: '2919644'
+version: 1
+hepdata_file: Figure4_cent.yaml
+hepdata_table_label: Global polarization of $\Lambda$+$\bar\Lambda$ as a function of centrality in the combined Ru+Ru and
+  Zr+Zr collisions at $\sqrt{s_{NN}}$ = 200 GeV (left panel). The data in Au+Au collisions is from Phys. Rev. C 98 (2018)
+  014910.
+collision_system:
+  energy_gev: 200.0
+  reaction: Ru+Ru and Zr+Zr
+centrality:
+  classes:
+  - 0-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  - 60-70%
+  - 70-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: Lambda + anti-Lambda
+observable: global_polarization
+value_type: $P_{H}$ [%]
+polarization_type: global
+dimensionality: differential_centrality
+event_plane: Psi_1 from the ZDC-SMDs
+notes:
+  value: 'Refiled 2026-10-31 from a wrong observable_type (bulk auto-classification); built from the HEPData table and the
+    paper. Column 0: $P_{H}$ [%] Centrality [%]=$\Lambda$+$\bar\Lambda$'
+---
+observable_type: polarization
+inspire_id: '2919644'
+version: 1
+hepdata_file: Figure5.yaml
+hepdata_table_label: The transverse momentum dependence of $\Lambda$+$\bar\Lambda$ $P_{\rm H}$ for 20\%-60\% centrality in
+  the combined Ru+Ru and Zr+Zr collisions at $\sqrt{s_{NN}}$ = 200 GeV, together with the results for Au+Au collisions at
+  $\sqrt{s_{NN}}$ = 200 GeV. The data in Au+Au collisions is from Phys. Rev. C 98 (2018) 014910.
+collision_system:
+  energy_gev: 200.0
+  reaction: Ru+Ru and Zr+Zr
+centrality:
+  classes:
+  - 20-50%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: Lambda + anti-Lambda
+observable: global_polarization
+value_type: $P_{H}$ [%]
+polarization_type: global
+dimensionality: differential_pT
+event_plane: Psi_1 from the ZDC-SMDs
+notes:
+  value: 'Refiled 2026-10-31 from a wrong observable_type (bulk auto-classification); built from the HEPData table and the
+    paper. Column 0: $P_{H}$ [%] $p_{T}$=$p_{T}$'
+---
+observable_type: polarization
+inspire_id: '2919644'
+version: 1
+hepdata_file: Figure6.yaml
+hepdata_table_label: The pseudorapidity dependence of $\Lambda$+$\bar\Lambda$ $P_{\rm H}$ for 20\%-60\% centrality in the
+  combined Ru+Ru and Zr+Zr collisions at $\sqrt{s_{NN}}$ = 200 GeV, together with the results for Au+Au collisions at $\sqrt{s_{NN}}$
+  = 200 GeV. The data in Au+Au collisions is from Phys. Rev. C 98 (2018) 014910.
+collision_system:
+  energy_gev: 200.0
+  reaction: Ru+Ru and Zr+Zr
+centrality:
+  classes:
+  - 20-50%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: Lambda + anti-Lambda
+observable: global_polarization
+value_type: $P_{H}$ [%]
+polarization_type: global
+dimensionality: differential_eta
+event_plane: Psi_1 from the ZDC-SMDs
+notes:
+  value: 'Refiled 2026-10-31 from a wrong observable_type (bulk auto-classification); built from the HEPData table and the
+    paper. Column 0: $P_{H}$ [%] $\eta$=$\eta$'
+---
+observable_type: polarization
+inspire_id: '2919644'
+version: 1
+hepdata_file: Figure7.yaml
+hepdata_table_label: The polarization coefficient $P_{y,c0}$ of $\Lambda\!+\!\bar\Lambda$ from method-1 and method-2 as a
+  function of centrality (left panel) in isobar Ru+Ru and Zr+Zr collisions at $\sqrt{s_{NN}}$ = 200 GeV. In this figure, $P_{H}$
+  is same data as in Figure 4.
+collision_system:
+  energy_gev: 200.0
+  reaction: Ru+Ru and Zr+Zr
+centrality:
+  classes:
+  - 0-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  - 60-70%
+  - 70-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+dv_index: 0
+particle_id:
+  species: Lambda + anti-Lambda
+observable: global_polarization_c0
+value_type: $P_{y,c0}$ [%]
+polarization_type: global
+dimensionality: differential_centrality
+event_plane: Psi_1 from the ZDC-SMDs
+notes:
+  value: 'Refiled 2026-10-31 from a wrong observable_type (bulk auto-classification); built from the HEPData table and the
+    paper. Column 0: $P_{y,c0}$ [%] Centrality [%]=Method-1'
+---
+observable_type: polarization
+inspire_id: '2919644'
+version: 1
+hepdata_file: Figure7.yaml
+hepdata_table_label: The polarization coefficient $P_{y,c0}$ of $\Lambda\!+\!\bar\Lambda$ from method-1 and method-2 as a
+  function of centrality (left panel) in isobar Ru+Ru and Zr+Zr collisions at $\sqrt{s_{NN}}$ = 200 GeV. In this figure, $P_{H}$
+  is same data as in Figure 4.
+collision_system:
+  energy_gev: 200.0
+  reaction: Ru+Ru and Zr+Zr
+centrality:
+  classes:
+  - 0-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  - 60-70%
+  - 70-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+dv_index: 1
+particle_id:
+  species: Lambda + anti-Lambda
+observable: global_polarization_c0
+value_type: $P_{y,c0}$ [%]
+polarization_type: global
+dimensionality: differential_centrality
+event_plane: Psi_1 from the ZDC-SMDs
+notes:
+  value: 'Refiled 2026-10-31 from a wrong observable_type (bulk auto-classification); built from the HEPData table and the
+    paper. Column 1: $P_{y,c0}$ [%] Centrality [%]=Method-2'
+---
+observable_type: polarization
+inspire_id: '2919644'
+version: 1
+hepdata_file: Figure7.yaml
+hepdata_table_label: The polarization coefficient $P_{y,c0}$ of $\Lambda\!+\!\bar\Lambda$ from method-1 and method-2 as a
+  function of centrality (left panel) in isobar Ru+Ru and Zr+Zr collisions at $\sqrt{s_{NN}}$ = 200 GeV. In this figure, $P_{H}$
+  is same data as in Figure 4.
+collision_system:
+  energy_gev: 200.0
+  reaction: Ru+Ru and Zr+Zr
+centrality:
+  classes:
+  - 0-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  - 60-70%
+  - 70-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+dv_index: 2
+particle_id:
+  species: Lambda + anti-Lambda
+observable: global_polarization
+value_type: $P_{H}$
+polarization_type: global
+dimensionality: differential_centrality
+event_plane: Psi_1 from the ZDC-SMDs
+notes:
+  value: 'Refiled 2026-10-31 from a wrong observable_type (bulk auto-classification); built from the HEPData table and the
+    paper. Column 2: $P_{H}$ Centrality [%]=$P_{H}$'
+---
+observable_type: polarization
+inspire_id: '2919644'
+version: 1
+hepdata_file: Figure7mid.yaml
+hepdata_table_label: The polarization coefficient $P_{y,c0}$ of $\Lambda\!+\!\bar\Lambda$ from method-1 and method-2 for 20-50\%
+  centrality (right panel) in isobar Ru+Ru and Zr+Zr collisions at $\sqrt{s_{NN}}$ = 200 GeV. In this figure, $P_{H}$ is same
+  data as in Figure 4.
+collision_system:
+  energy_gev: 200.0
+  reaction: Ru+Ru and Zr+Zr
+centrality:
+  classes:
+  - 20-50%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+dv_index: 0
+particle_id:
+  species: Lambda + anti-Lambda
+observable: global_polarization_c0
+value_type: $P_{y,c0}$ [%]
+polarization_type: global
+dimensionality: integrated
+event_plane: Psi_1 from the ZDC-SMDs
+notes:
+  value: 'Refiled 2026-10-31 from a wrong observable_type (bulk auto-classification); built from the HEPData table and the
+    paper. Column 0: $P_{y,c0}$ [%] 20-50 Centrality [%]=Method-1'
+---
+observable_type: polarization
+inspire_id: '2919644'
+version: 1
+hepdata_file: Figure7mid.yaml
+hepdata_table_label: The polarization coefficient $P_{y,c0}$ of $\Lambda\!+\!\bar\Lambda$ from method-1 and method-2 for 20-50\%
+  centrality (right panel) in isobar Ru+Ru and Zr+Zr collisions at $\sqrt{s_{NN}}$ = 200 GeV. In this figure, $P_{H}$ is same
+  data as in Figure 4.
+collision_system:
+  energy_gev: 200.0
+  reaction: Ru+Ru and Zr+Zr
+centrality:
+  classes:
+  - 20-50%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+dv_index: 1
+particle_id:
+  species: Lambda + anti-Lambda
+observable: global_polarization_c0
+value_type: $P_{y,c0}$ [%]
+polarization_type: global
+dimensionality: integrated
+event_plane: Psi_1 from the ZDC-SMDs
+notes:
+  value: 'Refiled 2026-10-31 from a wrong observable_type (bulk auto-classification); built from the HEPData table and the
+    paper. Column 1: $P_{y,c0}$ [%] 20-50 Centrality [%]=Method-2'
+---
+observable_type: polarization
+inspire_id: '2919644'
+version: 1
+hepdata_file: Figure7mid.yaml
+hepdata_table_label: The polarization coefficient $P_{y,c0}$ of $\Lambda\!+\!\bar\Lambda$ from method-1 and method-2 for 20-50\%
+  centrality (right panel) in isobar Ru+Ru and Zr+Zr collisions at $\sqrt{s_{NN}}$ = 200 GeV. In this figure, $P_{H}$ is same
+  data as in Figure 4.
+collision_system:
+  energy_gev: 200.0
+  reaction: Ru+Ru and Zr+Zr
+centrality:
+  classes:
+  - 20-50%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+dv_index: 2
+particle_id:
+  species: Lambda + anti-Lambda
+observable: global_polarization
+value_type: $P_{H}$ [%]
+polarization_type: global
+dimensionality: integrated
+event_plane: Psi_1 from the ZDC-SMDs
+notes:
+  value: 'Refiled 2026-10-31 from a wrong observable_type (bulk auto-classification); built from the HEPData table and the
+    paper. Column 2: $P_{H}$ [%] 20-50 Centrality [%]=$P_{H}$'
+---
+observable_type: polarization
+inspire_id: '2919644'
+version: 1
+hepdata_file: Figure9.yaml
+hepdata_table_label: Global polarization of $\Xi^{-}$+$\bar\Xi^{+}$ from polarization transfer method and direct measurement
+  method as a function of centrality (left panel) in Ru+Ru and Zr+Zr collisions at $\sqrt{s_{NN}}$ = 200 GeV. In this figure,
+  $P_{H}$ of inclusive $\Lambda+\bar\Lambda$ is same data as in Figure 4.
+collision_system:
+  energy_gev: 200.0
+  reaction: Ru+Ru and Zr+Zr
+centrality:
+  classes:
+  - 0-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  - 60-70%
+  - 70-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+dv_index: 0
+particle_id:
+  species: Xi- + anti-Xi+
+observable: global_polarization
+value_type: $P_{\Xi^{-}+\bar\Xi^{+}}$ [%]
+polarization_type: global
+dimensionality: differential_centrality
+event_plane: Psi_1 from the ZDC-SMDs
+notes:
+  value: 'Refiled 2026-10-31 from a wrong observable_type (bulk auto-classification); built from the HEPData table and the
+    paper. Column 0: $P_{\Xi^{-}+\bar\Xi^{+}}$ [%] Centrality [%]=Polarization transfer method'
+---
+observable_type: polarization
+inspire_id: '2919644'
+version: 1
+hepdata_file: Figure9.yaml
+hepdata_table_label: Global polarization of $\Xi^{-}$+$\bar\Xi^{+}$ from polarization transfer method and direct measurement
+  method as a function of centrality (left panel) in Ru+Ru and Zr+Zr collisions at $\sqrt{s_{NN}}$ = 200 GeV. In this figure,
+  $P_{H}$ of inclusive $\Lambda+\bar\Lambda$ is same data as in Figure 4.
+collision_system:
+  energy_gev: 200.0
+  reaction: Ru+Ru and Zr+Zr
+centrality:
+  classes:
+  - 0-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  - 60-70%
+  - 70-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+dv_index: 1
+particle_id:
+  species: Xi- + anti-Xi+
+observable: global_polarization
+value_type: $P_{\Xi^{-}+\bar\Xi^{+}}$ [%]
+polarization_type: global
+dimensionality: differential_centrality
+event_plane: Psi_1 from the ZDC-SMDs
+notes:
+  value: 'Refiled 2026-10-31 from a wrong observable_type (bulk auto-classification); built from the HEPData table and the
+    paper. Column 1: $P_{\Xi^{-}+\bar\Xi^{+}}$ [%] Centrality [%]=Direct measurement method'
+---
+observable_type: polarization
+inspire_id: '2919644'
+version: 1
+hepdata_file: Figure9.yaml
+hepdata_table_label: Global polarization of $\Xi^{-}$+$\bar\Xi^{+}$ from polarization transfer method and direct measurement
+  method as a function of centrality (left panel) in Ru+Ru and Zr+Zr collisions at $\sqrt{s_{NN}}$ = 200 GeV. In this figure,
+  $P_{H}$ of inclusive $\Lambda+\bar\Lambda$ is same data as in Figure 4.
+collision_system:
+  energy_gev: 200.0
+  reaction: Ru+Ru and Zr+Zr
+centrality:
+  classes:
+  - 0-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  - 60-70%
+  - 70-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+dv_index: 2
+particle_id:
+  species: Lambda + anti-Lambda
+observable: global_polarization
+value_type: $P_{\Lambda+\bar\Lambda}$ [%]
+polarization_type: global
+dimensionality: differential_centrality
+event_plane: Psi_1 from the ZDC-SMDs
+notes:
+  value: 'Refiled 2026-10-31 from a wrong observable_type (bulk auto-classification); built from the HEPData table and the
+    paper. Column 2: $P_{\Lambda+\bar\Lambda}$ [%] Centrality [%]=Inclusive $\Lambda+\bar\Lambda$'
+---
+observable_type: polarization
+inspire_id: '2919644'
+version: 1
+hepdata_file: Figure9mid.yaml
+hepdata_table_label: Global polarization of $\Xi^{-}$+$\bar\Xi^{+}$ from polarization transfer method and direct measurement
+  method for 20-50\% centrality (right panel) in Ru+Ru and Zr+Zr collisions at $\sqrt{s_{NN}}$ = 200 GeV . In this figure,
+  $P_{H}$ of inclusive $\Lambda+\bar\Lambda$ is same data as in Figure 4.
+collision_system:
+  energy_gev: 200.0
+  reaction: Ru+Ru and Zr+Zr
+centrality:
+  classes:
+  - 20-50%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+dv_index: 0
+particle_id:
+  species: Xi- + anti-Xi+
+observable: global_polarization
+value_type: $P_{\Xi^{-}+\bar\Xi^{+}}$ [%]
+polarization_type: global
+dimensionality: integrated
+event_plane: Psi_1 from the ZDC-SMDs
+notes:
+  value: 'Refiled 2026-10-31 from a wrong observable_type (bulk auto-classification); built from the HEPData table and the
+    paper. Column 0: $P_{\Xi^{-}+\bar\Xi^{+}}$ [%] 20-50 Centrality [%]=Polarization transfer method'
+---
+observable_type: polarization
+inspire_id: '2919644'
+version: 1
+hepdata_file: Figure9mid.yaml
+hepdata_table_label: Global polarization of $\Xi^{-}$+$\bar\Xi^{+}$ from polarization transfer method and direct measurement
+  method for 20-50\% centrality (right panel) in Ru+Ru and Zr+Zr collisions at $\sqrt{s_{NN}}$ = 200 GeV . In this figure,
+  $P_{H}$ of inclusive $\Lambda+\bar\Lambda$ is same data as in Figure 4.
+collision_system:
+  energy_gev: 200.0
+  reaction: Ru+Ru and Zr+Zr
+centrality:
+  classes:
+  - 20-50%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+dv_index: 1
+particle_id:
+  species: Xi- + anti-Xi+
+observable: global_polarization
+value_type: $P_{\Xi^{-}+\bar\Xi^{+}}$ [%]
+polarization_type: global
+dimensionality: integrated
+event_plane: Psi_1 from the ZDC-SMDs
+notes:
+  value: 'Refiled 2026-10-31 from a wrong observable_type (bulk auto-classification); built from the HEPData table and the
+    paper. Column 1: $P_{\Xi^{-}+\bar\Xi^{+}}$ [%] 20-50 Centrality [%]=Direct measurement method'
+---
+observable_type: polarization
+inspire_id: '2919644'
+version: 1
+hepdata_file: Figure9mid.yaml
+hepdata_table_label: Global polarization of $\Xi^{-}$+$\bar\Xi^{+}$ from polarization transfer method and direct measurement
+  method for 20-50\% centrality (right panel) in Ru+Ru and Zr+Zr collisions at $\sqrt{s_{NN}}$ = 200 GeV . In this figure,
+  $P_{H}$ of inclusive $\Lambda+\bar\Lambda$ is same data as in Figure 4.
+collision_system:
+  energy_gev: 200.0
+  reaction: Ru+Ru and Zr+Zr
+centrality:
+  classes:
+  - 20-50%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+dv_index: 2
+particle_id:
+  species: Lambda + anti-Lambda
+observable: global_polarization
+value_type: $P_{\Lambda+\bar\Lambda}$ [%]
+polarization_type: global
+dimensionality: integrated
+event_plane: Psi_1 from the ZDC-SMDs
+notes:
+  value: 'Refiled 2026-10-31 from a wrong observable_type (bulk auto-classification); built from the HEPData table and the
+    paper. Column 2: $P_{\Lambda+\bar\Lambda}$ [%] 20-50 Centrality [%]=Inclusive $\Lambda+\bar\Lambda$'
+---
+observable_type: polarization
+inspire_id: '2919644'
+version: 1
+hepdata_file: Figure3_midcent_Ru.yaml
+hepdata_table_label: Global polarization of $\Lambda$ and $\bar\Lambda$ and their difference in 20-50\% centrality in Ru+Ru
+  collisions at $\sqrt{s_{NN}}$ = 200 GeV.
+collision_system:
+  energy_gev: 200.0
+  reaction: Ru+Ru
+centrality:
+  classes:
+  - 20-50%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+dv_index: 0
+particle_id:
+  species: Lambda
+observable: global_polarization
+value_type: $P_{\Lambda}$ [%]
+polarization_type: global
+dimensionality: integrated
+event_plane: Psi_1 from the ZDC-SMDs
+notes:
+  value: 'Refiled 2026-10-31 from a wrong observable_type (bulk auto-classification); built from the HEPData table and the
+    paper. Column 0: $P_{\Lambda}$ [%] 20-50% centrality=Ru+Ru'
+---
+observable_type: polarization
+inspire_id: '2919644'
+version: 1
+hepdata_file: Figure3_midcent_Ru.yaml
+hepdata_table_label: Global polarization of $\Lambda$ and $\bar\Lambda$ and their difference in 20-50\% centrality in Ru+Ru
+  collisions at $\sqrt{s_{NN}}$ = 200 GeV.
+collision_system:
+  energy_gev: 200.0
+  reaction: Ru+Ru
+centrality:
+  classes:
+  - 20-50%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+dv_index: 1
+particle_id:
+  species: anti-Lambda
+observable: global_polarization
+value_type: $P_{\bar\Lambda}$ [%]
+polarization_type: global
+dimensionality: integrated
+event_plane: Psi_1 from the ZDC-SMDs
+notes:
+  value: 'Refiled 2026-10-31 from a wrong observable_type (bulk auto-classification); built from the HEPData table and the
+    paper. Column 1: $P_{\bar\Lambda}$ [%] 20-50% centrality=Ru+Ru'
+---
+observable_type: polarization
+inspire_id: '2919644'
+version: 1
+hepdata_file: Figure3_midcent_Ru.yaml
+hepdata_table_label: Global polarization of $\Lambda$ and $\bar\Lambda$ and their difference in 20-50\% centrality in Ru+Ru
+  collisions at $\sqrt{s_{NN}}$ = 200 GeV.
+collision_system:
+  energy_gev: 200.0
+  reaction: Ru+Ru
+centrality:
+  classes:
+  - 20-50%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+dv_index: 2
+particle_id:
+  species: anti-Lambda minus Lambda
+observable: global_polarization
+value_type: $P_{\bar\Lambda - \Lambda}$ [%]
+polarization_type: global
+dimensionality: integrated
+event_plane: Psi_1 from the ZDC-SMDs
+notes:
+  value: 'Refiled 2026-10-31 from a wrong observable_type (bulk auto-classification); built from the HEPData table and the
+    paper. Column 2: $P_{\bar\Lambda - \Lambda}$ [%] 20-50% centrality=Ru+Ru'
+---
+observable_type: polarization
+inspire_id: '2919644'
+version: 1
+hepdata_file: Figure3_midcent_RuZr.yaml
+hepdata_table_label: Global polarization of $\Lambda$ and $\bar\Lambda$ and their difference in 20-50\% centrality in Ru+Ru&Zr+Zr
+  collisions at $\sqrt{s_{NN}}$ = 200 GeV.
+collision_system:
+  energy_gev: 200.0
+  reaction: Ru+Ru and Zr+Zr
+centrality:
+  classes:
+  - 20-50%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+dv_index: 0
+particle_id:
+  species: Lambda
+observable: global_polarization
+value_type: $P_{\Lambda}$ [%]
+polarization_type: global
+dimensionality: integrated
+event_plane: Psi_1 from the ZDC-SMDs
+notes:
+  value: 'Refiled 2026-10-31 from a wrong observable_type (bulk auto-classification); built from the HEPData table and the
+    paper. Column 0: $P_{\Lambda}$ [%] 20-50% centrality=Ru+Ru'
+---
+observable_type: polarization
+inspire_id: '2919644'
+version: 1
+hepdata_file: Figure3_midcent_RuZr.yaml
+hepdata_table_label: Global polarization of $\Lambda$ and $\bar\Lambda$ and their difference in 20-50\% centrality in Ru+Ru&Zr+Zr
+  collisions at $\sqrt{s_{NN}}$ = 200 GeV.
+collision_system:
+  energy_gev: 200.0
+  reaction: Ru+Ru and Zr+Zr
+centrality:
+  classes:
+  - 20-50%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+dv_index: 1
+particle_id:
+  species: anti-Lambda
+observable: global_polarization
+value_type: $P_{\bar\Lambda}$ [%]
+polarization_type: global
+dimensionality: integrated
+event_plane: Psi_1 from the ZDC-SMDs
+notes:
+  value: 'Refiled 2026-10-31 from a wrong observable_type (bulk auto-classification); built from the HEPData table and the
+    paper. Column 1: $P_{\bar\Lambda}$ [%] 20-50% centrality=Ru+Ru'
+---
+observable_type: polarization
+inspire_id: '2919644'
+version: 1
+hepdata_file: Figure3_midcent_RuZr.yaml
+hepdata_table_label: Global polarization of $\Lambda$ and $\bar\Lambda$ and their difference in 20-50\% centrality in Ru+Ru&Zr+Zr
+  collisions at $\sqrt{s_{NN}}$ = 200 GeV.
+collision_system:
+  energy_gev: 200.0
+  reaction: Ru+Ru and Zr+Zr
+centrality:
+  classes:
+  - 20-50%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+dv_index: 2
+particle_id:
+  species: anti-Lambda minus Lambda
+observable: global_polarization
+value_type: $P_{\bar\Lambda - \Lambda}$ [%]
+polarization_type: global
+dimensionality: integrated
+event_plane: Psi_1 from the ZDC-SMDs
+notes:
+  value: 'Refiled 2026-10-31 from a wrong observable_type (bulk auto-classification); built from the HEPData table and the
+    paper. Column 2: $P_{\bar\Lambda - \Lambda}$ [%] 20-50% centrality=Ru+Ru'
+---
+observable_type: polarization
+inspire_id: '2919644'
+version: 1
+hepdata_file: Figure3_midcent_Zr.yaml
+hepdata_table_label: Global polarization of $\Lambda$ and $\bar\Lambda$ and their difference in 20-50\% centrality in Zr+Zr
+  collisions at $\sqrt{s_{NN}}$ = 200 GeV.
+collision_system:
+  energy_gev: 200.0
+  reaction: Zr+Zr
+centrality:
+  classes:
+  - 20-50%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+dv_index: 0
+particle_id:
+  species: Lambda
+observable: global_polarization
+value_type: $P_{\Lambda}$ [%]
+polarization_type: global
+dimensionality: integrated
+event_plane: Psi_1 from the ZDC-SMDs
+notes:
+  value: 'Refiled 2026-10-31 from a wrong observable_type (bulk auto-classification); built from the HEPData table and the
+    paper. Column 0: $P_{\Lambda}$ [%] 20-50% centrality=Ru+Ru The HEPData qualifier says Ru+Ru; the file name and table say
+    Zr+Zr.'
+---
+observable_type: polarization
+inspire_id: '2919644'
+version: 1
+hepdata_file: Figure3_midcent_Zr.yaml
+hepdata_table_label: Global polarization of $\Lambda$ and $\bar\Lambda$ and their difference in 20-50\% centrality in Zr+Zr
+  collisions at $\sqrt{s_{NN}}$ = 200 GeV.
+collision_system:
+  energy_gev: 200.0
+  reaction: Zr+Zr
+centrality:
+  classes:
+  - 20-50%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+dv_index: 1
+particle_id:
+  species: anti-Lambda
+observable: global_polarization
+value_type: $P_{\bar\Lambda}$ [%]
+polarization_type: global
+dimensionality: integrated
+event_plane: Psi_1 from the ZDC-SMDs
+notes:
+  value: 'Refiled 2026-10-31 from a wrong observable_type (bulk auto-classification); built from the HEPData table and the
+    paper. Column 1: $P_{\bar\Lambda}$ [%] 20-50% centrality=Ru+Ru The HEPData qualifier says Ru+Ru; the file name and table
+    say Zr+Zr.'
+---
+observable_type: polarization
+inspire_id: '2919644'
+version: 1
+hepdata_file: Figure3_midcent_Zr.yaml
+hepdata_table_label: Global polarization of $\Lambda$ and $\bar\Lambda$ and their difference in 20-50\% centrality in Zr+Zr
+  collisions at $\sqrt{s_{NN}}$ = 200 GeV.
+collision_system:
+  energy_gev: 200.0
+  reaction: Zr+Zr
+centrality:
+  classes:
+  - 20-50%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+dv_index: 2
+particle_id:
+  species: anti-Lambda minus Lambda
+observable: global_polarization
+value_type: $P_{\bar\Lambda - \Lambda}$ [%]
+polarization_type: global
+dimensionality: integrated
+event_plane: Psi_1 from the ZDC-SMDs
+notes:
+  value: 'Refiled 2026-10-31 from a wrong observable_type (bulk auto-classification); built from the HEPData table and the
+    paper. Column 2: $P_{\bar\Lambda - \Lambda}$ [%] 20-50% centrality=Ru+Ru The HEPData qualifier says Ru+Ru; the file name
+    and table say Zr+Zr.'
+---
+observable_type: polarization
+inspire_id: '2919644'
+version: 1
+hepdata_file: Figure4_midcent.yaml
+hepdata_table_label: Global polarization of $\Lambda$+$\bar\Lambda$ in 20-50\% centrality centrality in the combined Ru+Ru
+  and Zr+Zr collisions at $\sqrt{s_{NN}}$ = 200 GeV (right panel). The data in Au+Au collisions is from Phys. Rev. C 98 (2018)
+  014910.
+collision_system:
+  energy_gev: 200.0
+  reaction: Ru+Ru and Zr+Zr
+centrality:
+  classes:
+  - 20-50%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: Lambda + anti-Lambda
+observable: global_polarization
+value_type: $P_{\bar\Lambda + \Lambda}$ [%]
+polarization_type: global
+dimensionality: integrated
+event_plane: Psi_1 from the ZDC-SMDs
+notes:
+  value: 'Refiled 2026-10-31 from a wrong observable_type (bulk auto-classification); built from the HEPData table and the
+    paper. Column 0: $P_{\bar\Lambda + \Lambda}$ [%] 20-50% centrality=Ru+Ru & Zr+Zr'
+---
+observable_type: polarization
+inspire_id: '2919644'
+version: 1
+hepdata_file: Figure8.yaml
+hepdata_table_label: The polarization coefficient $P_{y,c2}$ of $\Lambda\!+\!\bar\Lambda$ from method-1 and method-2 as a
+  function of centrality (left panel) in isobar Ru+Ru and Zr+Zr collisions at $\sqrt{s_{NN}}$ = 200 GeV.
+collision_system:
+  energy_gev: 200.0
+  reaction: Ru+Ru and Zr+Zr
+centrality:
+  classes:
+  - 0-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  - 60-70%
+  - 70-80%
+  - 20-50%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+dv_index: 0
+particle_id:
+  species: Lambda + anti-Lambda
+observable: global_polarization_c2
+value_type: $P_{y,c2}$ [%]
+polarization_type: global
+dimensionality: differential_centrality
+event_plane: Psi_1 from the ZDC-SMDs
+notes:
+  value: 'Refiled 2026-10-31 from a wrong observable_type (bulk auto-classification); built from the HEPData table and the
+    paper. Column 0: $P_{y,c2}$ [%] Centrality [%]=Method-1'
+---
+observable_type: polarization
+inspire_id: '2919644'
+version: 1
+hepdata_file: Figure8.yaml
+hepdata_table_label: The polarization coefficient $P_{y,c2}$ of $\Lambda\!+\!\bar\Lambda$ from method-1 and method-2 as a
+  function of centrality (left panel) in isobar Ru+Ru and Zr+Zr collisions at $\sqrt{s_{NN}}$ = 200 GeV.
+collision_system:
+  energy_gev: 200.0
+  reaction: Ru+Ru and Zr+Zr
+centrality:
+  classes:
+  - 0-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  - 60-70%
+  - 70-80%
+  - 20-50%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+dv_index: 1
+particle_id:
+  species: Lambda + anti-Lambda
+observable: global_polarization_c2
+value_type: $P_{y,c2}$ [%]
+polarization_type: global
+dimensionality: differential_centrality
+event_plane: Psi_1 from the ZDC-SMDs
+notes:
+  value: 'Refiled 2026-10-31 from a wrong observable_type (bulk auto-classification); built from the HEPData table and the
+    paper. Column 1: $P_{y,c2}$ [%] Centrality [%]=Method-2'
+---
+observable_type: polarization
+inspire_id: '2919644'
+version: 1
+hepdata_file: Figure8mid.yaml
+hepdata_table_label: The polarization coefficient $P_{y,c2}$ of $\Lambda\!+\!\bar\Lambda$ from method-1 and method-2 for 20-50\%
+  centrality (right panel) in isobar Ru+Ru and Zr+Zr collisions at $\sqrt{s_{NN}}$ = 200 GeV.
+collision_system:
+  energy_gev: 200.0
+  reaction: Ru+Ru and Zr+Zr
+centrality:
+  classes:
+  - 20-50%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+dv_index: 0
+particle_id:
+  species: Lambda + anti-Lambda
+observable: global_polarization_c2
+value_type: $P_{y,c2}$ [%]
+polarization_type: global
+dimensionality: integrated
+event_plane: Psi_1 from the ZDC-SMDs
+notes:
+  value: 'Refiled 2026-10-31 from a wrong observable_type (bulk auto-classification); built from the HEPData table and the
+    paper. Column 0: $P_{y,c2}$ [%] 20-50 Centrality [%]=Method-1'
+---
+observable_type: polarization
+inspire_id: '2919644'
+version: 1
+hepdata_file: Figure8mid.yaml
+hepdata_table_label: The polarization coefficient $P_{y,c2}$ of $\Lambda\!+\!\bar\Lambda$ from method-1 and method-2 for 20-50\%
+  centrality (right panel) in isobar Ru+Ru and Zr+Zr collisions at $\sqrt{s_{NN}}$ = 200 GeV.
+collision_system:
+  energy_gev: 200.0
+  reaction: Ru+Ru and Zr+Zr
+centrality:
+  classes:
+  - 20-50%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+dv_index: 1
+particle_id:
+  species: Lambda + anti-Lambda
+observable: global_polarization_c2
+value_type: $P_{y,c2}$ [%]
+polarization_type: global
+dimensionality: integrated
+event_plane: Psi_1 from the ZDC-SMDs
+notes:
+  value: 'Refiled 2026-10-31 from a wrong observable_type (bulk auto-classification); built from the HEPData table and the
+    paper. Column 1: $P_{y,c2}$ [%] 20-50 Centrality [%]=Method-2'
