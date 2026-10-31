@@ -124,7 +124,14 @@ collision_system:
   reaction: Ru+Ru and Zr+Zr
 centrality:
   classes:
-  - 20-50%
+  - 70-80%
+  - 60-70%
+  - 50-60%
+  - 40-50%
+  - 30-40%
+  - 20-30%
+  - 10-20%
+  - 0-10%
   estimator:
     name: RefMult
     observable: Nch
@@ -141,7 +148,8 @@ dimensionality: differential_Npart
 event_plane: Psi_1 from the ZDC-SMDs
 notes:
   value: 'Refiled 2026-10-31 from a wrong observable_type (bulk auto-classification); built from the HEPData table and the
-    paper. Column 0: $P_{H}$ [%] $\langle N_{\rm part} \rangle$=$\Lambda$+$\bar\Lambda$'
+    paper. Column 0: $P_{H}$ [%] $\langle N_{\rm part} \rangle$=$\Lambda$+$\bar\Lambda$ Rows are the <N_part> of the eight
+    centrality classes of Figure4_cent, peripheral first.'
 ---
 observable_type: polarization
 inspire_id: '2919644'
@@ -193,7 +201,7 @@ collision_system:
   reaction: Ru+Ru and Zr+Zr
 centrality:
   classes:
-  - 20-50%
+  - 20-60%
   estimator:
     name: RefMult
     observable: Nch
@@ -224,7 +232,7 @@ collision_system:
   reaction: Ru+Ru and Zr+Zr
 centrality:
   classes:
-  - 20-50%
+  - 20-60%
   estimator:
     name: RefMult
     observable: Nch

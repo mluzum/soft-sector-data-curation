@@ -1,0 +1,52 @@
+observable_type: multiplicity_distribution
+description: >
+  Event-by-event distribution P(N) of a multiplicity estimator, usually for
+  minimum-bias events.  Experiments mostly publish it at detector level (the
+  number of reconstructed tracks, not corrected for tracking efficiency),
+  marked `efficiency_corrected: false`; such records are not dispatched
+  until a detector-response model (e.g. binomial efficiency smearing of the
+  model multiplicity) is supplied.  The high-multiplicity tail and the ratio
+  between systems are sensitive to nuclear structure.
+
+composes:
+  - _common#collision_system
+  - _common#kinematic_range
+
+optional_composes:
+  - _common#particle_id
+  - _common#notes
+
+required_fields:
+  observable:
+    type: string
+    required: true
+    description: Short identifier.
+    example: "multiplicity_distribution"
+  value_type:
+    type: string
+    required: true
+    description: The distribution as labelled by the publication.
+    example: "P(N_trk^offline)"
+  efficiency_corrected:
+    type: boolean
+    required: true
+    description: Whether the counted multiplicity is corrected for efficiency and acceptance.
+    example: false
+
+optional_fields:
+  measured_quantity:
+    type: string
+    required: false
+    description: What exactly is counted (detector, acceptance, track cuts).
+    example: "N_trk^offline: TPC tracks, |eta|<0.5, pT>0.2 GeV/c, DCA<3 cm, >=10 fit points"
+  event_selection:
+    type: string
+    required: false
+    description: Which events enter the distribution and how it is normalized.
+    example: "minimum bias, normalized to unit integral"
+  dimensionality:
+    type: string
+    required: false
+    allowed: [differential_multiplicity]
+    description: The independent variable is the multiplicity itself.
+    example: "differential_multiplicity"

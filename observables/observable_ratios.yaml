@@ -46,12 +46,16 @@ optional_fields:
   numerator_record:
     type: string
     required: false
-    description: Path or identifier of the curated numerator record, when separate.
+    description: >
+      Repository-relative path of the curated numerator record, when separate;
+      append "#<document index>" for a multi-document file.
     example: "data/flow_vn/star_flow_vn_isobar_v2_v22_RuRu_200gev.yaml"
   denominator_record:
     type: string
     required: false
-    description: Path or identifier of the curated denominator record, when separate.
+    description: >
+      Repository-relative path of the curated denominator record, when separate;
+      append "#<document index>" for a multi-document file.
     example: "data/flow_vn/star_flow_vn_isobar_v2_v22_ZrZr_200gev.yaml"
   numerator_system:
     type: string
@@ -73,6 +77,17 @@ optional_fields:
     required: false
     description: Particle species of the denominator.
     example: "pi-"
+  efficiency_cancels:
+    type: boolean
+    required: false
+    description: >
+      True when numerator and denominator are detector-level quantities
+      (e.g. uncorrected track counts) measured with the same detector under
+      the same conditions, so that the efficiency cancels in their ratio and
+      it can be compared with the ratio of the corresponding corrected model
+      quantities.  False or absent otherwise; a ratio of distributions at a
+      fixed detector-level multiplicity does not qualify.
+    example: true
   notes:
     type: string
     required: false

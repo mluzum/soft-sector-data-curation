@@ -1,0 +1,48 @@
+observable_type: observable_ratios
+inspire_id: '1914564'
+version: 1
+hepdata_file: fig3_olow_isobarpaper_star_blue_mean_multiplicity_ratio.yaml
+hepdata_table_label: fig3_olow_isobarpaper_star_blue_mean_multiplicity_ratio.
+collision_system:
+  energy_gev: 200.0
+  reaction: Ru+Ru and Zr+Zr
+centrality:
+  classes:
+  - 70-80%
+  - 60-70%
+  - 50-60%
+  - 40-50%
+  - 30-40%
+  - 20-30%
+  - 10-20%
+  - 5-10%
+  - 0-5%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.2
+    max: 100.0
+observable: Nch
+value_type: Nch_Ru_over_Zr
+numerator: Ru+Ru
+denominator: Zr+Zr
+ratio_type: system_ratio
+numerator_system: Ru+Ru
+denominator_system: Zr+Zr
+numerator_record: data/particle_yields/star_particle_yields_isobar_mean_Nch_RuRu_200gev.yaml
+denominator_record: data/particle_yields/star_particle_yields_isobar_mean_Nch_ZrZr_200gev.yaml
+efficiency_cancels: true
+notes: 'Ratio of <N_trk^offline> vs centrality (Fig. 3 lower panel); table listed peripheral-first. N_trk^offline: reconstructed
+  TPC tracks with |eta|<0.5, pT>0.2 GeV/c, DCA<3 cm and >=10 fit points; corrected for luminosity and vertex position, not
+  for the 85-90% tracking efficiency (arXiv:2109.00131, Secs. II-III and Fig. 2 caption)'

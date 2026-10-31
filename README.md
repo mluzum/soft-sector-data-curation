@@ -14,7 +14,7 @@ The pipeline reads those fields and applies the record's exact cuts to the
 simulation. A model is then compared with the data on the same footing,
 record by record, for any selection of measurements.
 
-- **19,429 records** in 18 observable types from about 925 publications
+- **19,465 records** in 20 observable types from about 925 publications
   (RHIC and LHC: STAR, PHENIX, PHOBOS, BRAHMS, ALICE, ATLAS, CMS, LHCb).
   They are built from the HEPData tables in `hepdata_raw/` and the PHOBOS
   public data.
