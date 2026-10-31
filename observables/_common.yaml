@@ -252,6 +252,21 @@ flow_reference:
       fields:
         min: {type: float, required: true, example: 0.0}
         max: {type: float, required: true, example: 4.0}
+    plane:
+      type: string
+      required: false
+      allowed: [participant, spectator]
+      description: >
+        Which plane the reference estimates.  `participant` (default): the
+        flow plane of the produced particles, from any detector that
+        measures produced particles.  `spectator`: the plane of the
+        deflected spectator neutrons, from zero-degree calorimeters (STAR
+        ZDC-SMD, PHENIX SMD); it approximates the reaction plane and
+        carries no participant-plane fluctuations.  A model without
+        spectators cannot form that reference, so such records are not
+        dispatched (a produced-particle window at the ZDC rapidity would
+        silently measure participant-plane flow instead).
+      example: spectator
     notes:
       type: string
       required: false

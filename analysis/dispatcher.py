@@ -358,6 +358,21 @@ def resolve(record):
             f"estimator can produce it (needs a ratio of two measured "
             f"coefficients). Refusing to substitute v_n.")
 
+    # Detector-level quantities (not corrected for efficiency/acceptance)
+    # and flow relative to the spectator plane cannot be formed from a
+    # model's particles; refuse them with the reason instead of returning
+    # a plausible number of a different quantity.
+    if record.get("efficiency_corrected") is False:
+        raise ValueError(
+            f"{record.get('value_type')!r} is detector-level (not corrected "
+            f"for efficiency); it needs a detector-response model")
+    fr = record.get("flow_reference")
+    if isinstance(fr, dict) and fr.get("plane") == "spectator":
+        raise ValueError(
+            f"{record.get('value_type')!r} is measured relative to the "
+            f"spectator plane ({fr.get('detector')}); a model without "
+            f"spectators cannot form that reference")
+
     method = record.get("method")
     order = record.get("cumulant_order")
     particles = record.get("particles")

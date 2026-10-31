@@ -103,6 +103,41 @@ def test_resolve_raises_on_missing_field():
         assert 'kinematic_range.eta' in str(e)
 
 
+def _sp_record(**ref):
+    return {
+        'method': 'event_plane', 'dimensionality': 'integrated', 'value_type': 'v2{ZDC}',
+        'kinematic_range': {'eta': {'min': -1, 'max': 1}, 'pT': {'min': 0.2, 'max': 2}},
+        'flow_reference': dict(detector='ZDC-SMD', eta=[{'min': 6.3, 'max': 99}], **ref),
+    }
+
+
+def test_resolve_refuses_spectator_plane():
+    """Flow relative to the spectator plane cannot come from a model without spectators."""
+    try:
+        resolve(_sp_record(plane='spectator'))
+        assert False, "Expected ValueError"
+    except ValueError as e:
+        assert 'spectator plane' in str(e)
+    # the same reference read as a participant plane still dispatches (SP estimator)
+    assert resolve(_sp_record(plane='participant'))['compute'] == 'vn2_sp'
+    assert resolve(_sp_record())['compute'] == 'vn2_sp'
+
+
+def test_resolve_refuses_detector_level():
+    """Quantities not corrected for efficiency are not model observables."""
+    record = {'observable_type': 'particle_yields', 'value_type': 'Nch',
+              'efficiency_corrected': False,
+              'kinematic_range': {'eta': {'min': -0.5, 'max': 0.5},
+                                  'pT': {'min': 0.2, 'max': 100}}}
+    try:
+        resolve(record)
+        assert False, "Expected ValueError"
+    except ValueError as e:
+        assert 'detector-level' in str(e)
+    record['efficiency_corrected'] = True
+    resolve(record)
+
+
 def test_resolve_raises_on_unknown_key():
     record = {
         'method': 'nonexistent',

@@ -33,6 +33,22 @@ required_fields:
     example: "dN_dy"
 
 optional_fields:
+  efficiency_corrected:
+    type: boolean
+    required: false
+    description: >
+      False for detector-level quantities that are not corrected for
+      tracking efficiency and acceptance (e.g. STAR's mean number of
+      reconstructed tracks <N_trk^offline>).  A model gives true particle
+      numbers, so such records are not dispatched until a detector-response
+      model is supplied; ratios between systems remain usable.  Absent or
+      true for corrected yields.
+    example: false
+  measured_quantity:
+    type: string
+    required: false
+    description: "What exactly is counted, when it differs from a corrected yield."
+    example: "<N_trk^offline>: reconstructed tracks, |eta|<0.5, pT>0.15 GeV/c, DCA<3 cm"
   rapidity_range:
     type: object
     required: false
