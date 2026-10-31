@@ -95,6 +95,8 @@ python scripts/run_pipeline.py --sim-package <package> --design-point 5 --varian
     --type flow_vn particle_yields --reaction '^Ru\+Ru$' --energy 200 --output dp0005.h5
 python scripts/run_campaign.py --sim-package <package> --out-dir runs/ --jobs 8
 python scripts/collect_campaign.py runs/ --output table.h5     # runs x observables for emulation
+python scripts/compute_ratios.py --num-package <package> --num-design-point 12 \
+    --den-package <package> --den-design-point 40 --output ratios.h5   # e.g. Ru+Ru / Zr+Zr
 ```
 
 [`docs/sim_interface.md`](docs/sim_interface.md) documents the containers,

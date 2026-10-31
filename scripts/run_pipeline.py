@@ -284,6 +284,7 @@ def run_block_jackknife(compute_fn, n_events, n_blocks=20):
     bias = (n_b - 1) * (theta_mean - theta_hat)
     corr = theta_hat - bias
     errors = np.sqrt(np.maximum(np.diag(cov), 0))
+    run_block_jackknife.last = (theta_hat, theta_i)     # for --save-jackknife-replicates
     return corr, errors, cov
 
 
@@ -365,6 +366,13 @@ def main():
     parser.add_argument("--output", default="analysis_manifest.h5",
                         help="Output HDF5 path")
     parser.add_argument("--n-jk-blocks", type=int, default=20)
+    parser.add_argument("--save-jackknife-replicates", action="store_true",
+                        help="Also store the full-sample estimates (jk_full) and "
+                             "the delete-one-block replicates (jk_replicates, "
+                             "n_blocks x n_obs) per group, so that functions of "
+                             "outputs from different runs (e.g. ratios between "
+                             "systems, scripts/compute_ratios.py) can be given a "
+                             "joint jackknife.")
     parser.add_argument("--n-harmonics", type=int, default=9,
                         help="harmonic slots for 3D grid loading "
                              "(needs >= 3*n+1 for v_n{6})")
@@ -1273,6 +1281,11 @@ def main():
             grp.create_dataset('values', data=corr)
             grp.create_dataset('errors', data=errors)
             grp.create_dataset('covariance', data=cov)
+            if args.save_jackknife_replicates:
+                jk_full, jk_rep = run_block_jackknife.last
+                grp.create_dataset('jk_full', data=jk_full)
+                grp.create_dataset('jk_replicates', data=jk_rep)
+                grp.attrs['n_jk_blocks'] = jk_rep.shape[0]
             grp.create_dataset('labels', data=labels)
             # Machine-readable record of which observables are NOT a computed
             # event-plane result (single-set amplitude fallback: no event
@@ -1293,6 +1306,9 @@ def main():
                 exp_vals, exp_errs = load_experimental(params)
                 rec_grp = grp.create_group(f"exp_{rec_idx}")
                 rec_grp.attrs['value_type'] = rec.get('value_type', '?')
+                rec_grp.attrs['record_file'] = os.path.abspath(str(fpath))
+                rec_grp.attrs['doc_index'] = int(rec.get('_doc_index', -1)
+                                                 if rec.get('_doc_index') is not None else -1)
                 rec_grp.attrs['hepdata_file'] = params.get('hepdata_file', '?')
                 valid = params.get('cent_valid', None)
                 if exp_vals is not None:

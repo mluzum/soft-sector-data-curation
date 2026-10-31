@@ -198,6 +198,36 @@ or record corrections computes only what changed.  `--ignore-code-changes`
 keeps outputs made with older code.  `collect_campaign.py` writes runs × observables (`values`, `errors`),
 the aligned experimental points and the design parameters.
 
+### Ratios between systems
+
+`observable_ratios` records (e.g. v₂{2} in Ru+Ru over Zr+Zr) name their
+numerator and denominator records (`numerator_record`,
+`denominator_record`, a repository path with an optional `#<document
+index>`).  `scripts/compute_ratios.py` computes them from two simulation
+sets: the numerators on one, the denominators on the other.  The two sets
+are two design points of one package (e.g. Ru-like and Zr-like nuclear
+parameters) or two different packages (e.g. Xe+Xe over Pb+Pb):
+
+```bash
+python scripts/compute_ratios.py \
+    --num-package <package> --num-design-point 12 --num-variant CE \
+    --den-package <package> --den-design-point 40 --den-variant CE \
+    --reaction 'Ru\+Ru and Zr\+Zr' --output ratios.h5
+```
+
+Each side is an ordinary pipeline run that stores its jackknife replicates
+(`run_pipeline.py --save-jackknife-replicates`).  The ratio's error is a
+joint block jackknife (replicate k removes block k from both samples).  For
+independent samples it reproduces independent-error propagation where both
+sides are well measured.  For paired samples (common random numbers, same
+event order) it also captures their correlation; a self-ratio is exactly 1
+with zero error.  A detector-level side is computed as the corrected
+quantity when the ratio declares `efficiency_cancels: true`.  Ratios whose
+sides are composite (double ratios), spectator-plane or detector-level
+distributions are listed with the reason and skipped.  The output holds the
+ratios, their covariance, both sides' values and the record's own data
+points aligned by centrality class.
+
 ## 5. Without a package
 
 ```bash

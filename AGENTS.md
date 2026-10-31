@@ -56,6 +56,8 @@ data_validation/jetscape_bayes/   record <-> JETSCAPE model matching layer (test
   - `run_pipeline.py`: records → simulation → HDF5.
   - `compute_flow_vn.py`: one record.
   - `check_sim_package.py`, `run_campaign.py`, `collect_campaign.py`.
+  - `compute_ratios.py`: observable_ratios records from two simulation sets
+    (linked numerator/denominator records, joint jackknife; `analysis/ratios.py`).
   - `plot_comparison.py`.
 
 Run everything from the repository root: record paths are relative, as in
@@ -73,6 +75,15 @@ Each YAML document has:
 
 Validate after every edit (`python scripts/validate.py data/`). Records are
 the product. Never fix a value in code that belongs in a record.
+
+Fields that change dispatch:
+- `efficiency_corrected: false`: a detector-level quantity (uncorrected
+  track counts), refused.  A ratio of two such quantities is computed as the
+  ratio of corrected ones only if it declares `efficiency_cancels: true`.
+- `flow_reference.plane: spectator`: flow relative to the spectator plane
+  (ZDC/SMD), refused, because models have no spectators.
+- Ratio records link `numerator_record` / `denominator_record` (path, with
+  `#<doc>` for multi-document files); `tests/test_ratio_links.py` checks every link.
 
 ## Pipeline
 
