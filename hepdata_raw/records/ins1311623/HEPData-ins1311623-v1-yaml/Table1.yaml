@@ -1,0 +1,54 @@
+dependent_variables:
+- header: {name: FIDUCIAL CHARGE RATIO W+ / W-}
+  qualifiers:
+  - {name: '$m_{T}$', units: GEV, value: '> 40'}
+  - {name: '$p_{T}(e,\mu)$', units: GEV, value: '> 25'}
+  - {name: '$|\eta(e,\mu)|$', value: 0.0-2.5}
+  - {name: CENTRALITY, units: pct, value: 0.0-80.0}
+  - {name: RE, value: 'PB PB --> $W(\ell\nu_{\ell})$ X'}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  - {name: 'missing $p_{T}$', units: GEV, value: '> 25'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.06}
+    - asymerror: {minus: 0.02, plus: -0.02}
+      label: sys,uncorr
+    - asymerror: {minus: 0.04, plus: -0.03}
+      label: sys,corr
+    value: 1.03
+  - errors:
+    - {label: stat, symerror: 0.04}
+    - asymerror: {minus: 0.02, plus: -0.02}
+      label: sys,uncorr
+    - asymerror: {minus: 0.03, plus: -0.03}
+      label: sys,corr
+    value: 1.05
+  - errors:
+    - {label: stat, symerror: 0.04}
+    - asymerror: {minus: 0.02, plus: -0.02}
+      label: sys,uncorr
+    - asymerror: {minus: 0.03, plus: -0.04}
+      label: sys,corr
+    value: 1.03
+  - errors:
+    - {label: stat, symerror: 0.05}
+    - asymerror: {minus: 0.02, plus: -0.02}
+      label: sys,uncorr
+    - asymerror: {minus: 0.05, plus: -0.03}
+      label: sys,corr
+    value: 0.96
+  - errors:
+    - {label: stat, symerror: 0.05}
+    - asymerror: {minus: 0.03, plus: -0.03}
+      label: sys,uncorr
+    - asymerror: {minus: 0.04, plus: -0.02}
+      label: sys,corr
+    value: 0.98
+independent_variables:
+- header: {name: '$N_{part}$'}
+  values:
+  - {value: 46.0}
+  - {value: 158.0}
+  - {value: 261.0}
+  - {value: 330.0}
+  - {value: 382.0}

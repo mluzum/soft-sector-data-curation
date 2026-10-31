@@ -1,0 +1,81 @@
+dependent_variables:
+- header: {name: '$\mathrm{d}N/\mathrm{d}p_\mathrm{T}$', units: '$\mathrm{GeV}^{-1}~c$'}
+  qualifiers:
+  - {name: CENTRALITY, value: 0.0-10.0 pct}
+  - {name: REACTION, value: PBPB --> Ds + X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 5020.0}
+  - {name: YRAP, value: -0.5 TO 0.5}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.055913}
+    - asymerror: {minus: -0.09579, plus: 0.077088}
+      label: sys
+    - {label: 'sys, branching ratio unc.', symerror: 3.5714%}
+    value: 0.3943
+  - errors:
+    - {label: stat, symerror: 0.01301}
+    - asymerror: {minus: -0.032184, plus: 0.024667}
+      label: sys
+    - {label: 'sys, branching ratio unc.', symerror: 3.5714%}
+    value: 0.13508
+  - errors:
+    - {label: stat, symerror: 0.0035721}
+    - asymerror: {minus: -0.012159, plus: 0.0089874}
+      label: sys
+    - {label: 'sys, branching ratio unc.', symerror: 3.5714%}
+    value: 0.047561
+  - errors:
+    - {label: stat, symerror: 0.0011442}
+    - asymerror: {minus: -0.0042957, plus: 0.003014}
+      label: sys
+    - {label: 'sys, branching ratio unc.', symerror: 3.5714%}
+    value: 0.015908
+  - errors:
+    - {label: stat, symerror: 0.00033274}
+    - asymerror: {minus: -0.0012537, plus: 0.00086076}
+      label: sys
+    - {label: 'sys, branching ratio unc.', symerror: 3.5714%}
+    value: 0.0047236
+  - errors:
+    - {label: stat, symerror: 4.512e-05}
+    - asymerror: {minus: -0.00024028, plus: 0.00016428}
+      label: sys
+    - {label: 'sys, branching ratio unc.', symerror: 3.5714%}
+    value: 0.00090024
+  - errors:
+    - {label: stat, symerror: 1.227e-05}
+    - asymerror: {minus: -4.6764e-05, plus: 3.3042e-05}
+      label: sys
+    - {label: 'sys, branching ratio unc.', symerror: 3.5714%}
+    value: 0.00020899
+  - errors:
+    - {label: stat, symerror: 3.3611e-06}
+    - asymerror: {minus: -9.5796e-06, plus: 6.1417e-06}
+      label: sys
+    - {label: 'sys, branching ratio unc.', symerror: 3.5714%}
+    value: 4.4324e-05
+  - errors:
+    - {label: stat, symerror: 1.1094e-06}
+    - asymerror: {minus: -2.0347e-06, plus: 1.2463e-06}
+      label: sys
+    - {label: 'sys, branching ratio unc.', symerror: 3.5714%}
+    value: 8.1139e-06
+  - errors:
+    - {label: stat, symerror: 4.7078e-07}
+    - asymerror: {minus: -3.4594e-07, plus: 2.0912e-07}
+      label: sys
+    - {label: 'sys, branching ratio unc.', symerror: 3.5714%}
+    value: 1.3475e-06
+independent_variables:
+- header: {name: '$p_\mathrm{T}$', units: '$\mathrm{GeV}/c$'}
+  values:
+  - {high: 3.0, low: 2.0}
+  - {high: 4.0, low: 3.0}
+  - {high: 5.0, low: 4.0}
+  - {high: 6.0, low: 5.0}
+  - {high: 8.0, low: 6.0}
+  - {high: 12.0, low: 8.0}
+  - {high: 16.0, low: 12.0}
+  - {high: 24.0, low: 16.0}
+  - {high: 36.0, low: 24.0}
+  - {high: 50.0, low: 36.0}

@@ -1,0 +1,122 @@
+---
+observable_type: heavy_flavor
+inspire_id: '1410832'
+version: 1
+hepdata_file: Table1.yaml
+hepdata_table_label: 'Differential cross section of the Z bosons in pPb collisions as a function of rapidity in the fiducial
+  region for the combined leptonic decay channel.
+
+  '
+qualifiers:
+  lepton abs(etarap): < 2.4
+  lepton pt: '> 20'
+  m: 60.0-120.0
+  sqrt(snn): '5020.0'
+collision_system:
+  energy_gev: 200
+  reaction: P PB --> Z0 X
+centrality:
+  classes:
+  - MB
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+  particle: ds
+kinematic_range:
+  y:
+    min: -2.8
+    max: 2.0
+    bins:
+    - -2.8
+    - -2.4
+    - -2.0
+    - -1.6
+    - -1.2
+    - -0.8
+    - -0.4
+    - 0.0
+    - 0.4
+    - 0.8
+    - 1.2
+    - 1.6
+    - 2.0
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: ds_invariant_yield
+value_type: invariant_yield
+particle: ds
+---
+observable_type: heavy_flavor
+inspire_id: '1410832'
+version: 1
+hepdata_file: Table3.yaml
+hepdata_table_label: 'Differential cross section of the Z bosons in pPb collisions as a function of transverse momentum in
+  the fiducial region for the combined leptonic decay channel.
+
+  '
+qualifiers:
+  lepton abs(etarap): < 2.4
+  lepton pt: '> 20'
+  m: 60.0-120.0
+  sqrt(snn): '5020.0'
+collision_system:
+  energy_gev: 200
+  reaction: P PB --> Z0 X
+centrality:
+  classes:
+  - MB
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+  particle: ds
+kinematic_range:
+  pT:
+    min: 0.0
+    max: 150.0
+    bins:
+    - 0.0
+    - 2.5
+    - 5.0
+    - 7.5
+    - 10.0
+    - 12.5
+    - 15.0
+    - 20.0
+    - 30.0
+    - 40.0
+    - 50.0
+    - 70.0
+    - 100.0
+    - 150.0
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+observable: ds_invariant_yield
+value_type: invariant_yield
+particle: ds

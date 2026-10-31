@@ -1,0 +1,76 @@
+dependent_variables:
+- header: {name: MULT(P=4)}
+  qualifiers:
+  - {name: M(P=4 5), units: GEV, value: 2.35 (BIN=2.0 TO 2.8)}
+  - {name: P, units: GeV, value: '14.0'}
+  - {name: RE, value: MU+ P --> MU+ CHARGED X}
+  - {name: SQRT(S), units: GeV, value: '5.211'}
+  - {name: SYS, value: 'NEGLIGIBLEMISSING TRACS, PION CONTAMINATION, RADIATIVE CORRECTIONS'}
+  values:
+  - {value: '-'}
+  - errors:
+    - {symerror: 0.05}
+    value: 2.36
+  - errors:
+    - {symerror: 0.06}
+    value: 2.42
+  - errors:
+    - {symerror: 0.09}
+    value: 2.49
+  - errors:
+    - {symerror: 0.1}
+    value: 2.42
+- header: {name: MULT(P=4)}
+  qualifiers:
+  - {name: M(P=4 5), units: GEV, value: 3.17 (BIN=2.8 TO 3.6)}
+  - {name: P, units: GeV, value: '14.0'}
+  - {name: RE, value: MU+ P --> MU+ CHARGED X}
+  - {name: SQRT(S), units: GeV, value: '5.211'}
+  - {name: SYS, value: 'NEGLIGIBLEMISSING TRACS, PION CONTAMINATION, RADIATIVE CORRECTIONS'}
+  values:
+  - errors:
+    - {symerror: 0.12}
+    value: 3.22
+  - errors:
+    - {symerror: 0.08}
+    value: 2.98
+  - errors:
+    - {symerror: 0.09}
+    value: 2.99
+  - errors:
+    - {symerror: 0.13}
+    value: 3.11
+  - errors:
+    - {symerror: 0.16}
+    value: 3.21
+- header: {name: MULT(P=4)}
+  qualifiers:
+  - {name: M(P=4 5), units: GEV, value: 4.04 (BIN=3.6 TO 4.7)}
+  - {name: P, units: GeV, value: '14.0'}
+  - {name: RE, value: MU+ P --> MU+ CHARGED X}
+  - {name: SQRT(S), units: GeV, value: '5.211'}
+  - {name: SYS, value: 'NEGLIGIBLEMISSING TRACS, PION CONTAMINATION, RADIATIVE CORRECTIONS'}
+  values:
+  - errors:
+    - {symerror: 0.16}
+    value: 3.94
+  - errors:
+    - {symerror: 0.14}
+    value: 3.63
+  - errors:
+    - {symerror: 0.16}
+    value: 3.24
+  - errors:
+    - {symerror: 0.25}
+    value: 3.7
+  - errors:
+    - {symerror: 0.27}
+    value: 3.46
+independent_variables:
+- header: {name: Q2, units: GEV**2}
+  values:
+  - {high: 0.5, low: 0.3}
+  - {high: 1.0, low: 0.5}
+  - {high: 1.5, low: 1.0}
+  - {high: 2.0, low: 1.5}
+  - {high: 4.5, low: 2.0}

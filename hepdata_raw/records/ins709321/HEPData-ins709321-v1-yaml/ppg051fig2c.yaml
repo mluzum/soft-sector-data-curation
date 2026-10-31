@@ -1,0 +1,42 @@
+dependent_variables:
+- header: {name: $p_T$ (GeV/$c$)}
+  qualifiers:
+  - {name: Centrality, value: ''}
+  values:
+  - {value: 2.7}
+  - {value: 3.2}
+  - {value: 3.7}
+  - {value: 4.45}
+  - {value: 5.45}
+- header: {name: '$R_{AA}$'}
+  qualifiers:
+  - {name: Centrality, value: 60-92%}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.315}
+    - {label: sys., symerror: 0.071}
+    value: 0.733
+  - errors:
+    - {label: stat., symerror: 0.211}
+    - {label: sys., symerror: 0.081}
+    value: 0.837
+  - errors:
+    - {label: stat., symerror: 0.208}
+    - {label: sys., symerror: 0.082}
+    value: 0.841
+  - errors:
+    - {label: stat., symerror: 0.271}
+    - {label: sys., symerror: 0.094}
+    value: 0.967
+  - errors:
+    - {label: stat., symerror: 0.415}
+    - {label: sys., symerror: 0.062}
+    value: 0.641
+independent_variables:
+- header: {name: $p_T$ Bins (GeV/$c$)}
+  values:
+  - {high: 2.95, low: 2.45}
+  - {high: 3.45, low: 2.95}
+  - {high: 3.95, low: 3.45}
+  - {high: 4.95, low: 3.95}
+  - {high: 5.95, low: 4.95}

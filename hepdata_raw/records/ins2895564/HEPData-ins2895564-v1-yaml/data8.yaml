@@ -1,0 +1,73 @@
+dependent_variables:
+- header: {name: '$d^{2}\mathrm{\sigma_{\gamma}}^{iso} / d{p}_{\mathrm{T}}^{\gamma}dy$',
+    units: 'nb/GeV/$\mathrm{c}$'}
+  qualifiers:
+  - {name: REACTION, value: P Pb --> ISO GAMMA X}
+  - {name: ABS(YRAP), value: <0.7}
+  - {name: SQRT(S), units: GEV, value: 5020.0}
+  - {name: Isolation cut, value: 'R = 0.4, $p_{\mathrm{T}}^{iso}$ < 2 GeV/$\mathrm{c}$,
+      limit on final-state radiation in cone'}
+  - {name: Program, value: JETPHOX 1.3.1}
+  - {name: PDF1, value: NNPDF4.0}
+  - {name: PDF2, value: nNNPDF3.0}
+  - {name: FF, value: BFG II}
+  values:
+  - errors:
+    - asymerror: {minus: -66.0235, plus: 66.0235}
+      label: PDF
+    - asymerror: {minus: -59.1408, plus: 25.849}
+      label: scale
+    value: 2379.8
+  - errors:
+    - asymerror: {minus: -39.5616, plus: 39.5616}
+      label: PDF
+    - asymerror: {minus: -43.065, plus: 52.3474}
+      label: scale
+    value: 1365.26
+  - errors:
+    - asymerror: {minus: -22.5103, plus: 22.5103}
+      label: PDF
+    - asymerror: {minus: -24.5123, plus: 39.1316}
+      label: scale
+    value: 842.522
+  - errors:
+    - asymerror: {minus: -15.5578, plus: 15.5578}
+      label: PDF
+    - asymerror: {minus: -30.1922, plus: 29.4883}
+      label: scale
+    value: 534.525
+  - errors:
+    - asymerror: {minus: -7.93832, plus: 7.93832}
+      label: PDF
+    - asymerror: {minus: -21.2744, plus: 14.7091}
+      label: scale
+    value: 278.831
+  - errors:
+    - asymerror: {minus: -3.42868, plus: 3.42868}
+      label: PDF
+    - asymerror: {minus: -10.0855, plus: 7.05835}
+      label: scale
+    value: 118.283
+  - errors:
+    - asymerror: {minus: -1.31439, plus: 1.31439}
+      label: PDF
+    - asymerror: {minus: -4.02746, plus: 3.07593}
+      label: scale
+    value: 45.0939
+  - errors:
+    - asymerror: {minus: -0.298446, plus: 0.298446}
+      label: PDF
+    - asymerror: {minus: -1.05588, plus: 0.818654}
+      label: scale
+    value: 10.3055
+independent_variables:
+- header: {name: PT, units: GEV/c}
+  values:
+  - {high: 14, low: 12}
+  - {high: 16, low: 14}
+  - {high: 18, low: 16}
+  - {high: 20, low: 18}
+  - {high: 25, low: 20}
+  - {high: 30, low: 25}
+  - {high: 40, low: 30}
+  - {high: 60, low: 40}

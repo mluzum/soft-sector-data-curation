@@ -1,0 +1,42 @@
+dependent_variables:
+- header: {name: d$\sigma$/d$y$ (visible), units: $\mu b$}
+  qualifiers:
+  - {name: RE, value: P P --> Lc X}
+  - {name: RE, value: P PB --> Lc X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: '11'}
+    - {label: sys, symerror: '14'}
+    - {label: sys, symerror: '3'}
+    value: '161'
+  - errors:
+    - {label: stat, symerror: '2000'}
+    - {label: sys, symerror: '3600'}
+    - {label: sys, symerror: '1100'}
+    value: '29000'
+- header: {name: 'd$\sigma$/d$y$ ($p_{\rm {T}} > 0$)', units: $\mu b$}
+  qualifiers:
+  - {name: RE, value: P P --> Lc X}
+  - {name: RE, value: P PB --> Lc X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: '16'}
+    - {label: sys, symerror: '20'}
+    - {label: sys, symerror: '5'}
+    - asymerror: {minus: '-10', plus: '5'}
+      label: sys
+    value: '230'
+  - errors:
+    - {label: stat, symerror: '2500'}
+    - {label: sys, symerror: '4500'}
+    - {label: sys, symerror: '1300'}
+    - asymerror: {minus: '-2700', plus: '4400'}
+      label: sys
+    value: '36200'
+independent_variables:
+- header: {name: RE}
+  values:
+  - {value: P P --> Lc X}
+  - {value: P PB --> Lc X}

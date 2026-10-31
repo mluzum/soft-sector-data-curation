@@ -1,0 +1,40 @@
+dependent_variables:
+- header: {name: '$\frac{Ed^{3}N}{dp^3}$(GeV$^{-2}c^3$) or $\frac{Ed^3\sigma}{dp^3}$(mb
+      GeV$^{-2}c^3$)'}
+  qualifiers:
+  - {name: Centrality, value: Min. Bias $\times 10^4$}
+  - {name: Collision Species, value: Au+Au}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.015}
+    - {label: syst., symerror: 0.03}
+    value: 0.141
+  - errors:
+    - {label: stat., symerror: 0.002}
+    - {label: syst., symerror: 0.0032}
+    value: 0.0162
+  - errors:
+    - {label: stat., symerror: 0.0005}
+    - {label: syst., symerror: 0.0006}
+    value: 0.0023
+  - errors:
+    - {label: stat., symerror: 0.00014}
+    - {label: syst., symerror: 0.00015}
+    value: 0.00053
+  - errors:
+    - {label: stat., symerror: 3.4e-05}
+    - {label: syst., symerror: 3.6e-05}
+    value: 0.000153
+  - errors:
+    - {label: stat., symerror: 8.0e-06}
+    - {label: syst., symerror: 4.0e-06}
+    value: 2.0e-05
+independent_variables:
+- header: {name: $p_T$ (GeV/$c$)}
+  values:
+  - {high: 1.4, low: 0.9}
+  - {high: 1.9, low: 1.4}
+  - {high: 2.5, low: 1.9}
+  - {high: 2.9, low: 2.5}
+  - {high: 3.8, low: 2.9}
+  - {high: 4.9, low: 3.8}

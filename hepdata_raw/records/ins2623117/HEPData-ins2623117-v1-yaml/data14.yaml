@@ -1,0 +1,23 @@
+dependent_variables:
+- header: {name: '$\Re f_{0}$', units: fm}
+  qualifiers:
+  - {name: SQRT(S_NN), units: GeV, value: 5020}
+  values:
+  - errors:
+    - asymerror: {minus: -0.19, plus: 0.29}
+      label: stat
+    - {label: sys, symerror: 0.21}
+    value: -0.76
+- header: {name: '$\Im f_{0}$', units: fm}
+  qualifiers:
+  - {name: SQRT(S_NN), units: GeV, value: 5020}
+  values:
+  - errors:
+    - asymerror: {minus: -0.11, plus: 0.48}
+      label: stat
+    - {label: sys, symerror: 0.32}
+    value: -0.07
+independent_variables:
+- header: {name: Particle State}
+  values:
+  - {value: LAMBDA KS (LAMBDABAR KS)}

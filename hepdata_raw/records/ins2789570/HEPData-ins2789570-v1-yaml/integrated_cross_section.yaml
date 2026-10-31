@@ -1,0 +1,16 @@
+dependent_variables:
+- header: {name: 'd$\sigma$/d$y\lvert_{-0.96<y<0.04}$', units: mb}
+  qualifiers:
+  - {name: RAPIDITY, value: -0.96 < Y < 0.04}
+  - {name: PT, units: GeV/c, value: PT > 0}
+  values:
+  - errors:
+    - {label: Stat., symerror: 2.8}
+    - asymerror: {minus: -2.3, plus: 2.2}
+      label: Sys.
+    - {label: BR, symerror: 3.3}
+    - {label: Lumi., symerror: 0.6}
+    - asymerror: {minus: -1.3, plus: 4.6}
+      label: Extr.
+    value: 15.0
+independent_variables: []

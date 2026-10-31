@@ -1,0 +1,44 @@
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1233359'
+version: 1
+hepdata_file: Table51.yaml
+hepdata_table_label: 'The values of DELTA(V2) and DELTA(V2,obs) obtained from the Bessel-Gaussian fits to the V2 and V2(obs)
+  distributions, with the statistical uncertainties.
+
+  '
+qualifiers:
+  abs(etarap): < 2.5
+  pt: '> 0.5'
+  re: PB PB --> CHARGED X
+  sqrt(s)/nucleon: '2760.0'
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes: []
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.1
+  - min: 3.1
+    max: 4.9
+particle_id:
+  species: charged
+kinematic_range:
+  pT:
+    min: 0.5
+    max: 20
+  eta:
+    min: -2.5
+    max: 2.5
+    bins:
+    - -2.5
+    - 2.5
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all

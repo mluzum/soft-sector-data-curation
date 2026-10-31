@@ -1,0 +1,56 @@
+dependent_variables:
+- header: {name: PTCH}
+  qualifiers:
+  - {name: CENTRALITY, value: 0-80 PCT}
+  - {name: ABS(YJET), value: abs(y) < 2.1}
+  - {name: JET PT, units: GeV, value: 100-398}
+  - {name: TRACK PT, units: GeV, value: 25-100}
+  - {name: R(JETS), value: '0.4'}
+  - {name: RE, value: PB PB --> JET X; P P --> JET X}
+  - {name: SQRT(S_NN), units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 1.1}
+    - asymerror: {minus: -0.6, plus: 0.6}
+      label: sys
+    value: 0.2
+  - errors:
+    - {label: stat, symerror: 0.9}
+    - asymerror: {minus: -0.3, plus: 0.6}
+      label: sys
+    value: -0.1
+  - errors:
+    - {label: stat, symerror: 0.6}
+    - asymerror: {minus: -0.6, plus: 0.5}
+      label: sys
+    value: 0.7
+  - errors:
+    - {label: stat, symerror: 0.5}
+    - asymerror: {minus: -0.4, plus: 0.7}
+      label: sys
+    value: 0.8
+  - errors:
+    - {label: stat, symerror: 0.4}
+    - asymerror: {minus: -0.6, plus: 0.5}
+      label: sys
+    value: 0.8
+  - errors:
+    - {label: stat, symerror: 0.35}
+    - asymerror: {minus: -0.61, plus: 0.66}
+      label: sys
+    value: 2.05
+  - errors:
+    - {label: stat, symerror: 0.35}
+    - asymerror: {minus: -1.08, plus: 0.93}
+      label: sys
+    value: 2.19
+independent_variables:
+- header: {name: NPART}
+  values:
+  - {value: 22.6}
+  - {value: 53.0}
+  - {value: 85.6}
+  - {value: 129.3}
+  - {value: 186.4}
+  - {value: 260.7}
+  - {value: 356.2}

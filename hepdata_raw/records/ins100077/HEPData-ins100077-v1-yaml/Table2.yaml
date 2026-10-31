@@ -1,0 +1,44 @@
+dependent_variables:
+- header: {name: D(SIG)/DT, units: MUB/GEV**2}
+  qualifiers:
+  - {name: P, units: GeV, value: '4.0'}
+  - {name: RE, value: PI+ N --> OMEGA P}
+  - {name: SQRT(S), units: GeV, value: '2.896'}
+  - {name: SYS, value: 'DECAY-BR(BRN=OMEGA --> ANYTHING - PI+ PI- PI0, BR=10.0 +-
+      0.6 PCT)//RES-DEF(RES=OMEGA,BACK=CORRECTED)//GLAUBER//PAULI'}
+  values:
+  - errors:
+    - {symerror: 30.0}
+    value: 286.0
+  - errors:
+    - {symerror: 35.0}
+    value: 432.0
+  - errors:
+    - {symerror: 38.0}
+    value: 470.0
+  - errors:
+    - {symerror: 32.0}
+    value: 400.0
+  - errors:
+    - {symerror: 25.0}
+    value: 281.0
+  - errors:
+    - {symerror: 19.0}
+    value: 189.0
+  - errors:
+    - {symerror: 12.0}
+    value: 115.0
+  - errors:
+    - {symerror: 6.0}
+    value: 52.0
+independent_variables:
+- header: {name: -T, units: GEV**2}
+  values:
+  - {high: 0.1, low: 0.0}
+  - {high: 0.2, low: 0.1}
+  - {high: 0.3, low: 0.2}
+  - {high: 0.4, low: 0.3}
+  - {high: 0.5, low: 0.4}
+  - {high: 0.6, low: 0.5}
+  - {high: 0.8, low: 0.6}
+  - {high: 1.0, low: 0.8}

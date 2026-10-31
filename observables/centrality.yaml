@@ -1,0 +1,124 @@
+# Centrality definition schema.
+#
+# This is a composable schema fragment, used by *every* observable type
+# via "composes: [centrality#centrality]".  It describes how centrality
+# percentiles were determined: which detector/observable was used and
+# in what kinematic acceptance.
+#
+# Many measurements from the same collaboration share an identical
+# centrality definition.  Storing it fully in each record enables
+# downstream simulation code to reproduce the event selection and
+# to group measurements by centrality definition.
+#
+# When published bins result from merging narrower analysis bins, set
+# `analysis_classes` to the finer binning and describe the recombination
+# method in `notes`.
+#
+# Examples:
+#   ALICE V0M:  amplitude, V0A+V0C,  -3.7 < η < 5.1
+#   ATLAS FCal: ET-sum,    FCal,       3.2 < |η| < 4.9
+#   CMS HF:     ET-sum,    HF,         2.9 < |η| < 5.2
+#   STAR RefMult:  Nch,   TPC,        |η| < 0.5,  pT > 0.15 GeV/c
+
+centrality:
+  description: >
+    Definition of the centrality determination method. Describes what
+    detector/observable was used to define centrality percentiles and the
+    kinematic acceptance of that observable. Omit the entire block for
+    minimum-bias measurements with no centrality selection.
+  fields:
+    classes:
+      type: list
+      required: true
+      description: List of centrality percentile bins.
+      items:
+        type: string
+        example: "0-5%"
+    estimator:
+      type: object
+      required: true
+      description: >
+        The detector/observable used to determine centrality percentiles.
+      fields:
+        name:
+          type: string
+          required: true
+          description: >
+            Common name of the centrality estimator.
+            Examples: "V0M", "FCal", "HF", "RefMult", "BBC", "ZDC"
+          example: "V0M"
+        observable:
+          type: string
+          required: true
+          description: >
+            The physical quantity measured by the estimator.
+          allowed:
+            - amplitude
+            - Nch
+            - ET
+            - energy
+          example: "amplitude"
+        detector:
+          type: string
+          required: false
+          description: >
+            Subdetector name (e.g. "V0", "V0A", "V0C", "FCal", "HF",
+            "TPC", "BBC", "ZDC").
+          example: "V0"
+    eta:
+      type: list
+      required: true
+      description: >
+        Pseudorapidity acceptance regions of the centrality estimator.
+        Some estimators have multiple disjoint regions (e.g. V0A+V0C,
+        FCal±, HF±); each region is listed as a {min, max} pair.
+      items:
+        type: object
+        fields:
+          min:
+            type: float
+            required: true
+            description: Minimum η of this acceptance region.
+            example: -3.7
+          max:
+            type: float
+            required: true
+            description: Maximum η of this acceptance region.
+            example: -1.7
+    pT:
+      type: object
+      required: false
+      description: >
+        Transverse momentum acceptance (for track-based estimators like
+        RefMult, ITS-TPC tracks).  Omitted for calorimeter-based and
+        scintillator-based estimators which have no pT cut.
+      fields:
+        min:
+          type: float
+          required: true
+          description: Minimum pT [GeV/c] of the estimator acceptance.
+          example: 0.15
+        max:
+          type: float
+          required: false
+          description: Maximum pT [GeV/c] of the estimator acceptance.
+          example: 100.0
+    analysis_classes:
+      type: list
+      required: false
+      description: >
+        Finer centrality bins used during analysis before merging into
+        the reported `classes`.  Present only when the published bins
+        are a recombination of narrower bins (e.g. 1% or 2.5% wide).
+        Enables exact reproduction of the rebinning step.
+      items:
+        type: string
+        example: "0-0.5%"
+    notes:
+      type: string
+      required: false
+      description: >
+        Additional details about the centrality determination
+        (e.g. "V0A and V0C combined", "symmetric sum of HF towers",
+        "multiplicity classes instead of percentiles").
+      example: "V0A and V0C combined"

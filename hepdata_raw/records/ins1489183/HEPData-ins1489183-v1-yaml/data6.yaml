@@ -1,0 +1,60 @@
+dependent_variables:
+- header: {name: '<COS(phi_alpha + phi_beta - 2phi_c)>/v_{2,c}'}
+  qualifiers:
+  - {name: RE, value: PB PB ---> H X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020'}
+  - {name: ETA, value: -2.4 TO 2.4}
+  - {name: class, units: charge sign, value: SS}
+  values:
+  - errors:
+    - {label: stat, symerror: 1.6e-06}
+    - {label: sys, symerror: 2.8e-05}
+    value: -0.00028
+  - errors:
+    - {label: stat, symerror: 1.1e-06}
+    - {label: sys, symerror: 2.8e-05}
+    value: -0.00021
+  - errors:
+    - {label: stat, symerror: 8.3e-07}
+    - {label: sys, symerror: 2.8e-05}
+    value: -0.00016
+  - errors:
+    - {label: stat, symerror: 6.4e-07}
+    - {label: sys, symerror: 2.8e-05}
+    value: -0.0001
+- header: {name: '<COS(phi_alpha + phi_beta - 2phi_c)>/v_{2,c}'}
+  qualifiers:
+  - {name: RE, value: PB PB ---> H X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020'}
+  - {name: ETA, value: -2.4 TO 2.4}
+  - {name: class, units: charge sign, value: OS}
+  values:
+  - errors:
+    - {label: stat, symerror: 2.2e-06}
+    - {label: sys, symerror: 2.8e-05}
+    value: -2.8e-05
+  - errors:
+    - {label: stat, symerror: 1.5e-06}
+    - {label: sys, symerror: 2.8e-05}
+    value: -1.7e-05
+  - errors:
+    - {label: stat, symerror: 1.1e-06}
+    - {label: sys, symerror: 2.8e-05}
+    value: -5.2e-06
+  - errors:
+    - {label: stat, symerror: 8.9e-07}
+    - {label: sys, symerror: 2.8e-05}
+    value: 1.2e-05
+independent_variables:
+- header: {name: Centrality}
+  values:
+  - {high: 50.0, low: 45.0}
+  - {high: 45.0, low: 40.0}
+  - {high: 40.0, low: 35.0}
+  - {high: 35.0, low: 30.0}
+- header: {name: Average multiplicity}
+  values:
+  - {value: 624.8}
+  - {value: 810.5}
+  - {value: 1025.0}
+  - {value: 1256.0}

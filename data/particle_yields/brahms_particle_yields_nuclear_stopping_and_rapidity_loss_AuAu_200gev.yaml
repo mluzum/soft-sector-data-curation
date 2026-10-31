@@ -1,0 +1,46 @@
+---
+observable_type: particle_yields
+inspire_id: '810481'
+version: 1
+hepdata_file: tab2.yaml
+hepdata_table_label: '$\frac{\mathrm{d}N}{\mathrm{d}y}$ versus $y$ for $\mathrm{p}$,$\overline{\mathrm{p}}$ in $\mathrm{Au}-\mathrm{Au}$
+  at $\sqrt{s_{\mathrm{NN}}}=62.4\,\mathrm{Ge\!V}$ '
+qualifiers:
+  centrality: 0-10
+  particle: PBAR
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> BARYON-ANTIBARYON
+centrality:
+  classes:
+  - 0.0-10.0%
+  estimator:
+    name: TMA
+    observable: Nch
+    detector: TMA
+  eta:
+  - min: -2.3
+    max: 2.3
+particle_id:
+  species: pbar
+kinematic_range:
+  y:
+    min: -0.1
+    max: 3.08
+    bins:
+    - -0.1
+    - 0.1
+    - 0.4
+    - 0.9
+    - 2.1
+    - 2.5
+    - 2.92
+    - 3.08
+  eta:
+    min: -0.1
+    max: 3.3
+  pT:
+    min: 0.1
+    max: 10
+observable: dN_dy
+value_type: dN_dy

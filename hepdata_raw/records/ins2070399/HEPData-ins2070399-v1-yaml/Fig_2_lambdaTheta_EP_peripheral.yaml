@@ -1,0 +1,26 @@
+dependent_variables:
+- header: {name: LAMBDA_THETA_EVENT_PLANE}
+  qualifiers:
+  - {name: RE, value: PB PB --> J/PSI < MU+ MU- > X}
+  - {name: Y, value: 2.5 < Y_J/psi < 4.0}
+  - {name: CENTRALITY, value: 30.0 < PERCENTILE_V0M < 50.0 %}
+  - {name: SQRT(S), units: GEV, value: 5020}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.05}
+    - {label: 'sys, uncorrel', symerror: 0.033}
+    value: 0.235
+  - errors:
+    - {label: stat, symerror: 0.057}
+    - {label: 'sys, uncorrel', symerror: 0.031}
+    value: 0.121
+  - errors:
+    - {label: stat, symerror: 0.057}
+    - {label: 'sys, uncorrel', symerror: 0.029}
+    value: -0.06
+independent_variables:
+- header: {name: PT, units: GEV/C}
+  values:
+  - {high: 4, low: 2}
+  - {high: 6, low: 4}
+  - {high: 10, low: 6}

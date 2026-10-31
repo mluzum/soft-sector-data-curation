@@ -1,0 +1,53 @@
+dependent_variables:
+- header: {name: '$\rho_{\overline{p}\overline{d}}$'}
+  qualifiers:
+  - {name: '$p_{\rm T} (\overline{d})$', units: GeV/c, value: 0.8-1.8}
+  - {name: '$p_{\rm T} (\overline{p})$', units: GeV/c, value: 0.4-0.9}
+  - {name: RE, value: 'Pb Pb $\rightarrow$ $\overline{\rm d}$ X'}
+  - {name: RE, value: 'Pb Pb $\rightarrow$ $\overline{\rm p}$ X'}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  - {name: $\eta$, value: -0.8-0.8}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.000986063}
+    - {label: syst., symerror: 0.000481323}
+    value: -0.00203456
+  - errors:
+    - {label: stat., symerror: 0.00116956}
+    - {label: syst., symerror: 0.000645362}
+    value: -0.00330442
+  - errors:
+    - {label: stat., symerror: 0.00122164}
+    - {label: syst., symerror: 0.000711953}
+    value: -0.00361351
+  - errors:
+    - {label: stat., symerror: 0.000976756}
+    - {label: syst., symerror: 0.000447629}
+    value: -0.00343015
+  - errors:
+    - {label: stat., symerror: 0.00100134}
+    - {label: syst., symerror: 0.000580061}
+    value: -0.00397219
+  - errors:
+    - {label: stat., symerror: 0.000970756}
+    - {label: syst., symerror: 0.000558624}
+    value: -0.004226
+  - errors:
+    - {label: stat., symerror: 0.000849489}
+    - {label: syst., symerror: 0.000281853}
+    value: -0.00268989
+  - errors:
+    - {label: stat., symerror: 0.000945884}
+    - {label: syst., symerror: 0.000510774}
+    value: -0.00409355
+independent_variables:
+- header: {name: Centrality, units: pct}
+  values:
+  - {high: 10, low: 0}
+  - {high: 20, low: 10}
+  - {high: 30, low: 20}
+  - {high: 40, low: 30}
+  - {high: 50, low: 40}
+  - {high: 60, low: 50}
+  - {high: 70, low: 60}
+  - {high: 80, low: 70}

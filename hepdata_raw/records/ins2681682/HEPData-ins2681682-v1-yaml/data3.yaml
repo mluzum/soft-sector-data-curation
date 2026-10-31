@@ -1,0 +1,39 @@
+dependent_variables:
+- header: {name: q2-large/q2-small}
+  qualifiers:
+  - {name: RE, value: '30-50%, R=0.2'}
+  - {name: SQRT(S), units: GEV, value: 5020}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0231249}
+    - {label: sys, symerror: 0.0157909}
+    value: 1.08246
+  - errors:
+    - {label: stat, symerror: 0.0219323}
+    - {label: sys, symerror: 0.00967787}
+    value: 1.0056
+  - errors:
+    - {label: stat, symerror: 0.0333754}
+    - {label: sys, symerror: 0.0162832}
+    value: 0.983208
+  - errors:
+    - {label: stat, symerror: 0.0414706}
+    - {label: sys, symerror: 0.0124435}
+    value: 1.00948
+  - errors:
+    - {label: stat, symerror: 0.0817591}
+    - {label: sys, symerror: 0.0142944}
+    value: 1.04178
+  - errors:
+    - {label: stat, symerror: 0.14094}
+    - {label: sys, symerror: 0.0442908}
+    value: 1.11909
+independent_variables:
+- header: {name: PT charged jet, units: GEV/c}
+  values:
+  - {high: 40, low: 35}
+  - {high: 50, low: 40}
+  - {high: 60, low: 50}
+  - {high: 80, low: 60}
+  - {high: 100, low: 80}
+  - {high: 120, low: 100}

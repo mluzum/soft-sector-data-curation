@@ -1,0 +1,37 @@
+dependent_variables:
+- header: {name: '$\frac{1}{\langle T_{\mathrm{AA}} \rangle} \frac{\mathrm{d} N_{\Upsilon(1\mathrm{S})
+      \rightarrow \mu^{+} \mu^{-}}}{\mathrm{d}y}$', units: pb}
+  qualifiers:
+  - {name: Reaction, value: Pb + Pb --> Upsilon(1S) (--> Mu+ Mu-) + X}
+  - {name: '$\sqrt{s_{\mathrm{NN}}}$', units: TeV, value: '5.02'}
+  - {name: Centrality interval, value: "0\u201390%"}
+  - {name: Global uncertainty, value: 1.5%}
+  values:
+  - errors:
+    - {label: stat, symerror: 44.3}
+    - {label: syst, symerror: 51.0}
+    value: 447.3
+  - errors:
+    - {label: stat, symerror: 20.9}
+    - {label: syst, symerror: 21.4}
+    value: 359.8
+  - errors:
+    - {label: stat, symerror: 23.1}
+    - {label: syst, symerror: 18.9}
+    value: 316.7
+  - errors:
+    - {label: stat, symerror: 14.2}
+    - {label: syst, symerror: 13.4}
+    value: 229.1
+  - errors:
+    - {label: stat, symerror: 16.3}
+    - {label: syst, symerror: 10.1}
+    value: 156.3
+independent_variables:
+- header: {name: Rapidity interval}
+  values:
+  - {high: 2.8, low: 2.5}
+  - {high: 3.1, low: 2.8}
+  - {high: 3.3, low: 3.1}
+  - {high: 3.6, low: 3.3}
+  - {high: 4.0, low: 3.6}

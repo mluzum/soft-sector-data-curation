@@ -1,0 +1,51 @@
+dependent_variables:
+- header: {name: '$\mathrm{d}^{2}\sigma/\mathrm{d}p_\mathrm{T}\mathrm{d}\eta$', units: mb
+      $c$/GeV}
+  qualifiers:
+  - {name: RE, value: P P --> JET $X$}
+  - {name: 'pp $\sqrt{s}$', units: TeV, value: 5.02}
+  - {name: jet method, value: 'Anti-$k_{T}$'}
+  - {name: '$p_\mathrm{T}^{track}$', units: GeV/$c$, value: '> 0.15'}
+  - {name: '$|\eta^{track}|$', value: < 0.9}
+  - {name: '$|\eta^{jet}|$', value: < 0.5}
+  - {name: $R$, value: 0.4}
+  - {name: Method, value: IP}
+  values:
+  - errors:
+    - {label: stat, symerror: 6.550406e-07}
+    - {label: full syst., symerror: 3.691349e-06}
+    value: 1.890133e-05
+  - errors:
+    - {label: stat, symerror: 1.991809e-07}
+    - {label: full syst., symerror: 8.145814e-07}
+    value: 4.386416e-06
+  - errors:
+    - {label: stat, symerror: 7.812431e-08}
+    - {label: full syst., symerror: 2.224271e-07}
+    value: 1.230452e-06
+  - errors:
+    - {label: stat, symerror: 4.177579e-08}
+    - {label: full syst., symerror: 8.003604e-08}
+    value: 4.295903e-07
+  - errors:
+    - {label: stat, symerror: 2.622846e-08}
+    - {label: full syst., symerror: 3.434072e-08}
+    value: 1.765481e-07
+  - errors:
+    - {label: stat, symerror: 1.825934e-08}
+    - {label: full syst., symerror: 1.622017e-08}
+    value: 8.089851e-08
+  - errors:
+    - {label: stat, symerror: 7.980077e-09}
+    - {label: full syst., symerror: 7.729798e-09}
+    value: 3.395137e-08
+independent_variables:
+- header: {name: '$p_\mathrm{T,ch jet}$', units: GeV/$c$}
+  values:
+  - {high: 30, low: 20}
+  - {high: 40, low: 30}
+  - {high: 50, low: 40}
+  - {high: 60, low: 50}
+  - {high: 70, low: 60}
+  - {high: 80, low: 70}
+  - {high: 100, low: 80}

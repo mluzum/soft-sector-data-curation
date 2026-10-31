@@ -1,0 +1,61 @@
+dependent_variables:
+- header: {name: '$d^{2}\sigma/dp_{T}d\eta$', units: mb $c$/GeV}
+  qualifiers:
+  - {name: RE, value: P P --> jet + X}
+  - {name: SQRT(S), units: GEV, value: 5020}
+  - {name: YRAP, value: -0.1 TO 0.1}
+  - {name: jet radius, value: 0.6}
+  - {name: jet method, value: 'Anti-$k_{T}$'}
+  values:
+  - errors:
+    - {label: stat, symerror: 5.448579e-05}
+    - {label: 'sys,correlated', symerror: 0.0006756121}
+    - {label: 'sys,shape', symerror: 9.450807e-05}
+    - {label: 'sys,lumi', symerror: 2.1%}
+    value: 0.006106361
+  - errors:
+    - {label: stat, symerror: 1.348525e-05}
+    - {label: 'sys,correlated', symerror: 0.0001074562}
+    - {label: 'sys,shape', symerror: 1.082027e-05}
+    - {label: 'sys,lumi', symerror: 2.1%}
+    value: 0.001017577
+  - errors:
+    - {label: stat, symerror: 5.516485e-06}
+    - {label: 'sys,correlated', symerror: 2.881437e-05}
+    - {label: 'sys,shape', symerror: 3.0376e-06}
+    - {label: 'sys,lumi', symerror: 2.1%}
+    value: 0.000270698
+  - errors:
+    - {label: stat, symerror: 2.742809e-06}
+    - {label: 'sys,correlated', symerror: 9.907589e-06}
+    - {label: 'sys,shape', symerror: 1.646113e-06}
+    - {label: 'sys,lumi', symerror: 2.1%}
+    value: 9.547687e-05
+  - errors:
+    - {label: stat, symerror: 1.640685e-06}
+    - {label: 'sys,correlated', symerror: 4.173652e-06}
+    - {label: 'sys,shape', symerror: 1.158932e-06}
+    - {label: 'sys,lumi', symerror: 2.1%}
+    value: 4.039193e-05
+  - errors:
+    - {label: stat, symerror: 1.085807e-06}
+    - {label: 'sys,correlated', symerror: 1.982286e-06}
+    - {label: 'sys,shape', symerror: 8.781026e-07}
+    - {label: 'sys,lumi', symerror: 2.1%}
+    value: 1.92672e-05
+  - errors:
+    - {label: stat, symerror: 5.856245e-07}
+    - {label: 'sys,correlated', symerror: 8.332271e-07}
+    - {label: 'sys,shape', symerror: 6.445085e-07}
+    - {label: 'sys,lumi', symerror: 2.1%}
+    value: 7.948703e-06
+independent_variables:
+- header: {name: PTjet, units: GEV}
+  values:
+  - {high: 30, low: 20}
+  - {high: 40, low: 30}
+  - {high: 50, low: 40}
+  - {high: 60, low: 50}
+  - {high: 70, low: 60}
+  - {high: 80, low: 70}
+  - {high: 100, low: 80}

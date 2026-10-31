@@ -1,0 +1,1603 @@
+centrality:
+  classes:
+  - 0.0-30.0%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> PHI X
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: Table1.yaml
+hepdata_table_label: No description provided.
+inspire_id: '1383879'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.280118
+    - 0.440209
+    - 0.615577
+    - 0.805411
+    - 0.999011
+    - 1.22152
+    - 1.494405
+    - 1.793215
+    - 2.092545
+    - 2.406775
+    - 2.85157
+    - 3.551635
+    - 4.42017
+    - 5.315205
+    - 6.207235
+    max: 6.207235
+    min: 0.280118
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (Table1.yaml), which tabulates 14
+    pT centres; converted to edges by midpoint (outer edges extrapolated). The import
+    had collapsed them to a single [min, max] bin, so the v2(pT) shape was not being
+    reproduced.
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  centrality: 0.0-30.0
+  re: AU AU --> PHI X
+  sqrt(s)/nucleon: '200.0'
+value_type: v2
+version: 1
+---
+centrality:
+  classes:
+  - 0.0-80.0%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> (P + PBAR) X
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (pbar) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: Table10.yaml
+hepdata_table_label: No description provided.
+inspire_id: '1383879'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.261582
+    - 0.429812
+    - 0.609078
+    - 0.801933
+    - 0.998308
+    - 1.19612
+    - 1.394675
+    - 1.59369
+    - 1.793025
+    - 1.99262
+    - 2.192455
+    - 2.392505
+    - 2.592715
+    - 2.792945
+    - 3.03099
+    - 3.30689
+    max: 3.30689
+    min: 0.261582
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (Table10.yaml), which tabulates 15
+    pT centres; converted to edges by midpoint (outer edges extrapolated). The import
+    had collapsed them to a single [min, max] bin, so the v2(pT) shape was not being
+    reproduced.
+observable_type: flow_vn
+particle_id:
+  species: pbar
+qualifiers:
+  centrality: 0.0-80.0
+  re: AU AU --> (P + PBAR) X
+  sqrt(s)/nucleon: '200.0'
+value_type: v2
+version: 1
+---
+centrality:
+  classes:
+  - 0.0-30.0%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> (PI+ + PI-) X
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (pi+) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi and
+    is subtracted. INFERRED from the charged rows of the same table, not quoted from
+    the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: Table11.yaml
+hepdata_table_label: No description provided.
+inspire_id: '1383879'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.200427
+    - 0.395386
+    - 0.591759
+    - 0.790075
+    - 0.989233
+    - 1.18899
+    - 1.3893
+    - 1.590125
+    - 1.791305
+    - 1.992505
+    - 2.19337
+    - 2.39371
+    - 2.59348
+    - 2.792655
+    - 3.02389
+    - 3.28749
+    max: 3.28749
+    min: 0.200427
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (Table11.yaml), which tabulates 15
+    pT centres; converted to edges by midpoint (outer edges extrapolated). The import
+    had collapsed them to a single [min, max] bin, so the v2(pT) shape was not being
+    reproduced.
+observable_type: flow_vn
+particle_id:
+  species: pi+
+qualifiers:
+  centrality: 0.0-30.0
+  re: AU AU --> (PI+ + PI-) X
+  sqrt(s)/nucleon: '200.0'
+value_type: v2
+version: 1
+---
+centrality:
+  classes:
+  - 0.0-30.0%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> (P + PBAR) X
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (pbar) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: Table12.yaml
+hepdata_table_label: No description provided.
+inspire_id: '1383879'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.263155
+    - 0.430872
+    - 0.609766
+    - 0.80246
+    - 0.998765
+    - 1.196535
+    - 1.39505
+    - 1.594005
+    - 1.79326
+    - 1.992745
+    - 2.192415
+    - 2.392255
+    - 2.592245
+    - 2.79231
+    - 3.03021
+    - 3.30593
+    max: 3.30593
+    min: 0.263155
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (Table12.yaml), which tabulates 15
+    pT centres; converted to edges by midpoint (outer edges extrapolated). The import
+    had collapsed them to a single [min, max] bin, so the v2(pT) shape was not being
+    reproduced.
+observable_type: flow_vn
+particle_id:
+  species: pbar
+qualifiers:
+  centrality: 0.0-30.0
+  re: AU AU --> (P + PBAR) X
+  sqrt(s)/nucleon: '200.0'
+value_type: v2
+version: 1
+---
+centrality:
+  classes:
+  - 30.0-80.0%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> (K+ + K-) X
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (K+) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi and
+    is subtracted. INFERRED from the charged rows of the same table, not quoted from
+    the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: Table13.yaml
+hepdata_table_label: No description provided.
+inspire_id: '1383879'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.23035
+    - 0.415455
+    - 0.603562
+    - 0.796974
+    - 0.993711
+    - 1.19206
+    - 1.39143
+    - 1.59154
+    - 1.79214
+    - 1.9929
+    - 2.19348
+    - 2.39366
+    - 2.593325
+    - 2.79237
+    - 3.021325
+    - 3.280535
+    max: 3.280535
+    min: 0.23035
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (Table13.yaml), which tabulates 15
+    pT centres; converted to edges by midpoint (outer edges extrapolated). The import
+    had collapsed them to a single [min, max] bin, so the v2(pT) shape was not being
+    reproduced.
+observable_type: flow_vn
+particle_id:
+  species: K+
+qualifiers:
+  centrality: 30.0-80.0
+  re: AU AU --> (K+ + K-) X
+  sqrt(s)/nucleon: '200.0'
+value_type: v2
+version: 1
+---
+centrality:
+  classes: []
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> PBAR X
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: Table14.yaml
+hepdata_table_label: No description provided.
+inspire_id: '1383879'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.304311
+    - 0.402729
+    - 0.501397
+    - 0.600426
+    - 0.699632
+    - 0.798991
+    - 0.898673
+    - 1.021676
+    - 1.193875
+    - 1.3922
+    - 1.59079
+    - 1.79033
+    - 1.98996
+    - 2.229505
+    - 2.565765
+    - 2.98623
+    - 3.46335
+    - 3.95788
+    - 4.438815
+    - 4.939575
+    - 5.44701
+    - 6.080055
+    - 7.11297
+    - 8.40463
+    max: 8.40463
+    min: 0.304311
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (Table14.yaml), which tabulates 23
+    pT centres; converted to edges by midpoint (outer edges extrapolated). The import
+    had collapsed them to a single [min, max] bin, so the v2(pT) shape was not being
+    reproduced.
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  k0-short v2: centrality centrality
+value_type: v2
+version: 1
+---
+centrality:
+  classes: []
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> PBAR X
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: Table15.yaml
+hepdata_table_label: No description provided.
+inspire_id: '1383879'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.40211
+    - 0.50791
+    - 0.61067
+    - 0.709285
+    - 0.807965
+    - 0.90398
+    - 1.029285
+    - 1.2023
+    - 1.3931
+    - 1.58655
+    - 1.7816
+    - 1.9778
+    - 2.23085
+    - 2.58265
+    - 3.0
+    - 3.4748
+    - 3.96485
+    - 4.46045
+    - 4.96275
+    - 5.455
+    - 6.06735
+    - 7.10535
+    - 8.45525
+    max: 8.45525
+    min: 0.40211
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (Table15.yaml), which tabulates 22
+    pT centres; converted to edges by midpoint (outer edges extrapolated). The import
+    had collapsed them to a single [min, max] bin, so the v2(pT) shape was not being
+    reproduced.
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  lambda v2: centrality centrality
+value_type: v2
+version: 1
+---
+centrality:
+  classes:
+  - 30.0-80.0%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> (PI+ + PI-) X
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (pi+) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi and
+    is subtracted. INFERRED from the charged rows of the same table, not quoted from
+    the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: Table16.yaml
+hepdata_table_label: No description provided.
+inspire_id: '1383879'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.198629
+    - 0.394059
+    - 0.590859
+    - 0.789521
+    - 0.988969
+    - 1.18896
+    - 1.38945
+    - 1.590385
+    - 1.791575
+    - 1.992705
+    - 2.193485
+    - 2.393775
+    - 2.59355
+    - 2.79281
+    - 3.025985
+    - 3.293335
+    max: 3.293335
+    min: 0.198629
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (Table16.yaml), which tabulates 15
+    pT centres; converted to edges by midpoint (outer edges extrapolated). The import
+    had collapsed them to a single [min, max] bin, so the v2(pT) shape was not being
+    reproduced.
+observable_type: flow_vn
+particle_id:
+  species: pi+
+qualifiers:
+  centrality: 30.0-80.0
+  re: AU AU --> (PI+ + PI-) X
+  sqrt(s)/nucleon: '200.0'
+value_type: v2
+version: 1
+---
+centrality:
+  classes:
+  - 30.0-80.0%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> (P + PBAR) X
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (pbar) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: Table17.yaml
+hepdata_table_label: No description provided.
+inspire_id: '1383879'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.261066
+    - 0.428766
+    - 0.607748
+    - 0.80059
+    - 0.996991
+    - 1.194855
+    - 1.39351
+    - 1.592695
+    - 1.79231
+    - 1.99234
+    - 2.19276
+    - 2.393445
+    - 2.594145
+    - 2.79451
+    - 3.03216
+    - 3.30736
+    max: 3.30736
+    min: 0.261066
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (Table17.yaml), which tabulates 15
+    pT centres; converted to edges by midpoint (outer edges extrapolated). The import
+    had collapsed them to a single [min, max] bin, so the v2(pT) shape was not being
+    reproduced.
+observable_type: flow_vn
+particle_id:
+  species: pbar
+qualifiers:
+  centrality: 30.0-80.0
+  re: AU AU --> (P + PBAR) X
+  sqrt(s)/nucleon: '200.0'
+value_type: v2
+version: 1
+---
+centrality:
+  classes:
+  - 30.0-80.0%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> (K+ + K-) X
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (K+) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi and
+    is subtracted. INFERRED from the charged rows of the same table, not quoted from
+    the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: Table18.yaml
+hepdata_table_label: No description provided.
+inspire_id: '1383879'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.230293
+    - 0.415122
+    - 0.603153
+    - 0.796665
+    - 0.99348
+    - 1.19192
+    - 1.3914
+    - 1.59164
+    - 1.79235
+    - 1.99316
+    - 2.193735
+    - 2.39387
+    - 2.59349
+    - 2.79252
+    - 3.021955
+    - 3.282125
+    max: 3.282125
+    min: 0.230293
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (Table18.yaml), which tabulates 15
+    pT centres; converted to edges by midpoint (outer edges extrapolated). The import
+    had collapsed them to a single [min, max] bin, so the v2(pT) shape was not being
+    reproduced.
+observable_type: flow_vn
+particle_id:
+  species: K+
+qualifiers:
+  centrality: 30.0-80.0
+  re: AU AU --> (K+ + K-) X
+  sqrt(s)/nucleon: '200.0'
+value_type: v2
+version: 1
+---
+centrality:
+  classes:
+  - 30-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> PBAR X
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: Table19.yaml
+hepdata_table_label: No description provided.
+inspire_id: '1383879'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.303084
+    - 0.401862
+    - 0.500784
+    - 0.599919
+    - 0.699172
+    - 0.798595
+    - 0.898516
+    - 1.022039
+    - 1.19459
+    - 1.39289
+    - 1.59114
+    - 1.7899
+    - 1.990755
+    - 2.23125
+    - 2.5676
+    - 2.996145
+    - 3.478865
+    - 3.970375
+    - 4.45442
+    - 4.948655
+    - 5.331805
+    - 5.971765
+    - 7.113945
+    - 8.383795
+    max: 8.383795
+    min: 0.303084
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (Table19.yaml), which tabulates 23
+    pT centres; converted to edges by midpoint (outer edges extrapolated). The import
+    had collapsed them to a single [min, max] bin, so the v2(pT) shape was not being
+    reproduced.
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  k0-short v2: 30-80% centrality
+value_type: v2
+version: 1
+---
+centrality:
+  classes:
+  - 30.0-80.0%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> PHI X
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: Table2.yaml
+hepdata_table_label: No description provided.
+inspire_id: '1383879'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.279624
+    - 0.440702
+    - 0.615631
+    - 0.805477
+    - 0.999426
+    - 1.221865
+    - 1.49484
+    - 1.793215
+    - 2.092545
+    - 2.406775
+    - 2.744515
+    - 3.124975
+    - 3.651545
+    - 4.42017
+    - 5.31821
+    max: 5.31821
+    min: 0.279624
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (Table2.yaml), which tabulates 14
+    pT centres; converted to edges by midpoint (outer edges extrapolated). The import
+    had collapsed them to a single [min, max] bin, so the v2(pT) shape was not being
+    reproduced.
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  centrality: 30.0-80.0
+  re: AU AU --> PHI X
+  sqrt(s)/nucleon: '200.0'
+value_type: v2
+version: 1
+---
+centrality:
+  classes:
+  - 30.0-80.0%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> (LAMBDA + LAMBDABAR) X
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (Lambda) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: Table20.yaml
+hepdata_table_label: No description provided.
+inspire_id: '1383879'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.402995
+    - 0.507025
+    - 0.60698
+    - 0.70703
+    - 0.809395
+    - 0.90715
+    - 1.028625
+    - 1.2
+    - 1.3925
+    - 1.58395
+    - 1.78035
+    - 1.9878
+    - 2.24665
+    - 2.5906
+    - 3.00645
+    - 3.47865
+    - 3.9746
+    - 4.4698
+    - 4.9616
+    - 5.4555
+    - 6.0894
+    - 7.1526
+    - 8.5116
+    max: 8.5116
+    min: 0.402995
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (Table20.yaml), which tabulates 22
+    pT centres; converted to edges by midpoint (outer edges extrapolated). The import
+    had collapsed them to a single [min, max] bin, so the v2(pT) shape was not being
+    reproduced.
+observable_type: flow_vn
+particle_id:
+  species: Lambda
+qualifiers:
+  centrality: 30.0-80.0
+  re: AU AU --> (LAMBDA + LAMBDABAR) X
+  sqrt(s)/nucleon: '200.0'
+value_type: v2
+version: 1
+---
+centrality:
+  classes:
+  - 0.0-30.0%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> PHI X
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (p) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi and
+    is subtracted. INFERRED from the charged rows of the same table, not quoted from
+    the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: Table21.yaml
+hepdata_table_label: No description provided.
+inspire_id: '1383879'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.280118
+    - 0.440209
+    - 0.615577
+    - 0.805411
+    - 0.999011
+    - 1.22152
+    - 1.46836
+    max: 1.46836
+    min: 0.280118
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (Table21.yaml), which tabulates 6
+    pT centres; converted to edges by midpoint (outer edges extrapolated). The import
+    had collapsed them to a single [min, max] bin, so the v2(pT) shape was not being
+    reproduced.
+observable_type: flow_vn
+particle_id:
+  species: p
+qualifiers:
+  centrality: 0.0-30.0
+  re: AU AU --> PHI X
+value_type: v2(phi)/v2(proton)
+version: 1
+---
+centrality:
+  classes:
+  - 30.0-80.0%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> PHI X
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (p) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi and
+    is subtracted. INFERRED from the charged rows of the same table, not quoted from
+    the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: Table22.yaml
+hepdata_table_label: No description provided.
+inspire_id: '1383879'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.426849
+    - 0.615631
+    - 0.805477
+    - 0.999426
+    - 1.221865
+    - 1.469755
+    max: 1.469755
+    min: 0.426849
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (Table22.yaml), which tabulates 5
+    pT centres; converted to edges by midpoint (outer edges extrapolated). The import
+    had collapsed them to a single [min, max] bin, so the v2(pT) shape was not being
+    reproduced.
+observable_type: flow_vn
+particle_id:
+  species: p
+qualifiers:
+  centrality: 30.0-80.0
+  re: AU AU --> PHI X
+value_type: v2(phi)/v2(proton)
+version: 1
+---
+centrality:
+  classes:
+  - 0.0-80.0%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> PHI X
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (p) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi and
+    is subtracted. INFERRED from the charged rows of the same table, not quoted from
+    the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: Table23.yaml
+hepdata_table_label: No description provided.
+inspire_id: '1383879'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.281444
+    - 0.440596
+    - 0.615631
+    - 0.80653
+    - 1.000544
+    - 1.197696
+    max: 1.197696
+    min: 0.281444
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (Table23.yaml), which tabulates 5
+    pT centres; converted to edges by midpoint (outer edges extrapolated). The import
+    had collapsed them to a single [min, max] bin, so the v2(pT) shape was not being
+    reproduced.
+observable_type: flow_vn
+particle_id:
+  species: p
+qualifiers:
+  centrality: 0.0-80.0
+  re: AU AU --> PHI X
+value_type: v2(phi)/v2(proton)
+version: 1
+---
+centrality:
+  classes:
+  - 0.0-30.0%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> (XI- + XIBAR+) X
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: Table3.yaml
+hepdata_table_label: No description provided.
+inspire_id: '1383879'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.51985
+    - 0.78035
+    - 1.00635
+    - 1.22155
+    - 1.49205
+    - 1.78915
+    - 2.08015
+    - 2.37405
+    - 2.67275
+    - 2.9863
+    - 3.3006
+    - 3.616
+    - 4.0505
+    - 4.8155
+    - 5.801
+    - 6.7812
+    max: 6.7812
+    min: 0.51985
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (Table3.yaml), which tabulates 15
+    pT centres; converted to edges by midpoint (outer edges extrapolated). The import
+    had collapsed them to a single [min, max] bin, so the v2(pT) shape was not being
+    reproduced.
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  centrality: 0.0-30.0
+  re: AU AU --> (XI- + XIBAR+) X
+  sqrt(s)/nucleon: '200.0'
+value_type: v2
+version: 1
+---
+centrality:
+  classes:
+  - 30.0-80.0%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> (XI- + XIBAR+) X
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: Table4.yaml
+hepdata_table_label: No description provided.
+inspire_id: '1383879'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.51985
+    - 0.78035
+    - 1.0063
+    - 1.22155
+    - 1.4922
+    - 1.7894
+    - 2.08035
+    - 2.37415
+    - 2.6727
+    - 2.9863
+    - 3.2907
+    - 3.5959
+    - 4.04085
+    - 4.8159
+    - 5.8057
+    max: 5.8057
+    min: 0.51985
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (Table4.yaml), which tabulates 14
+    pT centres; converted to edges by midpoint (outer edges extrapolated). The import
+    had collapsed them to a single [min, max] bin, so the v2(pT) shape was not being
+    reproduced.
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  centrality: 30.0-80.0
+  re: AU AU --> (XI- + XIBAR+) X
+  sqrt(s)/nucleon: '200.0'
+value_type: v2
+version: 1
+---
+centrality:
+  classes:
+  - 0.0-30.0%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> (OMEGA- + OMEGABAR+) X
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: Table5.yaml
+hepdata_table_label: No description provided.
+inspire_id: '1383879'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.750036
+    - 1.193986
+    - 1.58462
+    - 1.90073
+    - 2.21948
+    - 2.587285
+    - 3.00125
+    - 3.46643
+    - 4.02613
+    - 4.65009
+    max: 4.65009
+    min: 0.750036
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (Table5.yaml), which tabulates 9
+    pT centres; converted to edges by midpoint (outer edges extrapolated). The import
+    had collapsed them to a single [min, max] bin, so the v2(pT) shape was not being
+    reproduced.
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  centrality: 0.0-30.0
+  re: AU AU --> (OMEGA- + OMEGABAR+) X
+  sqrt(s)/nucleon: '200.0'
+value_type: v2
+version: 1
+---
+centrality:
+  classes:
+  - 30.0-80.0%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> (OMEGA- + OMEGABAR+) X
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: Table6.yaml
+hepdata_table_label: No description provided.
+inspire_id: '1383879'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.750036
+    - 1.193986
+    - 1.58462
+    - 1.90073
+    - 2.21948
+    - 2.587285
+    - 3.00125
+    - 3.46643
+    - 4.02613
+    - 4.65009
+    max: 4.65009
+    min: 0.750036
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (Table6.yaml), which tabulates 9
+    pT centres; converted to edges by midpoint (outer edges extrapolated). The import
+    had collapsed them to a single [min, max] bin, so the v2(pT) shape was not being
+    reproduced.
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  centrality: 30.0-80.0
+  re: AU AU --> (OMEGA- + OMEGABAR+) X
+  sqrt(s)/nucleon: '200.0'
+value_type: v2
+version: 1
+---
+centrality:
+  classes:
+  - 0.0-80.0%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> PHI X
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: Table7.yaml
+hepdata_table_label: No description provided.
+inspire_id: '1383879'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.281444
+    - 0.440596
+    - 0.615631
+    - 0.80653
+    - 1.000544
+    - 1.222055
+    - 1.496895
+    - 1.796705
+    - 2.09275
+    - 2.406975
+    - 2.746615
+    - 3.12613
+    - 3.65209
+    - 4.431105
+    - 5.349135
+    max: 5.349135
+    min: 0.281444
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (Table7.yaml), which tabulates 14
+    pT centres; converted to edges by midpoint (outer edges extrapolated). The import
+    had collapsed them to a single [min, max] bin, so the v2(pT) shape was not being
+    reproduced.
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  centrality: 0.0-80.0
+  re: AU AU --> PHI X
+  sqrt(s)/nucleon: '200.0'
+value_type: v2
+version: 1
+---
+centrality:
+  classes:
+  - 0.0-80.0%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> (OMEGA- + OMEGABAR+) X
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: Table8.yaml
+hepdata_table_label: No description provided.
+inspire_id: '1383879'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.85776
+    - 1.08326
+    - 1.32352
+    - 1.602155
+    - 1.90073
+    - 2.21948
+    - 2.587285
+    - 3.00125
+    - 3.46643
+    - 4.026085
+    - 4.649955
+    max: 4.649955
+    min: 0.85776
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (Table8.yaml), which tabulates 10
+    pT centres; converted to edges by midpoint (outer edges extrapolated). The import
+    had collapsed them to a single [min, max] bin, so the v2(pT) shape was not being
+    reproduced.
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  centrality: 0.0-80.0
+  re: AU AU --> (OMEGA- + OMEGABAR+) X
+  sqrt(s)/nucleon: '200.0'
+value_type: v2
+version: 1
+---
+centrality:
+  classes:
+  - 0.0-80.0%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> (PI+ + PI-) X
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (pi+) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi and
+    is subtracted. INFERRED from the charged rows of the same table, not quoted from
+    the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: Table9.yaml
+hepdata_table_label: No description provided.
+inspire_id: '1383879'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.19989
+    - 0.395004
+    - 0.591513
+    - 0.789929
+    - 0.989167
+    - 1.18898
+    - 1.389325
+    - 1.590175
+    - 1.791365
+    - 1.99256
+    - 2.19343
+    - 2.39379
+    - 2.5936
+    - 2.79285
+    - 3.0252
+    - 3.29094
+    max: 3.29094
+    min: 0.19989
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (Table9.yaml), which tabulates 15
+    pT centres; converted to edges by midpoint (outer edges extrapolated). The import
+    had collapsed them to a single [min, max] bin, so the v2(pT) shape was not being
+    reproduced.
+observable_type: flow_vn
+particle_id:
+  species: pi+
+qualifiers:
+  centrality: 0.0-80.0
+  re: AU AU --> (PI+ + PI-) X
+  sqrt(s)/nucleon: '200.0'
+value_type: v2
+version: 1

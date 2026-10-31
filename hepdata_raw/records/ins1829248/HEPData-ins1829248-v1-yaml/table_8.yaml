@@ -1,0 +1,42 @@
+dependent_variables:
+- header: {name: '$<m_{\mu\mu}>$', units: GeV}
+  qualifiers:
+  - {name: SQRT(S_NN), units: GeV, value: 5020}
+  - {name: '$p_{T}^{\mu}$', value: '> 3.5 GeV'}
+  - {name: '$|\eta^{\mu}|$', value: < 2.4}
+  - {name: '$|y_{\mu\mu}|$', value: < 2.4}
+  - {name: '$m_{\mu\mu}$', value: '$8< m_{\mu\mu} < 60$ GeV'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.02}
+    - {label: sys, symerror: 0.01}
+    value: 12.55
+  - errors:
+    - {label: stat, symerror: 0.11}
+    - {label: sys, symerror: 0.06}
+    value: 13.75
+  - errors:
+    - {label: stat, symerror: 0.07}
+    - {label: sys, symerror: 0.05}
+    value: 13.73
+  - errors:
+    - {label: stat, symerror: 0.43}
+    - {label: sys, symerror: 0.25}
+    value: 13.85
+  - errors:
+    - {label: stat, symerror: 0.2}
+    - {label: sys, symerror: 0.18}
+    value: 14.53
+  - errors:
+    - {label: stat, symerror: 0.17}
+    - {label: sys, symerror: 0.08}
+    value: 14.63
+independent_variables:
+- header: {name: neutron multiplicity}
+  values:
+  - {value: 0n0n}
+  - {value: 0n1n}
+  - {value: 0nXn}
+  - {value: 1n1n}
+  - {value: 1nXn}
+  - {value: XnXn}

@@ -1,0 +1,21 @@
+dependent_variables:
+- header: {name: SIG(Q=2S)/SIG(Q=1S)}
+  qualifiers:
+  - {name: PT, units: GEV, value: '> 0.0'}
+  - {name: RE(Q=1S), value: P PB --> UPSI(1S)<MU+MU-> X}
+  - {name: RE(Q=2S), value: P PB --> UPSI(2S)<MU+MU-> X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.09}
+    - {label: sys, symerror: 0.04}
+    value: 0.26
+  - errors:
+    - {label: stat, symerror: 0.08}
+    - {label: sys, symerror: 0.04}
+    value: 0.27
+independent_variables:
+- header: {name: YRAP}
+  values:
+  - {high: -2.96, low: -4.46}
+  - {high: 3.53, low: 2.03}

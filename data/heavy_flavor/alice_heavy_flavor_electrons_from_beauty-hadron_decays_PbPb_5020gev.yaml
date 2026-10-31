@@ -1,0 +1,183 @@
+---
+observable_type: heavy_flavor
+inspire_id: '2593282'
+version: 1
+hepdata_file: Table1.yaml
+hepdata_table_label: '$p_{T}$-differential cross section of electrons from beauty-hadron decays in pp collisions at $\sqrt{s}=5.02$
+  TeV. The rapidity of electrons is |y| < 0.8.
+
+  '
+qualifiers:
+  normalization uncertainity: 2.1%
+  re: pp -> b(->c)->e + X
+  sqrt(s): '5020.0'
+  yrap: -0.8 to 0.8
+collision_system:
+  energy_gev: 5020.0
+  reaction: pp -> b(->c)->e + X
+centrality:
+  classes:
+  - 2-2.5%
+  - 2.5-3%
+  - 3-4%
+  - 4-5%
+  - 5-6%
+  - 6-8%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: Sigma
+  particle: D0
+kinematic_range:
+  pT:
+    min: 2.0
+    max: 8.0
+    bins:
+    - 2.0
+    - 2.5
+    - 3.0
+    - 4.0
+    - 5.0
+    - 6.0
+    - 8.0
+  eta:
+    min: -0.8
+    max: 0.8
+    bins:
+    - -0.8
+    - 0.8
+observable: d0_invariant_yield
+value_type: invariant_yield
+particle: D0
+---
+observable_type: heavy_flavor
+inspire_id: '2593282'
+version: 1
+hepdata_file: Table2.yaml
+hepdata_table_label: 'Yield of beauty-hadron decay electrons in 0--10% central Pb--Pb collisions at $\sqrt{s_{\rm{NN}}} =
+  5.02$ TeV. The rapidity of electrons for $p_{T} < 8$ GeV/c is |y| < 0.8 and |y| < 0.6 for $p_{T} > 8$ GeV/c.
+
+  '
+qualifiers:
+  centrality: 0-10%
+  normalization uncertainity on <taa>: 0.72%
+  re: Pb Pb -> b(->c)->e + X
+  sqrt(s)/nucleon: '5020.0'
+  yrap ($p_{t}$ < 8 gev/c): -0.8 to 0.8
+  yrap ($p_{t}$ > 8 gev/c): -0.6 to 0.6
+collision_system:
+  energy_gev: 5020.0
+  reaction: Pb Pb -> b(->c)->e + X
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: e-
+  particle: D0
+kinematic_range:
+  pT:
+    min: 2.0
+    max: 26.0
+    bins:
+    - 2.0
+    - 2.5
+    - 3.0
+    - 4.0
+    - 5.0
+    - 6.0
+    - 8.0
+    - 10.0
+    - 12.0
+    - 14.0
+    - 16.0
+    - 18.0
+    - 20.0
+    - 26.0
+  eta:
+    min: -0.8
+    max: 0.8
+    bins:
+    - -0.8
+    - 0.8
+observable: d0_invariant_yield
+value_type: invariant_yield
+particle: D0
+---
+observable_type: heavy_flavor
+inspire_id: '2593282'
+version: 1
+hepdata_file: Table3.yaml
+hepdata_table_label: 'The nuclear modification factor for beauty-hadron decay electrons in 0--10% central Pb--Pb collisions
+  at $\sqrt{s_{\rm{NN}}} = 5.02$ TeV. The rapidity of electrons for $p_{T} < 8$ GeV/c is |y| < 0.8 and |y| < 0.6 for $p_{T}
+  > 8$ GeV/c.
+
+  '
+qualifiers:
+  centrality: 0-10%
+  normalization uncertainity: 2.2%
+  re: Pb Pb -> b(->c)->e + X
+  sqrt(s)/nucleon: '5020.0'
+  yrap ($p_{t}$ < 8 gev/c): -0.8 to 0.8
+  yrap ($p_{t}$ > 8 gev/c): -0.6 to 0.6
+collision_system:
+  energy_gev: 5020.0
+  reaction: Pb Pb -> b(->c)->e + X
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: e-
+  particle: D0
+kinematic_range:
+  pT:
+    min: 2.0
+    max: 26.0
+    bins:
+    - 2.0
+    - 2.5
+    - 3.0
+    - 4.0
+    - 5.0
+    - 6.0
+    - 8.0
+    - 10.0
+    - 12.0
+    - 14.0
+    - 16.0
+    - 18.0
+    - 20.0
+    - 26.0
+  eta:
+    min: -0.8
+    max: 0.8
+    bins:
+    - -0.8
+    - 0.8
+observable: d0_invariant_yield
+value_type: invariant_yield
+particle: D0

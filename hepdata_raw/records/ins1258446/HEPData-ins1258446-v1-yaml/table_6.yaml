@@ -1,0 +1,38 @@
+dependent_variables:
+- header: {name: 'Invariant Yield $Bd^2N/(2\pi p_Tdydp_T) [(GeV/c)^{-2}]$'}
+  qualifiers:
+  - {name: $p_T$ range (GeV/c), value: Cu+Cu Centrality 0-60%}
+  values:
+  - errors:
+    - {label: stat, symerror: 3.57e-06}
+    - asymerror: {minus: -2.0e-06, plus: 2.0e-06}
+      label: sys
+    - {label: global, symerror: 0.0}
+    value: 7.48e-06
+  - errors:
+    - {label: stat, symerror: 1.88e-06}
+    - asymerror: {minus: -1.27e-06, plus: 1.27e-06}
+      label: sys
+    - {label: global, symerror: 0.0}
+    value: 3.56e-06
+- header: {name: '$R_{AA}$'}
+  qualifiers:
+  - {name: $p_T$ range (GeV/c), value: Au+Au Centrality 0-60%}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.49}
+    - asymerror: {minus: -0.27, plus: 0.27}
+      label: sys
+    - {label: global, symerror: 0.19}
+    value: 1.03
+  - errors:
+    - {label: stat, symerror: 0.5}
+    - asymerror: {minus: -0.34, plus: 0.34}
+      label: sys
+    - {label: global, symerror: 0.17}
+    value: 0.95
+independent_variables:
+- header: {name: $p_T$ range (GeV/c)}
+  values:
+  - {high: 1, low: 0, value: 0.47}
+  - {high: 2, low: 1, value: 1.43}

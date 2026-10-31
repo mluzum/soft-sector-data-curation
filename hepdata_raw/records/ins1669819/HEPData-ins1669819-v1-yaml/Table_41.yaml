@@ -1,0 +1,106 @@
+dependent_variables:
+- header: {name: 'RAA(D0,D+,D*+)/RAA(charged particles)'}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 0.0-10.0}
+  - {name: ETA, value: -0.8 TO 0.8 (charged particles)}
+  - {name: RE, value: PB PB --> D*+ X}
+  - {name: RE, value: PB PB --> D+ X}
+  - {name: RE, value: PB PB --> D0 X}
+  - {name: RE, value: PB PB --> X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  - {name: YRAP, value: '-0.5 TO 0.5 (D0, D+, D*+)'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.523}
+    - asymerror: {minus: -0.62, plus: 0.509}
+      label: sys
+    - {label: 'sys,sys,uncertainty on proton-proton cross-section', symerror: 4.2%}
+    value: 2.258
+  - errors:
+    - {label: stat, symerror: 0.168}
+    - asymerror: {minus: -0.321, plus: 0.282}
+      label: sys
+    - {label: 'sys,sys,uncertainty on proton-proton cross-section', symerror: 4.2%}
+    value: 1.949
+  - errors:
+    - {label: stat, symerror: 0.116}
+    - asymerror: {minus: -0.262, plus: 0.248}
+      label: sys
+    - {label: 'sys,sys,uncertainty on proton-proton cross-section', symerror: 4.2%}
+    value: 1.758
+  - errors:
+    - {label: stat, symerror: 0.118}
+    - asymerror: {minus: -0.268, plus: 0.261}
+      label: sys
+    - {label: 'sys,sys,uncertainty on proton-proton cross-section', symerror: 4.2%}
+    value: 1.768
+  - errors:
+    - {label: stat, symerror: 0.108}
+    - asymerror: {minus: -0.235, plus: 0.232}
+      label: sys
+    - {label: 'sys,sys,uncertainty on proton-proton cross-section', symerror: 4.2%}
+    value: 1.576
+  - errors:
+    - {label: stat, symerror: 0.123}
+    - asymerror: {minus: -0.236, plus: 0.238}
+      label: sys
+    - {label: 'sys,sys,uncertainty on proton-proton cross-section', symerror: 4.2%}
+    value: 1.582
+  - errors:
+    - {label: stat, symerror: 0.139}
+    - asymerror: {minus: -0.233, plus: 0.237}
+      label: sys
+    - {label: 'sys,sys,uncertainty on proton-proton cross-section', symerror: 4.2%}
+    value: 1.534
+  - errors:
+    - {label: stat, symerror: 0.096}
+    - asymerror: {minus: -0.191, plus: 0.193}
+      label: sys
+    - {label: 'sys,sys,uncertainty on proton-proton cross-section', symerror: 4.2%}
+    value: 1.375
+  - errors:
+    - {label: stat, symerror: 0.117}
+    - asymerror: {minus: -0.174, plus: 0.178}
+      label: sys
+    - {label: 'sys,sys,uncertainty on proton-proton cross-section', symerror: 4.2%}
+    value: 1.243
+  - errors:
+    - {label: stat, symerror: 0.108}
+    - asymerror: {minus: -0.16, plus: 0.165}
+      label: sys
+    - {label: 'sys,sys,uncertainty on proton-proton cross-section', symerror: 4.2%}
+    value: 1.156
+  - errors:
+    - {label: stat, symerror: 0.139}
+    - asymerror: {minus: -0.153, plus: 0.159}
+      label: sys
+    - {label: 'sys,sys,uncertainty on proton-proton cross-section', symerror: 4.2%}
+    value: 1.067
+  - errors:
+    - {label: stat, symerror: 0.169}
+    - asymerror: {minus: -0.175, plus: 0.146}
+      label: sys
+    - {label: 'sys,sys,uncertainty on proton-proton cross-section', symerror: 4.2%}
+    value: 0.92
+  - errors:
+    - {label: stat, symerror: 0.224}
+    - asymerror: {minus: -0.274, plus: 0.216}
+      label: sys
+    - {label: 'sys,sys,uncertainty on proton-proton cross-section', symerror: 4.2%}
+    value: 1.043
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {high: 2.0, low: 1.0}
+  - {high: 3.0, low: 2.0}
+  - {high: 4.0, low: 3.0}
+  - {high: 5.0, low: 4.0}
+  - {high: 6.0, low: 5.0}
+  - {high: 7.0, low: 6.0}
+  - {high: 8.0, low: 7.0}
+  - {high: 10.0, low: 8.0}
+  - {high: 12.0, low: 10.0}
+  - {high: 16.0, low: 12.0}
+  - {high: 24.0, low: 16.0}
+  - {high: 36.0, low: 24.0}
+  - {high: 50.0, low: 36.0}

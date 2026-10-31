@@ -1,0 +1,66 @@
+dependent_variables:
+- header: {name: '(1/TAA)(1/NEVT)*D2(NJET)/DPT/DYRAP [nb/GEV]'}
+  qualifiers:
+  - {name: ABS(YRAP), value: '|y| < 2.8'}
+  - {name: R(JETS), value: '0.4'}
+  - {name: RE, value: PB PB --> JET(S) X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  - {name: CENTRALITY, value: 10-20 ptc}
+  values:
+  - errors:
+    - asymerror: {minus: -0.0543, plus: 0.0541}
+      label: sys
+    - {label: stat, symerror: 0.0019}
+    value: 0.5918
+  - errors:
+    - asymerror: {minus: -0.0142, plus: 0.0143}
+      label: sys
+    - {label: stat, symerror: 0.0006}
+    value: 0.1745
+  - errors:
+    - asymerror: {minus: -0.00409, plus: 0.00407}
+      label: sys
+    - {label: stat, symerror: 0.00023}
+    value: 0.04868
+  - errors:
+    - asymerror: {minus: -0.001, plus: 0.001}
+      label: sys
+    - {label: stat, symerror: 0.0001}
+    value: 0.0126
+  - errors:
+    - asymerror: {minus: -0.00025, plus: 0.00025}
+      label: sys
+    - {label: stat, symerror: 4.0e-05}
+    value: 0.003
+  - errors:
+    - asymerror: {minus: -5.2e-05, plus: 5.0e-05}
+      label: sys
+    - {label: stat, symerror: 1.8e-05}
+    value: 0.000655
+  - errors:
+    - asymerror: {minus: -1.0e-05, plus: 1.0e-05}
+      label: sys
+    - {label: stat, symerror: 7.0e-06}
+    value: 0.000128
+  - errors:
+    - asymerror: {minus: -1.7e-06, plus: 1.7e-06}
+      label: sys
+    - {label: stat, symerror: 2.5e-06}
+    value: 1.87e-05
+  - errors:
+    - asymerror: {minus: -6.0e-07, plus: 6.0e-07}
+      label: sys
+    - {label: stat, symerror: 1.0e-06}
+    value: 3.9e-06
+independent_variables:
+- header: {name: 'PT [GEV]', units: GeV}
+  values:
+  - {high: 126, low: 100}
+  - {high: 158, low: 126}
+  - {high: 200, low: 158}
+  - {high: 251, low: 200}
+  - {high: 316, low: 251}
+  - {high: 398, low: 316}
+  - {high: 501, low: 398}
+  - {high: 631, low: 501}
+  - {high: 800, low: 631}

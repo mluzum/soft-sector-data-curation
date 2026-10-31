@@ -1,0 +1,52 @@
+dependent_variables:
+- header: {name: SIG(P + PBAR)/SIG(PHI)}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 0.0-10.0}
+  - {name: RE(P + PBAR), value: PB PB --> (P + PBAR) X}
+  - {name: RE(PHI), value: PB PB --> PHI < K- K+ > X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  - {name: YRAP, value: -0.5-0.5}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.252}
+    - {label: sys, symerror: 0.532}
+    value: 4.901
+  - errors:
+    - {label: stat, symerror: 0.175}
+    - {label: sys, symerror: 0.392}
+    value: 4.648
+  - errors:
+    - {label: stat, symerror: 0.261}
+    - {label: sys, symerror: 0.411}
+    value: 5.169
+  - errors:
+    - {label: stat, symerror: 0.288}
+    - {label: sys, symerror: 0.546}
+    value: 5.154
+  - errors:
+    - {label: stat, symerror: 0.326}
+    - {label: sys, symerror: 0.474}
+    value: 5.094
+  - errors:
+    - {label: stat, symerror: 0.35}
+    - {label: sys, symerror: 0.458}
+    value: 5.004
+  - errors:
+    - {label: stat, symerror: 0.299}
+    - {label: sys, symerror: 0.663}
+    value: 4.559
+  - errors:
+    - {label: stat, symerror: 0.38}
+    - {label: sys, symerror: 0.686}
+    value: 3.518
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {high: 0.8, low: 0.5}
+  - {high: 1.0, low: 0.8}
+  - {high: 1.5, low: 1.0}
+  - {high: 2.0, low: 1.5}
+  - {high: 2.5, low: 2.0}
+  - {high: 3.0, low: 2.5}
+  - {high: 4.0, low: 3.0}
+  - {high: 5.0, low: 4.0}

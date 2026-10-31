@@ -1,0 +1,1759 @@
+additional_resources:
+- {description: analysis output file containing all data shown here, location: SpectralShapeEvolution.root}
+- {description: python script used to create this HEPData entry from the attached
+    root file, location: makeHEPDataEntry.py}
+comment: CERN-LHC. ALICE. Multiplicity ($N_{\mathrm{ch}}$) distributions and transverse
+  momentum ($p_{\mathrm{T}}$) spectra of inclusive primary charged particles in the
+  kinematic range of $|\eta| < 0.8$ and $0.15\ \mathrm{GeV}/c < p_{\mathrm{T}} < 10\
+  \mathrm{GeV}/c$ are reported for pp, p-Pb, Xe-Xe and Pb-Pb collisions at centre-of-mass
+  energies per nucleon pair ranging from $\sqrt{s_\mathrm{NN}} = 2.76\ \mathrm{TeV}$
+  up to $13\ \mathrm{TeV}$. The multiplicity distributions are also shown in their
+  KNO-scaled form. The correlation between the transverse momentum of primary charged
+  particles and the charged-particle multiplicity of the corresponding collision is
+  reported in fine intervals. In addition, the mean $ \langle p_{\mathrm{T}} \rangle
+  $ and standard deviation $ \sigma(p_{\mathrm{T}}) $ derived from these multiplicity
+  dependent $p_\mathrm{T}$ spectra are shown as a function of $N_{\mathrm{ch}}$. The
+  relative standard deviation $ \sigma(p_{\mathrm{T}}) / \langle p_{\mathrm{T}} \rangle
+  $ of the spectra is reported as well. All observables are also presented as a function
+  of the reltaive multiplicity $ N_{\mathrm{ch}}\ / \langle N_{\mathrm{ch}} \rangle
+  $. Note that $ \langle N_{\mathrm{ch}} \rangle $ is calculated for the whole multiplicity
+  range extending beyond the $N_{\mathrm{ch}}$ values reported for the multiplicity-differential
+  observables. Also the transverse momentum spectra integrated over this full range
+  of multiplicities are presented. The mean and standard deviation derived from these
+  multiplicity-integrated $p_\mathrm{T}$ spectra are used to normalize the corresponding
+  multiplicity-dependent values which are then reported as a function of $ N_{\mathrm{ch}}\
+  / \langle N_{\mathrm{ch}} \rangle $.
+hepdata_doi: 10.17182/hepdata.142463.v2
+---
+data_file: data_pp_2TeV_multDist.yaml
+description: Charged-particle multiplicity distribution for pp collisions at 2.76
+  TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [MULT]
+- name: cmenergies
+  values: [2760]
+name: pp_2TeV_multDist
+table_doi: 10.17182/hepdata.142463.v2/t1
+---
+data_file: data_pp_2TeV_multDistKNO.yaml
+description: Koba-Nielsen-Olesen scaled charged-particle multiplicity distribution
+  for pp collisions at 2.76 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [MULTKNO]
+- name: cmenergies
+  values: [2760]
+name: pp_2TeV_multDistKNO
+table_doi: 10.17182/hepdata.142463.v2/t2
+---
+data_file: data_pp_2TeV_multPtSpec.yaml
+description: Charged-particle transverse momentum spectra as a function of charged-particle
+  multiplicity for pp collisions at 2.76 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [D3N/DETARAP/DPT/DMULT]
+- name: cmenergies
+  values: [2760]
+name: pp_2TeV_multPtSpec
+table_doi: 10.17182/hepdata.142463.v2/t3
+---
+data_file: data_pp_2TeV_multMeanPt.yaml
+description: Charged-particle mean transverse momentum as a function of charged-particle
+  multiplicity for pp collisions at 2.76 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [MEANPT]
+- name: cmenergies
+  values: [2760]
+name: pp_2TeV_multMeanPt
+table_doi: 10.17182/hepdata.142463.v2/t4
+---
+data_file: data_pp_2TeV_multStdDevPt.yaml
+description: Standard deviation of charged-particle transverse momentum spectra as
+  a function of charged-particle multiplicity for pp collisions at 2.76 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [STDDEVPT]
+- name: cmenergies
+  values: [2760]
+name: pp_2TeV_multStdDevPt
+table_doi: 10.17182/hepdata.142463.v2/t5
+---
+data_file: data_pp_2TeV_multRelStdDevPt.yaml
+description: Standard deviation over mean of charged-particle transverse momentum
+  spectra as a function of charged-particle multiplicity for pp collisions at 2.76
+  TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [STDDEVPTOVERMEANPT]
+- name: cmenergies
+  values: [2760]
+name: pp_2TeV_multRelStdDevPt
+table_doi: 10.17182/hepdata.142463.v2/t6
+---
+data_file: data_pp_2TeV_ptSpec.yaml
+description: Charged-particle transverse momentum spectra integrated over charged-particle
+  multipliciy for pp collisions at 2.76 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [D2N/DETARAP/DPT]
+- name: cmenergies
+  values: [2760]
+name: pp_2TeV_ptSpec
+table_doi: 10.17182/hepdata.142463.v2/t7
+---
+data_file: data_pp_2TeV_multPtSpec_scaled.yaml
+description: Charged-particle transverse momentum spectra as a function of relative
+  charged-particle multiplicity for pp collisions at 2.76 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [D3N/DETARAP/DPT/DMULT]
+- name: cmenergies
+  values: [2760]
+name: pp_2TeV_multPtSpec_scaled
+table_doi: 10.17182/hepdata.142463.v2/t8
+---
+data_file: data_pp_2TeV_multMeanPt_scaled.yaml
+description: Charged-particle mean transverse momentum as a function of relative charged-particle
+  multiplicity for pp collisions at 2.76 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [MEANPT]
+- name: cmenergies
+  values: [2760]
+name: pp_2TeV_multMeanPt_scaled
+table_doi: 10.17182/hepdata.142463.v2/t9
+---
+data_file: data_pp_2TeV_multStdDevPt_scaled.yaml
+description: Standard deviation of charged-particle transverse momentum spectra as
+  a function of relative charged-particle multiplicity for pp collisions at 2.76 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [STDDEVPT]
+- name: cmenergies
+  values: [2760]
+name: pp_2TeV_multStdDevPt_scaled
+table_doi: 10.17182/hepdata.142463.v2/t10
+---
+data_file: data_pp_2TeV_multRelStdDevPt_scaled.yaml
+description: Standard deviation over mean of charged-particle transverse momentum
+  spectra as a function of relative charged-particle multiplicity for pp collisions
+  at 2.76 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [STDDEVPTOVERMEANPT]
+- name: cmenergies
+  values: [2760]
+name: pp_2TeV_multRelStdDevPt_scaled
+table_doi: 10.17182/hepdata.142463.v2/t11
+---
+data_file: data_pp_2TeV_multMeanPtOverIncl_scaled.yaml
+description: Charged-particle mean transverse momentum divided by its multiplicity-integrated
+  value as a function of relative charged-particle multiplicity for pp collisions
+  at 2.76 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [MEANPT]
+- name: cmenergies
+  values: [2760]
+name: pp_2TeV_multMeanPtOverIncl_scaled
+table_doi: 10.17182/hepdata.142463.v2/t12
+---
+data_file: data_pp_2TeV_multStdDevPtOverIncl_scaled.yaml
+description: Standard deviation of charged-particle transverse momentum spectra divided
+  by its multiplicity-integrated value as a function of relative charged-particle
+  multiplicity for pp collisions at 2.76 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [STDDEVPT]
+- name: cmenergies
+  values: [2760]
+name: pp_2TeV_multStdDevPtOverIncl_scaled
+table_doi: 10.17182/hepdata.142463.v2/t13
+---
+data_file: data_pp_5TeV_multDist.yaml
+description: Charged-particle multiplicity distribution for pp collisions at 5.02
+  TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [MULT]
+- name: cmenergies
+  values: [5020]
+name: pp_5TeV_multDist
+table_doi: 10.17182/hepdata.142463.v2/t14
+---
+data_file: data_pp_5TeV_multDistKNO.yaml
+description: Koba-Nielsen-Olesen scaled charged-particle multiplicity distribution
+  for pp collisions at 5.02 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [MULTKNO]
+- name: cmenergies
+  values: [5020]
+name: pp_5TeV_multDistKNO
+table_doi: 10.17182/hepdata.142463.v2/t15
+---
+data_file: data_pp_5TeV_multPtSpec.yaml
+description: Charged-particle transverse momentum spectra as a function of charged-particle
+  multiplicity for pp collisions at 5.02 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [D3N/DETARAP/DPT/DMULT]
+- name: cmenergies
+  values: [5020]
+name: pp_5TeV_multPtSpec
+table_doi: 10.17182/hepdata.142463.v2/t16
+---
+data_file: data_pp_5TeV_multMeanPt.yaml
+description: Charged-particle mean transverse momentum as a function of charged-particle
+  multiplicity for pp collisions at 5.02 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [MEANPT]
+- name: cmenergies
+  values: [5020]
+name: pp_5TeV_multMeanPt
+table_doi: 10.17182/hepdata.142463.v2/t17
+---
+data_file: data_pp_5TeV_multStdDevPt.yaml
+description: Standard deviation of charged-particle transverse momentum spectra as
+  a function of charged-particle multiplicity for pp collisions at 5.02 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [STDDEVPT]
+- name: cmenergies
+  values: [5020]
+name: pp_5TeV_multStdDevPt
+table_doi: 10.17182/hepdata.142463.v2/t18
+---
+data_file: data_pp_5TeV_multRelStdDevPt.yaml
+description: Standard deviation over mean of charged-particle transverse momentum
+  spectra as a function of charged-particle multiplicity for pp collisions at 5.02
+  TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [STDDEVPTOVERMEANPT]
+- name: cmenergies
+  values: [5020]
+name: pp_5TeV_multRelStdDevPt
+table_doi: 10.17182/hepdata.142463.v2/t19
+---
+data_file: data_pp_5TeV_ptSpec.yaml
+description: Charged-particle transverse momentum spectra integrated over charged-particle
+  multipliciy for pp collisions at 5.02 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [D2N/DETARAP/DPT]
+- name: cmenergies
+  values: [5020]
+name: pp_5TeV_ptSpec
+table_doi: 10.17182/hepdata.142463.v2/t20
+---
+data_file: data_pp_5TeV_multPtSpec_scaled.yaml
+description: Charged-particle transverse momentum spectra as a function of relative
+  charged-particle multiplicity for pp collisions at 5.02 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [D3N/DETARAP/DPT/DMULT]
+- name: cmenergies
+  values: [5020]
+name: pp_5TeV_multPtSpec_scaled
+table_doi: 10.17182/hepdata.142463.v2/t21
+---
+data_file: data_pp_5TeV_multMeanPt_scaled.yaml
+description: Charged-particle mean transverse momentum as a function of relative charged-particle
+  multiplicity for pp collisions at 5.02 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [MEANPT]
+- name: cmenergies
+  values: [5020]
+name: pp_5TeV_multMeanPt_scaled
+table_doi: 10.17182/hepdata.142463.v2/t22
+---
+data_file: data_pp_5TeV_multStdDevPt_scaled.yaml
+description: Standard deviation of charged-particle transverse momentum spectra as
+  a function of relative charged-particle multiplicity for pp collisions at 5.02 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [STDDEVPT]
+- name: cmenergies
+  values: [5020]
+name: pp_5TeV_multStdDevPt_scaled
+table_doi: 10.17182/hepdata.142463.v2/t23
+---
+data_file: data_pp_5TeV_multRelStdDevPt_scaled.yaml
+description: Standard deviation over mean of charged-particle transverse momentum
+  spectra as a function of relative charged-particle multiplicity for pp collisions
+  at 5.02 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [STDDEVPTOVERMEANPT]
+- name: cmenergies
+  values: [5020]
+name: pp_5TeV_multRelStdDevPt_scaled
+table_doi: 10.17182/hepdata.142463.v2/t24
+---
+data_file: data_pp_5TeV_multMeanPtOverIncl_scaled.yaml
+description: Charged-particle mean transverse momentum divided by its multiplicity-integrated
+  value as a function of relative charged-particle multiplicity for pp collisions
+  at 5.02 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [MEANPT]
+- name: cmenergies
+  values: [5020]
+name: pp_5TeV_multMeanPtOverIncl_scaled
+table_doi: 10.17182/hepdata.142463.v2/t25
+---
+data_file: data_pp_5TeV_multStdDevPtOverIncl_scaled.yaml
+description: Standard deviation of charged-particle transverse momentum spectra divided
+  by its multiplicity-integrated value as a function of relative charged-particle
+  multiplicity for pp collisions at 5.02 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [STDDEVPT]
+- name: cmenergies
+  values: [5020]
+name: pp_5TeV_multStdDevPtOverIncl_scaled
+table_doi: 10.17182/hepdata.142463.v2/t26
+---
+data_file: data_pp_7TeV_multDist.yaml
+description: Charged-particle multiplicity distribution for pp collisions at 7.0 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [MULT]
+- name: cmenergies
+  values: [7000]
+name: pp_7TeV_multDist
+table_doi: 10.17182/hepdata.142463.v2/t27
+---
+data_file: data_pp_7TeV_multDistKNO.yaml
+description: Koba-Nielsen-Olesen scaled charged-particle multiplicity distribution
+  for pp collisions at 7.0 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [MULTKNO]
+- name: cmenergies
+  values: [7000]
+name: pp_7TeV_multDistKNO
+table_doi: 10.17182/hepdata.142463.v2/t28
+---
+data_file: data_pp_7TeV_multPtSpec.yaml
+description: Charged-particle transverse momentum spectra as a function of charged-particle
+  multiplicity for pp collisions at 7.0 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [D3N/DETARAP/DPT/DMULT]
+- name: cmenergies
+  values: [7000]
+name: pp_7TeV_multPtSpec
+table_doi: 10.17182/hepdata.142463.v2/t29
+---
+data_file: data_pp_7TeV_multMeanPt.yaml
+description: Charged-particle mean transverse momentum as a function of charged-particle
+  multiplicity for pp collisions at 7.0 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [MEANPT]
+- name: cmenergies
+  values: [7000]
+name: pp_7TeV_multMeanPt
+table_doi: 10.17182/hepdata.142463.v2/t30
+---
+data_file: data_pp_7TeV_multStdDevPt.yaml
+description: Standard deviation of charged-particle transverse momentum spectra as
+  a function of charged-particle multiplicity for pp collisions at 7.0 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [STDDEVPT]
+- name: cmenergies
+  values: [7000]
+name: pp_7TeV_multStdDevPt
+table_doi: 10.17182/hepdata.142463.v2/t31
+---
+data_file: data_pp_7TeV_multRelStdDevPt.yaml
+description: Standard deviation over mean of charged-particle transverse momentum
+  spectra as a function of charged-particle multiplicity for pp collisions at 7.0
+  TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [STDDEVPTOVERMEANPT]
+- name: cmenergies
+  values: [7000]
+name: pp_7TeV_multRelStdDevPt
+table_doi: 10.17182/hepdata.142463.v2/t32
+---
+data_file: data_pp_7TeV_ptSpec.yaml
+description: Charged-particle transverse momentum spectra integrated over charged-particle
+  multipliciy for pp collisions at 7.0 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [D2N/DETARAP/DPT]
+- name: cmenergies
+  values: [7000]
+name: pp_7TeV_ptSpec
+table_doi: 10.17182/hepdata.142463.v2/t33
+---
+data_file: data_pp_7TeV_multPtSpec_scaled.yaml
+description: Charged-particle transverse momentum spectra as a function of relative
+  charged-particle multiplicity for pp collisions at 7.0 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [D3N/DETARAP/DPT/DMULT]
+- name: cmenergies
+  values: [7000]
+name: pp_7TeV_multPtSpec_scaled
+table_doi: 10.17182/hepdata.142463.v2/t34
+---
+data_file: data_pp_7TeV_multMeanPt_scaled.yaml
+description: Charged-particle mean transverse momentum as a function of relative charged-particle
+  multiplicity for pp collisions at 7.0 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [MEANPT]
+- name: cmenergies
+  values: [7000]
+name: pp_7TeV_multMeanPt_scaled
+table_doi: 10.17182/hepdata.142463.v2/t35
+---
+data_file: data_pp_7TeV_multStdDevPt_scaled.yaml
+description: Standard deviation of charged-particle transverse momentum spectra as
+  a function of relative charged-particle multiplicity for pp collisions at 7.0 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [STDDEVPT]
+- name: cmenergies
+  values: [7000]
+name: pp_7TeV_multStdDevPt_scaled
+table_doi: 10.17182/hepdata.142463.v2/t36
+---
+data_file: data_pp_7TeV_multRelStdDevPt_scaled.yaml
+description: Standard deviation over mean of charged-particle transverse momentum
+  spectra as a function of relative charged-particle multiplicity for pp collisions
+  at 7.0 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [STDDEVPTOVERMEANPT]
+- name: cmenergies
+  values: [7000]
+name: pp_7TeV_multRelStdDevPt_scaled
+table_doi: 10.17182/hepdata.142463.v2/t37
+---
+data_file: data_pp_7TeV_multMeanPtOverIncl_scaled.yaml
+description: Charged-particle mean transverse momentum divided by its multiplicity-integrated
+  value as a function of relative charged-particle multiplicity for pp collisions
+  at 7.0 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [MEANPT]
+- name: cmenergies
+  values: [7000]
+name: pp_7TeV_multMeanPtOverIncl_scaled
+table_doi: 10.17182/hepdata.142463.v2/t38
+---
+data_file: data_pp_7TeV_multStdDevPtOverIncl_scaled.yaml
+description: Standard deviation of charged-particle transverse momentum spectra divided
+  by its multiplicity-integrated value as a function of relative charged-particle
+  multiplicity for pp collisions at 7.0 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [STDDEVPT]
+- name: cmenergies
+  values: [7000]
+name: pp_7TeV_multStdDevPtOverIncl_scaled
+table_doi: 10.17182/hepdata.142463.v2/t39
+---
+data_file: data_pp_8TeV_multDist.yaml
+description: Charged-particle multiplicity distribution for pp collisions at 8.0 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [MULT]
+- name: cmenergies
+  values: [8000]
+name: pp_8TeV_multDist
+table_doi: 10.17182/hepdata.142463.v2/t40
+---
+data_file: data_pp_8TeV_multDistKNO.yaml
+description: Koba-Nielsen-Olesen scaled charged-particle multiplicity distribution
+  for pp collisions at 8.0 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [MULTKNO]
+- name: cmenergies
+  values: [8000]
+name: pp_8TeV_multDistKNO
+table_doi: 10.17182/hepdata.142463.v2/t41
+---
+data_file: data_pp_8TeV_multPtSpec.yaml
+description: Charged-particle transverse momentum spectra as a function of charged-particle
+  multiplicity for pp collisions at 8.0 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [D3N/DETARAP/DPT/DMULT]
+- name: cmenergies
+  values: [8000]
+name: pp_8TeV_multPtSpec
+table_doi: 10.17182/hepdata.142463.v2/t42
+---
+data_file: data_pp_8TeV_multMeanPt.yaml
+description: Charged-particle mean transverse momentum as a function of charged-particle
+  multiplicity for pp collisions at 8.0 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [MEANPT]
+- name: cmenergies
+  values: [8000]
+name: pp_8TeV_multMeanPt
+table_doi: 10.17182/hepdata.142463.v2/t43
+---
+data_file: data_pp_8TeV_multStdDevPt.yaml
+description: Standard deviation of charged-particle transverse momentum spectra as
+  a function of charged-particle multiplicity for pp collisions at 8.0 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [STDDEVPT]
+- name: cmenergies
+  values: [8000]
+name: pp_8TeV_multStdDevPt
+table_doi: 10.17182/hepdata.142463.v2/t44
+---
+data_file: data_pp_8TeV_multRelStdDevPt.yaml
+description: Standard deviation over mean of charged-particle transverse momentum
+  spectra as a function of charged-particle multiplicity for pp collisions at 8.0
+  TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [STDDEVPTOVERMEANPT]
+- name: cmenergies
+  values: [8000]
+name: pp_8TeV_multRelStdDevPt
+table_doi: 10.17182/hepdata.142463.v2/t45
+---
+data_file: data_pp_8TeV_ptSpec.yaml
+description: Charged-particle transverse momentum spectra integrated over charged-particle
+  multipliciy for pp collisions at 8.0 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [D2N/DETARAP/DPT]
+- name: cmenergies
+  values: [8000]
+name: pp_8TeV_ptSpec
+table_doi: 10.17182/hepdata.142463.v2/t46
+---
+data_file: data_pp_8TeV_multPtSpec_scaled.yaml
+description: Charged-particle transverse momentum spectra as a function of relative
+  charged-particle multiplicity for pp collisions at 8.0 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [D3N/DETARAP/DPT/DMULT]
+- name: cmenergies
+  values: [8000]
+name: pp_8TeV_multPtSpec_scaled
+table_doi: 10.17182/hepdata.142463.v2/t47
+---
+data_file: data_pp_8TeV_multMeanPt_scaled.yaml
+description: Charged-particle mean transverse momentum as a function of relative charged-particle
+  multiplicity for pp collisions at 8.0 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [MEANPT]
+- name: cmenergies
+  values: [8000]
+name: pp_8TeV_multMeanPt_scaled
+table_doi: 10.17182/hepdata.142463.v2/t48
+---
+data_file: data_pp_8TeV_multStdDevPt_scaled.yaml
+description: Standard deviation of charged-particle transverse momentum spectra as
+  a function of relative charged-particle multiplicity for pp collisions at 8.0 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [STDDEVPT]
+- name: cmenergies
+  values: [8000]
+name: pp_8TeV_multStdDevPt_scaled
+table_doi: 10.17182/hepdata.142463.v2/t49
+---
+data_file: data_pp_8TeV_multRelStdDevPt_scaled.yaml
+description: Standard deviation over mean of charged-particle transverse momentum
+  spectra as a function of relative charged-particle multiplicity for pp collisions
+  at 8.0 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [STDDEVPTOVERMEANPT]
+- name: cmenergies
+  values: [8000]
+name: pp_8TeV_multRelStdDevPt_scaled
+table_doi: 10.17182/hepdata.142463.v2/t50
+---
+data_file: data_pp_8TeV_multMeanPtOverIncl_scaled.yaml
+description: Charged-particle mean transverse momentum divided by its multiplicity-integrated
+  value as a function of relative charged-particle multiplicity for pp collisions
+  at 8.0 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [MEANPT]
+- name: cmenergies
+  values: [8000]
+name: pp_8TeV_multMeanPtOverIncl_scaled
+table_doi: 10.17182/hepdata.142463.v2/t51
+---
+data_file: data_pp_8TeV_multStdDevPtOverIncl_scaled.yaml
+description: Standard deviation of charged-particle transverse momentum spectra divided
+  by its multiplicity-integrated value as a function of relative charged-particle
+  multiplicity for pp collisions at 8.0 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [STDDEVPT]
+- name: cmenergies
+  values: [8000]
+name: pp_8TeV_multStdDevPtOverIncl_scaled
+table_doi: 10.17182/hepdata.142463.v2/t52
+---
+data_file: data_pp_13TeV_multDist.yaml
+description: Charged-particle multiplicity distribution for pp collisions at 13.0
+  TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [MULT]
+- name: cmenergies
+  values: [13000]
+name: pp_13TeV_multDist
+table_doi: 10.17182/hepdata.142463.v2/t53
+---
+data_file: data_pp_13TeV_multDistKNO.yaml
+description: Koba-Nielsen-Olesen scaled charged-particle multiplicity distribution
+  for pp collisions at 13.0 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [MULTKNO]
+- name: cmenergies
+  values: [13000]
+name: pp_13TeV_multDistKNO
+table_doi: 10.17182/hepdata.142463.v2/t54
+---
+data_file: data_pp_13TeV_multPtSpec.yaml
+description: Charged-particle transverse momentum spectra as a function of charged-particle
+  multiplicity for pp collisions at 13.0 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [D3N/DETARAP/DPT/DMULT]
+- name: cmenergies
+  values: [13000]
+name: pp_13TeV_multPtSpec
+table_doi: 10.17182/hepdata.142463.v2/t55
+---
+data_file: data_pp_13TeV_multMeanPt.yaml
+description: Charged-particle mean transverse momentum as a function of charged-particle
+  multiplicity for pp collisions at 13.0 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [MEANPT]
+- name: cmenergies
+  values: [13000]
+name: pp_13TeV_multMeanPt
+table_doi: 10.17182/hepdata.142463.v2/t56
+---
+data_file: data_pp_13TeV_multStdDevPt.yaml
+description: Standard deviation of charged-particle transverse momentum spectra as
+  a function of charged-particle multiplicity for pp collisions at 13.0 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [STDDEVPT]
+- name: cmenergies
+  values: [13000]
+name: pp_13TeV_multStdDevPt
+table_doi: 10.17182/hepdata.142463.v2/t57
+---
+data_file: data_pp_13TeV_multRelStdDevPt.yaml
+description: Standard deviation over mean of charged-particle transverse momentum
+  spectra as a function of charged-particle multiplicity for pp collisions at 13.0
+  TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [STDDEVPTOVERMEANPT]
+- name: cmenergies
+  values: [13000]
+name: pp_13TeV_multRelStdDevPt
+table_doi: 10.17182/hepdata.142463.v2/t58
+---
+data_file: data_pp_13TeV_ptSpec.yaml
+description: Charged-particle transverse momentum spectra integrated over charged-particle
+  multipliciy for pp collisions at 13.0 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [D2N/DETARAP/DPT]
+- name: cmenergies
+  values: [13000]
+name: pp_13TeV_ptSpec
+table_doi: 10.17182/hepdata.142463.v2/t59
+---
+data_file: data_pp_13TeV_multPtSpec_scaled.yaml
+description: Charged-particle transverse momentum spectra as a function of relative
+  charged-particle multiplicity for pp collisions at 13.0 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [D3N/DETARAP/DPT/DMULT]
+- name: cmenergies
+  values: [13000]
+name: pp_13TeV_multPtSpec_scaled
+table_doi: 10.17182/hepdata.142463.v2/t60
+---
+data_file: data_pp_13TeV_multMeanPt_scaled.yaml
+description: Charged-particle mean transverse momentum as a function of relative charged-particle
+  multiplicity for pp collisions at 13.0 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [MEANPT]
+- name: cmenergies
+  values: [13000]
+name: pp_13TeV_multMeanPt_scaled
+table_doi: 10.17182/hepdata.142463.v2/t61
+---
+data_file: data_pp_13TeV_multStdDevPt_scaled.yaml
+description: Standard deviation of charged-particle transverse momentum spectra as
+  a function of relative charged-particle multiplicity for pp collisions at 13.0 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [STDDEVPT]
+- name: cmenergies
+  values: [13000]
+name: pp_13TeV_multStdDevPt_scaled
+table_doi: 10.17182/hepdata.142463.v2/t62
+---
+data_file: data_pp_13TeV_multRelStdDevPt_scaled.yaml
+description: Standard deviation over mean of charged-particle transverse momentum
+  spectra as a function of relative charged-particle multiplicity for pp collisions
+  at 13.0 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [STDDEVPTOVERMEANPT]
+- name: cmenergies
+  values: [13000]
+name: pp_13TeV_multRelStdDevPt_scaled
+table_doi: 10.17182/hepdata.142463.v2/t63
+---
+data_file: data_pp_13TeV_multMeanPtOverIncl_scaled.yaml
+description: Charged-particle mean transverse momentum divided by its multiplicity-integrated
+  value as a function of relative charged-particle multiplicity for pp collisions
+  at 13.0 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [MEANPT]
+- name: cmenergies
+  values: [13000]
+name: pp_13TeV_multMeanPtOverIncl_scaled
+table_doi: 10.17182/hepdata.142463.v2/t64
+---
+data_file: data_pp_13TeV_multStdDevPtOverIncl_scaled.yaml
+description: Standard deviation of charged-particle transverse momentum spectra divided
+  by its multiplicity-integrated value as a function of relative charged-particle
+  multiplicity for pp collisions at 13.0 TeV.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [STDDEVPT]
+- name: cmenergies
+  values: [13000]
+name: pp_13TeV_multStdDevPtOverIncl_scaled
+table_doi: 10.17182/hepdata.142463.v2/t65
+---
+data_file: data_pPb_5TeV_multDist.yaml
+description: Charged-particle multiplicity distribution for pPb collisions at 5.02
+  TeV.
+keywords:
+- name: reactions
+  values: [P PB --> CHARGED X]
+- name: observables
+  values: [MULT]
+- name: cmenergies
+  values: [5020]
+name: pPb_5TeV_multDist
+table_doi: 10.17182/hepdata.142463.v2/t66
+---
+data_file: data_pPb_5TeV_multDistKNO.yaml
+description: Koba-Nielsen-Olesen scaled charged-particle multiplicity distribution
+  for pPb collisions at 5.02 TeV.
+keywords:
+- name: reactions
+  values: [P PB --> CHARGED X]
+- name: observables
+  values: [MULTKNO]
+- name: cmenergies
+  values: [5020]
+name: pPb_5TeV_multDistKNO
+table_doi: 10.17182/hepdata.142463.v2/t67
+---
+data_file: data_pPb_5TeV_multPtSpec.yaml
+description: Charged-particle transverse momentum spectra as a function of charged-particle
+  multiplicity for pPb collisions at 5.02 TeV.
+keywords:
+- name: reactions
+  values: [P PB --> CHARGED X]
+- name: observables
+  values: [D3N/DETARAP/DPT/DMULT]
+- name: cmenergies
+  values: [5020]
+name: pPb_5TeV_multPtSpec
+table_doi: 10.17182/hepdata.142463.v2/t68
+---
+data_file: data_pPb_5TeV_multMeanPt.yaml
+description: Charged-particle mean transverse momentum as a function of charged-particle
+  multiplicity for pPb collisions at 5.02 TeV.
+keywords:
+- name: reactions
+  values: [P PB --> CHARGED X]
+- name: observables
+  values: [MEANPT]
+- name: cmenergies
+  values: [5020]
+name: pPb_5TeV_multMeanPt
+table_doi: 10.17182/hepdata.142463.v2/t69
+---
+data_file: data_pPb_5TeV_multStdDevPt.yaml
+description: Standard deviation of charged-particle transverse momentum spectra as
+  a function of charged-particle multiplicity for pPb collisions at 5.02 TeV.
+keywords:
+- name: reactions
+  values: [P PB --> CHARGED X]
+- name: observables
+  values: [STDDEVPT]
+- name: cmenergies
+  values: [5020]
+name: pPb_5TeV_multStdDevPt
+table_doi: 10.17182/hepdata.142463.v2/t70
+---
+data_file: data_pPb_5TeV_multRelStdDevPt.yaml
+description: Standard deviation over mean of charged-particle transverse momentum
+  spectra as a function of charged-particle multiplicity for pPb collisions at 5.02
+  TeV.
+keywords:
+- name: reactions
+  values: [P PB --> CHARGED X]
+- name: observables
+  values: [STDDEVPTOVERMEANPT]
+- name: cmenergies
+  values: [5020]
+name: pPb_5TeV_multRelStdDevPt
+table_doi: 10.17182/hepdata.142463.v2/t71
+---
+data_file: data_pPb_5TeV_ptSpec.yaml
+description: Charged-particle transverse momentum spectra integrated over charged-particle
+  multipliciy for pPb collisions at 5.02 TeV.
+keywords:
+- name: reactions
+  values: [P PB --> CHARGED X]
+- name: observables
+  values: [D2N/DETARAP/DPT]
+- name: cmenergies
+  values: [5020]
+name: pPb_5TeV_ptSpec
+table_doi: 10.17182/hepdata.142463.v2/t72
+---
+data_file: data_pPb_5TeV_multPtSpec_scaled.yaml
+description: Charged-particle transverse momentum spectra as a function of relative
+  charged-particle multiplicity for pPb collisions at 5.02 TeV.
+keywords:
+- name: reactions
+  values: [P PB --> CHARGED X]
+- name: observables
+  values: [D3N/DETARAP/DPT/DMULT]
+- name: cmenergies
+  values: [5020]
+name: pPb_5TeV_multPtSpec_scaled
+table_doi: 10.17182/hepdata.142463.v2/t73
+---
+data_file: data_pPb_5TeV_multMeanPt_scaled.yaml
+description: Charged-particle mean transverse momentum as a function of relative charged-particle
+  multiplicity for pPb collisions at 5.02 TeV.
+keywords:
+- name: reactions
+  values: [P PB --> CHARGED X]
+- name: observables
+  values: [MEANPT]
+- name: cmenergies
+  values: [5020]
+name: pPb_5TeV_multMeanPt_scaled
+table_doi: 10.17182/hepdata.142463.v2/t74
+---
+data_file: data_pPb_5TeV_multStdDevPt_scaled.yaml
+description: Standard deviation of charged-particle transverse momentum spectra as
+  a function of relative charged-particle multiplicity for pPb collisions at 5.02
+  TeV.
+keywords:
+- name: reactions
+  values: [P PB --> CHARGED X]
+- name: observables
+  values: [STDDEVPT]
+- name: cmenergies
+  values: [5020]
+name: pPb_5TeV_multStdDevPt_scaled
+table_doi: 10.17182/hepdata.142463.v2/t75
+---
+data_file: data_pPb_5TeV_multRelStdDevPt_scaled.yaml
+description: Standard deviation over mean of charged-particle transverse momentum
+  spectra as a function of relative charged-particle multiplicity for pPb collisions
+  at 5.02 TeV.
+keywords:
+- name: reactions
+  values: [P PB --> CHARGED X]
+- name: observables
+  values: [STDDEVPTOVERMEANPT]
+- name: cmenergies
+  values: [5020]
+name: pPb_5TeV_multRelStdDevPt_scaled
+table_doi: 10.17182/hepdata.142463.v2/t76
+---
+data_file: data_pPb_5TeV_multMeanPtOverIncl_scaled.yaml
+description: Charged-particle mean transverse momentum divided by its multiplicity-integrated
+  value as a function of relative charged-particle multiplicity for pPb collisions
+  at 5.02 TeV.
+keywords:
+- name: reactions
+  values: [P PB --> CHARGED X]
+- name: observables
+  values: [MEANPT]
+- name: cmenergies
+  values: [5020]
+name: pPb_5TeV_multMeanPtOverIncl_scaled
+table_doi: 10.17182/hepdata.142463.v2/t77
+---
+data_file: data_pPb_5TeV_multStdDevPtOverIncl_scaled.yaml
+description: Standard deviation of charged-particle transverse momentum spectra divided
+  by its multiplicity-integrated value as a function of relative charged-particle
+  multiplicity for pPb collisions at 5.02 TeV.
+keywords:
+- name: reactions
+  values: [P PB --> CHARGED X]
+- name: observables
+  values: [STDDEVPT]
+- name: cmenergies
+  values: [5020]
+name: pPb_5TeV_multStdDevPtOverIncl_scaled
+table_doi: 10.17182/hepdata.142463.v2/t78
+---
+data_file: data_pPb_8TeV_multDist.yaml
+description: Charged-particle multiplicity distribution for pPb collisions at 8.16
+  TeV.
+keywords:
+- name: reactions
+  values: [P PB --> CHARGED X]
+- name: observables
+  values: [MULT]
+- name: cmenergies
+  values: [8160]
+name: pPb_8TeV_multDist
+table_doi: 10.17182/hepdata.142463.v2/t79
+---
+data_file: data_pPb_8TeV_multDistKNO.yaml
+description: Koba-Nielsen-Olesen scaled charged-particle multiplicity distribution
+  for pPb collisions at 8.16 TeV.
+keywords:
+- name: reactions
+  values: [P PB --> CHARGED X]
+- name: observables
+  values: [MULTKNO]
+- name: cmenergies
+  values: [8160]
+name: pPb_8TeV_multDistKNO
+table_doi: 10.17182/hepdata.142463.v2/t80
+---
+data_file: data_pPb_8TeV_multPtSpec.yaml
+description: Charged-particle transverse momentum spectra as a function of charged-particle
+  multiplicity for pPb collisions at 8.16 TeV.
+keywords:
+- name: reactions
+  values: [P PB --> CHARGED X]
+- name: observables
+  values: [D3N/DETARAP/DPT/DMULT]
+- name: cmenergies
+  values: [8160]
+name: pPb_8TeV_multPtSpec
+table_doi: 10.17182/hepdata.142463.v2/t81
+---
+data_file: data_pPb_8TeV_multMeanPt.yaml
+description: Charged-particle mean transverse momentum as a function of charged-particle
+  multiplicity for pPb collisions at 8.16 TeV.
+keywords:
+- name: reactions
+  values: [P PB --> CHARGED X]
+- name: observables
+  values: [MEANPT]
+- name: cmenergies
+  values: [8160]
+name: pPb_8TeV_multMeanPt
+table_doi: 10.17182/hepdata.142463.v2/t82
+---
+data_file: data_pPb_8TeV_multStdDevPt.yaml
+description: Standard deviation of charged-particle transverse momentum spectra as
+  a function of charged-particle multiplicity for pPb collisions at 8.16 TeV.
+keywords:
+- name: reactions
+  values: [P PB --> CHARGED X]
+- name: observables
+  values: [STDDEVPT]
+- name: cmenergies
+  values: [8160]
+name: pPb_8TeV_multStdDevPt
+table_doi: 10.17182/hepdata.142463.v2/t83
+---
+data_file: data_pPb_8TeV_multRelStdDevPt.yaml
+description: Standard deviation over mean of charged-particle transverse momentum
+  spectra as a function of charged-particle multiplicity for pPb collisions at 8.16
+  TeV.
+keywords:
+- name: reactions
+  values: [P PB --> CHARGED X]
+- name: observables
+  values: [STDDEVPTOVERMEANPT]
+- name: cmenergies
+  values: [8160]
+name: pPb_8TeV_multRelStdDevPt
+table_doi: 10.17182/hepdata.142463.v2/t84
+---
+data_file: data_pPb_8TeV_ptSpec.yaml
+description: Charged-particle transverse momentum spectra integrated over charged-particle
+  multipliciy for pPb collisions at 8.16 TeV.
+keywords:
+- name: reactions
+  values: [P PB --> CHARGED X]
+- name: observables
+  values: [D2N/DETARAP/DPT]
+- name: cmenergies
+  values: [8160]
+name: pPb_8TeV_ptSpec
+table_doi: 10.17182/hepdata.142463.v2/t85
+---
+data_file: data_pPb_8TeV_multPtSpec_scaled.yaml
+description: Charged-particle transverse momentum spectra as a function of relative
+  charged-particle multiplicity for pPb collisions at 8.16 TeV.
+keywords:
+- name: reactions
+  values: [P PB --> CHARGED X]
+- name: observables
+  values: [D3N/DETARAP/DPT/DMULT]
+- name: cmenergies
+  values: [8160]
+name: pPb_8TeV_multPtSpec_scaled
+table_doi: 10.17182/hepdata.142463.v2/t86
+---
+data_file: data_pPb_8TeV_multMeanPt_scaled.yaml
+description: Charged-particle mean transverse momentum as a function of relative charged-particle
+  multiplicity for pPb collisions at 8.16 TeV.
+keywords:
+- name: reactions
+  values: [P PB --> CHARGED X]
+- name: observables
+  values: [MEANPT]
+- name: cmenergies
+  values: [8160]
+name: pPb_8TeV_multMeanPt_scaled
+table_doi: 10.17182/hepdata.142463.v2/t87
+---
+data_file: data_pPb_8TeV_multStdDevPt_scaled.yaml
+description: Standard deviation of charged-particle transverse momentum spectra as
+  a function of relative charged-particle multiplicity for pPb collisions at 8.16
+  TeV.
+keywords:
+- name: reactions
+  values: [P PB --> CHARGED X]
+- name: observables
+  values: [STDDEVPT]
+- name: cmenergies
+  values: [8160]
+name: pPb_8TeV_multStdDevPt_scaled
+table_doi: 10.17182/hepdata.142463.v2/t88
+---
+data_file: data_pPb_8TeV_multRelStdDevPt_scaled.yaml
+description: Standard deviation over mean of charged-particle transverse momentum
+  spectra as a function of relative charged-particle multiplicity for pPb collisions
+  at 8.16 TeV.
+keywords:
+- name: reactions
+  values: [P PB --> CHARGED X]
+- name: observables
+  values: [STDDEVPTOVERMEANPT]
+- name: cmenergies
+  values: [8160]
+name: pPb_8TeV_multRelStdDevPt_scaled
+table_doi: 10.17182/hepdata.142463.v2/t89
+---
+data_file: data_pPb_8TeV_multMeanPtOverIncl_scaled.yaml
+description: Charged-particle mean transverse momentum divided by its multiplicity-integrated
+  value as a function of relative charged-particle multiplicity for pPb collisions
+  at 8.16 TeV.
+keywords:
+- name: reactions
+  values: [P PB --> CHARGED X]
+- name: observables
+  values: [MEANPT]
+- name: cmenergies
+  values: [8160]
+name: pPb_8TeV_multMeanPtOverIncl_scaled
+table_doi: 10.17182/hepdata.142463.v2/t90
+---
+data_file: data_pPb_8TeV_multStdDevPtOverIncl_scaled.yaml
+description: Standard deviation of charged-particle transverse momentum spectra divided
+  by its multiplicity-integrated value as a function of relative charged-particle
+  multiplicity for pPb collisions at 8.16 TeV.
+keywords:
+- name: reactions
+  values: [P PB --> CHARGED X]
+- name: observables
+  values: [STDDEVPT]
+- name: cmenergies
+  values: [8160]
+name: pPb_8TeV_multStdDevPtOverIncl_scaled
+table_doi: 10.17182/hepdata.142463.v2/t91
+---
+data_file: data_XeXe_5TeV_multDist.yaml
+description: Charged-particle multiplicity distribution for XeXe collisions at 5.44
+  TeV.
+keywords:
+- name: reactions
+  values: [XE XE --> CHARGED X]
+- name: observables
+  values: [MULT]
+- name: cmenergies
+  values: [5440]
+name: XeXe_5TeV_multDist
+table_doi: 10.17182/hepdata.142463.v2/t92
+---
+data_file: data_XeXe_5TeV_multDistKNO.yaml
+description: Koba-Nielsen-Olesen scaled charged-particle multiplicity distribution
+  for XeXe collisions at 5.44 TeV.
+keywords:
+- name: reactions
+  values: [XE XE --> CHARGED X]
+- name: observables
+  values: [MULTKNO]
+- name: cmenergies
+  values: [5440]
+name: XeXe_5TeV_multDistKNO
+table_doi: 10.17182/hepdata.142463.v2/t93
+---
+data_file: data_XeXe_5TeV_multPtSpec.yaml
+description: Charged-particle transverse momentum spectra as a function of charged-particle
+  multiplicity for XeXe collisions at 5.44 TeV.
+keywords:
+- name: reactions
+  values: [XE XE --> CHARGED X]
+- name: observables
+  values: [D3N/DETARAP/DPT/DMULT]
+- name: cmenergies
+  values: [5440]
+name: XeXe_5TeV_multPtSpec
+table_doi: 10.17182/hepdata.142463.v2/t94
+---
+data_file: data_XeXe_5TeV_multMeanPt.yaml
+description: Charged-particle mean transverse momentum as a function of charged-particle
+  multiplicity for XeXe collisions at 5.44 TeV.
+keywords:
+- name: reactions
+  values: [XE XE --> CHARGED X]
+- name: observables
+  values: [MEANPT]
+- name: cmenergies
+  values: [5440]
+name: XeXe_5TeV_multMeanPt
+table_doi: 10.17182/hepdata.142463.v2/t95
+---
+data_file: data_XeXe_5TeV_multStdDevPt.yaml
+description: Standard deviation of charged-particle transverse momentum spectra as
+  a function of charged-particle multiplicity for XeXe collisions at 5.44 TeV.
+keywords:
+- name: reactions
+  values: [XE XE --> CHARGED X]
+- name: observables
+  values: [STDDEVPT]
+- name: cmenergies
+  values: [5440]
+name: XeXe_5TeV_multStdDevPt
+table_doi: 10.17182/hepdata.142463.v2/t96
+---
+data_file: data_XeXe_5TeV_multRelStdDevPt.yaml
+description: Standard deviation over mean of charged-particle transverse momentum
+  spectra as a function of charged-particle multiplicity for XeXe collisions at 5.44
+  TeV.
+keywords:
+- name: reactions
+  values: [XE XE --> CHARGED X]
+- name: observables
+  values: [STDDEVPTOVERMEANPT]
+- name: cmenergies
+  values: [5440]
+name: XeXe_5TeV_multRelStdDevPt
+table_doi: 10.17182/hepdata.142463.v2/t97
+---
+data_file: data_XeXe_5TeV_ptSpec.yaml
+description: Charged-particle transverse momentum spectra integrated over charged-particle
+  multipliciy for XeXe collisions at 5.44 TeV.
+keywords:
+- name: reactions
+  values: [XE XE --> CHARGED X]
+- name: observables
+  values: [D2N/DETARAP/DPT]
+- name: cmenergies
+  values: [5440]
+name: XeXe_5TeV_ptSpec
+table_doi: 10.17182/hepdata.142463.v2/t98
+---
+data_file: data_XeXe_5TeV_multPtSpec_scaled.yaml
+description: Charged-particle transverse momentum spectra as a function of relative
+  charged-particle multiplicity for XeXe collisions at 5.44 TeV.
+keywords:
+- name: reactions
+  values: [XE XE --> CHARGED X]
+- name: observables
+  values: [D3N/DETARAP/DPT/DMULT]
+- name: cmenergies
+  values: [5440]
+name: XeXe_5TeV_multPtSpec_scaled
+table_doi: 10.17182/hepdata.142463.v2/t99
+---
+data_file: data_XeXe_5TeV_multMeanPt_scaled.yaml
+description: Charged-particle mean transverse momentum as a function of relative charged-particle
+  multiplicity for XeXe collisions at 5.44 TeV.
+keywords:
+- name: reactions
+  values: [XE XE --> CHARGED X]
+- name: observables
+  values: [MEANPT]
+- name: cmenergies
+  values: [5440]
+name: XeXe_5TeV_multMeanPt_scaled
+table_doi: 10.17182/hepdata.142463.v2/t100
+---
+data_file: data_XeXe_5TeV_multStdDevPt_scaled.yaml
+description: Standard deviation of charged-particle transverse momentum spectra as
+  a function of relative charged-particle multiplicity for XeXe collisions at 5.44
+  TeV.
+keywords:
+- name: reactions
+  values: [XE XE --> CHARGED X]
+- name: observables
+  values: [STDDEVPT]
+- name: cmenergies
+  values: [5440]
+name: XeXe_5TeV_multStdDevPt_scaled
+table_doi: 10.17182/hepdata.142463.v2/t101
+---
+data_file: data_XeXe_5TeV_multRelStdDevPt_scaled.yaml
+description: Standard deviation over mean of charged-particle transverse momentum
+  spectra as a function of relative charged-particle multiplicity for XeXe collisions
+  at 5.44 TeV.
+keywords:
+- name: reactions
+  values: [XE XE --> CHARGED X]
+- name: observables
+  values: [STDDEVPTOVERMEANPT]
+- name: cmenergies
+  values: [5440]
+name: XeXe_5TeV_multRelStdDevPt_scaled
+table_doi: 10.17182/hepdata.142463.v2/t102
+---
+data_file: data_XeXe_5TeV_multMeanPtOverIncl_scaled.yaml
+description: Charged-particle mean transverse momentum divided by its multiplicity-integrated
+  value as a function of relative charged-particle multiplicity for XeXe collisions
+  at 5.44 TeV.
+keywords:
+- name: reactions
+  values: [XE XE --> CHARGED X]
+- name: observables
+  values: [MEANPT]
+- name: cmenergies
+  values: [5440]
+name: XeXe_5TeV_multMeanPtOverIncl_scaled
+table_doi: 10.17182/hepdata.142463.v2/t103
+---
+data_file: data_XeXe_5TeV_multStdDevPtOverIncl_scaled.yaml
+description: Standard deviation of charged-particle transverse momentum spectra divided
+  by its multiplicity-integrated value as a function of relative charged-particle
+  multiplicity for XeXe collisions at 5.44 TeV.
+keywords:
+- name: reactions
+  values: [XE XE --> CHARGED X]
+- name: observables
+  values: [STDDEVPT]
+- name: cmenergies
+  values: [5440]
+name: XeXe_5TeV_multStdDevPtOverIncl_scaled
+table_doi: 10.17182/hepdata.142463.v2/t104
+---
+data_file: data_PbPb_2TeV_multDist.yaml
+description: Charged-particle multiplicity distribution for PbPb collisions at 2.76
+  TeV.
+keywords:
+- name: reactions
+  values: [PB PB --> CHARGED X]
+- name: observables
+  values: [MULT]
+- name: cmenergies
+  values: [2760]
+name: PbPb_2TeV_multDist
+table_doi: 10.17182/hepdata.142463.v2/t105
+---
+data_file: data_PbPb_2TeV_multDistKNO.yaml
+description: Koba-Nielsen-Olesen scaled charged-particle multiplicity distribution
+  for PbPb collisions at 2.76 TeV.
+keywords:
+- name: reactions
+  values: [PB PB --> CHARGED X]
+- name: observables
+  values: [MULTKNO]
+- name: cmenergies
+  values: [2760]
+name: PbPb_2TeV_multDistKNO
+table_doi: 10.17182/hepdata.142463.v2/t106
+---
+data_file: data_PbPb_2TeV_multPtSpec.yaml
+description: Charged-particle transverse momentum spectra as a function of charged-particle
+  multiplicity for PbPb collisions at 2.76 TeV.
+keywords:
+- name: reactions
+  values: [PB PB --> CHARGED X]
+- name: observables
+  values: [D3N/DETARAP/DPT/DMULT]
+- name: cmenergies
+  values: [2760]
+name: PbPb_2TeV_multPtSpec
+table_doi: 10.17182/hepdata.142463.v2/t107
+---
+data_file: data_PbPb_2TeV_multMeanPt.yaml
+description: Charged-particle mean transverse momentum as a function of charged-particle
+  multiplicity for PbPb collisions at 2.76 TeV.
+keywords:
+- name: reactions
+  values: [PB PB --> CHARGED X]
+- name: observables
+  values: [MEANPT]
+- name: cmenergies
+  values: [2760]
+name: PbPb_2TeV_multMeanPt
+table_doi: 10.17182/hepdata.142463.v2/t108
+---
+data_file: data_PbPb_2TeV_multStdDevPt.yaml
+description: Standard deviation of charged-particle transverse momentum spectra as
+  a function of charged-particle multiplicity for PbPb collisions at 2.76 TeV.
+keywords:
+- name: reactions
+  values: [PB PB --> CHARGED X]
+- name: observables
+  values: [STDDEVPT]
+- name: cmenergies
+  values: [2760]
+name: PbPb_2TeV_multStdDevPt
+table_doi: 10.17182/hepdata.142463.v2/t109
+---
+data_file: data_PbPb_2TeV_multRelStdDevPt.yaml
+description: Standard deviation over mean of charged-particle transverse momentum
+  spectra as a function of charged-particle multiplicity for PbPb collisions at 2.76
+  TeV.
+keywords:
+- name: reactions
+  values: [PB PB --> CHARGED X]
+- name: observables
+  values: [STDDEVPTOVERMEANPT]
+- name: cmenergies
+  values: [2760]
+name: PbPb_2TeV_multRelStdDevPt
+table_doi: 10.17182/hepdata.142463.v2/t110
+---
+data_file: data_PbPb_2TeV_ptSpec.yaml
+description: Charged-particle transverse momentum spectra integrated over charged-particle
+  multipliciy for PbPb collisions at 2.76 TeV.
+keywords:
+- name: reactions
+  values: [PB PB --> CHARGED X]
+- name: observables
+  values: [D2N/DETARAP/DPT]
+- name: cmenergies
+  values: [2760]
+name: PbPb_2TeV_ptSpec
+table_doi: 10.17182/hepdata.142463.v2/t111
+---
+data_file: data_PbPb_2TeV_multPtSpec_scaled.yaml
+description: Charged-particle transverse momentum spectra as a function of relative
+  charged-particle multiplicity for PbPb collisions at 2.76 TeV.
+keywords:
+- name: reactions
+  values: [PB PB --> CHARGED X]
+- name: observables
+  values: [D3N/DETARAP/DPT/DMULT]
+- name: cmenergies
+  values: [2760]
+name: PbPb_2TeV_multPtSpec_scaled
+table_doi: 10.17182/hepdata.142463.v2/t112
+---
+data_file: data_PbPb_2TeV_multMeanPt_scaled.yaml
+description: Charged-particle mean transverse momentum as a function of relative charged-particle
+  multiplicity for PbPb collisions at 2.76 TeV.
+keywords:
+- name: reactions
+  values: [PB PB --> CHARGED X]
+- name: observables
+  values: [MEANPT]
+- name: cmenergies
+  values: [2760]
+name: PbPb_2TeV_multMeanPt_scaled
+table_doi: 10.17182/hepdata.142463.v2/t113
+---
+data_file: data_PbPb_2TeV_multStdDevPt_scaled.yaml
+description: Standard deviation of charged-particle transverse momentum spectra as
+  a function of relative charged-particle multiplicity for PbPb collisions at 2.76
+  TeV.
+keywords:
+- name: reactions
+  values: [PB PB --> CHARGED X]
+- name: observables
+  values: [STDDEVPT]
+- name: cmenergies
+  values: [2760]
+name: PbPb_2TeV_multStdDevPt_scaled
+table_doi: 10.17182/hepdata.142463.v2/t114
+---
+data_file: data_PbPb_2TeV_multRelStdDevPt_scaled.yaml
+description: Standard deviation over mean of charged-particle transverse momentum
+  spectra as a function of relative charged-particle multiplicity for PbPb collisions
+  at 2.76 TeV.
+keywords:
+- name: reactions
+  values: [PB PB --> CHARGED X]
+- name: observables
+  values: [STDDEVPTOVERMEANPT]
+- name: cmenergies
+  values: [2760]
+name: PbPb_2TeV_multRelStdDevPt_scaled
+table_doi: 10.17182/hepdata.142463.v2/t115
+---
+data_file: data_PbPb_2TeV_multMeanPtOverIncl_scaled.yaml
+description: Charged-particle mean transverse momentum divided by its multiplicity-integrated
+  value as a function of relative charged-particle multiplicity for PbPb collisions
+  at 2.76 TeV.
+keywords:
+- name: reactions
+  values: [PB PB --> CHARGED X]
+- name: observables
+  values: [MEANPT]
+- name: cmenergies
+  values: [2760]
+name: PbPb_2TeV_multMeanPtOverIncl_scaled
+table_doi: 10.17182/hepdata.142463.v2/t116
+---
+data_file: data_PbPb_2TeV_multStdDevPtOverIncl_scaled.yaml
+description: Standard deviation of charged-particle transverse momentum spectra divided
+  by its multiplicity-integrated value as a function of relative charged-particle
+  multiplicity for PbPb collisions at 2.76 TeV.
+keywords:
+- name: reactions
+  values: [PB PB --> CHARGED X]
+- name: observables
+  values: [STDDEVPT]
+- name: cmenergies
+  values: [2760]
+name: PbPb_2TeV_multStdDevPtOverIncl_scaled
+table_doi: 10.17182/hepdata.142463.v2/t117
+---
+data_file: data_PbPb_5TeV_multDist.yaml
+description: Charged-particle multiplicity distribution for PbPb collisions at 5.02
+  TeV.
+keywords:
+- name: reactions
+  values: [PB PB --> CHARGED X]
+- name: observables
+  values: [MULT]
+- name: cmenergies
+  values: [5020]
+name: PbPb_5TeV_multDist
+table_doi: 10.17182/hepdata.142463.v2/t118
+---
+data_file: data_PbPb_5TeV_multDistKNO.yaml
+description: Koba-Nielsen-Olesen scaled charged-particle multiplicity distribution
+  for PbPb collisions at 5.02 TeV.
+keywords:
+- name: reactions
+  values: [PB PB --> CHARGED X]
+- name: observables
+  values: [MULTKNO]
+- name: cmenergies
+  values: [5020]
+name: PbPb_5TeV_multDistKNO
+table_doi: 10.17182/hepdata.142463.v2/t119
+---
+data_file: data_PbPb_5TeV_multPtSpec.yaml
+description: Charged-particle transverse momentum spectra as a function of charged-particle
+  multiplicity for PbPb collisions at 5.02 TeV.
+keywords:
+- name: reactions
+  values: [PB PB --> CHARGED X]
+- name: observables
+  values: [D3N/DETARAP/DPT/DMULT]
+- name: cmenergies
+  values: [5020]
+name: PbPb_5TeV_multPtSpec
+table_doi: 10.17182/hepdata.142463.v2/t120
+---
+data_file: data_PbPb_5TeV_multMeanPt.yaml
+description: Charged-particle mean transverse momentum as a function of charged-particle
+  multiplicity for PbPb collisions at 5.02 TeV.
+keywords:
+- name: reactions
+  values: [PB PB --> CHARGED X]
+- name: observables
+  values: [MEANPT]
+- name: cmenergies
+  values: [5020]
+name: PbPb_5TeV_multMeanPt
+table_doi: 10.17182/hepdata.142463.v2/t121
+---
+data_file: data_PbPb_5TeV_multStdDevPt.yaml
+description: Standard deviation of charged-particle transverse momentum spectra as
+  a function of charged-particle multiplicity for PbPb collisions at 5.02 TeV.
+keywords:
+- name: reactions
+  values: [PB PB --> CHARGED X]
+- name: observables
+  values: [STDDEVPT]
+- name: cmenergies
+  values: [5020]
+name: PbPb_5TeV_multStdDevPt
+table_doi: 10.17182/hepdata.142463.v2/t122
+---
+data_file: data_PbPb_5TeV_multRelStdDevPt.yaml
+description: Standard deviation over mean of charged-particle transverse momentum
+  spectra as a function of charged-particle multiplicity for PbPb collisions at 5.02
+  TeV.
+keywords:
+- name: reactions
+  values: [PB PB --> CHARGED X]
+- name: observables
+  values: [STDDEVPTOVERMEANPT]
+- name: cmenergies
+  values: [5020]
+name: PbPb_5TeV_multRelStdDevPt
+table_doi: 10.17182/hepdata.142463.v2/t123
+---
+data_file: data_PbPb_5TeV_ptSpec.yaml
+description: Charged-particle transverse momentum spectra integrated over charged-particle
+  multipliciy for PbPb collisions at 5.02 TeV.
+keywords:
+- name: reactions
+  values: [PB PB --> CHARGED X]
+- name: observables
+  values: [D2N/DETARAP/DPT]
+- name: cmenergies
+  values: [5020]
+name: PbPb_5TeV_ptSpec
+table_doi: 10.17182/hepdata.142463.v2/t124
+---
+data_file: data_PbPb_5TeV_multPtSpec_scaled.yaml
+description: Charged-particle transverse momentum spectra as a function of relative
+  charged-particle multiplicity for PbPb collisions at 5.02 TeV.
+keywords:
+- name: reactions
+  values: [PB PB --> CHARGED X]
+- name: observables
+  values: [D3N/DETARAP/DPT/DMULT]
+- name: cmenergies
+  values: [5020]
+name: PbPb_5TeV_multPtSpec_scaled
+table_doi: 10.17182/hepdata.142463.v2/t125
+---
+data_file: data_PbPb_5TeV_multMeanPt_scaled.yaml
+description: Charged-particle mean transverse momentum as a function of relative charged-particle
+  multiplicity for PbPb collisions at 5.02 TeV.
+keywords:
+- name: reactions
+  values: [PB PB --> CHARGED X]
+- name: observables
+  values: [MEANPT]
+- name: cmenergies
+  values: [5020]
+name: PbPb_5TeV_multMeanPt_scaled
+table_doi: 10.17182/hepdata.142463.v2/t126
+---
+data_file: data_PbPb_5TeV_multStdDevPt_scaled.yaml
+description: Standard deviation of charged-particle transverse momentum spectra as
+  a function of relative charged-particle multiplicity for PbPb collisions at 5.02
+  TeV.
+keywords:
+- name: reactions
+  values: [PB PB --> CHARGED X]
+- name: observables
+  values: [STDDEVPT]
+- name: cmenergies
+  values: [5020]
+name: PbPb_5TeV_multStdDevPt_scaled
+table_doi: 10.17182/hepdata.142463.v2/t127
+---
+data_file: data_PbPb_5TeV_multRelStdDevPt_scaled.yaml
+description: Standard deviation over mean of charged-particle transverse momentum
+  spectra as a function of relative charged-particle multiplicity for PbPb collisions
+  at 5.02 TeV.
+keywords:
+- name: reactions
+  values: [PB PB --> CHARGED X]
+- name: observables
+  values: [STDDEVPTOVERMEANPT]
+- name: cmenergies
+  values: [5020]
+name: PbPb_5TeV_multRelStdDevPt_scaled
+table_doi: 10.17182/hepdata.142463.v2/t128
+---
+data_file: data_PbPb_5TeV_multMeanPtOverIncl_scaled.yaml
+description: Charged-particle mean transverse momentum divided by its multiplicity-integrated
+  value as a function of relative charged-particle multiplicity for PbPb collisions
+  at 5.02 TeV.
+keywords:
+- name: reactions
+  values: [PB PB --> CHARGED X]
+- name: observables
+  values: [MEANPT]
+- name: cmenergies
+  values: [5020]
+name: PbPb_5TeV_multMeanPtOverIncl_scaled
+table_doi: 10.17182/hepdata.142463.v2/t129
+---
+data_file: data_PbPb_5TeV_multStdDevPtOverIncl_scaled.yaml
+description: Standard deviation of charged-particle transverse momentum spectra divided
+  by its multiplicity-integrated value as a function of relative charged-particle
+  multiplicity for PbPb collisions at 5.02 TeV.
+keywords:
+- name: reactions
+  values: [PB PB --> CHARGED X]
+- name: observables
+  values: [STDDEVPT]
+- name: cmenergies
+  values: [5020]
+name: PbPb_5TeV_multStdDevPtOverIncl_scaled
+table_doi: 10.17182/hepdata.142463.v2/t130

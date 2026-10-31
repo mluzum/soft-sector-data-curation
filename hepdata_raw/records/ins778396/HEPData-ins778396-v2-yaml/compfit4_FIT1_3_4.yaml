@@ -1,0 +1,38 @@
+dependent_variables:
+- header: {name: D}
+  qualifiers:
+  - {name: $p_T$, value: '3.0$<p_{T}^{A}<$4.0 GeV/c'}
+  values:
+  - errors:
+    - {label: staterr, symerror: 0.01}
+    - {label: sys err, symerror: 0.11}
+    value: 0.901
+  - errors:
+    - {label: staterr, symerror: 0.013}
+    - {label: sys err, symerror: 0.0825}
+    value: 1.007
+  - errors:
+    - {label: staterr, symerror: 0.016}
+    - {label: sys err, symerror: 0.072}
+    value: 1.036
+  - errors:
+    - {label: staterr, symerror: 0.043}
+    - {label: sys err, symerror: 0.0495}
+    value: 1.097
+  - errors:
+    - {label: staterr, symerror: 0.121}
+    - {label: sys err, symerror: 0.042}
+    value: 1.158
+  - errors:
+    - {label: staterr, symerror: 0.134}
+    - {label: sys err, symerror: 0.0715}
+    value: 1.13
+independent_variables:
+- header: {name: $p_T$}
+  values:
+  - {high: 1.0, low: 0.4}
+  - {high: 1.5, low: 1.0}
+  - {high: 2, low: 1.5}
+  - {high: 2.5, low: 2}
+  - {high: 3, low: 2.5}
+  - {high: 4.0, low: 3}

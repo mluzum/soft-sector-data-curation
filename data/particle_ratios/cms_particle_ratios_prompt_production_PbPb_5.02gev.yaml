@@ -1,0 +1,51 @@
+---
+observable_type: particle_ratios
+inspire_id: '1766111'
+version: 1
+hepdata_file: Figure_5_b.yaml
+hepdata_table_label: The $D^+_S/D^0$ ratio in pp and PbPb collisions.
+qualifiers:
+  abs(rap): < 1
+  re: PB PB --> DS+ --> PHI<K+K-> PI+
+  sqrt(s): '5.02'
+collision_system:
+  energy_gev: 5.02
+  reaction: PB PB --> DS+ --> PHI<K+K-> PI+
+centrality:
+  classes: []
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: pi+
+kinematic_range:
+  pT:
+    min: 2.0
+    max: 40.0
+    bins:
+    - 2.0
+    - 3.0
+    - 4.0
+    - 5.0
+    - 6.0
+    - 8.0
+    - 10.0
+    - 20.0
+    - 40.0
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+observable: unknown_over_unknown_ratio
+value_type: unknown_over_unknown
+numerator: unknown
+denominator: unknown

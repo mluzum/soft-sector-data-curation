@@ -1,0 +1,33 @@
+dependent_variables:
+- header: {name: SIG_INEL, units: B}
+  qualifiers:
+  - {name: RE, value: P PB --> X}
+  - {name: SQRT(S_NN), units: GEV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0}
+    - asymerror: {minus: -1.48631, plus: 2.25565}
+      label: sys
+    value: 3.11852
+  - errors:
+    - {label: stat, symerror: 0}
+    - asymerror: {minus: -0.835055, plus: 1.07249}
+      label: sys
+    value: 1.74183
+  - errors:
+    - {label: stat, symerror: 0}
+    - asymerror: {minus: -0.645219, plus: 0.746556}
+      label: sys
+    value: 0.807475
+  - errors:
+    - {label: stat, symerror: 0}
+    - asymerror: {minus: -0.589749, plus: 0.65556}
+      label: sys
+    value: 0.743843
+independent_variables:
+- header: {name: P, units: GEV/C}
+  values:
+  - {high: 0.47, low: 0.3, value: 0.385}
+  - {high: 0.65, low: 0.47, value: 0.56}
+  - {high: 0.77, low: 0.65, value: 0.71}
+  - {high: 0.89, low: 0.77, value: 0.83}

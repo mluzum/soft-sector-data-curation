@@ -1,0 +1,28 @@
+dependent_variables:
+- header: {name: $\sigma_2/<v_2>$, units: PCT}
+  qualifiers:
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 2.0}
+    - {label: sys, symerror: 5.0}
+    value: 28.0
+  - errors:
+    - {label: stat, symerror: 1.4}
+    - {label: sys, symerror: 3.0}
+    value: 33.5
+  - errors:
+    - {label: stat, symerror: 1.6}
+    - {label: sys, symerror: 3.0}
+    value: 36.2
+  - errors:
+    - {label: stat, symerror: 4.0}
+    - {label: sys, symerror: 5.0}
+    value: 45.0
+independent_variables:
+- header: {name: CENTRALITY, units: PCT}
+  values:
+  - {high: 20.0, low: 0.0}
+  - {high: 30.0, low: 20.0}
+  - {high: 40.0, low: 30.0}
+  - {high: 50.0, low: 40.0}

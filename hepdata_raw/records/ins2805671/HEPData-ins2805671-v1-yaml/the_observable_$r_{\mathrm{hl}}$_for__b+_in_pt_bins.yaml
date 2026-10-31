@@ -1,0 +1,43 @@
+dependent_variables:
+- header: {name: R_HL}
+  qualifiers:
+  - {name: RE, value: P Pb --> B+ --> J/psi K+}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: 8160}
+  - {name: '$|\eta(\mathrm{B}^+)|$', value: $< 2.4$}
+  - {name: '$|y(\mathrm{B}^+)|$', value: < 1.8}
+  - {name: '$p_{\mathrm{T}}$($\mathrm{B}^+$)', units: GeV, value: $3-50$}
+  - {name: '$N_{\mathrm{ch}}$', value: '$110 \leq N_\text{ch} \leq 250$'}
+  values:
+  - errors:
+    - {label: Statistical uncertainty, symerror: 0.31}
+    - {label: Systematical uncertainty, symerror: 0.22}
+    value: 0.93
+  - errors:
+    - {label: Statistical uncertainty, symerror: 0.2}
+    - {label: Systematical uncertainty, symerror: 0.1}
+    value: 1.2
+  - errors:
+    - {label: Statistical uncertainty, symerror: 0.13}
+    - {label: Systematical uncertainty, symerror: 0.06}
+    value: 1.17
+  - errors:
+    - {label: Statistical uncertainty, symerror: 0.18}
+    - {label: Systematical uncertainty, symerror: 0.14}
+    value: 1.39
+  - errors:
+    - {label: Statistical uncertainty, symerror: 0.2}
+    - {label: Systematical uncertainty, symerror: 0.1}
+    value: 1.2
+  - errors:
+    - {label: Statistical uncertainty, symerror: 0.19}
+    - {label: Systematical uncertainty, symerror: 0.06}
+    value: 0.93
+independent_variables:
+- header: {name: pT, units: GeV}
+  values:
+  - {value: 5.0}
+  - {value: 8.5}
+  - {value: 12.5}
+  - {value: 17.5}
+  - {value: 25.0}
+  - {value: 40.0}

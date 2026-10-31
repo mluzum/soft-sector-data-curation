@@ -1,0 +1,34 @@
+---
+observable_type: particle_yields
+inspire_id: '678407'
+version: 1
+hepdata_file: tab9.yaml
+hepdata_table_label: $\frac{\mathrm{d}N}{\mathrm{d}y}\frac{2}{N_{\mathrm{part}}}$ versus $N_{\mathrm{part}}$ for $\mathrm{\pi}^{+}$,$\mathrm{\pi}^{-}$,$\mathrm{K}^{+}$,$\mathrm{K}^{-}$,$\mathrm{p}$,$\overline{\mathrm{p}}$,$\mathrm{p}-\overline{\mathrm{p}}$
+  in $\mathrm{Au}-\mathrm{Au}$ at $\sqrt{s_{\mathrm{NN}}}=200\,\mathrm{Ge\!V}$  for $0-1$% central
+qualifiers:
+  particle: P - PBAR
+  yrap: '1'
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> K+
+centrality:
+  classes:
+  - 0.0-1.0%
+  estimator:
+    name: TMA
+    observable: Nch
+    detector: TMA
+  eta:
+  - min: -2.3
+    max: 2.3
+particle_id:
+  species: pbar
+kinematic_range:
+  eta:
+    min: -0.1
+    max: 3.3
+  pT:
+    min: 0.1
+    max: 10
+observable: dN_dy
+value_type: dN_dy

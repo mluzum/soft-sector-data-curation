@@ -1,0 +1,41 @@
+dependent_variables:
+- header: {name: '$\langle \cos[6(\Psi_{6}-\Psi_{3})]\rangle_{\mathrm{GE}}$'}
+  qualifiers:
+  - {name: ETARAP, value: -0.8 TO 0.8}
+  - {name: PT, units: GEV/c, value: 0.2 TO 5.0}
+  - {name: RE, value: PB PB --> CHARGED X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 2760}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.01218964}
+    - {label: sys, symerror: 0.01994688}
+    value: 0.1352038
+  - errors:
+    - {label: stat, symerror: 0.009241508}
+    - {label: sys, symerror: 0.0121274}
+    value: 0.1302588
+  - errors:
+    - {label: stat, symerror: 0.01126485}
+    - {label: sys, symerror: 0.0199081}
+    value: 0.1687309
+  - errors:
+    - {label: stat, symerror: 0.008760252}
+    - {label: sys, symerror: 0.02069032}
+    value: 0.1412724
+  - errors:
+    - {label: stat, symerror: 0.008570964}
+    - {label: sys, symerror: 0.01737477}
+    value: 0.1171699
+  - errors:
+    - {label: stat, symerror: 0.01426753}
+    - {label: sys, symerror: 0.01194261}
+    value: 0.09891037
+independent_variables:
+- header: {name: CENTRALITY, units: PCT}
+  values:
+  - {high: 5.0, low: 0.0}
+  - {high: 10.0, low: 5.0}
+  - {high: 20.0, low: 10.0}
+  - {high: 30.0, low: 20.0}
+  - {high: 40.0, low: 30.0}
+  - {high: 50.0, low: 40.0}

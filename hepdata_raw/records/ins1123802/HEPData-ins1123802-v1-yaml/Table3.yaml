@@ -1,0 +1,36 @@
+dependent_variables:
+- header: {name: NU(+-DYN)}
+  qualifiers:
+  - {name: PT, units: GeV, value: 0.2-5.0}
+  - {name: RE, value: P P --> CHARGED X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  - {name: '', value: UNCORRECTED}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0074}
+    - {label: sys, symerror: 0.0108}
+    value: -0.2412
+  - errors:
+    - {label: stat, symerror: 0.0057}
+    - {label: sys, symerror: 0.0103}
+    value: -0.2141
+- header: {name: NU(+-DYN)}
+  qualifiers:
+  - {name: PT, units: GeV, value: 0.2-5.0}
+  - {name: RE, value: P P --> CHARGED X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  - {name: '', value: CORRECTED}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0057}
+    - {label: sys, symerror: 0.0108}
+    value: -0.1302
+  - errors:
+    - {label: stat, symerror: 0.0057}
+    - {label: sys, symerror: 0.0103}
+    value: -0.1035
+independent_variables:
+- header: {name: DELTA(ETA)}
+  values:
+  - {value: 1.0}
+  - {value: 1.6}

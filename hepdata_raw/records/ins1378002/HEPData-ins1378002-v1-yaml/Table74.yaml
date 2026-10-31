@@ -1,0 +1,41 @@
+dependent_variables:
+- header: {name: N(Omega+Anti-Omega)/2N(phi)}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 0.0-60.0}
+  - {name: RE(Omega+Anti-Omega), value: AU AU --> (OMEGA- + OMEGABAR+) X}
+  - {name: RE(phi), value: AU AU --> PHI X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '27.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0038}
+    - {label: sys, symerror: 0.0032}
+    value: 0.026
+  - errors:
+    - {label: stat, symerror: 0.005}
+    - {label: sys, symerror: 0.0065}
+    value: 0.051
+  - errors:
+    - {label: stat, symerror: 0.0058}
+    - {label: sys, symerror: 0.0047}
+    value: 0.057
+  - errors:
+    - {label: stat, symerror: 0.0086}
+    - {label: sys, symerror: 0.0073}
+    value: 0.073
+  - errors:
+    - {label: stat, symerror: 0.0143}
+    - {label: sys, symerror: 0.0144}
+    value: 0.092
+  - errors:
+    - {label: stat, symerror: 0.0149}
+    - {label: sys, symerror: 0.0092}
+    value: 0.055
+independent_variables:
+- header: {name: $P_T$, units: GeV/c}
+  values:
+  - {value: 1.0}
+  - {value: 1.4}
+  - {value: 1.8}
+  - {value: 2.2}
+  - {value: 2.6}
+  - {value: 3.2}

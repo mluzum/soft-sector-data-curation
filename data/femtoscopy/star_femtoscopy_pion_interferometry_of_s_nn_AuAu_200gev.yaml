@@ -1,0 +1,214 @@
+---
+observable_type: femtoscopy
+inspire_id: '559861'
+version: 1
+hepdata_file: data_11.yaml
+hepdata_table_label: Multiplicity dependence of HBT parameters for low-pT (0.125-0.225 GeV/c) pi- pi- channel. They are Coulomb
+  corrected (5 fm Gaussian source assumed), corrected for merging effects ("bad systematic" for STAR-HBT insiders), and corrected
+  for finite-momentum-resolution effects. Systematic errors are estimated by the size of the merging correction and the effect
+  of varying source size used in the Coulomb correction by +/- 1 fm.
+qualifiers:
+  channel: pi- pi-
+  sqrt(snn): '130'
+  system: AU AU
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU
+centrality:
+  classes:
+  - 0.125-0.225%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: pi-
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+    bins:
+    - -1.0
+    - 1.0
+  pT:
+    min: 0.15
+    max: 10
+    bins:
+    - 0.15
+    - 10
+observable: hbt_radii
+value_type: lambda
+pair_type: pi+pi+
+---
+observable_type: femtoscopy
+inspire_id: '559861'
+version: 1
+hepdata_file: data_12.yaml
+hepdata_table_label: Multiplicity dependence of HBT parameters for low-pT (0.125-0.225 GeV/c)  pi+ pi+ channel. They are Coulomb
+  corrected (5 fm Gaussian source assumed), corrected for merging effects ("bad systematic" for STAR-HBT insiders), and corrected
+  for finite-momentum-resolution effects. Systematic errors are estimated by the size of the merging correction and the effect
+  of varying source size used in the Coulomb correction by +/- 1 fm.
+qualifiers:
+  channel: pi+ pi+
+  sqrt(snn): '130'
+  system: AU AU
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU
+centrality:
+  classes:
+  - 0.125-0.225%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: pi+
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+    bins:
+    - -1.0
+    - 1.0
+  pT:
+    min: 0.15
+    max: 10
+    bins:
+    - 0.15
+    - 10
+observable: hbt_radii
+value_type: lambda
+pair_type: pi+pi+
+---
+observable_type: femtoscopy
+inspire_id: '559861'
+version: 1
+hepdata_file: data_13.yaml
+hepdata_table_label: mT dependence of HBT parameters for high multiplicity (0-12%) collisions in pi- pi- channel. They are
+  Coulomb corrected (5 fm Gaussian source assumed), corrected for merging effects ("bad systematic" for STAR-HBT insiders),
+  and corrected for finite-momentum-resolution effects. Systematic errors are estimated by the size of the merging correction
+  and the effect of varying source size used in the Coulomb correction by +/- 1 fm.
+qualifiers:
+  channel: pi- pi-
+  re: AU AU
+  sqrt(snn): '130'
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU
+centrality:
+  classes:
+  - 0-12%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: pi-
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+    bins:
+    - -1.0
+    - 1.0
+  pT:
+    min: 0.15
+    max: 10
+    bins:
+    - 0.15
+    - 10
+observable: hbt_radii
+value_type: lambda
+pair_type: pi+pi+
+---
+observable_type: femtoscopy
+inspire_id: '559861'
+version: 1
+hepdata_file: data_14.yaml
+hepdata_table_label: mT dependence of HBT parameters for high multiplicity (0-12%) collisions in pi+ pi+ channel. They are
+  Coulomb corrected (5 fm Gaussian source assumed), corrected for merging effects ("bad systematic" for STAR-HBT insiders),
+  and corrected for finite-momentum-resolution effects. Systematic errors are estimated by the size of the merging correction
+  and the effect of varying source size used in the Coulomb correction by +/- 1 fm.
+qualifiers:
+  channel: pi+ pi+
+  re: AU AU
+  sqrt(snn): '130'
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU
+centrality:
+  classes:
+  - 0-12%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: pi+
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+    bins:
+    - -1.0
+    - 1.0
+  pT:
+    min: 0.15
+    max: 10
+    bins:
+    - 0.15
+    - 10
+observable: hbt_radii
+value_type: lambda
+pair_type: pi+pi+
+---
+observable_type: femtoscopy
+inspire_id: '559861'
+version: 1
+hepdata_file: data_15.yaml
+hepdata_table_label: For plotting purposes, it is often useful to know what is the average pT or mT for singles and low-Q
+  pairs. These are listed in table below.
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU
+centrality:
+  classes: []
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+    bins:
+    - -1.0
+    - 1.0
+  pT:
+    min: 0.15
+    max: 10
+    bins:
+    - 0.15
+    - 10
+observable: hbt_radii
+value_type: R_out
+pair_type: pi+pi+

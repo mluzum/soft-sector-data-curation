@@ -1,0 +1,76 @@
+dependent_variables:
+- header: {name: Cross section, units: nb}
+  qualifiers:
+  - {name: PT(MU), units: GeV, value: '> 15'}
+  - {name: PT(MU), units: GeV, value: '> 10'}
+  - {name: ABS(ETA_LAB(MU)), value: < 2.4}
+  - {name: RAP_CM, value: '> - 2.87'}
+  - {name: RAP_CM, value: < 1.93}
+  - {name: M, units: GeV, value: '> 15'}
+  - {name: M, units: GeV, value: < 60}
+  - {name: RE, value: 'P PB --> Z0 <MU+ MU-> X, P PB --> GAMMA* <MU+ MU-> X'}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: 8160}
+  values:
+  - errors:
+    - {label: Total, symerror: 0.22}
+    - {label: global luminosity uncertainty, symerror: 0.06}
+    value: 1.77
+  - errors:
+    - {label: Total, symerror: 0.37}
+    - {label: global luminosity uncertainty, symerror: 0.17}
+    value: 4.85
+  - errors:
+    - {label: Total, symerror: 0.51}
+    - {label: global luminosity uncertainty, symerror: 0.19}
+    value: 5.39
+  - errors:
+    - {label: Total, symerror: 0.43}
+    - {label: global luminosity uncertainty, symerror: 0.19}
+    value: 5.42
+  - errors:
+    - {label: Total, symerror: 0.46}
+    - {label: global luminosity uncertainty, symerror: 0.2}
+    value: 5.69
+  - errors:
+    - {label: Total, symerror: 0.48}
+    - {label: global luminosity uncertainty, symerror: 0.21}
+    value: 6.05
+  - errors:
+    - {label: Total, symerror: 0.51}
+    - {label: global luminosity uncertainty, symerror: 0.19}
+    value: 5.34
+  - errors:
+    - {label: Total, symerror: 0.46}
+    - {label: global luminosity uncertainty, symerror: 0.19}
+    value: 5.45
+  - errors:
+    - {label: Total, symerror: 0.5}
+    - {label: global luminosity uncertainty, symerror: 0.2}
+    value: 5.75
+  - errors:
+    - {label: Total, symerror: 0.45}
+    - {label: global luminosity uncertainty, symerror: 0.16}
+    value: 4.46
+  - errors:
+    - {label: Total, symerror: 0.35}
+    - {label: global luminosity uncertainty, symerror: 0.14}
+    value: 3.92
+  - errors:
+    - {label: Total, symerror: 0.33}
+    - {label: global luminosity uncertainty, symerror: 0.06}
+    value: 1.65
+independent_variables:
+- header: {name: rapidity}
+  values:
+  - {high: -2.4, low: -2.87}
+  - {high: -1.93, low: -2.4}
+  - {high: -1.6, low: -1.93}
+  - {high: -1.2, low: -1.6}
+  - {high: -0.8, low: -1.2}
+  - {high: -0.4, low: -0.8}
+  - {high: 0.0, low: -0.4}
+  - {high: 0.4, low: 0.0}
+  - {high: 0.8, low: 0.4}
+  - {high: 1.2, low: 0.8}
+  - {high: 1.6, low: 1.2}
+  - {high: 1.93, low: 1.6}

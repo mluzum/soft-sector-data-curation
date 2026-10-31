@@ -1,0 +1,32 @@
+observable_type: mean_pT
+inspire_id: '653797'
+version: 1
+hepdata_file: figure_10_down.yaml
+hepdata_table_label: Upper panel - ⟨$dE_{T}/d\eta⟩/⟨dN_{ch}/d\eta$⟩ vs $N_{part}$.
+  Predictions from HIJING simulations for Au+Au at 200 GeV are presented. Results
+  from WA98 [14] and PHENIX [15] are also shown. The grey band corresponds to an overall
+  normalization uncertainty for the STAR measurement. Bottom panel - Charged hadrons
+  mean transverse momentum as a function of $N_{part}$ [37].
+qualifiers:
+  source: STAR
+collision_system:
+  energy_gev: 200.0
+  reaction: Au+Au-->
+centrality:
+  classes: []
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: charged
+observable: mean_pT
+value_type: mean_pT
+kinematic_range:
+  eta:
+    min: -0.5
+    max: 0.5

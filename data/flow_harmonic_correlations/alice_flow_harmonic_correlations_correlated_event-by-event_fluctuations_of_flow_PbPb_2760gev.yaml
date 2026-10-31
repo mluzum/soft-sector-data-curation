@@ -1,0 +1,82 @@
+observable_type: flow_harmonic_correlations
+inspire_id: '1452590'
+version: 1
+hepdata_file: Table1.yaml
+hepdata_table_label: 'Centrality dependence of observables SC(4,2) and SC(3,2) in Pb-Pb collisions at 2.76 TeV.
+
+  '
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  - 60-70%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+kinematic_range:
+  pT:
+    min: 0.2
+    max: 5.0
+  eta:
+    min: 0.8
+    max: 0.8
+observable: NSC_3_2
+correlation_type: symmetric_cumulant
+harmonics:
+- 3
+- 2
+value_type: NSC(3,2)
+dimensionality: integrated
+estimator: standard
+---
+observable_type: flow_harmonic_correlations
+inspire_id: '1452590'
+version: 1
+hepdata_file: Table3.yaml
+hepdata_table_label: 'Centrality dependence of observables SC(4,2) and SC(3,2) in Pb-Pb collisions at 2.76 TeV, in 0-10% most central collisions.
+
+  '
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+kinematic_range:
+  pT:
+    min: 0.2
+    max: 5.0
+  eta:
+    min: 0.8
+    max: 0.8
+observable: NSC_3_2
+correlation_type: symmetric_cumulant
+harmonics:
+- 3
+- 2
+value_type: NSC(3,2)
+dimensionality: integrated
+estimator: standard

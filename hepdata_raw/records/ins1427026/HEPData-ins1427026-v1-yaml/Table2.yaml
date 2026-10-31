@@ -1,0 +1,62 @@
+dependent_variables:
+- header: {name: 'd$\sigma/$d${p}_{\rm T}$ (mb $c$/GeV)'}
+  qualifiers:
+  - {name: ALGO-JET, value: 'anti-$k_{\rm T}$'}
+  - {name: CENTRALITY, units: pct, value: 0.0-20.0}
+  - {name: ETARAP-JET, value: -0.5-0.5}
+  - {name: ETARAP-PARTICLE, value: -0.9-0.9}
+  - {name: PT-PARTICLE, value: '> 0.15 GeV/c'}
+  - {name: RADIUS-JET, value: '0.2'}
+  - {name: SQRT(SNN), units: GeV, value: '5023.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0003}
+    - {label: sys, symerror: 0.0026}
+    - {label: 'sys,Normalization uncertainty', symerror: 3.3%}
+    value: 0.02491
+  - errors:
+    - {label: stat, symerror: 0.00011}
+    - {label: sys, symerror: 0.00063}
+    - {label: 'sys,Normalization uncertainty', symerror: 3.3%}
+    value: 0.00533
+  - errors:
+    - {label: stat, symerror: 4.3e-05}
+    - {label: sys, symerror: 0.00019}
+    - {label: 'sys,Normalization uncertainty', symerror: 3.3%}
+    value: 0.001507
+  - errors:
+    - {label: stat, symerror: 2.3e-05}
+    - {label: sys, symerror: 7.0e-05}
+    - {label: 'sys,Normalization uncertainty', symerror: 3.3%}
+    value: 0.000553
+  - errors:
+    - {label: stat, symerror: 1.3e-05}
+    - {label: sys, symerror: 3.2e-05}
+    - {label: 'sys,Normalization uncertainty', symerror: 3.3%}
+    value: 0.000239
+  - errors:
+    - {label: stat, symerror: 7.5e-06}
+    - {label: sys, symerror: 1.7e-05}
+    - {label: 'sys,Normalization uncertainty', symerror: 3.3%}
+    value: 0.0001196
+  - errors:
+    - {label: stat, symerror: 3.8e-06}
+    - {label: sys, symerror: 7.5e-06}
+    - {label: 'sys,Normalization uncertainty', symerror: 3.3%}
+    value: 4.95e-05
+  - errors:
+    - {label: stat, symerror: 1.6e-06}
+    - {label: sys, symerror: 3.3e-06}
+    - {label: 'sys,Normalization uncertainty', symerror: 3.3%}
+    value: 1.69e-05
+independent_variables:
+- header: {name: '$p_{\rm {T, ch. jet}} $(GeV/$c$)'}
+  values:
+  - {high: 30.0, low: 20.0}
+  - {high: 40.0, low: 30.0}
+  - {high: 50.0, low: 40.0}
+  - {high: 60.0, low: 50.0}
+  - {high: 70.0, low: 60.0}
+  - {high: 80.0, low: 70.0}
+  - {high: 100.0, low: 80.0}
+  - {high: 120.0, low: 100.0}

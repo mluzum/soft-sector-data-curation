@@ -1,0 +1,48 @@
+dependent_variables:
+- header: {name: RAA}
+  qualifiers:
+  - {name: ABS(ETARAP(C = BJET)), value: < 2.0}
+  - {name: CENTRALITY, units: pct, value: 50.0-100.0}
+  - {name: R, value: '0.3'}
+  - {name: RE, value: P P --> BJET X}
+  - {name: RE, value: PB PB --> BJET X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0706}
+    - {label: sys, symerror: 0.1328}
+    - {label: 'sys,global pp uncertainty', symerror: 3.6%}
+    - {label: 'sys,global PbPb uncertainty (TAA)', symerror: 15.0%}
+    value: 0.6983
+  - errors:
+    - {label: stat, symerror: 0.0834}
+    - {label: sys, symerror: 0.1443}
+    - {label: 'sys,global pp uncertainty', symerror: 3.6%}
+    - {label: 'sys,global PbPb uncertainty (TAA)', symerror: 15.0%}
+    value: 0.7395
+  - errors:
+    - {label: stat, symerror: 0.1121}
+    - {label: sys, symerror: 0.1404}
+    - {label: 'sys,global pp uncertainty', symerror: 3.6%}
+    - {label: 'sys,global PbPb uncertainty (TAA)', symerror: 15.0%}
+    value: 0.6793
+  - errors:
+    - {label: stat, symerror: 0.1995}
+    - {label: sys, symerror: 0.17}
+    - {label: 'sys,global pp uncertainty', symerror: 3.6%}
+    - {label: 'sys,global PbPb uncertainty (TAA)', symerror: 15.0%}
+    value: 0.7739
+  - errors:
+    - {label: stat, symerror: 0.258}
+    - {label: sys, symerror: 0.088}
+    - {label: 'sys,global pp uncertainty', symerror: 3.6%}
+    - {label: 'sys,global PbPb uncertainty (TAA)', symerror: 15.0%}
+    value: 0.425
+independent_variables:
+- header: {name: PT(C=BJET), units: GEV}
+  values:
+  - {high: 90.0, low: 80.0}
+  - {high: 110.0, low: 90.0}
+  - {high: 130.0, low: 110.0}
+  - {high: 170.0, low: 130.0}
+  - {high: 250.0, low: 170.0}

@@ -1,0 +1,343 @@
+---
+observable_type: heavy_flavor
+inspire_id: '695305'
+version: 1
+hepdata_file: Table1.yaml
+hepdata_table_label: 'Inclusive and non photonic electrons invariant yield versus PT, for minimum bias reactions.
+
+  '
+qualifiers:
+  q: NON-PHOTONIC
+  re(q=inclusive): AU AU -->  E+ E- X
+  re(q=non-photonic): AU AU --> CHARM < E+ X > CHARMBAR < E- X > X
+  sqrt(s): '200.0'
+  yrap: -0.35-0.35
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> CHARM CHARMBAR X
+centrality:
+  classes: []
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: e-
+  particle: D0
+kinematic_range:
+  pT:
+    min: 0.4
+    max: 5.0
+    bins:
+    - 0.4
+    - 0.5
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 2.0
+    - 2.5
+    - 3.0
+    - 4.0
+    - 5.0
+  eta:
+    min: -0.35
+    max: 0.35
+observable: d0_invariant_yield
+value_type: invariant_yield
+particle: D0
+---
+observable_type: heavy_flavor
+inspire_id: '695305'
+version: 1
+hepdata_file: Table2.yaml
+hepdata_table_label: 'Non photonic electrons invariant yield versus PT for different ranges of centrality.
+
+  '
+qualifiers:
+  centrality: 40.0-60.0
+  re: AU AU --> CHARM < E+ X > CHARMBAR < E- X > X
+  sqrt(s): '200.0'
+  yrap: -0.35-0.35
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> CHARM < E+ X > CHARMBAR < E- X > X
+centrality:
+  classes:
+  - 40.0-60.0%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: e-
+  particle: D0
+kinematic_range:
+  pT:
+    min: 0.4
+    max: 5.0
+    bins:
+    - 0.4
+    - 0.5
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 2.0
+    - 2.5
+    - 3.0
+    - 4.0
+    - 5.0
+  eta:
+    min: -0.35
+    max: 0.35
+observable: d0_invariant_yield
+value_type: invariant_yield
+particle: D0
+---
+observable_type: heavy_flavor
+inspire_id: '695305'
+version: 1
+hepdata_file: Table3.yaml
+hepdata_table_label: 'Nuclear modification factor as a function of PT, for 0-10% central reactions  Note that the systematic
+  error given is related to the the uncertainties in the p+p measurements.An additional systematic error, symmetrical on the
+  + and - side, related to the uncertainties in the Au+Au measurement, is given in the second column. Another, PT-independant,
+  13%systematic error due to the uncertainty on the overlap function and the Pi0 yield normalization is to add.
+
+  '
+qualifiers:
+  centrality: 0.0-10.0
+  re: P P --> CHARM < E+ X > CHARMBAR < E- X > X
+  sqrt(s): '200.0'
+  yrap: -0.35-0.35
+collision_system:
+  energy_gev: 200.0
+  reaction: P P --> CHARM < E+ X > CHARMBAR < E- X > X
+centrality:
+  classes:
+  - 0.0-10.0%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: pi0
+  particle: D0
+kinematic_range:
+  pT:
+    min: 0.4
+    max: 5.0
+    bins:
+    - 0.4
+    - 0.5
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 2.0
+    - 2.5
+    - 3.0
+    - 4.0
+    - 5.0
+  eta:
+    min: -0.35
+    max: 0.35
+observable: d0_invariant_yield
+value_type: invariant_yield
+particle: D0
+---
+observable_type: heavy_flavor
+inspire_id: '695305'
+version: 1
+hepdata_file: Table4.yaml
+hepdata_table_label: 'Nuclear modification factor as a function of PT, for 10-20% central reactions  Note that the systematic
+  error given is related to the the uncertainties in the p+p measurements.An additional systematic error, symmetrical on the
+  + and - side, related to the uncertainties in the Au+Au measurement, is given in the second column. Another, PT-independant,
+  13%systematic error due to the uncertainty on the overlap function and the Pi0 yield normalization is to add.
+
+  '
+qualifiers:
+  centrality: 10.0-20.0
+  re: P P --> CHARM < E+ X > CHARMBAR < E- X > X
+  sqrt(s): '200.0'
+  yrap: -0.35-0.35
+collision_system:
+  energy_gev: 200.0
+  reaction: P P --> CHARM < E+ X > CHARMBAR < E- X > X
+centrality:
+  classes:
+  - 10.0-20.0%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: pi0
+  particle: D0
+kinematic_range:
+  pT:
+    min: 0.4
+    max: 5.0
+    bins:
+    - 0.4
+    - 0.5
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 2.0
+    - 2.5
+    - 3.0
+    - 4.0
+    - 5.0
+  eta:
+    min: -0.35
+    max: 0.35
+observable: d0_invariant_yield
+value_type: invariant_yield
+particle: D0
+---
+observable_type: heavy_flavor
+inspire_id: '695305'
+version: 1
+hepdata_file: Table5.yaml
+hepdata_table_label: 'Nuclear modification factor as a function of PT, for 20-40% central reactions  Note that the systematic
+  error given is related to the the uncertainties in the p+p measurements.An additional systematic error, symmetrical on the
+  + and - side, related to the uncertainties in the Au+Au measurement, is given in the second column. Another, PT-independant,
+  13%systematic error due to the uncertainty on the overlap function and the Pi0 yield normalization is to add.
+
+  '
+qualifiers:
+  centrality: 20.0-40.0
+  re: P P --> CHARM < E+ X > CHARMBAR < E- X > X
+  sqrt(s): '200.0'
+  yrap: -0.35-0.35
+collision_system:
+  energy_gev: 200.0
+  reaction: P P --> CHARM < E+ X > CHARMBAR < E- X > X
+centrality:
+  classes:
+  - 20.0-40.0%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: pi0
+  particle: D0
+kinematic_range:
+  pT:
+    min: 0.4
+    max: 5.0
+    bins:
+    - 0.4
+    - 0.5
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 2.0
+    - 2.5
+    - 3.0
+    - 4.0
+    - 5.0
+  eta:
+    min: -0.35
+    max: 0.35
+observable: d0_invariant_yield
+value_type: invariant_yield
+particle: D0
+---
+observable_type: heavy_flavor
+inspire_id: '695305'
+version: 1
+hepdata_file: Table6.yaml
+hepdata_table_label: 'Nuclear modification factor as a function of PT, for 40-60% central reactions  Note that the systematic
+  error given is related to the the uncertainties in the p+p measurements.An additional systematic error, symmetrical on the
+  + and - side, related to the uncertainties in the Au+Au measurement, is given in the second column. Another, PT-independant,
+  13%systematic error due to the uncertainty on the overlap function and the Pi0 yield normalization is to add.
+
+  '
+qualifiers:
+  centrality: 40.0-60.0
+  re: P P --> CHARM < E+ X > CHARMBAR < E- X > X
+  sqrt(s): '200.0'
+  yrap: -0.35-0.35
+collision_system:
+  energy_gev: 200.0
+  reaction: P P --> CHARM < E+ X > CHARMBAR < E- X > X
+centrality:
+  classes:
+  - 40.0-60.0%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: pi0
+  particle: D0
+kinematic_range:
+  pT:
+    min: 0.4
+    max: 5.0
+    bins:
+    - 0.4
+    - 0.5
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 2.0
+    - 2.5
+    - 3.0
+    - 4.0
+    - 5.0
+  eta:
+    min: -0.35
+    max: 0.35
+observable: d0_invariant_yield
+value_type: invariant_yield
+particle: D0

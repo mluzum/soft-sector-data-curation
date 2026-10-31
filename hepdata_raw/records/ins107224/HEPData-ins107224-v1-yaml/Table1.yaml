@@ -1,0 +1,30 @@
+dependent_variables:
+- header: {name: SIG, units: MB}
+  qualifiers:
+  - {name: RE, value: PI+ P --> RHO+ P}
+  - {name: SQRT(S), units: GeV, value: '2.867'}
+  values:
+  - errors:
+    - {symerror: 0.03}
+    value: 0.86
+- header: {name: SIG, units: MB}
+  qualifiers:
+  - {name: RE, value: PI+ P --> PI0 DELTA(1232P33)++}
+  - {name: SQRT(S), units: GeV, value: '2.867'}
+  values:
+  - errors:
+    - {symerror: 0.02}
+    value: 0.41
+- header: {name: SIG, units: MB}
+  qualifiers:
+  - {name: RE, value: PI+ P --> RHO0 DELTA(1232P33)++}
+  - {name: SQRT(S), units: GeV, value: '2.867'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.04}
+    - {label: sys, symerror: 5.0%}
+    value: 1.5
+independent_variables:
+- header: {name: P, units: GEV}
+  values:
+  - {value: 3.9}

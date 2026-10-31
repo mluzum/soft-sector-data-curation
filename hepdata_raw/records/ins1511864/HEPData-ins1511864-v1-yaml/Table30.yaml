@@ -1,0 +1,78 @@
+dependent_variables:
+- header: {name: '$R_{AA}$'}
+  qualifiers:
+  - {name: CENTRALITY, units: $\%$, value: (0 - 5)}
+  - {name: RE, value: 'PB PB $\rightarrow$ $K^{*0}$ + X; PB PB $\rightarrow$ $\overline{K^{*0}}$
+      + X'}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '2760.0'}
+  - {name: YRAP(CM), value: -0.5 TO 0.5}
+  - {name: SYST NORMALIZATION, units: $\%$, value: 0.5}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.009855}
+    - {label: sys (total), symerror: 0.016748}
+    value: 0.08903
+  - errors:
+    - {label: stat, symerror: 0.021999}
+    - {label: sys (total), symerror: 0.02775}
+    value: 0.15379
+  - errors:
+    - {label: stat, symerror: 0.017693}
+    - {label: sys (total), symerror: 0.047045}
+    value: 0.25597
+  - errors:
+    - {label: stat, symerror: 0.029234}
+    - {label: sys (total), symerror: 0.064764}
+    value: 0.37253
+  - errors:
+    - {label: stat, symerror: 0.025711}
+    - {label: sys (total), symerror: 0.079483}
+    value: 0.43102
+  - errors:
+    - {label: stat, symerror: 0.029961}
+    - {label: sys (total), symerror: 0.070998}
+    value: 0.38681
+  - errors:
+    - {label: stat, symerror: 0.034082}
+    - {label: sys (total), symerror: 0.069642}
+    value: 0.38793
+  - errors:
+    - {label: stat, symerror: 0.052838}
+    - {label: sys (total), symerror: 0.063485}
+    value: 0.34667
+  - errors:
+    - {label: stat, symerror: 0.032304}
+    - {label: sys (total), symerror: 0.041876}
+    value: 0.20694
+  - errors:
+    - {label: stat, symerror: 0.024591}
+    - {label: sys (total), symerror: 0.03235}
+    value: 0.15838
+  - errors:
+    - {label: stat, symerror: 0.026178}
+    - {label: sys (total), symerror: 0.030985}
+    value: 0.14081
+  - errors:
+    - {label: stat, symerror: 0.07011}
+    - {label: sys (total), symerror: 0.066274}
+    value: 0.26441
+  - errors:
+    - {label: stat, symerror: 0.049495}
+    - {label: sys (total), symerror: 0.10612}
+    value: 0.2703
+independent_variables:
+- header: {name: '$p_{T}$', units: GeV/$c$}
+  values:
+  - {high: 0.7, low: 0.3, value: 0.5}
+  - {high: 1.2, low: 0.7, value: 0.95}
+  - {high: 1.6, low: 1.2, value: 1.4}
+  - {high: 2, low: 1.6, value: 1.8}
+  - {high: 2.5, low: 2, value: 2.25}
+  - {high: 3, low: 2.5, value: 2.75}
+  - {high: 3.5, low: 3, value: 3.25}
+  - {high: 4, low: 3.5, value: 3.75}
+  - {high: 5, low: 4, value: 4.5}
+  - {high: 7, low: 5, value: 6}
+  - {high: 10, low: 7, value: 8.5}
+  - {high: 15, low: 10, value: 12.5}
+  - {high: 20, low: 15, value: 17.5}

@@ -1,0 +1,72 @@
+dependent_variables:
+- header: {name: MEAN(MULTIPLICITY)}
+  qualifiers:
+  - {name: RE, value: P PB --> Lambda+anti-Lambda X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020.0'}
+  - {name: YRAP(C=CM), value: -1 TO 1.0}
+  values:
+  - errors: []
+    value: 17.0
+  - errors: []
+    value: 52.5
+  - errors: []
+    value: 75.0
+  - errors: []
+    value: 105.0
+  - errors: []
+    value: 132.0
+  - errors: []
+    value: 162.0
+  - errors: []
+    value: 197.0
+  - errors: []
+    value: 231.5
+- header: {name: MEAN(KE_T), units: GEV}
+  qualifiers:
+  - {name: RE, value: P PB --> Lambda+anti-Lambda X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020.0'}
+  - {name: YRAP(C=CM), value: -1 TO 1.0}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0}
+    - {label: sys, symerror: 0.025}
+    value: 0.47
+  - errors:
+    - {label: stat, symerror: 0.0}
+    - {label: sys, symerror: 0.017}
+    value: 0.61
+  - errors:
+    - {label: stat, symerror: 0.0}
+    - {label: sys, symerror: 0.019}
+    value: 0.69
+  - errors:
+    - {label: stat, symerror: 0.0}
+    - {label: sys, symerror: 0.013}
+    value: 0.75
+  - errors:
+    - {label: stat, symerror: 0.0}
+    - {label: sys, symerror: 0.01}
+    value: 0.79
+  - errors:
+    - {label: stat, symerror: 0.0}
+    - {label: sys, symerror: 0.011}
+    value: 0.82
+  - errors:
+    - {label: stat, symerror: 0.0}
+    - {label: sys, symerror: 0.012}
+    value: 0.85
+  - errors:
+    - {label: stat, symerror: 0.0}
+    - {label: sys, symerror: 0.014}
+    value: 0.86
+independent_variables:
+- header: {name: EVENT CLASS, units: MULTIPLICIT}
+  values:
+  - {high: 35.0, low: 0.0}
+  - {high: 60.0, low: 35.0}
+  - {high: 90.0, low: 60.0}
+  - {high: 120.0, low: 90.0}
+  - {high: 150.0, low: 120.0}
+  - {high: 185.0, low: 150.0}
+  - {high: 220.0, low: 185.0}
+  - {high: 260.0, low: 220.0}

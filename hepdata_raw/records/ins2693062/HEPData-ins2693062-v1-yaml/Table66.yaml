@@ -1,0 +1,41 @@
+dependent_variables:
+- header: {name: '$I_{AA}$'}
+  qualifiers:
+  - {name: System, value: "Au+Au 0\u201315%"}
+  - {name: Process, value: $\gamma$+jet}
+  - {name: Jet radius, value: R = 0.2}
+  - {name: '$E_T^{trig}$', value: "11\u201315 GeV"}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0310516}
+    - asymerror: {minus: -0.0908061, plus: 0.0908061}
+      label: sys
+    value: 0.55909
+  - errors:
+    - {label: stat, symerror: 0.0543883}
+    - asymerror: {minus: -0.102917, plus: 0.102917}
+      label: sys
+    value: 0.460162
+  - errors:
+    - {label: stat, symerror: 0.0543984}
+    - asymerror: {minus: -0.0771478, plus: 0.0771478}
+      label: sys
+    value: 0.326411
+  - errors:
+    - {label: stat, symerror: 0.0487057}
+    - asymerror: {minus: -0.0787158, plus: 0.0787158}
+      label: sys
+    value: 0.237857
+  - errors:
+    - {label: stat, symerror: 0.374631}
+    - asymerror: {minus: -0.47295, plus: 0.47295}
+      label: sys
+    value: 0.494213
+independent_variables:
+- header: {name: Jet $p_T$, units: GeV/c}
+  values:
+  - {value: 2.7}
+  - {value: 4.9}
+  - {value: 6.9}
+  - {value: 9.2}
+  - {value: 12.6}

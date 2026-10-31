@@ -1,0 +1,46 @@
+dependent_variables:
+- header: {name: '$1/N^{\rm{jets}}{\rm d} N^{\rm{jets}}/{\rm d} p_{\rm T} D$'}
+  qualifiers:
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '2760.0'}
+  - {name: YRAP, value: -0.7 TO 0.7}
+  - {name: CENTRALITY, value: 0 < CENTRALITY < 10}
+  values:
+  - errors:
+    - {label: stat, symerror: '0.039'}
+    - asymerror: {minus: '-0.061', plus: '0.053'}
+      label: sys
+    value: '0.589'
+  - errors:
+    - {label: stat, symerror: '0.084'}
+    - asymerror: {minus: '-0.202', plus: '0.249'}
+      label: sys
+    value: '2.638'
+  - errors:
+    - {label: stat, symerror: '0.089'}
+    - asymerror: {minus: '-0.109', plus: '0.128'}
+      label: sys
+    value: '2.991'
+  - errors:
+    - {label: stat, symerror: '0.064'}
+    - asymerror: {minus: '-0.188', plus: '0.099'}
+      label: sys
+    value: '1.816'
+  - errors:
+    - {label: stat, symerror: '0.046'}
+    - asymerror: {minus: '-0.131', plus: '0.136'}
+      label: sys
+    value: '0.948'
+  - errors:
+    - {label: stat, symerror: '0.026'}
+    - asymerror: {minus: '-0.060', plus: '0.034'}
+      label: sys
+    value: '0.535'
+independent_variables:
+- header: {name: '$p_{\rm T} D$'}
+  values:
+  - {high: 0.4, low: 0.3}
+  - {high: 0.5, low: 0.4}
+  - {high: 0.6, low: 0.5}
+  - {high: 0.7, low: 0.6}
+  - {high: 0.8, low: 0.7}
+  - {high: 1.0, low: 0.8}

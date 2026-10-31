@@ -1,0 +1,174 @@
+---
+observable_type: heavy_flavor
+inspire_id: '1700575'
+version: 1
+hepdata_file: Raa.yaml
+hepdata_table_label: The $ {{{\mathrm {B}}}\to {\mathrm {D^0}}} $ nuclear modification factor $ {R_{\mathrm {AA}}} $ for PbPb
+  collisions at ${\sqrt {\smash [b]{s_{_{\mathrm {NN}}}}}} = $ 5.02 TeV.
+qualifiers:
+  centrality: 0.0 - 100.0
+  global uncertainty (taa and lumi): +4.6 -4.1
+  re: P P --> B --> D0 <K- pi+> X & Pb Pb --> B --> D0 <K- pi+> X
+  sqrt(s): '5020'
+  '|$rapidity(d)$|': $<$ 1
+collision_system:
+  energy_gev: 5020.0
+  reaction: P P --> B --> D0 <K- pi+> X & Pb Pb --> B --> D0 <K- pi+> X
+centrality:
+  classes:
+  - 0.0-100.0%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: pi+
+  particle: D0
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: d0_R_AA
+value_type: R_AA
+particle: D0
+---
+observable_type: heavy_flavor
+inspire_id: '1700575'
+version: 1
+hepdata_file: ptSpectrumPP.yaml
+hepdata_table_label: $ {{{\mathrm {B}}}\to {\mathrm {D^0}}} $ $ {p_{\mathrm {T}}} $ -differential cross section in pp collisions
+  at ${\sqrt {\smash [b]{s}}} = $ 5.02 TeV.
+qualifiers:
+  global uncertainty (lumi and br): '2.5'
+  re: P P --> B --> D0 <K- pi+> X
+  sqrt(s): '5020'
+  '|$rapidity(d)$|': $<$ 1
+collision_system:
+  energy_gev: 5020.0
+  reaction: P P --> B --> D0 <K- pi+> X
+centrality:
+  classes:
+  - MB
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: pi+
+  particle: D0
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: d0_invariant_yield
+value_type: invariant_yield
+particle: D0
+---
+observable_type: heavy_flavor
+inspire_id: '1700575'
+version: 1
+hepdata_file: ptSpectrumPPOverFONLLRatio.yaml
+hepdata_table_label: The $\text {data}/\mathrm {FONLL}$ ratio for the $ {{{\mathrm {B}}}\to {\mathrm {D^0}}} $ $ {p_{\mathrm
+  {T}}} $ spectra in pp collisions.
+qualifiers:
+  global uncertainty (lumi and br): '2.5'
+  re: P P --> B --> D0 <K- pi+> X
+  sqrt(s): '5020'
+  '|$rapidity(d)$|': $<$ 1
+collision_system:
+  energy_gev: 5020.0
+  reaction: P P --> B --> D0 <K- pi+> X
+centrality:
+  classes:
+  - MB
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: pi+
+  particle: D0
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: d0_invariant_yield
+value_type: invariant_yield
+particle: D0
+---
+observable_type: heavy_flavor
+inspire_id: '1700575'
+version: 1
+hepdata_file: ptSpectrumPbPb.yaml
+hepdata_table_label: $ {{{\mathrm {B}}}\to {\mathrm {D^0}}} $ $ {p_{\mathrm {T}}} $ -differential invariant yield in PbPb
+  collisions normalized with $ {T_{\mathrm {AA}}} $ at ${\sqrt {\smash [b]{s_{_{\mathrm {NN}}}}}} = $ 5.02 TeV.
+qualifiers:
+  centrality: 0.0 - 100.0
+  global uncertainty (taa and lumi and br): +4.1 -3.6
+  re: Pb Pb --> B --> D0 <K- pi+> X
+  sqrt(s): '5020'
+  '|$rapidity(d)$|': $<$ 1
+collision_system:
+  energy_gev: 5020.0
+  reaction: Pb Pb --> B --> D0 <K- pi+> X
+centrality:
+  classes:
+  - 0.0-100.0%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: pi+
+  particle: D0
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: d0_invariant_yield
+value_type: invariant_yield
+particle: D0

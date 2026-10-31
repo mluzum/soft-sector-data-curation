@@ -1,0 +1,45 @@
+dependent_variables:
+- header: {name: 'd$\sigma$/d $p_{\rm{T}}$dy', units: $\mu b$/GeV}
+  qualifiers:
+  - {name: RE, value: P P --> Lc (Q=PROMPT) X}
+  - {name: SQRT(S), units: GEV, value: '7000.0'}
+  - {name: YRAP, value: -0.5 TO 0.5}
+  values:
+  - errors:
+    - {label: stat, symerror: 19.348}
+    - asymerror: {minus: -39.24, plus: 39.235}
+      label: sys
+    - {label: 'sys,uncertainty on luminosity', symerror: 3.5%}
+    value: 112.144
+  - errors:
+    - {label: stat, symerror: 7.409}
+    - asymerror: {minus: -7.891, plus: 7.792}
+      label: sys
+    - {label: 'sys,uncertainty on luminosity', symerror: 3.5%}
+    value: 60.138
+  - errors:
+    - {label: stat, symerror: 3.051}
+    - asymerror: {minus: -3.485, plus: 3.397}
+      label: sys
+    - {label: 'sys,uncertainty on luminosity', symerror: 3.5%}
+    value: 27.421
+  - errors:
+    - {label: stat, symerror: 0.845}
+    - asymerror: {minus: -1.143, plus: 1.053}
+      label: sys
+    - {label: 'sys,uncertainty on luminosity', symerror: 3.5%}
+    value: 8.994
+  - errors:
+    - {label: stat, symerror: 0.378}
+    - asymerror: {minus: -0.332, plus: 0.315}
+      label: sys
+    - {label: 'sys,uncertainty on luminosity', symerror: 3.5%}
+    value: 1.987
+independent_variables:
+- header: {name: PT, units: GEV/C}
+  values:
+  - {high: 2.0, low: 1.0, value: 1.5}
+  - {high: 3.0, low: 2.0, value: 2.5}
+  - {high: 4.0, low: 3.0, value: 3.5}
+  - {high: 6.0, low: 4.0, value: 5.0}
+  - {high: 8.0, low: 6.0, value: 7.0}

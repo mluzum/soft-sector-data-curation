@@ -1,0 +1,63 @@
+dependent_variables:
+- header: {name: '$(1/N_{\rm{ev}})(\rm{d}N/\rm{d}cos\theta^{*}$)'}
+  qualifiers:
+  - {name: '$p_{\rm T}$ range', units: GeV/$c$, value: 0-0.6}
+  - {name: RE, value: 'pp $\rightarrow$ K$^{*0}$ X, pp $\rightarrow$ $\bar{\rm{K}}^{*0}$
+      X'}
+  - {name: SQRT(S), units: GeV, value: '13000.0'}
+  - {name: Plane, value: Production Plane}
+  - {name: YRAP, value: -0.5-0.5}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.00577168}
+    - {label: syst., symerror: 0.0078757}
+    value: 0.0437539
+  - errors:
+    - {label: stat., symerror: 0.00592377}
+    - {label: syst., symerror: 0.00774143}
+    value: 0.043008
+  - errors:
+    - {label: stat., symerror: 0.00555413}
+    - {label: syst., symerror: 0.00888379}
+    value: 0.0493544
+  - errors:
+    - {label: stat., symerror: 0.00518565}
+    - {label: syst., symerror: 0.00718033}
+    value: 0.0398907
+  - errors:
+    - {label: stat., symerror: 0.0047271}
+    - {label: syst., symerror: 0.0078652}
+    value: 0.0436955
+  - errors:
+    - {label: stat., symerror: 0.00423702}
+    - {label: syst., symerror: 0.00829718}
+    value: 0.0457621
+  - errors:
+    - {label: stat., symerror: 0.00356583}
+    - {label: syst., symerror: 0.00709498}
+    value: 0.0394165
+  - errors:
+    - {label: stat., symerror: 0.00282546}
+    - {label: syst., symerror: 0.00737747}
+    value: 0.0409859
+  - errors:
+    - {label: stat., symerror: 0.00220467}
+    - {label: syst., symerror: 0.00763926}
+    value: 0.0424403
+  - errors:
+    - {label: stat., symerror: 0.00177693}
+    - {label: syst., symerror: 0.00801838}
+    value: 0.0445465
+independent_variables:
+- header: {name: 'cos\theta^{*}'}
+  values:
+  - {high: 0.1, low: 0.0}
+  - {high: 0.2, low: 0.1}
+  - {high: 0.3, low: 0.2}
+  - {high: 0.4, low: 0.3}
+  - {high: 0.5, low: 0.4}
+  - {high: 0.6, low: 0.5}
+  - {high: 0.7, low: 0.6}
+  - {high: 0.8, low: 0.7}
+  - {high: 0.9, low: 0.8}
+  - {high: 1.0, low: 0.9}

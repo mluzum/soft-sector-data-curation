@@ -1,0 +1,36 @@
+dependent_variables:
+- header: {name: rho633Gap}
+  qualifiers:
+  - {name: RE, value: Pb Pb --> CHARGED X}
+  - {name: SQRT(S), units: GEV, value: 2760}
+  - {name: ABS(ETA), value: < 0.8 (LAB)}
+  - {name: PT, value: 0.2 - 5.0 GeV}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0621208}
+    - {label: sys, symerror: 0.041499}
+    value: 0.207495
+  - errors:
+    - {label: stat, symerror: 0.0688387}
+    - {label: sys, symerror: 0.0806296}
+    value: 0.403148
+  - errors:
+    - {label: stat, symerror: 0.0881094}
+    - {label: sys, symerror: 0.0785366}
+    value: 0.392683
+  - errors:
+    - {label: stat, symerror: 0.0613216}
+    - {label: sys, symerror: 0.0910834}
+    value: 0.455417
+  - errors:
+    - {label: stat, symerror: 0.107787}
+    - {label: sys, symerror: 0.0660886}
+    value: 0.330443
+independent_variables:
+- header: {name: Centrality percentile}
+  values:
+  - {high: 5, low: 0}
+  - {high: 10, low: 5}
+  - {high: 20, low: 10}
+  - {high: 30, low: 20}
+  - {high: 40, low: 30}

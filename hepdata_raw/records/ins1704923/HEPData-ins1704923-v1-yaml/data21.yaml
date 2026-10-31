@@ -1,0 +1,35 @@
+dependent_variables:
+- header: {name: Yield narrow}
+  qualifiers:
+  - {name: ETARAP, value: -0.8 TO 0.8}
+  - {name: RE, value: P PB --> CHARGED X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020'}
+  values:
+  - errors:
+    - {label: stat, symerror: '1.223123E-03'}
+    - {label: sys, symerror: '1.799394E-02'}
+    value: '3.183919E-01'
+  - errors:
+    - {label: stat, symerror: '1.514514E-03'}
+    - {label: sys, symerror: '1.615546E-02'}
+    value: '3.019923E-01'
+  - errors:
+    - {label: stat, symerror: '2.198402E-03'}
+    - {label: sys, symerror: '1.687129E-02'}
+    value: '2.910631E-01'
+  - errors:
+    - {label: stat, symerror: '2.883942E-03'}
+    - {label: sys, symerror: '1.742841E-02'}
+    value: '2.948240E-01'
+  - errors:
+    - {label: stat, symerror: '7.315760E-03'}
+    - {label: sys, symerror: '1.760984E-02'}
+    value: '2.959867E-01'
+independent_variables:
+- header: {name: PT, units: GEV/C}
+  values:
+  - {high: 4.0, low: 3.0}
+  - {high: 5.0, low: 4.0}
+  - {high: 6.0, low: 5.0}
+  - {high: 8.0, low: 6.0}
+  - {high: 10.0, low: 8.0}

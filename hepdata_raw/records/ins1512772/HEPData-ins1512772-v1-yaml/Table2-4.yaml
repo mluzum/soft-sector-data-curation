@@ -1,0 +1,57 @@
+dependent_variables:
+- header: {name: '$v_{2}[P_{2}]$', units: B}
+  qualifiers:
+  - {name: RE, value: Pb Pb --> X}
+  - {name: SQRT(SNN), units: TEV, value: 2.76}
+  - {name: pT, units: GeV/c, value: 0.2 TO 2.0}
+  - {name: YRAP, value: 0.9 TO 1.9}
+  values:
+  - errors:
+    - {label: stat, symerror: 7.0e-05}
+    - {label: sys, symerror: 0.00038}
+    value: 0.0068164
+  - errors:
+    - {label: stat, symerror: 6.0e-05}
+    - {label: sys, symerror: 0.00065}
+    value: 0.011485
+  - errors:
+    - {label: stat, symerror: 4.4e-05}
+    - {label: sys, symerror: 0.00095}
+    value: 0.016747
+  - errors:
+    - {label: stat, symerror: 5.3e-05}
+    - {label: sys, symerror: 0.0012}
+    value: 0.022056
+  - errors:
+    - {label: stat, symerror: 6.9e-05}
+    - {label: sys, symerror: 0.0014}
+    value: 0.025442
+  - errors:
+    - {label: stat, symerror: 0.0001}
+    - {label: sys, symerror: 0.0015}
+    value: 0.027063
+  - errors:
+    - {label: stat, symerror: 0.00016}
+    - {label: sys, symerror: 0.0015}
+    value: 0.026868
+  - errors:
+    - {label: stat, symerror: 0.00036}
+    - {label: sys, symerror: 0.0014}
+    value: 0.025229
+  - errors:
+    - {label: stat, symerror: 0.001}
+    - {label: sys, symerror: 0.0012}
+    value: 0.021815
+independent_variables:
+- header: {name: Centrality, units: percent}
+  values:
+  - {value: 2.5}
+  - {value: 7.5}
+  - {value: 15}
+  - {value: 25}
+  - {value: 35}
+  - {value: 45}
+  - {value: 55}
+  - {value: 65}
+  - {value: 75}
+name: Table2-4.yaml

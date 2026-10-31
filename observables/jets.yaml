@@ -1,0 +1,47 @@
+observable_type: jets
+description: >
+  Jet spectra, jet modification, and leading-particle observables
+  in heavy-ion collisions.  Note: most jet measurements belong in the
+  hard-sector repository; only soft-ish jet observables (e.g. jet spectra
+  at low pT, leading hadron suppression) are included here.
+
+composes:
+  - _common#collision_system
+  - centrality#centrality
+  - _common#kinematic_range
+
+required_fields:
+  observable:
+    type: string
+    required: true
+    description: Short identifier.
+    example: "jet_spectra"
+  value_type:
+    type: string
+    required: true
+    description: >
+      One of: 'jet_spectra', 'leading_hadron_suppression', 'jet_R_AA',
+      'dijet_asymmetry', 'jet_shape', 'jet_mass'
+    example: "jet_spectra"
+
+optional_fields:
+  jet_algorithm:
+    type: string
+    required: false
+    description: "Jet clustering algorithm (e.g. 'anti-kt', 'kt', 'Cambridge-Aachen')."
+    example: "anti-kt"
+  jet_R:
+    type: float
+    required: false
+    description: "Jet resolution parameter R."
+    example: 0.4
+  jet_pt_min:
+    type: float
+    required: false
+    description: "Minimum reconstructed jet pT [GeV/c]."
+    example: 10.0
+  background_subtraction:
+    type: string
+    required: false
+    description: "Background subtraction method (e.g. 'area-based', 'constituent')."
+    example: "area-based"

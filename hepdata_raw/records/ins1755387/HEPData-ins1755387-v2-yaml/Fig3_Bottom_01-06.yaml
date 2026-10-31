@@ -1,0 +1,49 @@
+dependent_variables:
+- header: {name: '$\sigma^{R=0.1}/\sigma^{R=0.6}$'}
+  qualifiers:
+  - {name: RE, value: P P --> jet + X}
+  - {name: SQRT(S), units: GEV, value: 5020}
+  - {name: YRAP Numerator, value: -0.6 TO 0.6}
+  - {name: YRAP Denominator, value: -0.1 TO 0.1}
+  - {name: jet radius Numerator, value: '0.1'}
+  - {name: jet radius Denominator, value: '0.6'}
+  - {name: jet method, value: 'Anti-$k_{T}$'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0008520259}
+    - {label: sys, symerror: 0.003239755}
+    value: 0.06814147
+  - errors:
+    - {label: stat, symerror: 0.001812658}
+    - {label: sys, symerror: 0.003913427}
+    value: 0.1037082
+  - errors:
+    - {label: stat, symerror: 0.003709385}
+    - {label: sys, symerror: 0.004878461}
+    value: 0.142133
+  - errors:
+    - {label: stat, symerror: 0.006126665}
+    - {label: sys, symerror: 0.00544077}
+    value: 0.1704867
+  - errors:
+    - {label: stat, symerror: 0.009475983}
+    - {label: sys, symerror: 0.00715275}
+    value: 0.1927249
+  - errors:
+    - {label: stat, symerror: 0.01397942}
+    - {label: sys, symerror: 0.01047653}
+    value: 0.2091687
+  - errors:
+    - {label: stat, symerror: 0.01966491}
+    - {label: sys, symerror: 0.01836229}
+    value: 0.2225773
+independent_variables:
+- header: {name: PTjet, units: GEV}
+  values:
+  - {high: 30, low: 20}
+  - {high: 40, low: 30}
+  - {high: 50, low: 40}
+  - {high: 60, low: 50}
+  - {high: 70, low: 60}
+  - {high: 80, low: 70}
+  - {high: 100, low: 80}

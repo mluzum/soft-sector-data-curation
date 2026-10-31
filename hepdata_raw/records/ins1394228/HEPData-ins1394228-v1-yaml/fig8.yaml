@@ -1,0 +1,58 @@
+dependent_variables:
+- header: {name: '$ \langle N_{part} \rangle$'}
+  qualifiers:
+  - {name: Rapidity, value: 1.2 < $|y|$ < 2.2}
+  values:
+  - errors:
+    - {label: stat. + A sys., symerror: 4}
+    value: 154.8
+  - errors:
+    - {label: stat. + A sys., symerror: 3.3}
+    value: 80.4
+  - errors:
+    - {label: stat. + A sys., symerror: 0.5}
+    value: 19.5
+- header: {name: '$R_{CuAu}$ (Cu-going)'}
+  qualifiers:
+  - {name: Rapidity, value: 1.2 < $y$ < 2.2}
+  values:
+  - errors:
+    - {label: stat. + A sys., symerror: 0.4}
+    - {label: B sys., symerror: 0.1}
+    - {label: C sys., symerror: 0.06}
+    value: 0.4
+  - errors:
+    - {label: stat. + A sys., symerror: 0.4}
+    - {label: B sys., symerror: 0.3}
+    - {label: C sys., symerror: 0.21}
+    value: 1.4
+  - errors:
+    - {label: stat. + A sys., symerror: 0.5}
+    - {label: B sys., symerror: 0.2}
+    - {label: C sys., symerror: 0.17}
+    value: 1.1
+- header: {name: '$R_{CuAu}$ (Au-going)'}
+  qualifiers:
+  - {name: Rapidity, value: -2.2 < $y$ < -1.2}
+  values:
+  - errors:
+    - {label: stat. + A sys., symerror: 0.5}
+    - {label: B sys., symerror: 0.3}
+    - {label: C sys., symerror: 0.26}
+    value: 1.7
+  - errors:
+    - {label: stat. + A sys., symerror: 0.3}
+    - {label: B sys., symerror: 0.3}
+    - {label: C sys., symerror: 0.21}
+    value: 1.4
+  - errors:
+    - {label: stat. + A sys., symerror: 0.5}
+    - {label: B sys., symerror: 0.3}
+    - {label: C sys., symerror: 0.29}
+    value: 1.9
+independent_variables:
+- header: {name: Centrality (%)}
+  values:
+  - {high: 20, low: 0}
+  - {high: 40, low: 20}
+  - {high: 93, low: 40}

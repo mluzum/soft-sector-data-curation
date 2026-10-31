@@ -1,0 +1,59 @@
+dependent_variables:
+- header: {name: ABS(AMP(NAME=REGEN))/P, units: MB}
+  qualifiers:
+  - {name: RE, value: KL P --> KS P}
+  - {name: SQRT(S), units: GeV, value: 2.786-4.135}
+  - {name: SYS, value: 25 PCT CHANGE IN PHASE CORRESPONDS TO ABOUT 10 PCT CHANGE IN
+      AMPLITUDE}
+  values:
+  - errors:
+    - {symerror: 0.14}
+    value: 0.78
+  - errors:
+    - {symerror: 0.04}
+    value: 0.47
+  - errors:
+    - {symerror: 0.04}
+    value: 0.48
+  - errors:
+    - {symerror: 0.04}
+    value: 0.48
+  - errors:
+    - {symerror: 0.05}
+    value: 0.44
+  - errors:
+    - {symerror: 0.09}
+    value: 0.33
+- header: {name: ABS(AMP(NAME=REGEN))/P, units: MB}
+  qualifiers:
+  - {name: RE, value: KL DEUT --> KS DEUT}
+  - {name: SYS, value: 25 PCT CHANGE IN PHASE CORRESPONDS TO ABOUT 10 PCT CHANGE IN
+      AMPLITUDE}
+  values:
+  - errors:
+    - {symerror: 0.18}
+    value: 1.05
+  - errors:
+    - {symerror: 0.06}
+    value: 0.99
+  - errors:
+    - {symerror: 0.05}
+    value: 1.01
+  - errors:
+    - {symerror: 0.06}
+    value: 0.98
+  - errors:
+    - {symerror: 0.08}
+    value: 0.97
+  - errors:
+    - {symerror: 0.1}
+    value: 0.78
+independent_variables:
+- header: {name: P, units: GEV}
+  values:
+  - {high: 4.5, low: 3.5}
+  - {high: 5.5, low: 4.5}
+  - {high: 6.5, low: 5.5}
+  - {high: 7.5, low: 6.5}
+  - {high: 8.5, low: 7.5}
+  - {high: 10.5, low: 8.5}

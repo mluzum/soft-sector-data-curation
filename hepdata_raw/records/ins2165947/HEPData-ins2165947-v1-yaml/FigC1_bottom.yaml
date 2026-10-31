@@ -1,0 +1,32 @@
+dependent_variables:
+- header: {name: DOUBLE RATIO PSI2S/JPSI}
+  qualifiers:
+  - {name: ., value: mu+mu- decay mode}
+  - {name: RE, value: PB PB --> PSI(2S) - > X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 5020.0}
+  - {name: PT, units: GEV/C, value: 0.0 TO 12.00}
+  - {name: CENTRALITY, value: 0.00 TO 90.00}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.162}
+    - {label: sys, symerror: 0.164}
+    value: 0.642
+  - errors:
+    - {label: stat, symerror: 0.127}
+    - {label: sys, symerror: 0.143}
+    value: 0.623
+  - errors:
+    - {label: stat, symerror: 0.176}
+    - {label: sys, symerror: 0.127}
+    value: 0.529
+  - errors:
+    - {label: stat, symerror: 0.172}
+    - {label: sys, symerror: 0.062}
+    value: 0.459
+independent_variables:
+- header: {name: PT, units: GEV/C}
+  values:
+  - {high: 2.0, low: 0.0}
+  - {high: 4.0, low: 2.0}
+  - {high: 6.0, low: 4.0}
+  - {high: 12.0, low: 6.0}

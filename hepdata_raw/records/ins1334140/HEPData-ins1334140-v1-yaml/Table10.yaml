@@ -1,0 +1,52 @@
+dependent_variables:
+- header: {name: (1/NEVT)*D2(NJET)/DPT/DYRAP, units: 1/GEV}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 0.0-90.0}
+  - {name: R, value: '0.4'}
+  - {name: RE, value: P PB --> JET(S) X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  - {name: YRAP, value: 2.8-3.6}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.6%}
+    - {label: sys, symerror: 28.3%}
+    value: 1.6e-05
+  - errors:
+    - {label: stat, symerror: 1.0%}
+    - {label: sys, symerror: 26.7%}
+    value: 4.61e-06
+  - errors:
+    - {label: stat, symerror: 1.8%}
+    - {label: sys, symerror: 25.6%}
+    value: 1.29e-06
+  - errors:
+    - {label: stat, symerror: 3.3%}
+    - {label: sys, symerror: 25.1%}
+    value: 2.83e-07
+  - errors:
+    - {label: stat, symerror: 6.1%}
+    - {label: sys, symerror: 25.1%}
+    value: 6.42e-08
+  - errors:
+    - {label: stat, symerror: 13.5%}
+    - {label: sys, symerror: 25.8%}
+    value: 8.33e-09
+  - errors:
+    - {label: stat, symerror: 27.4%}
+    - {label: sys, symerror: 27.1%}
+    value: 1.15e-09
+  - errors:
+    - {label: stat, symerror: 100.0%}
+    - {label: sys, symerror: 89.8%}
+    value: 6.73e-11
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {high: 39.8, low: 31.6}
+  - {high: 50.1, low: 39.8}
+  - {high: 63.1, low: 50.1}
+  - {high: 79.4, low: 63.1}
+  - {high: 100.0, low: 79.4}
+  - {high: 125.9, low: 100.0}
+  - {high: 158.5, low: 125.9}
+  - {high: 199.5, low: 158.5}

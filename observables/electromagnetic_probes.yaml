@@ -1,0 +1,49 @@
+observable_type: electromagnetic_probes
+description: >
+  Direct photons, thermal photons, and dileptons (dielectrons, dimuons)
+  produced in heavy-ion collisions.
+
+composes:
+  - _common#collision_system
+  - centrality#centrality
+  - _common#kinematic_range
+
+required_fields:
+  observable:
+    type: string
+    required: true
+    description: Short identifier.
+    example: "direct_photon_spectra"
+  value_type:
+    type: string
+    required: true
+    description: >
+      One of: 'direct_photon_yield', 'thermal_photon', 'dilepton_rate',
+      'dielectron_yield', 'dimuon_yield', 'photon_v2'
+    example: "direct_photon_yield"
+  probe:
+    type: string
+    required: true
+    description: "Probe type. One of: 'direct_photon', 'thermal_photon', 'dielectron', 'dimuon'"
+    example: "direct_photon"
+
+optional_fields:
+  mass_range:
+    type: object
+    required: false
+    description: "Invariant mass range for dileptons [GeV/c^2]."
+    fields:
+      min: {type: float, required: true, example: 0.0}
+      max: {type: float, required: true, example: 1.0}
+  pT_range:
+    type: object
+    required: false
+    description: "pT range of the virtual photon / lepton pair."
+    fields:
+      min: {type: float, required: true, example: 0.0}
+      max: {type: float, required: true, example: 10.0}
+  isolation:
+    type: boolean
+    required: false
+    description: "Whether isolation cuts were applied (for prompt photons)."
+    example: false

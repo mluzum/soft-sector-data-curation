@@ -1,0 +1,45 @@
+dependent_variables:
+- header: {name: 'RADIUS(NAME=HBT,C=OUT)/RADIUS(NAME=HBT,C=SIDE)'}
+  qualifiers:
+  - {name: CENTRALITY, units: PCT, value: < 5}
+  - {name: RE, value: PB PB --> ( PI+ PI+ + PI- PI- ) X}
+  - {name: SQRT(S), units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.027}
+    - {label: sys, symerror: 0.131}
+    value: 1.088
+  - errors:
+    - {label: stat, symerror: 0.019}
+    - {label: sys, symerror: 0.09}
+    value: 0.983
+  - errors:
+    - {label: stat, symerror: 0.019}
+    - {label: sys, symerror: 0.058}
+    value: 0.939
+  - errors:
+    - {label: stat, symerror: 0.022}
+    - {label: sys, symerror: 0.066}
+    value: 0.933
+  - errors:
+    - {label: stat, symerror: 0.031}
+    - {label: sys, symerror: 0.065}
+    value: 0.963
+  - errors:
+    - {label: stat, symerror: 0.04}
+    - {label: sys, symerror: 0.09}
+    value: 0.957
+  - errors:
+    - {label: stat, symerror: 0.043}
+    - {label: sys, symerror: 0.112}
+    value: 0.922
+independent_variables:
+- header: {name: KT(P=3_4), units: GEV}
+  values:
+  - {value: 0.256 (BIN=0.2 T0 0.3)}
+  - {value: 0.347 (BIN=0.3 T0 0.4)}
+  - {value: 0.445 (BIN=0.4 T0 0.5)}
+  - {value: 0.544 (BIN=0.5 T0 0.6)}
+  - {value: 0.644 (BIN=0.6 T0 0.7)}
+  - {value: 0.745 (BIN=0.7 T0 0.8)}
+  - {value: 0.881 (BIN=0.8 T0 1.0)}

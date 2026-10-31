@@ -1,0 +1,36 @@
+observable_type: observable_ratios
+inspire_id: '2822399'
+version: 1
+hepdata_file: figure_4.yaml
+hepdata_table_label: ''
+collision_system:
+  energy_gev: 200.0
+  reaction: Ru+Ru and Zr+Zr
+centrality:
+  classes:
+  - 60-80%
+  - 40-60%
+  - 20-40%
+  - 10-20%
+  - 0-10%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  pT:
+    min: 0.2
+    max: 100.0
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+observable: B_over_DeltaQ
+value_type: B_over_DeltaQ_times_DeltaZ_over_A
+numerator: B
+denominator: DeltaQ
+ratio_type: quantity_ratio
+dv_index: 0
+notes: Net-baryon number over net-charge difference at midrapidity, scaled by Delta Z / A = 4/96.

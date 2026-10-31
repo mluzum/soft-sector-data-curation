@@ -1,0 +1,68 @@
+dependent_variables:
+- header: {name: '$\frac{1}{2\pi p_T} \frac{1}{N_{evt}} \frac{d^2N}{dp_Tdy}$'}
+  qualifiers:
+  - {name: Centrality, value: minimum-bias}
+  - {name: Particle, value: $p$}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.13}
+    - {label: sys., symerror: 0.18}
+    value: 1.04
+  - errors:
+    - {label: stat., symerror: 0.08}
+    - {label: sys., symerror: 0.13}
+    value: 0.76
+  - errors:
+    - {label: stat., symerror: 0.06}
+    - {label: sys., symerror: 0.08}
+    value: 0.45
+  - errors:
+    - {label: stat., symerror: 0.04}
+    - {label: sys., symerror: 0.04}
+    value: 0.23
+  - errors:
+    - {label: stat., symerror: 0.04}
+    - {label: sys., symerror: 0.025}
+    value: 0.149
+  - errors:
+    - {label: stat., symerror: 0.04}
+    - {label: sys., symerror: 0.02}
+    value: 0.119
+- header: {name: '$\frac{1}{2\pi p_T} \frac{1}{N_{evt}} \frac{d^2N}{dp_Tdy}$'}
+  qualifiers:
+  - {name: Centrality, value: minimum-bias}
+  - {name: Particle, value: '$\bar{p}$'}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.12}
+    - {label: sys., symerror: 0.12}
+    value: 0.7
+  - errors:
+    - {label: stat., symerror: 0.08}
+    - {label: sys., symerror: 0.09}
+    value: 0.55
+  - errors:
+    - {label: stat., symerror: 0.05}
+    - {label: sys., symerror: 0.05}
+    value: 0.27
+  - errors:
+    - {label: stat., symerror: 0.033}
+    - {label: sys., symerror: 0.031}
+    value: 0.182
+  - errors:
+    - {label: stat., symerror: 0.04}
+    - {label: sys., symerror: 0.021}
+    value: 0.125
+  - errors:
+    - {label: stat., symerror: 0.04}
+    - {label: sys., symerror: 0.014}
+    value: 0.08
+independent_variables:
+- header: {name: $p_T$ (GeV/$c$)}
+  values:
+  - {high: 0.8, low: 0.6}
+  - {high: 1.0, low: 0.8}
+  - {high: 1.2, low: 1.0}
+  - {high: 1.4, low: 1.2}
+  - {high: 1.6, low: 1.4}
+  - {high: 1.8, low: 1.6}

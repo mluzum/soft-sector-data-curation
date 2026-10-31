@@ -1,0 +1,24 @@
+dependent_variables:
+- header: {name: '$\sigma_{\Delta\phi,NS}$'}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.073}
+    - asymerror: {minus: -0.08, plus: 0.08}
+      label: sys.
+    value: 0.754
+  - errors:
+    - {label: stat., symerror: 0.064}
+    - asymerror: {minus: -0.06, plus: 0.06}
+      label: sys.
+    value: 0.663
+  - errors:
+    - {label: stat., symerror: 0.068}
+    - asymerror: {minus: -0.02, plus: 0.04}
+      label: sys.
+    value: 0.35
+independent_variables:
+- header: {name: Centrality, units: percent}
+  values:
+  - {high: 20, low: 0}
+  - {high: 50, low: 20}
+  - {high: 80, low: 50}

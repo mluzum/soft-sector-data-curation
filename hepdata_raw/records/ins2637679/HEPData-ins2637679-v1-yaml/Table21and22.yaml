@@ -1,0 +1,67 @@
+dependent_variables:
+- header: {name: $\sigma$ (AS)}
+  qualifiers:
+  - {name: RE, value: 'pp -> (c,b)->e + X'}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: 5020.0}
+  - {name: pT condition, value: '$p_{T}^{e} > p_{T}^{assoc}$'}
+  - {name: Electron ETA, value: -0.6 to 0.6}
+  - {name: DELTA ETA, value: -1 to 1}
+  - {name: pTe, units: GeV/c, value: 4 to 7}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.1111466}
+    - {label: sys, symerror: 0.05533951}
+    value: 0.5801157
+  - errors:
+    - {label: stat, symerror: 0.1008026}
+    - {label: sys, symerror: 0.03655659}
+    value: 0.4605697
+  - errors:
+    - {label: stat, symerror: 0.1459876}
+    - {label: sys, symerror: 0.05797923}
+    value: 0.5027436
+  - errors:
+    - {label: stat, symerror: 0.1767584}
+    - {label: sys, symerror: 0.05943027}
+    value: 0.5718681
+  - errors:
+    - {label: stat, symerror: 0.0451628}
+    - {label: sys, symerror: 0.04762986}
+    value: 0.3240801
+- header: {name: $\sigma$ (AS)}
+  qualifiers:
+  - {name: RE, value: 'pp -> (c,b)->e + X'}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: 5020.0}
+  - {name: pTe, units: GeV/c, value: 7 to 16}
+  - {name: pT condition, value: '$p_{T}^{e} > p_{T}^{assoc}$'}
+  - {name: Electron ETA, value: -0.6 to 0.6}
+  - {name: DELTA ETA, value: -1 to 1}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.1708816}
+    - {label: sys, symerror: 0.06291363}
+    value: 0.6053867
+  - errors:
+    - {label: stat, symerror: 0.09938587}
+    - {label: sys, symerror: 0.04751069}
+    value: 0.5311857
+  - errors:
+    - {label: stat, symerror: 0.1758322}
+    - {label: sys, symerror: 0.07005348}
+    value: 0.683652
+  - errors:
+    - {label: stat, symerror: 0.07196396}
+    - {label: sys, symerror: 0.03977413}
+    value: 0.4532683
+  - errors:
+    - {label: stat, symerror: 0.09470417}
+    - {label: sys, symerror: 0.07178709}
+    value: 0.5277892
+independent_variables:
+- header: {name: '$p_{T}^{assoc}$', units: GeV/c}
+  values:
+  - {high: 2.0, low: 1.0}
+  - {high: 3.0, low: 2.0}
+  - {high: 4.0, low: 3.0}
+  - {high: 5.0, low: 4.0}
+  - {high: 7.0, low: 5.0}

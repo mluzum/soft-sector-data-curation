@@ -1,0 +1,33 @@
+dependent_variables:
+- header: {name: '$v_2^{\mathrm{sub}}$'}
+  qualifiers:
+  - {name: $|\Delta \eta|$, value: '>1'}
+  - {name: '$p_{\mathrm{T}}$', value: '$6 < p_{\mathrm{T}} < 8$ GeV'}
+  - {name: Rapidity, value: '$|y_{\mathrm{cm}}|<1$'}
+  - {name: SQRT(S), units: TeV, value: 13.0}
+  - {name: Comment, value: The last bin extends to infinity and 140 is for display
+      issue}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.146}
+    - {label: sys, symerror: 0.048}
+    value: -0.122
+  - errors:
+    - {label: stat, symerror: 0.074}
+    - {label: sys, symerror: 0.025}
+    value: -0.039
+  - errors:
+    - {label: stat, symerror: 0.036}
+    - {label: sys, symerror: 0.015}
+    value: 0.021
+  - errors:
+    - {label: stat, symerror: 0.031}
+    - {label: sys, symerror: 0.014}
+    value: -0.043
+independent_variables:
+- header: {name: '$N_{trk}^{offline}$'}
+  values:
+  - {high: 40, low: 20}
+  - {high: 80, low: 40}
+  - {high: 100, low: 80}
+  - {high: 140, low: 100}

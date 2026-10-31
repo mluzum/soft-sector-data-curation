@@ -1,0 +1,42 @@
+dependent_variables:
+- header: {name: '$v_2^{\mathrm{sub}}$'}
+  qualifiers:
+  - {name: $|\Delta \eta|$, value: '>1'}
+  - {name: Multiplicity Class, value: '$185 \leq N_{trk}^{offline}<250$'}
+  - {name: Rapidity, value: '$-2.86<y_{\mathrm{cm}}<-1.86$ or $0.94<y_{\mathrm{cm}}<1.94$'}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: 8160.0}
+  - {name: pT range, value: '$0.2 < p_{\mathrm{T}} < 10$ GeV'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.035}
+    - {label: sys, symerror: 0.013}
+    value: 0.009
+  - errors:
+    - {label: stat, symerror: 0.034}
+    - {label: sys, symerror: 0.015}
+    value: 0.058
+  - errors:
+    - {label: stat, symerror: 0.024}
+    - {label: sys, symerror: 0.015}
+    value: 0.09
+  - errors:
+    - {label: stat, symerror: 0.022}
+    - {label: sys, symerror: 0.015}
+    value: 0.068
+  - errors:
+    - {label: stat, symerror: 0.023}
+    - {label: sys, symerror: 0.017}
+    value: 0.034
+  - errors:
+    - {label: stat, symerror: 0.033}
+    - {label: sys, symerror: 0.019}
+    value: -0.034
+independent_variables:
+- header: {name: '$p_{\mathrm{T}}$', units: GeV}
+  values:
+  - {value: 1.073}
+  - {value: 2.328}
+  - {value: 3.603}
+  - {value: 5.094}
+  - {value: 6.774}
+  - {value: 8.849}

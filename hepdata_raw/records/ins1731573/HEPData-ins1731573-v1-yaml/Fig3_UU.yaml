@@ -1,0 +1,30 @@
+dependent_variables:
+- header: {name: $U+U$ $40-60\%$}
+  qualifiers:
+  - {name: '$p_{T}$ $(GeV/c)$', value: '$R_{AA}$'}
+  values:
+  - errors:
+    - {label: stat, symerror: 3.5}
+    - {label: sys, symerror: 1.6}
+    value: 11.3
+  - errors:
+    - {label: stat, symerror: 1.6}
+    - {label: sys, symerror: 0.5}
+    value: 3.7
+- header: {name: $U+U$ $60-80\%$}
+  qualifiers:
+  - {name: '$p_{T}$ $(GeV/c)$', value: '$R_{AA}$'}
+  values:
+  - errors:
+    - {label: stat, symerror: 18}
+    - {label: sys, symerror: 7}
+    value: 52
+  - errors:
+    - {label: stat, symerror: 8}
+    - {label: sys, symerror: 4}
+    value: 26
+independent_variables:
+- header: {name: '$p_{T}$ $(GeV/c)$'}
+  values:
+  - {high: 0.05, low: 0}
+  - {high: 0.1, low: 0.05}

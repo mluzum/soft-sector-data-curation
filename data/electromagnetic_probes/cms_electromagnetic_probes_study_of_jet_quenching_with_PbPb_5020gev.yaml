@@ -1,0 +1,265 @@
+---
+observable_type: electromagnetic_probes
+inspire_id: '1638996'
+version: 1
+hepdata_file: fig3.yaml
+hepdata_table_label: Distribution of $x_{\mathrm{j}\gamma} = p_{\mathrm{T}}^{\mathrm{jet}} / p_{\mathrm{T}}^{\gamma}$ in five
+  $p_{\mathrm{T}}^{\gamma}$ intervals for 0-30% and 30-100% centrality PbPb collisions. The smeared pp data are included for
+  comparison. Empty bins are denoted as 'empty' in the table.
+qualifiers:
+  centrality: 30 - 100%
+  jets: ANTI-KT, R = 0.3, PT > 30 GEV/C, ABS(ETA) < 1.6
+  photon pt: PT > 100 GEV/C
+  photon-jet: DELTAPHI(PHOTON,JET) > 7*PI/8
+  photons: ABS(ETA) < 1.44
+  sqrt(s): '5020'
+  system: PP
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> X
+centrality:
+  classes:
+  - 30-100%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: photon
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: direct_photon_spectra
+value_type: direct_photon_yield
+probe: direct_photon
+---
+observable_type: electromagnetic_probes
+inspire_id: '1638996'
+version: 1
+hepdata_file: fig4.yaml
+hepdata_table_label: The $\langle x_{\mathrm{j}\gamma} \rangle$ and $R_{\mathrm{j}\gamma}$, the number of associated jets
+  per photon, in 0-30% and 30-100% centrality PbPb collisions. The smeared pp data are added for comparison. A value of 999
+  in the bin range indicates that there is no upper limit.
+qualifiers:
+  centrality: 30 - 100%
+  jets: ANTI-KT, R = 0.3, PT > 30 GEV/C, ABS(ETA) < 1.6
+  photon-jet: DELTAPHI(PHOTON,JET) > 7*PI/8
+  photons: ABS(ETA) < 1.44
+  sqrt(s): '5020'
+  system: PP
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> X
+centrality:
+  classes:
+  - 30-100%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: photon
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: direct_photon_spectra
+value_type: direct_photon_yield
+probe: direct_photon
+---
+observable_type: electromagnetic_probes
+inspire_id: '1638996'
+version: 1
+hepdata_file: fig5.yaml
+hepdata_table_label: The $I_{\mathrm{AA}}^{\mathrm{jet}}$ vs. $p_{\mathrm{T}}^{\mathrm{jet}}$ for 0-30% and 30-100% centrality
+  PbPb collisions. Bins for which there are no data points are denoted as 'empty'.
+qualifiers:
+  centrality: 30 - 100%
+  jets: ANTI-KT, R = 0.3, PT > 30 GEV/C, ABS(ETA) < 1.6
+  photon pt: PT > 100 GEV/C
+  photon-jet: DELTAPHI(PHOTON,JET) > 7*PI/8
+  photons: ABS(ETA) < 1.44
+  sqrt(s): '5020'
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> X
+centrality:
+  classes:
+  - 30-100%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: photon
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: direct_photon_spectra
+value_type: direct_photon_yield
+probe: direct_photon
+---
+observable_type: electromagnetic_probes
+inspire_id: '1638996'
+version: 1
+hepdata_file: fig6.yaml
+hepdata_table_label: The centrality dependence of $x_{\mathrm{j}\gamma}$ of photon+jet pairs normalized by the number of photons
+  for PbPb and smeared pp data. Empty bins are denoted as 'empty' in the table.
+qualifiers:
+  centrality: 0 - 10%
+  jets: ANTI-KT, R = 0.3, PT > 30 GEV/C, ABS(ETA) < 1.6
+  photon-jet: DELTAPHI(PHOTON,JET) > 7*PI/8
+  photons: PT > 60 GEV/C, ABS(ETA) < 1.44
+  sqrt(s): '5020'
+  system: PP
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> X
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: photon
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: direct_photon_spectra
+value_type: direct_photon_yield
+probe: direct_photon
+---
+observable_type: electromagnetic_probes
+inspire_id: '1638996'
+version: 1
+hepdata_file: fig7.yaml
+hepdata_table_label: The $\langle x_{\mathrm{j}\gamma} \rangle$ and $R_{\mathrm{j}\gamma}$ as a function of $\langle N_{\mathrm{part}}
+  \rangle$ for $p_{\mathrm{T}}^{\gamma} > 60$ and 80 GeV. The PbPb results are compared to pp results smeared by the relative
+  jet energy resolution corresponding to each centrality interval.
+qualifiers:
+  jets: ANTI-KT, R = 0.3, PT > 30 GEV/C, ABS(ETA) < 1.6
+  photon pt: PT > 80 GEV/C
+  photon-jet: DELTAPHI(PHOTON,JET) > 7*PI/8
+  photons: ABS(ETA) < 1.44
+  sqrt(s): '5020'
+  system: PP
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> X
+centrality:
+  classes: []
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: photon
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: direct_photon_spectra
+value_type: direct_photon_yield
+probe: direct_photon
+---
+observable_type: electromagnetic_probes
+inspire_id: '1638996'
+version: 1
+hepdata_file: tab1.yaml
+hepdata_table_label: Jet resolution parameters for pp and PbPb collisions in various centrality bins.
+qualifiers:
+  centrality: 50 - 100%
+  jets: ANTI-KT, R = 0.3, ABS(ETA) < 1.6
+  parametrization: SIGMA = SQRT(C^2 + S^2/PT + N^2/PT^2)
+  system: PBPB
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> X
+centrality:
+  classes:
+  - 50-100%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: Sigma
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: direct_photon_spectra
+value_type: direct_photon_yield
+probe: direct_photon

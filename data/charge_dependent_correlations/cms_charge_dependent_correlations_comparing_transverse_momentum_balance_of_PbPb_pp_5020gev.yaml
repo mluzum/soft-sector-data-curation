@@ -1,0 +1,121 @@
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1652833'
+version: 1
+hepdata_file: data2.yaml
+hepdata_table_label: Delta phi distributions of incluisve dijets and b-quark dijets in pp collisions
+qualifiers:
+  re: P P --> BJET BJET
+  sqrt(s)/nucleon: '5020'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P P --> BJET BJET
+centrality:
+  classes:
+  - 0-0.52%
+  - 0.52-1.05%
+  - 1.05-1.57%
+  - 1.57-1.95%
+  - 1.95-2.36%
+  - 2.36-2.51%
+  - 2.51-2.67%
+  - 2.67-2.82%
+  - 2.82-2.83%
+  - 2.83-2.99%
+  - 2.99-3.14%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: p
+kinematic_range:
+  delta_phi:
+    min: 0.0
+    max: 3.14
+    bins:
+    - 0.0
+    - 0.52
+    - 1.05
+    - 1.57
+    - 1.95
+    - 2.36
+    - 2.51
+    - 2.67
+    - 2.82
+    - 2.83
+    - 2.99
+    - 3.14
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1652833'
+version: 1
+hepdata_file: data3.yaml
+hepdata_table_label: Delta phi distributions of incluisve dijets and b-quark dijets in central (0-10%) PbPb collisions
+qualifiers:
+  centrality: 0-10%
+  re: PB PB --> BJET BJET
+  sqrt(s)/nucleon: '5020'
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> BJET BJET
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+kinematic_range:
+  delta_phi:
+    min: 0.0
+    max: 3.14
+    bins:
+    - 0.0
+    - 0.52
+    - 1.05
+    - 1.57
+    - 1.95
+    - 2.36
+    - 2.51
+    - 2.67
+    - 2.82
+    - 2.83
+    - 2.99
+    - 3.14
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all

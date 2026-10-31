@@ -1,0 +1,37 @@
+dependent_variables:
+- header: {name: '$r_{m,1}^{real}$'}
+  qualifiers:
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '200.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0003}
+    - {label: sys, symerror: 0.001}
+    value: 0.9965
+  - errors:
+    - {label: stat, symerror: 0.0005}
+    - {label: sys, symerror: 0.002}
+    value: 0.9942
+  - errors:
+    - {label: stat, symerror: 0.0008}
+    - {label: sys, symerror: 0.0028}
+    value: 0.9927
+- header: {name: '$r_{m,1}^{mixed}$'}
+  qualifiers:
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '200.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0001}
+    value: 0.9999
+  - errors:
+    - {label: stat, symerror: 0.0001}
+    value: 0.9999
+  - errors:
+    - {label: stat, symerror: 0.0002}
+    - {label: sys, symerror: 0.0002}
+    value: 0.9999
+independent_variables:
+- header: {name: order m}
+  values:
+  - {value: 1.0}
+  - {value: 2.0}
+  - {value: 3.0}

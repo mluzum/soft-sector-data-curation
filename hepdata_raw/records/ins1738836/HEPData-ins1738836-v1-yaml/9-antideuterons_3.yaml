@@ -1,0 +1,52 @@
+dependent_variables:
+- header: {name: '$1/N_{\mathrm{ev}}\mathrm{d}^{2}N/(\mathrm{d}y\mathrm{d}p_{T})$',
+    units: c/GeV}
+  qualifiers:
+  - {name: RE, value: 'P PB--> $\bar{d}$ + X'}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020.0'}
+  - {name: YRAP(CM), value: -1 TO 0}
+  - {name: Multiplicity, value: 40-60% V0A class}
+  values:
+  - errors:
+    - {label: Statistical uncertainty, symerror: 2.8952e-05}
+    - {label: Systematic uncertainty, symerror: 5.5452e-05}
+    value: 0.00064876
+  - errors:
+    - {label: Statistical uncertainty, symerror: 2.0426e-05}
+    - {label: Systematic uncertainty, symerror: 4.4765e-05}
+    value: 0.00052395
+  - errors:
+    - {label: Statistical uncertainty, symerror: 1.6789e-05}
+    - {label: Systematic uncertainty, symerror: 3.7124e-05}
+    value: 0.00043445
+  - errors:
+    - {label: Statistical uncertainty, symerror: 1.4786e-05}
+    - {label: Systematic uncertainty, symerror: 3.1703e-05}
+    value: 0.00037105
+  - errors:
+    - {label: Statistical uncertainty, symerror: 1.2961e-05}
+    - {label: Systematic uncertainty, symerror: 2.5103e-05}
+    value: 0.00029356
+  - errors:
+    - {label: Statistical uncertainty, symerror: 1.2515e-05}
+    - {label: Systematic uncertainty, symerror: 2.1745e-05}
+    value: 0.00025334
+  - errors:
+    - {label: Statistical uncertainty, symerror: 1.2334e-05}
+    - {label: Systematic uncertainty, symerror: 1.7207e-05}
+    value: 0.00019932
+  - errors:
+    - {label: Statistical uncertainty, symerror: 1.3223e-05}
+    - {label: Systematic uncertainty, symerror: 1.123e-05}
+    value: 0.000129
+independent_variables:
+- header: {name: '$p_{T}$', units: GeV/c}
+  values:
+  - {high: 1.0, low: 0.8}
+  - {high: 1.2, low: 1.0}
+  - {high: 1.4, low: 1.2}
+  - {high: 1.6, low: 1.4}
+  - {high: 1.8, low: 1.6}
+  - {high: 2.0, low: 1.8}
+  - {high: 2.2, low: 2.0}
+  - {high: 2.4, low: 2.2}

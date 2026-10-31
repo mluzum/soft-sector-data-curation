@@ -1,0 +1,64 @@
+dependent_variables:
+- header: {name: '$<N_\text{ch}^\text{rec}>$ '}
+  qualifiers:
+  - {name: SYSTEM, value: Pb+Pb $\Sigma_\gamma\Delta\eta > 2.5$ 0nXn}
+  - {name: SQRT(S_NN), units: TEV, value: 5.02}
+  - {name: LUMI, units: 'nb$^{-1}$', value: 0.001-1.7}
+  values:
+  - {value: 26.2096}
+  - {value: 33.1476}
+  - {value: 41.7819}
+- header: {name: $v_2$}
+  qualifiers:
+  - {name: SYSTEM, value: Pb+Pb $\Sigma_\gamma\Delta\eta > 2.5$ 0nXn}
+  - {name: SQRT(S_NN), units: TEV, value: 5.02}
+  - {name: LUMI, units: 'nb$^{-1}$', value: 0.001-1.7}
+  values:
+  - errors:
+    - asymerror: {minus: -0.00403151, plus: 0.00368112}
+      label: stat
+    - asymerror: {minus: -0.00462995, plus: 0.0039048}
+      label: sys
+    value: 0.0425289
+  - errors:
+    - asymerror: {minus: -0.00489891, plus: 0.004361}
+      label: stat
+    - asymerror: {minus: -0.00309929, plus: 0.00239179}
+      label: sys
+    value: 0.0399857
+  - errors:
+    - asymerror: {minus: -0.00514606, plus: 0.00464024}
+      label: stat
+    - asymerror: {minus: -0.00224386, plus: 0.00241419}
+      label: sys
+    value: 0.0474617
+- header: {name: $v_3$}
+  qualifiers:
+  - {name: SYSTEM, value: Pb+Pb $\Sigma_\gamma\Delta\eta > 2.5$ 0nXn}
+  - {name: SQRT(S_NN), units: TEV, value: 5.02}
+  - {name: LUMI, units: 'nb$^{-1}$', value: 0.001-1.7}
+  values:
+  - errors:
+    - asymerror: {minus: -0.0115469, plus: 0.0066}
+      label: stat
+    - asymerror: {minus: -0.0143086, plus: 0.00903657}
+      label: sys
+    value: 0.017879
+  - errors:
+    - asymerror: {minus: -0.0072688, plus: 0.00551946}
+      label: stat
+    - asymerror: {minus: -0.00419371, plus: 0.00275348}
+      label: sys
+    value: 0.023809
+  - errors:
+    - asymerror: {minus: -0.0133056, plus: 0.00771604}
+      label: stat
+    - asymerror: {minus: -0.0059782, plus: 0.00271045}
+      label: sys
+    value: 0.0211624
+independent_variables:
+- header: {name: '$N_\text{ch}^\text{rec}$'}
+  values:
+  - {high: 30, low: 20}
+  - {high: 37, low: 30}
+  - {high: 60, low: 37}

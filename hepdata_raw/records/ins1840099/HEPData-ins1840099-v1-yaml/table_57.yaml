@@ -1,0 +1,57 @@
+dependent_variables:
+- header: {name: '$(p+pbar)/(\pi^{+}+\pi^{-})$'}
+  qualifiers:
+  - {name: RE(P + PBAR), value: 'XE XE --> P X, XE XE --> PBAR X'}
+  - {name: RE(PI+ + PI-), value: 'XE XE --> PI+ X, XE XE --> PI- X'}
+  - {name: RE, value: XE XE --> CHARGED X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5440.0'}
+  - {name: YRAP, value: -0.5-0.5}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.00010304}
+    - {label: syst., symerror: 0.0054006}
+    value: 0.046089
+  - errors:
+    - {label: stat., symerror: 0.00012996}
+    - {label: syst., symerror: 0.0054788}
+    value: 0.046725
+  - errors:
+    - {label: stat., symerror: 0.00010711}
+    - {label: syst., symerror: 0.0055326}
+    value: 0.047164
+  - errors:
+    - {label: stat., symerror: 0.00013502}
+    - {label: syst., symerror: 0.0057318}
+    value: 0.048605
+  - errors:
+    - {label: stat., symerror: 0.00015767}
+    - {label: syst., symerror: 0.005898}
+    value: 0.049821
+  - errors:
+    - {label: stat., symerror: 0.00020064}
+    - {label: syst., symerror: 0.006153}
+    value: 0.051313
+  - errors:
+    - {label: stat., symerror: 0.00026332}
+    - {label: syst., symerror: 0.0062815}
+    value: 0.052406
+  - errors:
+    - {label: stat., symerror: 0.0003275}
+    - {label: syst., symerror: 0.0067375}
+    value: 0.053239
+  - errors:
+    - {label: stat., symerror: 0.00039576}
+    - {label: syst., symerror: 0.0074074}
+    value: 0.054412
+independent_variables:
+- header: {name: Cent, units: ptc.}
+  values:
+  - {value: 0.0-5.0}
+  - {value: 5.0-10.0}
+  - {value: 10.0-20.0}
+  - {value: 20.0-30.0}
+  - {value: 30.0-40.0}
+  - {value: 40.0-50.0}
+  - {value: 50.0-60.0}
+  - {value: 60.0-70.0}
+  - {value: 70.0-90.0}

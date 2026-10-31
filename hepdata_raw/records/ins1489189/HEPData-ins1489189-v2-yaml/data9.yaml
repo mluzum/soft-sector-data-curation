@@ -1,0 +1,24 @@
+dependent_variables:
+- header: {name: NONPROMPT J/PSI V2}
+  qualifiers:
+  - {name: RE, value: PB PB --> J/PSI X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 2760}
+  - {name: GLOBAL UNCERTAINTY, value: 2.7%}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.073}
+    - {label: syst, symerror: 0.035}
+    value: 0.096
+  - errors:
+    - {label: stat, symerror: 0.027}
+    - {label: syst, symerror: 0.032}
+    value: 0.032
+independent_variables:
+- header: {name: ABS(RAP)}
+  values:
+  - {high: 2.4, low: 1.6}
+  - {high: 2.4, low: 0}
+- header: {name: PT, units: GEV/C}
+  values:
+  - {high: 6.5, low: 3}
+  - {high: 30, low: 6.5}

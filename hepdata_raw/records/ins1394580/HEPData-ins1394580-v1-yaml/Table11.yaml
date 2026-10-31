@@ -1,0 +1,67 @@
+dependent_variables:
+- header: {name: '$R_{\rm AA}$'}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 0.0-10.0}
+  - {name: RE, value: 'PB PB --> ${\rm D}^{*+}$ X'}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  - {name: YRAP, value: -0.5-0.5}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.17}
+    - asymerror: {minus: -0.207, plus: 0.171}
+      label: sys
+    - {label: 'sys,global normalization uncertainty', symerror: 4.8%}
+    value: 0.57
+  - errors:
+    - {label: stat, symerror: 0.127}
+    - asymerror: {minus: -0.099, plus: 0.087}
+      label: sys
+    - {label: 'sys,global normalization uncertainty', symerror: 4.8%}
+    value: 0.305
+  - errors:
+    - {label: stat, symerror: 0.055}
+    - asymerror: {minus: -0.083, plus: 0.076}
+      label: sys
+    - {label: 'sys,global normalization uncertainty', symerror: 4.8%}
+    value: 0.277
+  - errors:
+    - {label: stat, symerror: 0.034}
+    - asymerror: {minus: -0.057, plus: 0.052}
+      label: sys
+    - {label: 'sys,global normalization uncertainty', symerror: 4.8%}
+    value: 0.212
+  - errors:
+    - {label: stat, symerror: 0.028}
+    - asymerror: {minus: -0.042, plus: 0.04}
+      label: sys
+    - {label: 'sys,global normalization uncertainty', symerror: 4.8%}
+    value: 0.147
+  - errors:
+    - {label: stat, symerror: 0.044}
+    - asymerror: {minus: -0.055, plus: 0.051}
+      label: sys
+    - {label: 'sys,global normalization uncertainty', symerror: 4.8%}
+    value: 0.181
+  - errors:
+    - {label: stat, symerror: 0.071}
+    - asymerror: {minus: -0.072, plus: 0.071}
+      label: sys
+    - {label: 'sys,global normalization uncertainty', symerror: 4.8%}
+    value: 0.207
+  - errors:
+    - {label: stat, symerror: 0.091}
+    - asymerror: {minus: -0.169, plus: 0.12}
+      label: sys
+    - {label: 'sys,global normalization uncertainty', symerror: 4.8%}
+    value: 0.288
+independent_variables:
+- header: {name: PT, units: GEV/c}
+  values:
+  - {high: 4.0, low: 3.0}
+  - {high: 5.0, low: 4.0}
+  - {high: 6.0, low: 5.0}
+  - {high: 8.0, low: 6.0}
+  - {high: 12.0, low: 8.0}
+  - {high: 16.0, low: 12.0}
+  - {high: 24.0, low: 16.0}
+  - {high: 36.0, low: 24.0}

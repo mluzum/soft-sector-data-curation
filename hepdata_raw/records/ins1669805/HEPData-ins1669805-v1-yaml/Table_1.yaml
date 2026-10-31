@@ -1,0 +1,52 @@
+dependent_variables:
+- header: {name: D2N/DPT/DYRAP, units: GEV}
+  qualifiers:
+  - {name: ABS(YRAP), value: 2.5-4.0}
+  - {name: RE, value: P P --> PHI < MU+ MU- >}
+  - {name: SQRT(S), value: 2760.0 GEV}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.04231}
+    - {label: 'sys,bin-to-bin uncorrelated', symerror: 0.02716}
+    - {label: 'sys,bin-to-bin correlated', symerror: 0.01036}
+    value: 0.26575
+  - errors:
+    - {label: stat, symerror: 0.01583}
+    - {label: 'sys,bin-to-bin uncorrelated', symerror: 0.01158}
+    - {label: 'sys,bin-to-bin correlated', symerror: 0.00446}
+    value: 0.11424
+  - errors:
+    - {label: stat, symerror: 0.007021}
+    - {label: 'sys,bin-to-bin uncorrelated', symerror: 0.00411}
+    - {label: 'sys,bin-to-bin correlated', symerror: 0.002172}
+    value: 0.055695
+  - errors:
+    - {label: stat, symerror: 0.003511}
+    - {label: 'sys,bin-to-bin uncorrelated', symerror: 0.001288}
+    - {label: 'sys,bin-to-bin correlated', symerror: 0.000833}
+    value: 0.021356
+  - errors:
+    - {label: stat, symerror: 0.002011}
+    - {label: 'sys,bin-to-bin uncorrelated', symerror: 0.00067}
+    - {label: 'sys,bin-to-bin correlated', symerror: 0.000341}
+    value: 0.00874
+  - errors:
+    - {label: stat, symerror: 0.00139}
+    - {label: 'sys,bin-to-bin uncorrelated', symerror: 0.000394}
+    - {label: 'sys,bin-to-bin correlated', symerror: 0.000214}
+    value: 0.005485
+  - errors:
+    - {label: stat, symerror: 0.00075}
+    - {label: 'sys,bin-to-bin uncorrelated', symerror: 0.000126}
+    - {label: 'sys,bin-to-bin correlated', symerror: 6.9e-05}
+    value: 0.001774
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {high: 1.5, low: 1.0}
+  - {high: 2.0, low: 1.5}
+  - {high: 2.5, low: 2.0}
+  - {high: 3.0, low: 2.5}
+  - {high: 3.5, low: 3.0}
+  - {high: 4.0, low: 3.5}
+  - {high: 5.0, low: 4.0}

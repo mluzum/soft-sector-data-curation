@@ -1,0 +1,46 @@
+dependent_variables:
+- header: {name: Yield ratio}
+  qualifiers:
+  - {name: CENTRALITY, units: PCT, value: 20-50}
+  - {name: '$p_{T, jet}$', units: GeV/c, value: 20-40}
+  - {name: $D\phi$, value: $-\pi/3-\pi/3$}
+  values:
+  - errors:
+    - {label: scale, symerror: 0.015}
+    - {label: stat, symerror: 0.156}
+    - {label: sys, symerror: 0.009}
+    value: 0.855
+  - errors:
+    - {label: scale, symerror: 0.023}
+    - {label: stat, symerror: 0.194}
+    - {label: sys, symerror: 0.048}
+    value: 1.003
+  - errors:
+    - {label: scale, symerror: 0.015}
+    - {label: stat, symerror: 0.067}
+    - {label: sys, symerror: 0.005}
+    value: 0.946
+  - errors:
+    - {label: scale, symerror: 0.0038}
+    - {label: stat, symerror: 0.0732}
+    - {label: sys, symerror: 0.0033}
+    value: 0.9106
+  - errors:
+    - {label: scale, symerror: 0.0012}
+    - {label: stat, symerror: 0.094}
+    - {label: sys, symerror: 0.0168}
+    value: 1.0252
+  - errors:
+    - {label: scale, symerror: 0.0016}
+    - {label: stat, symerror: 0.0979}
+    - {label: sys, symerror: 0.0178}
+    value: 0.9302
+independent_variables:
+- header: {name: 'p_{T, assoc}', units: GeV/c}
+  values:
+  - {high: 1.5, low: 1.0}
+  - {high: 2.0, low: 1.5}
+  - {high: 3.0, low: 2.0}
+  - {high: 4.0, low: 3.0}
+  - {high: 6.0, low: 4.0}
+  - {high: 10.0, low: 6.0}

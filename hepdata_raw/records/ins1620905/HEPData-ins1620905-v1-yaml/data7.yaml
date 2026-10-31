@@ -1,0 +1,56 @@
+dependent_variables:
+- header: {name: PbPb/pp}
+  qualifiers:
+  - {name: RE, value: Pb Pb --> JET X}
+  - {name: SQRT(S)/NUCLEON, units: TEV, value: '5.02'}
+  - {name: JET ALGO, value: ANTI-K_T R=0.4}
+  - {name: '|ETAJET|', value: <1.3}
+  - {name: PTJET, units: GEV, value: 160-180}
+  - {name: CENTRALITY, units: PERCENTILE, value: 50-80}
+  - {name: Soft Drop beta, value: '0'}
+  - {name: Soft Drop z_cut, value: '0.1'}
+  - {name: Delta R_12, value: '>0.1'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.043}
+    - {label: sys, symerror: 0.069}
+    value: 1.042
+  - errors:
+    - {label: stat, symerror: 0.06}
+    - {label: sys, symerror: 0.063}
+    value: 0.995
+  - errors:
+    - {label: stat, symerror: 0.074}
+    - {label: sys, symerror: 0.073}
+    value: 0.961
+  - errors:
+    - {label: stat, symerror: 0.082}
+    - {label: sys, symerror: 0.064}
+    value: 0.896
+  - errors:
+    - {label: stat, symerror: 0.094}
+    - {label: sys, symerror: 0.068}
+    value: 0.99
+  - errors:
+    - {label: stat, symerror: 0.101}
+    - {label: sys, symerror: 0.085}
+    value: 0.982
+  - errors:
+    - {label: stat, symerror: 0.114}
+    - {label: sys, symerror: 0.134}
+    value: 1.17
+  - errors:
+    - {label: stat, symerror: 0.098}
+    - {label: sys, symerror: 0.118}
+    value: 0.831
+independent_variables:
+- header: {name: zg}
+  values:
+  - {high: 0.15, low: 0.1}
+  - {high: 0.2, low: 0.15}
+  - {high: 0.25, low: 0.2}
+  - {high: 0.3, low: 0.25}
+  - {high: 0.35, low: 0.3}
+  - {high: 0.4, low: 0.35}
+  - {high: 0.45, low: 0.4}
+  - {high: 0.5, low: 0.45}

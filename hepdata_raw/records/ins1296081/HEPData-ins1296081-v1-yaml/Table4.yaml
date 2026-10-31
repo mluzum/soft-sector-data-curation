@@ -1,0 +1,42 @@
+dependent_variables:
+- header: {name: D2(SIG)/DPT/DYRAP, units: MUB/GEV}
+  qualifiers:
+  - {name: RE, value: P PB --> D/S+ X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  - {name: YRAP(RF=CM), value: -0.96-0.04}
+  values:
+  - errors:
+    - {label: stat, symerror: 866.0}
+    - asymerror: {minus: 918.0, plus: -1310.0}
+      label: sys
+    - {label: 'sys,overall normalization uncertainty', symerror: 3.7%}
+    - {label: 'sys,uncertainty on branching ratio', symerror: 5.3%}
+    value: 3910.0
+  - errors:
+    - {label: stat, symerror: 85.4}
+    - asymerror: {minus: 126.0, plus: -159.0}
+      label: sys
+    - {label: 'sys,overall normalization uncertainty', symerror: 3.7%}
+    - {label: 'sys,uncertainty on branching ratio', symerror: 5.3%}
+    value: 602.0
+  - errors:
+    - {label: stat, symerror: 24.6}
+    - asymerror: {minus: 34.3, plus: -39.7}
+      label: sys
+    - {label: 'sys,overall normalization uncertainty', symerror: 3.7%}
+    - {label: 'sys,uncertainty on branching ratio', symerror: 5.3%}
+    value: 162.0
+  - errors:
+    - {label: stat, symerror: 6.41}
+    - asymerror: {minus: 9.5, plus: -10.9}
+      label: sys
+    - {label: 'sys,overall normalization uncertainty', symerror: 3.7%}
+    - {label: 'sys,uncertainty on branching ratio', symerror: 5.3%}
+    value: 43.6
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {high: 4.0, low: 2.0}
+  - {high: 6.0, low: 4.0}
+  - {high: 8.0, low: 6.0}
+  - {high: 12.0, low: 8.0}

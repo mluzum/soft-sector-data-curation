@@ -1,0 +1,65 @@
+observable_type: flow_harmonic_correlations
+description: >
+  Correlations between different anisotropic flow harmonics.  This covers
+  three distinct but related sub-types:
+    1. Symmetric Cumulants:
+         SC(n,m) = ⟨vn² vm²⟩ − ⟨vn²⟩⟨vm²⟩
+    2. Event-plane angle correlations (symmetry plane correlations):
+         ⟨cos[k(Ψₙ − Ψₘ)]⟩, including Gaussian estimator variants
+    3. Multi-harmonic correlations:
+         Normalised correlations between different flow amplitudes,
+         e.g. ρ_n^{k} = ⟨vn² v_{k}²⟩ / √⟨vn⁴⟩⟨v_{k}⁴⟩
+
+composes:
+  - _common#collision_system
+  - centrality#centrality
+  - _common#kinematic_range
+
+optional_composes:
+  # Event-plane correlation records (NAC, rho) also need the reference.
+  - _common#flow_reference
+  - _common#notes
+
+required_fields:
+  observable:
+    type: string
+    required: true
+    description: Short identifier.
+    example: "SC_5_2"
+  correlation_type:
+    type: string
+    required: true
+    allowed:
+      - symmetric_cumulant
+      - event_plane_correlation
+      - multi_harmonic_correlation
+    description: "Sub-type of the correlation observable."
+    example: "symmetric_cumulant"
+  harmonics:
+    type: list
+    required: true
+    description: "List of harmonics involved (e.g. [5, 2] for SC(5,2))."
+    items:
+      type: integer
+    example: [5, 2]
+
+optional_fields:
+  estimator:
+    type: string
+    required: false
+    description: >
+      Estimator used. Common values: 'standard' (default SC), 'GE' (Gaussian
+      estimator for event-plane correlations), 'SP' (scalar product).
+    example: "GE"
+  value_type:
+    type: string
+    required: false
+    description: >
+      Specific observable label. Examples:
+      'NSC(5,2)', 'SC(5,2)', '⟨cos[4(Ψ₄−Ψ₂)]⟩', 'ρ_2^{3}'
+    example: "NSC(5,2)"
+
+validation:
+  rules:
+    - "harmonics_must_be_positive"
+    - "symmetric_cumulant_range_validation"

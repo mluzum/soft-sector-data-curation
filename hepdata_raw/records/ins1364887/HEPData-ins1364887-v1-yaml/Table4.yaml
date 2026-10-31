@@ -1,0 +1,23 @@
+dependent_variables:
+- header: {name: RAA}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 0.0-40.0}
+  - {name: RE, value: PB PB --> JPSI < E+ E- > X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  - {name: YRAP, value: -0.8-0.8}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.11}
+    - {label: 'sys,uncorr', symerror: 0.1}
+    - {label: 'sys,corr', symerror: 0.1}
+    value: 0.82
+  - errors:
+    - {label: stat, symerror: 0.06}
+    - {label: 'sys,uncorr', symerror: 0.08}
+    - {label: 'sys,corr', symerror: 0.07}
+    value: 0.58
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {high: 2.5, low: 0.0}
+  - {high: 6.0, low: 2.5}

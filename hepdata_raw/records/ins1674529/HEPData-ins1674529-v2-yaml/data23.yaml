@@ -1,0 +1,49 @@
+dependent_variables:
+- header: {name: RAA(Y(1S))}
+  qualifiers:
+  - {name: ABS(YRAP), value: 0.0-2.4}
+  - {name: PT, units: GEV, value: 0.0-30.0}
+  - {name: RE, value: P P --> Upsilon(1S) < MU+ MU- > X}
+  - {name: RE, value: PB PB --> Upsilon(1S) < MU+ MU- > X}
+  - {name: RE, value: P P --> Upsilon(2S) < MU+ MU- > X}
+  - {name: RE, value: PB PB --> Upsilon(2S) < MU+ MU- > X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.013}
+    - asymerror: {minus: -0.035, plus: 0.034}
+      label: sys
+    value: 0.376
+- header: {name: RAAY(Y(2S))}
+  qualifiers:
+  - {name: ABS(YRAP), value: 0.0-2.4}
+  - {name: PT, units: GEV, value: 0.0-30.0}
+  - {name: RE, value: P P --> Upsilon(1S) < MU+ MU- > X}
+  - {name: RE, value: PB PB --> Upsilon(1S) < MU+ MU- > X}
+  - {name: RE, value: P P --> Upsilon(2S) < MU+ MU- > X}
+  - {name: RE, value: PB PB --> Upsilon(2S) < MU+ MU- > X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.022}
+    - asymerror: {minus: -0.019, plus: 0.019}
+      label: sys
+    value: 0.117
+- header: {name: <Npart>}
+  qualifiers:
+  - {name: ABS(YRAP), value: 0.0-2.4}
+  - {name: PT, units: GEV, value: 0.0-30.0}
+  - {name: RE, value: P P --> Upsilon(1S) < MU+ MU- > X}
+  - {name: RE, value: PB PB --> Upsilon(1S) < MU+ MU- > X}
+  - {name: RE, value: P P --> Upsilon(2S) < MU+ MU- > X}
+  - {name: RE, value: PB PB --> Upsilon(2S) < MU+ MU- > X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020.0'}
+  values:
+  - errors:
+    - asymerror: {minus: -2.6, plus: 2.6}
+      label: sys
+    value: 114
+independent_variables:
+- header: {name: Centrality, units: PCT}
+  values:
+  - {high: 100, low: 0}

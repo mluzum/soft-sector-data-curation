@@ -1,0 +1,39 @@
+dependent_variables:
+- header: {name: RAA}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 0.0-10.0}
+  - {name: RE, value: PB PB --> D/s+ X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  - {name: YRAP, value: -0.5-0.5}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.162}
+    - asymerror: {minus: -0.164, plus: 0.155}
+      label: sys
+    - {label: 'sys,sys,global normalization uncertainty', symerror: 4.0%}
+    value: 0.583
+  - errors:
+    - {label: stat, symerror: 0.116}
+    - asymerror: {minus: -0.104, plus: 0.09}
+      label: sys
+    - {label: 'sys,sys,global normalization uncertainty', symerror: 4.0%}
+    value: 0.396
+  - errors:
+    - {label: stat, symerror: 0.08}
+    - asymerror: {minus: -0.075, plus: 0.065}
+      label: sys
+    - {label: 'sys,sys,global normalization uncertainty', symerror: 4.0%}
+    value: 0.296
+  - errors:
+    - {label: stat, symerror: 0.065}
+    - asymerror: {minus: -0.136, plus: 0.098}
+      label: sys
+    - {label: 'sys,sys,global normalization uncertainty', symerror: 4.0%}
+    value: 0.287
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {high: 6.0, low: 4.0}
+  - {high: 8.0, low: 6.0}
+  - {high: 12.0, low: 8.0}
+  - {high: 16.0, low: 12.0}

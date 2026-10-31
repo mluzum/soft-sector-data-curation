@@ -1,0 +1,174 @@
+---
+observable_type: fluctuations
+inspire_id: '585561'
+version: 1
+hepdata_file: ppg012f2.yaml
+hepdata_table_label: Transverse momentum spectra of $\Lambda$ and $\bar{\Lambda}$ for minimum-bias and for the $5\%$ most
+  central events.
+qualifiers:
+  centrality: $5\%$ central
+  particle: $\bar{\Lambda}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU + AU --> CHARGED X0
+centrality:
+  classes: []
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: Lambda
+kinematic_range:
+  pT:
+    min: 0.4
+    max: 1.8
+    bins:
+    - 0.4
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+  eta:
+    min: -0.35
+    max: 0.35
+observable: cumulant_C2
+value_type: cumulant_C2
+charge_type: net_charge
+---
+observable_type: fluctuations
+inspire_id: '585561'
+version: 1
+hepdata_file: ppg012f4a.yaml
+hepdata_table_label: Spectra of inclusive $\Lambda$ ($\bar{\Lambda}$) for minimum-bias events.
+qualifiers:
+  centrality: minimum-bias
+  particle: $\bar{\Lambda}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU + AU --> CHARGED X0
+centrality:
+  classes: []
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: Lambda
+kinematic_range:
+  pT:
+    min: 0.4
+    max: 1.8
+    bins:
+    - 0.4
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+  eta:
+    min: -0.35
+    max: 0.35
+observable: cumulant_C2
+value_type: cumulant_C2
+charge_type: net_charge
+---
+observable_type: fluctuations
+inspire_id: '585561'
+version: 1
+hepdata_file: ppg012f4b.yaml
+hepdata_table_label: Spectra of inclusive feed-down corrected protons (antiprotons) for minimum-bias events.
+qualifiers:
+  centrality: minimum-bias
+  particle: $\bar{p}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU + AU --> CHARGED X0
+centrality:
+  classes: []
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: p
+kinematic_range:
+  pT:
+    min: 0.6
+    max: 1.8
+    bins:
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+  eta:
+    min: -0.35
+    max: 0.35
+observable: cumulant_C2
+value_type: cumulant_C2
+charge_type: net_charge
+---
+observable_type: fluctuations
+inspire_id: '585561'
+version: 1
+hepdata_file: ppg012t1a.yaml
+hepdata_table_label: Inclusive $\Lambda$ and feed-down corrected proton yields for minimum bias and for the 5% most central
+  events. Systematic errors are 17% for protons and 16% for $\Lambda$
+qualifiers:
+  centrality: 5%
+collision_system:
+  energy_gev: 200.0
+  reaction: AU + AU --> CHARGED X0
+centrality:
+  classes: []
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: p
+kinematic_range:
+  eta:
+    min: -0.35
+    max: 0.35
+  pT:
+    min: 0.2
+    max: 20
+    bins:
+    - 0.2
+    - 20
+observable: cumulant_C2
+value_type: cumulant_C2
+charge_type: net_charge

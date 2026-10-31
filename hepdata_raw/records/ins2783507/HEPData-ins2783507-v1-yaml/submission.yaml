@@ -1,0 +1,490 @@
+additional_resources:
+- {description: Webpage with all figures and tables (PAS), location: 'https://cds.cern.ch/record/2867449'}
+comment: This Letter presents the first measurements of the groomed jet radius $R_{\mathrm{g}}$
+  and the jet girth $g$ in events with an isolated photon recoiling against a jet
+  in lead-lead (PbPb) and proton-proton (pp) collisions at the LHC at a nucleon-nucleon
+  center-of-mass energy of 5.02 TeV. The observables $R_{\mathrm{g}}$ and $g$ provide
+  a quantitative measure of how narrow or broad a jet is. The analysis uses PbPb and
+  pp data samples with integrated luminosities of 1.7~nb$^{-1}$ and 301~pb$^{-1}$,
+  respectively, collected with the CMS experiment in 2018 and 2017. Events are required
+  to have a photon with transverse momentum $p_{\mathrm{T}}^{\gamma} > 100$~GeV and
+  at least one jet back-to-back in azimuth with respect to the photon and with transverse
+  momentum $p_{\mathrm{T}}^{\text{jet}}$ such that $p_{\mathrm{T}}^{\text{jet}}/p_{\mathrm{T}}^{\gamma}
+  > 0.4$. The measured $R_{\mathrm{g}}$ and $g$ distributions are unfolded to the
+  particle level, which facilitates the comparison between the PbPb and pp results
+  and with theoretical predictions. It is found that jets with $p_{\mathrm{T}}^{\text{jet}}/p_{\mathrm{T}}^{\gamma}
+  > 0.8$, i.e, those that closely balance the photon $p_{\mathrm{T}}^{\gamma}$, are
+  narrower in PbPb than in pp collisions. Relaxing the selection to include jets with
+  $p_{\mathrm{T}}^{\text{jet}}/p_{\mathrm{T}}^{\gamma} > 0.4$ reduces the narrowing
+  of the angular structure of jets in PbPb relative to the pp reference. This shows
+  that selection bias effects associated with jet energy loss play an important role
+  in the interpretation of jet substructure measurements.
+data_license: {description: The content can be shared and adapted but you must             give
+    appropriate credit and cannot restrict access to others., name: cc-by-4.0, url: 'https://creativecommons.org/licenses/by/4.0/'}
+hepdata_doi: 10.17182/hepdata.151507.v1
+---
+data_file: normalized_pbpb_jet_girth_for_$x_j$>0.4.yaml
+description: Unfolded jet girth distribution in PbPb normalized to the number of jets
+  that pass the $x_J$>0.4 selection. All systematic uncertainties are bin-to-bin fully
+  correlated (allowing for sign-changes bin-to-bin).The covaraince matrices are provided
+  for the statistical uncertainties from data and MC in this HepData record.
+keywords:
+- name: reactions
+  values: [Pb Pb --> Photon + Jet]
+- name: phrases
+  values: [photon, jet, substructure]
+- name: cmenergies
+  values: ['5020']
+- name: observables
+  values: [Normalized yield]
+location: Corresponds to Figure 4 (left) in the paper.
+name: Normalized PbPb Jet girth for $x_J$>0.4
+table_doi: 10.17182/hepdata.151507.v1/t1
+---
+data_file: data_stats_covariance_matrix_for_girth_for_$x_j$>0.4.yaml
+description: Covariance matrix of the statistical uncertainty in data for the unfolded
+  jet girth distribution in PbPb for jets that pass the $x_J$>0.4 selection.The bin
+  indices correspond to the bins used in the jet girth distribution.
+keywords:
+- name: reactions
+  values: [Pb Pb --> Photon + Jet]
+- name: cmenergies
+  values: ['5020']
+- name: phrases
+  values: [photon, jet, substructure]
+location: Associated to Figure 4 (left) in the paper.
+name: Data stats covariance matrix for girth for $x_J$>0.4
+table_doi: 10.17182/hepdata.151507.v1/t2
+---
+data_file: mc_stats_covariance_matrix_for_girth_for_$x_j$>0.4.yaml
+description: Covariance matrix of the statistical uncertainty in MC for the unfolded
+  jet girth distribution in PbPb for jets that pass the $x_J$>0.4 selection.The bin
+  indices correspond to the bins used in the jet girth distribution.
+keywords:
+- name: reactions
+  values: [Pb Pb --> Photon + Jet]
+- name: cmenergies
+  values: ['5020']
+- name: phrases
+  values: [photon, jet, substructure]
+location: Associated to Figure 4 (left) in the paper.
+name: MC stats covariance matrix for girth for $x_J$>0.4
+table_doi: 10.17182/hepdata.151507.v1/t3
+---
+data_file: normalized_pbpb_groomed_jet_radius_$r_g$_for_$x_j$>0.4.yaml
+description: Unfolded groomed jet radius distribution in PbPb normalized to the number
+  of jets that pass the $x_J$>0.4 selection. All systematic uncertainties are bin-to-bin
+  fully correlated (allowing for sign-changes bin-to-bin).The covaraince matrices
+  are provided for the statistical uncertainties from data and MC in this HepData
+  record.The negative (-0.05,0) bin accounts for jets that failed the soft-drop grooming
+  condition.
+keywords:
+- name: reactions
+  values: [Pb Pb --> Photon + Jet]
+- name: phrases
+  values: [photon, jet, substructure]
+- name: cmenergies
+  values: ['5020']
+- name: observables
+  values: [Normalized yield]
+location: Corresponds to Figure 4 (right) in the paper.
+name: Normalized PbPb Groomed jet radius $R_g$ for $x_J$>0.4
+table_doi: 10.17182/hepdata.151507.v1/t4
+---
+data_file: data_stats_covariance_matrix_for_$r_g$_for_$x_j$>0.4.yaml
+description: Covariance matrix of the statistical uncertainty in data for the unfolded
+  groomed jet radius distribution in PbPb for jets that pass the $x_J$>0.4 selection.The
+  bin indices correspond to the bins used in the groomed jet radius distribution.
+keywords:
+- name: reactions
+  values: [Pb Pb --> Photon + Jet]
+- name: cmenergies
+  values: ['5020']
+- name: phrases
+  values: [photon, jet, substructure]
+location: Associated to Figure 4 (right) in the paper.
+name: Data stats covariance matrix for $R_g$ for $x_J$>0.4
+table_doi: 10.17182/hepdata.151507.v1/t5
+---
+data_file: mc_stats_covariance_matrix_for_$r_g$_for_$x_j$>0.4.yaml
+description: Covariance matrix of the statistical uncertainty in MC for the unfolded
+  groomed jet radius distribution in PbPb for jets that pass the $x_J$>0.4 selection.The
+  bin indices correspond to the bins used in the groomed jet radius distribution.
+keywords:
+- name: reactions
+  values: [Pb Pb --> Photon + Jet]
+- name: cmenergies
+  values: ['5020']
+- name: phrases
+  values: [photon, jet, substructure]
+location: Associated to Figure 4 (right) in the paper.
+name: MC stats covariance matrix for $R_g$ for $x_J$>0.4
+table_doi: 10.17182/hepdata.151507.v1/t6
+---
+data_file: normalized_pbpb_jet_girth_for_$x_j$>0.8.yaml
+description: Unfolded jet girth distribution in PbPb normalized to the number of jets
+  that pass the $x_J$>0.8 selection. All systematic uncertainties are bin-to-bin fully
+  correlated (allowing for sign-changes bin-to-bin).The covaraince matrices are provided
+  for the statistical uncertainties from data and MC in this HepData record.
+keywords:
+- name: reactions
+  values: [Pb Pb --> Photon + Jet]
+- name: phrases
+  values: [photon, jet, substructure]
+- name: cmenergies
+  values: ['5020']
+- name: observables
+  values: [Normalized yield]
+location: Corresponds to Figure 5 (left) in the paper.
+name: Normalized PbPb Jet girth for $x_J$>0.8
+table_doi: 10.17182/hepdata.151507.v1/t7
+---
+data_file: data_stats_covariance_matrix_for_girth_for_$x_j$>0.8.yaml
+description: Covariance matrix of the statistical uncertainty in data for the unfolded
+  jet girth distribution in PbPb for jets that pass the $x_J$>0.4 selection.The bin
+  indices correspond to the bins used in the jet girth distribution.
+keywords:
+- name: reactions
+  values: [Pb Pb --> Photon + Jet]
+- name: cmenergies
+  values: ['5020']
+- name: phrases
+  values: [photon, jet, substructure]
+location: Associated to Figure 5 (left) in the paper.
+name: Data stats covariance matrix for girth for $x_J$>0.8
+table_doi: 10.17182/hepdata.151507.v1/t8
+---
+data_file: mc_stats_covariance_matrix_for_girth_for_$x_j$>0.8.yaml
+description: Covariance matrix of the statistical uncertainty in MC for the unfolded
+  jet girth distribution in PbPb for jets that pass the $x_J$>0.8 selection.The bin
+  indices correspond to the bins used in the jet girth distribution.
+keywords:
+- name: reactions
+  values: [Pb Pb --> Photon + Jet]
+- name: cmenergies
+  values: ['5020']
+- name: phrases
+  values: [photon, jet, substructure]
+location: Associated to Figure 5 (left) in the paper.
+name: MC stats covariance matrix for girth for $x_J$>0.8
+table_doi: 10.17182/hepdata.151507.v1/t9
+---
+data_file: normalized_pbpb_groomed_jet_radius_$r_g$_for_$x_j$>0.8.yaml
+description: Unfolded groomed jet radius distribution in PbPb normalized to the number
+  of jets that pass the $x_J$>0.8 selection. All systematic uncertainties are bin-to-bin
+  fully correlated (allowing for sign-changes bin-to-bin).The covaraince matrices
+  are provided for the statistical uncertainties from data and MC in this HepData
+  record.The negative (-0.05,0) bin accounts for jets that failed the soft-drop grooming
+  condition.
+keywords:
+- name: reactions
+  values: [Pb Pb --> Photon + Jet]
+- name: phrases
+  values: [photon, jet, substructure]
+- name: cmenergies
+  values: ['5020']
+- name: observables
+  values: [Normalized yield]
+location: Corresponds to Figure 5 (right) in the paper.
+name: Normalized PbPb Groomed jet radius $R_g$ for $x_J$>0.8
+table_doi: 10.17182/hepdata.151507.v1/t10
+---
+data_file: data_stats_covariance_matrix_for_$r_g$_for_$x_j$>0.8.yaml
+description: Covariance matrix of the statistical uncertainty in data for the unfolded
+  groomed jet radius distribution in PbPb for jets that pass the $x_J$>0.8 selection.The
+  bin indices correspond to the bins used in the groomed jet radius distribution.
+keywords:
+- name: reactions
+  values: [Pb Pb --> Photon + Jet]
+- name: cmenergies
+  values: ['5020']
+- name: phrases
+  values: [photon, jet, substructure]
+location: Associated to Figure 5 (right) in the paper.
+name: Data stats covariance matrix for $R_g$ for $x_J$>0.8
+table_doi: 10.17182/hepdata.151507.v1/t11
+---
+data_file: mc_stats_covariance_matrix_for_$r_g$_for_$x_j$>0.8.yaml
+description: Covariance matrix of the statistical uncertainty in MC for the unfolded
+  groomed jet radius distribution in PbPb for jets that pass the $x_J$>0.8 selection.The
+  bin indices correspond to the bins used in the groomed jet radius distribution.
+keywords:
+- name: reactions
+  values: [Pb Pb --> Photon + Jet]
+- name: cmenergies
+  values: ['5020']
+- name: phrases
+  values: [photon, jet, substructure]
+location: Associated to Figure 5 (right) in the paper.
+name: MC stats covariance matrix for $R_g$ for $x_J$>0.8
+table_doi: 10.17182/hepdata.151507.v1/t12
+---
+data_file: normalized_pp_jet_girth_for_$x_j$>0.4.yaml
+description: Unfolded jet girth distribution in pp normalized to the number of jets
+  that pass the $x_J$>0.4 selection. All systematic uncertainties are bin-to-bin fully
+  correlated (allowing for sign-changes bin-to-bin).The covaraince matrices are provided
+  for the statistical uncertainties from data and MC in this HepData record.
+keywords:
+- name: reactions
+  values: [P P --> Photon + Jet]
+- name: phrases
+  values: [photon, jet, substructure]
+- name: cmenergies
+  values: ['5020']
+- name: observables
+  values: [Normalized yield]
+location: Corresponds to Figures 2 and 4 (left) in the paper.
+name: Normalized pp Jet girth for $x_J$>0.4
+table_doi: 10.17182/hepdata.151507.v1/t13
+---
+data_file: pp_data_stats_covariance_matrix_for_girth_for_$x_j$>0.4.yaml
+description: Covariance matrix of the statistical uncertainty in data for the unfolded
+  jet girth distribution in pp for jets that pass the $x_J$>0.4 selection.The bin
+  indices correspond to the bins used in the jet girth distribution.
+keywords:
+- name: reactions
+  values: [P P --> Photon + Jet]
+- name: cmenergies
+  values: ['5020']
+- name: phrases
+  values: [photon, jet, substructure]
+location: Associated to Figures 2 and 4 (left) in the paper.
+name: pp Data stats covariance matrix for girth for $x_J$>0.4
+table_doi: 10.17182/hepdata.151507.v1/t14
+---
+data_file: pp_mc_stats_covariance_matrix_for_girth_for_$x_j$>0.4.yaml
+description: Covariance matrix of the statistical uncertainty in MC for the unfolded
+  jet girth distribution in pp for jets that pass the $x_J$>0.4 selection.The bin
+  indices correspond to the bins used in the jet girth distribution.
+keywords:
+- name: reactions
+  values: [P P --> Photon + Jet]
+- name: cmenergies
+  values: ['5020']
+- name: phrases
+  values: [photon, jet, substructure]
+location: Associated to Figures 2 and 4 (left) in the paper.
+name: pp MC stats covariance matrix for girth for $x_J$>0.4
+table_doi: 10.17182/hepdata.151507.v1/t15
+---
+data_file: normalized_pp_groomed_jet_radius_$r_g$_for_$x_j$>0.4.yaml
+description: Unfolded groomed jet radius distribution in pp normalized to the number
+  of jets that pass the $x_J$>0.4 selection. All systematic uncertainties are bin-to-bin
+  fully correlated (allowing for sign-changes bin-to-bin).The covaraince matrices
+  are provided for the statistical uncertainties from data and MC in this HepData
+  record.The negative (-0.05,0) bin accounts for jets that failed the soft-drop grooming
+  condition.
+keywords:
+- name: reactions
+  values: [P P --> Photon + Jet]
+- name: phrases
+  values: [photon, jet, substructure]
+- name: cmenergies
+  values: ['5020']
+- name: observables
+  values: [Normalized yield]
+location: Corresponds to Figures 2 and 4 (right) in the paper.
+name: Normalized pp Groomed jet radius $R_g$ for $x_J$>0.4
+table_doi: 10.17182/hepdata.151507.v1/t16
+---
+data_file: pp_data_stats_covariance_matrix_for_$r_g$_for_$x_j$>0.4.yaml
+description: Covariance matrix of the statistical uncertainty in data for the unfolded
+  groomed jet radius distribution in pp for jets that pass the $x_J$>0.4 selection.The
+  bin indices correspond to the bins used in the groomed jet radius distribution.
+keywords:
+- name: reactions
+  values: [P P --> Photon + Jet]
+- name: cmenergies
+  values: ['5020']
+- name: phrases
+  values: [photon, jet, substructure]
+location: Associated to Figures 2 and 4 (right) in the paper.
+name: pp Data stats covariance matrix for $R_g$ for $x_J$>0.4
+table_doi: 10.17182/hepdata.151507.v1/t17
+---
+data_file: pp_mc_stats_covariance_matrix_for_$r_g$_for_$x_j$>0.4.yaml
+description: Covariance matrix of the statistical uncertainty in MC for the unfolded
+  groomed jet radius distribution in pp for jets that pass the $x_J$>0.4 selection.The
+  bin indices correspond to the bins used in the groomed jet radius distribution.
+keywords:
+- name: reactions
+  values: [P P --> Photon + Jet]
+- name: cmenergies
+  values: ['5020']
+- name: phrases
+  values: [photon, jet, substructure]
+location: Associated to Figures 2 and 4 (right) in the paper.
+name: pp MC stats covariance matrix for $R_g$ for $x_J$>0.4
+table_doi: 10.17182/hepdata.151507.v1/t18
+---
+data_file: normalized_pp_jet_girth_for_$x_j$>0.8.yaml
+description: Unfolded jet girth distribution in pp normalized to the number of jets
+  that pass the $x_J$>0.8 selection. All systematic uncertainties are bin-to-bin fully
+  correlated (allowing for sign-changes bin-to-bin).The covaraince matrices are provided
+  for the statistical uncertainties from data and MC in this HepData record.
+keywords:
+- name: reactions
+  values: [P P --> Photon + Jet]
+- name: phrases
+  values: [photon, jet, substructure]
+- name: cmenergies
+  values: ['5020']
+- name: observables
+  values: [Normalized yield]
+location: Corresponds to Figures 3 and 5 (left) in the paper.
+name: Normalized pp Jet girth for $x_J$>0.8
+table_doi: 10.17182/hepdata.151507.v1/t19
+---
+data_file: pp_data_stats_covariance_matrix_for_girth_for_$x_j$>0.8.yaml
+description: Covariance matrix of the statistical uncertainty in data for the unfolded
+  jet girth distribution in pp for jets that pass the $x_J$>0.8 selection.The bin
+  indices correspond to the bins used in the jet girth distribution.
+keywords:
+- name: reactions
+  values: [P P --> Photon + Jet]
+- name: cmenergies
+  values: ['5020']
+- name: phrases
+  values: [photon, jet, substructure]
+location: Associated to Figures 3 and 5 (left) in the paper.
+name: pp Data stats covariance matrix for girth for $x_J$>0.8
+table_doi: 10.17182/hepdata.151507.v1/t20
+---
+data_file: pp_mc_stats_covariance_matrix_for_girth_for_$x_j$>0.8.yaml
+description: Covariance matrix of the statistical uncertainty in MC for the unfolded
+  jet girth distribution in pp for jets that pass the $x_J$>0.8 selection.The bin
+  indices correspond to the bins used in the jet girth distribution.
+keywords:
+- name: reactions
+  values: [P P --> Photon + Jet]
+- name: cmenergies
+  values: ['5020']
+- name: phrases
+  values: [photon, jet, substructure]
+location: Associated to Figures 3 and 5 (left) in the paper.
+name: pp MC stats covariance matrix for girth for $x_J$>0.8
+table_doi: 10.17182/hepdata.151507.v1/t21
+---
+data_file: normalized_pp_groomed_jet_radius_$r_g$_for_$x_j$>0.8.yaml
+description: Unfolded groomed jet radius distribution in pp normalized to the number
+  of jets that pass the $x_J$>0.8 selection. All systematic uncertainties are bin-to-bin
+  fully correlated (allowing for sign-changes bin-to-bin).The covaraince matrices
+  are provided for the statistical uncertainties from data and MC in this HepData
+  record.The negative (-0.05,0) bin accounts for jets that failed the soft-drop grooming
+  condition.
+keywords:
+- name: reactions
+  values: [P P --> Photon + Jet]
+- name: phrases
+  values: [photon, jet, substructure]
+- name: cmenergies
+  values: ['5020']
+- name: observables
+  values: [Normalized yield]
+location: Corresponds to Figures 3 and 5 (right) in the paper.
+name: Normalized pp Groomed jet radius $R_g$ for $x_J$>0.8
+table_doi: 10.17182/hepdata.151507.v1/t22
+---
+data_file: pp_data_stats_covariance_matrix_for_$r_g$_for_$x_j$>0.8.yaml
+description: Covariance matrix of the statistical uncertainty in data for the unfolded
+  groomed jet radius distribution in pp for jets that pass the $x_J$>0.8 selection.The
+  bin indices correspond to the bins used in the groomed jet radius distribution.
+keywords:
+- name: reactions
+  values: [P P --> Photon + Jet]
+- name: cmenergies
+  values: ['5020']
+- name: phrases
+  values: [photon, jet, substructure]
+location: Associated to Figures 3 and 5 (right) in the paper.
+name: pp Data stats covariance matrix for $R_g$ for $x_J$>0.8
+table_doi: 10.17182/hepdata.151507.v1/t23
+---
+data_file: pp_mc_stats_covariance_matrix_for_$r_g$_for_$x_j$>0.8.yaml
+description: Covariance matrix of the statistical uncertainty in MC for the unfolded
+  groomed jet radius distribution in pp for jets that pass the $x_J$>0.8 selection.The
+  bin indices correspond to the bins used in the groomed jet radius distribution.
+keywords:
+- name: reactions
+  values: [P P --> Photon + Jet]
+- name: cmenergies
+  values: ['5020']
+- name: phrases
+  values: [photon, jet, substructure]
+location: Associated to Figures 3 and 5 (right) in the paper.
+name: pp MC stats covariance matrix for $R_g$ for $x_J$>0.8
+table_doi: 10.17182/hepdata.151507.v1/t24
+---
+data_file: ratio_of_yields_for_jet_girth_for_$x_j$>0.4.yaml
+description: Ratio of yields in PbPb to pp for the unfolded jet girth distribution
+  normalized to the number of jets that pass the $x_J$>0.4 selection. Each uncertainty
+  is symmetrized and added in quadrature.All systematic uncertainties have been obtained
+  assuming the PbPb and pp uncertainties are uncorrelated.
+keywords:
+- name: reactions
+  values: [Pb Pb --> Photon + Jet, P P --> Photon + Jet]
+- name: phrases
+  values: [photon, jet, substructure]
+- name: cmenergies
+  values: ['5020']
+- name: observables
+  values: [Ratio of yields in PbPb to pp]
+location: Corresponds to Figure 6 (left) in the paper.
+name: Ratio of yields for Jet girth for $x_J$>0.4
+table_doi: 10.17182/hepdata.151507.v1/t25
+---
+data_file: ratio_of_yields_for_groomed_jet_radius_$r_g$_for_$x_j$>0.4.yaml
+description: Ratio of yields in PbPb to pp for the unfolded groomed jet radius distribution
+  normalized to the number of jets that pass the $x_J$>0.4 selection. Each uncertainty
+  is symmetrized and added in quadrature.All systematic uncertainties have been obtained
+  assuming the PbPb and pp uncertainties are uncorrelated.The negative (-0.05,0) bin
+  accounts for jets that failed the soft-drop grooming condition.
+keywords:
+- name: reactions
+  values: [Pb Pb --> Photon + Jet, P P --> Photon + Jet]
+- name: phrases
+  values: [photon, jet, substructure]
+- name: cmenergies
+  values: ['5020']
+- name: observables
+  values: [Ratio of yields in PbPb to pp]
+location: Corresponds to Figure 6 (right) in the paper.
+name: Ratio of yields for Groomed jet radius $R_g$ for $x_J$>0.4
+table_doi: 10.17182/hepdata.151507.v1/t26
+---
+data_file: ratio_of_yields_for_jet_girth_for_$x_j$>0.8.yaml
+description: Ratio of yields in PbPb to pp for the unfolded jet girth distribution
+  normalized to the number of jets that pass the $x_J$>0.8 selection. Each uncertainty
+  is symmetrized and added in quadrature.All systematic uncertainties have been obtained
+  assuming the PbPb and pp uncertainties are uncorrelated.
+keywords:
+- name: reactions
+  values: [Pb Pb --> Photon + Jet, P P --> Photon + Jet]
+- name: phrases
+  values: [photon, jet, substructure]
+- name: cmenergies
+  values: ['5020']
+- name: observables
+  values: [Ratio of yields in PbPb to pp]
+location: Corresponds to Figure 7 (left) in the paper.
+name: Ratio of yields for Jet girth for $x_J$>0.8
+table_doi: 10.17182/hepdata.151507.v1/t27
+---
+data_file: ratio_of_yields_for_groomed_jet_radius_$r_g$_for_$x_j$>0.8.yaml
+description: Ratio of yields in PbPb to pp for the unfolded groomed jet radius distribution
+  normalized to the number of jets that pass the $x_J$>0.8 selection. Each uncertainty
+  is symmetrized and added in quadrature.All systematic uncertainties have been obtained
+  assuming the PbPb and pp uncertainties are uncorrelated.The negative (-0.05,0) bin
+  accounts for jets that failed the soft-drop grooming condition.
+keywords:
+- name: reactions
+  values: [Pb Pb --> Photon + Jet, P P --> Photon + Jet]
+- name: phrases
+  values: [photon, jet, substructure]
+- name: cmenergies
+  values: ['5020']
+- name: observables
+  values: [Ratio of yields in PbPb to pp]
+location: Corresponds to Figure 7 (right) in the paper.
+name: Ratio of yields for Groomed jet radius $R_g$ for $x_J$>0.8
+table_doi: 10.17182/hepdata.151507.v1/t28

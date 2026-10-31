@@ -1,0 +1,28 @@
+dependent_variables:
+- header: {name: MULT(P=3)}
+  qualifiers:
+  - {name: RE, value: PI- P --> LAMBDA X}
+  - {name: SQRT(S), units: GeV, value: '8.714'}
+  values:
+  - errors:
+    - {symerror: 0.01}
+    value: 0.07
+- header: {name: MULT(P=3)}
+  qualifiers:
+  - {name: RE, value: PI- N --> LAMBDA X}
+  - {name: SQRT(S), units: GeV, value: '8.705'}
+  values:
+  - errors:
+    - {symerror: 0.01}
+    value: 0.06
+- header: {name: MULT(P=3)}
+  qualifiers:
+  - {name: RE, value: PI- C --> LAMBDA X}
+  values:
+  - errors:
+    - {symerror: 0.01}
+    value: 0.1
+independent_variables:
+- header: {name: P, units: GEV}
+  values:
+  - {value: 40.0}

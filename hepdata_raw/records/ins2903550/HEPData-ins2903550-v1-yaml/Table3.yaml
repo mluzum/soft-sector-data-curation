@@ -1,0 +1,36 @@
+dependent_variables:
+- header: {name: '$1/n_{\gamma}\frac{{\rm d^2}\sigma_{\rm PbPb}}{{\rm d}|t|{\rm d}y}
+      (\mu b/GeV^2)$'}
+  qualifiers:
+  - {name: RE, value: Pb$-$Pb --> INCOHERENT J/$\psi$ --> $\mu^+\mu^-$}
+  - {name: '$\sqrt{s_{\mathrm{NN}}}$', units: GeV, value: '5020.0'}
+  - {name: YRAP, value: 2.5$<$y$<$4}
+  - {name: t bin, units: GeV$^2$, value: 0.81$-$1.44}
+  values:
+  - errors:
+    - {label: stat and uncorrelated syst., symerror: 0.19}
+    - {label: correlated syst., symerror: 0.18}
+    - {label: photon flux, symerror: 0.04}
+    value: 2.2
+  - errors:
+    - {label: stat and uncorrelated syst., symerror: 0.27}
+    - {label: correlated syst., symerror: 0.25}
+    - {label: photon flux, symerror: 0.06}
+    value: 2.98
+  - errors:
+    - {label: stat and uncorrelated syst., symerror: 0.55}
+    - {label: correlated syst., symerror: 0.24}
+    - {label: photon flux, symerror: 0.07}
+    value: 3.57
+  - errors:
+    - {label: stat and uncorrelated syst., symerror: 0.68}
+    - {label: correlated syst., symerror: 0.38}
+    - {label: photon flux, symerror: 0.08}
+    value: 3.85
+independent_variables:
+- header: {name: W (Energy), units: GEV}
+  values:
+  - {value: 20.4}
+  - {value: 29.6}
+  - {value: 124.7}
+  - {value: 633.2}

@@ -1,0 +1,43 @@
+dependent_variables:
+- header: {name: 'RADIUS(NAME=HBT,C=OUT)/RADIUS(NAME=HBT,C=SIDE)'}
+  qualifiers:
+  - {name: CENTRALITY, units: PCT, value: < 5}
+  - {name: EXP, value: STAR}
+  - {name: RE, value: PB PB --> ( PI+ PI+ + PI- PI- ) X}
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  values:
+  - errors:
+    - {symerror: 0.03}
+    value: 1.132
+  - errors:
+    - {symerror: 0.035}
+    value: 1.15
+  - errors:
+    - {symerror: 0.037}
+    value: 1.12
+  - errors:
+    - {symerror: 0.038}
+    value: 1.095
+  - errors:
+    - {symerror: 0.043}
+    value: 1.081
+  - errors:
+    - {symerror: 0.044}
+    value: 1.063
+  - errors:
+    - {symerror: 0.046}
+    value: 1.055
+  - errors:
+    - {symerror: 0.046}
+    value: 1.015
+independent_variables:
+- header: {name: KT(P=3_4), units: GEV}
+  values:
+  - {high: 0.2, low: 0.15}
+  - {high: 0.25, low: 0.2}
+  - {high: 0.3, low: 0.25}
+  - {high: 0.35, low: 0.3}
+  - {high: 0.4, low: 0.35}
+  - {high: 0.45, low: 0.4}
+  - {high: 0.5, low: 0.45}
+  - {high: 0.6, low: 0.5}

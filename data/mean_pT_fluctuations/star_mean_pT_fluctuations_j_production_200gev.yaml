@@ -1,0 +1,60 @@
+---
+observable_type: mean_pT_fluctuations
+inspire_id: '1127499'
+version: 1
+hepdata_file: figure_2.yaml
+hepdata_table_label: (Color online.) The invariant $J/\psi$ cross section versus $p_{T}$ in p+p collisions at $\sqrt{s}$ =
+  200 GeV. The vertical bars and boxes depict the statistical and systematic uncertainties, respectively. Also shown are results
+  published by STAR [15] and PHENIX [20]. The curves show theoretical calculations described in the text.
+qualifiers:
+  source: STAR 2009, |y|<1.0
+collision_system:
+  energy_gev: 200.0
+  reaction: Au+Au-->
+centrality:
+  classes:
+  - 2-2.5%
+  - 2.5-3%
+  - 3-3.5%
+  - 3.5-4.125%
+  - 4.125-5%
+  - 5-6%
+  - 6-7%
+  - 7-8.25%
+  - 8.25-10%
+  - 10-12%
+  - 12-14%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: Sigma
+kinematic_range:
+  pT:
+    min: 2.0
+    max: 14.0
+    bins:
+    - 2.0
+    - 2.5
+    - 3.0
+    - 3.5
+    - 4.125
+    - 5.0
+    - 6.0
+    - 7.0
+    - 8.25
+    - 10.0
+    - 12.0
+    - 14.0
+  eta:
+    min: -1.0
+    max: 1.0
+    bins:
+    - -1.0
+    - 1.0
+observable: sigma_mean_pT
+value_type: Sigma

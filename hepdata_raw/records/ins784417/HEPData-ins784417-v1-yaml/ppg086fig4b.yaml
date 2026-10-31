@@ -1,0 +1,51 @@
+dependent_variables:
+- header: {name: $p_T$ (GeV/$c$)}
+  qualifiers:
+  - {name: Collision, value: Au+Au}
+  - {name: Centrality, value: 0-20%}
+  values:
+  - {value: 1.175}
+  - {value: 1.684}
+  - {value: 2.191}
+  - {value: 2.698}
+  - {value: 3.336}
+  - {value: 4.369}
+- header: {name: '${Ed^3N}/{dp^3}$ (GeV$^{-2}c^3$) or ${Ed^3\sigma}/{dp^3}$ ($mb$
+      GeV$^{-2}c^3$)'}
+  qualifiers:
+  - {name: Collision, value: Au+Au}
+  - {name: Centrality, value: 0-20%}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.07}
+    - {label: sys., symerror: 0.096}
+    value: 0.437
+  - errors:
+    - {label: stat., symerror: 0.009}
+    - {label: sys., symerror: 0.011}
+    value: 0.0454
+  - errors:
+    - {label: stat., symerror: 0.002}
+    - {label: sys., symerror: 0.0015}
+    value: 0.00646
+  - errors:
+    - {label: stat., symerror: 0.00056}
+    - {label: sys., symerror: 0.00045}
+    value: 0.00153
+  - errors:
+    - {label: stat., symerror: 0.00013}
+    - {label: sys., symerror: 9.6e-05}
+    value: 0.000294
+  - errors:
+    - {label: stat., symerror: 2.6e-05}
+    - {label: sys., symerror: 7.8e-06}
+    value: -1.27e-07
+independent_variables:
+- header: {name: $p_T$ (GeV/$c$) Bins}
+  values:
+  - {high: 1.43, low: 0.921}
+  - {high: 1.939, low: 1.43}
+  - {high: 2.443, low: 1.939}
+  - {high: 2.953, low: 2.443}
+  - {high: 3.723, low: 2.953}
+  - {high: 5.017, low: 3.723}

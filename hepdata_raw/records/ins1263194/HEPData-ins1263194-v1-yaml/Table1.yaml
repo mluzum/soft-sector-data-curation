@@ -1,0 +1,59 @@
+dependent_variables:
+- header: {name: MEAN(Npart)}
+  qualifiers:
+  - {name: RE, value: PB PB --> X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {symerror: 3.6}
+    value: 356.0
+  - errors:
+    - {symerror: 3.5}
+    value: 223.0
+  - errors:
+    - {symerror: 2.8}
+    value: 107.2
+  - errors:
+    - {symerror: 1.2}
+    value: 32.5
+- header: {name: MEAN(Ncoll)}
+  qualifiers:
+  - {name: RE, value: PB PB --> X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {symerror: 165.0}
+    value: 1500.5
+  - errors:
+    - {symerror: 75.3}
+    value: 738.8
+  - errors:
+    - {symerror: 23.3}
+    value: 245.6
+  - errors:
+    - {symerror: 4.6}
+    value: 45.9
+- header: {name: MEAN(TAA)}
+  qualifiers:
+  - {name: RE, value: PB PB --> X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {symerror: 0.8}
+    value: 23.5
+  - errors:
+    - {symerror: 0.4}
+    value: 11.6
+  - errors:
+    - {symerror: 0.2}
+    value: 3.8
+  - errors:
+    - {symerror: 0.04}
+    value: 0.7
+independent_variables:
+- header: {name: CENTRALITY, units: PCT}
+  values:
+  - {high: 10.0, low: 0.0}
+  - {high: 30.0, low: 10.0}
+  - {high: 50.0, low: 30.0}
+  - {high: 80.0, low: 50.0}

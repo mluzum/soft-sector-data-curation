@@ -1,0 +1,39 @@
+dependent_variables:
+- header: {name: Ratio to Data}
+  qualifiers:
+  - {name: SQRT(S), units: GEV, value: '7000.0'}
+  - {name: YRAP, value: -0.5 TO 0.5}
+  values:
+  - errors:
+    - {label: stat, symerror: '0.053'}
+    - asymerror: {minus: '-0', plus: '0'}
+      label: sys
+    value: '1.063'
+  - errors:
+    - {label: stat, symerror: '0.061'}
+    - asymerror: {minus: '-0', plus: '0'}
+      label: sys
+    value: '0.971'
+  - errors:
+    - {label: stat, symerror: '0.083'}
+    - asymerror: {minus: '-0', plus: '0'}
+      label: sys
+    value: '0.959'
+  - errors:
+    - {label: stat, symerror: '0.096'}
+    - asymerror: {minus: '-0', plus: '0'}
+      label: sys
+    value: '1.086'
+  - errors:
+    - {label: stat, symerror: '0.084'}
+    - asymerror: {minus: '-0', plus: '0'}
+      label: sys
+    value: '1.010'
+independent_variables:
+- header: {name: '$z_{\rm g}$'}
+  values:
+  - {high: 0.175, low: 0.1}
+  - {high: 0.25, low: 0.175}
+  - {high: 0.325, low: 0.25}
+  - {high: 0.4, low: 0.325}
+  - {high: 0.5, low: 0.4}

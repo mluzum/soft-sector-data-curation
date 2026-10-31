@@ -1,0 +1,128 @@
+---
+observable_type: fluctuations
+inspire_id: '1126162'
+version: 1
+hepdata_file: ppg131fig1-2.yaml
+hepdata_table_label: Heavy flavor electron yield, Run-8 $p$ + $p$, $d$+Au collisions. Electrons from heavy flavor decays,
+  separated by centrality. The lines represent a fit to the previous $p+p$ result [23], scaled by $N_{coll}$. The inset shows
+  the ratio of photonic background electrons determined by the converter and cocktail methods for Minimum Bias $d$+Au collisions,
+  with error bars (boxes) that represent the statistical uncertainty on the converter data (systematic uncertainty on the
+  photonic-electron cocktail).
+qualifiers:
+  collision species: $d$+Au
+collision_system:
+  energy_gev: 200.0
+  reaction: p + p \implies CHARGED X
+centrality:
+  classes:
+  - MB
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: e-
+kinematic_range:
+  pT:
+    min: 0.8
+    max: 9.0
+    bins:
+    - 0.8
+    - 0.9
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+    - 2.0
+    - 2.2
+    - 2.4
+    - 2.6
+    - 2.8
+    - 3.0
+    - 3.2
+    - 3.4
+    - 3.6
+    - 3.8
+    - 4.0
+    - 4.5
+    - 5.0
+    - 6.0
+    - 7.0
+    - 8.0
+    - 9.0
+  eta:
+    min: -0.35
+    max: 0.35
+observable: cumulant_C2
+value_type: cumulant_C2
+charge_type: net_charge
+---
+observable_type: fluctuations
+inspire_id: '1126162'
+version: 1
+hepdata_file: ppg131tab3-6.yaml
+hepdata_table_label: Heavy flavor electron yield, $d$+Au $\implies$ CHARGED X. Electrons from heavy flavor decays, separated
+  by centrality. The lines represent a fit to the previous $p+p$ result [23], scaled by $N_{coll}$. The inset shows the ratio
+  of photonic background electrons determined by the converter and cocktail methods for Minimum Bias $d$+Au collisions, with
+  error bars (boxes) that represent the statistical uncertainty on the converter data (systematic uncertainty on the photonic-electron
+  cocktail).
+qualifiers:
+  centrality (%): 60-88
+collision_system:
+  energy_gev: 200.0
+  reaction: p + p \implies CHARGED X
+centrality:
+  classes:
+  - 60.0-88.0%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: charged
+kinematic_range:
+  pT:
+    min: 0.8
+    max: 9.0
+    bins:
+    - 0.8
+    - 0.9
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+    - 2.0
+    - 2.2
+    - 2.4
+    - 2.6
+    - 2.8
+    - 3.0
+    - 3.2
+    - 3.4
+    - 3.6
+    - 3.8
+    - 4.0
+    - 4.5
+    - 5.0
+    - 6.0
+    - 7.0
+    - 8.0
+    - 9.0
+  eta:
+    min: -0.35
+    max: 0.35
+observable: cumulant_C2
+value_type: cumulant_C2
+charge_type: net_charge

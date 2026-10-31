@@ -1,0 +1,56 @@
+dependent_variables:
+- header: {name: '$\sigma^{7GeV bias}/\sigma^{5GeV bias}$', units: mb $c$/GeV}
+  qualifiers:
+  - {name: RE, value: Pb Pb --> jet + X}
+  - {name: SQRT(S), units: GEV, value: 5020}
+  - {name: YRAP, value: -0.5 TO 0.5}
+  - {name: CENTRALITY, value: 0 TO 10}
+  - {name: jet radius, value: 0.2}
+  - {name: jet method, value: 'Anti-$k_{T}$'}
+  - {name: '$p_{T}^{lead, track}$', units: GeV/$c$, value: '> 7 or >5'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.02189782}
+    - {label: 'sys,correlated', symerror: 0.007135585}
+    - {label: 'sys,shape', symerror: 0.05230612}
+    value: 0.8679304
+  - errors:
+    - {label: stat, symerror: 0.02407862}
+    - {label: 'sys,correlated', symerror: 0.004283909}
+    - {label: 'sys,shape', symerror: 0.01624622}
+    value: 0.8976902
+  - errors:
+    - {label: stat, symerror: 0.02883823}
+    - {label: 'sys,correlated', symerror: 0.006904176}
+    - {label: 'sys,shape', symerror: 0.0309109}
+    value: 0.9322348
+  - errors:
+    - {label: stat, symerror: 0.03387709}
+    - {label: 'sys,correlated', symerror: 0.007758012}
+    - {label: 'sys,shape', symerror: 0.03982883}
+    value: 0.9622794
+  - errors:
+    - {label: stat, symerror: 0.04144405}
+    - {label: 'sys,correlated', symerror: 0.01376093}
+    - {label: 'sys,shape', symerror: 0.04958495}
+    value: 0.9704899
+  - errors:
+    - {label: stat, symerror: 0.0568419}
+    - {label: 'sys,correlated', symerror: 0.02281649}
+    - {label: 'sys,shape', symerror: 0.071025}
+    value: 0.9737559
+  - errors:
+    - {label: stat, symerror: 0.07571751}
+    - {label: 'sys,correlated', symerror: 0.02711004}
+    - {label: 'sys,shape', symerror: 0.09719765}
+    value: 0.9831782
+independent_variables:
+- header: {name: PTjet, units: GEV}
+  values:
+  - {high: 50, low: 40}
+  - {high: 60, low: 50}
+  - {high: 70, low: 60}
+  - {high: 80, low: 70}
+  - {high: 100, low: 80}
+  - {high: 120, low: 100}
+  - {high: 140, low: 120}

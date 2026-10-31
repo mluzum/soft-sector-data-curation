@@ -1,0 +1,72 @@
+dependent_variables:
+- header: {name: '$\mathrm{d}^{2}\sigma/\mathrm{d}y\mathrm{d}p_\mathrm{T}$', units: MUB}
+  qualifiers:
+  - {name: RE, value: P PB --> Lc X}
+  - {name: SQRT(S), units: GEV, value: '5020.0'}
+  - {name: Y, value: -0.96 TO 0.04}
+  values:
+  - errors:
+    - {label: stat., symerror: 1900.0}
+    - {label: syst., symerror: 1100.0}
+    - {label: lumi., symerror: 3.7%}
+    value: 7700.0
+  - errors:
+    - {label: stat., symerror: 1770.0}
+    - asymerror: {minus: -1900.0, plus: 1900.0}
+      label: syst.
+    - {label: lumi., symerror: 3.7%}
+    value: 9650.0
+  - errors:
+    - {label: stat., symerror: 886}
+    - asymerror: {minus: -1020.0, plus: 1010.0}
+      label: syst.
+    - {label: lumi., symerror: 3.7%}
+    value: 9850.0
+  - errors:
+    - {label: stat., symerror: 387}
+    - asymerror: {minus: -556, plus: 546}
+      label: syst.
+    - {label: lumi., symerror: 3.7%}
+    value: 5260.0
+  - errors:
+    - {label: stat., symerror: 173}
+    - asymerror: {minus: -250, plus: 241}
+      label: syst.
+    - {label: lumi., symerror: 3.7%}
+    value: 2330.0
+  - errors:
+    - {label: stat., symerror: 75.9}
+    - asymerror: {minus: -120, plus: 114}
+      label: syst.
+    - {label: lumi., symerror: 3.7%}
+    value: 1020.0
+  - errors:
+    - {label: stat., symerror: 22.4}
+    - asymerror: {minus: -39, plus: 36.1}
+      label: syst.
+    - {label: lumi., symerror: 3.7%}
+    value: 345
+  - errors:
+    - {label: stat., symerror: 4.28}
+    - asymerror: {minus: -5.79, plus: 5.14}
+      label: syst.
+    - {label: lumi., symerror: 3.7%}
+    value: 48.7
+  - errors:
+    - {label: stat., symerror: 0.445}
+    - asymerror: {minus: -0.35, plus: 0.321}
+      label: syst.
+    - {label: lumi., symerror: 3.7%}
+    value: 2.64
+independent_variables:
+- header: {name: PT, units: GEV/C}
+  values:
+  - {high: 1, low: 0, value: 0.5}
+  - {high: 2, low: 1, value: 1.5}
+  - {high: 3, low: 2, value: 2.5}
+  - {high: 4, low: 3, value: 3.5}
+  - {high: 5, low: 4, value: 4.5}
+  - {high: 6, low: 5, value: 5.5}
+  - {high: 8, low: 6, value: 7}
+  - {high: 12, low: 8, value: 10}
+  - {high: 24, low: 12, value: 18}

@@ -1,0 +1,51 @@
+dependent_variables:
+- header: {name: 1/N(P=3)*D(E(P=3))/DETARAP(P=3)}
+  qualifiers:
+  - {name: RE, value: P P --> CHARGED X}
+  - {name: SQRT(S), units: GeV, value: '7000.0'}
+  - {name: '', value: at least one charged particle with  1.9 < ETARAP < 4.9}
+  - {name: '', value: no charged particles with  -3.5 < ETARAP < -1.5}
+  values:
+  - errors:
+    - {symerror: 2.0}
+    value: 4.0
+  - errors:
+    - {symerror: 2.0}
+    value: 5.0
+  - errors:
+    - {symerror: 2.0}
+    value: 6.0
+  - errors:
+    - {symerror: 3.0}
+    value: 9.0
+  - errors:
+    - {symerror: 3.0}
+    value: 12.0
+  - errors:
+    - {symerror: 4.0}
+    value: 17.0
+  - errors:
+    - {symerror: 5.0}
+    value: 22.0
+  - errors:
+    - {symerror: 7.0}
+    value: 31.0
+  - errors:
+    - {symerror: 7.0}
+    value: 41.0
+  - errors:
+    - {symerror: 9.0}
+    value: 57.0
+independent_variables:
+- header: {name: ETARAP}
+  values:
+  - {high: 2.2, low: 1.9}
+  - {high: 2.5, low: 2.2}
+  - {high: 2.8, low: 2.5}
+  - {high: 3.1, low: 2.8}
+  - {high: 3.4, low: 3.1}
+  - {high: 3.7, low: 3.4}
+  - {high: 4.0, low: 3.7}
+  - {high: 4.3, low: 4.0}
+  - {high: 4.6, low: 4.3}
+  - {high: 4.9, low: 4.6}

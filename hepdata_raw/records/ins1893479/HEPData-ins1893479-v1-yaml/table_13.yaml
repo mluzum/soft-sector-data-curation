@@ -1,0 +1,47 @@
+dependent_variables:
+- header: {name: '$\frac{1}{\sigma_{jet, inc}} \frac{d\sigma}{dz_{{\mathrm{g}}}}$'}
+  qualifiers:
+  - {name: RE, value: P P --> jet+X}
+  - {name: SQRT(S), units: TeV, value: 5.02}
+  - {name: ETARAP, value: '|0.9-R|'}
+  - {name: jet radius, value: 0.4}
+  - {name: jet method, value: 'Anti-$k_{T}$'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.2}
+    - {label: sys, symerror: 0.14}
+    value: 0.868
+  - errors:
+    - {label: stat, symerror: 0.53}
+    - {label: sys, symerror: 0.11}
+    value: 4.38
+  - errors:
+    - {label: stat, symerror: 0.39}
+    - {label: sys, symerror: 0.15}
+    value: 3.14
+  - errors:
+    - {label: stat, symerror: 0.41}
+    - {label: sys, symerror: 0.11}
+    value: 2.89
+  - errors:
+    - {label: stat, symerror: 0.4}
+    - {label: sys, symerror: 0.06}
+    value: 2.75
+  - errors:
+    - {label: stat, symerror: 0.3}
+    - {label: sys, symerror: 0.14}
+    value: 2.24
+  - errors:
+    - {label: stat, symerror: 0.43}
+    - {label: sys, symerror: 0.14}
+    value: 2.86
+independent_variables:
+- header: {name: '$z_{{\mathrm{g}}}$'}
+  values:
+  - {high: 0.2, low: 0.1}
+  - {high: 0.25, low: 0.2}
+  - {high: 0.3, low: 0.25}
+  - {high: 0.35, low: 0.3}
+  - {high: 0.4, low: 0.35}
+  - {high: 0.45, low: 0.4}
+  - {high: 0.5, low: 0.45}

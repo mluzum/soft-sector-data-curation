@@ -1,0 +1,45 @@
+dependent_variables:
+- header: {name: '$T_{fo}$(MeV)'}
+  values:
+  - errors:
+    - {label: stat., symerror: 4}
+    value: 121
+  - errors:
+    - {label: stat., symerror: 2}
+    value: 125
+  - errors:
+    - {label: stat., symerror: 2}
+    value: 134
+  - errors:
+    - {label: stat., symerror: 4}
+    value: 140
+  - errors:
+    - asymerror: {minus: 12, plus: 19}
+      label: stat.
+    value: 161
+- header: {name: $< \beta_T >$}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.01}
+    value: 0.47
+  - errors:
+    - {label: stat., symerror: 0.01}
+    value: 0.46
+  - errors:
+    - {label: stat., symerror: 0.01}
+    value: 0.43
+  - errors:
+    - {label: stat., symerror: 0.01}
+    value: 0.39
+  - errors:
+    - asymerror: {minus: 0.2, plus: 0.16}
+      label: stat.
+    value: 0.16
+independent_variables:
+- header: {name: Centrality (%)}
+  values:
+  - {high: 5, low: 0}
+  - {high: 15, low: 5}
+  - {high: 30, low: 15}
+  - {high: 60, low: 30}
+  - {high: 92, low: 60}

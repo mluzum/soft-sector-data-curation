@@ -1,0 +1,33 @@
+observable_type: transverse_energy
+description: >
+  Transverse energy per unit pseudorapidity, dET/deta, per centrality class.
+  The model-side computation (3D grid containers) stores the exact
+  E_T = E/cosh(eta) per particle; 2D flat-y containers use the
+  Sum mT x <1/cosh(eta)> decomposition with a documented few-percent
+  systematic.
+
+composes:
+  - _common#collision_system
+  - _common#kinematic_range
+  - centrality#centrality
+
+required_fields:
+  observable:
+    type: string
+    required: true
+    example: "dET_deta"
+  value_type:
+    type: string
+    required: true
+    allowed:
+      - dET_deta
+      - dET_dy
+
+optional_fields:
+  et_definition:
+    type: string
+    required: false
+    description: >
+      Experimental E_T definition. One of 'E_sin_theta' (ALICE),
+      'E_minus_pz' (STAR/BRAHMS), or 'unknown'.
+    example: "unknown"

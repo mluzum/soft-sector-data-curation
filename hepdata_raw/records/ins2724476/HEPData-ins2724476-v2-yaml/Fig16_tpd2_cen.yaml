@@ -1,0 +1,54 @@
+dependent_variables:
+- header: {name: $Centrality$ 0-10%}
+  qualifiers:
+  - {name: $Rapidity$, value: '$N_{p} \times N_{t} / N_{d}^{2}$'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.002}
+    - {label: sys, symerror: 0.0449}
+    value: 0.6059
+  - errors:
+    - {label: stat, symerror: 0.0023}
+    - {label: sys, symerror: 0.0826}
+    value: 0.7573
+- header: {name: $Centrality$ 10-20%}
+  qualifiers:
+  - {name: $Rapidity$, value: '$N_{p} \times N_{t} / N_{d}^{2}$'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0029}
+    - {label: sys, symerror: 0.056}
+    value: 0.6388
+  - errors:
+    - {label: stat, symerror: 0.0022}
+    - {label: sys, symerror: 0.0831}
+    value: 0.783
+- header: {name: $Centrality$ 20-40%}
+  qualifiers:
+  - {name: $Rapidity$, value: '$N_{p} \times N_{t} / N_{d}^{2}$'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0031}
+    - {label: sys, symerror: 0.069}
+    value: 0.591
+  - errors:
+    - {label: stat, symerror: 0.0018}
+    - {label: sys, symerror: 0.0793}
+    value: 0.7639
+- header: {name: $Centrality$ 40-80%}
+  qualifiers:
+  - {name: $Rapidity$, value: '$N_{p} \times N_{t} / N_{d}^{2}$'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.008}
+    - {label: sys, symerror: 0.077}
+    value: 0.615
+  - errors:
+    - {label: stat, symerror: 0.0028}
+    - {label: sys, symerror: 0.0901}
+    value: 0.8065
+independent_variables:
+- header: {name: $Rapidity$}
+  values:
+  - {high: 0, low: -0.5}
+  - {high: -0.5, low: -1.0}

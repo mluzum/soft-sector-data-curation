@@ -1,0 +1,35 @@
+dependent_variables:
+- header: {name: 'Non-prompt $\Lambda_{c}^{+}$ $R_{\mathrm{pPb}}$ nuclear modification
+      factor'}
+  qualifiers:
+  - {name: REACTION, value: P PB --> hb --> Lc X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 5020.0}
+  - {name: YRAP, value: -0.96 TO 0.04}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.48308}
+    - {label: sys, symerror: 0.33709}
+    - {label: 'sys, uncertainty on luminosity', symerror: 4.25%}
+    value: 1.3844
+  - errors:
+    - {label: stat, symerror: 0.28077}
+    - {label: sys, symerror: 0.29742}
+    - {label: 'sys, uncertainty on luminosity', symerror: 4.25%}
+    value: 1.166
+  - errors:
+    - {label: stat, symerror: 0.30963}
+    - {label: sys, symerror: 0.21737}
+    - {label: 'sys, uncertainty on luminosity', symerror: 4.25%}
+    value: 1.0453
+  - errors:
+    - {label: stat, symerror: 0.52164}
+    - {label: sys, symerror: 0.12663}
+    - {label: 'sys, uncertainty on luminosity', symerror: 4.25%}
+    value: 0.64211
+independent_variables:
+- header: {name: '$p_\mathrm{{T}}$', units: '$\mathrm{{GeV}}/c$'}
+  values:
+  - {high: 4.0, low: 2.0}
+  - {high: 8.0, low: 4.0}
+  - {high: 12.0, low: 8.0}
+  - {high: 24.0, low: 12.0}

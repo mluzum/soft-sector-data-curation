@@ -1,0 +1,71 @@
+dependent_variables:
+- header: {name: DN/DDCAEE, units: 1/SIGMA}
+  qualifiers:
+  - {name: CENTRALITY, units: \%, value: 0.0-10.0}
+  - {name: RE, value: PB PB --> E+ E- X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020.0'}
+  - {name: ETARAP, value: -0.8 TO 0.8}
+  - {name: PTMIN, units: GEV/C, value: '0.4'}
+  - {name: PTMAX, units: GEV/C, value: '10.0'}
+  - {name: MEEMIN, units: GEV/C**2, value: '1.2'}
+  - {name: MEEMAX, units: GEV/C**2, value: '2.6'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.00096417}
+    - asymerror: {minus: -0.00034421, plus: 0.00034421}
+      label: syst
+    value: 0.00208867
+  - errors:
+    - {label: stat, symerror: 0.0014237}
+    - asymerror: {minus: -0.00094262, plus: 0.00094262}
+      label: syst
+    value: 0.00571976
+  - errors:
+    - {label: stat, symerror: 0.00140537}
+    - asymerror: {minus: -0.00107127, plus: 0.00107127}
+      label: syst
+    value: 0.00650043
+  - errors:
+    - {label: stat, symerror: 0.00077977}
+    - asymerror: {minus: -0.00045593, plus: 0.00045593}
+      label: syst
+    value: 0.00276657
+  - errors:
+    - {label: stat, symerror: 0.00037132}
+    - asymerror: {minus: -0.00017012, plus: 0.00017012}
+      label: syst
+    value: 0.00103228
+  - errors:
+    - {label: stat, symerror: 0.00017207}
+    - asymerror: {minus: -5.345e-05, plus: 5.345e-05}
+      label: syst
+    value: 0.00032434
+  - errors:
+    - {label: stat, symerror: 0.00010948}
+    - asymerror: {minus: -3.754e-05, plus: 3.754e-05}
+      label: syst
+    value: 0.00022782
+  - errors:
+    - {label: stat, symerror: 6.43e-05}
+    - asymerror: {minus: -1.399e-05, plus: 1.399e-05}
+      label: syst
+    value: 8.486e-05
+  - errors:
+    - {label: stat, symerror: 2.449e-05}
+    - asymerror: {minus: -1.1e-07, plus: 1.1e-07}
+      label: syst
+    value: 6.6e-07
+  - {value: <0.00011118}
+independent_variables:
+- header: {name: DCAEE, units: SIGMA}
+  values:
+  - {high: 0.4, low: 0.0, value: 0.2}
+  - {high: 0.8, low: 0.4, value: 0.6}
+  - {high: 1.2, low: 0.8, value: 1.0}
+  - {high: 2.0, low: 1.2, value: 1.6}
+  - {high: 3.2, low: 2.0, value: 2.6}
+  - {high: 5.0, low: 3.2, value: 4.1}
+  - {high: 7.0, low: 5.0, value: 6.0}
+  - {high: 10.0, low: 7.0, value: 8.5}
+  - {high: 20.0, low: 14.0, value: 17.0}
+  - {high: 14.0, low: 10.0, value: 12.0}

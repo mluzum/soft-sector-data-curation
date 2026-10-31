@@ -1,0 +1,127 @@
+comment: "Transverse momentum $(p_{\\rm T})$ spectra of charged particles was measured
+  at mid-pseudorapidity in Xe\u2013Xe collisions at $\\sqrt{s_{\\rm NN}} = 5.44$ TeV,
+  in the kinematic range of $0.15<p_{\\rm T}<50$ GeV/c and $|\\eta|<0.8$. The pp reference
+  at $\\sqrt{s} = 5.44$ TeV is interpolated between existing pp measurements at $\\sqrt{s}
+  = 5.02$ and $7$ TeV. The nuclear modification factor is calculated for Xe-Xe and
+  Pb-Pb collisions at similar center-of-mass energy, as a function of $p_{\\rm T}$
+  and the charged particle multiplicity density. The average transverse momentum $\\langle
+  p_{\\rm T} \\rangle$ is calculated for both systems, as well as the ratio between
+  them.\n"
+hepdata_doi: 10.17182/hepdata.85727.v3
+---
+data_file: Fig3_XeXe_5440GeV.yaml
+description: Transverse momentum spectra of charged particles in XeXe collisions in
+  nine centrality classes.
+keywords:
+- name: reactions
+  values: [XE XE --> CHARGED X]
+- name: observables
+  values: [D2N/DETARAP/DPT]
+- name: cmenergies
+  values: ['5440']
+location: Data from Figure 3
+name: Table 1
+table_doi: 10.17182/hepdata.85727.v3/t1
+---
+data_file: Fig3_pp_5440GeV.yaml
+description: Interpolated pp reference spectrum and invariant cross section.
+keywords:
+- name: reactions
+  values: [P P --> CHARGED X]
+- name: observables
+  values: [D2N/DETARAP/DPT]
+- name: cmenergies
+  values: ['5440']
+location: Data from Figure 3
+name: Table 2
+table_doi: 10.17182/hepdata.85727.v3/t2
+---
+data_file: Fig4_RXeXe_5440GeV.yaml
+description: |
+  Nuclear modification factor for XeXe.
+  Additional systematic error:
+  0-5 pct data: +6.1 pct -6.1 pct
+  5-10 pct data: +6.6 pct -6.6 pct
+  10-20 pct data: +7.4 pct -7.4 pct
+  20-30 pct data: +9.8 pct -9.8 pct
+  30-40 pct data: +11.5 pct -11.5 pct
+  40-50 pct data: +12.9 pct -12.9 pct
+  50-60 pct data: +13.8 pct -13.8 pct
+  60-70 pct data: +14.0 pct -14.0 pct
+  70-80 pct data: +12.9 pct -12.9 pct
+keywords:
+- name: reactions
+  values: [NUCLEUS NUCLEUS --> CHARGED X]
+- name: observables
+  values: [RAA]
+- name: cmenergies
+  values: ['5440']
+location: Data from Figure 4
+name: Table 3
+table_doi: 10.17182/hepdata.85727.v3/t3
+---
+data_file: Fig5_RAARatios.yaml
+description: Ratio of transverse momentum spectra in Xe-Xe and Pb-Pb.
+keywords:
+- name: reactions
+  values: [NUCLEUS NUCLEUS --> CHARGED X]
+- name: observables
+  values: [RAA]
+- name: cmenergies
+  values: ['5440', '5020']
+location: Data from Figure 5
+name: Table 4
+table_doi: 10.17182/hepdata.85727.v3/t4
+---
+data_file: Fig6_RPbPb2760_vs_dNdEta.yaml
+description: Raa vs $\langle dNch/d\eta \rangle$.
+keywords:
+- name: reactions
+  values: [PB PB --> CHARGED X]
+- name: observables
+  values: [RAA]
+- name: cmenergies
+  values: ['2760']
+location: Data from Figure 6
+name: Table 5
+table_doi: 10.17182/hepdata.85727.v3/t5
+---
+data_file: Fig6_RPbPb5020_vs_dNdEta.yaml
+description: Raa vs $\langle dNch/d\eta \rangle$.
+keywords:
+- name: reactions
+  values: [PB PB --> CHARGED X]
+- name: observables
+  values: [RAA]
+- name: cmenergies
+  values: ['5020']
+location: Data from Figure 6
+name: Table 6
+table_doi: 10.17182/hepdata.85727.v3/t6
+---
+data_file: Fig6_RXeXe_vs_dNdEta.yaml
+description: Raa vs $\langle dNch/d\eta \rangle$.
+keywords:
+- name: reactions
+  values: [NUCLEUS NUCLEUS --> CHARGED X]
+- name: observables
+  values: [RAA]
+- name: cmenergies
+  values: ['5440']
+location: Data from Figure 7
+name: Table 7
+table_doi: 10.17182/hepdata.85727.v3/t7
+---
+data_file: Fig7_MeanPt.yaml
+description: Average transverse momentum vs centrality percentage for PbPb and XeXe.
+  And the ratio between collision systems.
+keywords:
+- name: reactions
+  values: [NUCLEUS NUCLEUS --> CHARGED X]
+- name: observables
+  values: ['<p_{T}>']
+- name: cmenergies
+  values: ['5440', '5020']
+location: Data from Figure 8
+name: Table 8
+table_doi: 10.17182/hepdata.85727.v3/t8

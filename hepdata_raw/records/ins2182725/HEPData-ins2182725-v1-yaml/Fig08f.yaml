@@ -1,0 +1,83 @@
+dependent_variables:
+- header: {name: '${\rm d}\rho/{\rm d}p_{\rm T}$', units: '(GeV/$c$ rad)$^{-1}$'}
+  qualifiers:
+  - {name: RE, value: P PB --> JET OMEGA X}
+  - {name: SQRT(S), units: GeV, value: '5020'}
+  - {name: YRAP, value: '$-0.75 < \eta_{\rm particle} < 0.75$, $-0.35 < \eta_{\rm
+      jet} < 0.35$'}
+  - {name: PARTICLE, value: '$\Omega^{\pm}$'}
+  - {name: SELECTION, value: '$R({\rm particle},{\rm jet}) < 0.4$'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.000591}
+    - {label: sys, symerror: 7.95e-05}
+    value: 0.00223
+  - errors:
+    - {label: stat, symerror: 0.00101}
+    - {label: sys, symerror: 0.00021}
+    value: 0.00281
+  - errors:
+    - {label: stat, symerror: 0.000248}
+    - {label: sys, symerror: 2.97e-05}
+    value: 0.00117
+  - errors:
+    - {label: stat, symerror: 0.000131}
+    - {label: sys, symerror: 3.6e-05}
+    value: 0.000555
+- header: {name: '${\rm d}\rho/{\rm d}p_{\rm T}$', units: '(GeV/$c$ rad)$^{-1}$'}
+  qualifiers:
+  - {name: RE, value: P PB --> JET OMEGA X}
+  - {name: SQRT(S), units: GeV, value: '5020'}
+  - {name: YRAP, value: '$-0.75 < \eta_{\rm particle} < 0.75$, $-0.35 < \eta_{\rm
+      jet} < 0.35$'}
+  - {name: PARTICLE, value: '$\Omega^{\pm}$'}
+  - {name: SELECTION, value: Perp. cone}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.000209}
+    - {label: sys, symerror: 0.00017}
+    value: 0.00137
+  - errors:
+    - {label: stat, symerror: 0.000241}
+    - {label: sys, symerror: 0.000146}
+    value: 0.000949
+  - errors:
+    - {label: stat, symerror: 7.04e-05}
+    - {label: sys, symerror: 5.29e-05}
+    value: 0.000467
+  - errors:
+    - {label: stat, symerror: 1.81e-05}
+    - {label: sys, symerror: 6.78e-06}
+    value: 8.21e-05
+- header: {name: '${\rm d}\rho/{\rm d}p_{\rm T}$', units: '(GeV/$c$ rad)$^{-1}$'}
+  qualifiers:
+  - {name: RE, value: P PB --> JET OMEGA X}
+  - {name: SQRT(S), units: GeV, value: '5020'}
+  - {name: YRAP, value: '$-0.75 < \eta_{\rm particle} < 0.75$, $-0.35 < \eta_{\rm
+      jet} < 0.35$'}
+  - {name: PARTICLE, value: '$\Omega^{\pm}$'}
+  - {name: SELECTION, value: Production in jets}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.000627}
+    - {label: sys, symerror: 7.95e-05}
+    value: 0.00086
+  - errors:
+    - {label: stat, symerror: 0.00104}
+    - {label: sys, symerror: 0.00021}
+    value: 0.00186
+  - errors:
+    - {label: stat, symerror: 0.000257}
+    - {label: sys, symerror: 3.08e-05}
+    value: 0.000702
+  - errors:
+    - {label: stat, symerror: 0.000132}
+    - {label: sys, symerror: 3.65e-05}
+    value: 0.000473
+independent_variables:
+- header: {name: '$p_{\rm T}$', units: GeV/$c$}
+  values:
+  - {high: 2.2, low: 0.9}
+  - {high: 2.8, low: 2.2}
+  - {high: 3.7, low: 2.8}
+  - {high: 5.0, low: 3.7}

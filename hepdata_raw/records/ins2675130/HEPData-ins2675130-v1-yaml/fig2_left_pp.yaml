@@ -1,0 +1,27 @@
+dependent_variables:
+- header: {name: SIG_INEL, units: B}
+  qualifiers:
+  - {name: RE, value: P P --> X}
+  - {name: SQRT(S), units: GEV, value: '13000.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0}
+    - asymerror: {minus: -0.688439, plus: 0.90733}
+      label: sys
+    value: 2.08216
+  - errors:
+    - {label: stat, symerror: 0.0}
+    - asymerror: {minus: -0.572344, plus: 0.699829}
+      label: sys
+    value: 1.16509
+  - errors:
+    - {label: stat, symerror: 0.0}
+    - asymerror: {minus: -0.58719, plus: 0.731505}
+      label: sys
+    value: 2.11502
+independent_variables:
+- header: {name: P, units: GEV/C}
+  values:
+  - {high: 1.49247, low: 1.12262, value: 1.30754}
+  - {high: 1.93472, low: 1.49247, value: 1.71359}
+  - {high: 2.35204, low: 1.93472, value: 2.14338}

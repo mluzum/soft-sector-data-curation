@@ -1,0 +1,65 @@
+dependent_variables:
+- header: {name: Number of Participants}
+  values:
+  - {value: 325.2}
+  - {value: 234.6}
+  - {value: 140.4}
+  - {value: 59.9}
+  - {value: 14.5}
+- header: {name: Centroid (GeV/$c$)}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.00029}
+    - {label: sys., symerror: 0.00085}
+    value: 1.01874
+  - errors:
+    - {label: stat., symerror: 0.00032}
+    - {label: sys., symerror: 0.00085}
+    value: 1.01889
+  - errors:
+    - {label: stat., symerror: 0.00025}
+    - {label: sys., symerror: 0.00085}
+    value: 1.01863
+  - errors:
+    - {label: stat., symerror: 0.00023}
+    - {label: sys., symerror: 0.00085}
+    value: 1.0187
+  - errors:
+    - {label: stat., symerror: 0.00027}
+    - {label: sys., symerror: 0.00085}
+    value: 1.01893
+- header: {name: Width (MeV/$c$)}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.95}
+    - asymerror: {minus: 0.39, plus: 0.43}
+      label: sys.
+    value: 3.15
+  - errors:
+    - {label: stat., symerror: 0.9}
+    - asymerror: {minus: 0.84, plus: 0.96}
+      label: sys.
+    value: 3.79
+  - errors:
+    - {label: stat., symerror: 0.77}
+    - asymerror: {minus: 1.0, plus: 1.1}
+      label: sys.
+    value: 5.79
+  - errors:
+    - {label: stat., symerror: 0.65}
+    - asymerror: {minus: 0.348, plus: 0.52}
+      label: sys.
+    value: 4.12
+  - errors:
+    - {label: stat., symerror: 0.66}
+    - asymerror: {minus: 0.69, plus: 1.1}
+      label: sys.
+    value: 2.96
+independent_variables:
+- header: {name: Centrality (%)}
+  values:
+  - {high: 10, low: 0}
+  - {high: 20, low: 10}
+  - {high: 40, low: 20}
+  - {high: 60, low: 40}
+  - {high: 88, low: 60}

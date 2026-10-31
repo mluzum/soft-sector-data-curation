@@ -1,0 +1,104 @@
+dependent_variables:
+- header: {name: rms (rad)}
+  qualifiers:
+  - {name: Collision, value: Au+Au}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.02}
+    - {label: sys., symerror: 0.04}
+    value: 1.02
+  - errors:
+    - {label: stat., symerror: 0.01}
+    - asymerror: {minus: -0.05, plus: 0.06}
+      label: sys.
+    value: 1.02
+  - errors:
+    - {label: stat., symerror: 0.007}
+    - asymerror: {minus: -0.1, plus: 0.07}
+      label: sys.
+    value: 0.969
+  - errors:
+    - {label: stat., symerror: 0.007}
+    - asymerror: {minus: -0.09, plus: 0.05}
+      label: sys.
+    value: 1.04
+  - errors:
+    - {label: stat., symerror: 0.02}
+    - asymerror: {minus: -0.05, plus: 0.09}
+      label: sys.
+    value: 0.961
+  - errors:
+    - {label: stat., symerror: 0.02}
+    - asymerror: {minus: -0.03, plus: 0.009}
+      label: sys.
+    value: 0.581
+- header: {name: kurtosis}
+  qualifiers:
+  - {name: Collision, value: Au+Au}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.05}
+    - asymerror: {minus: -0.02, plus: 0.01}
+      label: sys.
+    value: 1.63
+  - errors:
+    - {label: stat., symerror: 0.03}
+    - {label: sys., symerror: 0.06}
+    value: 1.68
+  - errors:
+    - {label: stat., symerror: 0.03}
+    - asymerror: {minus: -0.08, plus: 0.05}
+      label: sys.
+    value: 1.79
+  - errors:
+    - {label: stat., symerror: 0.02}
+    - {label: sys., symerror: 0.1}
+    value: 1.75
+  - errors:
+    - {label: stat., symerror: 0.05}
+    - asymerror: {minus: -0.2, plus: 0.04}
+      label: sys.
+    value: 2.04
+  - errors:
+    - {label: stat., symerror: 0.1}
+    - {label: sys., symerror: 0.03}
+    value: 2.38
+- header: {name: $D$ (rad)}
+  qualifiers:
+  - {name: Collision, value: Au+Au}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.04}
+    - {label: sys., symerror: 0.08}
+    value: 1.12
+  - errors:
+    - {label: stat., symerror: 0.04}
+    - {label: sys., symerror: 0.09}
+    value: 1.11
+  - errors:
+    - {label: stat., symerror: 0.02}
+    - {label: sys., symerror: 0.07}
+    value: 0.98
+  - errors:
+    - {label: stat., symerror: 0.02}
+    - {label: sys., symerror: 0.09}
+    value: 0.9
+  - errors:
+    - {label: stat., symerror: 0.01}
+    - {label: sys., symerror: 0.1}
+    value: 0.81
+  - errors:
+    - asymerror: {minus: -0.2, plus: 0.04}
+      label: stat.
+    - asymerror: {minus: -0.4, plus: 0}
+      label: sys.
+    value: 0.4
+independent_variables:
+- header: {name: Centrality (%)}
+  values:
+  - {high: 5, low: 0}
+  - {high: 10, low: 5}
+  - {high: 20, low: 10}
+  - {high: 40, low: 20}
+  - {high: 60, low: 40}
+  - {high: 90, low: 60}

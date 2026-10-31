@@ -1,0 +1,79 @@
+dependent_variables:
+- header: {name: D(pT r) PbPb}
+  qualifiers:
+  - {name: RE, value: Charged particle distribution in PbPb}
+  - {name: pT(jet), units: GeV, value: 125.9 - 158.5}
+  - {name: pT(trk), units: GeV, value: 1.6 - 2.5}
+  - {name: Centrality, value: 10-20%}
+  - {name: abs. rapidity(jet), value: 0 - 1.7}
+  - {name: SQRT(S), units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - asymerror: {minus: -1.35603, plus: 1.34818}
+      label: sys
+    - {label: stat, symerror: 0.301642}
+    value: 16.906
+  - errors:
+    - asymerror: {minus: -0.567457, plus: 0.557572}
+      label: sys
+    - {label: stat, symerror: 0.160844}
+    value: 13.2157
+  - errors:
+    - asymerror: {minus: -0.297787, plus: 0.295546}
+      label: sys
+    - {label: stat, symerror: 0.117039}
+    value: 9.50783
+  - errors:
+    - asymerror: {minus: -0.23463, plus: 0.23311}
+      label: sys
+    - {label: stat, symerror: 0.0933579}
+    value: 6.48817
+  - errors:
+    - asymerror: {minus: -0.148625, plus: 0.14562}
+      label: sys
+    - {label: stat, symerror: 0.0795423}
+    value: 4.42905
+  - errors:
+    - asymerror: {minus: -0.234125, plus: 0.234652}
+      label: sys
+    - {label: stat, symerror: 0.0719927}
+    value: 3.19445
+  - errors:
+    - asymerror: {minus: -0.141811, plus: 0.14235}
+      label: sys
+    - {label: stat, symerror: 0.0521486}
+    value: 1.99579
+  - errors:
+    - asymerror: {minus: -0.151634, plus: 0.151886}
+      label: sys
+    - {label: stat, symerror: 0.0481426}
+    value: 1.2128
+  - errors:
+    - asymerror: {minus: -0.13376, plus: 0.133714}
+      label: sys
+    - {label: stat, symerror: 0.0449823}
+    value: 0.682205
+  - errors:
+    - asymerror: {minus: -0.122985, plus: 0.122881}
+      label: sys
+    - {label: stat, symerror: 0.0437234}
+    value: 0.468646
+  - errors:
+    - asymerror: {minus: -0.136962, plus: 0.136994}
+      label: sys
+    - {label: stat, symerror: 0.0421262}
+    value: 0.311794
+independent_variables:
+- header: {name: r}
+  values:
+  - {high: 0.05, low: 0}
+  - {high: 0.1, low: 0.05}
+  - {high: 0.15, low: 0.1}
+  - {high: 0.2, low: 0.15}
+  - {high: 0.25, low: 0.2}
+  - {high: 0.3, low: 0.25}
+  - {high: 0.4, low: 0.3}
+  - {high: 0.5, low: 0.4}
+  - {high: 0.6, low: 0.5}
+  - {high: 0.7, low: 0.6}
+  - {high: 0.8, low: 0.7}

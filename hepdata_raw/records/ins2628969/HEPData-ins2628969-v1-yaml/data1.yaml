@@ -1,0 +1,41 @@
+dependent_variables:
+- header: {name: '$\langle \cos[4(\Psi_{4}-\Psi_{2})]\rangle_{\mathrm{GE}}$'}
+  qualifiers:
+  - {name: ETARAP, value: -0.8 TO 0.8}
+  - {name: PT, units: GEV/c, value: 0.2 TO 5.0}
+  - {name: RE, value: PB PB --> CHARGED X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 2760}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.04236072}
+    - {label: sys, symerror: 0.004727391}
+    value: 0.1264329
+  - errors:
+    - {label: stat, symerror: 0.00318819}
+    - {label: sys, symerror: 0.008083573}
+    value: 0.2295151
+  - errors:
+    - {label: stat, symerror: 0.001973535}
+    - {label: sys, symerror: 0.007628141}
+    value: 0.3356859
+  - errors:
+    - {label: stat, symerror: 0.001927991}
+    - {label: sys, symerror: 0.007833024}
+    value: 0.4083854
+  - errors:
+    - {label: stat, symerror: 0.00211114}
+    - {label: sys, symerror: 0.007767466}
+    value: 0.4241523
+  - errors:
+    - {label: stat, symerror: 0.00281844}
+    - {label: sys, symerror: 0.008440359}
+    value: 0.4082264
+independent_variables:
+- header: {name: CENTRALITY, units: PCT}
+  values:
+  - {high: 5.0, low: 0.0}
+  - {high: 10.0, low: 5.0}
+  - {high: 20.0, low: 10.0}
+  - {high: 30.0, low: 20.0}
+  - {high: 40.0, low: 30.0}
+  - {high: 50.0, low: 40.0}

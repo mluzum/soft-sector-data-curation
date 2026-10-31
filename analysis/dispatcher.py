@@ -1,0 +1,871 @@
+"""Dispatch curated records to computation functions.
+
+DISPATCH_TABLE maps (method, cumulant_order, particles_pattern, dimensionality)
+to a compute function reference plus the set of metadata fields required.
+Adding a new observable type = adding an entry + the corresponding function.
+
+DISPATCH_TABLE_BY_TYPE maps observable_type → compute key for non-flow
+observables (yields, spectra, etc.) that don't have method/cumulant fields.
+"""
+
+import re
+import os
+import numpy as np
+import yaml
+
+
+_PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+
+# ── Dispatch table ──────────────────────────────────────────────────────────
+# Keys: (method, cumulant_order, particles_pattern, dimensionality)
+#   particles_pattern: None for single-acceptance, "AB"/"AABB"/etc for subevent
+# Values: {
+#   "compute": str — key in COMPUTE_REGISTRY
+#   "requires": list of str — dot-separated field paths that must exist
+#   "description": str — human-readable
+# }
+
+DISPATCH_TABLE = {
+    ("cumulant", 8, None, "integrated"): {
+        "compute": "vn8_single",
+        "requires": ["kinematic_range.eta", "kinematic_range.pT"],
+        "description": "v_n{8} integrated cumulant",
+    },
+    ("cumulant", 6, None, "integrated"): {
+        "compute": "vn6_single",
+        "requires": ["kinematic_range.eta", "kinematic_range.pT"],
+        "description": "v_n{6} integrated cumulant",
+    },
+    ("scalar_product", None, None, "differential_pT"): {
+        "compute": "vn2_sp_diff_pT",
+        "requires": "kinematic_range.eta",
+        "description": "scalar-product differential v_n(pT){SP}",
+    },
+    ("scalar_product", None, None, "differential_eta"): {
+        "compute": "vn2_sp_diff_eta",
+        "requires": "kinematic_range.pT",
+        "description": "scalar-product differential v_n(eta){SP}",
+    },
+    ("scalar_product", None, None, "integrated"): {
+        "compute": "vn2_sp",
+        "requires": "kinematic_range.eta",
+        "description": "scalar-product integrated v_n{SP}",
+    },
+    ("event_plane", None, None, "differential_eta"): {
+        "compute": "vn2_ep_diff_eta",
+        "requires": "kinematic_range.pT",
+        "description": "event-plane differential v_n(eta){EP} (per-paper exception for PHOBOS v2(eta))",
+    },
+    ("event_plane", None, None, "differential_pT"): {
+        "compute": "vn2_ep_diff_pT",
+        "requires": "kinematic_range.eta",
+        "description": "event-plane differential v_n(pT){EP}",
+    },
+    ("event_plane", 3, None, "integrated"): {
+        "compute": "vn3_ep",
+        "requires": "kinematic_range.eta",
+        "description": "event-plane v3 integrated (per STAR 2013qio records)",
+    },
+    ("event_plane", None, None, "integrated"): {
+        "compute": "vn2_ep",
+        "requires": "kinematic_range.eta",
+        "description": "event-plane v2 integrated (fallback for event_plane records without cumulant_order)",
+    },
+    ("cumulant", 2, None, "integrated"): {
+        "compute": "vn2_single",
+        "requires": ["kinematic_range.eta", "kinematic_range.pT"],
+        "description": "v_n{2} single-acceptance, integrated over pT/eta",
+    },
+    ("cumulant", 2, "AB", "integrated"): {
+        "compute": "vn2_gap",
+        "requires": [
+            "subevents.A.kinematic_range.eta",
+            "subevents.A.kinematic_range.pT",
+            "subevents.B.kinematic_range.eta",
+            "subevents.B.kinematic_range.pT",
+        ],
+        "description": "v_n{2}ab two-subevent, integrated over pT/eta",
+    },
+    ("cumulant", 2, None, "differential_pT"): {
+        "compute": "vn2_single_diff_pT",
+        "requires": ["kinematic_range.eta", "kinematic_range.pT", "kinematic_range.pT.bins"],
+        "description": "v_n{2} pT-differential, single centrality bin",
+    },
+    ("cumulant", 2, None, "differential_eta"): {
+        "compute": "vn2_single_diff_eta",
+        "requires": ["kinematic_range.eta", "kinematic_range.pT", "kinematic_range.eta.bins"],
+        "description": "v_n{2} eta-differential, single centrality bin",
+    },
+    ("cumulant", 2, "AB", "differential_pT"): {
+        "compute": "vn2_gap_diff_pT",
+        "requires": [
+            "subevents.A.kinematic_range.eta",
+            "subevents.A.kinematic_range.pT",
+            "subevents.B.kinematic_range.eta",
+            "subevents.B.kinematic_range.pT",
+            "kinematic_range.pT.bins",
+        ],
+        "description": "v_n{2}ab pT-differential, two-subevent",
+    },
+    ("cumulant", 2, "AB", "differential_eta"): {
+        "compute": "vn2_gap_diff_eta",
+        "requires": [
+            "subevents.A.kinematic_range.eta",
+            "subevents.A.kinematic_range.pT",
+            "subevents.B.kinematic_range.eta",
+            "subevents.B.kinematic_range.pT",
+            "kinematic_range.eta.bins",
+        ],
+        "description": "v_n{2}ab eta-differential, two-subevent",
+    },
+    ("cumulant", 4, None, "integrated"): {
+        "compute": "vn4_single",
+        "requires": ["kinematic_range.eta", "kinematic_range.pT"],
+        "description": "v_n{4} single-acceptance, integrated over pT/eta",
+    },
+    ("cumulant", 4, None, "differential_pT"): {
+        "compute": "vn4_single_diff_pT",
+        "requires": ["kinematic_range.eta", "kinematic_range.pT", "kinematic_range.pT.bins"],
+        "description": "v_n{4} pT-differential, single centrality bin",
+    },
+    ("cumulant", 4, None, "differential_eta"): {
+        "compute": "vn4_single_diff_eta",
+        "requires": ["kinematic_range.eta", "kinematic_range.pT", "kinematic_range.eta.bins"],
+        "description": "v_n{4} eta-differential, single centrality bin",
+    },
+    ("cumulant", 4, "AABB", "integrated"): {
+        "compute": "vn4_gap",
+        "requires": [
+            "subevents.A.kinematic_range.eta",
+            "subevents.A.kinematic_range.pT",
+            "subevents.B.kinematic_range.eta",
+            "subevents.B.kinematic_range.pT",
+        ],
+        "description": "v_n{4} AABB two-subevent, integrated",
+    },
+}
+
+# ── Non-flow dispatch (by observable_type) ──────────────────────────────────
+DISPATCH_TABLE_BY_TYPE = {
+    "particle_yields": {
+        "compute": "yield_dNch_deta",
+        "requires": [["kinematic_range.eta", "kinematic_range.y", "centrality.eta"]],
+        "description": "dN/dy, dNch/dη, multiplicity",
+    },
+    "particle_spectra": {
+        "compute": "spectra_invariant_yield",
+        "requires": [["kinematic_range.eta", "kinematic_range.y", "centrality.eta"], ["kinematic_range.pT.bins", "kinematic_range.pT.min", "kinematic_range.pT.max"]],
+        "description": "Invariant yield dN/(2π pT dpT dη)",
+    },
+    "fluctuations": {
+        "compute": "pT_fluct",
+        "value_type_contains": "pT",
+        "requires": [["kinematic_range.eta", "kinematic_range.y", "centrality.eta"]],
+        "description": "pT fluctuation correlator Σ",
+    },
+    "transverse_energy": {
+        "compute": "dET_deta",
+        "requires": [["kinematic_range.eta", "centrality.eta"]],
+        "description": "dET/deta (grid containers only)",
+    },
+    "mean_pT": {
+        "compute": "mean_pt",
+        "requires": [["kinematic_range.eta", "kinematic_range.y", "centrality.eta"]],
+        "description": "Mean transverse momentum ⟨pT⟩",
+    },
+    "flow_harmonic_correlations": {
+        "compute": {
+            "symmetric_cumulant": "sc_mn",
+            "event_plane_correlation": "nac_mn",
+        },
+        "requires": [["kinematic_range.eta", "centrality.eta"],
+                     "harmonics", "correlation_type"],
+        "requires_per_ct": {
+            "event_plane_correlation": [
+                ["kinematic_range.eta", "centrality.eta"],
+                "harmonics", "correlation_type",
+                "particles", "subevents",
+            ],
+        },
+        "description": "Mixed-harmonic flow correlations: SC(n,m) or subevent NAC(n,m)",
+    },
+}
+
+COMPUTE_REGISTRY = {}
+
+
+def register(key):
+    def decorator(f):
+        COMPUTE_REGISTRY[key] = f
+        return f
+    return decorator
+
+
+def get_function(record):
+    """Resolve a record to its registered compute function.
+
+    Returns the callable function, or None if resolve fails or
+    the function key is not registered.
+    """
+    try:
+        entry = resolve(record)
+    except ValueError:
+        return None
+    fn = COMPUTE_REGISTRY.get(entry["compute"])
+    return fn
+
+
+# A ratio or power OF FLOW COEFFICIENTS (v4/v2^2, v2{4}/v2{2}^2, v6/v4) is
+# not itself a flow coefficient: no v_n estimator can produce it, it needs a
+# ratio of two independently measured coefficients.  Such records used to
+# dispatch to an ordinary v_n key and silently return that coefficient
+# instead -- the record claimed "v_4/v_2^2" while the pipeline computed v_2.
+#
+# Deliberately NOT matched: a coefficient divided by a NON-flow quantity
+# (v_2/n_q, v_2/N_part). Those ARE normalised coefficients, and the v_n
+# estimator is the right one for them; what they are missing is an explicit
+# normalisation field on the record, which is a separate (flagged) issue.
+# A v-token with an optional subscript and an optional cumulant-order
+# suffix, so all of  v2 , {v_2} , v_{2} , v_2{4} , v_2{2}  are matched.
+_VN_TOK = r'v_?\s*_?\s*\{?\s*\d\s*\}?\s*(?:\{\s*\d+\s*\})?'
+_COEFF_RATIO = re.compile(
+    rf'{_VN_TOK}\s*(?:/|\^|/\s*)\s*(?:\{{)?{_VN_TOK}',
+    re.I)
+
+
+def centrality_classes_suspicious(classes):
+    """True when `centrality.classes` is not a list of percentile bins.
+
+    2203 curated records carry something else in that field -- overwhelmingly
+    kinematic bin edges with a spurious '%' suffix (jet xT bins such as
+    ['0.31623-0.35481%', ...], pT bins, mT bins) -- plus 57 genuinely
+    OVERLAPPING centrality selections and some unparseable labels.  All of
+    it parses as numbers, so nothing downstream noticed: such a record is
+    handed to the percentile binning as though it declared two CENTRALITY
+    classes, and the pipeline returns confidently wrong numbers.
+
+    A gapped but integer list ('0-5%', '30-40%') is LEGAL -- a publication
+    need not tile the percentile axis, and weights.cent_weights slices such
+    lists per class -- so only overlap, non-integer bounds, values outside
+    0-100, or unparseable labels are flagged.
+    """
+    classes = list(classes or [])
+    if len(classes) < 2:
+        return False
+    spans = []
+    for c in classes:
+        parts = str(c).replace('%', '').split('-')
+        if len(parts) != 2:
+            return True
+        try:
+            lo, hi = float(parts[0]), float(parts[1])
+        except ValueError:
+            return True
+        spans.append((lo, hi))
+    if any(hi > 100.0 or lo < 0.0 for lo, hi in spans):
+        return True
+    srt = sorted(spans)
+    if any(srt[i][1] > srt[i + 1][0] + 1e-9 for i in range(len(srt) - 1)):
+        return True
+    # Fractional boundaries are NOT by themselves suspicious: STAR and ALICE
+    # publish equal-multiplicity bins like '5-11.25%' and '42.5-60%', and
+    # flagging those would block ~76 legitimate flow records.  A non-integer
+    # list is only called suspicious when the WHOLE list lies inside a span
+    # far too narrow to be a percentile axis -- a kinematic bin set such as
+    # jet xT ['0.31623-0.35481%', ...] or pT ['0.3-0.4%', ...], which never
+    # reaches a few percent.  Deliberately conservative: this gate exists to
+    # catch UNAMBIGUOUS errors, not to guess.  The broader non-integer signal
+    # is still reported by validate_metadata.py as a curation hint.
+    if any(lo != int(lo) or hi != int(hi) for lo, hi in spans):
+        # A genuine percentile list starts near the most-central bin and
+        # runs well out into peripheral territory.  Kinematic bin sets do
+        # neither: pT/xT/mT edges sit at arbitrary offsets
+        # ('24.75-29.65%', '29.65-34.6%' -- mean-pT-fluctuation mT bins
+        # starting at 25, or jet xT below 1).  Anything whose span does not
+        # look like a centrality axis is treated as kinematic.
+        lo_min = min(lo for lo, _ in spans)
+        hi_max = max(hi for _, hi in spans)
+        return not (lo_min <= 5.0 and hi_max >= 10.0)
+    return False
+
+
+def is_coefficient_ratio(value_type):
+    """True when value_type is a ratio/power of two flow coefficients."""
+    return bool(_COEFF_RATIO.search(str(value_type or '')))
+
+
+def _has_flow_reference(record):
+    """True when the record declares a reference sample.
+
+    Includes `flow_reference.same_sample_as_poi`: the event plane built
+    from the POI tracks themselves is still a two-set measurement needing
+    the SP estimator and its diagonal subtraction, so it must not fall
+    through to the single-set amplitude fallback.
+    """
+    fr = record.get("flow_reference")
+    if not fr:
+        return False
+    if isinstance(fr, dict):
+        return True
+    return bool(fr)
+
+
+# Compute keys that fall back to the SINGLE-SET amplitude estimator
+# sqrt(<|Q_n|^2>/<M^2>) when a record declares no reference.  That estimator
+# is a two-particle correlation over the POI sample, but it contains NO event
+# plane and therefore no resolution factor -- it is NOT the observable an
+# event_plane record reports.  Kept as an explicit, greppable set so the
+# pipeline can label such output instead of passing it off as computed.
+AMPLITUDE_FALLBACK_KEYS = frozenset(
+    {'vn2_ep', 'vn3_ep', 'vn2_ep_diff_pT', 'vn2_ep_diff_eta'})
+
+
+def reference_status(record):
+    """'curated' | 'assumed' | 'absent' for a record's flow reference.
+
+    'curated' -- a real reference window is declared (provenance: paper).
+    'assumed' -- declared but inferred, e.g. STAR provenance=assumed_tpc.
+    'absent'  -- nothing declared; a two-set method is being approximated by
+                 the single-set amplitude estimator.
+    """
+    fr = record.get('flow_reference')
+    if not fr:
+        return 'absent'
+    prov = fr.get('provenance') if isinstance(fr, dict) else None
+    return 'assumed' if prov and str(prov).startswith('assumed') else 'curated'
+
+
+def resolve(record):
+    """Look up dispatch entry for a record, validate required fields.
+
+    First tries DISPATCH_TABLE keyed by (method, cumulant_order, particles, dim),
+    then falls back to DISPATCH_TABLE_BY_TYPE keyed by observable_type.
+    BY_TYPE entries may carry ``value_type_contains``: a substring that must
+    appear in record['value_type'] (guards heterogeneous schemas where one
+    observable_type spans several distinct measurements).
+
+    Returns the entry dict with keys: compute, requires, description.
+    Raises ValueError if no match or missing fields.
+    """
+    # Refuse a ratio of flow coefficients rather than return a coefficient
+    # that the record does not claim.  A silent substitution here is worse
+    # than a visible failure: the value is plausible and the label is wrong.
+    if is_coefficient_ratio(record.get('value_type')):
+        raise ValueError(
+            f"value_type {record.get('value_type')!r} is a ratio/power of "
+            f"flow coefficients, which is not itself a coefficient; no v_n "
+            f"estimator can produce it (needs a ratio of two measured "
+            f"coefficients). Refusing to substitute v_n.")
+
+    method = record.get("method")
+    order = record.get("cumulant_order")
+    particles = record.get("particles")
+    dim = record.get("dimensionality", "integrated")
+    # If cumulant_order is missing but harmonic is set, derive it.
+    # For v_n{2} records, harmonic=2 (or omitted when value_type is v2(2)).
+    if order is None:
+        harm = record.get("harmonic")
+        if harm is not None:
+            order = harm
+    # --- event_plane records that DECLARE a reference are two-set ---
+    # The event-plane / subevent method IS a reference-vs-POI correlation:
+    # v_n is built from Q_n of a *separate* acceptance window and therefore
+    # carries the event-plane resolution factor.  The SP path implements
+    # that correlation and is the only one that consumes `flow_reference`
+    # (per-bin windows, `segments`, `mirror`).  The event_plane compute
+    # keys are the single-set amplitude sqrt(<|Q_n|^2>/<M^2>), which
+    # contains no event plane and whose prepare ignores flow_reference
+    # outright -- so routing a reference-bearing record there would
+    # silently discard the reference the record declares.
+    # Records with no declared reference keep the amplitude path, which is
+    # then explicitly only an approximation of the reported observable.
+    if method == "event_plane" and _has_flow_reference(record):
+        # The SP entries are keyed without a harmonic because the cores
+        # return EVERY harmonic: run_pipeline indexes them as
+        # (harm - 1) * n_bins, so a v_3/v_4 record served by vn2_sp reads
+        # its own harmonic rather than being downgraded to v_2.  That makes
+        # the order-less SP entry correct for any harmonic.
+        _sp_key = ("scalar_product", None, particles, dim)
+        if _sp_key in DISPATCH_TABLE:
+            method = "scalar_product"
+            order = None
+    key = (method, order, particles, dim)
+    entry = DISPATCH_TABLE.get(key)
+    if entry is None:
+        if method != "cumulant":
+            key = (method, None, particles, dim)
+            entry = DISPATCH_TABLE.get(key)
+    if entry is None:
+        # Fall back to type-based dispatch for non-flow observables
+        obs_type = record.get("observable_type")
+        entry = DISPATCH_TABLE_BY_TYPE.get(obs_type)
+        if entry is not None:
+            # If `compute` is a dict, route by the record's correlation_type
+            # (or other field).  This lets one observable_type span multiple
+            # sub-types (e.g. flow_harmonic_correlations has symmetric_cumulant
+            # and event_plane_correlation variants).
+            comp = entry.get("compute")
+            ct = record.get("correlation_type")
+            if isinstance(comp, dict):
+                comp = comp.get(ct) if ct is not None else None
+                if comp is None:
+                    raise ValueError(
+                        f"{obs_type} record correlation_type "
+                        f"'{ct}' not routable (known: {list(entry['compute'].keys())})")
+                entry = dict(entry)
+                entry["compute"] = comp
+                # `requires` may also be per-correlation_type
+                reqs_per = entry.get("requires_per_ct", {})
+                if ct in reqs_per:
+                    entry["requires"] = reqs_per[ct]
+            # For particle_yields, choose per-eta vs integrated based on
+            # whether the record has eta bin edges (differential_eta).
+            if obs_type == "particle_yields":
+                kr = record.get("kinematic_range", {})
+                eta_bins = kr.get("eta", {}).get("bins", [])
+                if eta_bins and len(eta_bins) > 2:
+                    # Per-eta yield: needs the per-eta compute key.
+                    entry = dict(entry)
+                    entry["compute"] = "yield_dNch_deta_per_eta"
+            want = entry.get("value_type_contains")
+            if want is not None and want not in str(
+                    record.get("value_type", "")):
+                raise ValueError(
+                    f"{obs_type} record value_type "
+                    f"'{record.get('value_type')}' not routable to "
+                    f"'{entry['compute']}' (needs substring '{want}')")
+            want_ct = entry.get("correlation_type_eq")
+            if want_ct is not None and ct != want_ct:
+                raise ValueError(
+                    f"{obs_type} record correlation_type "
+                    f"'{ct}' not routable to "
+                    f"'{entry['compute']}' (needs '{want_ct}')")
+    if entry is None:
+        raise ValueError(
+            f"No dispatch entry for method={method}, "
+            f"order={order}, particles={particles}, dim={dim}, "
+            f"observable_type={record.get('observable_type')}")
+
+    reqs = entry["requires"]
+    if isinstance(reqs, str):
+        reqs = [reqs]
+    for req in reqs:
+        if isinstance(req, (list, tuple)):
+            if not any(_field_exists(record, alt) for alt in req):
+                raise ValueError(
+                    f"Record missing required fields (need one of {req}) for dispatch "
+                    f"key {key}")
+        elif not _field_exists(record, req):
+            raise ValueError(
+                f"Record missing required field '{req}' for dispatch "
+                f"key {key}")
+
+    return entry
+
+
+def _field_exists(doc, path):
+    parts = path.split(".")
+    obj = doc
+    for p in parts:
+        if isinstance(obj, dict) and p in obj:
+            obj = obj[p]
+        else:
+            return False
+    if isinstance(obj, (list, tuple)):
+        return len(obj) > 0
+    return obj is not None
+
+
+# ── Record helpers (moved from compare_phenix_fvtx.py) ──────────────────────
+
+def load_record(record_path, value_type_substring, dimensionality=None):
+    """Load the first curated record whose value_type contains the substring.
+
+    If multiple docs match and dimensionality is given, prefer the one
+    whose dimensionality field matches exactly.
+    """
+    with open(record_path) as f:
+        docs = list(yaml.safe_load_all(f))
+    candidates = []
+    for doc in docs:
+        if doc is None:
+            continue
+        vt = doc.get("value_type", "")
+        if value_type_substring in vt:
+            if dimensionality is None or doc.get("dimensionality") == dimensionality:
+                candidates.append(doc)
+    if not candidates and dimensionality is not None:
+        # Fallback: accept any dimensionality match
+        return load_record(record_path, value_type_substring)
+    return candidates[0] if candidates else None
+
+
+def extract_measurement_params(exp_rec):
+    """Read ALL measurement parameters from a curated flow_vn record.
+
+    Returns a dict describing what to compute and with which cuts.
+    """
+    top_kr = exp_rec.get('kinematic_range', {})
+    particles = exp_rec.get('particles', None)
+    cent = exp_rec.get('centrality', {})
+
+    subevent_ranges = {}
+    subevents = exp_rec.get('subevents', {})
+    if particles and subevents:
+        for label in set(particles):
+            sk = subevents.get(label, {}).get('kinematic_range', top_kr)
+            subevent_ranges[label] = {
+                'eta': _kr_eta(sk),
+                'pT': _kr_pT(sk),
+            }
+
+    if subevent_ranges:
+        first_label = sorted(subevent_ranges.keys())[0]
+        single_kr = subevent_ranges[first_label]
+    else:
+        eta_lo, eta_hi = _kr_eta(top_kr)
+        # NOTE: DO NOT fall back to cent.eta. The centrality estimator's η
+        # acceptance is for the centrality detector (BBC, V0, FCal), NOT
+        # for the particles of interest. All records must have explicit
+        # kinematic_range.eta (filled in during curation).
+        pt_lo, pt_hi = _kr_pT(top_kr)
+        if pt_lo is None:
+            pt_lo = 0.1
+        if pt_hi is None:
+            pt_hi = 10.0
+        single_kr = {
+            'eta': (eta_lo, eta_hi),
+            'pT': (pt_lo, pt_hi),
+        }
+    # Rapidity-window observables (dN/dy from flat-y sims): expose the
+    # record's kinematic_range.y alongside eta so prepare functions can
+    # take a dy-mode branch.
+    top_y = top_kr.get('y', {}) or {}
+    single_kr['y'] = (top_y.get('min'), top_y.get('max'))
+    cent_eta_raw = cent.get('eta', [])
+    cent_eta_ranges = [(e['min'], e['max']) for e in cent_eta_raw]
+    cent_pt_raw = cent.get('pT') or {}
+    cent_pT_range = (cent_pt_raw.get('min'), cent_pt_raw.get('max'))
+    cent_classes = cent.get('classes', [])
+    cent_edges = []
+    for c in cent_classes:
+        parts = c.replace('%', '').split('-')
+        try:
+            cent_edges.append((int(float(parts[0])), int(float(parts[1]))))
+        except (ValueError, IndexError):
+            cent_edges.append((0, 100))  # fallback: MB
+
+    # Flag a centrality.classes that is not centrality.  The record is still
+    # returned (so schema validation and export see it) but the pipeline must
+    # not build percentile bins from it -- see centrality_classes_suspicious.
+    cent_suspicious = centrality_classes_suspicious(cent_classes)
+
+    dim = exp_rec.get('dimensionality', 'integrated')
+    diff_var, diff_bins, diff_fixed = extract_differential_bins(exp_rec)
+
+    return {
+        'harmonic': exp_rec.get('harmonic', 1),
+        'harmonics': exp_rec.get('harmonics'),
+        'particles': particles,
+        'particle_id': exp_rec.get('particle_id'),
+        'subevent_ranges': subevent_ranges,
+        'single_range': single_kr,
+        'dimensionality': dim,
+        'differential_var': diff_var,
+        'differential_bins': diff_bins,
+        'differential_fixed_range': diff_fixed,
+        'eta_gap': exp_rec.get('eta_gap', None),
+        'has_gap': (exp_rec.get('eta_gap', 0) or 0) > 0,
+        'flow_reference': _flow_reference(exp_rec),
+        'cent_eta_ranges': cent_eta_ranges,
+        'cent_pT_range': cent_pT_range,
+        'cent_classes': cent_classes,
+        'cent_classes_suspicious': cent_suspicious,
+        'cent_edges': cent_edges,
+        'cent_estimator': cent.get('estimator', {}),
+        'hepdata_file': exp_rec.get('hepdata_file', ''),
+        'inspire_id': exp_rec.get('inspire_id', 0),
+        'version': int(exp_rec.get('version', 1)),
+        'value_type': exp_rec.get('value_type', ''),
+        'dv_index': int(exp_rec.get('dv_index', 0) or 0),
+        'dv_average': (list(exp_rec.get('dv_average', None) or [])
+                       if exp_rec.get('dv_average', None) else None),
+    }
+
+
+def _ref_windows(eta_field):
+    """Normalize a flow_reference eta field to [(lo, hi), ...].
+
+    Accepts a single {min, max} mapping or a list of them, and drops
+    entries that are not usable windows.
+    """
+    if not eta_field:
+        return []
+    cands = eta_field if isinstance(eta_field, list) else [eta_field]
+    out = []
+    for w in cands:
+        if not isinstance(w, dict):
+            continue
+        lo, hi = w.get('min'), w.get('max')
+        if lo is None or hi is None:
+            continue
+        out.append((float(lo), float(hi)))
+    return out
+
+
+def _flow_reference(exp_rec):
+    """Read the record's flow reference into a normalized structure.
+
+    Returns None when the record declares none (self-contained methods, or
+    a reference equal to the particle-of-interest acceptance).  Otherwise
+
+        {'detector': str|None, 'mirror': bool, 'eta': [(lo, hi), ...],
+         'pT': (lo, hi)|None, 'notes': str|None,
+         'segments': [{... 'applies_to_eta': (lo, hi)}, ...]}
+
+    `mirror` means the reference is the eta-mirrored image of `eta` for
+    each differential bin (the "sub-event on the opposite side" method).
+    """
+    raw = exp_rec.get('flow_reference')
+    if not isinstance(raw, dict):
+        return None
+
+    def _one(d, extra=None):
+        out = {
+            'detector': d.get('detector'),
+            'mirror': bool(d.get('mirror', False)),
+            'eta': _ref_windows(d.get('eta')),
+            'pT': None,
+            'notes': d.get('notes'),
+        }
+        pt = d.get('pT') or {}
+        if pt.get('min') is not None and pt.get('max') is not None:
+            out['pT'] = (float(pt['min']), float(pt['max']))
+        if extra:
+            out.update(extra)
+        return out
+
+    out = _one(raw)
+    segs = raw.get('segments')
+    if isinstance(segs, list):
+        parsed = []
+        for s in segs:
+            if not isinstance(s, dict):
+                continue
+            rng = s.get('applies_to_eta') or {}
+            if rng.get('min') is None or rng.get('max') is None:
+                continue
+            seg = _one(s, {'applies_to_eta': (float(rng['min']),
+                                              float(rng['max']))})
+            if seg['eta']:
+                parsed.append(seg)
+        out['segments'] = parsed
+    else:
+        out['segments'] = []
+    if not out['eta'] and not out['segments']:
+        return None
+    return out
+
+
+def _kr_eta(kr):
+    e = kr.get('eta', {})
+    lo, hi = e.get('min'), e.get('max')
+    return lo, hi
+
+
+def _kr_pT(kr):
+    p = kr.get('pT', {})
+    return p.get('min'), p.get('max')
+
+
+def extract_differential_bins(exp_rec):
+    """Extract differential bin edges from a differential record.
+
+    Returns:
+        var: 'pT' or 'eta' — the differential variable, or None if integrated
+        bins: list of (lo, hi) tuples for each bin
+        fixed: (min, max) for the non-differential variable (fixed acceptance)
+    """
+    dim = exp_rec.get('dimensionality')
+    if dim == 'differential_pT':
+        pT = exp_rec.get('kinematic_range', {}).get('pT', {})
+        edges = pT.get('bins', [])
+        bins = [(edges[i], edges[i+1]) for i in range(len(edges) - 1)]
+        eta = exp_rec.get('kinematic_range', {}).get('eta', {})
+        fixed = (eta.get('min'), eta.get('max'))
+        return 'pT', bins, fixed
+    elif dim == 'differential_eta':
+        eta = exp_rec.get('kinematic_range', {}).get('eta', {})
+        edges = eta.get('bins', [])
+        bins = [(edges[i], edges[i+1]) for i in range(len(edges) - 1)]
+        pT = exp_rec.get('kinematic_range', {}).get('pT', {})
+        fixed = (pT.get('min'), pT.get('max'))
+        return 'eta', bins, fixed
+    elif dim == 'integrated' or dim is None:
+        # Spectra-type records carry their measurement pT bins explicitly;
+        # expose them so prepare functions see the real binning.
+        if exp_rec.get('observable_type') == 'particle_spectra':
+            pT = exp_rec.get('kinematic_range', {}).get('pT', {})
+            edges = pT.get('bins', [])
+            eta = exp_rec.get('kinematic_range', {}).get('eta', {})
+            fixed = (eta.get('min'), eta.get('max'))
+            if len(edges) > 2:
+                return 'pT', [(edges[i], edges[i+1])
+                              for i in range(len(edges) - 1)], fixed
+            if pT.get('min') is not None and pT.get('max') is not None:
+                return 'pT', [(pT['min'], pT['max'])], fixed
+        # dN/deta per-eta records (e.g. PHOBOS dN/deta vs eta) are curated
+        # with dimensionality None but carry explicit kinematic_range.eta.bins.
+        # Expose them as eta-differential so the per-eta prepare path runs.
+        # (Added Aug 2026 for the JETSCAPE cross-validation; covered by
+        # test_dispatcher per-eta yield cases.)
+        if exp_rec.get('observable_type') == 'particle_yields':
+            eta = exp_rec.get('kinematic_range', {}).get('eta', {})
+            edges = eta.get('bins', [])
+            pT = exp_rec.get('kinematic_range', {}).get('pT', {})
+            fixed = (pT.get('min'), pT.get('max'))
+            if len(edges) > 2:
+                return 'eta', [(edges[i], edges[i+1])
+                                for i in range(len(edges) - 1)], fixed
+        return None, [], None
+    # Fallback: if kinematic_range.pT.bins exists, treat as pT-differential
+    pT = exp_rec.get('kinematic_range', {}).get('pT', {})
+    edges = pT.get('bins', [])
+    if len(edges) > 1:
+        bins = [(edges[i], edges[i+1]) for i in range(len(edges) - 1)]
+        eta = exp_rec.get('kinematic_range', {}).get('eta', {})
+        fixed = (eta.get('min'), eta.get('max'))
+        return 'pT', bins, fixed
+    # If pT has min/max but no bins, create a single bin covering the range
+    pT_min = pT.get('min')
+    pT_max = pT.get('max')
+    if pT_min is not None and pT_max is not None:
+        eta = exp_rec.get('kinematic_range', {}).get('eta', {})
+        fixed = (eta.get('min'), eta.get('max'))
+        return 'pT', [(pT_min, pT_max)], fixed
+    return None, [], None
+
+
+def _safe_float(v, default=np.nan):
+    """Convert a value to float, returning default on failure."""
+    if v is None:
+        return default
+    try:
+        return float(v)
+    except (ValueError, TypeError):
+        return default
+
+
+def load_experimental(params):
+    """Load experimental values from the raw HEPData YAML table."""
+    inspire_id = params['inspire_id']
+    
+    # PHOBOS records use non-standard inspire_id strings (not numeric INSPIRE IDs)
+    # and store data as plain ASCII text, not HEPData YAML — skip with clear message
+    if isinstance(inspire_id, str) and inspire_id.startswith('PHOBOS'):
+        print(f"  PHOBOS experimental data not in HEPData YAML format — skipped")
+        return None, None
+    
+    raw_file = os.path.join(
+        _PROJECT_ROOT,
+        "hepdata_raw/records",
+        f"ins{inspire_id}",
+        f"HEPData-ins{inspire_id}-v{params['version']}-yaml",
+        params['hepdata_file'],
+    )
+    try:
+        with open(raw_file) as f:
+            raw = yaml.safe_load(f)
+        dv_idx = int(params.get('dv_index', 0) or 0)
+        dv_avg = params.get('dv_average', None)
+        if dv_avg:
+            idxs = [int(i) for i in dv_avg]
+            series = [raw["dependent_variables"][i] for i in idxs]
+        else:
+            series = [raw["dependent_variables"][dv_idx]]
+        # Percent-style units (e.g. STAR tables storing v_n "in %" or as
+        # "v_3*100") normalize to fractions; MeV-scale headers (e.g.
+        # PHENIX "Mean pT MeV/c") normalize to GeV, so experimental
+        # overlays match computed values.
+        values = []
+        errs_stat = []
+        errs_syst = []
+        for vrows in zip(*[s["values"] for s in series]):
+            acc_val, acc_stat, acc_syst = 0.0, 0.0, 0.0
+            row_ok = True
+            for v, s in zip(vrows, series):
+                header = s.get('header', {}) or {}
+                units = str(header.get('units', ''))
+                name = str(header.get('name', ''))
+                low = f'{units} {name}'.lower()
+                if '%' in units or '*100' in name.replace(' ', ''):
+                    scale = 0.01
+                elif 'mev' in low and 'gev' not in low:
+                    scale = 0.001
+                else:
+                    scale = 1.0
+                val = _safe_float(v.get("value"))
+                if np.isnan(val):
+                    row_ok = False
+                    break
+                e0 = v.get("errors", [{}])[0]
+                e1 = v.get("errors", [{}])[1] if len(v.get("errors", [])) > 1 else {}
+                stat = _safe_float(e0.get("symerror"))
+                syst = _safe_float(e1.get("symerror"))
+                if np.isnan(stat):
+                    asym = e0.get("asymerror", {})
+                    plus = _safe_float(asym.get("plus"))
+                    minus = _safe_float(asym.get("minus"))
+                    if not np.isnan(plus) and not np.isnan(minus):
+                        stat = (plus + abs(minus)) / 2
+                    else:
+                        stat = 0.0
+                acc_val += val * scale
+                acc_stat += stat * scale if not np.isnan(stat) else 0.0
+                acc_syst += syst * scale if not np.isnan(syst) else 0.0
+            if not row_ok:
+                continue
+            n_ser = len(series)
+            values.append(acc_val / n_ser)
+            errs_stat.append(acc_stat / n_ser)
+            errs_syst.append(acc_syst / n_ser)
+        if not values:
+            print(f"  No valid experimental values found")
+            return None, None
+        vals = np.array(values)
+        errs = np.sqrt(np.array(errs_stat) ** 2 + np.array(errs_syst) ** 2)
+        return vals, errs
+    except Exception as e:
+        print(f"  Could not load experimental values: {e}")
+        return None, None
+        if not values:
+            print(f"  No valid experimental values found")
+            return None, None
+        vals = np.array(values)
+        errs = np.sqrt(np.array(errs_stat) ** 2 + np.array(errs_syst) ** 2)
+        return vals, errs
+    except Exception as e:
+        print(f"  Could not load experimental values: {e}")
+        return None, None
+
+
+def iter_records(record_dir, value_type_filter=None):
+    """Iterate over all curated records in a directory, optionally filtered.
+
+    Yields (file_path, doc) for each matching document.
+    """
+    for fname in sorted(os.listdir(record_dir)):
+        if not fname.endswith(".yaml"):
+            continue
+        fpath = os.path.join(record_dir, fname)
+        with open(fpath) as f:
+            docs = list(yaml.safe_load_all(f))
+        for doc in docs:
+            if doc is None:
+                continue
+            if value_type_filter:
+                vt = doc.get("value_type", "")
+                if value_type_filter not in vt:
+                    continue
+            yield fpath, doc

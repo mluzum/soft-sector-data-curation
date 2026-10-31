@@ -1,0 +1,26 @@
+dependent_variables:
+- header: {name: prompt D2N/DPT/DYRAP (GeV/c)-1}
+  qualifiers:
+  - {name: RE, value: PB PB --> J/$\psi$ <E+E-> + X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020.0'}
+  - {name: YRAP(CM), value: '[-0.9, 0.9]'}
+  - {name: CENTRALITY, value: 30 TO 50%}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.000357}
+    - {label: syst, symerror: 0.000353}
+    value: 0.003613
+  - errors:
+    - {label: stat, symerror: 0.000104}
+    - {label: syst, symerror: 0.000121}
+    value: 0.001491
+  - errors:
+    - {label: stat, symerror: 1.1e-05}
+    - {label: syst, symerror: 1.2e-05}
+    value: 0.000147
+independent_variables:
+- header: {name: '$p_{T}$ (GeV/c)'}
+  values:
+  - {high: 3.0, low: 1.5, value: 2.25}
+  - {high: 5.0, low: 3.0, value: 4.0}
+  - {high: 10.0, low: 5.0, value: 7.5}

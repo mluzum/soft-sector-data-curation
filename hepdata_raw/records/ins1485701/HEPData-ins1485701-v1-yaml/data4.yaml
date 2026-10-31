@@ -1,0 +1,87 @@
+dependent_variables:
+- header: {name: rho(Delta_r)}
+  qualifiers:
+  - {name: RE, value: Pb Pb --> Charged X}
+  - {name: RE, value: P P --> Charged X}
+  - {name: SQRT(S), units: GeV, value: 2760.0}
+  - {name: Leading jet pT, value: pT > 120 GeV}
+  - {name: Subleading jet pT, value: pT > 50 GeV}
+  - {name: Jet azimuthal separation, value: abs(dPhi) > 5pi/6}
+  - {name: Jet pseudorapidity, value: abs(eta) < 1.6}
+  - {name: Track pseudorapidity, value: abs(eta) < 2.4}
+  - {name: TrkPt, units: GeV, value: pT > 0.5}
+  - {name: PbPb Centrality, value: 50 - 100%}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.03}
+    - {label: syst, symerror: 0.15}
+    value: 1.02
+  - errors:
+    - {label: stat, symerror: 0.05}
+    - {label: syst, symerror: 0.13}
+    value: 0.91
+  - errors:
+    - {label: stat, symerror: 0.04}
+    - {label: syst, symerror: 0.14}
+    value: 0.97
+  - errors:
+    - {label: stat, symerror: 0.05}
+    - {label: syst, symerror: 0.15}
+    value: 1.06
+  - errors:
+    - {label: stat, symerror: 0.06}
+    - {label: syst, symerror: 0.15}
+    value: 1.02
+  - errors:
+    - {label: stat, symerror: 0.08}
+    - {label: syst, symerror: 0.17}
+    value: 1.15
+  - errors:
+    - {label: stat, symerror: 0.1}
+    - {label: syst, symerror: 0.17}
+    value: 1.1
+  - errors:
+    - {label: stat, symerror: 0.13}
+    - {label: syst, symerror: 0.18}
+    value: 1.08
+  - errors:
+    - {label: stat, symerror: 0.18}
+    - {label: syst, symerror: 0.21}
+    value: 1.22
+  - errors:
+    - {label: stat, symerror: 0.21}
+    - {label: syst, symerror: 0.21}
+    value: 1.04
+  - errors:
+    - {label: stat, symerror: 0.23}
+    - {label: syst, symerror: 0.32}
+    value: 1.49
+  - errors:
+    - {label: stat, symerror: 0.34}
+    - {label: syst, symerror: 0.44}
+    value: 1.39
+  - errors:
+    - {label: stat, symerror: 0.52}
+    - {label: syst, symerror: 0.69}
+    value: 1.95
+  - errors:
+    - {label: stat, symerror: 0.6}
+    - {label: syst, symerror: 1.17}
+    value: 0.97
+independent_variables:
+- header: {name: Jet-Track Radial Distance Delta_r}
+  values:
+  - {high: 0.05, low: 0}
+  - {high: 0.1, low: 0.05}
+  - {high: 0.15, low: 0.1}
+  - {high: 0.2, low: 0.15}
+  - {high: 0.25, low: 0.2}
+  - {high: 0.3, low: 0.25}
+  - {high: 0.35, low: 0.3}
+  - {high: 0.4, low: 0.35}
+  - {high: 0.45, low: 0.4}
+  - {high: 0.5, low: 0.45}
+  - {high: 0.6, low: 0.5}
+  - {high: 0.7, low: 0.6}
+  - {high: 0.8, low: 0.7}
+  - {high: 1, low: 0.8}

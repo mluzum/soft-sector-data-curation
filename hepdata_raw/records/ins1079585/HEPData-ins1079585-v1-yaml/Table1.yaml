@@ -1,0 +1,74 @@
+dependent_variables:
+- header: {name: D(SIG(Q=K+))/DP, units: MB/GEV}
+  qualifiers:
+  - {name: PLAB, units: GeV, value: '31.0'}
+  - {name: RE(Q=K+), value: P C --> K+ X}
+  - {name: RE(Q=PI+), value: P C --> PI+ X}
+  - {name: THETA(P=3), units: mrad, value: 20.0-140.0}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.26}
+    - {label: sys, symerror: 0.07}
+    value: 1.94
+  - errors:
+    - {label: stat, symerror: 0.21}
+    - {label: sys, symerror: 0.08}
+    value: 2.25
+  - errors:
+    - {label: stat, symerror: 0.22}
+    - {label: sys, symerror: 0.08}
+    value: 2.39
+  - errors:
+    - {label: stat, symerror: 0.2}
+    - {label: sys, symerror: 0.08}
+    value: 2.1
+  - errors:
+    - {label: stat, symerror: 0.18}
+    - {label: sys, symerror: 0.07}
+    value: 1.94
+  - errors:
+    - {label: stat, symerror: 0.17}
+    - {label: sys, symerror: 0.05}
+    value: 1.49
+  - errors:
+    - {label: stat, symerror: 0.17}
+    - {label: sys, symerror: 0.08}
+    value: 1.17
+- header: {name: SIG(Q=K+)/SIG(Q=PI+)}
+  qualifiers:
+  - {name: PLAB, units: GeV, value: '31.0'}
+  - {name: RE(Q=K+), value: P C --> K+ X}
+  - {name: RE(Q=PI+), value: P C --> PI+ X}
+  - {name: THETA(P=3), units: mrad, value: 20.0-140.0}
+  values:
+  - errors:
+    - {symerror: 0.008}
+    value: 0.062
+  - errors:
+    - {symerror: 0.008}
+    value: 0.082
+  - errors:
+    - {symerror: 0.01}
+    value: 0.1
+  - errors:
+    - {symerror: 0.01}
+    value: 0.11
+  - errors:
+    - {symerror: 0.01}
+    value: 0.13
+  - errors:
+    - {symerror: 0.01}
+    value: 0.12
+  - errors:
+    - {symerror: 0.02}
+    value: 0.13
+independent_variables:
+- header: {name: P(P=3), units: GEV}
+  values:
+  - {high: 2.4, low: 1.6}
+  - {high: 3.2, low: 2.4}
+  - {high: 4.0, low: 3.2}
+  - {high: 4.8, low: 4.0}
+  - {high: 5.6, low: 4.8}
+  - {high: 6.4, low: 5.6}
+  - {high: 7.2, low: 6.4}

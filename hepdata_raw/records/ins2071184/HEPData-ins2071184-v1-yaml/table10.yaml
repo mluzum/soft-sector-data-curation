@@ -1,0 +1,56 @@
+dependent_variables:
+- header: {name: W$^-$, units: pb}
+  qualifiers:
+  - {name: reaction, value: Pb-Pb $\rightarrow$ W$^\pm$ + X $\rightarrow$ $\mu^\pm$
+      + X}
+  - {name: sqrt(s) per nucleon pair, value: 5020.0 GeV}
+  - {name: fiducial region, value: 2.5 < $y$ < 4 and $p_T$ > 10 GeV/$c$}
+  - {name: observable, value: N($\mu \leftarrow W$) / ($< TAA > *$ Nevts(MB))}
+  values:
+  - errors:
+    - {label: stat, symerror: 25.0}
+    - {label: syst, symerror: 19.9}
+    value: 426.5
+  - errors:
+    - {label: stat, symerror: 31.6}
+    - {label: syst, symerror: 19.6}
+    value: 422.9
+  - errors:
+    - {label: stat, symerror: 32.6}
+    - {label: syst, symerror: 20.8}
+    value: 418.5
+  - errors:
+    - {label: stat, symerror: 50.3}
+    - {label: syst, symerror: 23.2}
+    value: 383.6
+- header: {name: W$^+$, units: pb}
+  qualifiers:
+  - {name: reaction, value: Pb-Pb $\rightarrow$ W$^\pm$ + X $\rightarrow$ $\mu^\pm$
+      + X}
+  - {name: sqrt(s) per nucleon pair, value: 5020.0 GeV}
+  - {name: fiducial region, value: 2.5 < $y$ < 4 and $p_T$ > 10 GeV/$c$}
+  - {name: observable, value: N($\mu \leftarrow W$) / ($< TAA > *$ Nevts(MB))}
+  values:
+  - errors:
+    - {label: stat, symerror: 12.8}
+    - {label: syst, symerror: 7.8}
+    value: 155.8
+  - errors:
+    - {label: stat, symerror: 16.6}
+    - {label: syst, symerror: 8.8}
+    value: 164.1
+  - errors:
+    - {label: stat, symerror: 16.6}
+    - {label: syst, symerror: 8.8}
+    value: 158.9
+  - errors:
+    - {label: stat, symerror: 25.7}
+    - {label: syst, symerror: 9.2}
+    value: 146.6
+independent_variables:
+- header: {name: centrality}
+  values:
+  - {high: 10, low: 0}
+  - {high: 20, low: 10}
+  - {high: 40, low: 20}
+  - {high: 90, low: 40}

@@ -1,0 +1,51 @@
+dependent_variables:
+- header: {name: 1/NEVT 1/<TAA> D2(N)/DETA, units: MB}
+  qualifiers:
+  - {name: CENTRALITY, value: 50-60}
+  - {name: PT, units: GeV, value: 59.8-94.8}
+  - {name: RE, value: PB PB --> CHARGED X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 12.8%}
+    - {label: sys, symerror: 9.6%}
+    value: 9.11e-07
+  - errors:
+    - {label: stat, symerror: 11.6%}
+    - {label: sys, symerror: 9.6%}
+    value: 1.07e-06
+  - errors:
+    - {label: stat, symerror: 12.0%}
+    - {label: sys, symerror: 9.6%}
+    value: 1.04e-06
+  - errors:
+    - {label: stat, symerror: 12.8%}
+    - {label: sys, symerror: 9.6%}
+    value: 9.03e-07
+  - errors:
+    - {label: stat, symerror: 13.6%}
+    - {label: sys, symerror: 9.9%}
+    value: 8.11e-07
+  - errors:
+    - {label: stat, symerror: 13.8%}
+    - {label: sys, symerror: 10.1%}
+    value: 7.82e-07
+  - errors:
+    - {label: stat, symerror: 14.9%}
+    - {label: sys, symerror: 10.5%}
+    value: 6.21e-07
+  - errors:
+    - {label: stat, symerror: 15.9%}
+    - {label: sys, symerror: 10.7%}
+    value: 4.79e-07
+independent_variables:
+- header: {name: ABS(ETA)}
+  values:
+  - {high: 0.25, low: 0.0}
+  - {high: 0.5, low: 0.25}
+  - {high: 0.75, low: 0.5}
+  - {high: 1.0, low: 0.75}
+  - {high: 1.25, low: 1.0}
+  - {high: 1.5, low: 1.25}
+  - {high: 1.75, low: 1.5}
+  - {high: 2.0, low: 1.75}

@@ -1,0 +1,77 @@
+---
+observable_type: electromagnetic_probes
+inspire_id: '1672473'
+version: 1
+hepdata_file: ppg200fig6.yaml
+hepdata_table_label: Direct photon fraction measured with the virtual photon method for different systems in $\sqrt{s_{NN}}$
+  = 200 GeV Cu+Cu collisions.
+qualifiers:
+  centrality: 0-40%
+collision_system:
+  energy_gev: 200.0
+  reaction: Cu Cu --> CHARGED X
+centrality:
+  classes:
+  - 0-40%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: photon
+kinematic_range:
+  eta:
+    min: -0.35
+    max: 0.35
+  pT:
+    min: 0.2
+    max: 20
+    bins:
+    - 0.2
+    - 20
+observable: direct_photon_spectra
+value_type: direct_photon_yield
+probe: direct_photon
+---
+observable_type: electromagnetic_probes
+inspire_id: '1672473'
+version: 1
+hepdata_file: ppg200fig7.yaml
+hepdata_table_label: The direct photon spectra for Minimum Bias and 0-40% centrality in $\sqrt{s_{NN}}$ = 200 GeV Cu+Cu collisions.
+qualifiers:
+  centrality: 0-40%
+collision_system:
+  energy_gev: 200.0
+  reaction: Cu Cu --> CHARGED X
+centrality:
+  classes:
+  - 0-40%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: photon
+kinematic_range:
+  eta:
+    min: -0.35
+    max: 0.35
+  pT:
+    min: 0.2
+    max: 20
+    bins:
+    - 0.2
+    - 20
+observable: direct_photon_spectra
+value_type: direct_photon_yield
+probe: direct_photon

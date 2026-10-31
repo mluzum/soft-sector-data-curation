@@ -1,0 +1,25 @@
+dependent_variables:
+- header: {name: $BR\times d\sigma/dy$, units: '$\mathrm{mb}$'}
+  qualifiers:
+  - {name: REACTION, value: '$\mathrm{Pb + Pb \rightarrow Pb + Pb} + \pi^{+}\pi^{-}\pi^{+}\pi^{-}$'}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 5020.0}
+  - {name: YRAP, value: -0.5 TO 0.5}
+  values:
+  - errors:
+    - {label: stat, symerror: 2.3}
+    - {label: sys, symerror: 7.7}
+    value: 47.8
+  - errors:
+    - {label: stat, symerror: 2.5}
+    - {label: sys, symerror: 8.1}
+    value: 24.8
+  - errors:
+    - {label: stat, symerror: 2.3}
+    - {label: sys, symerror: 5.3}
+    value: 10.1
+independent_variables:
+- header: {name: Scenario}
+  values:
+  - {value: Single-resonance}
+  - {value: Two resonances $\rho(1450)$}
+  - {value: Two resonances $\rho(1700)$}

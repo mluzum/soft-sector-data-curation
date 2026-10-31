@@ -1,0 +1,67 @@
+dependent_variables:
+- header: {name: '$\sigma^{7GeV bias}/\sigma^{5GeV bias}', units: mb $c$/GeV}
+  qualifiers:
+  - {name: RE, value: P P --> jet + X}
+  - {name: SQRT(S), units: GEV, value: 5020}
+  - {name: YRAP, value: -0.5 TO 0.5}
+  - {name: jet radius, value: 0.2}
+  - {name: jet method, value: 'Anti-$k_{T}$'}
+  - {name: '$p_{T}^{lead, track}$', units: GeV/$c$, value: '> 7 or >5'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.004827354}
+    - {label: 'sys,correlated', symerror: 0.002803195}
+    - {label: 'sys,shape', symerror: 0.002229911}
+    value: 0.6803184
+  - errors:
+    - {label: stat, symerror: 0.008098819}
+    - {label: 'sys,correlated', symerror: 0.002759258}
+    - {label: 'sys,shape', symerror: 0.003665345}
+    value: 0.790809
+  - errors:
+    - {label: stat, symerror: 0.0125334}
+    - {label: 'sys,correlated', symerror: 0.001844308}
+    - {label: 'sys,shape', symerror: 0.00567409}
+    value: 0.8656463
+  - errors:
+    - {label: stat, symerror: 0.01782421}
+    - {label: 'sys,correlated', symerror: 0.00212292}
+    - {label: 'sys,shape', symerror: 0.008440061}
+    value: 0.9104008
+  - errors:
+    - {label: stat, symerror: 0.02454288}
+    - {label: 'sys,correlated', symerror: 0.002330076}
+    - {label: 'sys,shape', symerror: 0.01227491}
+    value: 0.9360597
+  - errors:
+    - {label: stat, symerror: 0.03280689}
+    - {label: 'sys,correlated', symerror: 0.002879786}
+    - {label: 'sys,shape', symerror: 0.01766692}
+    value: 0.9523566
+  - errors:
+    - {label: stat, symerror: 0.04212629}
+    - {label: 'sys,correlated', symerror: 0.005207645}
+    - {label: 'sys,shape', symerror: 0.03009368}
+    value: 0.9639638
+  - errors:
+    - {label: stat, symerror: 0.05193471}
+    - {label: 'sys,correlated', symerror: 0.004636685}
+    - {label: 'sys,shape', symerror: 0.06097739}
+    value: 0.9754262
+  - errors:
+    - {label: stat, symerror: 0.06123701}
+    - {label: 'sys,correlated', symerror: 0.005513921}
+    - {label: 'sys,shape', symerror: 0.1226737}
+    value: 0.9795812
+independent_variables:
+- header: {name: PTjet, units: GEV}
+  values:
+  - {high: 30, low: 20}
+  - {high: 40, low: 30}
+  - {high: 50, low: 40}
+  - {high: 60, low: 50}
+  - {high: 70, low: 60}
+  - {high: 80, low: 70}
+  - {high: 100, low: 80}
+  - {high: 120, low: 100}
+  - {high: 140, low: 120}

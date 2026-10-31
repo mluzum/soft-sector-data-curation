@@ -1,0 +1,50 @@
+---
+observable_type: flow_vn
+inspire_id: '1636197'
+version: 1
+hepdata_file: fig2_v22.yaml
+hepdata_table_label: v_2{2} as a function of centrality in PbPb collisions at $\sqrt{s_{NN}} = 5.02$ TeV with 0.3 < pT < 3.0 GeV and |eta| < 1.0.
+qualifiers:
+  pseudorapidity range: $|\eta| < 1.0$
+  re: PB PB --> CHARGED X
+  sqrt(s)/nucleon: $5020.0~\textrm{GeV}$
+  transverse momentum range: $0.3 < p_\textrm{T} < 3.0~\textrm{GeV}/c$
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 5-10%
+  - 10-15%
+  - 15-20%
+  - 20-25%
+  - 25-30%
+  - 30-35%
+  - 35-40%
+  - 40-45%
+  - 45-50%
+  - 50-55%
+  - 55-60%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.3
+    max: 3.0
+harmonic: 2
+method: cumulant
+cumulant_order: 2
+value_type: v_2{2}
+dimensionality: integrated

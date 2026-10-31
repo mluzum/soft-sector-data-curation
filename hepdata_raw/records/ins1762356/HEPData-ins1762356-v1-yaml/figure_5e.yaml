@@ -1,0 +1,27 @@
+dependent_variables:
+- header: {name: '$1/N_\mathrm{evt}\,\mathrm{d}^{2}N/(\mathrm{d}y\mathrm{d}p_\mathrm{T})$',
+    units: '$(\mathrm{GeV}/c)^{-1}$'}
+  qualifiers:
+  - {name: CENTRALITY, value: $40-100\%$}
+  - {name: Particle, value: '$(^3\mathrm{He} +\,^3\overline{\mathrm{He}}) / 2$'}
+  - {name: YRAP, value: $-1.0 - 0.0$}
+  - {name: SQRT(S)/NUCLEON, value: 5020.0 GeV}
+  values:
+  - errors:
+    - {label: stat, symerror: 2.3927e-08}
+    - {label: syst, symerror: 1.1124e-08}
+    value: 1.3876e-07
+  - errors:
+    - {label: stat, symerror: 1.1646e-08}
+    - {label: syst, symerror: 4.6181e-09}
+    value: 7.015e-08
+  - errors:
+    - {label: stat, symerror: 3.5439e-09}
+    - {label: syst, symerror: 8.4114e-10}
+    value: 1.2752e-08
+independent_variables:
+- header: {name: '$p_\mathrm{T}$', units: GeV/$c$}
+  values:
+  - {high: 2.0, low: 1.5}
+  - {high: 3.0, low: 2.0}
+  - {high: 5.0, low: 3.0}

@@ -1,0 +1,118 @@
+---
+observable_type: particle_spectra
+inspire_id: '1711377'
+version: 3
+hepdata_file: Fig22-23_D0 spectra in AuAu collisions.yaml
+hepdata_table_label: $D^0$ (in terms of (D0 +D0)/2)) invariant yield at mid-rapidity ($|y| < 1$) vs transverse momentum for
+  different centrality classes. Error bars indicate statistical uncertainties and brackets depict systematic uncertainties.
+  Global systematic uncertainties in B.R. are not plotted. Solid and dashed lines depict Levy function fits.
+qualifiers:
+  p_t: $D^0$ spectra in $40-80\%$ Au+Au collisions
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> NEUTRAL X
+centrality:
+  classes:
+  - 40.0-80.0%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: D0
+kinematic_range:
+  pT:
+    min: 40.0
+    max: 80.0
+  eta:
+    min: -1.0
+    max: 1.0
+    bins:
+    - -1.0
+    - 1.0
+observable: dN_dpT_dy
+value_type: invariant_yield
+---
+observable_type: particle_spectra
+inspire_id: '1711377'
+version: 3
+hepdata_file: Fig33_D0 and D0bar spectra.yaml
+hepdata_table_label: $D^0$ and $\bar{D}^0$ invariant yields at mid-rapidity $(|y|<1)$ vs transverse momentum for different
+  centrality classes. Error bars indicate statistical uncertainties and brackets depict systematic uncertainties. Global systematic
+  uncertainties in B.R. and $N_{bin}$ are not plotted. Solid lines depict Levy function fits.
+qualifiers:
+  p_t: $\bar{D}^0$ spectra in 60-80% Au+Au collisions
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> NEUTRAL X
+centrality:
+  classes:
+  - 60-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: D0
+kinematic_range:
+  pT:
+    min: 60.0
+    max: 80.0
+  eta:
+    min: -1.0
+    max: 1.0
+    bins:
+    - -1.0
+    - 1.0
+observable: dN_dpT_dy
+value_type: invariant_yield
+---
+observable_type: particle_spectra
+inspire_id: '1711377'
+version: 3
+hepdata_file: spectra pp.yaml
+hepdata_table_label: $D^0$ (in terms of (D0 +D0)/2)) spectra in pp collisions. Note, the $\sigma_{NSD}$ = 30 $m$b for p+p
+  was used in the calculations.
+qualifiers:
+  p_t: $D^0$ spectra in p+p collisions
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> NEUTRAL X
+centrality:
+  classes: []
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: Sigma
+kinematic_range:
+  pT:
+    min: 0.577
+    max: 5.95
+    bins:
+    - 0.577
+    - 1.239
+    - 2.0100000000000002
+    - 2.9450000000000003
+    - 3.9450000000000003
+    - 4.95
+    - 5.95
+  eta:
+    min: -1.0
+    max: 1.0
+    bins:
+    - -1.0
+    - 1.0
+observable: dN_dpT_dy
+value_type: invariant_yield

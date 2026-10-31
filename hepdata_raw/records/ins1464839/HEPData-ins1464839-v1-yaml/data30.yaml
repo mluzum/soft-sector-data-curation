@@ -1,0 +1,30 @@
+dependent_variables:
+- header: {name: '$\sigma_{\rm Fit,NS}$'}
+  qualifiers:
+  - {name: SQRT(S), units: GEV, value: '7000.0'}
+  - {name: YRAP, value: '-0.5 TO 0.5 (D0, D+, D*+)'}
+  - {name: ABS(DETA), value: <1}
+  - {name: PT(CHARGED), units: GEV, value: '>0.3'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0752}
+    - asymerror: {minus: -0.0294, plus: 0.0294}
+      label: sys,uncorr
+    value: 0.3132
+  - errors:
+    - {label: stat, symerror: 0.0508}
+    - asymerror: {minus: -0.0193, plus: 0.0193}
+      label: sys,uncorr
+    value: 0.2725
+  - errors:
+    - {label: stat, symerror: 0.0443}
+    - asymerror: {minus: -0.0375, plus: 0.0375}
+      label: sys,uncorr
+    value: 0.3445
+independent_variables:
+- header: {name: 'D-meson $p_{\rm T}$ (GeV/$c$)'}
+  values:
+  - {high: 5.0, low: 3.0}
+  - {high: 8.0, low: 5.0}
+  - {high: 16.0, low: 8.0}
+name: data30.yaml

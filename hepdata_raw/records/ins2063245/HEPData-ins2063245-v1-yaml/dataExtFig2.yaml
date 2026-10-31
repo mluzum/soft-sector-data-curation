@@ -1,0 +1,42 @@
+dependent_variables:
+- header: {name: Yields}
+  qualifiers:
+  - {name: Detector, value: STAR}
+  - {name: Collision species, value: Au+Au}
+  - {name: '$\sqrt{s_{NN}}$', units: GeV, value: '27.0'}
+  - {name: Centrality, units: '%', value: '[20,60]'}
+  - {name: Particle species, value: $\phi$}
+  - {name: '$p_{T}$', units: GeV/c, value: '[1.2,1.8]'}
+  - {name: y, value: '[-1.0,1.0]'}
+  values:
+  - errors:
+    - {label: stat., symerror: 5.0e-05}
+    value: 0.00746
+  - errors:
+    - {label: stat., symerror: 5.0e-05}
+    value: 0.00744
+  - errors:
+    - {label: stat., symerror: 5.0e-05}
+    value: 0.00756
+  - errors:
+    - {label: stat., symerror: 5.0e-05}
+    value: 0.00756
+  - errors:
+    - {label: stat., symerror: 5.0e-05}
+    value: 0.00767
+  - errors:
+    - {label: stat., symerror: 5.0e-05}
+    value: 0.00781
+  - errors:
+    - {label: stat., symerror: 5.0e-05}
+    value: 0.00803
+independent_variables:
+- header: {name: $\left|cos(\theta*)\right|$}
+  values:
+  - {high: 0.142857, low: 0}
+  - {high: 0.285714, low: 0.142857}
+  - {high: 0.428571, low: 0.285714}
+  - {high: 0.571429, low: 0.428571}
+  - {high: 0.714286, low: 0.571429}
+  - {high: 0.857143, low: 0.714286}
+  - {high: 1, low: 0.857143}

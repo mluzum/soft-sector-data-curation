@@ -1,0 +1,28 @@
+dependent_variables:
+- header: {name: Xn0n  / All, units: None}
+  qualifiers:
+  - {name: RE, value: PB PB --> MU+ MU-}
+  - {name: 'Pb+Pb $\sqrt{s_{NN}}$', units: GeV, value: '5020.0'}
+  - {name: '', value: Ratio to all}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0089126}
+    - asymerror: {minus: 0.010065, plus: 0.010049}
+      label: sys
+    value: 0.069392
+  - errors:
+    - {label: stat, symerror: 0.012395}
+    - asymerror: {minus: 0.010052, plus: 0.01004}
+      label: sys
+    value: 0.069888
+  - errors:
+    - {label: stat, symerror: 0.027364}
+    - asymerror: {minus: 0.010017, plus: 0.010013}
+      label: sys
+    value: 0.03723
+independent_variables:
+- header: {name: ABS(RAP), units: None}
+  values:
+  - {high: 0.8, low: 0, value: 0.4}
+  - {high: 1.6, low: 0.8, value: 1.2}
+  - {high: 2.4, low: 1.6, value: 2}

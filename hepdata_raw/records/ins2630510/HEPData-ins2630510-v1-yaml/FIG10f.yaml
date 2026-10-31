@@ -1,0 +1,43 @@
+dependent_variables:
+- header: {name: 1/Npair dNpair/dxJ}
+  qualifiers:
+  - {name: ABS(YRAP), value: '|y| < 2.1'}
+  - {name: R(JETS), value: '0.4'}
+  - {name: SYSTEM, value: XeXe}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5440.0'}
+  - {name: PBPB CENTRALITY, value: 40-60%}
+  - {name: PT1, value: 126-158 GeV}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.122123}
+    - asymerror: {minus: -0.111355, plus: 0.108055}
+      label: sys
+    value: 0.48232
+  - errors:
+    - {label: stat, symerror: 0.140719}
+    - asymerror: {minus: -0.095605, plus: 0.095333}
+      label: sys
+    value: 0.910266
+  - errors:
+    - {label: stat, symerror: 0.165891}
+    - asymerror: {minus: -0.108686, plus: 0.107534}
+      label: sys
+    value: 1.405454
+  - errors:
+    - {label: stat, symerror: 0.162509}
+    - asymerror: {minus: -0.057668, plus: 0.056279}
+      label: sys
+    value: 1.692412
+  - errors:
+    - {label: stat, symerror: 0.189192}
+    - asymerror: {minus: -0.077487, plus: 0.076934}
+      label: sys
+    value: 1.983003
+independent_variables:
+- header: {name: xJ}
+  values:
+  - {high: 0.398134, low: 0.316254}
+  - {high: 0.501213, low: 0.398134}
+  - {high: 0.630979, low: 0.501213}
+  - {high: 0.794342, low: 0.630979}
+  - {high: 1.0, low: 0.794342}

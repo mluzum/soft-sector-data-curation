@@ -1,0 +1,42 @@
+dependent_variables:
+- header: {name: RAA}
+  qualifiers:
+  - {name: ABS(RAP), value: 0.0-2.4}
+  - {name: RE, value: P P --> UPSILON(1S) < MU+ MU- > X}
+  - {name: RE, value: Pb Pb --> UPSILON(1S) < MU+ MU- > X}
+  - {name: SQRT(S), units: GeV, value: '5020.0'}
+  - {name: GLOBAL UNCERTAINTY, value: +4.14 % -4.57 %}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.027}
+    - {label: syst, symerror: 0.123}
+    value: 0.301
+  - errors:
+    - {label: stat, symerror: 0.029}
+    - {label: syst, symerror: 0.035}
+    value: 0.362
+  - errors:
+    - {label: stat, symerror: 0.033}
+    - {label: syst, symerror: 0.035}
+    value: 0.388
+  - errors:
+    - {label: stat, symerror: 0.028}
+    - {label: syst, symerror: 0.032}
+    value: 0.402
+  - errors:
+    - {label: stat, symerror: 0.035}
+    - {label: syst, symerror: 0.045}
+    value: 0.422
+  - errors:
+    - {label: stat, symerror: 0.026}
+    - {label: syst, symerror: 0.036}
+    value: 0.425
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {high: 2.0, low: 0.0}
+  - {high: 4.0, low: 2.0}
+  - {high: 6.0, low: 4.0}
+  - {high: 9.0, low: 6.0}
+  - {high: 12.0, low: 9.0}
+  - {high: 30.0, low: 12.0}

@@ -1,0 +1,67 @@
+dependent_variables:
+- header: {name: '${\rm d}\rho/{\rm d}p_{\rm T}$', units: '(GeV/$c$ rad)$^{-1}$'}
+  qualifiers:
+  - {name: RE, value: P PB --> OMEGA X}
+  - {name: SQRT(S), units: GeV, value: '5020'}
+  - {name: YRAP, value: '$-0.75 < \eta_{\rm lab} < 0.75$'}
+  - {name: PARTICLE, value: '$\Omega^{\pm}$'}
+  - {name: SELECTION, value: Inclusive}
+  values:
+  - errors:
+    - {label: stat, symerror: 6.08e-05}
+    - {label: sys, symerror: 4.54e-05}
+    value: 0.000493
+  - errors:
+    - {label: stat, symerror: 5.09e-05}
+    - {label: sys, symerror: 8.59e-05}
+    value: 0.000666
+  - errors:
+    - {label: stat, symerror: 4.07e-05}
+    - {label: sys, symerror: 7.77e-05}
+    value: 0.000631
+  - errors:
+    - {label: stat, symerror: 4.89e-05}
+    - {label: sys, symerror: 9.12e-05}
+    value: 0.000555
+  - errors:
+    - {label: stat, symerror: 3.93e-05}
+    - {label: sys, symerror: 7.92e-05}
+    value: 0.000459
+  - errors:
+    - {label: stat, symerror: 4.88e-05}
+    - {label: sys, symerror: 7.95e-05}
+    value: 0.000496
+  - errors:
+    - {label: stat, symerror: 3.43e-05}
+    - {label: sys, symerror: 4.55e-05}
+    value: 0.000358
+  - errors:
+    - {label: stat, symerror: 1.9e-05}
+    - {label: sys, symerror: 3.49e-05}
+    value: 0.000259
+  - errors:
+    - {label: stat, symerror: 1.16e-05}
+    - {label: sys, symerror: 1.43e-05}
+    value: 0.000149
+  - errors:
+    - {label: stat, symerror: 7.12e-06}
+    - {label: sys, symerror: 6.93e-06}
+    value: 8.01e-05
+  - errors:
+    - {label: stat, symerror: 3.21e-06}
+    - {label: sys, symerror: 2.82e-06}
+    value: 3.52e-05
+independent_variables:
+- header: {name: '$p_{\rm T}$', units: GeV/$c$}
+  values:
+  - {high: 1.2, low: 0.9}
+  - {high: 1.6, low: 1.2}
+  - {high: 2.0, low: 1.6}
+  - {high: 2.2, low: 2.0}
+  - {high: 2.4, low: 2.2}
+  - {high: 2.6, low: 2.4}
+  - {high: 2.8, low: 2.6}
+  - {high: 3.2, low: 2.8}
+  - {high: 3.7, low: 3.2}
+  - {high: 4.2, low: 3.7}
+  - {high: 5.0, low: 4.2}

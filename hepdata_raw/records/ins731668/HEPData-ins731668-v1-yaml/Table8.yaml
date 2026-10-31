@@ -1,0 +1,43 @@
+dependent_variables:
+- header: {name: R(NAME=AA)}
+  qualifiers:
+  - {name: RE, value: AU AU --> BOTTOM < E+ X > BOTTOMBAR < E- X > X}
+  - {name: RE, value: AU AU --> CHARM < E+ X > CHARMBAR < E- X > X}
+  - {name: RE, value: P P --> BOTTOM < E+ X > BOTTOMBAR < E- X > X}
+  - {name: RE, value: P P --> CHARM < E+ X > CHARMBAR < E- X > X}
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  - {name: YRAP, value: -0.35-0.35}
+  values:
+  - errors:
+    - asymerror: {minus: -0.05982, plus: 0.06388}
+      label: stat
+    - {label: sys, symerror: 0.2238}
+    value: 0.7039
+  - errors:
+    - asymerror: {minus: -0.03247, plus: 0.03351}
+      label: stat
+    - {label: sys, symerror: 0.1404}
+    value: 0.855
+  - errors:
+    - asymerror: {minus: -0.0164, plus: 0.01667}
+      label: stat
+    - {label: sys, symerror: 0.09092}
+    value: 0.6522
+  - errors:
+    - asymerror: {minus: -0.01518, plus: 0.01557}
+      label: stat
+    - {label: sys, symerror: 0.07125}
+    value: 0.54
+  - errors:
+    - asymerror: {minus: -0.0114, plus: 0.01166}
+      label: stat
+    - {label: sys, symerror: 0.05903}
+    value: 0.4241
+independent_variables:
+- header: {name: N(NAME=PART)}
+  values:
+  - {value: 14.5}
+  - {value: 59.95}
+  - {value: 140.4}
+  - {value: 234.6}
+  - {value: 325.2}

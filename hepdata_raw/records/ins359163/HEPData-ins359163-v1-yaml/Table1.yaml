@@ -1,0 +1,72 @@
+dependent_variables:
+- header: {name: CONST(Q=1)}
+  qualifiers:
+  - {name: 'ABS(YRAP(C=''Ycm'')-YRAP(P=3,RF=LAB))', value: <=0.15}
+  - {name: EKIN/A(P=1), units: GeV, value: '1.0'}
+  - {name: RE, value: AU AU --> PI0 X}
+  values:
+  - errors:
+    - {symerror: 0.04}
+    value: -0.03
+  - errors:
+    - {symerror: 0.1}
+    value: 0.12
+  - errors:
+    - {symerror: 0.13}
+    value: 0.04
+  - errors:
+    - {symerror: 0.11}
+    value: 0.03
+  - errors:
+    - {symerror: 0.2}
+    value: 0.06
+- header: {name: CONST(Q=2)}
+  qualifiers:
+  - {name: 'ABS(YRAP(C=''Ycm'')-YRAP(P=3,RF=LAB))', value: <=0.15}
+  - {name: EKIN/A(P=1), units: GeV, value: '1.0'}
+  - {name: RE, value: AU AU --> PI0 X}
+  values:
+  - errors:
+    - {symerror: 0.03}
+    value: 0.03
+  - errors:
+    - {symerror: 0.1}
+    value: -0.18
+  - errors:
+    - {symerror: 0.13}
+    value: -0.38
+  - errors:
+    - {symerror: 0.12}
+    value: -0.64
+  - errors:
+    - {symerror: 0.24}
+    value: -0.79
+- header: {name: (1-CONST(Q=2))/(1+CONST(Q=2))}
+  qualifiers:
+  - {name: 'ABS(YRAP(C=''Ycm'')-YRAP(P=3,RF=LAB))', value: <=0.15}
+  - {name: EKIN/A(P=1), units: GeV, value: '1.0'}
+  - {name: RE, value: AU AU --> PI0 X}
+  values:
+  - errors:
+    - {symerror: 0.1}
+    value: 0.9
+  - errors:
+    - {symerror: 0.3}
+    value: 1.4
+  - errors:
+    - {symerror: 0.7}
+    value: 2.2
+  - errors:
+    - {symerror: 1.9}
+    value: 4.6
+  - errors:
+    - {symerror: 11.0}
+    value: 9.0
+independent_variables:
+- header: {name: 'PT(P=3,RF=LAB)', units: MEV}
+  values:
+  - {high: 200.0, low: 0.0}
+  - {high: 400.0, low: 200.0}
+  - {high: 600.0, low: 400.0}
+  - {high: 800.0, low: 600.0}
+  - {high: 1000.0, low: 800.0}

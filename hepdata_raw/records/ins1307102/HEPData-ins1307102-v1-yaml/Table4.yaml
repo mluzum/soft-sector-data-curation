@@ -1,0 +1,25 @@
+dependent_variables:
+- header: {name: '$\sqrt{C}/M(p_{\rm T})$'}
+  qualifiers:
+  - {name: ABS(ETARAP), value: < 0.8}
+  - {name: PT, units: GeV, value: 0.15-2.0}
+  - {name: RE, value: P P --> CHARGED X}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0006}
+    - {label: sys, symerror: 0.0046}
+    value: 0.1211
+  - errors:
+    - {label: stat, symerror: 0.0002}
+    - {label: sys, symerror: 0.0071}
+    value: 0.1161
+  - errors:
+    - {label: stat, symerror: 0.0001}
+    - {label: sys, symerror: 0.0064}
+    value: 0.1139
+independent_variables:
+- header: {name: '$\sqrt{s}$ (GeV)'}
+  values:
+  - {value: 900.0}
+  - {value: 2760.0}
+  - {value: 7000.0}

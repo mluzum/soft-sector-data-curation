@@ -1,0 +1,72 @@
+dependent_variables:
+- header: {name: (1/(2*PI*PT(P=3)))*D2(N(P=3))/DYRAP(P=3)/DPT(P=3), units: GEV**-2}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 40.0-60.0}
+  - {name: RE, value: AU AU --> BOTTOM < E+ X > BOTTOMBAR < E- X > X}
+  - {name: RE, value: AU AU --> CHARM < E+ X > CHARMBAR < E- X> X}
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  - {name: YRAP, value: -0.35-0.35}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.014112}
+    - asymerror: {minus: -0.016137, plus: 0.015254}
+      label: sys
+    value: 0.03106
+  - errors:
+    - {label: stat, symerror: 0.0079258}
+    - asymerror: {minus: -0.0075876, plus: 0.0071897}
+      label: sys
+    value: 0.019198
+  - errors:
+    - {label: stat, symerror: 0.0045819}
+    - asymerror: {minus: -0.0038923, plus: 0.0036879}
+      label: sys
+    value: 0.0098178
+  - errors:
+    - {label: stat, symerror: 0.0017911}
+    - asymerror: {minus: -0.0016214, plus: 0.0015519}
+      label: sys
+    value: 0.0066278
+  - errors:
+    - {label: stat, symerror: 0.00086796}
+    - asymerror: {minus: -0.00040511, plus: 0.00038894}
+      label: sys
+    value: 0.0018013
+  - errors:
+    - {label: stat, symerror: 0.0004628}
+    - asymerror: {minus: -0.00017918, plus: 0.00017235}
+      label: sys
+    value: 0.00083136
+  - errors:
+    - {label: stat, symerror: 0.00028169}
+    - asymerror: {minus: -8.3563e-05, plus: 8.0305e-05}
+      label: sys
+    value: 0.00037519
+  - errors:
+    - {label: stat, symerror: 6.1679e-05}
+    - asymerror: {minus: -2.2709e-05, plus: 2.2121e-05}
+      label: sys
+    value: 0.00013588
+  - errors:
+    - {label: stat, symerror: 1.218e-05}
+    - asymerror: {minus: -3.6466e-06, plus: 3.5465e-06}
+      label: sys
+    value: 2.1301e-05
+  - errors:
+    - {label: stat, symerror: 1.3354e-06}
+    - asymerror: {minus: -1.3009e-06, plus: 2.7934e-07}
+      label: sys
+    value: 1.3009e-06
+independent_variables:
+- header: {name: PT(P=3), units: GEV}
+  values:
+  - {value: 0.347}
+  - {value: 0.446}
+  - {value: 0.546}
+  - {value: 0.684}
+  - {value: 0.885}
+  - {value: 1.086}
+  - {value: 1.288}
+  - {value: 1.611}
+  - {value: 2.32}
+  - {value: 3.358}

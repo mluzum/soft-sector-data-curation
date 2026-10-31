@@ -1,0 +1,53 @@
+observable_type: mean_pT_fluctuations
+description: >
+  Event-by-event fluctuations of the mean transverse momentum.
+  Common observables include:
+    Σ = √⟨⟨ΔpTi ΔpTj⟩⟩ / ⟨⟨pT⟩⟩       (integral correlator, ALICE)
+    √⟨⟨ΔpTi ΔpTj⟩⟩ / ⟨⟨pT⟩⟩             (normalised standard deviation)
+    σ_⟨pT⟩ / ⟨⟨pT⟩⟩                       (relative fluctuation)
+  These quantify the strength of dynamical pT correlations event-by-event.
+
+composes:
+  - _common#collision_system
+  - centrality#centrality
+  - _common#particle_id
+  - _common#kinematic_range
+
+required_fields:
+  observable:
+    type: string
+    required: true
+    description: Short identifier.
+    example: "sigma_mean_pT"
+  value_type:
+    type: string
+    required: true
+    description: >
+      One of: 'Sigma', 'sqrt_<dpt1_dpt2>_over_<pT>', 'sigma_<pT>_over_<pT>',
+      'dyn_fluctuation', 'F_pT', 'Delta_fluctuation'
+    example: "Sigma"
+
+optional_fields:
+  method:
+    type: string
+    required: false
+    description: "Analysis method (e.g. 'integral_correlator', 'two_particle', 'spherocity')."
+    example: "integral_correlator"
+  pT_integration_range:
+    type: object
+    required: false
+    description: "pT range used for the fluctuation measurement."
+    fields:
+      min: {type: float, required: true, example: 0.15}
+      max: {type: float, required: true, example: 2.0}
+  multiplicity_range:
+    type: object
+    required: false
+    description: "Multiplicity range if reported vs Nch."
+    fields:
+      min: {type: float, required: false, example: 0}
+      max: {type: float, required: false, example: 100}
+
+validation:
+  rules:
+    - "sigma_must_be_positive"

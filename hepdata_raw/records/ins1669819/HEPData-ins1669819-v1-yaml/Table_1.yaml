@@ -1,0 +1,115 @@
+dependent_variables:
+- header: {name: D(N)/DPT, units: GEV**-1}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 0.0-10.0}
+  - {name: RE, value: PB PB --> D0 X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  - {name: YRAP, value: -0.5-0.5}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.704}
+    - asymerror: {minus: -0.758, plus: 0.753}
+      label: sys
+    - {label: 'sys,uncertainty on branching ratio', symerror: 1.0%}
+    - {label: 'sys,from centrality limits', symerror: 0.1%}
+    value: 3.52
+  - errors:
+    - {label: stat, symerror: 0.116}
+    - asymerror: {minus: -0.236, plus: 0.231}
+      label: sys
+    - {label: 'sys,uncertainty on branching ratio', symerror: 1.0%}
+    - {label: 'sys,from centrality limits', symerror: 0.1%}
+    value: 1.67
+  - errors:
+    - {label: stat, symerror: 0.0263}
+    - asymerror: {minus: -0.0741, plus: 0.0725}
+      label: sys
+    - {label: 'sys,uncertainty on branching ratio', symerror: 1.0%}
+    - {label: 'sys,from centrality limits', symerror: 0.1%}
+    value: 0.536
+  - errors:
+    - {label: stat, symerror: 0.00887}
+    - asymerror: {minus: -0.0247, plus: 0.024}
+      label: sys
+    - {label: 'sys,uncertainty on branching ratio', symerror: 1.0%}
+    - {label: 'sys,from centrality limits', symerror: 0.1%}
+    value: 0.161
+  - errors:
+    - {label: stat, symerror: 0.00317}
+    - asymerror: {minus: -0.00777, plus: 0.00759}
+      label: sys
+    - {label: 'sys,uncertainty on branching ratio', symerror: 1.0%}
+    - {label: 'sys,from centrality limits', symerror: 0.1%}
+    value: 0.0532
+  - errors:
+    - {label: stat, symerror: 0.00163}
+    - asymerror: {minus: -0.00352, plus: 0.00344}
+      label: sys
+    - {label: 'sys,uncertainty on branching ratio', symerror: 1.0%}
+    - {label: 'sys,from centrality limits', symerror: 0.1%}
+    value: 0.0243
+  - errors:
+    - {label: stat, symerror: 0.000912}
+    - asymerror: {minus: -0.00183, plus: 0.00181}
+      label: sys
+    - {label: 'sys,uncertainty on branching ratio', symerror: 1.0%}
+    - {label: 'sys,from centrality limits', symerror: 0.1%}
+    value: 0.011
+  - errors:
+    - {label: stat, symerror: 0.000345}
+    - asymerror: {minus: -0.000744, plus: 0.00074}
+      label: sys
+    - {label: 'sys,uncertainty on branching ratio', symerror: 1.0%}
+    - {label: 'sys,from centrality limits', symerror: 0.1%}
+    value: 0.00555
+  - errors:
+    - {label: stat, symerror: 0.000166}
+    - asymerror: {minus: -0.000311, plus: 0.00031}
+      label: sys
+    - {label: 'sys,uncertainty on branching ratio', symerror: 1.0%}
+    - {label: 'sys,from centrality limits', symerror: 0.1%}
+    value: 0.00227
+  - errors:
+    - {label: stat, symerror: 6.68e-05}
+    - asymerror: {minus: -0.000116, plus: 0.00012}
+      label: sys
+    - {label: 'sys,uncertainty on branching ratio', symerror: 1.0%}
+    - {label: 'sys,from centrality limits', symerror: 0.1%}
+    value: 0.00078
+  - errors:
+    - {label: stat, symerror: 2.48e-05}
+    - asymerror: {minus: -3.15e-05, plus: 3.31e-05}
+      label: sys
+    - {label: 'sys,uncertainty on branching ratio', symerror: 1.0%}
+    - {label: 'sys,from centrality limits', symerror: 0.1%}
+    value: 0.000181
+  - errors:
+    - {label: stat, symerror: 7.54e-06}
+    - asymerror: {minus: -5.95e-06, plus: 5.94e-06}
+      label: sys
+    - {label: 'sys,uncertainty on branching ratio', symerror: 1.0%}
+    - {label: 'sys,from centrality limits', symerror: 0.1%}
+    value: 4.9e-05
+  - errors:
+    - {label: stat, symerror: 2.11e-06}
+    - asymerror: {minus: -6.9e-07, plus: 6.92e-07}
+      label: sys
+    - {label: 'sys,uncertainty on branching ratio', symerror: 1.0%}
+    - {label: 'sys,from centrality limits', symerror: 0.1%}
+    value: 5.68e-06
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {high: 2.0, low: 1.0}
+  - {high: 3.0, low: 2.0}
+  - {high: 4.0, low: 3.0}
+  - {high: 5.0, low: 4.0}
+  - {high: 6.0, low: 5.0}
+  - {high: 7.0, low: 6.0}
+  - {high: 8.0, low: 7.0}
+  - {high: 10.0, low: 8.0}
+  - {high: 12.0, low: 10.0}
+  - {high: 16.0, low: 12.0}
+  - {high: 24.0, low: 16.0}
+  - {high: 36.0, low: 24.0}
+  - {high: 50.0, low: 36.0}

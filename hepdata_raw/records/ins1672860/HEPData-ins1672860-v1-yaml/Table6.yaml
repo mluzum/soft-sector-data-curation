@@ -1,0 +1,72 @@
+dependent_variables:
+- header: {name: '$\frac{1}{N_{INEL}}\frac{d^{2}N}{dy dp_{T}} [(GeV/c)^{-1}]$'}
+  qualifiers:
+  - {name: TYPE, value: Inelastic (INEL)}
+  - {name: RE, value: 'P P $\rightarrow$ $\rho^{0}$ + X'}
+  - {name: SQRT(S), units: GeV, value: '2760.0'}
+  - {name: YRAP(CM), value: -0.5 TO 0.5}
+  - {name: SYST NORMALIZATION, units: $\%$, value: +6.7 -3.9}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.00375931}
+    - asymerror: {minus: -0.0252089, plus: 0.0190841}
+      label: sys (total)
+    value: 0.164708
+  - errors:
+    - {label: stat, symerror: 0.00183344}
+    - asymerror: {minus: -0.0142716, plus: 0.0103864}
+      label: sys (total)
+    value: 0.0889808
+  - errors:
+    - {label: stat, symerror: 0.000990846}
+    - asymerror: {minus: -0.00553527, plus: 0.00414025}
+      label: sys (total)
+    value: 0.0367388
+  - errors:
+    - {label: stat, symerror: 0.000390442}
+    - asymerror: {minus: -0.00196433, plus: 0.00160229}
+      label: sys (total)
+    value: 0.0142041
+  - errors:
+    - {label: stat, symerror: 0.00024056}
+    - asymerror: {minus: -0.000793719, plus: 0.000694779}
+      label: sys (total)
+    value: 0.00639597
+  - errors:
+    - {label: stat, symerror: 7.62833e-05}
+    - asymerror: {minus: -0.000243652, plus: 0.000242684}
+      label: sys (total)
+    value: 0.00217063
+  - errors:
+    - {label: stat, symerror: 3.03753e-05}
+    - asymerror: {minus: -6.74608e-05, plus: 6.7151e-05}
+      label: sys (total)
+    value: 0.000645415
+  - errors:
+    - {label: stat, symerror: 9.30063e-06}
+    - asymerror: {minus: -1.84758e-05, plus: 1.83824e-05}
+      label: sys (total)
+    value: 0.000185454
+  - errors:
+    - {label: stat, symerror: 4.39939e-06}
+    - asymerror: {minus: -3.63275e-06, plus: 3.61695e-06}
+      label: sys (total)
+    value: 3.38388e-05
+  - errors:
+    - {label: stat, symerror: 3.00063e-06}
+    - asymerror: {minus: -1.05447e-06, plus: 1.05047e-06}
+      label: sys (total)
+    value: 9.17801e-06
+independent_variables:
+- header: {name: '$p_{T}$', units: GeV/c}
+  values:
+  - {high: 1, low: 0.5, value: 0.75}
+  - {high: 1.5, low: 1, value: 1.25}
+  - {high: 2, low: 1.5, value: 1.75}
+  - {high: 2.5, low: 2, value: 2.25}
+  - {high: 3, low: 2.5, value: 2.75}
+  - {high: 4, low: 3, value: 3.5}
+  - {high: 5, low: 4, value: 4.5}
+  - {high: 7, low: 5, value: 6}
+  - {high: 9, low: 7, value: 8}
+  - {high: 11, low: 9, value: 10}

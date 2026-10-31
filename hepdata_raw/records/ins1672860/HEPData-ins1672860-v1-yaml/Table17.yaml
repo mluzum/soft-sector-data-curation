@@ -1,0 +1,54 @@
+dependent_variables:
+- header: {name: '$R_{AA}$'}
+  qualifiers:
+  - {name: CENTRALITY, units: $\%$, value: (20 - 40)}
+  - {name: RE, value: 'PB PB $\rightarrow$ $\rho^{0}$ + X'}
+  - {name: SQRT(S), units: GeV, value: '2760.0'}
+  - {name: YRAP(CM), value: -0.5 TO 0.5}
+  - {name: SYST NORMALIZATION, units: $\%$, value: +4.8 -7.0}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0190526}
+    - asymerror: {minus: -0.0439758, plus: 0.0358758}
+      label: sys (total)
+    value: 0.208348
+  - errors:
+    - {label: stat, symerror: 0.0215337}
+    - asymerror: {minus: -0.0580721, plus: 0.0444807}
+      label: sys (total)
+    value: 0.254795
+  - errors:
+    - {label: stat, symerror: 0.0313245}
+    - asymerror: {minus: -0.0978455, plus: 0.0787838}
+      label: sys (total)
+    value: 0.466193
+  - errors:
+    - {label: stat, symerror: 0.0348354}
+    - asymerror: {minus: -0.0647895, plus: 0.0610294}
+      label: sys (total)
+    value: 0.357573
+  - errors:
+    - {label: stat, symerror: 0.0334344}
+    - asymerror: {minus: -0.0422813, plus: 0.0403241}
+      label: sys (total)
+    value: 0.249361
+  - errors:
+    - {label: stat, symerror: 0.0707861}
+    - asymerror: {minus: -0.0476226, plus: 0.0462276}
+      label: sys (total)
+    value: 0.277505
+  - errors:
+    - {label: stat, symerror: 0.125977}
+    - asymerror: {minus: -0.0474966, plus: 0.0467348}
+      label: sys (total)
+    value: 0.267932
+independent_variables:
+- header: {name: '$p_{T}$', units: GeV/c}
+  values:
+  - {high: 1, low: 0.5, value: 0.75}
+  - {high: 2, low: 1, value: 1.5}
+  - {high: 3, low: 2, value: 2.5}
+  - {high: 5, low: 3, value: 4}
+  - {high: 7, low: 5, value: 6}
+  - {high: 9, low: 7, value: 8}
+  - {high: 11, low: 9, value: 10}

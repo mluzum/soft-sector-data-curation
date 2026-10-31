@@ -1,0 +1,84 @@
+dependent_variables:
+- header: {name: '(1/TAA)(1/NEVT)*D2(NJET)/DPT/DYRAP [nb/GEV]'}
+  qualifiers:
+  - {name: ABS(YRAP), value: '|y| < 2.8'}
+  - {name: R(JETS), value: '0.4'}
+  - {name: RE, value: PB PB --> JET(S) X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  - {name: CENTRALITY, value: 40-50 ptc}
+  values:
+  - errors:
+    - asymerror: {minus: -2.9, plus: 2.95}
+      label: sys
+    - {label: stat, symerror: 0.16}
+    value: 27.15
+  - errors:
+    - asymerror: {minus: -0.96, plus: 1.0}
+      label: sys
+    - {label: stat, symerror: 0.07}
+    value: 9.19
+  - errors:
+    - asymerror: {minus: -0.269, plus: 0.28}
+      label: sys
+    - {label: stat, symerror: 0.031}
+    value: 2.887
+  - errors:
+    - asymerror: {minus: -0.076, plus: 0.078}
+      label: sys
+    - {label: stat, symerror: 0.006}
+    value: 0.854
+  - errors:
+    - asymerror: {minus: -0.0219, plus: 0.0226}
+      label: sys
+    - {label: stat, symerror: 0.0017}
+    value: 0.2418
+  - errors:
+    - asymerror: {minus: -0.0054, plus: 0.0057}
+      label: sys
+    - {label: stat, symerror: 0.0006}
+    value: 0.0648
+  - errors:
+    - asymerror: {minus: -0.00139, plus: 0.00137}
+      label: sys
+    - {label: stat, symerror: 0.00027}
+    value: 0.01689
+  - errors:
+    - asymerror: {minus: -0.00036, plus: 0.00038}
+      label: sys
+    - {label: stat, symerror: 0.00012}
+    value: 0.0041
+  - errors:
+    - asymerror: {minus: -7.0e-05, plus: 7.0e-05}
+      label: sys
+    - {label: stat, symerror: 4.0e-05}
+    value: 0.00065
+  - errors:
+    - asymerror: {minus: -1.2e-05, plus: 1.2e-05}
+      label: sys
+    - {label: stat, symerror: 2.0e-05}
+    value: 0.000167
+  - errors:
+    - asymerror: {minus: -2.0e-06, plus: 2.0e-06}
+      label: sys
+    - {label: stat, symerror: 5.0e-06}
+    value: 1.2e-05
+  - errors:
+    - asymerror: {minus: -1.0e-07, plus: 2.0e-07}
+      label: sys
+    - {label: stat, symerror: 1.7e-06}
+    value: 2.1e-06
+independent_variables:
+- header: {name: 'PT [GEV]', units: GeV}
+  values:
+  - {high: 63, low: 50}
+  - {high: 79, low: 63}
+  - {high: 100, low: 79}
+  - {high: 126, low: 100}
+  - {high: 158, low: 126}
+  - {high: 200, low: 158}
+  - {high: 251, low: 200}
+  - {high: 316, low: 251}
+  - {high: 398, low: 316}
+  - {high: 501, low: 398}
+  - {high: 631, low: 501}
+  - {high: 800, low: 631}

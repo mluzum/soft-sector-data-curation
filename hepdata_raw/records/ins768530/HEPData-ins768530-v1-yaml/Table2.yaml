@@ -1,0 +1,40 @@
+dependent_variables:
+- header: {name: '(1/(2PI*PT))*D2(N)/DPT/DYRAP '}
+  qualifiers:
+  - {name: ABS(YRAP), value: 0.0-2.2}
+  - {name: RE, value: DEUT AU --> J/PSI < E+ E- + MU+ MU- > X}
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 3.948e-07}
+    - {label: sys, symerror: 7.754e-07}
+    - {label: 'sys,Additional global scale uncertainty', symerror: 4.0%}
+    value: 3.583e-06
+  - errors:
+    - {label: stat, symerror: 4.833e-07}
+    - {label: sys, symerror: 1.145e-06}
+    - {label: 'sys,Additional global scale uncertainty', symerror: 4.0%}
+    value: 5.292e-06
+  - errors:
+    - {label: stat, symerror: 5.4e-07}
+    - {label: sys, symerror: 9.5e-07}
+    - {label: 'sys,Additional global scale uncertainty', symerror: 4.0%}
+    value: 6.75e-06
+  - errors:
+    - {label: stat, symerror: 3.406e-07}
+    - {label: sys, symerror: 8.111e-07}
+    - {label: 'sys,Additional global scale uncertainty', symerror: 4.0%}
+    value: 4.522e-06
+  - errors:
+    - {label: stat, symerror: 2.245e-07}
+    - {label: sys, symerror: 4.316e-07}
+    - {label: 'sys,Additional global scale uncertainty', symerror: 4.0%}
+    value: 2.406e-06
+independent_variables:
+- header: {name: YRAP(P=3)}
+  values:
+  - {high: -1.7, low: -2.2}
+  - {high: -1.2, low: -1.7}
+  - {high: 0.35, low: -0.35}
+  - {high: 1.7, low: 1.2}
+  - {high: 2.2, low: 1.7}

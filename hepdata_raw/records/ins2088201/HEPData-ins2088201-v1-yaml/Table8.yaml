@@ -1,0 +1,28 @@
+dependent_variables:
+- header: {name: d$N$/d$y$}
+  qualifiers:
+  - {name: REACTION, value: PBPB --> Sigma*- + X}
+  - {name: REACTION, value: PBPB --> Sigma*BAR+ + X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: 5020.0}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.005}
+    - {label: sys, symerror: 0.871}
+    - {label: multipl. uncorrelated, symerror: 0.536}
+    value: 4.746
+  - errors:
+    - {label: stat, symerror: 0.002}
+    - {label: sys, symerror: 0.266}
+    - {label: multipl. uncorrelated, symerror: 0.16}
+    value: 1.599
+  - errors:
+    - {label: stat, symerror: 0.0006}
+    - {label: sys, symerror: 0.0471}
+    - {label: multipl. uncorrelated, symerror: 0.0251}
+    value: 0.28
+independent_variables:
+- header: {name: Cent, units: ptc.}
+  values:
+  - {high: 0.0, low: 10.0}
+  - {high: 30.0, low: 50.0}
+  - {high: 50.0, low: 90.0}

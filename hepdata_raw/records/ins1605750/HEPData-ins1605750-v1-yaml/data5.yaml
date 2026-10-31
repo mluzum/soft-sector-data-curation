@@ -1,0 +1,58 @@
+dependent_variables:
+- header: {name: '$(N_{\varUpsilon(3S)} /  N_{\varUpsilon(1S)})_{\mathrm{PbPb}} /
+      (N_{\varUpsilon(3S)} / N_{\varUpsilon(1S)})_{pp}$ (68% CL interval, lower bound)'}
+  qualifiers:
+  - {name: ABS(YRAP), value: 0.0-2.4}
+  - {name: PT, units: GeV, value: 0.0-30.0}
+  - {name: RE, value: P P --> Upsilon(1S) < MU+ MU- > X}
+  - {name: RE, value: P P --> Upsilon(3S) < MU+ MU- > X}
+  - {name: RE, value: PB PB --> Upsilon(1S) < MU+ MU- > X}
+  - {name: RE, value: PB PB --> Upsilon(3S) < MU+ MU- > X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  values:
+  - {value: 0}
+  - {value: 0.087}
+  - {value: 0}
+  - {value: 0.079}
+  - {value: 0}
+- header: {name: '$(N_{\varUpsilon(3S)} /  N_{\varUpsilon(1S)})_{\mathrm{PbPb}} /
+      (N_{\varUpsilon(3S)} / N_{\varUpsilon(1S)})_{pp}$ (68% CL interval, upper bound)'}
+  qualifiers:
+  - {name: ABS(YRAP), value: 0.0-2.4}
+  - {name: PT, units: GeV, value: 0.0-30.0}
+  - {name: RE, value: P P --> Upsilon(1S) < MU+ MU- > X}
+  - {name: RE, value: P P --> Upsilon(3S) < MU+ MU- > X}
+  - {name: RE, value: PB PB --> Upsilon(1S) < MU+ MU- > X}
+  - {name: RE, value: PB PB --> Upsilon(3S) < MU+ MU- > X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  values:
+  - {value: 0.36}
+  - {value: 0.4}
+  - {value: 0.057}
+  - {value: 0.47}
+  - {value: 0.16}
+- header: {name: NPART}
+  values:
+  - errors:
+    - {symerror: 2}
+    value: 22
+  - errors:
+    - {symerror: 4}
+    value: 109
+  - errors:
+    - {symerror: 4}
+    value: 227
+  - errors:
+    - {symerror: 3}
+    value: 359
+  - errors:
+    - {symerror: 3}
+    value: 114
+independent_variables:
+- header: {name: Centrality, units: PCT}
+  values:
+  - {high: 100.0, low: 50.0}
+  - {high: 50.0, low: 30.0}
+  - {high: 30.0, low: 10.0}
+  - {high: 10.0, low: 0.0}
+  - {high: 100.0, low: 0.0}

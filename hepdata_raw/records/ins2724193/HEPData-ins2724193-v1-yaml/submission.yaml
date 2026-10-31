@@ -1,0 +1,132 @@
+additional_resources:
+- {description: Created with hepdata_lib 0.12.0, location: 'https://zenodo.org/record/4946277'}
+comment: In this letter, measurements of (anti)alpha production in central (0-10%)
+  Pb--Pb collisions at a center-of-mass energy per nucleon--nucleon pair of $\sqrt{s_{\mathrm{NN}}}$
+  = 5.02 TeV are presented, including the first measurement of an antialpha transverse-momentum
+  spectrum. Owing to its large mass, (anti)alpha production yields and transverse-momentum
+  spectra are of particular interest because they provide a stringent test of particle
+  production models. The averaged antialpha and alpha spectrum is included into a
+  common blast-wave fit with lighter particles, indicating that the (anti)alpha also
+  participates in the collective expansion of the medium created in the collision.
+  A blast-wave fit including only protons, (anti)alpha, and other light nuclei results
+  in a similar flow velocity as the fit that includes all particles. A similar flow
+  velocity, but a significantly larger kinetic freeze-out temperature is obtained
+  when only protons and light nuclei are included in the fit. The coalescence parameter
+  $B_4$ is well described by calculations from a statistical hadronization model but
+  significantly underestimated by calculations assuming nucleus formation via coalescence
+  of nucleons. Similarly, the (anti)alpha-to-proton ratio is well described by the
+  statistical hadronization model. On the other hand, coalescence calculations including
+  approaches with different implementations of the (anti)alpha substructure tend to
+  underestimate the data.
+data_license: {description: The content can be shared and adapted but you must give
+    appropriate credit and cannot restrict access to others., name: cc-by-4.0, url: 'https://creativecommons.org/licenses/by/4.0/'}
+hepdata_doi: 10.17182/hepdata.153848.v1
+---
+data_file: anti4he_spectrum_in_0-10%_v0m_centrality_class.yaml
+description: Antialpha spectrum in 0-10% V0M centrality class
+keywords:
+- name: observables
+  values: [D2N/DPT/DYRAP]
+- name: cmenergies
+  values: ['5020']
+- name: reactions
+  values: ['PB PB --> anti${}^{4}$He + X']
+location: Data from Figure 2.
+name: Antialpha spectrum
+table_doi: 10.17182/hepdata.153848.v1/t1
+---
+data_file: he4_spectrum_in_0-10%_v0m_centrality_class.yaml
+description: Alpha spectrum in 0-10% V0M centrality class
+keywords:
+- name: observables
+  values: [D2N/DPT/DYRAP]
+- name: cmenergies
+  values: ['5020']
+- name: reactions
+  values: ['PB PB --> ${}^{4}$H + X']
+location: Data from Figure 2.
+name: Alpha spectrum
+table_doi: 10.17182/hepdata.153848.v1/t2
+---
+data_file: average_he4_spectrum_in_0-10%_v0m_centrality_class.yaml
+description: Average alpha and antialpha spectrum in 0-10% V0M centrality class
+keywords:
+- name: observables
+  values: [D2N/DPT/DYRAP]
+- name: cmenergies
+  values: ['5020']
+- name: reactions
+  values: ['PB PB --> (${}^{4}$He + anti${}^{4}$He)/2 + X']
+location: Data from Figure 3.
+name: Average alpha+antialpha spectrum
+table_doi: 10.17182/hepdata.153848.v1/t3
+---
+data_file: average_coalescence_$b_4$_in_0-10%_v0m_centrality_class.yaml
+description: Coalescence parameter $B_4$ from average alpha and antialpha as a function
+  of $p_{\mathrm{T}}$ in 0-10% V0M centrality class
+keywords:
+- name: observables
+  values: [$B_4$]
+- name: cmenergies
+  values: ['5020']
+- name: reactions
+  values: ['PB PB --> (${}^{4}$He + anti${}^{4}$He)/2 + X', PB PB --> P + X]
+location: Data from Figure 4.
+name: Coalescence B_4 from average alpha+antialpha
+table_doi: 10.17182/hepdata.153848.v1/t4
+---
+data_file: average_he4_over_proton.yaml
+description: Average alpha and antialpha over proton ratio in Pb-Pb collisions as
+  a function of the charged particle multiplicity density at mid-rapidity
+keywords:
+- name: observables
+  values: ['(${}^{4}$He + anti${}^{4}$He)/2/p']
+- name: cmenergies
+  values: ['5020']
+- name: reactions
+  values: ['PB PB --> (${}^{4}$He + anti${}^{4}$He)/2 + X', PB PB --> P + X]
+location: Data from Figure 5.
+name: Average alpha+antialpha over proton ratio
+table_doi: 10.17182/hepdata.153848.v1/t5
+---
+data_file: yield_antihe4.yaml
+description: pT-integrated yield of antialpha in Pb-Pb collisions in 0-10% V0M centrality
+  class
+keywords:
+- name: observables
+  values: ['anti${}^{4}$He']
+- name: cmenergies
+  values: ['5020']
+- name: reactions
+  values: ['PB PB --> anti${}^{4}$He + X']
+location: Data from Table 2.
+name: Yield antialpha
+table_doi: 10.17182/hepdata.153848.v1/t6
+---
+data_file: yield_he4.yaml
+description: pT-integrated yield of alpha in Pb-Pb collisions in 0-10% V0M centrality
+  class
+keywords:
+- name: observables
+  values: ['${}^{4}$He']
+- name: cmenergies
+  values: ['5020']
+- name: reactions
+  values: ['PB PB --> ${}^{4}$He + X']
+location: Data from Table 2.
+name: Yield alpha
+table_doi: 10.17182/hepdata.153848.v1/t7
+---
+data_file: yield_average_he4.yaml
+description: pT-integrated yield of average alpha and antialpha in Pb-Pb collisions
+  in 0-10% V0M centrality class
+keywords:
+- name: observables
+  values: ['(${}^{4}$He + anti${}^{4}$He)/2']
+- name: cmenergies
+  values: ['5020']
+- name: reactions
+  values: ['PB PB --> (${}^{4}$He + anti${}^{4}$He)/2 + X']
+location: Data from Table 2.
+name: Yield average alpha+antialpha
+table_doi: 10.17182/hepdata.153848.v1/t8

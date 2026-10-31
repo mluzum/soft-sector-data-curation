@@ -1,0 +1,297 @@
+---
+observable_type: heavy_flavor
+inspire_id: '1672798'
+version: 1
+hepdata_file: data1.yaml
+hepdata_table_label: Inclusive $\Upsilon$(1S) $R_{\rm AA}$ and Pb-Pb yields for the centrality, transverse-momentum and rapidity
+  ranges 0-90%, $0<p_{\rm T}<15$ GeV/$c$ and $2.5<y<4$, respectively. Statistical and systematic uncertainties are reported.
+  (The yield is not normalized to the kinematic intervals).
+qualifiers:
+  pt: 0 TO 15
+  re: Pb Pb --> UPSI(1S) < MU+ MU- > X
+  sqrt(s)/nucleon: '5020'
+  yrap: 2.5 TO 4.0
+collision_system:
+  energy_gev: 5020.0
+  reaction: Pb Pb --> UPSI(1S) < MU+ MU- > X
+centrality:
+  classes:
+  - 0-90%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+  particle: D0
+kinematic_range:
+  pT:
+    min: 0.0
+    max: 15.0
+    bins:
+    - 0.15
+    - 50
+  eta:
+    min: -0.8
+    max: 0.8
+    bins:
+    - -0.8
+    - 0.8
+observable: d0_invariant_yield
+value_type: invariant_yield
+particle: D0
+---
+observable_type: heavy_flavor
+inspire_id: '1672798'
+version: 1
+hepdata_file: data2.yaml
+hepdata_table_label: Inclusive $\Upsilon$(1S) $R_{\rm AA}$ and Pb-Pb yields as a function of collision centrality. The transverse-momentum
+  and rapidity ranges are $0<p_{\rm T}<15$ GeV/$c$ and $2.5<y<4$, respectively. Statistical and systematic uncertainties are
+  reported. A global systematic uncertainty of 7.7% (4.9%) affects all the $R_{\rm AA}$ (yield) values. (The yields are not
+  normalized to the kinematic intervals).
+qualifiers:
+  pt: 0 TO 15
+  re: Pb Pb --> UPSI(1S) < MU+ MU- > X
+  sqrt(s)/nucleon: '5020'
+  yrap: 2.5 TO 4.0
+collision_system:
+  energy_gev: 5020.0
+  reaction: Pb Pb --> UPSI(1S) < MU+ MU- > X
+centrality:
+  classes:
+  - 0-10%
+  - 10-30%
+  - 30-50%
+  - 50-90%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+  particle: D0
+kinematic_range:
+  pT:
+    min: 0.0
+    max: 15.0
+    bins:
+    - 0.15
+    - 50
+  eta:
+    min: -0.8
+    max: 0.8
+    bins:
+    - -0.8
+    - 0.8
+observable: d0_invariant_yield
+value_type: invariant_yield
+particle: D0
+---
+observable_type: heavy_flavor
+inspire_id: '1672798'
+version: 1
+hepdata_file: data3.yaml
+hepdata_table_label: Inclusive $\Upsilon$(1S) $R_{\rm AA}$ and Pb-Pb yields as a function of transverse momentum. The centrality
+  and rapidity ranges are 0-90% and $2.5<y<4$, respectively. Statistical and systematic uncertainties are reported. A global
+  systematic uncertainty of 2.7% (2.3%) affects all the $R_{\rm AA}$ (yield) values.
+qualifiers:
+  centrality: 0 TO 90
+  re: Pb Pb --> UPSI(1S) < MU+ MU- > X
+  sqrt(s)/nucleon: '5020'
+  yrap: 2.5 TO 4.0
+collision_system:
+  energy_gev: 5020.0
+  reaction: Pb Pb --> UPSI(1S) < MU+ MU- > X
+centrality:
+  classes:
+  - 0.0-90.0%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+  particle: D0
+kinematic_range:
+  pT:
+    min: 0.0
+    max: 15.0
+    bins:
+    - 0.0
+    - 2.0
+    - 4.0
+    - 6.0
+    - 15.0
+  eta:
+    min: -0.8
+    max: 0.8
+    bins:
+    - -0.8
+    - 0.8
+observable: d0_invariant_yield
+value_type: invariant_yield
+particle: D0
+---
+observable_type: heavy_flavor
+inspire_id: '1672798'
+version: 1
+hepdata_file: data4.yaml
+hepdata_table_label: Inclusive $\Upsilon$(1S) $R_{\rm AA}$ and Pb-Pb yields as a function of rapidity. The centrality and
+  transverse-momentum ranges are 0-90% and $0<p_{\rm T}<15$ GeV/$c$, respectively. Statistical and systematic uncertainties
+  are reported. A global systematic uncertainty of 2.7% (2.3%) affects all the $R_{\rm AA}$ (yield) values.
+qualifiers:
+  centrality: 0 TO 90
+  pt: 0 TO 15
+  re: Pb Pb --> UPSI(1S) < MU+ MU- > X
+  sqrt(s)/nucleon: '5020'
+collision_system:
+  energy_gev: 5020.0
+  reaction: Pb Pb --> UPSI(1S) < MU+ MU- > X
+centrality:
+  classes:
+  - 0.0-90.0%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+  particle: D0
+kinematic_range:
+  pT:
+    min: 0.0
+    max: 15.0
+    bins:
+    - 0.15
+    - 50
+  y:
+    min: 2.5
+    max: 4.0
+    bins:
+    - 2.5
+    - 3.0
+    - 3.5
+    - 4.0
+  eta:
+    min: -0.8
+    max: 0.8
+    bins:
+    - -0.8
+    - 0.8
+observable: d0_invariant_yield
+value_type: invariant_yield
+particle: D0
+---
+observable_type: heavy_flavor
+inspire_id: '1672798'
+version: 1
+hepdata_file: data5.yaml
+hepdata_table_label: Inclusive $\Upsilon$(2S) $R_{\rm AA}$ and Pb-Pb yield for the centrality, transverse-momentum and rapidity
+  ranges 0-90%, $0<p_{\rm T}<15$ GeV/$c$ and $2.5<y<4$, respectively. Statistical and systematic uncertainties are reported.
+  (The yield is not normalized to the kinematic intervals).
+qualifiers:
+  pt: 0 TO 15
+  re: Pb Pb --> UPSI(2S) < MU+ MU- > X
+  sqrt(s)/nucleon: '5020'
+  yrap: 2.5 TO 4.0
+collision_system:
+  energy_gev: 5020.0
+  reaction: Pb Pb --> UPSI(2S) < MU+ MU- > X
+centrality:
+  classes:
+  - 0-90%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+  particle: D0
+kinematic_range:
+  pT:
+    min: 0.0
+    max: 15.0
+    bins:
+    - 0.15
+    - 50
+  eta:
+    min: -0.8
+    max: 0.8
+    bins:
+    - -0.8
+    - 0.8
+observable: d0_invariant_yield
+value_type: invariant_yield
+particle: D0
+---
+observable_type: heavy_flavor
+inspire_id: '1672798'
+version: 1
+hepdata_file: data6.yaml
+hepdata_table_label: Inclusive $\Upsilon\text{(2S)}/\Upsilon\text{(1S)}$ Pb-Pb yield ratio and $R_{\rm AA}$ ratio for the
+  centrality, transverse-momentum and rapidity ranges 0-90%, $0<p_{\rm T}<15$ GeV/$c$ and $2.5<y<4$, respectively. Statistical
+  and systematic uncertainties are reported. Statistical and systematic uncertainties are reported.
+qualifiers:
+  pt: 0 TO 15
+  re: Pb Pb --> UPSI(2S) < MU+ MU- > X
+  sqrt(s)/nucleon: '5020'
+  yrap: 2.5 TO 4.0
+collision_system:
+  energy_gev: 5020.0
+  reaction: Pb Pb --> UPSI(2S) < MU+ MU- > X
+centrality:
+  classes:
+  - 0-90%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+  particle: psi(2s)
+kinematic_range:
+  pT:
+    min: 0.0
+    max: 15.0
+    bins:
+    - 0.15
+    - 50
+  eta:
+    min: -0.8
+    max: 0.8
+    bins:
+    - -0.8
+    - 0.8
+observable: psi(2s)_invariant_yield
+value_type: invariant_yield
+particle: psi(2s)

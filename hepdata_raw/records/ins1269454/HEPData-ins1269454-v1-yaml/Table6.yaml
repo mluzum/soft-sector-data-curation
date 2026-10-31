@@ -1,0 +1,36 @@
+dependent_variables:
+- header: {name: DSIG/DPT, units: PB/GEV}
+  qualifiers:
+  - {name: ABS(ETARAP(C = BJET)), value: < 2.0}
+  - {name: R, value: '0.3'}
+  - {name: RE, value: P P --> BJET X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 1.8}
+    - {label: sys, symerror: 19.9}
+    value: 124.8
+  - errors:
+    - {label: stat, symerror: 0.92}
+    - {label: sys, symerror: 8.42}
+    value: 52.54
+  - errors:
+    - {label: stat, symerror: 0.45}
+    - {label: sys, symerror: 2.56}
+    value: 15.21
+  - errors:
+    - {label: stat, symerror: 0.24}
+    - {label: sys, symerror: 0.79}
+    value: 4.827
+  - errors:
+    - {label: stat, symerror: 0.062}
+    - {label: sys, symerror: 0.1063}
+    value: 0.5237
+independent_variables:
+- header: {name: PT(C=BJET), units: GEV}
+  values:
+  - {high: 90.0, low: 80.0}
+  - {high: 110.0, low: 90.0}
+  - {high: 130.0, low: 110.0}
+  - {high: 170.0, low: 130.0}
+  - {high: 250.0, low: 170.0}

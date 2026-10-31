@@ -1,0 +1,408 @@
+additional_resources:
+- {description: Created with hepdata_lib 0.18.0, location: 'https://doi.org/10.5281/zenodo.1217998'}
+- {description: Webpage with all figures and tables, location: 'https://cms-results.web.cern.ch/cms-results/public-results/preliminary-results/SUS-23-003/index.html'}
+- {description: arXiv, location: 'http://arxiv.org/abs/arXiv:TBD'}
+- {description: Network weights used in lwtnn implementation of Soft SV tagger., location: nano_train_model.json,
+  type: json}
+- {description: GitLab with BuildFitInput root files, location: 'https://gitlab.cern.ch/jsingera/hepdata-build-fit-input-files'}
+- {description: 'Cut flows per year (2016,2017, and 2018) broken down by category
+    and bin number. Bin numbers in RISR and Mperp plane (per category)  are numbered
+    left to right and bottom to top. Backgrounds are separated by process, benchmark
+    model points for T2tt, TChiWZ, and TSlepSlep are included, data is also included.',
+  location: Cutflows.tar.gz, type: csv}
+- {description: 'Datacards for higgs combine with benchmark model points for T2tt,
+    TChiWZ, and TSlepSlep. T2tt has a stop mass of 500 GeV and N1 mass of 490 GeV.
+    TChiWZ has an N2 mass of 300 GeV and N1 mass 270 Gev. TSlepSlep (inclusive & LR)  has
+    a slepton mass of 250 GeV and N1 mass of 240 GeV.', location: modelBenchmarkDatacards.tar.gz,
+  type: txt}
+comment: A general search is presented for supersymmetric particles (sparticles) in
+  scenarios featuring compressed mass spectra using proton-proton collisions at a
+  center-of-mass energy of 13 TeV, recorded with the CMS detector at the LHC. The
+  analyzed data sample corresponds to an integrated luminosity of 138 fb$^{-1}$ .
+  A wide range of potential sparticle signatures are targeted, including pair production
+  of electroweakinos, sleptons, and top squarks. The search focuses on events with
+  a high transverse momentum system from initial-state-radiation jets recoiling against
+  a potential sparticle system with significant missing transverse momentum. Events
+  are categorized based on their lepton multiplicity, jet multiplicity, number of
+  b-tagged jets, and kinematic variables sensitive to the sparticle masses and mass
+  splittings. The sensitivity extends to higher parent sparticle masses than previously
+  probed at the LHC for production of pairs of electroweakinos, sleptons, and top
+  squarks with mass spectra featuring small mass splittings (compressed mass spectra).
+  The observed results demonstrate agreement with the predictions of the background-only
+  model. Lower mass limits are set at 95% confidence level on production of pairs
+  of electroweakinos, sleptons, and top squarks that extend to 325, 275, and 780 GeV,
+  respectively, for the most favorable compressed mass regime cases.
+data_license: {description: 'CC0 enables reusers to distribute, remix, adapt, and
+    build upon the material in any medium or format, with no conditions.', name: CC0,
+  url: 'https://creativecommons.org/publicdomain/zero/1.0/'}
+hepdata_doi: 10.17182/hepdata.156121.v1
+---
+data_file: table_11.yaml
+description: |
+  Event counts observed in data, $N_{\rm{obs}}$, in each of the model-independent bins, compared with predictions from the control region fit, $N^{\rm{pred}}_{\rm{bkg}}$, their corresponding uncertainties, $\sigma(N^{\rm{pred}}_{\rm{bkg}})$, and the upper limits at 95% CL on the signal strength $(S_{UL}^{95\%})$.
+keywords:
+- name: cmenergies
+  values: [13000]
+location: 'Section 8: Results'
+name: Table 11
+table_doi: 10.17182/hepdata.156121.v1/t1
+---
+additional_resources:
+- {description: Image file, location: T2tt_full_CWRv3.png}
+- {description: Thumbnail image file, location: thumb_T2tt_full_CWRv3.png}
+data_file: figure_24_t2tt.yaml
+description: Top squark pair production. Observed upper limits at 95% CL on the product
+  of the cross section and relevant branching fractions, $\sigma (\tilde{\mathrm{t}}
+  \tilde{\mathrm{t}}) \, \mathcal{B}^{2} ( \tilde{\mathrm{t}} \rightarrow \mathrm{t}
+  \tilde{\chi}_1^0 )$, are shown using the color scale where the $\tilde{\mathrm{t}}$
+  mass is on the $x$-axis and the mass difference between the $\tilde{\mathrm{t}}$
+  and the LSP is on the $y$-axis
+keywords:
+- name: observables
+  values: [SIG]
+- name: reactions
+  values: ['PP --> STOP STOP, STOP < t N1 >']
+location: 'Section 8: Results'
+name: Figure 24 T2tt
+table_doi: 10.17182/hepdata.156121.v1/t2
+---
+additional_resources:
+- {description: Image file, location: T2bW_full_CWRv3.png}
+- {description: Thumbnail image file, location: thumb_T2bW_full_CWRv3.png}
+data_file: figure_24_t2bw.yaml
+description: Top squark pair production. Observed upper limits at 95% CL on the product
+  of the cross section and relevant branching fractions, $\sigma (\tilde{\mathrm{t}}
+  \tilde{\mathrm{t}}) \, \mathcal{B}^{2} ( \tilde{\mathrm{t}} \rightarrow \mathrm{t}
+  \tilde{\chi}_1^0 )$, are shown using the color scale where the $\tilde{\mathrm{t}}$
+  mass is on the $x$-axis and the mass difference between the $\tilde{\mathrm{t}}$
+  and the LSP is on the $y$-axis
+keywords:
+- name: observables
+  values: [SIG]
+- name: reactions
+  values: ['PP --> STOP STOP, STOP < b C1 >, C1 < W N1 >']
+location: 'Section 8: Results'
+name: Figure 24 T2bW
+table_doi: 10.17182/hepdata.156121.v1/t3
+---
+additional_resources:
+- {description: Image file, location: T2cc_CWRv3.png}
+- {description: Thumbnail image file, location: thumb_T2cc_CWRv3.png}
+data_file: figure_25_t2cc.yaml
+description: Observed upper limits at 95% CL on the product of the cross section and
+  branching fraction squared, $\sigma (\tilde{\mathrm{t}} \, \bar{\tilde{\mathrm{t}}})
+  \, \mathcal{B}^{2} ( \tilde{\mathrm{t}} \rightarrow \mathrm{c} \tilde{\chi}_1^0
+  )$ (left panel), are shown using the color scale where the $\tilde{\mathrm{t}}$
+  mass is on the $x$-axis and the mass difference between the $\tilde{\mathrm{t}}$
+  and the LSP is on the $y$-axis. The expected lower mass limits (magenta line) together
+  with their $\pm 1\sigma$ uncertainties (magenta dashed lines) and the observed lower
+  mass limits (black line) are indicated for 100% branching fractions.
+keywords:
+- name: observables
+  values: [SIG]
+- name: reactions
+  values: ['PP --> STOP STOP, STOP < c N1 >']
+location: 'Section 8: Results'
+name: Figure 25 T2cc
+table_doi: 10.17182/hepdata.156121.v1/t4
+---
+additional_resources:
+- {description: Image file, location: TChiWZSuper_CWRv3.png}
+- {description: Thumbnail image file, location: thumb_TChiWZSuper_CWRv3.png}
+data_file: figure_26_tchiwz_wino.yaml
+description: Chargino-neutralino production. Observed upper limits at 95% CL on the
+  product of the cross section and the two branching fractions, $\sigma (\tilde{\chi}_1^\pm
+  \tilde{\chi}_2^0) \, \mathcal{B} ( \tilde{\chi}_1^\pm \rightarrow \mathrm{W}^{\pm}
+  \tilde{\chi}_1^0 ) \,  \mathcal{B} ( \tilde{\chi}_2^0 \rightarrow \mathrm{Z} \tilde{\chi}_1^0
+  )$,  are shown using the color scale where the $\tilde{\chi}_1^\pm/\tilde{\chi}_2^0$
+  mass is on the $x$-axis and the mass difference between the $\tilde{\chi}_1^\pm/\tilde{\chi}_2^0$
+  and the LSP is  on the $y$-axis. For these results, based on the TChiWZ simplified
+  model, the $\tilde{\chi}_1^\pm$ and $\tilde{\chi}_2^0$ masses are set equal. The
+  expected lower mass limits (magenta line) together with their $\pm 1\sigma$ uncertainties
+  (magenta dashed lines) and the observed lower mass limits (black line) are indicated
+  for 100% branching fractions for Wino-like cross-sections (left panel) and for Higgsino-like
+  cross-sections (right panel).
+keywords:
+- name: observables
+  values: [SIG]
+- name: reactions
+  values: [' PP --> N2 C1, N2 < Z N1 >, C1 < W N1 >']
+location: 'Section 8: Results'
+name: Figure 26 TChiWZ Wino
+table_doi: 10.17182/hepdata.156121.v1/t5
+---
+additional_resources:
+- {description: Image file, location: HinoN2C1Super_CWRv3.png}
+- {description: Thumbnail image file, location: thumb_HinoN2C1Super_CWRv3.png}
+data_file: figure_26_tchiwz_higgsino.yaml
+description: Chargino-neutralino production. Observed upper limits at 95% CL on the
+  product of the cross section and the two branching fractions, $\sigma (\tilde{\chi}_1^\pm
+  \tilde{\chi}_2^0) \, \mathcal{B} ( \tilde{\chi}_1^\pm \rightarrow \mathrm{W}^{\pm}
+  \tilde{\chi}_1^0 ) \,  \mathcal{B} ( \tilde{\chi}_2^0 \rightarrow \mathrm{Z} \tilde{\chi}_1^0
+  )$,  are shown using the color scale where the $\tilde{\chi}_1^\pm/\tilde{\chi}_2^0$
+  mass is on the $x$-axis and the mass difference between the $\tilde{\chi}_1^\pm/\tilde{\chi}_2^0$
+  and the LSP is  on the $y$-axis. For these results, based on the TChiWZ simplified
+  model, the $\tilde{\chi}_1^\pm$ and $\tilde{\chi}_2^0$ masses are set equal. The
+  expected lower mass limits (magenta line) together with their $\pm 1\sigma$ uncertainties
+  (magenta dashed lines) and the observed lower mass limits (black line) are indicated
+  for 100% branching fractions for Wino-like cross-sections (left panel) and for Higgsino-like
+  cross-sections (right panel).
+keywords:
+- name: observables
+  values: [SIG]
+- name: reactions
+  values: [' PP --> N2 C1, N2 < Z N1 >, C1 < W N1 >']
+location: 'Section 8: Results'
+name: Figure 26 TChiWZ Higgsino
+table_doi: 10.17182/hepdata.156121.v1/t6
+---
+additional_resources:
+- {description: Image file, location: TChipmWWSuper_CWRv3.png}
+- {description: Thumbnail image file, location: thumb_TChipmWWSuper_CWRv3.png}
+data_file: figure_27_tchipmww_wino.yaml
+description: Chargino pair production. The left panel shows the observed upper limits
+  at 95% CL on the product of the cross section and the branching fraction squared,
+  $\sigma (\tilde{\chi}_1^+ \tilde{\chi}_1^- ) \, \mathcal{B}^{2} ( \tilde{\chi}_1^\pm  \rightarrow
+  \mathrm{W}^{\pm} \tilde{\chi}_1^0 ) $ are shown using the color scale where the
+  $\tilde{\chi}_1^\pm$ mass is on the $x$-axis and  the mass difference between the
+  $\tilde{\chi}_1^\pm $ and the LSP is on the $y$-axis. The expected lower mass limits
+  (magenta line) together with their $\pm 1\sigma$ uncertainties (magenta dashed lines)
+  and the observed lower mass limits (black line) are indicated for 100% branching
+  fractions for Wino-like cross-sections. The right panel shows the results for chargino
+  pair production with decays as in the TChiSlepSnu model with democratic decay via
+  an intermediate sneutrino or charged slepton ($\widetilde{\ell}^{\pm}_{\mathrm{L}}$)
+  with mass halfway between the chargino and the lightest neutralino. These model
+  predictions also assume Wino-like cross sections.
+keywords:
+- name: observables
+  values: [SIG]
+- name: reactions
+  values: [' PP --> C1 C1,  C1 < W N1 >']
+location: 'Section 8: Results'
+name: Figure 27 TChipmWW Wino
+table_doi: 10.17182/hepdata.156121.v1/t7
+---
+additional_resources:
+- {description: Image file, location: TSlepSnu_CWRv3.png}
+- {description: Thumbnail image file, location: thumb_TSlepSnu_CWRv3.png}
+data_file: figure_27_tchislepsnu_wino.yaml
+description: Chargino pair production. The left panel shows the observed upper limits
+  at 95% CL on the product of the cross section and the branching fraction squared,
+  $\sigma (\tilde{\chi}_1^+ \tilde{\chi}_1^- ) \, \mathcal{B}^{2} ( \tilde{\chi}_1^\pm  \rightarrow
+  \mathrm{W}^{\pm} \tilde{\chi}_1^0 ) $ are shown using the color scale where the
+  $\tilde{\chi}_1^\pm$ mass is on the $x$-axis and the mass difference between the
+  $\tilde{\chi}_1^\pm $ and the LSP is on the $y$-axis. The expected lower mass limits
+  (magenta line) together with their $\pm 1\sigma$ uncertainties (magenta dashed lines)
+  and the observed lower mass limits (black line) are indicated for 100% branching
+  fractions for Wino-like cross-sections. The right panel shows the results for chargino
+  pair production with decays as in the TChiSlepSnu model with democratic decay via
+  an intermediate sneutrino or charged slepton ($\widetilde{\ell}^{\pm}_{\mathrm{L}}$)
+  with mass halfway between the chargino and the lightest neutralino. These model
+  predictions also assume Wino-like cross sections.
+keywords:
+- name: observables
+  values: [SIG]
+- name: reactions
+  values: [' PP --> C1 C1,  C1 < SLEP N1 >, C1 < SNU l >, SLEP < l N1 >, SNU < nu
+      N1 >']
+location: 'Section 8: Results'
+name: Figure 27 TChiSlepSnu Wino
+table_doi: 10.17182/hepdata.156121.v1/t8
+---
+additional_resources:
+- {description: Image file, location: tot_mueL_mueR.png}
+- {description: Thumbnail image file, location: thumb_tot_mueL_mueR.png}
+data_file: figure_29_tslepslep_e_mu_lr.yaml
+description: Slepton pair production. Observed 95% CL upper limits on the product
+  of the cross section and branching fraction squared for direct slepton pair production
+  followed by decay of both sleptons to the corresponding lepton and neutralino (color
+  scale). Slepton $\tilde{l}_{\mathrm{L}/\mathrm{R}}$ indicates the scalar supersymmetric
+  partner of left- and right-handed electrons and muons. The limit is shown as a function
+  of the slepton mass and the mass difference between the slepton and the lightest
+  neutralino. The regions to the left of the lines denote the regions excluded for
+  a branching fraction of 100%. The median expected exclusion regions for 100% branching
+  fraction are delimited by the dashed lines.
+keywords:
+- name: observables
+  values: [SIG]
+- name: reactions
+  values: [' PP --> SLEP SLEP,  SLEP < l N1 >']
+location: 'Section 8: Results'
+name: Figure 29 TSlepSlep e mu LR
+table_doi: 10.17182/hepdata.156121.v1/t9
+---
+additional_resources:
+- {description: Image file, location: tot_mueL_mueR.png}
+- {description: Thumbnail image file, location: thumb_tot_mueL_mueR.png}
+data_file: figure_29_tslepslep_e_mu_l.yaml
+description: Slepton pair production. Observed 95% CL upper limits on the product
+  of the cross section and branching fraction squared for direct slepton pair production
+  followed by decay of both sleptons to the corresponding lepton and neutralino (color
+  scale). Slepton $\tilde{l}_{\mathrm{L}/\mathrm{R}}$ indicates the scalar supersymmetric
+  partner of left- and right-handed electrons and muons. The limit is shown as a function
+  of the slepton mass and the mass difference between the slepton and the lightest
+  neutralino. The regions to the left of the lines denote the regions excluded for
+  a branching fraction of 100%. The median expected exclusion regions for 100% branching
+  fraction are delimited by the dashed lines.
+keywords:
+- name: observables
+  values: [SIG]
+- name: reactions
+  values: [' PP --> SLEP SLEP,  SLEP < l N1 >']
+location: 'Section 8: Results'
+name: Figure 29 TSlepSlep e mu L
+table_doi: 10.17182/hepdata.156121.v1/t10
+---
+additional_resources:
+- {description: Image file, location: tot_mueL_mueR.png}
+- {description: Thumbnail image file, location: thumb_tot_mueL_mueR.png}
+data_file: figure_29_tslepslep_e_mu_r.yaml
+description: Slepton pair production. Observed 95% CL upper limits on the product
+  of the cross section and branching fraction squared for direct slepton pair production
+  followed by decay of both sleptons to the corresponding lepton and neutralino (color
+  scale). Slepton $\tilde{l}_{\mathrm{L}/\mathrm{R}}$ indicates the scalar supersymmetric
+  partner of left- and right-handed electrons and muons.  The limit is shown as a
+  function of the slepton mass and the mass difference between the slepton and the
+  lightest neutralino. The regions to the left of the lines denote the regions excluded
+  for a branching fraction of 100%. The median expected exclusion regions for 100%
+  branching fraction are delimited by the dashed lines.
+keywords:
+- name: observables
+  values: [SIG]
+- name: reactions
+  values: [' PP --> SLEP SLEP,  SLEP < l N1 >']
+location: 'Section 8: Results'
+name: Figure 29 TSlepSlep e mu R
+table_doi: 10.17182/hepdata.156121.v1/t11
+---
+additional_resources:
+- {description: Image file, location: eLR_eL_eR.png}
+- {description: Thumbnail image file, location: thumb_eLR_eL_eR.png}
+data_file: figure_30_tslepslep_e_lr.yaml
+description: Slepton pair production. Observed 95% CL upper limits on the cross section
+  times branching fraction squared for direct selectron pair production (left) and
+  smuon pair production (right) followed by decay of both sleptons to the corresponding
+  lepton and neutralino (color scale). The limits are shown as a function of the slepton
+  mass and the mass difference between the slepton and the lightest neutralino for
+  the three different simplified possibilities of only RR, only LL, and both RR and
+  LL where it is assumed that the R and L masses are identical. The regions to the
+  left of the lines denote the regions excluded for a branching fraction of 100%.
+  Median expected limits for 100% branching fraction are delimited by the dashed lines.
+keywords:
+- name: observables
+  values: [SIG]
+- name: reactions
+  values: [' PP --> SEL SEL,  SEL < e N1 >']
+location: 'Section 8: Results'
+name: Figure 30 TSlepSlep e LR
+table_doi: 10.17182/hepdata.156121.v1/t12
+---
+additional_resources:
+- {description: Image file, location: eLR_eL_eR.png}
+- {description: Thumbnail image file, location: thumb_eLR_eL_eR.png}
+data_file: figure_30_tslepslep_e_l.yaml
+description: Slepton pair production. Observed 95% CL upper limits on the cross section
+  times branching fraction squared for direct selectron pair production (left) and
+  smuon pair production (right) followed by decay of both sleptons to the corresponding
+  lepton and neutralino (color scale). The limits are shown as a function of the slepton
+  mass and the mass difference between the slepton and the lightest neutralino for
+  the three different simplified possibilities of only RR, only LL, and both RR and
+  LL where it is assumed that the R and L masses are identical. The regions to the
+  left of the lines denote the regions excluded for a branching fraction of 100%.
+  Median expected limits for 100% branching fraction are delimited by the dashed lines.
+keywords:
+- name: observables
+  values: [SIG]
+- name: reactions
+  values: [' PP --> SEL SEL,  SEL < e N1 >']
+location: 'Section 8: Results'
+name: Figure 30 TSlepSlep e L
+table_doi: 10.17182/hepdata.156121.v1/t13
+---
+additional_resources:
+- {description: Image file, location: eLR_eL_eR.png}
+- {description: Thumbnail image file, location: thumb_eLR_eL_eR.png}
+data_file: figure_30_tslepslep_e_r.yaml
+description: Slepton pair production. Observed 95% CL upper limits on the cross section
+  times branching fraction squared for direct selectron pair production (left) and
+  smuon pair production (right) followed by decay of both sleptons to the corresponding
+  lepton and neutralino (color scale). The limits are shown as a function of the slepton
+  mass and the mass difference between the slepton and the lightest neutralino for
+  the three different simplified possibilities of only RR, only LL, and both RR and
+  LL where it is assumed that the R and L masses are identical. The regions to the
+  left of the lines denote the regions excluded for a branching fraction of 100%.
+  Median expected limits for 100% branching fraction are delimited by the dashed lines.
+keywords:
+- name: observables
+  values: [SIG]
+- name: reactions
+  values: [' PP --> SEL SEL,  SEL < e N1 >']
+location: 'Section 8: Results'
+name: Figure 30 TSlepSlep e R
+table_doi: 10.17182/hepdata.156121.v1/t14
+---
+additional_resources:
+- {description: Image file, location: muLR_muL_muR.png}
+- {description: Thumbnail image file, location: thumb_muLR_muL_muR.png}
+data_file: figure_30_tslepslep_mu_lr.yaml
+description: Slepton pair production. Observed 95% CL upper limits on the cross section
+  times branching fraction squared for direct selectron pair production (left) and
+  smuon pair production (right) followed by decay of both sleptons to the corresponding
+  lepton and neutralino (color scale). The limits are shown as a function of the slepton
+  mass and the mass difference between the slepton and the lightest neutralino for
+  the three different simplified possibilities of only RR, only LL, and both RR and
+  LL where it is assumed that the R and L masses are identical. The regions to the
+  left of the lines denote the regions excluded for a branching fraction of 100%.
+  Median expected limits for 100% branching fraction are delimited by the dashed lines.
+keywords:
+- name: observables
+  values: [SIG]
+- name: reactions
+  values: [' PP --> SMU SMU,  SMU < mu N1 >']
+location: 'Section 8: Results'
+name: Figure 30 TSlepSlep mu LR
+table_doi: 10.17182/hepdata.156121.v1/t15
+---
+additional_resources:
+- {description: Image file, location: muLR_muL_muR.png}
+- {description: Thumbnail image file, location: thumb_muLR_muL_muR.png}
+data_file: figure_30_tslepslep_mu_l.yaml
+description: Slepton pair production. Observed 95% CL upper limits on the cross section
+  times branching fraction squared for direct selectron pair production (left) and
+  smuon pair production (right) followed by decay of both sleptons to the corresponding
+  lepton and neutralino (color scale). The limits are shown as a function of the slepton
+  mass and the mass difference between the slepton and the lightest neutralino for
+  the three different simplified possibilities of only RR, only LL, and both RR and
+  LL where it is assumed that the R and L masses are identical. The regions to the
+  left of the lines denote the regions excluded for a branching fraction of 100%.
+  Median expected limits for 100% branching fraction are delimited by the dashed lines.
+keywords:
+- name: observables
+  values: [SIG]
+- name: reactions
+  values: [' PP --> SMU SMU,  SMU < mu N1 >']
+location: 'Section 8: Results'
+name: Figure 30 TSlepSlep mu L
+table_doi: 10.17182/hepdata.156121.v1/t16
+---
+additional_resources:
+- {description: Image file, location: muLR_muL_muR.png}
+- {description: Thumbnail image file, location: thumb_muLR_muL_muR.png}
+data_file: figure_30_tslepslep_mu_r.yaml
+description: Slepton pair production. Observed 95% CL upper limits on the cross section
+  times branching fraction squared for direct selectron pair production (left) and
+  smuon pair production (right) followed by decay of both sleptons to the corresponding
+  lepton and neutralino (color scale). The limits are shown as a function of the slepton
+  mass and the mass difference between the slepton and the lightest neutralino for
+  the three different simplified possibilities of only RR, only LL, and both RR and
+  LL where it is assumed that the R and L masses are identical. The regions to the
+  left of the lines denote the regions excluded for a branching fraction of 100%.
+  Median expected limits for 100% branching fraction are delimited by the dashed lines.
+keywords:
+- name: observables
+  values: [SIG]
+- name: reactions
+  values: [' PP --> SMU SMU,  SMU < mu N1 >']
+location: 'Section 8: Results'
+name: Figure 30 TSlepSlep mu R
+table_doi: 10.17182/hepdata.156121.v1/t17

@@ -1,0 +1,21 @@
+dependent_variables:
+- header: {name: (E/A)*D3(SIG)/D3(P), units: MB/GEV**2}
+  qualifiers:
+  - {name: A, value: '2.0'}
+  - {name: P, units: GeV, value: '8.4'}
+  - {name: RE, value: DEUT DEUT --> PI- X}
+  - {name: 'THETA(P=3,RF=LAB)', units: deg, value: '180.0'}
+  values:
+  - errors:
+    - {symerror: 0.45}
+    - {label: sys, symerror: 10.0%}
+    value: 2.225
+  - errors:
+    - {symerror: 0.03}
+    - {label: sys, symerror: 10.0%}
+    value: 0.1025
+independent_variables:
+- header: {name: 'EKIN(P=3,RF=LAB)', units: GEV}
+  values:
+  - {value: 0.12}
+  - {value: 0.26}

@@ -1,0 +1,64 @@
+observable_type: charge_dependent_correlations
+description: >
+  Charge-dependent azimuthal correlations, primarily used to search for the
+  Chiral Magnetic Effect (CME).  The standard observable is the gamma
+  correlator:
+    γ_{αβ} = ⟨cos(φ_α + φ_β − 2Ψ_RP)⟩
+  and related delta and R correlators.
+
+composes:
+  - _common#collision_system
+  - centrality#centrality
+  - _common#kinematic_range
+
+required_fields:
+  observable:
+    type: string
+    required: true
+    description: Short identifier.
+    example: "gamma_os"
+  value_type:
+    type: string
+    required: true
+    description: >
+      One of: 'gamma_os' (opposite sign), 'gamma_ss' (same sign),
+      'delta_os', 'delta_ss', 'R_os', 'R_ss', 'gamma_diff',
+      'kappa', 'CME_fraction'
+    example: "gamma_os"
+  charge_combo:
+    type: string
+    required: true
+    description: "Charge combination. One of: 'opposite_sign', 'same_sign', 'all'"
+    example: "opposite_sign"
+
+optional_fields:
+  method:
+    type: string
+    required: false
+    description: >
+      Analysis approach. One of: 'event_plane', 'cumulant',
+      'three_point_correlator'
+    example: "event_plane"
+  pT_range:
+    type: object
+    required: false
+    description: "pT range of the particles used."
+    fields:
+      min: {type: float, required: true, example: 0.2}
+      max: {type: float, required: true, example: 2.0}
+  eta_range:
+    type: object
+    required: false
+    description: "Pseudorapidity acceptance."
+    fields:
+      min: {type: float, required: true, example: -2.5}
+      max: {type: float, required: true, example: 2.5}
+  participant_plane:
+    type: boolean
+    required: false
+    description: "Whether participant plane (vs spectator plane) was used."
+    example: true
+
+validation:
+  rules:
+    - "gamma_correlator_in_expected_range"

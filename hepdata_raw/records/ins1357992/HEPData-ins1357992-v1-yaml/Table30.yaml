@@ -1,0 +1,43 @@
+dependent_variables:
+- header: {name: '$dN/dM_{ee}$'}
+  qualifiers:
+  - {name: AU AU --> E-  E+ X, value: ''}
+  - {name: M_ee, units: GeV c^-2, value: 1.8-2.8}
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 9.81e-05}
+    - {label: sys, symerror: 6.77e-05}
+    value: 0.000305
+  - errors:
+    - {label: stat, symerror: 2.92e-05}
+    - {label: sys, symerror: 3.62e-05}
+    value: 0.000223
+  - errors:
+    - {label: stat, symerror: 3.96e-06}
+    - {label: sys, symerror: 7.89e-06}
+    value: 3.7e-05
+- header: {name: cock.}
+  qualifiers:
+  - {name: AU AU --> E-  E+ X, value: ''}
+  - {name: M_ee, units: GeV c^-2, value: 1.8-2.8}
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  values:
+  - {value: 0.000443}
+  - {value: 0.000181}
+  - {value: 2.71e-05}
+- header: {name: cock_un(100%)}
+  qualifiers:
+  - {name: AU AU --> E-  E+ X, value: ''}
+  - {name: M_ee, units: GeV c^-2, value: 1.8-2.8}
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  values:
+  - {value: 0.182}
+  - {value: 0.182}
+  - {value: 0.182}
+independent_variables:
+- header: {name: Npart}
+  values:
+  - {value: 326.0}
+  - {value: 173.0}
+  - {value: 41.5}

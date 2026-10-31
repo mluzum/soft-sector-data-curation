@@ -1,0 +1,37 @@
+dependent_variables:
+- header: {name: '$\frac{1}{N_{\mathrm{ev}}} \frac{\mathrm{d}^{2}N}{\mathrm{d}p_{\mathrm{T}}\mathrm{d}y}$',
+    units: $c$/GeV}
+  values:
+  - errors:
+    - {label: Statistical uncertainty, symerror: 5.0161e-07}
+    - {label: Systematic uncertainty, symerror: 2.7201e-07}
+    - {label: "Systematic uncertainty $\\it{p}_{\rm{T}}$-correlated", symerror: 2.6557e-07}
+    value: 4.2638e-06
+  - errors:
+    - {label: Statistical uncertainty, symerror: 4.9397e-07}
+    - {label: Systematic uncertainty, symerror: 2.5213e-07}
+    - {label: "Systematic uncertainty $\\it{p}_{\rm{T}}$-correlated", symerror: 2.4748e-07}
+    value: 3.9218e-06
+  - errors:
+    - {label: Statistical uncertainty, symerror: 4.5963e-07}
+    - {label: Systematic uncertainty, symerror: 2.0858e-07}
+    - {label: "Systematic uncertainty $\\it{p}_{\rm{T}}$-correlated", symerror: 2.0312e-07}
+    value: 3.082e-06
+  - errors:
+    - {label: Statistical uncertainty, symerror: 3.9145e-07}
+    - {label: Systematic uncertainty, symerror: 1.5476e-07}
+    - {label: "Systematic uncertainty $\\it{p}_{\rm{T}}$-correlated", symerror: 1.5021e-07}
+    value: 2.2362e-06
+  - errors:
+    - {label: Statistical uncertainty, symerror: 3.0861e-07}
+    - {label: Systematic uncertainty, symerror: 8.6468e-08}
+    - {label: "Systematic uncertainty $\\it{p}_{\rm{T}}$-correlated", symerror: 8.5151e-08}
+    value: 1.3368e-06
+independent_variables:
+- header: {name: '$p_{\mathrm{T}}$', units: GeV/$c$}
+  values:
+  - {high: 2.4, low: 2.0}
+  - {high: 2.8, low: 2.4}
+  - {high: 3.2, low: 2.8}
+  - {high: 3.6, low: 3.2}
+  - {high: 4.0, low: 3.6}

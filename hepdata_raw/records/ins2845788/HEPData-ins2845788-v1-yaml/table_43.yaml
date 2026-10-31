@@ -1,0 +1,62 @@
+dependent_variables:
+- header: {name: '$\frac{1}{\sigma} \frac{d\sigma}{d m_\textrm{jet}}$'}
+  qualifiers:
+  - {name: RE, value: Pb Pb --> jet+X}
+  - {name: SQRT(S), units: TeV, value: 5.02}
+  - {name: ETARAP, value: '|0.9-R|'}
+  - {name: jet radius, value: 0.2}
+  - {name: jet method, value: 'Anti-$k_{T}$'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.000454}
+    - {label: 'sys,unfolding', symerror: 0.00137}
+    - {label: 'sys,generator', symerror: 0.00272}
+    - {label: 'sys,trkeff', symerror: -0.00289}
+    - {label: 'sys,random_mass', symerror: 0.000439}
+    - {label: 'sys,subtraction1', symerror: 0.00219}
+    - {label: 'sys,thermal_closure', symerror: 0.00014}
+    value: 0.0257
+  - errors:
+    - {label: stat, symerror: 0.00167}
+    - {label: 'sys,unfolding', symerror: 0.00474}
+    - {label: 'sys,generator', symerror: 0.00892}
+    - {label: 'sys,trkeff', symerror: -0.00748}
+    - {label: 'sys,random_mass', symerror: 0.000149}
+    - {label: 'sys,subtraction1', symerror: 0.00882}
+    - {label: 'sys,thermal_closure', symerror: 0.000288}
+    value: 0.158
+  - errors:
+    - {label: stat, symerror: 0.00136}
+    - {label: 'sys,unfolding', symerror: 0.00154}
+    - {label: 'sys,generator', symerror: 0.000967}
+    - {label: 'sys,trkeff', symerror: 0.00233}
+    - {label: 'sys,random_mass', symerror: 0.0006}
+    - {label: 'sys,subtraction1', symerror: 0.00421}
+    - {label: 'sys,thermal_closure', symerror: 0.000946}
+    value: 0.205
+  - errors:
+    - {label: stat, symerror: 0.000877}
+    - {label: 'sys,unfolding', symerror: 0.00358}
+    - {label: 'sys,generator', symerror: 0.00841}
+    - {label: 'sys,trkeff', symerror: 0.00518}
+    - {label: 'sys,random_mass', symerror: 0.00017}
+    - {label: 'sys,subtraction1', symerror: 0.00609}
+    - {label: 'sys,thermal_closure', symerror: 0.000733}
+    value: 0.0879
+  - errors:
+    - {label: stat, symerror: 0.000281}
+    - {label: 'sys,unfolding', symerror: 0.000671}
+    - {label: 'sys,generator', symerror: 0.000431}
+    - {label: 'sys,trkeff', symerror: 0.000869}
+    - {label: 'sys,random_mass', symerror: 9.67e-05}
+    - {label: 'sys,subtraction1', symerror: 0.000543}
+    - {label: 'sys,thermal_closure', symerror: 0.000119}
+    value: 0.0117
+independent_variables:
+- header: {name: '$m_\textrm{jet}$'}
+  values:
+  - {high: 2.0, low: 0.0}
+  - {high: 4.0, low: 2.0}
+  - {high: 6.0, low: 4.0}
+  - {high: 8.0, low: 6.0}
+  - {high: 12.0, low: 8.0}

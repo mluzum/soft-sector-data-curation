@@ -1,0 +1,40 @@
+dependent_variables:
+- header: {name: pt_v3_max_PROTONS}
+  qualifiers:
+  - {name: RE, value: Pb Pb --> PROTONS}
+  - {name: SQRT(S), units: GEV, value: 5020}
+  - {name: ABS(Y), value: < 0.5 (LAB)}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0398459}
+    - {label: sys, symerror: 0.113022}
+    value: 1.43453
+  - errors:
+    - {label: stat, symerror: 0.0346619}
+    - {label: sys, symerror: 0.119236}
+    value: 1.37146
+  - errors:
+    - {label: stat, symerror: 0.0284808}
+    - {label: sys, symerror: 0.137628}
+    value: 1.36953
+  - errors:
+    - {label: stat, symerror: 0.0416762}
+    - {label: sys, symerror: 0.126154}
+    value: 1.38084
+  - errors:
+    - {label: stat, symerror: 0.0689162}
+    - {label: sys, symerror: 0.122282}
+    value: 1.30051
+  - errors:
+    - {label: stat, symerror: 0.212207}
+    - {label: sys, symerror: 0.377599}
+    value: 1.60046
+independent_variables:
+- header: {name: Centrality}
+  values:
+  - {high: 5, low: 0}
+  - {high: 10, low: 5}
+  - {high: 20, low: 10}
+  - {high: 30, low: 20}
+  - {high: 40, low: 30}
+  - {high: 50, low: 40}

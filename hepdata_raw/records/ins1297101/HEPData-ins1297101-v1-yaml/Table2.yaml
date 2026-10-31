@@ -1,0 +1,24 @@
+dependent_variables:
+- header: {name: RAA}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 0.0-90.0}
+  - {name: PT, units: GEV, value: '> 0.0'}
+  - {name: RE, value: PB PB --> UPSI(1S) X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  - {name: mu+mu- decay mode, value: ''}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.05}
+    - {label: sys, symerror: 0.04}
+    - {label: 'sys,global systematic uncertainty', symerror: 6.0%}
+    value: 0.3
+  - errors:
+    - {label: stat, symerror: 0.07}
+    - {label: sys, symerror: 0.05}
+    - {label: 'sys,global systematic uncertainty', symerror: 6.0%}
+    value: 0.29
+independent_variables:
+- header: {name: ''}
+  values:
+  - {high: 3.2, low: 2.5}
+  - {high: 4.0, low: 3.2}

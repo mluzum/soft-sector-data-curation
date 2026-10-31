@@ -1,0 +1,54 @@
+centrality:
+  classes:
+  - 0.725-1.075%
+  - 1.075-1.4%
+  - 1.4-1.725%
+  - 1.725-2.1%
+  - 2.1-2.525%
+  - 2.525-3.025%
+  - 3.025-3.675%
+  - 2.405-3.535%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: AuAu --> Xi + X
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: Fig2.yaml
+hepdata_table_label: $v_2(p_T)$ of $\Xi^{-} + \Xi^{+}$ and $\Omega^{-} + \Omega^{+}$
+  from 200 GeV Au+Au minimum bias collisions.
+inspire_id: '681161'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  p_\textrm{t}$ [gev/c]: $\Omega+\bar{\Omega}$
+value_type: v_{2}
+version: 1

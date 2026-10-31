@@ -1,0 +1,21 @@
+dependent_variables:
+- header: {name: RAA}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 0.0-20.0}
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  values:
+  - errors:
+    - asymerror: {minus: -0.76, plus: 0.53}
+      label: stat
+    - {label: sys, symerror: 0.18}
+    value: 1.63
+  - errors:
+    - asymerror: {minus: -0.62, plus: 0.42}
+      label: stat
+    - {label: sys, symerror: 0.14}
+    value: 1.27
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {high: 6.0, low: 5.0}
+  - {high: 8.0, low: 6.0}

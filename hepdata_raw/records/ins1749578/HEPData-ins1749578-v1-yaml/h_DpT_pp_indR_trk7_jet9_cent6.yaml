@@ -1,0 +1,79 @@
+dependent_variables:
+- header: {name: D(pT r) pp}
+  qualifiers:
+  - {name: RE, value: Charged particle distribution in pp}
+  - {name: pT(jet), units: GeV, value: 199.5 - 251.2}
+  - {name: pT(trk), units: GeV, value: 10.0 - 25.1}
+  - {name: Centrality, value: pp}
+  - {name: abs. rapidity(jet), value: 0 - 1.7}
+  - {name: SQRT(S), units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - asymerror: {minus: -0.309674, plus: 0.307537}
+      label: sys
+    - {label: stat, symerror: 0.0389485}
+    value: 10.3917
+  - errors:
+    - asymerror: {minus: -0.0733968, plus: 0.0731633}
+      label: sys
+    - {label: stat, symerror: 0.00827154}
+    value: 1.71125
+  - errors:
+    - asymerror: {minus: -0.0224662, plus: 0.0225248}
+      label: sys
+    - {label: stat, symerror: 0.00327724}
+    value: 0.402034
+  - errors:
+    - asymerror: {minus: -0.00621276, plus: 0.00626971}
+      label: sys
+    - {label: stat, symerror: 0.00163186}
+    value: 0.136072
+  - errors:
+    - asymerror: {minus: -0.00220716, plus: 0.00213862}
+      label: sys
+    - {label: stat, symerror: 0.000908815}
+    value: 0.0544665
+  - errors:
+    - asymerror: {minus: -0.00103114, plus: 0.000984071}
+      label: sys
+    - {label: stat, symerror: 0.000535551}
+    value: 0.023783
+  - errors:
+    - asymerror: {minus: -0.00027198, plus: 0.000279707}
+      label: sys
+    - {label: stat, symerror: 0.000140256}
+    value: 0.00552368
+  - errors:
+    - asymerror: {minus: -0.000209747, plus: 0.000208669}
+      label: sys
+    - {label: stat, symerror: 0.000110158}
+    value: 0.00321723
+  - errors:
+    - asymerror: {minus: -0.000141806, plus: 0.000140637}
+      label: sys
+    - {label: stat, symerror: 8.51553e-05}
+    value: 0.00230539
+  - errors:
+    - asymerror: {minus: -7.97795e-05, plus: 7.46386e-05}
+      label: sys
+    - {label: stat, symerror: 6.55764e-05}
+    value: 0.00162907
+  - errors:
+    - asymerror: {minus: -5.05971e-05, plus: 4.92228e-05}
+      label: sys
+    - {label: stat, symerror: 5.37527e-05}
+    value: 0.00123437
+independent_variables:
+- header: {name: r}
+  values:
+  - {high: 0.05, low: 0}
+  - {high: 0.1, low: 0.05}
+  - {high: 0.15, low: 0.1}
+  - {high: 0.2, low: 0.15}
+  - {high: 0.25, low: 0.2}
+  - {high: 0.3, low: 0.25}
+  - {high: 0.4, low: 0.3}
+  - {high: 0.5, low: 0.4}
+  - {high: 0.6, low: 0.5}
+  - {high: 0.7, low: 0.6}
+  - {high: 0.8, low: 0.7}

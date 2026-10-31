@@ -1,0 +1,58 @@
+observable_type: flow_vn
+inspire_id: '1914564'
+version: 1
+hepdata_file: fig4_right_top_isobarpaper_star_grey_open_v2_zdc_zrzr.yaml
+hepdata_table_label: ''
+collision_system:
+  energy_gev: 200.0
+  reaction: Zr+Zr
+centrality:
+  classes:
+  - 70-80%
+  - 60-70%
+  - 50-60%
+  - 40-50%
+  - 30-40%
+  - 20-30%
+  - 10-20%
+  - 5-10%
+  - 0-5%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  pT:
+    min: 0.2
+    max: 100.0
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+    bins:
+    - -1.0
+    - 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+    bins:
+    - 0.2
+    - 2.0
+harmonic: 2
+method: event_plane
+value_type: v2{ZDC}
+dimensionality: integrated
+notes:
+  value: 'TPC |eta|<1, 0.2<pT<2 GeV/c: the paper labels the isobar flow figures (Figs. 5, 6, 10, 23) ''0.2< pT < 2 GeV/c''.'
+flow_reference:
+  detector: ZDC
+  same_sample_as_poi: false
+  eta:
+  - min: 6.3
+    max: 99.0
+  - min: -99.0
+    max: -6.3

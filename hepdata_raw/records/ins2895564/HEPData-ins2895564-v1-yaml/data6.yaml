@@ -1,0 +1,80 @@
+dependent_variables:
+- header: {name: '$d^{2}\mathrm{\sigma_{\gamma}}^{iso} / d{p}_{\mathrm{T}}^{\gamma}dy$',
+    units: 'nb/GeV/$\mathrm{c}$'}
+  qualifiers:
+  - {name: REACTION, value: P P --> ISO GAMMA X}
+  - {name: ABS(YRAP), value: <0.7}
+  - {name: SQRT(S), units: GEV, value: 8000.0}
+  - {name: Isolation cut, value: 'R = 0.4, $p_{\mathrm{T}}^{iso}$ < 2 GeV/$\mathrm{c}$,
+      limit on final-state radiation in cone'}
+  - {name: Program, value: JETPHOX 1.3.1}
+  - {name: PDF1, value: NNPDF4.0}
+  - {name: PDF2, value: NNPDF4.0}
+  - {name: FF, value: BFG II}
+  values:
+  - errors:
+    - asymerror: {minus: -0.399695, plus: 0.399695}
+      label: PDF
+    - asymerror: {minus: -0.00254823, plus: 0.0968694}
+      label: scale
+    value: 19.4123
+  - errors:
+    - asymerror: {minus: -0.268413, plus: 0.268413}
+      label: PDF
+    - asymerror: {minus: -0.176831, plus: 0.0714055}
+      label: scale
+    value: 11.1577
+  - errors:
+    - asymerror: {minus: -0.118043, plus: 0.118043}
+      label: PDF
+    - asymerror: {minus: -0.296653, plus: 0.17214}
+      label: scale
+    value: 6.87205
+  - errors:
+    - asymerror: {minus: -0.0836975, plus: 0.0836975}
+      label: PDF
+    - asymerror: {minus: -0.133462, plus: 0.155731}
+      label: scale
+    value: 4.47039
+  - errors:
+    - asymerror: {minus: -0.0752365, plus: 0.0752365}
+      label: PDF
+    - asymerror: {minus: -0.121333, plus: 0.0813325}
+      label: scale
+    value: 2.32546
+  - errors:
+    - asymerror: {minus: -0.0258803, plus: 0.0258803}
+      label: PDF
+    - asymerror: {minus: -0.0602606, plus: 0.0552634}
+      label: scale
+    value: 1.00932
+  - errors:
+    - asymerror: {minus: -0.00892571, plus: 0.00892571}
+      label: PDF
+    - asymerror: {minus: -0.0306922, plus: 0.0222262}
+      label: scale
+    value: 0.388194
+  - errors:
+    - asymerror: {minus: -0.00334726, plus: 0.00334726}
+      label: PDF
+    - asymerror: {minus: -0.00808024, plus: 0.0061503}
+      label: scale
+    value: 0.0911276
+  - errors:
+    - asymerror: {minus: -0.000500335, plus: 0.000500335}
+      label: PDF
+    - asymerror: {minus: -0.00186955, plus: 0.00150186}
+      label: scale
+    value: 0.0191549
+independent_variables:
+- header: {name: PT, units: GEV/c}
+  values:
+  - {high: 14, low: 12}
+  - {high: 16, low: 14}
+  - {high: 18, low: 16}
+  - {high: 20, low: 18}
+  - {high: 25, low: 20}
+  - {high: 30, low: 25}
+  - {high: 40, low: 30}
+  - {high: 60, low: 40}
+  - {high: 80, low: 60}

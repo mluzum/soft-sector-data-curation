@@ -1,0 +1,34 @@
+dependent_variables:
+- header: {name: (1/(2PI*PT))*D2(N)/DPT/DYRAP}
+  qualifiers:
+  - {name: RE, value: DEUT AU --> J/PSI < E+ E- > X}
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  - {name: YRAP, value: -0.35-0.35}
+  values:
+  - errors:
+    - {label: stat, symerror: 1.6e-06}
+    - {label: sys, symerror: 1.6e-06}
+    - {label: 'sys,Additional global scale uncertainty', symerror: 3.0%}
+    value: 1.144e-05
+  - errors:
+    - {label: stat, symerror: 1.29e-06}
+    - {label: sys, symerror: 1.12e-06}
+    - {label: 'sys,Additional global scale uncertainty', symerror: 3.0%}
+    value: 7.99e-06
+  - errors:
+    - {label: stat, symerror: 1.01e-06}
+    - {label: sys, symerror: 9.5e-07}
+    - {label: 'sys,Additional global scale uncertainty', symerror: 3.0%}
+    value: 6.8e-06
+  - errors:
+    - {label: stat, symerror: 5.0e-07}
+    - {label: sys, symerror: 4.2e-07}
+    - {label: 'sys,Additional global scale uncertainty', symerror: 3.0%}
+    value: 3.03e-06
+independent_variables:
+- header: {name: CENTRALITY, units: PCT}
+  values:
+  - {high: 20.0, low: 0.0}
+  - {high: 40.0, low: 20.0}
+  - {high: 60.0, low: 40.0}
+  - {high: 88.0, low: 60.0}

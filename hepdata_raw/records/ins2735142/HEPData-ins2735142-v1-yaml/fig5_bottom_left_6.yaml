@@ -1,0 +1,16 @@
+dependent_variables:
+- header: {name: '(1/N_{jets})DN/D$p_{T, assoc}$', units: '$(GeV/c)^{-1}$'}
+  qualifiers:
+  - {name: CENTRALITY, units: PCT, value: 20-50}
+  - {name: '$p_{T, jet}$', units: GeV/c, value: 20-40}
+  - {name: $D\phi$, value: $-\pi/3-\pi/3$}
+  values:
+  - errors:
+    - {label: scale, symerror: 0.015}
+    - {label: stat, symerror: 0.009}
+    - {label: sys, symerror: 0.009}
+    value: 0.276
+independent_variables:
+- header: {name: 'p_{T, assoc}', units: GeV/c}
+  values:
+  - {high: 10.0, low: 0.0}

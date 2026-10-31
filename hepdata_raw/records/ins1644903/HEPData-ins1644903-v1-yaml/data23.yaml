@@ -1,0 +1,23 @@
+dependent_variables:
+- header: {name: '$ R_{AA} $'}
+  qualifiers:
+  - {name: ABS(YRAP), value: 1.6-2.4}
+  - {name: Centrality, value: 0-100 %}
+  - {name: RE, value: PB PB --> PSI(2S) < MU+ MU- > X}
+  - {name: RE, value: P P --> PSI(2S) < MU+ MU- > X}
+  - {name: GLOBAL UNCERT., value: +4.4 -4.8 %}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.079}
+    - {label: sys, symerror: 0.038}
+    value: 0.135
+  - errors:
+    - {label: stat, symerror: 0.098}
+    - {label: sys, symerror: 0.042}
+    value: 0.247
+independent_variables:
+- header: {name: PT, units: GeV}
+  values:
+  - {high: 12.0, low: 6.5}
+  - {high: 30.0, low: 12.0}

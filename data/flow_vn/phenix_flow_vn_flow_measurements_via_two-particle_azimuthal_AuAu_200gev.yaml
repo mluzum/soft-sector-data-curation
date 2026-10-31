@@ -1,0 +1,371 @@
+centrality:
+  classes:
+  - 0-5%
+  estimator:
+    detector: BBC
+    name: BBC
+    observable: amplitude
+  eta:
+  - max: -3.0
+    min: -3.9
+  - max: 3.9
+    min: 3.0
+collision_system:
+  energy_gev: 200.0
+  reaction: Au Au --> CHARGED X
+cumulant_order: 2
+dimensionality: integrated
+harmonic: 2
+hepdata_file: ppg004fig2a.yaml
+hepdata_table_label: $v_2$ vs. centrality for several $p_T$ selections. [F] and [A]
+  indicate results obtained with the fixed-$p_T$ and assorted-$p_T$ methods respectively.
+  Systematic errors are estimated to be $\sim 5$%; they are dominated by the normalization
+  of the correction function for real tracks. For the centrality range 0-5%, the data
+  points are statistically uncertain and the points are omitted.
+inspire_id: '585347'
+kinematic_range:
+  eta:
+    max: 0.35
+    min: -0.35
+  pT:
+    max: 20
+    min: 0.2
+method: cumulant
+notes:
+  value: 'method was ''event_plane'' but this paper measures v2 from TWO-PARTICLE
+    azimuthal correlations, not from an event plane. arXiv:nucl-ex/0204005: ''In the
+    first hadron pairs were formed by selecting both particles from a common pT range
+    (fixed-pT method).  In the second hadron pairs were formed by selecting one member
+    from a fixed pT range and the other from outside this range (assorted-pT method).''  The
+    [F]/[A] in value_type are those two pair constructions; v2 is the Fourier amplitude
+    of the resulting 2PC, i.e. the two-particle cumulant. Reclassified from event_plane
+    to cumulant order 2.'
+observable_type: flow_vn
+particle_id:
+  species: charged
+value_type: '[F] 1.0 < $p_T$ < 2.5 (GeV/$c$)'
+version: 1
+---
+centrality:
+  classes:
+  - 0-5%
+  estimator:
+    detector: BBC
+    name: BBC
+    observable: amplitude
+  eta:
+  - max: -3.0
+    min: -3.9
+  - max: 3.9
+    min: 3.0
+collision_system:
+  energy_gev: 200.0
+  reaction: Au Au --> CHARGED X
+cumulant_order: 2
+dimensionality: integrated
+harmonic: 2
+hepdata_file: ppg004fig2b.yaml
+hepdata_table_label: $v_2$ vs. centrality for several $p_T$ selections. [F] and [A]
+  indicate results obtained with the fixed-$p_T$ and assorted-$p_T$ methods respectively.
+  Systematic errors are estimated to be $\sim 5$%; they are dominated by the normalization
+  of the correction function for real tracks. For the centrality range 0-5%, the data
+  points are statistically uncertain and the points are omitted.
+inspire_id: '585347'
+kinematic_range:
+  eta:
+    max: 0.35
+    min: -0.35
+  pT:
+    max: 20
+    min: 0.2
+method: cumulant
+notes:
+  value: 'method was ''event_plane'' but this paper measures v2 from TWO-PARTICLE
+    azimuthal correlations, not from an event plane. arXiv:nucl-ex/0204005: ''In the
+    first hadron pairs were formed by selecting both particles from a common pT range
+    (fixed-pT method).  In the second hadron pairs were formed by selecting one member
+    from a fixed pT range and the other from outside this range (assorted-pT method).''  The
+    [F]/[A] in value_type are those two pair constructions; v2 is the Fourier amplitude
+    of the resulting 2PC, i.e. the two-particle cumulant. Reclassified from event_plane
+    to cumulant order 2.'
+observable_type: flow_vn
+particle_id:
+  species: charged
+value_type: '[A] 1.0 < $p_T$ < 2.5 (GeV/$c$)'
+version: 1
+---
+centrality:
+  classes: []
+  estimator:
+    detector: BBC
+    name: BBC
+    observable: amplitude
+  eta:
+  - max: -3.0
+    min: -3.9
+  - max: 3.9
+    min: 3.0
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 200.0
+  reaction: Au Au --> CHARGED X
+cumulant_order: 2
+dimensionality: differential_pT
+harmonic: 2
+hepdata_file: ppg004fig3a.yaml
+hepdata_table_label: $v_2$ vs Fixed $p_T$ for several centrality selections. [F] and
+  [A] follow the notation Fig. 2. Systematic errors are estimated to be $\sim 5$%.
+inspire_id: '585347'
+kinematic_range:
+  eta:
+    max: 0.35
+    min: -0.35
+  pT:
+    bins:
+    - 0.26099999999999995
+    - 0.433
+    - 0.6745
+    - 1.015
+    - 1.325
+    - 1.645
+    - 2.035
+    max: 2.035
+    min: 0.26099999999999995
+method: cumulant
+notes:
+  value: 'method was ''event_plane'' but this paper measures v2 from TWO-PARTICLE
+    azimuthal correlations, not from an event plane. arXiv:nucl-ex/0204005: ''In the
+    first hadron pairs were formed by selecting both particles from a common pT range
+    (fixed-pT method).  In the second hadron pairs were formed by selecting one member
+    from a fixed pT range and the other from outside this range (assorted-pT method).''  The
+    [F]/[A] in value_type are those two pair constructions; v2 is the Fourier amplitude
+    of the resulting 2PC, i.e. the two-particle cumulant. Reclassified from event_plane
+    to cumulant order 2.'
+observable_type: flow_vn
+particle_id:
+  species: charged
+source_column: '[F] 00 < Centrality (%) < 15'
+value_type: '[F] 00 < Centrality < 15'
+version: 1
+---
+centrality:
+  classes: []
+  estimator:
+    detector: BBC
+    name: BBC
+    observable: amplitude
+  eta:
+  - max: -3.0
+    min: -3.9
+  - max: 3.9
+    min: 3.0
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 200.0
+  reaction: Au Au --> CHARGED X
+cumulant_order: 2
+dimensionality: differential_pT
+harmonic: 2
+hepdata_file: ppg004fig3b.yaml
+hepdata_table_label: $v_2$ vs Assorted $p_T$ for several centrality selections. [F]
+  and [A] follow the notation Fig. 2. Systematic errors are estimated to be $\sim
+  5$%.
+inspire_id: '585347'
+kinematic_range:
+  eta:
+    max: 0.35
+    min: -0.35
+  pT:
+    bins:
+    - 0.336
+    - 0.458
+    - 0.624
+    - 0.889
+    - 1.2494999999999998
+    - 1.7445
+    - 2.3335000000000004
+    max: 2.3335000000000004
+    min: 0.336
+method: cumulant
+notes:
+  value: 'method was ''event_plane'' but this paper measures v2 from TWO-PARTICLE
+    azimuthal correlations, not from an event plane. arXiv:nucl-ex/0204005: ''In the
+    first hadron pairs were formed by selecting both particles from a common pT range
+    (fixed-pT method).  In the second hadron pairs were formed by selecting one member
+    from a fixed pT range and the other from outside this range (assorted-pT method).''  The
+    [F]/[A] in value_type are those two pair constructions; v2 is the Fourier amplitude
+    of the resulting 2PC, i.e. the two-particle cumulant. Reclassified from event_plane
+    to cumulant order 2.'
+observable_type: flow_vn
+particle_id:
+  species: charged
+source_column: '[F] 30 < Centrality (%) < 60'
+value_type: '[F] 30 < Centrality < 60'
+version: 1
+---
+centrality:
+  classes: []
+  estimator:
+    detector: BBC
+    name: BBC
+    observable: amplitude
+  eta:
+  - max: -3.0
+    min: -3.9
+  - max: 3.9
+    min: 3.0
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 200.0
+  reaction: Au Au --> CHARGED X
+cumulant_order: 2
+dimensionality: differential_pT
+harmonic: 2
+hepdata_file: ppg004fig3c.yaml
+hepdata_table_label: $v_2$ vs Assorted $p_T$ for several centrality selections. [F]
+  and [A] follow the notation Fig. 2. Systematic errors are estimated to be $\sim
+  5$%.
+inspire_id: '585347'
+kinematic_range:
+  eta:
+    max: 0.35
+    min: -0.35
+  pT:
+    bins:
+    - 0.286
+    - 0.408
+    - 0.5545
+    - 0.7404999999999999
+    - 0.9515
+    - 1.206
+    - 1.545
+    - 1.9775
+    - 2.5645
+    - 3.327
+    - 4.1530000000000005
+    max: 4.1530000000000005
+    min: 0.286
+method: cumulant
+notes:
+  value: 'method was ''event_plane'' but this paper measures v2 from TWO-PARTICLE
+    azimuthal correlations, not from an event plane. arXiv:nucl-ex/0204005: ''In the
+    first hadron pairs were formed by selecting both particles from a common pT range
+    (fixed-pT method).  In the second hadron pairs were formed by selecting one member
+    from a fixed pT range and the other from outside this range (assorted-pT method).''  The
+    [F]/[A] in value_type are those two pair constructions; v2 is the Fourier amplitude
+    of the resulting 2PC, i.e. the two-particle cumulant. Reclassified from event_plane
+    to cumulant order 2.'
+observable_type: flow_vn
+particle_id:
+  species: charged
+source_column: '[A] 30 < Centrality (%) < 60'
+value_type: '[A] 30 < Centrality < 60'
+version: 1
+---
+centrality:
+  classes:
+  - 5-10%
+  - 10-15%
+  - 15-20%
+  - 20-25%
+  - 25-30%
+  - 30-35%
+  - 35-40%
+  - 40-45%
+  - 45-50%
+  - 50-55%
+  estimator:
+    detector: BBC
+    name: BBC
+    observable: amplitude
+  eta:
+  - max: -3.0
+    min: -3.9
+  - max: 3.9
+    min: 3.0
+collision_system:
+  energy_gev: 200.0
+  reaction: Au Au --> CHARGED X
+cumulant_order: 2
+dimensionality: integrated
+harmonic: 2
+hepdata_file: ppg004fig4a.yaml
+hepdata_table_label: The centrality dependence of $A_2$ for two different $p_T$ selections.
+  [F] and [A] follow the notation in Fig. 2. Systematic errors are estimated to be
+  $\sim 10$%, dominated by the normalization of the correction function and the model
+  determination of$ \varepsilon$.
+inspire_id: '585347'
+kinematic_range:
+  eta:
+    max: 0.35
+    min: -0.35
+  pT:
+    max: 20
+    min: 0.2
+method: cumulant
+notes:
+  value: 'method was ''event_plane'' but this paper measures v2 from TWO-PARTICLE
+    azimuthal correlations, not from an event plane. arXiv:nucl-ex/0204005: ''In the
+    first hadron pairs were formed by selecting both particles from a common pT range
+    (fixed-pT method).  In the second hadron pairs were formed by selecting one member
+    from a fixed pT range and the other from outside this range (assorted-pT method).''  The
+    [F]/[A] in value_type are those two pair constructions; v2 is the Fourier amplitude
+    of the resulting 2PC, i.e. the two-particle cumulant. Reclassified from event_plane
+    to cumulant order 2.'
+observable_type: flow_vn
+particle_id:
+  species: charged
+value_type: '[F] 0.4 < $p_T$ < 0.6 (GeV/$c$)'
+version: 1
+---
+centrality:
+  classes:
+  - 5-15%
+  - 15-25%
+  - 25-35%
+  - 35-45%
+  - 45-55%
+  - 55-65%
+  estimator:
+    detector: BBC
+    name: BBC
+    observable: amplitude
+  eta:
+  - max: -3.0
+    min: -3.9
+  - max: 3.9
+    min: 3.0
+collision_system:
+  energy_gev: 200.0
+  reaction: Au Au --> CHARGED X
+cumulant_order: 2
+dimensionality: integrated
+harmonic: 2
+hepdata_file: ppg004fig4b.yaml
+hepdata_table_label: The centrality dependence of $A_2$ for two different $p_T$ selections.
+  [F] and [A] follow the notation in Fig. 2. Systematic errors are estimated to be
+  $\sim 10$%, dominated by the normalization of the correction function and the model
+  determination of$ \varepsilon$.
+inspire_id: '585347'
+kinematic_range:
+  eta:
+    max: 0.35
+    min: -0.35
+  pT:
+    max: 20
+    min: 0.2
+method: cumulant
+notes:
+  value: 'method was ''event_plane'' but this paper measures v2 from TWO-PARTICLE
+    azimuthal correlations, not from an event plane. arXiv:nucl-ex/0204005: ''In the
+    first hadron pairs were formed by selecting both particles from a common pT range
+    (fixed-pT method).  In the second hadron pairs were formed by selecting one member
+    from a fixed pT range and the other from outside this range (assorted-pT method).''  The
+    [F]/[A] in value_type are those two pair constructions; v2 is the Fourier amplitude
+    of the resulting 2PC, i.e. the two-particle cumulant. Reclassified from event_plane
+    to cumulant order 2.'
+observable_type: flow_vn
+particle_id:
+  species: charged
+value_type: '[F] 0.4 < $p_T$ < 0.6 (GeV/$c$)'
+version: 1

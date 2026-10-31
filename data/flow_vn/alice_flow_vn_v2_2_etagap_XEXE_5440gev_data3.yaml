@@ -1,0 +1,72 @@
+observable_type: flow_vn
+inspire_id: '1671792'
+version: 1
+hepdata_file: data3.yaml
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 0-1%
+  - 1-2%
+  - 2-3%
+  - 3-4%
+  - 4-5%
+  - 5-6%
+  - 6-7%
+  - 7-8%
+  - 8-9%
+  - 9-10%
+  - 10-11%
+  - 11-12%
+  - 12-13%
+  - 13-14%
+  - 14-15%
+  - 15-16%
+  - 16-17%
+  - 17-18%
+  - 18-19%
+  - 19-20%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  pT:
+    min: 0.2
+    max: 3.0
+  eta:
+    min: -0.8
+    max: 0.8
+harmonic: 2
+method: cumulant
+value_type: v2{2}
+dimensionality: integrated
+cumulant_order: 2
+particles: AB
+# Note: |Δη| > 2 is a track-level pair cut (not a geometric subevent gap).
+# Subevents split the TPC acceptance |η| < 0.8 at η=0, giving adjacent ranges.
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -0.8
+        max: 0.0
+      pT:
+        min: 0.2
+        max: 3.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.0
+        max: 0.8
+      pT:
+        min: 0.2
+        max: 3.0

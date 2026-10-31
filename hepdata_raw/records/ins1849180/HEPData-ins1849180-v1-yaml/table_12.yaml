@@ -1,0 +1,53 @@
+dependent_variables:
+- header: {name: Cross section, units: nb}
+  qualifiers:
+  - {name: RAP_CM, value: '> - 2.87'}
+  - {name: RAP_CM, value: < 1.93}
+  - {name: M, units: GeV, value: '> 15'}
+  - {name: M, units: GeV, value: < 60}
+  - {name: RE, value: 'P PB --> Z0 <MU+ MU-> X, P PB --> GAMMA* <MU+ MU-> X'}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: 8160}
+  values:
+  - errors:
+    - {label: Total, symerror: 1.5}
+    - {label: global luminosity uncertainty, symerror: 0.5}
+    value: 15.0
+  - errors:
+    - {label: Total, symerror: 1.0}
+    - {label: global luminosity uncertainty, symerror: 0.4}
+    value: 10.2
+  - errors:
+    - {label: Total, symerror: 0.52}
+    - {label: global luminosity uncertainty, symerror: 0.16}
+    value: 4.68
+  - errors:
+    - {label: Total, symerror: 0.27}
+    - {label: global luminosity uncertainty, symerror: 0.08}
+    value: 2.41
+  - errors:
+    - {label: Total, symerror: 0.052}
+    - {label: global luminosity uncertainty, symerror: 0.026}
+    value: 0.737
+  - errors:
+    - {label: Total, symerror: 0.0091}
+    - {label: global luminosity uncertainty, symerror: 0.0032}
+    value: 0.0912
+  - errors:
+    - {label: Total, symerror: 0.0025}
+    - {label: global luminosity uncertainty, symerror: 0.0003}
+    value: 0.0093
+  - errors:
+    - {label: Total, symerror: 0.00051}
+    - {label: global luminosity uncertainty, symerror: 6.0e-05}
+    value: 0.00175
+independent_variables:
+- header: {name: pt, units: GeV}
+  values:
+  - {high: 5.0, low: 0}
+  - {high: 10.0, low: 5.0}
+  - {high: 15.0, low: 10.0}
+  - {high: 20.0, low: 15.0}
+  - {high: 40.0, low: 20.0}
+  - {high: 70.0, low: 40.0}
+  - {high: 110.0, low: 70.0}
+  - {high: 200.0, low: 110.0}

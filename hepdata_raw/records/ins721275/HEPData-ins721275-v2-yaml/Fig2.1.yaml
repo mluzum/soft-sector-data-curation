@@ -1,0 +1,89 @@
+dependent_variables:
+- header: {name: '$1/N_{\rm evt}\;1/(2\pi p_{T})\;d^{2}N/(dp_{T}d\eta)$'}
+  qualifiers:
+  - {name: ETARAP, value: 0.0-0.7}
+  - {name: RE, value: DEUT AU --> BOTTOM < E+ X > BOTTOMBAR < E- X > X}
+  - {name: RE, value: DEUT AU --> CHARM < E+ X >  CHARMBAR < E- X > X}
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 4.0e-06}
+    - {label: sys, symerror: 8.0e-06}
+    - {label: normalization, symerror: 1.4e-06}
+    value: 1.42e-05
+  - errors:
+    - {label: stat, symerror: 9.0e-07}
+    - {label: sys, symerror: 1.5e-06}
+    - {label: normalization, symerror: 2.9e-07}
+    value: 2.76e-06
+  - errors:
+    - {label: stat, symerror: 4.0e-07}
+    - {label: sys, symerror: 5.0e-07}
+    - {label: normalization, symerror: 8.0e-08}
+    value: 9.6e-07
+  - errors:
+    - {label: stat, symerror: 1.7e-07}
+    - {label: sys, symerror: 9.0e-08}
+    - {label: normalization, symerror: 4.0e-08}
+    value: 1.8e-07
+  - errors:
+    - {label: stat, symerror: 1.8e-08}
+    - {label: sys, symerror: 4.0e-08}
+    - {label: normalization, symerror: 1.3e-08}
+    value: 8.1e-08
+  - errors:
+    - {label: stat, symerror: 7.0e-09}
+    - {label: sys, symerror: 1.5e-08}
+    - {label: normalization, symerror: 5.0e-09}
+    value: 3.4e-08
+  - errors:
+    - {label: stat, symerror: 1.4e-09}
+    - {label: sys, symerror: 5.0e-09}
+    - {label: normalization, symerror: 1.9e-09}
+    value: 1.03e-08
+  - errors:
+    - {label: stat, symerror: 6.0e-10}
+    - {label: sys, symerror: 1.5e-09}
+    - {label: normalization, symerror: 9.0e-10}
+    value: 3.4e-09
+  - errors:
+    - {label: stat, symerror: 1.1e-09}
+    - {label: sys, symerror: 1.0e-09}
+    - {label: normalization, symerror: 7.0e-10}
+    value: 2.6e-09
+  - errors:
+    - {label: stat, symerror: 1.1e-10}
+    - {label: sys, symerror: 4.0e-10}
+    - {label: normalization, symerror: 3.0e-10}
+    value: 9.6e-10
+  - errors:
+    - {label: stat, symerror: 4.0e-11}
+    - {label: sys, symerror: 1.2e-10}
+    - {label: normalization, symerror: 1.7e-10}
+    value: 3.8e-10
+  - errors:
+    - {label: stat, symerror: 2.5e-11}
+    - {label: sys, symerror: 5.0e-11}
+    - {label: normalization, symerror: 8.0e-11}
+    value: 1.57e-10
+  - errors:
+    - {label: stat, symerror: 2.6e-10}
+    - {label: sys, symerror: 7.0e-11}
+    - {label: normalization, symerror: 3.5e-11}
+    value: 2.34e-10
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {high: 1.8, low: 1.2}
+  - {high: 2.4, low: 1.8}
+  - {high: 3.0, low: 2.4}
+  - {high: 3.6, low: 3.0}
+  - {high: 4.2, low: 3.6}
+  - {high: 4.8, low: 4.2}
+  - {high: 5.4, low: 4.8}
+  - {high: 6.0, low: 5.4}
+  - {high: 6.6, low: 6.0}
+  - {high: 7.2, low: 6.6}
+  - {high: 7.8, low: 7.2}
+  - {high: 8.4, low: 7.8}
+  - {high: 9.0, low: 8.4}

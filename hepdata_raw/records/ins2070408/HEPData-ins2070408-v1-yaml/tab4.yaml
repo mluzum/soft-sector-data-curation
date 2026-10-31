@@ -1,0 +1,60 @@
+dependent_variables:
+- header: {name: NPART}
+  qualifiers:
+  - {name: PARTICLE, value: CHARGED}
+  values:
+  - errors: []
+    value: 2.0
+- header: {name: EFFECTIVE PT OVER M}
+  qualifiers:
+  - {name: PARTICLE, value: CHARGED}
+  values:
+  - errors:
+    - {label: fit, symerror: 0.1}
+    value: 1.8
+- header: {name: DN/DYRAP WIDTH}
+  qualifiers:
+  - {name: PARTICLE, value: CHARGED}
+  values:
+  - errors:
+    - {label: fit, symerror: 0.4}
+    value: 5.9
+- header: {name: TOTAL CHARGED}
+  qualifiers:
+  - {name: PARTICLE, value: CHARGED}
+  values:
+  - errors:
+    - {label: fit, symerror: 5.0}
+    value: 93.0
+- header: {name: TRANSVERSE AREA (EXCLUSIVE), units: FM**2}
+  qualifiers:
+  - {name: PARTICLE, value: PARTICIPANT}
+  values:
+  - errors:
+    - {label: model, symerror: 0.2}
+    value: 1.7
+- header: {name: TRANSVERSE AREA (INCLUSIVE), units: FM**2}
+  qualifiers:
+  - {name: PARTICLE, value: PARTICIPANT}
+  values:
+  - errors:
+    - {label: model, symerror: 0.01}
+    value: 2.64
+- header: {name: EPSILON TAU LOWER BOUND (EXCLUSIVE), units: GEV / (FM**2 C)}
+  qualifiers:
+  - {name: PARTICLE, value: PRIMARY}
+  values:
+  - errors:
+    - {label: sys, symerror: 1.6}
+    value: 1.9
+- header: {name: EPSILON TAU LOWER BOUND (INCLUSIVE), units: GEV / (FM**2 C)}
+  qualifiers:
+  - {name: PARTICLE, value: PRIMARY}
+  values:
+  - errors:
+    - {label: sys, symerror: 1.6}
+    value: 3.0
+independent_variables:
+- header: {name: CENTRALITY, units: PCT}
+  values:
+  - {high: 100.0, low: 0.0}

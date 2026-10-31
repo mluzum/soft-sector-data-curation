@@ -1,0 +1,47 @@
+dependent_variables:
+- header: {name: Integrated v3}
+  qualifiers:
+  - {name: ABS(ETA(RF=CMS)), value: <0.8}
+  - {name: Particle, value: pion}
+  - {name: Range, value: 0.3 < pT < 6.0 (GeV/c)}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.000416173}
+    - asymerror: {minus: 0.0010252, plus: -0.0010252}
+      label: sys
+    value: 0.0206176
+  - errors:
+    - {label: stat, symerror: 0.000462267}
+    - asymerror: {minus: 0.000876147, plus: -0.000876147}
+      label: sys
+    value: 0.0240402
+  - errors:
+    - {label: stat, symerror: 0.000508739}
+    - asymerror: {minus: 0.000893382, plus: -0.000893382}
+      label: sys
+    value: 0.0268592
+  - errors:
+    - {label: stat, symerror: 0.000563232}
+    - asymerror: {minus: 0.000779699, plus: -0.000779699}
+      label: sys
+    value: 0.0300359
+  - errors:
+    - {label: stat, symerror: 0.000591534}
+    - asymerror: {minus: 0.000660962, plus: -0.000660962}
+      label: sys
+    value: 0.0316461
+  - errors:
+    - {label: stat, symerror: 0.000595325}
+    - asymerror: {minus: 0.000634531, plus: -0.000634531}
+      label: sys
+    value: 0.0314814
+independent_variables:
+- header: {name: centrality percentile}
+  values:
+  - {value: 2.5}
+  - {value: 7.5}
+  - {value: 15.0}
+  - {value: 25.0}
+  - {value: 35.0}
+  - {value: 45.0}

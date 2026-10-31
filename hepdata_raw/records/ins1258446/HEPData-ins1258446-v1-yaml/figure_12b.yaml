@@ -1,0 +1,43 @@
+dependent_variables:
+- header: {name: '$R_{AA}$'}
+  qualifiers:
+  - {name: $p_T$ range (GeV/c), value: Au+Au 0-20% Centrality}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.06}
+    - asymerror: {minus: -0.07, plus: 0.07}
+      label: sys
+    - {label: global, symerror: 0.09}
+    value: 0.55
+  - errors:
+    - {label: stat, symerror: 0.04}
+    - asymerror: {minus: -0.05, plus: 0.05}
+      label: sys
+    - {label: global, symerror: 0.07}
+    value: 0.39
+  - errors:
+    - {label: stat, symerror: 0.06}
+    - asymerror: {minus: -0.07, plus: 0.07}
+      label: sys
+    - {label: global, symerror: 0.09}
+    value: 0.5
+  - errors:
+    - {label: stat, symerror: 0.06}
+    - asymerror: {minus: -0.06, plus: 0.06}
+      label: sys
+    - {label: global, symerror: 0.06}
+    value: 0.4
+  - errors:
+    - {label: stat, symerror: 0.26}
+    - asymerror: {minus: -0.09, plus: 0.09}
+      label: sys
+    - {label: global, symerror: 0.1}
+    value: 0.58
+independent_variables:
+- header: {name: $p_T$ range (GeV/c)}
+  values:
+  - {high: 1, low: 0, value: 0.64}
+  - {high: 2, low: 1, value: 1.47}
+  - {high: 3, low: 2, value: 2.41}
+  - {high: 4, low: 3, value: 3.39}
+  - {high: 5, low: 4, value: 4.39}

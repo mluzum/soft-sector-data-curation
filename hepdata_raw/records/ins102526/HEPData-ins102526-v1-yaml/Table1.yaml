@@ -1,0 +1,30 @@
+dependent_variables:
+- header: {name: D(SIG)/D(PT(P=3)**2), units: MB/GEV**2}
+  qualifiers:
+  - {name: P, units: GeV, value: '147.0'}
+  - {name: RE, value: PI- P --> RHO0 X}
+  - {name: SQRT(S), units: GeV, value: '16.633'}
+  values:
+  - errors:
+    - {symerror: 5.27}
+    value: 17.46
+  - errors:
+    - {symerror: 3.595}
+    value: 14.56
+  - errors:
+    - {symerror: 2.264}
+    value: 7.469
+  - errors:
+    - {symerror: 0.6607}
+    value: 2.676
+  - errors:
+    - {symerror: 0.2385}
+    value: 0.4891
+independent_variables:
+- header: {name: PT(P=3)**2, units: GEV**2}
+  values:
+  - {high: 0.095, low: -0.027}
+  - {high: 0.275, low: 0.093}
+  - {high: 0.5, low: 0.258}
+  - {high: 0.981, low: 0.527}
+  - {high: 2.006, low: 1.006}

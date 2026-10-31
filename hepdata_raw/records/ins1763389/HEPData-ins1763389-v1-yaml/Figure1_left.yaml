@@ -1,0 +1,88 @@
+dependent_variables:
+- header: {name: '$\frac{1}{N_{\mathrm{JD}}}\frac{\mathrm{d}N_{\mathrm{JD}}}{\mathrm{d}r}$
+      (pp)'}
+  qualifiers:
+  - {name: RE, value: P P --> D0 + X --> PI+ + K- + X}
+  - {name: RE, value: Pb Pb --> D0 + X --> PI+ + K- + X}
+  - {name: SQRT(S), units: GEV, value: 5020}
+  - {name: PT(JET), units: GEV/C, value: $>$ 60}
+  - {name: PT(D0), units: GEV/C, value: 4-20}
+  - {name: ABSETA(JET), value: $<$ 1.6}
+  - {name: ABSRAP(D0), value: $<$ 2}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.6}
+    - {label: sys, symerror: 0.72}
+    value: 4.64
+  - errors:
+    - {label: stat, symerror: 0.71}
+    - {label: sys, symerror: 1.05}
+    value: 6.38
+  - errors:
+    - {label: stat, symerror: 0.21}
+    - {label: sys, symerror: 0.25}
+    value: 2.25
+  - errors:
+    - {label: stat, symerror: 0.13}
+    - {label: sys, symerror: 0.11}
+    value: 0.85
+- header: {name: '$\frac{1}{N_{\mathrm{JD}}}\frac{\mathrm{d}N_{\mathrm{JD}}}{\mathrm{d}r}$
+      (PbPb)'}
+  qualifiers:
+  - {name: RE, value: P P --> D0 + X --> PI+ + K- + X}
+  - {name: RE, value: Pb Pb --> D0 + X --> PI+ + K- + X}
+  - {name: SQRT(S), units: GEV, value: 5020}
+  - {name: PT(JET), units: GEV/C, value: $>$ 60}
+  - {name: PT(D0), units: GEV/C, value: 4-20}
+  - {name: ABSETA(JET), value: $<$ 1.6}
+  - {name: ABSRAP(D0), value: $<$ 2}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.72}
+    - {label: sys, symerror: 0.88}
+    value: 3.35
+  - errors:
+    - {label: stat, symerror: 1.0}
+    - {label: sys, symerror: 1.54}
+    value: 4.76
+  - errors:
+    - {label: stat, symerror: 0.48}
+    - {label: sys, symerror: 0.31}
+    value: 2.97
+  - errors:
+    - {label: stat, symerror: 0.48}
+    - {label: sys, symerror: 0.52}
+    value: 1.4
+- header: {name: PbPb / pp}
+  qualifiers:
+  - {name: RE, value: P P --> D0 + X --> PI+ + K- + X}
+  - {name: RE, value: Pb Pb --> D0 + X --> PI+ + K- + X}
+  - {name: SQRT(S), units: GEV, value: 5020}
+  - {name: PT(JET), units: GEV/C, value: $>$ 60}
+  - {name: PT(D0), units: GEV/C, value: 4-20}
+  - {name: ABSETA(JET), value: $<$ 1.6}
+  - {name: ABSRAP(D0), value: $<$ 2}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.18}
+    - {label: sys, symerror: 0.2}
+    value: 0.72
+  - errors:
+    - {label: stat, symerror: 0.18}
+    - {label: sys, symerror: 0.27}
+    value: 0.75
+  - errors:
+    - {label: stat, symerror: 0.25}
+    - {label: sys, symerror: 0.19}
+    value: 1.32
+  - errors:
+    - {label: stat, symerror: 0.61}
+    - {label: sys, symerror: 0.69}
+    value: 1.64
+independent_variables:
+- header: {name: r}
+  values:
+  - {high: 0.05, low: 0}
+  - {high: 0.1, low: 0.05}
+  - {high: 0.3, low: 0.1}
+  - {high: 0.5, low: 0.3}

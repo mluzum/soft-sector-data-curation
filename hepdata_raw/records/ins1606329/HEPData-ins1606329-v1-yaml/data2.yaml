@@ -1,0 +1,27 @@
+dependent_variables:
+- header: {name: SIG, units: MUB}
+  qualifiers:
+  - {name: PT, units: GeV, value: 0.0 TO 14.0}
+  - {name: RE, value: P PB --> J/PSI X}
+  - {name: SIG, value: Prompt J/PSI}
+  - {name: YRAP, value: -5.0 TO -2.5}
+  values:
+  - errors:
+    - {label: stat, symerror: 4.0}
+    - {label: sys, symerror: 182.0}
+    value: 1692.0
+- header: {name: SIG, units: MUB}
+  qualifiers:
+  - {name: PT, units: GeV, value: 0.0 TO 14.0}
+  - {name: RE, value: P PB --> J/PSI X}
+  - {name: SIG, value: J/PSI from b}
+  - {name: YRAP, value: -5.0 TO -2.5}
+  values:
+  - errors:
+    - {label: stat, symerror: 1.0}
+    - {label: sys, symerror: 22.0}
+    value: 209.0
+independent_variables:
+- header: {name: SQRT(S)/NUCLEON, units: GEV}
+  values:
+  - {value: 8160}

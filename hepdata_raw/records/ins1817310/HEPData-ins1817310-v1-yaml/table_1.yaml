@@ -1,0 +1,26 @@
+dependent_variables:
+- header: {name: '$v_2^{\mathrm{sub}}$'}
+  qualifiers:
+  - {name: $|\Delta \eta|$, value: '>1'}
+  - {name: Multiplicity Class, value: '$N_{trk}^{offline} \geq 100$'}
+  - {name: Rapidity, value: '$|y_{\mathrm{cm}}|<1$'}
+  - {name: SQRT(S), units: TeV, value: 13}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.018}
+    - {label: sys, symerror: 0.013}
+    value: 0.061
+  - errors:
+    - {label: stat, symerror: 0.02}
+    - {label: sys, symerror: 0.015}
+    value: 0.04
+  - errors:
+    - {label: stat, symerror: 0.031}
+    - {label: sys, symerror: 0.014}
+    value: -0.043
+independent_variables:
+- header: {name: '$p_{\mathrm{T}}$', units: GeV}
+  values:
+  - {high: 4, low: 2}
+  - {high: 6, low: 4}
+  - {high: 8, low: 6}

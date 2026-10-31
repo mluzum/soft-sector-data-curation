@@ -1,0 +1,48 @@
+dependent_variables:
+- header: {name: $p_T$ (GeV/$c$)}
+  qualifiers:
+  - {name: Centrality, value: ''}
+  values:
+  - {value: 2.25}
+  - {value: 2.75}
+  - {value: 3.25}
+  - {value: 3.75}
+  - {value: 4.5}
+  - {value: 5.5}
+- header: {name: '1/[2${\pi}p_T$] $d^2N/dp_Tdy$ (GeV/$c$)$^{-2}$'}
+  qualifiers:
+  - {name: Centrality, value: 60-92%}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.0002}
+    - {label: sys., symerror: 0.0002}
+    value: 0.00106
+  - errors:
+    - {label: stat., symerror: 7.0e-05}
+    - {label: sys., symerror: 8.0e-05}
+    value: 0.000334
+  - errors:
+    - {label: stat., symerror: 2.0e-05}
+    - {label: sys., symerror: 2.0e-05}
+    value: 0.0001107
+  - errors:
+    - {label: stat., symerror: 7.0e-06}
+    - {label: sys., symerror: 6.0e-06}
+    value: 4.037e-05
+  - errors:
+    - {label: stat., symerror: 3.0e-06}
+    - {label: sys., symerror: 2.0e-06}
+    value: 1.16e-05
+  - errors:
+    - {label: stat., symerror: 1.0e-06}
+    - {label: sys., symerror: 3.0e-07}
+    value: 1.665e-06
+independent_variables:
+- header: {name: $p_T$ Bins (GeV/$c$)}
+  values:
+  - {high: 2.5, low: 2.0}
+  - {high: 3.0, low: 2.5}
+  - {high: 3.5, low: 3.0}
+  - {high: 4.0, low: 3.5}
+  - {high: 5.0, low: 4.0}
+  - {high: 6.0, low: 5.0}

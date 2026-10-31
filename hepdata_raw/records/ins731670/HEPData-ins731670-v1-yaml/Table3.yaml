@@ -1,0 +1,30 @@
+dependent_variables:
+- header: {name: MEAN(NAME=PT**2), units: GEV**2}
+  qualifiers:
+  - {name: RE, value: AU AU --> J/PSI < E+ E- > X}
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  - {name: YRAP, value: ',-0.35 TO 0.35'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.6}
+    - {label: sys, symerror: 0.1}
+    value: 3.6
+  - errors:
+    - {label: stat, symerror: 0.5}
+    - {label: sys, symerror: 0.1}
+    value: 4.6
+  - errors:
+    - {label: stat, symerror: 0.7}
+    - {label: sys, symerror: 0.2}
+    value: 4.5
+  - errors:
+    - {label: stat, symerror: 0.9}
+    - {label: sys, symerror: 0.2}
+    value: 3.6
+independent_variables:
+- header: {name: CENTRALITY, units: PCT}
+  values:
+  - {high: 20.0, low: 0.0}
+  - {high: 40.0, low: 20.0}
+  - {high: 60.0, low: 40.0}
+  - {high: 92.0, low: 60.0}

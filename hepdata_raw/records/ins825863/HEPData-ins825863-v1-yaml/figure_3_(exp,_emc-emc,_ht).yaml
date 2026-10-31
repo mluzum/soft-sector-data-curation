@@ -1,0 +1,42 @@
+dependent_variables:
+- header: {name: $\pi^0$ peak position, units: '$\textrm{MeV}/c^{2}$'}
+  qualifiers:
+  - {name: centrality, value: 0-80%}
+  - {name: method, value: EMC-EMC in HT events}
+  values:
+  - errors:
+    - {label: total, symerror: 0.8878}
+    value: 122.08
+  - errors:
+    - {label: total, symerror: 0.9326}
+    value: 137.45
+  - errors:
+    - {label: total, symerror: 1.3704}
+    value: 144.54
+  - errors:
+    - {label: total, symerror: 2.4024}
+    value: 147.32
+- header: {name: $\pi^0$ peak width, units: '$\textrm{MeV}/c^{2}$'}
+  qualifiers:
+  - {name: centrality, value: 0-80%}
+  - {name: method, value: EMC-EMC in HT events}
+  values:
+  - errors:
+    - {label: total, symerror: 4.6376}
+    value: 29.639
+  - errors:
+    - {label: total, symerror: 1.1494}
+    value: 29.718
+  - errors:
+    - {label: total, symerror: 1.5504}
+    value: 29.491
+  - errors:
+    - {label: total, symerror: 2.4616}
+    value: 26.172
+independent_variables:
+- header: {name: Transverse momentum, units: '$\textrm{GeV}/c$'}
+  values:
+  - {value: 4.25}
+  - {value: 6.0}
+  - {value: 8.0}
+  - {value: 10.5}

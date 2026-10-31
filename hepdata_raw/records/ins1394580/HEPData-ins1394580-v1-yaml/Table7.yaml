@@ -1,0 +1,61 @@
+dependent_variables:
+- header: {name: 'N(${\rm D}^{+}$)/N(${\rm D}^{0}$)'}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 0.0-10.0}
+  - {name: RE, value: 'PB PB --> ${\rm D}^{+}$ X'}
+  - {name: RE, value: 'PB PB --> ${\rm D}^{0}$ X'}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  - {name: YRAP, value: -0.5-0.5}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0719}
+    - asymerror: {minus: -0.0661, plus: 0.0746}
+      label: sys
+    - {label: 'sys,uncertainty on branching ratio', symerror: 2.4%}
+    value: 0.329
+  - errors:
+    - {label: stat, symerror: 0.0724}
+    - asymerror: {minus: -0.0751, plus: 0.0879}
+      label: sys
+    - {label: 'sys,uncertainty on branching ratio', symerror: 2.4%}
+    value: 0.405
+  - errors:
+    - {label: stat, symerror: 0.0856}
+    - asymerror: {minus: -0.0834, plus: 0.088}
+      label: sys
+    - {label: 'sys,uncertainty on branching ratio', symerror: 2.4%}
+    value: 0.463
+  - errors:
+    - {label: stat, symerror: 0.107}
+    - asymerror: {minus: -0.0815, plus: 0.0826}
+      label: sys
+    - {label: 'sys,uncertainty on branching ratio', symerror: 2.4%}
+    value: 0.456
+  - errors:
+    - {label: stat, symerror: 0.0874}
+    - asymerror: {minus: -0.0758, plus: 0.0731}
+      label: sys
+    - {label: 'sys,uncertainty on branching ratio', symerror: 2.4%}
+    value: 0.407
+  - errors:
+    - {label: stat, symerror: 0.132}
+    - asymerror: {minus: -0.0911, plus: 0.0909}
+      label: sys
+    - {label: 'sys,uncertainty on branching ratio', symerror: 2.4%}
+    value: 0.443
+  - errors:
+    - {label: stat, symerror: 0.178}
+    - asymerror: {minus: -0.153, plus: 0.155}
+      label: sys
+    - {label: 'sys,uncertainty on branching ratio', symerror: 2.4%}
+    value: 0.442
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {high: 4.0, low: 3.0}
+  - {high: 5.0, low: 4.0}
+  - {high: 6.0, low: 5.0}
+  - {high: 8.0, low: 6.0}
+  - {high: 12.0, low: 8.0}
+  - {high: 16.0, low: 12.0}
+  - {high: 24.0, low: 16.0}

@@ -1,0 +1,42 @@
+dependent_variables:
+- header: {name: net $\Lambda$ dN/dy}
+  qualifiers:
+  - {name: centrality, value: 40%-100%}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.003}
+    - {label: syst, symerror: 0.003}
+    value: 0.017
+  - errors:
+    - {label: stat, symerror: 0.002}
+    - {label: syst, symerror: 0.003}
+    value: 0.02
+- header: {name: net $\Lambda$ dN/dy}
+  qualifiers:
+  - {name: centrality, value: 20%-40%}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.009}
+    - {label: syst, symerror: 0.009}
+    value: 0.067
+  - errors:
+    - {label: stat, symerror: 0.004}
+    - {label: syst, symerror: 0.006}
+    value: 0.047
+- header: {name: net $\Lambda$ dN/dy}
+  qualifiers:
+  - {name: centrality, value: 0%-20%}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.02}
+    - {label: syst, symerror: 0.015}
+    value: 0.118
+  - errors:
+    - {label: stat, symerror: 0.004}
+    - {label: syst, symerror: 0.007}
+    value: 0.052
+independent_variables:
+- header: {name: y}
+  values:
+  - {value: -2.75}
+  - {value: 2.75}

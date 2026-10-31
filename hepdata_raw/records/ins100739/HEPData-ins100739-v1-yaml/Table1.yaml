@@ -1,0 +1,62 @@
+dependent_variables:
+- header: {name: SIG, units: MUB}
+  qualifiers:
+  - {name: P, units: GeV, value: '13.0'}
+  - {name: RE, value: K- P --> RHO0 (LAMBDA + SIGMA0)}
+  - {name: SQRT(S), units: GeV, value: '5.053'}
+  - {name: SYS, value: 'DECAY-BR(BRN=PHI --> K- K+,BR=0.466 +- 0.025)'}
+  - {name: SYS, value: 'RES-DEF(RES=F1(1540)0,BACK=CORRECTED, C=D-WAVE BREIT-WIGNER
+      PLUS LINEAR BACKGROUND)'}
+  - {name: SYS, value: 'RES-DEF(RES=PHI, C=1.009 < MASS(K- K+) < 1.029 GEV, C=1.00
+      < MASS(MM) < 1.25 GEV)'}
+  - {name: SYS, value: 'RES-DEF(RES=RHO0, C=0.70 < MASS(PI- PI+) < 0.84 GEV, C=1.05
+      < MASS(MM) < 1.225 GEV)'}
+  - {name: SYS, value: 'RES-DEF(RES=S*(993),BACK=CORRECTED, C= 0.965 < MASS(PI- PI+)
+      < 0.995 GEV)'}
+  values:
+  - errors:
+    - {symerror: 0.7}
+    - {label: 'sys,EXCLUSIVE OF RHO LINE SHAPE UNCERTAINTY', symerror: 10.0%}
+    value: 8.0
+- header: {name: SIG, units: MUB}
+  qualifiers:
+  - {name: P, units: GeV, value: '13.0'}
+  - {name: RE, value: K- P --> PHI <K- K+> (LAMBDA + SIGMA0)}
+  - {name: SQRT(S), units: GeV, value: '5.053'}
+  - {name: SYS, value: 'DECAY-BR(BRN=PHI --> K- K+,BR=0.466 +- 0.025)'}
+  - {name: SYS, value: 'RES-DEF(RES=F1(1540)0,BACK=CORRECTED, C=D-WAVE BREIT-WIGNER
+      PLUS LINEAR BACKGROUND)'}
+  - {name: SYS, value: 'RES-DEF(RES=PHI, C=1.009 < MASS(K- K+) < 1.029 GEV, C=1.00
+      < MASS(MM) < 1.25 GEV)'}
+  - {name: SYS, value: 'RES-DEF(RES=RHO0, C=0.70 < MASS(PI- PI+) < 0.84 GEV, C=1.05
+      < MASS(MM) < 1.225 GEV)'}
+  - {name: SYS, value: 'RES-DEF(RES=S*(993),BACK=CORRECTED, C= 0.965 < MASS(PI- PI+)
+      < 0.995 GEV)'}
+  values:
+  - errors:
+    - {symerror: 0.15}
+    - {label: 'sys,EXCLUSIVE OF RHO LINE SHAPE UNCERTAINTY', symerror: 10.0%}
+    value: 5.57
+- header: {name: SIG, units: MUB}
+  qualifiers:
+  - {name: P, units: GeV, value: '13.0'}
+  - {name: RE, value: K- P --> PHI (LAMBDA + SIGMA0)}
+  - {name: SQRT(S), units: GeV, value: '5.053'}
+  - {name: SYS, value: 'DECAY-BR(BRN=PHI --> K- K+,BR=0.466 +- 0.025)'}
+  - {name: SYS, value: 'RES-DEF(RES=F1(1540)0,BACK=CORRECTED, C=D-WAVE BREIT-WIGNER
+      PLUS LINEAR BACKGROUND)'}
+  - {name: SYS, value: 'RES-DEF(RES=PHI, C=1.009 < MASS(K- K+) < 1.029 GEV, C=1.00
+      < MASS(MM) < 1.25 GEV)'}
+  - {name: SYS, value: 'RES-DEF(RES=RHO0, C=0.70 < MASS(PI- PI+) < 0.84 GEV, C=1.05
+      < MASS(MM) < 1.225 GEV)'}
+  - {name: SYS, value: 'RES-DEF(RES=S*(993),BACK=CORRECTED, C= 0.965 < MASS(PI- PI+)
+      < 0.995 GEV)'}
+  values:
+  - errors:
+    - {symerror: 0.5}
+    - {label: 'sys,EXCLUSIVE OF RHO LINE SHAPE UNCERTAINTY', symerror: 10.0%}
+    value: 12.0
+independent_variables:
+- header: {name: -TP, units: GEV**2}
+  values:
+  - {value: < 1.2}

@@ -1,0 +1,128 @@
+---
+observable_type: charge_dependent_correlations
+inspire_id: '717232'
+version: 1
+hepdata_file: Fig3a.yaml
+hepdata_table_label: Per-particle fluctuation dependence on pseudorapidity scale $\delta\eta$ in central collisions.
+qualifiers:
+  \delta\eta: 19.6 GeV Au+Au
+collision_system:
+  energy_gev: 200.0
+  reaction: PbAu --> X
+centrality:
+  classes:
+  - MB
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: Sigma
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+    bins:
+    - -1.0
+    - 1.0
+  pT:
+    min: 0.15
+    max: 10
+    bins:
+    - 0.15
+    - 10
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '717232'
+version: 1
+hepdata_file: Fig3aCeres.yaml
+hepdata_table_label: Per-particle fluctuation dependence on pseudorapidity scale $\delta\eta$ in central collisions.
+qualifiers:
+  \delta\eta: 12.3 GeV Pb+Pb
+collision_system:
+  energy_gev: 200.0
+  reaction: PbAu --> X
+centrality:
+  classes:
+  - MB
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: Sigma
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+    bins:
+    - -1.0
+    - 1.0
+  pT:
+    min: 0.15
+    max: 10
+    bins:
+    - 0.15
+    - 10
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '717232'
+version: 1
+hepdata_file: Fig3b.yaml
+hepdata_table_label: Centrality dependence of $<p_t>$ fluctuations in the STAR acceptance for four energies. $\nu$ is the
+  mean participant path length (please consult text).
+qualifiers:
+  point (consult text): 19.6 GeV Au+Au
+collision_system:
+  energy_gev: 200.0
+  reaction: PbAu --> X
+centrality:
+  classes:
+  - 0.5-1.5%
+  - 1.5-2.5%
+  - 2.5-3.5%
+  - 3.5-4.5%
+  - 4.5-5.5%
+  - 5.5-6.5%
+  - 6.5-7.5%
+  - 7.5-8.5%
+  - 8.5-9.5%
+  - 9.5-10.5%
+  - 10.5-11.5%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: Sigma
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+    bins:
+    - -1.0
+    - 1.0
+  pT:
+    min: 0.15
+    max: 10
+    bins:
+    - 0.15
+    - 10
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all

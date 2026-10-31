@@ -1,0 +1,37 @@
+dependent_variables:
+- header: {name: ((RAA^Prompt-RAA)/RAA)_MIN, units: pct}
+  qualifiers:
+  - {name: RE, value: PB PB --> JPSI < MU+ MU- > X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 5020.0}
+  - {name: CENTRALITY, units: pct, value: 40.00 TO 90.00}
+  - {name: PT, units: GEV/C, value: 0.00 TO 12.00}
+  values:
+  - {value: -2.1}
+  - {value: -3.3}
+  - {value: -3.6}
+  - {value: -3.8}
+  - {value: -2.8}
+  - {value: -3.1}
+- header: {name: ((RAA^Prompt-RAA)/RAA)_MAX, units: pct}
+  qualifiers:
+  - {name: RE, value: PB PB --> JPSI < MU+ MU- > X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 5020.0}
+  - {name: CENTRALITY, units: pct, value: 40.00 TO 90.00}
+  - {name: PT, units: GEV/C, value: 0.00 TO 12.00}
+  values:
+  - {value: 10.9}
+  - {value: 10.9}
+  - {value: 9.8}
+  - {value: 9.8}
+  - {value: 8.0}
+  - {value: 8.0}
+independent_variables:
+- header: {name: YRAP}
+  values:
+  - {high: 2.75, low: 2.5}
+  - {high: 3.0, low: 2.75}
+  - {high: 3.25, low: 3.0}
+  - {high: 3.5, low: 3.25}
+  - {high: 3.75, low: 3.5}
+  - {high: 4.0, low: 3.75}
+name: Fig5Bottom_B.yaml

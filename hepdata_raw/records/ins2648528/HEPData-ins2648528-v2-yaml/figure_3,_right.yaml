@@ -1,0 +1,33 @@
+dependent_variables:
+- header: {name: '${\rm (N_{Y(3S)}/ N_{Y(2S)})}_{\rm PbPb}/{\rm (N_{Y(3S)}/N_{Y(2S)})}_{\rm
+      pp}$', units: ''}
+  qualifiers:
+  - {name: RE, value: 'Pb Pb --> $\Upsilon(2S)$, $\Upsilon(3S)$ < $\mu$$^+$ $\mu$$^-$
+      > X'}
+  - {name: SQRT(S)/NUCLEON, value: 5020 GeV}
+  - {name: $|y|$, value: $ < 2.4$}
+  - {name: CENTRALITY, units: '%', value: 0 -- 90}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.24}
+    - {label: sys, symerror: 0.12}
+    value: 0.6
+  - errors:
+    - {label: stat, symerror: 0.28}
+    - {label: sys, symerror: 0.12}
+    value: 0.72
+  - errors:
+    - {label: stat, symerror: 0.2}
+    - {label: sys, symerror: 0.11}
+    value: 0.54
+  - errors:
+    - {label: stat, symerror: 0.19}
+    - {label: sys, symerror: 0.03}
+    value: 0.73
+independent_variables:
+- header: {name: '$p_\text{T}$', units: GeV/c}
+  values:
+  - {high: 4, low: 0}
+  - {high: 9, low: 4}
+  - {high: 15, low: 9}
+  - {high: 30, low: 15}

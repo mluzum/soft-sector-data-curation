@@ -1,0 +1,21 @@
+dependent_variables:
+- header: {name: 'V2{4}'}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 20.0-30.0}
+  - {name: ETARAP, value: -0.8-0.8}
+  - {name: PT, units: GeV c^-1, value: 0.0-20.0}
+  - {name: RE, value: PB PB --> CHARGED X}
+  values:
+  - errors:
+    - {label: stat, symerror: 7.0e-05}
+    - {label: sys, symerror: 0.00072}
+    value: 0.06235
+  - errors:
+    - {label: stat, symerror: 9.0e-05}
+    - {label: sys, symerror: 0.0012}
+    value: 0.0654
+independent_variables:
+- header: {name: SQRT(S)/NUCLEON, units: GEV}
+  values:
+  - {value: 2760.0}
+  - {value: 5023.0}

@@ -1,0 +1,85 @@
+---
+observable_type: heavy_flavor
+inspire_id: '561876'
+version: 1
+hepdata_file: HEPData-gpc6-tab1.0.yaml
+hepdata_table_label: Invariant yields of $\overline{d}$ and $\overline{p}$. Systematic errors are estimated to be 15%.
+qualifiers:
+  particles: $\overline{p}$
+  sqrt(s)/nucleon: '130'
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> \overline{d}, AU AU --> ^3\overline{He}
+centrality:
+  classes: []
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: p
+  particle: ds
+kinematic_range:
+  pT:
+    min: 0.5
+    max: 0.8
+    bins:
+    - 0.5
+    - 0.6000000000000001
+    - 0.7
+    - 0.8
+  eta:
+    min: -1.0
+    max: 1.0
+    bins:
+    - -1.0
+    - 1.0
+observable: ds_dN_dy
+value_type: dN_dy
+particle: ds
+---
+observable_type: heavy_flavor
+inspire_id: '561876'
+version: 1
+hepdata_file: HEPData-gpc6-tab1.1.yaml
+hepdata_table_label: Invariant yields of $^3\overline{\mathrm{He}}$ and $\overline{p}$. Systematic errors are estimated to
+  be 15%.
+qualifiers:
+  particles: $\overline{p}$
+  sqrt(s)/nucleon: '130'
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> \overline{d}, AU AU --> ^3\overline{He}
+centrality:
+  classes: []
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: p
+  particle: ds
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+    bins:
+    - -1.0
+    - 1.0
+  pT:
+    min: 0.15
+    max: 10
+    bins:
+    - 0.15
+    - 10
+observable: ds_dN_dy
+value_type: dN_dy
+particle: ds

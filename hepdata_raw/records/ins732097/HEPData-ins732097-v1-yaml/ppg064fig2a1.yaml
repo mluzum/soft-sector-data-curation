@@ -1,0 +1,44 @@
+dependent_variables:
+- header: {name: $p_T$ (GeV/$c$)}
+  qualifiers:
+  - {name: Decay Channel, value: ''}
+  - {name: Collision, value: ''}
+  values:
+  - {value: 2.5}
+  - {value: 3.5}
+  - {value: 4.5}
+  - {value: 5.5}
+  - {value: 6.5}
+- header: {name: Ratio $\omega/\pi^0$}
+  qualifiers:
+  - {name: Decay Channel, value: $\omega \longrightarrow \pi^0 \gamma$}
+  - {name: Collision, value: $p$+$p$}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.16}
+    - {label: sys., symerror: 0.36}
+    value: 0.87
+  - errors:
+    - {label: stat., symerror: 0.14}
+    - {label: sys., symerror: 0.26}
+    value: 0.83
+  - errors:
+    - {label: stat., symerror: 0.13}
+    - {label: sys., symerror: 0.17}
+    value: 0.64
+  - errors:
+    - {label: stat., symerror: 0.24}
+    - {label: sys., symerror: 0.21}
+    value: 0.76
+  - errors:
+    - {label: stat., symerror: 0.3}
+    - {label: sys., symerror: 0.33}
+    value: 1.05
+independent_variables:
+- header: {name: $p_T$ Bins (GeV/$c$)}
+  values:
+  - {high: 3.0, low: 2.0}
+  - {high: 4.0, low: 3.0}
+  - {high: 5.0, low: 4.0}
+  - {high: 6.0, low: 5.0}
+  - {high: 7.0, low: 6.0}

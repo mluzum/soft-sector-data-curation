@@ -1,0 +1,75 @@
+dependent_variables:
+- header: {name: '$d^{2}\sigma/dp_{T}d\eta$', units: mb $c$/GeV}
+  qualifiers:
+  - {name: RE, value: P P --> jet + X}
+  - {name: SQRT(S), units: GEV, value: 5020}
+  - {name: YRAP, value: -0.4 TO 0.4}
+  - {name: jet radius, value: 0.3}
+  - {name: jet method, value: 'Anti-$k_{T}$'}
+  values:
+  - errors:
+    - {label: stat, symerror: 6.691484e-06}
+    - {label: 'sys,correlated', symerror: 0.0001693866}
+    - {label: 'sys,shape', symerror: 3.463392e-05}
+    - {label: 'sys,lumi', symerror: 2.1%}
+    value: 0.001851296
+  - errors:
+    - {label: stat, symerror: 2.497652e-06}
+    - {label: 'sys,correlated', symerror: 3.75943e-05}
+    - {label: 'sys,shape', symerror: 5.564373e-06}
+    - {label: 'sys,lumi', symerror: 2.1%}
+    value: 0.0004092332
+  - errors:
+    - {label: stat, symerror: 1.156105e-06}
+    - {label: 'sys,correlated', symerror: 1.220782e-05}
+    - {label: 'sys,shape', symerror: 1.33848e-06}
+    - {label: 'sys,lumi', symerror: 2.1%}
+    value: 0.0001285706
+  - errors:
+    - {label: stat, symerror: 6.135799e-07}
+    - {label: 'sys,correlated', symerror: 4.780019e-06}
+    - {label: 'sys,shape', symerror: 4.475828e-07}
+    - {label: 'sys,lumi', symerror: 2.1%}
+    value: 4.892622e-05
+  - errors:
+    - {label: stat, symerror: 3.684353e-07}
+    - {label: 'sys,correlated', symerror: 2.160892e-06}
+    - {label: 'sys,shape', symerror: 2.115967e-07}
+    - {label: 'sys,lumi', symerror: 2.1%}
+    value: 2.156944e-05
+  - errors:
+    - {label: stat, symerror: 2.385568e-07}
+    - {label: 'sys,correlated', symerror: 1.077742e-06}
+    - {label: 'sys,shape', symerror: 1.305197e-07}
+    - {label: 'sys,lumi', symerror: 2.1%}
+    value: 1.052903e-05
+  - errors:
+    - {label: stat, symerror: 1.269098e-07}
+    - {label: 'sys,correlated', symerror: 4.582317e-07}
+    - {label: 'sys,shape', symerror: 8.730478e-08}
+    - {label: 'sys,lumi', symerror: 2.1%}
+    value: 4.390839e-06
+  - errors:
+    - {label: stat, symerror: 5.364574e-08}
+    - {label: 'sys,correlated', symerror: 1.612929e-07}
+    - {label: 'sys,shape', symerror: 5.560622e-08}
+    - {label: 'sys,lumi', symerror: 2.1%}
+    value: 1.519244e-06
+  - errors:
+    - {label: stat, symerror: 2.57166e-08}
+    - {label: 'sys,correlated', symerror: 6.67314e-08}
+    - {label: 'sys,shape', symerror: 3.776929e-08}
+    - {label: 'sys,lumi', symerror: 2.1%}
+    value: 6.190054e-07
+independent_variables:
+- header: {name: PTjet, units: GEV}
+  values:
+  - {high: 30, low: 20}
+  - {high: 40, low: 30}
+  - {high: 50, low: 40}
+  - {high: 60, low: 50}
+  - {high: 70, low: 60}
+  - {high: 80, low: 70}
+  - {high: 100, low: 80}
+  - {high: 120, low: 100}
+  - {high: 140, low: 120}

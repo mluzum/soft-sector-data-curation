@@ -1,0 +1,79 @@
+dependent_variables:
+- header: {name: RD(pT r)}
+  qualifiers:
+  - {name: RE, value: Ratio of charged particle distributions}
+  - {name: pT(jet), units: GeV, value: 199.5 - 251.2}
+  - {name: pT(trk), units: GeV, value: 6.3 - 10.0}
+  - {name: Centrality, value: 40-60%}
+  - {name: abs. rapidity(jet), value: 0 - 1.7}
+  - {name: SQRT(S), units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - asymerror: {minus: -0.038727, plus: 0.0386765}
+      label: sys
+    - {label: stat, symerror: 0.0267462}
+    value: 1.03359
+  - errors:
+    - asymerror: {minus: -0.0184562, plus: 0.0186999}
+      label: sys
+    - {label: stat, symerror: 0.0252212}
+    value: 0.907561
+  - errors:
+    - asymerror: {minus: -0.0263612, plus: 0.0266385}
+      label: sys
+    - {label: stat, symerror: 0.0355796}
+    value: 0.856659
+  - errors:
+    - asymerror: {minus: -0.0316247, plus: 0.0323164}
+      label: sys
+    - {label: stat, symerror: 0.0442519}
+    value: 0.753019
+  - errors:
+    - asymerror: {minus: -0.0995446, plus: 0.100437}
+      label: sys
+    - {label: stat, symerror: 0.0684147}
+    value: 1.00852
+  - errors:
+    - asymerror: {minus: -0.0629015, plus: 0.0621296}
+      label: sys
+    - {label: stat, symerror: 0.0745185}
+    value: 0.769955
+  - errors:
+    - asymerror: {minus: -0.0524446, plus: 0.0534559}
+      label: sys
+    - {label: stat, symerror: 0.0634565}
+    value: 0.575815
+  - errors:
+    - asymerror: {minus: -0.0552667, plus: 0.0559119}
+      label: sys
+    - {label: stat, symerror: 0.110651}
+    value: 0.718581
+  - errors:
+    - asymerror: {minus: -0.0618039, plus: 0.0593598}
+      label: sys
+    - {label: stat, symerror: 0.117133}
+    value: 0.599585
+  - errors:
+    - asymerror: {minus: -0.0691198, plus: 0.0721844}
+      label: sys
+    - {label: stat, symerror: 0.149939}
+    value: 0.751365
+  - errors:
+    - asymerror: {minus: -0.0601643, plus: 0.0459571}
+      label: sys
+    - {label: stat, symerror: 0.148074}
+    value: 0.604411
+independent_variables:
+- header: {name: r}
+  values:
+  - {high: 0.05, low: 0}
+  - {high: 0.1, low: 0.05}
+  - {high: 0.15, low: 0.1}
+  - {high: 0.2, low: 0.15}
+  - {high: 0.25, low: 0.2}
+  - {high: 0.3, low: 0.25}
+  - {high: 0.4, low: 0.3}
+  - {high: 0.5, low: 0.4}
+  - {high: 0.6, low: 0.5}
+  - {high: 0.7, low: 0.6}
+  - {high: 0.8, low: 0.7}

@@ -1,0 +1,78 @@
+dependent_variables:
+- header: {name: $\langle p_T \rangle$ (GeV/$c$)}
+  qualifiers:
+  - {name: Particle, value: $p$}
+  - {name: Centrality, value: 20 - 40%}
+  values:
+  - {value: 0.64}
+  - {value: 0.88}
+  - {value: 1.12}
+  - {value: 1.37}
+  - {value: 1.71}
+  - {value: 2.2}
+  - {value: 2.7}
+  - {value: 3.31}
+- header: {name: $v_2$}
+  qualifiers:
+  - {name: Particle, value: $p$}
+  - {name: Centrality, value: 20 - 40%}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.006}
+    - asymerror: {minus: -0.0028, plus: 0.0026}
+      label: sys
+    - {label: bckgrnd, symerror: 0}
+    value: 0.0257
+  - errors:
+    - {label: stat, symerror: 0.005}
+    - asymerror: {minus: -0.005, plus: 0.005}
+      label: sys
+    - {label: bckgrnd, symerror: 0}
+    value: 0.048
+  - errors:
+    - {label: stat, symerror: 0.005}
+    - asymerror: {minus: -0.01, plus: 0.009}
+      label: sys
+    - {label: bckgrnd, symerror: 0}
+    value: 0.089
+  - errors:
+    - {label: stat, symerror: 0.006}
+    - asymerror: {minus: -0.014, plus: 0.013}
+      label: sys
+    - {label: bckgrnd, symerror: 0}
+    value: 0.127
+  - errors:
+    - {label: stat, symerror: 0.006}
+    - asymerror: {minus: -0.018, plus: 0.017}
+      label: sys
+    - {label: bckgrnd, symerror: 0}
+    value: 0.166
+  - errors:
+    - {label: stat, symerror: 0.011}
+    - asymerror: {minus: -0.023, plus: 0.021}
+      label: sys
+    - {label: bckgrnd, symerror: 0}
+    value: 0.207
+  - errors:
+    - {label: stat, symerror: 0.019}
+    - asymerror: {minus: -0.029, plus: 0.026}
+      label: sys
+    - {label: bckgrnd, symerror: 0}
+    value: 0.26
+  - errors:
+    - {label: stat, symerror: 0.033}
+    - asymerror: {minus: -0.032, plus: 0.029}
+      label: sys
+    - {label: bckgrnd, symerror: 0.029}
+    value: 0.294
+independent_variables:
+- header: {name: $p_T$ (GeV/$c$)}
+  values:
+  - {high: 0.75, low: 0.5}
+  - {high: 1.0, low: 0.75}
+  - {high: 1.25, low: 1.0}
+  - {high: 1.5, low: 1.25}
+  - {high: 2.0, low: 1.5}
+  - {high: 2.5, low: 2.0}
+  - {high: 3.0, low: 2.5}
+  - {high: 4.0, low: 3.0}

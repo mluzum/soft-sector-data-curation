@@ -1,0 +1,93 @@
+dependent_variables:
+- header: {name: 1/(2*PI*PT)*D2N/DPT/DYRAP, units: (GEV/C)**(-1)}
+  qualifiers:
+  - {name: PARTICLE, value: K-}
+  - {name: YRAP, value: 3.0}
+  - {name: CENTRALITY, units: PCT, value: 30 TO 50}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.012}
+    - {label: sys, symerror: 0.012}
+    value: 0.166
+  - errors:
+    - {label: stat, symerror: 0.008}
+    - {label: sys, symerror: 0.0077}
+    value: 0.1085
+  - errors:
+    - {label: stat, symerror: 0.0052}
+    - {label: sys, symerror: 0.005}
+    value: 0.0705
+  - errors:
+    - {label: stat, symerror: 0.0025}
+    - {label: sys, symerror: 0.0027}
+    value: 0.0384
+  - errors:
+    - {label: stat, symerror: 0.0018}
+    - {label: sys, symerror: 0.0012}
+    value: 0.0168
+  - errors:
+    - {label: stat, symerror: 0.00064}
+    - {label: sys, symerror: 0.00038}
+    value: 0.00544
+  - errors:
+    - {label: stat, symerror: 0.00034}
+    - {label: sys, symerror: 0.00023}
+    value: 0.00324
+  - errors:
+    - {label: stat, symerror: 0.00025}
+    - {label: sys, symerror: 0.00013}
+    value: 0.00188
+  - errors:
+    - {label: stat, symerror: 6.1e-05}
+    - {label: sys, symerror: 3.3e-05}
+    value: 0.000339
+  - errors:
+    - {label: stat, symerror: 2.9e-05}
+    - {label: sys, symerror: 1.8e-05}
+    value: 8.7e-05
+  - errors:
+    - {label: stat, symerror: 3.3e-05}
+    - {label: sys, symerror: 1.3e-05}
+    value: 6.3e-05
+- header: {name: MT-M, units: GEV/C**2}
+  qualifiers:
+  - {name: PARTICLE, value: K-}
+  - {name: YRAP, value: 3.0}
+  - {name: CENTRALITY, units: PCT, value: 30 TO 50}
+  values:
+  - errors: []
+    value: 0.9
+  - errors: []
+    value: 0.98
+  - errors: []
+    value: 1.1
+  - errors: []
+    value: 1.2
+  - errors: []
+    value: 1.4
+  - errors: []
+    value: 1.6
+  - errors: []
+    value: 1.8
+  - errors: []
+    value: 2.0
+  - errors: []
+    value: 2.3
+  - errors: []
+    value: 2.8
+  - errors: []
+    value: 3.3
+independent_variables:
+- header: {name: PT, units: GEV/C}
+  values:
+  - {high: 0.8, low: 0.7}
+  - {high: 0.9, low: 0.8}
+  - {high: 1.0, low: 0.9}
+  - {high: 1.2, low: 1.0}
+  - {high: 1.4, low: 1.2}
+  - {high: 1.6, low: 1.4}
+  - {high: 1.8, low: 1.6}
+  - {high: 2.0, low: 1.8}
+  - {high: 2.5, low: 2.0}
+  - {high: 3.0, low: 2.5}
+  - {high: 3.5, low: 3.0}

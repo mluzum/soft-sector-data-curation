@@ -1,0 +1,31 @@
+dependent_variables:
+- header: {name: SIG, units: NB}
+  qualifiers:
+  - {name: ETARAP(MU+-), value: 2.0-4.5}
+  - {name: M(MU+ MU-), units: GeV, value: 60.0-120.0}
+  - {name: PT(MU+-), units: GEV, value: '> 20'}
+  - {name: RE, value: P PB --> Z0 < MU+ MU- > X}
+  - {name: Region, value: Forward}
+  values:
+  - errors:
+    - asymerror: {minus: -4.0, plus: 5.4}
+      label: stat
+    - {label: sys, symerror: 1.2}
+    value: 13.5
+- header: {name: SIG, units: NB}
+  qualifiers:
+  - {name: ETARAP(MU+-), value: 2.0-4.5}
+  - {name: M(MU+ MU-), units: GeV, value: 60.0-120.0}
+  - {name: PT(MU+-), units: GEV, value: '> 20'}
+  - {name: RE, value: P PB --> Z0 < MU+ MU- > X}
+  - {name: Region, value: Backward}
+  values:
+  - errors:
+    - asymerror: {minus: -5.1, plus: 8.4}
+      label: stat
+    - {label: sys, symerror: 1.0}
+    value: 10.7
+independent_variables:
+- header: {name: SQRT(S)/NUCLEON, units: GEV}
+  values:
+  - {value: 5000.0}

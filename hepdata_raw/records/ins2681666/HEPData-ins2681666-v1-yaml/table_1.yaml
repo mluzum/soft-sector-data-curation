@@ -1,0 +1,41 @@
+dependent_variables:
+- header: {name: $v_2$}
+  qualifiers:
+  - {name: CENTRALITY, value: 30.0-50.0 pct}
+  - {name: REACTION, value: '$\mathrm{PbPb \rightarrow D^{0} + X}$'}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 5020.0}
+  - {name: YRAP, value: -0.8 TO 0.8}
+  values:
+  - errors:
+    - {label: Stat. unc., symerror: 0.065368}
+    - {label: Syst. unc, symerror: 0.012568}
+    value: 0.065261
+  - errors:
+    - {label: Stat. unc., symerror: 0.050803}
+    - {label: Syst. unc, symerror: 0.01242}
+    value: 0.076954
+  - errors:
+    - {label: Stat. unc., symerror: 0.052382}
+    - {label: Syst. unc, symerror: 0.011133}
+    value: 0.090223
+  - errors:
+    - {label: Stat. unc., symerror: 0.063752}
+    - {label: Syst. unc, symerror: 0.011487}
+    value: 0.067308
+  - errors:
+    - {label: Stat. unc., symerror: 0.060776}
+    - {label: Syst. unc, symerror: 0.011762}
+    value: 0.061714
+  - errors:
+    - {label: Stat. unc., symerror: 0.065585}
+    - {label: Syst. unc, symerror: 0.012705}
+    value: 0.060345
+independent_variables:
+- header: {name: '$p_\mathrm{T}$', units: '$\mathrm{GeV}/c$'}
+  values:
+  - {high: 3.0, low: 2.0}
+  - {high: 4.0, low: 3.0}
+  - {high: 5.0, low: 4.0}
+  - {high: 6.0, low: 5.0}
+  - {high: 8.0, low: 6.0}
+  - {high: 12.0, low: 8.0}

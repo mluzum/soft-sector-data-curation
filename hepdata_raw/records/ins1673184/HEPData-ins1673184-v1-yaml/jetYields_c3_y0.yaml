@@ -1,0 +1,72 @@
+dependent_variables:
+- header: {name: '(1/TAA)(1/NEVT)*D2(NJET)/DPT/DYRAP [nb/GEV]'}
+  qualifiers:
+  - {name: ABS(YRAP), value: '|y| < 2.8'}
+  - {name: R(JETS), value: '0.4'}
+  - {name: RE, value: PB PB --> JET(S) X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  - {name: CENTRALITY, value: 30-40 ptc}
+  values:
+  - errors:
+    - asymerror: {minus: -0.228, plus: 0.243}
+      label: sys
+    - {label: stat, symerror: 0.018}
+    value: 2.475
+  - errors:
+    - asymerror: {minus: -0.066, plus: 0.066}
+      label: sys
+    - {label: stat, symerror: 0.004}
+    value: 0.757
+  - errors:
+    - asymerror: {minus: -0.0179, plus: 0.0185}
+      label: sys
+    - {label: stat, symerror: 0.0011}
+    value: 0.2186
+  - errors:
+    - asymerror: {minus: -0.0051, plus: 0.0051}
+      label: sys
+    - {label: stat, symerror: 0.0004}
+    value: 0.0603
+  - errors:
+    - asymerror: {minus: -0.00122, plus: 0.00124}
+      label: sys
+    - {label: stat, symerror: 0.00019}
+    value: 0.01541
+  - errors:
+    - asymerror: {minus: -0.00028, plus: 0.0003}
+      label: sys
+    - {label: stat, symerror: 8.0e-05}
+    value: 0.00361
+  - errors:
+    - asymerror: {minus: -6.3e-05, plus: 5.9e-05}
+      label: sys
+    - {label: stat, symerror: 3.3e-05}
+    value: 0.000726
+  - errors:
+    - asymerror: {minus: -1.0e-05, plus: 1.1e-05}
+      label: sys
+    - {label: stat, symerror: 1.3e-05}
+    value: 0.000137
+  - errors:
+    - asymerror: {minus: -3.0e-06, plus: 3.0e-06}
+      label: sys
+    - {label: stat, symerror: 5.0e-06}
+    value: 2.8e-05
+  - errors:
+    - asymerror: {minus: -2.0e-07, plus: 2.0e-07}
+      label: sys
+    - {label: stat, symerror: 1.9e-06}
+    value: 4.3e-06
+independent_variables:
+- header: {name: 'PT [GEV]', units: GeV}
+  values:
+  - {high: 100, low: 79}
+  - {high: 126, low: 100}
+  - {high: 158, low: 126}
+  - {high: 200, low: 158}
+  - {high: 251, low: 200}
+  - {high: 316, low: 251}
+  - {high: 398, low: 316}
+  - {high: 501, low: 398}
+  - {high: 631, low: 501}
+  - {high: 800, low: 631}

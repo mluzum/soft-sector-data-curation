@@ -1,0 +1,40 @@
+dependent_variables:
+- header: {name: '$\sigma_{v_2}$'}
+  qualifiers:
+  - {name: SQRT(S_NN), units: TeV, value: 5.02}
+  - {name: ABS(ETA), value: < 0.8}
+  - {name: CENTRALITY, value: 20-30%}
+  values:
+  - errors:
+    - {label: Stat, symerror: 0.0028218}
+    - {label: Syst, symerror: 0.00032759}
+    value: 0.0096126
+  - errors:
+    - {label: Stat, symerror: 0.0024546}
+    - {label: Syst, symerror: 0.0005817}
+    value: 0.030444
+  - errors:
+    - {label: Stat, symerror: 0.0049779}
+    - {label: Syst, symerror: 0.0014146}
+    value: 0.041509
+  - errors:
+    - {label: Stat, symerror: 0.0046836}
+    - {label: Syst, symerror: 0.0018888}
+    value: 0.057071
+  - errors:
+    - {label: Stat, symerror: 0.003598}
+    - {label: Syst, symerror: 0.0020199}
+    value: 0.067154
+  - errors:
+    - {label: Stat, symerror: 0.0067998}
+    - {label: Syst, symerror: 0.0025056}
+    value: 0.095399
+independent_variables:
+- header: {name: PT, units: GeV/c}
+  values:
+  - {value: 1.1}
+  - {value: 1.7}
+  - {value: 2.25}
+  - {value: 2.75}
+  - {value: 3.5}
+  - {value: 5.0}

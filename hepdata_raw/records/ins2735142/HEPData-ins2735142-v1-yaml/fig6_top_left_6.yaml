@@ -1,0 +1,16 @@
+dependent_variables:
+- header: {name: Width}
+  qualifiers:
+  - {name: CENTRALITY, units: PCT, value: 20-50}
+  - {name: '$p_{T, jet}$', units: GeV/c, value: 15-20}
+  - {name: $D\phi$, value: $-\pi/3-\pi/3$}
+  values:
+  - errors:
+    - {label: scale, symerror: 0.001}
+    - {label: stat, symerror: 0.002}
+    - {label: sys, symerror: 0.002}
+    value: 0.14
+independent_variables:
+- header: {name: 'p_{T, assoc}', units: GeV/c}
+  values:
+  - {high: 10.0, low: 0.0}

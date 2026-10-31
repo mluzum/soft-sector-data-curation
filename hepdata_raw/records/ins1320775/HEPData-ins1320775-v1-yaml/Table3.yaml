@@ -1,0 +1,27 @@
+dependent_variables:
+- header: {name: '$(N_{\psi\mathrm{(2S)}} / N_{J/\psi})_{\mathrm{PbPb}} / (N_{\psi\mathrm{(2S)}}
+      / N_{J/\psi})_{pp}$'}
+  qualifiers:
+  - {name: RE, value: P P --> J/PSI < MU+ MU- > X}
+  - {name: RE, value: P P --> PSI(2S) < MU+ MU- > X}
+  - {name: RE, value: PB PB --> J/PSI < MU+ MU- > X}
+  - {name: RE, value: PB PB --> PSI(2S) < MU+ MU- > X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.13}
+    - {label: sys, symerror: 0.07}
+    value: 0.45
+  - errors:
+    - {label: stat, symerror: 0.34}
+    - {label: sys, symerror: 0.27}
+    value: 1.67
+independent_variables:
+- header: {name: ABS(YRAP)}
+  values:
+  - {high: 1.6, low: 0.0}
+  - {high: 2.4, low: 1.6}
+- header: {name: PT, units: GEV}
+  values:
+  - {high: 30.0, low: 6.5}
+  - {high: 30.0, low: 3.0}

@@ -1,0 +1,47 @@
+dependent_variables:
+- header: {name: '$1/N_\mathrm{evt}\,\mathrm{d}^{2}N/(\mathrm{d}y\mathrm{d}p_\mathrm{T})$',
+    units: '$(\mathrm{GeV}/c)^{-1}$'}
+  qualifiers:
+  - {name: EVENT CLASS, value: '$\mathrm{INEL} > 0$'}
+  - {name: Particle, value: '$(^3\mathrm{He} +\,^3\overline{\mathrm{He}}) / 2$'}
+  - {name: YRAP, value: $-1.0 - 0.0$}
+  - {name: SQRT(S)/NUCLEON, value: 5020.0 GeV}
+  values:
+  - errors:
+    - {label: stat, symerror: 3.0913e-08}
+    - {label: syst, symerror: 2.8919e-08}
+    value: 3.8543e-07
+  - errors:
+    - {label: stat, symerror: 2.5276e-08}
+    - {label: syst, symerror: 1.7063e-08}
+    value: 2.7458e-07
+  - errors:
+    - {label: stat, symerror: 2.224e-08}
+    - {label: syst, symerror: 1.2496e-08}
+    value: 2.1305e-07
+  - errors:
+    - {label: stat, symerror: 1.7082e-08}
+    - {label: syst, symerror: 6.7189e-09}
+    value: 1.2503e-07
+  - errors:
+    - {label: stat, symerror: 1.271e-08}
+    - {label: syst, symerror: 3.6137e-09}
+    value: 6.9139e-08
+  - errors:
+    - {label: stat, symerror: 1.0582e-08}
+    - {label: syst, symerror: 2.6896e-09}
+    value: 4.7741e-08
+  - errors:
+    - {label: stat, symerror: 8.8397e-09}
+    - {label: syst, symerror: 2.0488e-09}
+    value: 3.2938e-08
+independent_variables:
+- header: {name: '$p_\mathrm{T}$', units: GeV/$c$}
+  values:
+  - {high: 2.0, low: 1.5}
+  - {high: 2.5, low: 2.0}
+  - {high: 3.0, low: 2.5}
+  - {high: 3.5, low: 3.0}
+  - {high: 4.0, low: 3.5}
+  - {high: 4.5, low: 4.0}
+  - {high: 5.0, low: 4.5}

@@ -1,0 +1,47 @@
+dependent_variables:
+- header: {name: RAA}
+  qualifiers:
+  - {name: ABS(ETA), value: 0.0-0.5}
+  - {name: CENTRALITY, units: pct, value: 10.0-30.0}
+  - {name: R, value: '0.2'}
+  - {name: RE, value: PB PB --> JET(S) X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0185}
+    - {label: 'sys,shape', symerror: 0.0118}
+    - {label: 'sys,corr', symerror: 0.0392}
+    - {label: 'sys,$T_{\mathrm{AA}}$ uncertainty', symerror: 5.2%}
+    value: 0.333
+  - errors:
+    - {label: stat, symerror: 0.0323}
+    - {label: 'sys,shape', symerror: 0.00784}
+    - {label: 'sys,corr', symerror: 0.0549}
+    - {label: 'sys,$T_{\mathrm{AA}}$ uncertainty', symerror: 5.2%}
+    value: 0.434
+  - errors:
+    - {label: stat, symerror: 0.0434}
+    - {label: 'sys,shape', symerror: 0.0152}
+    - {label: 'sys,corr', symerror: 0.049}
+    - {label: 'sys,$T_{\mathrm{AA}}$ uncertainty', symerror: 5.2%}
+    value: 0.397
+  - errors:
+    - {label: stat, symerror: 0.0517}
+    - {label: 'sys,shape', symerror: 0.019}
+    - {label: 'sys,corr', symerror: 0.043}
+    - {label: 'sys,$T_{\mathrm{AA}}$ uncertainty', symerror: 5.2%}
+    value: 0.363
+  - errors:
+    - {label: stat, symerror: 0.0671}
+    - {label: 'sys,shape', symerror: 0.0192}
+    - {label: 'sys,corr', symerror: 0.0524}
+    - {label: 'sys,$T_{\mathrm{AA}}$ uncertainty', symerror: 5.2%}
+    value: 0.427
+independent_variables:
+- header: {name: PT, units: GEV/C}
+  values:
+  - {high: 40.0, low: 30.0}
+  - {high: 50.0, low: 40.0}
+  - {high: 60.0, low: 50.0}
+  - {high: 70.0, low: 60.0}
+  - {high: 90.0, low: 70.0}

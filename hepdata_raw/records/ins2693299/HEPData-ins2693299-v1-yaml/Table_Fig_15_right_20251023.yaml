@@ -1,0 +1,28 @@
+dependent_variables:
+- header: {name: DIRECT PHOTON FRACTION, units: ''}
+  qualifiers:
+  - {name: CENTRALITY, units: \%, value: 0.0-10.0}
+  - {name: RE, value: PB PB --> GAMMA X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.01364237}
+    - asymerror: {minus: -0.01972513, plus: 0.01972513}
+      label: syst
+    value: 0.02527477
+  - errors:
+    - {label: stat, symerror: 0.03458548}
+    - asymerror: {minus: -0.05836874, plus: 0.05836874}
+      label: syst
+    value: 0.07778297
+  - errors:
+    - {label: stat, symerror: 0.06978033}
+    - asymerror: {minus: -0.06994569, plus: 0.06994569}
+      label: syst
+    value: 0.11760934
+independent_variables:
+- header: {name: PT, units: GEV/C}
+  values:
+  - {high: 2.0, low: 1.0, value: 1.5}
+  - {high: 3.2, low: 2.0, value: 2.6}
+  - {high: 5.0, low: 3.2, value: 4.1}

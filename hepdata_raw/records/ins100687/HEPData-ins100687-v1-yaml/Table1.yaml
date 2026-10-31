@@ -1,0 +1,51 @@
+dependent_variables:
+- header: {name: R(DEF=SIG(LONG)/SIG(TRANS))}
+  qualifiers:
+  - {name: RE, value: E P --> E X}
+  - {name: SQRT(S), units: GeV, value: '0.0'}
+  - {name: X(DEF=Q2/2*MPROTON*NU), value: '0.1'}
+  values:
+  - errors:
+    - {symerror: 0.132}
+    value: 0.175
+  - errors:
+    - {symerror: 0.155}
+    value: 0.336
+  - errors:
+    - {symerror: 0.127}
+    value: 0.302
+  - errors:
+    - {symerror: 0.199}
+    value: 0.442
+  - errors:
+    - {symerror: 0.844}
+    value: 0.88
+- header: {name: R(DEF=SIG(LONG)/SIG(TRANS))}
+  qualifiers:
+  - {name: RE, value: E D --> E X}
+  - {name: SQRT(S), units: GeV, value: '0.0'}
+  - {name: X(DEF=Q2/2*MPROTON*NU), value: '0.1'}
+  values:
+  - errors:
+    - {symerror: 0.093}
+    value: 0.12
+  - errors:
+    - {symerror: 0.118}
+    value: 0.181
+  - errors:
+    - {symerror: 0.112}
+    value: 0.28
+  - errors:
+    - {symerror: 0.13}
+    value: 0.273
+  - errors:
+    - {symerror: 0.44}
+    value: 0.297
+independent_variables:
+- header: {name: Q2, units: GEV**2}
+  values:
+  - {value: 1.0}
+  - {value: 1.25}
+  - {value: 1.5}
+  - {value: 2.0}
+  - {value: 2.5}

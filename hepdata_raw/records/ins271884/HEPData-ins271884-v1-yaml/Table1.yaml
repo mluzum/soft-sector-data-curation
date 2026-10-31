@@ -1,0 +1,32 @@
+dependent_variables:
+- header: {name: 'SLOPE(N=MT,YN=(1/PT)*D(SIG)/D(PT))', units: 1/GEV}
+  qualifiers:
+  - {name: E, units: GeV, value: '200.0'}
+  - {name: RE, value: P AU --> K0 X}
+  - {name: SYS, value: NOT GIVEN}
+  values:
+  - errors:
+    - {symerror: 0.4}
+    value: 4.9
+- header: {name: 'SLOPE(N=MT,YN=(1/PT)*D(SIG)/D(PT))', units: 1/GEV}
+  qualifiers:
+  - {name: E, units: GeV, value: '200.0'}
+  - {name: RE, value: P AU --> LAMBDA X}
+  - {name: SYS, value: NOT GIVEN}
+  values:
+  - errors:
+    - {symerror: 0.5}
+    value: 4.7
+- header: {name: 'SLOPE(N=MT,YN=(1/PT)*D(SIG)/D(PT))', units: 1/GEV}
+  qualifiers:
+  - {name: E, units: GeV, value: '200.0'}
+  - {name: RE, value: P AU --> LAMBDABAR X}
+  - {name: SYS, value: NOT GIVEN}
+  values:
+  - errors:
+    - {symerror: 0.7}
+    value: 5.8
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {value: '> 0.7'}

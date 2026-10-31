@@ -1,0 +1,36 @@
+dependent_variables:
+- header: {name: '[SIGMA_PSI(2S)/SIGMA_JPSI]_pA/[SIGMA_PSI(2S)/SIGMA_JPSI]_pp'}
+  qualifiers:
+  - {name: RE, value: P PB --> JPSI < MU+ MU- > X}
+  - {name: RE, value: P PB --> PSI(2S) < MU+ MU- > X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  - {name: YRAP(RF=CM), value: -4.46--2.96}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.3}
+    - {label: sys, symerror: 0.16}
+    value: 0.94
+  - errors:
+    - {label: stat, symerror: 0.21}
+    - {label: sys, symerror: 0.09}
+    value: 0.66
+  - errors:
+    - {label: stat, symerror: 0.17}
+    - {label: sys, symerror: 0.13}
+    value: 0.55
+  - errors:
+    - {label: stat, symerror: 0.16}
+    - {label: sys, symerror: 0.06}
+    value: 0.42
+  - errors:
+    - {label: stat, symerror: 0.15}
+    - {label: sys, symerror: 0.05}
+    value: 0.32
+independent_variables:
+- header: {name: TAU_C, units: fm/c}
+  values:
+  - {value: 0.037}
+  - {value: 0.047}
+  - {value: 0.056}
+  - {value: 0.061}
+  - {value: 0.065}

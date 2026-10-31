@@ -1,0 +1,38 @@
+dependent_variables:
+- header: {name: '$\mathrm{d}^2\sigma/\mathrm{d}p_\mathrm{T}\mathrm{d}y$', units: '$\mu\mathrm{b}~\mathrm{GeV}^{-1}~c$'}
+  qualifiers:
+  - {name: REACTION, value: P PB --> hb --> Lc X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 5020.0}
+  - {name: YRAP, value: -0.96 TO 0.04}
+  values:
+  - errors:
+    - {label: stat, symerror: 180.71}
+    - {label: sys, symerror: 72.876}
+    - {label: 'sys, uncertainty on branching ratio', symerror: 4.4448%}
+    - {label: 'sys, uncertainty on luminosity', symerror: 3.7%}
+    value: 577.82
+  - errors:
+    - {label: stat, symerror: 11.554}
+    - {label: sys, symerror: 6.6761}
+    - {label: 'sys, uncertainty on branching ratio', symerror: 4.4448%}
+    - {label: 'sys, uncertainty on luminosity', symerror: 3.7%}
+    value: 54.46
+  - errors:
+    - {label: stat, symerror: 1.7884}
+    - {label: sys, symerror: 0.8326}
+    - {label: 'sys, uncertainty on branching ratio', symerror: 4.4448%}
+    - {label: 'sys, uncertainty on luminosity', symerror: 3.7%}
+    value: 6.5676
+  - errors:
+    - {label: stat, symerror: 0.26929}
+    - {label: sys, symerror: 0.08581}
+    - {label: 'sys, uncertainty on branching ratio', symerror: 4.4448%}
+    - {label: 'sys, uncertainty on luminosity', symerror: 3.7%}
+    value: 0.36588
+independent_variables:
+- header: {name: '$p_\mathrm{{T}}$', units: '$\mathrm{{GeV}}/c$'}
+  values:
+  - {high: 4.0, low: 2.0}
+  - {high: 8.0, low: 4.0}
+  - {high: 12.0, low: 8.0}
+  - {high: 24.0, low: 12.0}

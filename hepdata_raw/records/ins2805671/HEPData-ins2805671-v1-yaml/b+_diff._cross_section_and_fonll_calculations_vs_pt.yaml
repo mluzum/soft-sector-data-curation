@@ -1,0 +1,76 @@
+dependent_variables:
+- header: {name: '$\mathrm{d} \sigma / \mathrm{d}p_{\mathrm{T}}$', units: '$\mu$b$\,$GeV$^{-1}$'}
+  qualifiers:
+  - {name: RE, value: P Pb --> B+ --> J/psi K+}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: 8160}
+  - {name: '$|\eta(\mathrm{B}^+)|$', value: $< 2.4$}
+  - {name: '$|y(\mathrm{B}^+)|$', value: < 1.8}
+  - {name: '$p_{\mathrm{T}}$($\mathrm{B}^+$)', units: GeV, value: $3-50$}
+  - {name: '$N_{\mathrm{ch}}$', value: '$2 \leq N_\text{ch} \leq 250$'}
+  values:
+  - errors:
+    - {label: Statistical uncertainty, symerror: 157.0}
+    - {label: Systematical uncertainty, symerror: 75.0}
+    value: 1423.0
+  - errors:
+    - {label: Statistical uncertainty, symerror: 39.0}
+    - {label: Systematical uncertainty, symerror: 22.0}
+    value: 647.0
+  - errors:
+    - {label: Statistical uncertainty, symerror: 7.0}
+    - {label: Systematical uncertainty, symerror: 10.0}
+    value: 202.0
+  - errors:
+    - {label: Statistical uncertainty, symerror: 2.02}
+    - {label: Systematical uncertainty, symerror: 2.58}
+    value: 51.41
+  - errors:
+    - {label: Statistical uncertainty, symerror: 0.5}
+    - {label: Systematical uncertainty, symerror: 1.0}
+    value: 11.3
+  - errors:
+    - {label: Statistical uncertainty, symerror: 0.1}
+    - {label: Systematical uncertainty, symerror: 0.2}
+    value: 1.4
+- header: {name: FONLL calculations, units: '$\mu$b$\,$GeV$^{-1}$'}
+  qualifiers:
+  - {name: RE, value: P Pb --> B+ --> J/psi K+}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: 8160}
+  - {name: '$|\eta(\mathrm{B}^+)|$', value: $< 2.4$}
+  - {name: '$|y(\mathrm{B}^+)|$', value: < 1.8}
+  - {name: '$p_{\mathrm{T}}$($\mathrm{B}^+$)', units: GeV, value: $3-50$}
+  - {name: '$N_{\mathrm{ch}}$', value: '$2 \leq N_\text{ch} \leq 250$'}
+  values:
+  - errors:
+    - asymerror: {minus: 677.0, plus: 806.0}
+      label: FONLL unc.
+    value: 1275.0
+  - errors:
+    - asymerror: {minus: 191.0, plus: 290.0}
+      label: FONLL unc.
+    value: 494.0
+  - errors:
+    - asymerror: {minus: 56.0, plus: 86.0}
+      label: FONLL unc.
+    value: 167.0
+  - errors:
+    - asymerror: {minus: 15.7, plus: 22.6}
+      label: FONLL unc.
+    value: 52.5
+  - errors:
+    - asymerror: {minus: 3.3, plus: 4.4}
+      label: FONLL unc.
+    value: 12.8
+  - errors:
+    - asymerror: {minus: 0.3, plus: 0.4}
+      label: FONLL unc.
+    value: 1.6
+independent_variables:
+- header: {name: pT, units: GeV}
+  values:
+  - {value: 5.0}
+  - {value: 8.5}
+  - {value: 12.5}
+  - {value: 17.5}
+  - {value: 25.0}
+  - {value: 40.0}

@@ -1,0 +1,44 @@
+---
+observable_type: heavy_flavor
+inspire_id: '785050'
+version: 1
+hepdata_file: figure_3a_(left_panel).yaml
+hepdata_table_label: 'Projections of away-side three-particle correlations along the diagonal $\Sigma$ within 0 < $\Delta$
+  < 0.35 (squares) and along the off-diagonal $\Delta$ within |$\Sigma$| < 0.35 (points) in (a) d+Au and (b) 12% central Au+Au
+  collisions. The shaded areas indicate systematic uncertainties on the off-diagonal projections. The histogram in (a) is
+  the near-side off-diagonal projection. The histogram in (b) is the away-side off-diagonal projection of our result with
+  a = b = 1.
+
+  NOTE: For points with invisible error bars, the point size was considered as an absolute upper limit for the uncertainty.'
+collision_system:
+  energy_gev: 200.0
+  reaction: pp, AuAu, dAu
+centrality:
+  classes: []
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: charged
+  particle: d+
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+    bins:
+    - -1.0
+    - 1.0
+  pT:
+    min: 0.15
+    max: 10
+    bins:
+    - 0.15
+    - 10
+observable: d+_invariant_yield
+value_type: invariant_yield
+particle: d+

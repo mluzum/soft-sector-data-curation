@@ -1,0 +1,51 @@
+dependent_variables:
+- header: {name: Ratio to Data}
+  qualifiers:
+  - {name: SQRT(S), units: GEV, value: '7000.0'}
+  - {name: YRAP, value: -0.5 TO 0.5}
+  values:
+  - errors:
+    - {label: stat, symerror: '0.047'}
+    - asymerror: {minus: '-0', plus: '0'}
+      label: sys
+    value: '0.283'
+  - errors:
+    - {label: stat, symerror: '0.068'}
+    - asymerror: {minus: '-0', plus: '0'}
+      label: sys
+    value: '0.698'
+  - errors:
+    - {label: stat, symerror: '0.046'}
+    - asymerror: {minus: '-0', plus: '0'}
+      label: sys
+    value: '0.751'
+  - errors:
+    - {label: stat, symerror: '0.067'}
+    - asymerror: {minus: '-0', plus: '0'}
+      label: sys
+    value: '1.099'
+  - errors:
+    - {label: stat, symerror: '0.073'}
+    - asymerror: {minus: '-0', plus: '0'}
+      label: sys
+    value: '1.231'
+  - errors:
+    - {label: stat, symerror: '0.11'}
+    - asymerror: {minus: '-0', plus: '0'}
+      label: sys
+    value: '1.28'
+  - errors:
+    - {label: stat, symerror: '0.18'}
+    - asymerror: {minus: '-0', plus: '0'}
+      label: sys
+    value: '1.29'
+independent_variables:
+- header: {name: '$n_{\rm SD}$'}
+  values:
+  - {high: 0.5, low: -0.5}
+  - {high: 1.5, low: 0.5}
+  - {high: 2.5, low: 1.5}
+  - {high: 3.5, low: 2.5}
+  - {high: 4.5, low: 3.5}
+  - {high: 5.5, low: 4.5}
+  - {high: 7.5, low: 5.5}

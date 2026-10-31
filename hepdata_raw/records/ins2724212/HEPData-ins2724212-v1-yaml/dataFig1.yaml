@@ -1,0 +1,36 @@
+dependent_variables:
+- header: {name: d$^2\sigma$/d$y$/d$p_T^2$, units: mb/(GeV/$c$)^2}
+  qualifiers:
+  - {name: RE, value: PB PB --> PB PB K+ K-}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020'}
+  - {name: YRAP, value: -0.8 TO 0.8}
+  - {name: M_KK, value: '1.1 TO 1.4 GeV/$c^{2}$'}
+  values:
+  - errors:
+    - {label: stat, symerror: 363.32}
+    - {label: sys, symerror: 48.21}
+    value: 726.18
+  - errors:
+    - {label: stat, symerror: 710.13}
+    - {label: sys, symerror: 77.72}
+    value: 1276.79
+  - errors:
+    - {label: stat, symerror: 214.41}
+    - {label: sys, symerror: 32.5}
+    value: 524.8
+  - errors:
+    - {label: stat, symerror: 62.77}
+    - {label: sys, symerror: 13.51}
+    value: 236.18
+  - errors:
+    - {label: stat, symerror: 7.56}
+    - {label: sys, symerror: 0.73}
+    value: 12.71
+independent_variables:
+- header: {name: PT^2, units: (GEV/C)^2}
+  values:
+  - {high: 0.0005, low: 0}
+  - {high: 0.001, low: 0.0005}
+  - {high: 0.002, low: 0.001}
+  - {high: 0.01, low: 0.002}
+  - {high: 0.04, low: 0.01}

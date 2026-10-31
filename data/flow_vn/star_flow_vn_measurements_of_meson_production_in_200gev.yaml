@@ -1,0 +1,154 @@
+centrality:
+  classes:
+  - 0.0-80.0%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: d+Au
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (Lambda) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: Fig20.yaml
+hepdata_table_label: $p_{T}$ dependence of the elliptic flow $v_{2}$ of $\phi$, $\Lambda$,
+  and $K_{s}^{0}$ in Au + Au collisions (0–80$\%$) at 200 GeV. Data points for $\phi$
+  are from the reaction plane method (full up-triangles) and invariant mass method
+  (full circles), where data points from the reaction plane method are shifted slightly
+  along the $x$ axis for clarity. Vertical error bars represent statistical errors,
+  while the square bands represent systematic uncertainties. The magenta curved band
+  represents the $v_{2}$ of $\phi$ meson from the AMPT model with a string melting
+  mechanism [116]. The dash and dot curves represent parametrizations inspired by
+  number-of-quark scaling ideas from Ref. [117] for NQ = 2 and NQ = 3, respectively.
+inspire_id: '797805'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: Lambda
+qualifiers:
+  p_{t}$ $(gev/c): $reaction$ $plane$ $method$
+value_type: v_{2}
+version: 1
+---
+centrality:
+  classes:
+  - 0.0-5.0%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: d+Au
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: Fig21_1.yaml
+hepdata_table_label: Elliptic flow $v_{2}$ as a function of $p_{T}$ , $v_{2}$($p_{T}$),
+  for the $\phi$ meson from different centralities. The vertical error bars represent
+  the statistical errors, while the square bands represent the systematic uncertainties.
+  For clarity, data points of 10–40$\%$ are shifted in the $p_{T}$ direction slightly.
+inspire_id: '797805'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  p_{t}$ $(gev/c): $Au+Au$ $200$ $GeV$ $(0-5$$\%)$
+value_type: v_{2}
+version: 1
+---
+centrality:
+  classes:
+  - 40.0-80.0%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: d+Au
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: Fig21_2.yaml
+hepdata_table_label: Elliptic flow $v_{2}$ as a function of $p_{T}$ , $v_{2}$($p_{T}$),
+  for the $\phi$ meson from different centralities. The vertical error bars represent
+  the statistical errors, while the square bands represent the systematic uncertainties.
+  For clarity, data points of 10–40$\%$ are shifted in the $p_{T}$ direction slightly.
+inspire_id: '797805'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  p_{t}$ $(gev/c): $Au+Au$ $200$ $GeV$ $(40-80$$\%)$
+value_type: v_{2}
+version: 1

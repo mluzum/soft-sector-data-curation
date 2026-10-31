@@ -1,0 +1,38 @@
+dependent_variables:
+- header: {name: '$\Delta{v_2}$'}
+  qualifiers:
+  - {name: SQRT(S), units: GEV, value: 7.7}
+  - {name: Au+Au, value: '${p} - \overline{p}$'}
+  - {name: Centrality, units: percentage, value: 0-80}
+  values:
+  - errors:
+    - asymerror: {minus: -0.002283, plus: 0.001106}
+      label: sys
+    - {label: stat, symerror: 0.014133}
+    - {label: glob, symerror: 0.000582}
+    value: 0.010948
+  - errors:
+    - asymerror: {minus: -0.001098, plus: 0.000675}
+      label: sys
+    - {label: stat, symerror: 0.009718}
+    - {label: glob, symerror: 0.000582}
+    value: 0.022528
+  - errors:
+    - asymerror: {minus: -0.004448, plus: 0.002946}
+      label: sys
+    - {label: stat, symerror: 0.013879}
+    - {label: glob, symerror: 0.000582}
+    value: 0.036429
+  - errors:
+    - asymerror: {minus: -0.002382, plus: 0.003983}
+      label: sys
+    - {label: stat, symerror: 0.020591}
+    - {label: glob, symerror: 0.000582}
+    value: 0.021242
+independent_variables:
+- header: {name: '${p_T}$'}
+  values:
+  - {value: 0.474}
+  - {value: 0.80576}
+  - {value: 1.1655}
+  - {value: 1.654}

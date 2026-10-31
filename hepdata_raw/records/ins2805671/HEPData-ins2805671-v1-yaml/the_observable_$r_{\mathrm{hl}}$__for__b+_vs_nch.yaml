@@ -1,0 +1,28 @@
+dependent_variables:
+- header: {name: '$R_{\mathrm{HL}}$'}
+  qualifiers:
+  - {name: RE, value: P Pb --> B+ --> J/psi K+}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: 8160}
+  - {name: '$|\eta(\mathrm{B}^+)|$', value: $< 2.4$}
+  - {name: '$|y(\mathrm{B}^+)|$', value: < 1.8}
+  - {name: '$p_{\mathrm{T}}$($\mathrm{B}^+$)', units: GeV, value: $3-50$}
+  - {name: '<$N_{\mathrm{ch}}$>', value: '43'}
+  values:
+  - errors:
+    - {label: Statistical uncertainty, symerror: 0.06}
+    - {label: Systematical uncertainty, symerror: 0.04}
+    value: 1.05
+  - errors:
+    - {label: Statistical uncertainty, symerror: 0.06}
+    - {label: Systematical uncertainty, symerror: 0.03}
+    value: 0.99
+  - errors:
+    - {label: Statistical uncertainty, symerror: 0.05}
+    - {label: Systematical uncertainty, symerror: 0.03}
+    value: 0.97
+independent_variables:
+- header: {name: Nch/<Nch>}
+  values:
+  - {value: 1.7}
+  - {value: 2.3}
+  - {value: 3.5}

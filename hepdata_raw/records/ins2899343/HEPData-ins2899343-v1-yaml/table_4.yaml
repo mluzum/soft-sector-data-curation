@@ -1,0 +1,53 @@
+dependent_variables:
+- header: {name: '$S^{J/\psi}$'}
+  qualifiers:
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020'}
+  - {name: RE, value: PB PB -> J/PSI <MU+ MU-> PB PB*}
+  - {name: ABS(YRAP), value: 1.6 - 2.4}
+  - {name: MUON ABS(ETA), value: 0.0 - 2.4}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0083}
+    - {label: syst_theory, symerror: 0.002}
+    - asymerror: {minus: -0.044, plus: 0.0442}
+      label: syst_experiment
+    value: 0.4381
+  - errors:
+    - {label: stat, symerror: 0.0075}
+    - {label: syst_theory, symerror: 0.0021}
+    - asymerror: {minus: -0.042, plus: 0.0426}
+      label: syst_experiment
+    value: 0.4292
+  - errors:
+    - {label: stat, symerror: 0.0114}
+    - {label: syst_theory, symerror: 0.0021}
+    - asymerror: {minus: -0.0399, plus: 0.0401}
+      label: syst_experiment
+    value: 0.3961
+  - errors:
+    - {label: stat, symerror: 0.0094}
+    - {label: syst_theory, symerror: 0.0026}
+    - asymerror: {minus: -0.0233, plus: 0.0226}
+      label: syst_experiment
+    value: 0.1312
+  - errors:
+    - {label: stat, symerror: 0.0064}
+    - {label: syst_theory, symerror: 0.0034}
+    - asymerror: {minus: -0.0227, plus: 0.0185}
+      label: syst_experiment
+    value: 0.1472
+  - errors:
+    - {label: stat, symerror: 0.0073}
+    - {label: syst_theory, symerror: 0.0036}
+    - asymerror: {minus: -0.0238, plus: 0.0225}
+      label: syst_experiment
+    value: 0.1369
+independent_variables:
+- header: {name: $x$}
+  values:
+  - {value: 0.00585}
+  - {value: 0.00456}
+  - {value: 0.00355}
+  - {value: 0.000107}
+  - {value: 8.35e-05}
+  - {value: 6.5e-05}

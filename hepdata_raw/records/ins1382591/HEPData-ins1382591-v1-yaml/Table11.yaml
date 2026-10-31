@@ -1,0 +1,36 @@
+dependent_variables:
+- header: {name: '$v_{2}^{\mu\leftarrow{\rm HF}}$'}
+  qualifiers:
+  - {name: CENT, units: pct, value: 0.0-10.0}
+  - {name: PT, units: GeV, value: 3.0-10.0}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  - {name: YRAP, value: 2.5-4.0}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0067}
+    - {label: sys, symerror: 0.0094}
+    value: 0.0228
+  - errors:
+    - {label: stat, symerror: 0.013}
+    - {label: sys, symerror: 0.013}
+    value: 0.04
+  - errors:
+    - {label: stat, symerror: 0.023}
+    - {label: sys, symerror: 0.024}
+    value: 0.056
+  - errors:
+    - {label: stat, symerror: 0.031}
+    - {label: sys, symerror: 0.03}
+    value: 0.04
+  - errors:
+    - {label: stat, symerror: 0.055}
+    - {label: sys, symerror: 0.072}
+    value: -0.117
+independent_variables:
+- header: {name: '$p_{\rm T}~({\rm GeV/}c)$'}
+  values:
+  - {high: 4.0, low: 3.0}
+  - {high: 5.0, low: 4.0}
+  - {high: 6.0, low: 5.0}
+  - {high: 7.5, low: 6.0}
+  - {high: 10.0, low: 7.5}

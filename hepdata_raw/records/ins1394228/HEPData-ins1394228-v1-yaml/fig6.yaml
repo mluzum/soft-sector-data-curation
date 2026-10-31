@@ -1,0 +1,40 @@
+dependent_variables:
+- header: {name: $\langle p_T \rangle$ (Gev/$c$)}
+  qualifiers:
+  - {name: Rapidity, value: 1.2 < $|y|$ < 2.2}
+  values:
+  - {value: 1.8}
+  - {value: 3.1}
+- header: {name: '$BR$ $d^2N/dydp_T$ (GeV/$c$)$^{-1}$ (Cu-going)'}
+  qualifiers:
+  - {name: Rapidity, value: 1.2 < $y$ < 2.2}
+  values:
+  - errors:
+    - {label: stat. + A sys., symerror: 8.0e-06}
+    - {label: B sys., symerror: 4.0e-06}
+    - {label: C sys., symerror: 1.6e-06}
+    value: 2.7e-05
+  - errors:
+    - {label: stat. + A sys., symerror: 1.0e-07}
+    - {label: B sys., symerror: 3.0e-08}
+    - {label: C sys., symerror: 1.0e-08}
+    value: 1.8e-07
+- header: {name: '$BR$ $d^2N/dydp_T$ (GeV/$c$)$^{-1}$ (Au-going)'}
+  qualifiers:
+  - {name: Rapidity, value: -2.2 < $y$ < -1.2}
+  values:
+  - errors:
+    - {label: stat. + A sys., symerror: 9.0e-06}
+    - {label: B sys., symerror: 8.0e-06}
+    - {label: C sys., symerror: 3.2e-06}
+    value: 5.5e-05
+  - errors:
+    - {label: stat. + A sys., symerror: 1.0e-07}
+    - {label: B sys., symerror: 6.0e-08}
+    - {label: C sys., symerror: 2.4e-08}
+    value: 4.1e-07
+independent_variables:
+- header: {name: $p_T$ (GeV/$c$)}
+  values:
+  - {high: 2.5, low: 1}
+  - {high: 5, low: 2.5}

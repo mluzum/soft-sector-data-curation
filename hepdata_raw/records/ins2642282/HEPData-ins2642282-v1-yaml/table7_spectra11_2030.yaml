@@ -1,0 +1,45 @@
+dependent_variables:
+- header: {name: $d^2N/dydp_T$, units: '$(GeV/c)^{-1}$'}
+  qualifiers:
+  - {name: particles, value: '$\mathrm{K^{*0}} + \bar{\mathrm{K^{*0}}}$'}
+  - {name: '$\sqrt{s_{NN}}$', units: GeV, value: '11.5'}
+  - {name: class, units: '%', value: 20-30}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.524}
+    - {label: syst, symerror: 0.42}
+    value: 3.233
+  - errors:
+    - {label: stat, symerror: 0.363}
+    - {label: syst, symerror: 0.387}
+    value: 3.291
+  - errors:
+    - {label: stat, symerror: 0.263}
+    - {label: syst, symerror: 0.228}
+    value: 1.814
+  - errors:
+    - {label: stat, symerror: 0.185}
+    - {label: syst, symerror: 0.189}
+    value: 1.624
+  - errors:
+    - {label: stat, symerror: 0.076}
+    - {label: syst, symerror: 0.086}
+    value: 0.726
+  - errors:
+    - {label: stat, symerror: 0.037}
+    - {label: syst, symerror: 0.033}
+    value: 0.263
+  - errors:
+    - {label: stat, symerror: 0.007}
+    - {label: syst, symerror: 0.003}
+    value: 0.035
+independent_variables:
+- header: {name: $p_T$, units: $GeV/c$}
+  values:
+  - {value: 0.5}
+  - {value: 0.7}
+  - {value: 0.9}
+  - {value: 1.1}
+  - {value: 1.4}
+  - {value: 1.8}
+  - {value: 2.5}

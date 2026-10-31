@@ -1,0 +1,31 @@
+dependent_variables:
+- header: {name: V2}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 5.0-90.0}
+  - {name: RE, value: PB PB --> J/PSI X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  - {name: YRAP, value: 2.5-4.0}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.044}
+    - {label: sys, symerror: 0.032}
+    value: 0.101
+  - errors:
+    - {label: stat, symerror: 0.045}
+    - {label: sys, symerror: 0.041}
+    value: 0.116
+  - errors:
+    - {label: stat, symerror: 0.054}
+    - {label: sys, symerror: 0.015}
+    value: 0.001
+  - errors:
+    - {label: stat, symerror: 0.08}
+    - {label: sys, symerror: 0.028}
+    value: -0.049
+independent_variables:
+- header: {name: NPART}
+  values:
+  - {high: 287.2, low: 279.2}
+  - {high: 160.3, low: 154.1}
+  - {high: 70.6, low: 66.6}
+  - {high: 18.1, low: 16.9}

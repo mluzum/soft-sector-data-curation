@@ -1,0 +1,25 @@
+dependent_variables:
+- header: {name: $K_S^0$-h}
+  qualifiers:
+  - {name: ABS(DELTA ETA), value: 0.0-0.78}
+  - {name: ABS(DELTA PHI), value: 0.0-0.78}
+  - {name: ABS(ETA), value: 0.0-1.0}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '200.0'}
+  values:
+  - errors:
+    - {symerror: 0.028}
+    value: 0.162
+- header: {name: $\Lambda$-h}
+  qualifiers:
+  - {name: ABS(DELTA ETA), value: 0.0-0.78}
+  - {name: ABS(DELTA PHI), value: 0.0-0.78}
+  - {name: ABS(ETA), value: 0.0-1.0}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '200.0'}
+  values:
+  - errors:
+    - {symerror: 0.018}
+    value: 0.079
+independent_variables:
+- header: {name: $p_T$, units: GeV/c}
+  values:
+  - {high: 5.0, low: 3.0}

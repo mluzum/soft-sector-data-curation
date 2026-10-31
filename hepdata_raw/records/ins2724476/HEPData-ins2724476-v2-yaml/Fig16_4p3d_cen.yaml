@@ -1,0 +1,54 @@
+dependent_variables:
+- header: {name: $Centrality$ 0-10%}
+  qualifiers:
+  - {name: $Rapidity$, value: "$N_{^{4}He} \\times N_{p} /\tN_{^{3}He} \\times N_{d}$"}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.008}
+    - {label: sys, symerror: 0.041}
+    value: 0.697
+  - errors:
+    - {label: stat, symerror: 0.006}
+    - {label: sys, symerror: 0.126}
+    value: 0.751
+- header: {name: $Centrality$ 10-20%}
+  qualifiers:
+  - {name: $Rapidity$, value: "$N_{^{4}He} \\times N_{p} /\tN_{^{3}He} \\times N_{d}$"}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.012}
+    - {label: sys, symerror: 0.058}
+    value: 0.738
+  - errors:
+    - {label: stat, symerror: 0.005}
+    - {label: sys, symerror: 0.118}
+    value: 0.736
+- header: {name: $Centrality$ 20-40%}
+  qualifiers:
+  - {name: $Rapidity$, value: "$N_{^{4}He} \\times N_{p} /\tN_{^{3}He} \\times N_{d}$"}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.015}
+    - {label: sys, symerror: 0.057}
+    value: 0.75
+  - errors:
+    - {label: stat, symerror: 0.004}
+    - {label: sys, symerror: 0.083}
+    value: 0.798
+- header: {name: $Centrality$ 40-80%}
+  qualifiers:
+  - {name: $Rapidity$, value: "$N_{^{4}He} \\times N_{p} /\tN_{^{3}He} \\times N_{d}$"}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.04}
+    - {label: sys, symerror: 0.09}
+    value: 0.64
+  - errors:
+    - {label: stat, symerror: 0.006}
+    - {label: sys, symerror: 0.166}
+    value: 0.652
+independent_variables:
+- header: {name: $Rapidity$}
+  values:
+  - {high: 0, low: -0.5}
+  - {high: -0.5, low: -1.0}

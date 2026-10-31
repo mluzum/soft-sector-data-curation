@@ -1,0 +1,36 @@
+dependent_variables:
+- header: {name: '$\rho$$_{00}$, Centrality 0-10'}
+  qualifiers:
+  - {name: Centrality, value: 0-10}
+  - {name: RE, value: 'Pb--Pb $\rightarrow$ D$^{*}$ X'}
+  - {name: SQRT(SNN), units: GeV, value: '5020.0'}
+  - {name: ABS(YRAP), value: 0.3-0.8}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.0786474}
+    - {label: syst., symerror: 0.0582584}
+    value: 0.302565
+  - errors:
+    - {label: stat., symerror: 0.0667906}
+    - {label: syst., symerror: 0.0411164}
+    value: 0.321843
+  - errors:
+    - {label: stat., symerror: 0.08398}
+    - {label: syst., symerror: 0.0388473}
+    value: 0.316357
+  - errors:
+    - {label: stat., symerror: 0.0592125}
+    - {label: syst., symerror: 0.0459278}
+    value: 0.327401
+  - errors:
+    - {label: stat., symerror: 0.0721213}
+    - {label: syst., symerror: 0.048801}
+    value: 0.388349
+independent_variables:
+- header: {name: '$p_{\mathrm{T}}$', units: GeV/$c$}
+  values:
+  - {high: 6, low: 4}
+  - {high: 8, low: 6}
+  - {high: 10, low: 8}
+  - {high: 15, low: 10}
+  - {high: 30, low: 15}

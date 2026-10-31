@@ -1,0 +1,23 @@
+dependent_variables:
+- header: {name: (10**8/N(C=Min-Bias))*D(N)/DYRAP}
+  qualifiers:
+  - {name: RE, value: PB PB --> Z0 < MU+ MU- > X}
+  - {name: sqrts/Nucleon, units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 5.5}
+    - {label: sys, symerror: 4.4}
+    value: 33.8
+- header: {name: ' RAA'}
+  qualifiers:
+  - {name: RE, value: PB PB --> Z0 < MU+ MU- > X}
+  - {name: sqrts/Nucleon, units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.16}
+    - {label: sys, symerror: 0.14}
+    value: 1.0
+independent_variables:
+- header: {name: ABS(YRAP)}
+  values:
+  - {high: 2.0, low: 0.0}

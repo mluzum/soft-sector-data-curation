@@ -1,0 +1,54 @@
+dependent_variables:
+- header: {name: 'v4{SP,Deltaeta=1.0} (red open squares)'}
+  qualifiers:
+  - {name: ABS(DELTA(ETA)), value: '> 1.0'}
+  - {name: RE, value: PB PB --> CHARGED X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {symerror: 0.00146}
+    value: 0.002042
+  - errors:
+    - {symerror: 0.001624}
+    value: 0.002556
+  - errors:
+    - {symerror: 0.00193}
+    value: 0.009693
+  - errors:
+    - {symerror: 0.002021}
+    value: 0.013286
+  - errors:
+    - {symerror: 0.002737}
+    value: 0.01678
+  - errors:
+    - {symerror: 0.003717}
+    value: 0.027865
+  - errors:
+    - {symerror: 0.005042}
+    value: 0.031797
+  - errors:
+    - {symerror: 0.005564}
+    value: 0.051101
+  - errors:
+    - {symerror: 0.01016}
+    value: 0.060164
+  - errors:
+    - {symerror: 0.016472}
+    value: 0.095985
+  - errors:
+    - {symerror: 0.035083}
+    value: 0.094607
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {value: 0.3}
+  - {value: 0.5}
+  - {value: 0.7}
+  - {value: 0.95}
+  - {value: 1.25}
+  - {value: 1.55}
+  - {value: 1.85}
+  - {value: 2.3}
+  - {value: 2.9}
+  - {value: 3.65}
+  - {value: 4.55}

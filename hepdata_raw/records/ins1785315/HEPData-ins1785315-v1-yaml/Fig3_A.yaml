@@ -1,0 +1,40 @@
+dependent_variables:
+- header: {name: B.R*D2(SIGMA)/DY/DPT, units: nb/(GeV/c)}
+  qualifiers:
+  - {name: RE, value: P PB --> PSI(2S) < MU+ MU- > X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 8160.0}
+  - {name: YRAP, value: 2.03 TO 3.53}
+  values:
+  - errors:
+    - {label: stat, symerror: 22.6}
+    - {label: 'sys, uncorrel', symerror: 19.0}
+    - {label: 'sys, correl', symerror: 0.6}
+    value: 116.7
+  - errors:
+    - {label: stat, symerror: 35.1}
+    - {label: 'sys, uncorrel', symerror: 21.6}
+    - {label: 'sys, correl', symerror: 0.8}
+    value: 166.4
+  - errors:
+    - {label: stat, symerror: 18.7}
+    - {label: 'sys, uncorrel', symerror: 14.3}
+    - {label: 'sys, correl', symerror: 0.8}
+    value: 157.7
+  - errors:
+    - {label: stat, symerror: 6.0}
+    - {label: 'sys, uncorrel', symerror: 4.9}
+    - {label: 'sys, correl', symerror: 0.2}
+    value: 45.2
+  - errors:
+    - {label: stat, symerror: 1.8}
+    - {label: 'sys, uncorrel', symerror: 1.4}
+    - {label: 'sys, correl', symerror: 0.03}
+    value: 6.8
+independent_variables:
+- header: {name: PT, units: GEV/C}
+  values:
+  - {high: 2.0, low: 0.0}
+  - {high: 3.0, low: 2.0}
+  - {high: 5.0, low: 3.0}
+  - {high: 8.0, low: 5.0}
+  - {high: 12.0, low: 8.0}

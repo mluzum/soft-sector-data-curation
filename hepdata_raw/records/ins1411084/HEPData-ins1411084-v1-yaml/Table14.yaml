@@ -1,0 +1,31 @@
+dependent_variables:
+- header: {name: 1/(2pi*pt*Nev) dN/(dy*dpt), units: 'GeV$^{-2}$'}
+  qualifiers:
+  - {name: Multiplicity class, units: pct, value: 80.0-100.0}
+  - {name: RE, value: P PB --> (OMEGA- + OMEGABAR+)/2 X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  - {name: YRAP(C=CM), value: -0.5-0.0}
+  values:
+  - errors:
+    - {label: stat, symerror: 5.0e-06}
+    - {label: sys, symerror: 6.0e-06}
+    value: 4.2e-05
+  - errors:
+    - {label: stat, symerror: 2.0e-06}
+    - {label: sys, symerror: 1.0e-06}
+    value: 1.1e-05
+  - errors:
+    - {label: stat, symerror: 6.0e-07}
+    - {label: sys, symerror: 3.0e-07}
+    value: 3.3e-06
+  - errors:
+    - {label: stat, symerror: 9.0e-08}
+    - {label: sys, symerror: 5.0e-08}
+    value: 5.1e-07
+independent_variables:
+- header: {name: pt, units: GeV}
+  values:
+  - {high: 1.6, low: 0.8}
+  - {high: 2.2, low: 1.6}
+  - {high: 3.0, low: 2.2}
+  - {high: 5.0, low: 3.0}

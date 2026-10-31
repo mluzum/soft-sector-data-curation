@@ -1,0 +1,72 @@
+dependent_variables:
+- header: {name: 1/TAA * DN/DPT, units: pb/(GeV/c)}
+  qualifiers:
+  - {name: RE, value: Pb Pb --> B --> D0 <K- pi+> X}
+  - {name: SQRT(S), units: GEV, value: 5020}
+  - {name: $|$RAPIDITY(D)$|$, value: $<$ 1}
+  - {name: CENTRALITY, units: $\%$, value: 0.0 - 100.0}
+  - {name: GLOBAL UNCERTAINTY (TAA and LUMI and BR), units: $\%$, value: +4.1 -3.6}
+  values:
+  - errors:
+    - {label: stat, symerror: 620000.0}
+    - {label: sys, symerror: 760000.0}
+    value: 5950000.0
+  - errors:
+    - {label: stat, symerror: 160000.0}
+    - {label: sys, symerror: 300000.0}
+    value: 2650000.0
+  - errors:
+    - {label: stat, symerror: 52000.0}
+    - {label: sys, symerror: 140000.0}
+    value: 1340000.0
+  - errors:
+    - {label: stat, symerror: 21000.0}
+    - {label: sys, symerror: 66000.0}
+    value: 683000.0
+  - errors:
+    - {label: stat, symerror: 12000.0}
+    - {label: sys, symerror: 38000.0}
+    value: 354000.0
+  - errors:
+    - {label: stat, symerror: 7500.0}
+    - {label: sys, symerror: 21000.0}
+    value: 203000.0
+  - errors:
+    - {label: stat, symerror: 3200.0}
+    - {label: sys, symerror: 10000.0}
+    value: 100000.0
+  - errors:
+    - {label: stat, symerror: 1800.0}
+    - {label: sys, symerror: 4500.0}
+    value: 41900.0
+  - errors:
+    - {label: stat, symerror: 430.0}
+    - {label: sys, symerror: 1200.0}
+    value: 10300.0
+  - errors:
+    - {label: stat, symerror: 98}
+    - {label: sys, symerror: 110.0}
+    value: 640.0
+  - errors:
+    - {label: stat, symerror: 7.2}
+    - {label: sys, symerror: 7.2}
+    value: 37.1
+  - errors:
+    - {label: stat, symerror: 1.0}
+    - {label: sys, symerror: 0.62}
+    value: 2.8
+independent_variables:
+- header: {name: D0 PT, units: GeV/c}
+  values:
+  - {high: 3, low: 2}
+  - {high: 4, low: 3}
+  - {high: 5, low: 4}
+  - {high: 6, low: 5}
+  - {high: 7, low: 6}
+  - {high: 8, low: 7}
+  - {high: 10, low: 8}
+  - {high: 12, low: 10}
+  - {high: 20, low: 12}
+  - {high: 40, low: 20}
+  - {high: 60, low: 40}
+  - {high: 100, low: 60}

@@ -1,0 +1,71 @@
+dependent_variables:
+- header: {name: (10**7/Nev)*(1/PT)*DN/DPT, units: GEV**-2}
+  qualifiers:
+  - {name: ABS(YRAP), value: < 2.5}
+  - {name: CENTRALITY, units: pct, value: 0.0-5.0}
+  - {name: RE, value: PB PB --> Z0 < LEPTON+ LEPTON- > X}
+  - {name: SQRT(S), units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.689133}
+    - {label: sys, symerror: 0.482284}
+    value: 3.15151
+  - errors:
+    - {label: stat, symerror: 0.286253}
+    - {label: sys, symerror: 0.0991975}
+    value: 1.68932
+  - errors:
+    - {label: stat, symerror: 0.140804}
+    - {label: sys, symerror: 0.055521}
+    value: 0.868727
+  - errors:
+    - {label: stat, symerror: 0.0934874}
+    - {label: sys, symerror: 0.0386238}
+    value: 0.590133
+  - errors:
+    - {label: stat, symerror: 0.0585438}
+    - {label: sys, symerror: 0.0216393}
+    value: 0.335737
+  - errors:
+    - {label: stat, symerror: 0.0547039}
+    - {label: sys, symerror: 0.0195517}
+    value: 0.296663
+  - errors:
+    - {label: stat, symerror: 0.0370381}
+    - {label: sys, symerror: 0.0133022}
+    value: 0.238623
+  - errors:
+    - {label: stat, symerror: 0.0127449}
+    - {label: sys, symerror: 0.00376415}
+    value: 0.0748173
+  - errors:
+    - {label: stat, symerror: 0.00611323}
+    - {label: sys, symerror: 0.00170438}
+    value: 0.0321837
+  - errors:
+    - {label: stat, symerror: 0.00153719}
+    - {label: sys, symerror: 0.000389768}
+    value: 0.0075002
+  - errors:
+    - {label: stat, symerror: 0.000266101}
+    - {label: sys, symerror: 5.0197e-05}
+    value: 0.000818506
+  - errors:
+    - {label: stat, symerror: 6.968e-06}
+    - {label: sys, symerror: 4.14e-07}
+    value: 7.416e-06
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {high: 2.0, low: 0.0}
+  - {high: 4.0, low: 2.0}
+  - {high: 6.0, low: 4.0}
+  - {high: 8.0, low: 6.0}
+  - {high: 10.0, low: 8.0}
+  - {high: 12.0, low: 10.0}
+  - {high: 15.0, low: 12.0}
+  - {high: 20.0, low: 15.0}
+  - {high: 30.0, low: 20.0}
+  - {high: 50.0, low: 30.0}
+  - {high: 100.0, low: 50.0}
+  - {high: 300.0, low: 100.0}

@@ -1,0 +1,24 @@
+dependent_variables:
+- header: {name: '$\mathrm{d}N/\mathrm{d}y$'}
+  qualifiers:
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020.0'}
+  - {name: RE, value: PB PB --> 3HL + X}
+  values:
+  - errors:
+    - {label: Statistic uncertainty, symerror: 2.3e-06}
+    - {label: Systematic uncertainty, symerror: 5.7e-06}
+    value: 4.83e-05
+  - errors:
+    - {label: Statistic uncertainty, symerror: 2.5e-06}
+    - {label: Systematic uncertainty, symerror: 4.0e-06}
+    value: 2.62e-05
+  - errors:
+    - {label: Statistic uncertainty, symerror: 1.0e-06}
+    - {label: Systematic uncertainty, symerror: 1.4e-06}
+    value: 1.27e-05
+independent_variables:
+- header: {name: '$\langle \mathrm{d}N_{\mathrm{ch}}/\mathrm{d}\eta\rangle_{|\eta_{lab}|<0.5}$'}
+  values:
+  - {high: 434.21, low: 395.79}
+  - {high: 1019.9, low: 946.11}
+  - {high: 1815.6, low: 1712.4}

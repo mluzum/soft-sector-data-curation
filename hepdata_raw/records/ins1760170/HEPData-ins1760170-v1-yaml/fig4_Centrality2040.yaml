@@ -1,0 +1,32 @@
+dependent_variables:
+- header: {name: v2 Centrality 20-40}
+  qualifiers:
+  - {name: RE, value: PB PB --> 3He X}
+  - {name: SQRT(S), units: GEV, value: '5020.0'}
+  - {name: ETARAP, value: -0.8 TO 0.8}
+  - {name: PTMIN, units: GEV/C, value: '2'}
+  - {name: PTMAX, units: GEV/C, value: '6'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.043582}
+    - {label: syst, symerror: 0.002804}
+    value: 0.057785
+  - errors:
+    - {label: stat, symerror: 0.028484}
+    - {label: syst, symerror: 0.004706}
+    value: 0.116328
+  - errors:
+    - {label: stat, symerror: 0.037282}
+    - {label: syst, symerror: 0.008611}
+    value: 0.212526
+  - errors:
+    - {label: stat, symerror: 0.053428}
+    - {label: syst, symerror: 0.01523}
+    value: 0.367366
+independent_variables:
+- header: {name: PT, units: GEV/C}
+  values:
+  - {high: 3.0, low: 2.0, value: 2.5}
+  - {high: 4.0, low: 3.0, value: 3.5}
+  - {high: 5.0, low: 4.0, value: 4.5}
+  - {high: 6.0, low: 5.0, value: 5.5}

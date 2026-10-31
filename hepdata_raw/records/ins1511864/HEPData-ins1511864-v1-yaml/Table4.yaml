@@ -1,0 +1,78 @@
+dependent_variables:
+- header: {name: '$\frac{1}{N_{EV}}\frac{d^{2}N}{2\pi p_{T} dy dp_{T}} (GeV/c)^{-2}$'}
+  qualifiers:
+  - {name: CENTRALITY, units: $\%$, value: (5 - 10)}
+  - {name: RE, value: 'PB PB $\rightarrow$ $K^{*0}$ + X; PB PB $\rightarrow$ $\overline{K^{*0}}$
+      + X'}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '2760.0'}
+  - {name: YRAP(CM), value: -0.5 TO 0.5}
+  - {name: SYST NORMALIZATION, units: $\%$, value: 0.5}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.39903}
+    - {label: sys (total), symerror: 0.50374}
+    value: 2.9294
+  - errors:
+    - {label: stat, symerror: 0.10486}
+    - {label: sys (total), symerror: 0.26812}
+    value: 1.5805
+  - errors:
+    - {label: stat, symerror: 0.044728}
+    - {label: sys (total), symerror: 0.13192}
+    value: 0.84357
+  - errors:
+    - {label: stat, symerror: 0.021396}
+    - {label: sys (total), symerror: 0.061988}
+    value: 0.39322
+  - errors:
+    - {label: stat, symerror: 0.0093412}
+    - {label: sys (total), symerror: 0.035209}
+    value: 0.21164
+  - errors:
+    - {label: stat, symerror: 0.0037946}
+    - {label: sys (total), symerror: 0.010639}
+    value: 0.065592
+  - errors:
+    - {label: stat, symerror: 0.0017231}
+    - {label: sys (total), symerror: 0.0037652}
+    value: 0.023183
+  - errors:
+    - {label: stat, symerror: 0.0010391}
+    - {label: sys (total), symerror: 0.001179}
+    value: 0.0080289
+  - errors:
+    - {label: stat, symerror: 0.00026458}
+    - {label: sys (total), symerror: 0.00054698}
+    value: 0.0036163
+  - errors:
+    - {label: stat, symerror: 4.475e-05}
+    - {label: sys (total), symerror: 5.2474e-05}
+    value: 0.00030666
+  - errors:
+    - {label: stat, symerror: 5.8036e-06}
+    - {label: sys (total), symerror: 6.8814e-06}
+    value: 3.9573e-05
+  - errors:
+    - {label: stat, symerror: 7.9569e-07}
+    - {label: sys (total), symerror: 1.0196e-06}
+    value: 5.3862e-06
+  - errors:
+    - {label: stat, symerror: 9.4618e-08}
+    - {label: sys (total), symerror: 1.459e-07}
+    value: 6.7849e-07
+independent_variables:
+- header: {name: '$p_{T}$', units: GeV/$c$}
+  values:
+  - {high: 0.7, low: 0.3, value: 0.5}
+  - {high: 1.2, low: 0.7, value: 0.95}
+  - {high: 1.6, low: 1.2, value: 1.4}
+  - {high: 2, low: 1.6, value: 1.8}
+  - {high: 2.5, low: 2, value: 2.25}
+  - {high: 3, low: 2.5, value: 2.75}
+  - {high: 3.5, low: 3, value: 3.25}
+  - {high: 4, low: 3.5, value: 3.75}
+  - {high: 5, low: 4, value: 4.5}
+  - {high: 7, low: 5, value: 6}
+  - {high: 10, low: 7, value: 8.5}
+  - {high: 15, low: 10, value: 12.5}
+  - {high: 20, low: 15, value: 17.5}

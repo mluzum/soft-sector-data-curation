@@ -1,0 +1,89 @@
+dependent_variables:
+- header: {name: '$\frac{d\sigma^{pp}}{dz}$ x$10^{-3}$ [nb]'}
+  qualifiers:
+  - {name: SQRT(s)/NUCLEON, units: GeV, value: 5020}
+  - {name: '$p_{\rm T, J/\psi}$', units: GeV, value: '> 6.5'}
+  - {name: '$p_{\rm T, jet}$', units: GeV, value: 30 - 40}
+  - {name: 'ABS($\eta_{jet}$)', value: < 2}
+  - {name: RE, value: PP --> J/$\psi$ -->$\mu^+\mu^-$}
+  - {name: Centrality, value: '-'}
+  - {name: normalization uncertainty, value: 0.019}
+  values:
+  - errors:
+    - asymerror: {minus: -0.007, plus: 0.007}
+      label: stat
+    - asymerror: {minus: -0.061, plus: 0.064}
+      label: syst
+    value: 0.172
+  - errors:
+    - asymerror: {minus: -0.002, plus: 0.002}
+      label: stat
+    - asymerror: {minus: -0.044, plus: 0.05}
+      label: syst
+    value: 0.32
+  - errors:
+    - asymerror: {minus: -0.003, plus: 0.003}
+      label: stat
+    - asymerror: {minus: -0.037, plus: 0.038}
+      label: syst
+    value: 0.336
+  - errors:
+    - asymerror: {minus: -0.003, plus: 0.003}
+      label: stat
+    - asymerror: {minus: -0.01, plus: 0.01}
+      label: syst
+    value: 0.193
+  - errors:
+    - asymerror: {minus: -0.003, plus: 0.003}
+      label: stat
+    - asymerror: {minus: -0.005, plus: 0.005}
+      label: syst
+    value: 0.1
+- header: {name: '$\frac{1}{N_{evt} T_{AA}} \frac{dN^{PbPb}}{dz}$ x$10^{-3}$ [nb]'}
+  qualifiers:
+  - {name: SQRT(s)/NUCLEON, units: GeV, value: 5020}
+  - {name: '$p_{\rm T, J/\psi}$', units: GeV, value: '> 6.5'}
+  - {name: '$p_{\rm T, jet}$', units: GeV, value: 30 - 40}
+  - {name: 'ABS($\eta_{jet}$)', value: < 2}
+  - {name: RE, value: PbPb --> J/$\psi$ -->$\mu^+\mu^-$}
+  - {name: Centrality, value: 0 - 90.0%}
+  - {name: normalization uncertainty, value: 0.026}
+  values:
+  - errors:
+    - asymerror: {minus: -0.005, plus: 0.005}
+      label: stat
+    - asymerror: {minus: -0.039, plus: 0.041}
+      label: syst
+    value: 0.02
+  - errors:
+    - asymerror: {minus: -0.002, plus: 0.002}
+      label: stat
+    - asymerror: {minus: -0.023, plus: 0.048}
+      label: syst
+    value: 0.078
+  - errors:
+    - asymerror: {minus: -0.002, plus: 0.002}
+      label: stat
+    - asymerror: {minus: -0.025, plus: 0.023}
+      label: syst
+    value: 0.091
+  - errors:
+    - asymerror: {minus: -0.002, plus: 0.002}
+      label: stat
+    - asymerror: {minus: -0.02, plus: 0.01}
+      label: syst
+    value: 0.079
+  - errors:
+    - asymerror: {minus: -0.003, plus: 0.003}
+      label: stat
+    - asymerror: {minus: -0.014, plus: 0.01}
+      label: syst
+    value: 0.062
+independent_variables:
+- header: {name: $z$}
+  values:
+  - {high: 0.376, low: 0.22}
+  - {high: 0.532, low: 0.376}
+  - {high: 0.688, low: 0.532}
+  - {high: 0.844, low: 0.688}
+  - {high: 1, low: 0.844}

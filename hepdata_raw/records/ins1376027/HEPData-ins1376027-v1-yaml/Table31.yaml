@@ -1,0 +1,51 @@
+dependent_variables:
+- header: {name: 'Delta_{recoil}(R=0.5)'}
+  qualifiers:
+  - {name: ABS(ETA), value: 0.0-0.4}
+  - {name: R, value: '0.5'}
+  - {name: RE, value: 'Delta_{recoil}(R=0.5)'}
+  - {name: SQRT(S), units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0001772}
+    - asymerror: {minus: -0.0001813, plus: 3.102e-05}
+      label: sys
+    - asymerror: {minus: -6.034e-05, plus: 5.957e-05}
+      label: sys
+    value: 0.001949
+  - errors:
+    - {label: stat, symerror: 6.2e-05}
+    - asymerror: {minus: -7.09e-05, plus: 6.544e-05}
+      label: sys
+    - asymerror: {minus: -6.788e-05, plus: 6.6e-05}
+      label: sys
+    value: 0.000767
+  - errors:
+    - {label: stat, symerror: 3.294e-05}
+    - asymerror: {minus: -1.651e-05, plus: 3.725e-05}
+      label: sys
+    - asymerror: {minus: -4.277e-05, plus: 3.976e-05}
+      label: sys
+    value: 0.0002968
+  - errors:
+    - {label: stat, symerror: 1.78e-05}
+    - asymerror: {minus: -8.4e-06, plus: 1.749e-05}
+      label: sys
+    - asymerror: {minus: -2.179e-05, plus: 2.017e-05}
+      label: sys
+    value: 0.0001134
+  - errors:
+    - {label: stat, symerror: 1.099e-05}
+    - asymerror: {minus: -3.72e-06, plus: 9.685e-06}
+      label: sys
+    - asymerror: {minus: -9.698e-06, plus: 9.758e-06}
+      label: sys
+    value: 4.375e-05
+independent_variables:
+- header: {name: 'p_{T,jet}^{ch}(GeV/c)'}
+  values:
+  - {high: 36.0, low: 20.0}
+  - {high: 52.0, low: 36.0}
+  - {high: 68.0, low: 52.0}
+  - {high: 84.0, low: 68.0}
+  - {high: 100.0, low: 84.0}

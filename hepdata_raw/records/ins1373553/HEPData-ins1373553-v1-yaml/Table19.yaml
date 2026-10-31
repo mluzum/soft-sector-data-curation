@@ -1,0 +1,39 @@
+dependent_variables:
+- header: {name: slope*1000}
+  qualifiers:
+  - {name: RE, value: U U --> CHARGED X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '193.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 1.44}
+    - asymerror: {minus: -0.115, plus: 1.72}
+      label: sys
+    value: -18.4
+  - errors:
+    - {label: stat, symerror: 0.915}
+    - asymerror: {minus: -0.484, plus: 1.01}
+      label: sys
+    value: -16.9
+  - errors:
+    - {label: stat, symerror: 0.613}
+    - asymerror: {minus: -1.23, plus: 0.793}
+      label: sys
+    value: -15.8
+  - errors:
+    - {label: stat, symerror: 0.416}
+    - asymerror: {minus: -0.781, plus: 0.975}
+      label: sys
+    value: -15.1
+  - errors:
+    - {label: stat, symerror: 0.294}
+    - asymerror: {minus: -0.581, plus: 0.683}
+      label: sys
+    value: -15.0
+independent_variables:
+- header: {name: ZDC Centrality}
+  values:
+  - {value: 0.06}
+  - {value: 0.125}
+  - {value: 0.25}
+  - {value: 0.5}
+  - {value: 1.0}

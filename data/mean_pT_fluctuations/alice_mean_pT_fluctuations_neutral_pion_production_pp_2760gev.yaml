@@ -1,0 +1,60 @@
+---
+observable_type: mean_pT_fluctuations
+inspire_id: '1296306'
+version: 1
+hepdata_file: Table2.yaml
+hepdata_table_label: 'Invariant differential cross section of PI0 produced in inelastic pp collisions at center-of-mass energy
+  2.76 TeV, the uncertainty of \sigma_{inel} of 3.9% is not included in the systematic error.
+
+  '
+qualifiers:
+  re: P P --> PI0 X
+  sqrt(s): '2760.0'
+  yrap: '0.0'
+collision_system:
+  energy_gev: 2760.0
+  reaction: P P --> PI0 X
+centrality:
+  classes:
+  - MB
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: pi0
+kinematic_range:
+  pT:
+    min: 0.4
+    max: 12.0
+    bins:
+    - 0.4
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+    - 2.0
+    - 2.2
+    - 2.4
+    - 2.6
+    - 3.0
+    - 3.5
+    - 4.0
+    - 5.0
+    - 6.0
+    - 8.0
+    - 10.0
+    - 12.0
+  eta:
+    min: -0.8
+    max: 0.8
+observable: sigma_mean_pT
+value_type: Sigma

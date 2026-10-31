@@ -1,0 +1,61 @@
+dependent_variables:
+- header: {name: D(pT r) PbPb}
+  qualifiers:
+  - {name: RE, value: Charged particle distribution in PbPb}
+  - {name: pT(jet), units: GeV, value: 251.2 - 316.2}
+  - {name: pT(trk), units: GeV, value: 25.1 - 63.1}
+  - {name: Centrality, value: 30-40%}
+  - {name: abs. rapidity(jet), value: 0 - 1.7}
+  - {name: SQRT(S), units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - asymerror: {minus: -0.253136, plus: 0.254106}
+      label: sys
+    - {label: stat, symerror: 0.0984174}
+    value: 3.27358
+  - errors:
+    - asymerror: {minus: -0.0134002, plus: 0.01356}
+      label: sys
+    - {label: stat, symerror: 0.0147953}
+    value: 0.20723
+  - errors:
+    - asymerror: {minus: -0.00165167, plus: 0.00157691}
+      label: sys
+    - {label: stat, symerror: 0.00443067}
+    value: 0.0302544
+  - errors:
+    - asymerror: {minus: -0.000408917, plus: 0.000323113}
+      label: sys
+    - {label: stat, symerror: 0.00170737}
+    value: 0.00701035
+  - errors:
+    - asymerror: {minus: -0.000530277, plus: 0.000524046}
+      label: sys
+    - {label: stat, symerror: 0.00119207}
+    value: 0.00382221
+  - errors:
+    - asymerror: {minus: -9.7025e-05, plus: 9.80677e-05}
+      label: sys
+    - {label: stat, symerror: 0.000419409}
+    value: 0.000734288
+  - errors:
+    - asymerror: {minus: -3.08762e-05, plus: 3.12023e-05}
+      label: sys
+    - {label: stat, symerror: 3.04295e-05}
+    value: 3.64671e-05
+  - errors:
+    - asymerror: {minus: -7.08239e-05, plus: 6.98115e-05}
+      label: sys
+    - {label: stat, symerror: 0.000148893}
+    value: 0.000276093
+independent_variables:
+- header: {name: r}
+  values:
+  - {high: 0.05, low: 0}
+  - {high: 0.1, low: 0.05}
+  - {high: 0.15, low: 0.1}
+  - {high: 0.2, low: 0.15}
+  - {high: 0.25, low: 0.2}
+  - {high: 0.3, low: 0.25}
+  - {high: 0.4, low: 0.3}
+  - {high: 0.5, low: 0.4}

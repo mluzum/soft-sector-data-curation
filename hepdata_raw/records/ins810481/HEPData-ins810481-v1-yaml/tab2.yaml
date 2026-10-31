@@ -1,0 +1,42 @@
+dependent_variables:
+- header: {name: DN/DYRAP}
+  qualifiers:
+  - {name: PARTICLE, value: P}
+  - {name: CENTRALITY, units: PCT, value: 0-10}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.5}
+    value: 20.5
+  - errors:
+    - {label: stat, symerror: 0.2}
+    value: 21.5
+  - errors:
+    - {label: stat, symerror: 0.6}
+    value: 28.5
+  - errors:
+    - {label: stat, symerror: 0.6}
+    value: 26.7
+- header: {name: DN/DYRAP}
+  qualifiers:
+  - {name: PARTICLE, value: PBAR}
+  - {name: CENTRALITY, units: PCT, value: 0-10}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.3}
+    value: 10.1
+  - errors:
+    - {label: stat, symerror: 0.1}
+    value: 9.0
+  - errors:
+    - {label: stat, symerror: 0.1}
+    value: 2.2
+  - errors:
+    - {label: stat, symerror: 0.1}
+    value: 0.6
+independent_variables:
+- header: {name: YRAP}
+  values:
+  - {high: 0.1, low: -0.1}
+  - {high: 0.9, low: 0.4}
+  - {high: 2.5, low: 2.1}
+  - {high: 3.08, low: 2.92}

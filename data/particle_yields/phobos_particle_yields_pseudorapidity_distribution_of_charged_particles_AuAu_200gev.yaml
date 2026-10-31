@@ -1,0 +1,88 @@
+observable_type: particle_yields
+inspire_id: PHOBOS_nucl-ex/0311009
+version: 1
+particle_id:
+  species: charged
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - MB
+  notes: centrality derived from minimum-bias event selection by the Octagon detector
+  estimator:
+    name: Octagon
+    observable: Nch
+    detector: Octagon
+  eta:
+  - min: -3.2
+    max: 3.2
+kinematic_range:
+  y:
+    bins:
+    - 0.45678350000000006
+    - 0.6178185
+    - 0.7999385
+    - 1.0312795000000001
+    - 1.4130635
+    - 1.7197
+    - 1.922819
+    - 2.301419
+    - 2.8814815
+    - 3.479835
+    - 4.031194
+    - 4.6811745
+    - 5.3279335
+    - 5.898197
+    - 6.260186
+    - 6.520753
+    - 6.696141
+    - 6.7524085
+    - 6.9836265
+    - 7.194656999999999
+    - 7.304843
+    - 7.534613
+    - 7.764309
+    - 7.975854
+    - 8.1780805
+    - 8.3487875
+    - 8.540338
+    - 8.649581999999999
+    - 8.710473
+    - 8.790469
+    - 8.863176
+    - 8.923991000000001
+    - 8.983003
+    - 9.049686999999999
+    - 9.1015585
+    - 9.193214000000001
+    - 9.339085
+    - 9.434288
+    - 9.528003
+    - 9.718910000000001
+    - 9.931072
+    - 10.0555365
+    - 10.190971000000001
+    - 10.330252
+    - 10.505690999999999
+    - 10.694205499999999
+    - 10.7568845
+    - 10.861677499999999
+    - 10.987847
+    - 11.095417000000001
+    - 11.200997000000001
+    - 11.266643
+    - 11.343112
+    - 11.419505000000001
+    - 11.482081
+    min: 0.45678350000000006
+    max: 11.482081
+  eta:
+    min: -3.2
+    max: 3.2
+  pT:
+    min: 0.1
+    max: 10.0
+hepdata_file: phobos/dAu_Minimum_Bias_Data_ASCII.txt
+observable: dNch_deta
+value_type: dNch_deta

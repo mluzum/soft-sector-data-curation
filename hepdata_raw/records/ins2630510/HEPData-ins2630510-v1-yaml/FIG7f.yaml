@@ -1,0 +1,41 @@
+dependent_variables:
+- header: {name: rho}
+  qualifiers:
+  - {name: ABS(YRAP), value: '|y| < 2.1'}
+  - {name: R(JETS), value: '0.4'}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5440.0'}
+  - {name: XEXE CENTRALITY, value: 20-40%}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.076185}
+    - asymerror: {minus: -0.056211, plus: 0.057046}
+      label: sys
+    value: 1.349754
+  - errors:
+    - {label: stat, symerror: 0.125458}
+    - asymerror: {minus: -0.078087, plus: 0.078674}
+      label: sys
+    value: 1.4021
+  - errors:
+    - {label: stat, symerror: 0.174194}
+    - asymerror: {minus: -0.057384, plus: 0.057995}
+      label: sys
+    value: 1.060883
+  - errors:
+    - {label: stat, symerror: 0.256132}
+    - asymerror: {minus: -0.029711, plus: 0.030445}
+      label: sys
+    value: 0.787457
+  - errors:
+    - {label: stat, symerror: 0.504751}
+    - asymerror: {minus: -0.056429, plus: 0.056547}
+      label: sys
+    value: 0.85931
+independent_variables:
+- header: {name: 'pT [GeV]'}
+  values:
+  - {high: 125.869241, low: 99.983174}
+  - {high: 158.457319, low: 125.869241}
+  - {high: 199.482589, low: 158.457319}
+  - {high: 251.129475, low: 199.482589}
+  - {high: 316.147957, low: 251.129475}

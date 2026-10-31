@@ -1,0 +1,81 @@
+dependent_variables:
+- header: {name: '$\frac{1}{2\pi p_{\text{T}}} \frac{\text{d}^{2}\sigma}{\text{d}p_{\text{T}}\text{d}y}$
+      MB/(GEV/C)**2'}
+  qualifiers:
+  - {name: RE, value: P PB --> (E+ + E-)/2 X}
+  - {name: SQRT(S), units: GeV, value: '5020.0'}
+  - {name: YRAP(RF=CM), value: -1.06-0.14}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0283}
+    - asymerror: {minus: -0.0589, plus: 0.0587}
+      label: sys
+    - {label: 'sys,normalization/luminosity uncertainty', symerror: 3.7%}
+    value: 0.156
+  - errors:
+    - {label: stat, symerror: 0.0132}
+    - asymerror: {minus: -0.0259, plus: 0.0271}
+      label: sys
+    - {label: 'sys,normalization/luminosity uncertainty', symerror: 3.7%}
+    value: 0.0861
+  - errors:
+    - {label: stat, symerror: 0.00732}
+    - asymerror: {minus: -0.0166, plus: 0.0182}
+      label: sys
+    - {label: 'sys,normalization/luminosity uncertainty', symerror: 3.7%}
+    value: 0.0726
+  - errors:
+    - {label: stat, symerror: 0.00228}
+    - asymerror: {minus: -0.00606, plus: 0.00676}
+      label: sys
+    - {label: 'sys,normalization/luminosity uncertainty', symerror: 3.7%}
+    value: 0.0377
+  - errors:
+    - {label: stat, symerror: 0.000975}
+    - asymerror: {minus: -0.00227, plus: 0.00253}
+      label: sys
+    - {label: 'sys,normalization/luminosity uncertainty', symerror: 3.7%}
+    value: 0.0185
+  - errors:
+    - {label: stat, symerror: 0.000437}
+    - asymerror: {minus: -0.000828, plus: 0.001}
+      label: sys
+    - {label: 'sys,normalization/luminosity uncertainty', symerror: 3.7%}
+    value: 0.00838
+  - errors:
+    - {label: stat, symerror: 0.000144}
+    - asymerror: {minus: -0.000309, plus: 0.000329}
+      label: sys
+    - {label: 'sys,normalization/luminosity uncertainty', symerror: 3.7%}
+    value: 0.00332
+  - errors:
+    - {label: stat, symerror: 6.29e-05}
+    - asymerror: {minus: -0.000111, plus: 0.000115}
+      label: sys
+    - {label: 'sys,normalization/luminosity uncertainty', symerror: 3.7%}
+    value: 0.00124
+  - errors:
+    - {label: stat, symerror: 3.2e-05}
+    - asymerror: {minus: -4.16e-05, plus: 4.36e-05}
+      label: sys
+    - {label: 'sys,normalization/luminosity uncertainty', symerror: 3.7%}
+    value: 0.000459
+  - errors:
+    - {label: stat, symerror: 1.13e-05}
+    - asymerror: {minus: -1.55e-05, plus: 1.68e-05}
+      label: sys
+    - {label: 'sys,normalization/luminosity uncertainty', symerror: 3.7%}
+    value: 0.000145
+independent_variables:
+- header: {name: '$p_{\text{T}}$', units: GEV/C}
+  values:
+  - {high: 1.1, low: 1.0}
+  - {high: 1.3, low: 1.1}
+  - {high: 1.5, low: 1.3}
+  - {high: 2.0, low: 1.5}
+  - {high: 2.5, low: 2.0}
+  - {high: 3.0, low: 2.5}
+  - {high: 4.0, low: 3.0}
+  - {high: 5.0, low: 4.0}
+  - {high: 6.0, low: 5.0}
+  - {high: 8.0, low: 6.0}

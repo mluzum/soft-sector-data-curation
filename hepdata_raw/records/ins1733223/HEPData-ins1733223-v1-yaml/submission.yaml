@@ -1,0 +1,119 @@
+additional_resources:
+- {description: web page with auxiliary material, location: 'https://twiki.cern.ch/twiki/bin/view/CMSPublic/PhysicsResultsHIN17007'}
+comment: |
+  CERN-LHC. The production of W bosons is studied in proton-lead (pPb) collisions at a nucleon-nucleon centre-of-mass energy of $\sqrt{{s}_\textrm{NN}} = 8.16$ TeV. Measurements are performed in the $\textrm{W}^{\pm}\to\mu^{\pm}\nu$ channel using a data sample corresponding to an integrated luminosity of $173.4 \pm 8.7 \textrm{nb}^{-1}$, collected by the CMS Collaboration at the LHC. The number of positively and negatively charged W bosons is determined separately in the muon pseudorapidity region in the laboratory frame $|\eta_{\textrm{lab}}^{\mu}|<2.4$ and transverse momentum $p_{\textrm{T}}^{\mu}>25$~GeV/$c$. The $\textrm{W}^{\pm}$ boson differential cross sections, muon charge asymmetry, and the ratios of $\textrm{W}^{\pm}$ boson yields for the proton-going over the Pb-going beam directions are reported as a function of the muon pseudorapidity in the nucleon-nucleon centre-of-mass frame. The measurements are compared to the predictions from theoretical calculations based on parton distribution functions (PDFs) at next-to-leading-order. The results favour PDF calculations that include nuclear modifications and provide constraints on the nuclear PDF global fits.
+hepdata_doi: 10.17182/hepdata.88284.v1
+record_ids:
+- {id: 1673108, type: inspire}
+---
+data_file: Table1.yaml
+description: |
+  Muon charge asymmetry, $(N_{\mu}^{+} - N_{\mu}^{-})/(N_{\mu}^{+} + N_{\mu}^{-})$, as a function of the muon pseudorapidity in the centre-of-mass frame.
+keywords:
+- name: reactions
+  values: [P PB --> W  X]
+- name: observables
+  values: [ASYM]
+- name: phrases
+  values: [Inclusive]
+- name: cmenergies
+  values: [8160.0]
+location: Data from Figure 4
+name: Table 1
+table_doi: 10.17182/hepdata.88284.v1/t1
+---
+data_file: Table2.yaml
+description: |
+  Differential production cross sections for $\textrm{pPb} \to W^{+} + X \to \mu^{+} \nu + X$ for positively charged muons of $p_T$ larger than 25 GeV$/c$, in nanobarns, as a function of the muon pseudorapidity in the centre-of-mass frame. The global normalisation uncertainty of 3.5% is listed separately.
+keywords:
+- name: reactions
+  values: [P PB --> W+  X]
+- name: observables
+  values: [DSIG/DETA]
+- name: phrases
+  values: [Inclusive, Single Differential Cross Section, W Production]
+- name: cmenergies
+  values: [8160.0]
+location: Data from Figure 2 a
+name: Table 2
+table_doi: 10.17182/hepdata.88284.v1/t2
+---
+data_file: Table3.yaml
+description: |
+  Differential production cross sections for $\textrm{pPb} \to W^{-} + X \to \mu^{-} \bar{\nu} + X$ for negatively charged muons of $p_T$ larger than 25 GeV$/c$, in nanobarns, as a function of the muon pseudorapidity in the centre-of-mass frame. The global normalisation uncertainty of 3.5% is listed separately.
+keywords:
+- name: reactions
+  values: [P PB --> W-  X]
+- name: observables
+  values: [DSIG/DETA]
+- name: phrases
+  values: [Inclusive, Single Differential Cross Section, W Production]
+- name: cmenergies
+  values: [8160.0]
+location: Data from Figure 2 b
+name: Table 3
+table_doi: 10.17182/hepdata.88284.v1/t3
+---
+data_file: Table4.yaml
+description: |
+  Forward-backward ratio, $N_{\mu}(+\eta_{\textrm{CM}})/N_{\mu}(-\eta_{\textrm{CM}})$, for the negatively charged muons, as a function of the muon pseudorapidity in the centre-of-mass frame.
+keywords:
+- name: reactions
+  values: [P PB --> W-  X]
+- name: observables
+  values: [N/N]
+- name: phrases
+  values: [Inclusive, W Production]
+- name: cmenergies
+  values: [8160.0]
+location: Data from Figure 3 b
+name: Table 4
+table_doi: 10.17182/hepdata.88284.v1/t4
+---
+data_file: Table5.yaml
+description: |
+  Forward-backward ratio, $N_{\mu}(+\eta_{\textrm{CM}})/N_{\mu}(-\eta_{\textrm{CM}})$, for the positively charged muons, as a function of the muon pseudorapidity in the centre-of-mass frame.
+keywords:
+- name: reactions
+  values: [P PB --> W+  X]
+- name: observables
+  values: [N/N]
+- name: phrases
+  values: [Inclusive, W Production]
+- name: cmenergies
+  values: [8160.0]
+location: Data from Figure 3 a
+name: Table 5
+table_doi: 10.17182/hepdata.88284.v1/t5
+---
+data_file: Table6.yaml
+description: |
+  Forward-backward ratio, $N_{\mu}(+\eta_{\textrm{CM}})/N_{\mu}(-\eta_{\textrm{CM}})$, for muons of both signs, as a function of the muon pseudorapidity in the centre-of-mass frame.
+keywords:
+- name: reactions
+  values: [P PB --> W  X]
+- name: observables
+  values: [N/N]
+- name: phrases
+  values: [Inclusive]
+- name: cmenergies
+  values: [8160.0]
+location: Data from Figure 3 c
+name: Table 6
+table_doi: 10.17182/hepdata.88284.v1/t6
+---
+data_file: Table7.yaml
+description: |
+  The covariance matrix of the W boson differential cross section measurements. Each bin is labeled mi_i or pl_i, where mi stands for  $W^{-} \to \mu^{-} \bar{\nu}$ channel and pl for $W^{+} \to \mu^{+} \nu$ channel, and 0 <= i <= 23 is the bin number in $\eta_{\textrm{CM}}$ (from -2.86 - -2.60 to 1.80 - 1.93). The global normalisation uncertainty of 3.5% is included. Data from Figure 2.
+keywords:
+- name: reactions
+  values: [P PB --> W  X]
+- name: observables
+  values: [Covariance]
+- name: phrases
+  values: [Inclusive, W Production]
+- name: cmenergies
+  values: [8160.0]
+location: Covariance matrix for the data from Figure 2
+name: Table 7
+table_doi: 10.17182/hepdata.88284.v1/t7

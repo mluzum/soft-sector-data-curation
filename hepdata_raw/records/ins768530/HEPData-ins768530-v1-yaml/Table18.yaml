@@ -1,0 +1,25 @@
+dependent_variables:
+- header: {name: PT**2(C=MEAN), units: (GEV**)**2}
+  qualifiers:
+  - {name: ABS(YRAP), value: 0.0-2.2}
+  - {name: RE, value: CU CU --> P P --> J/PSI X}
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.1}
+    - {label: sys, symerror: 0.1}
+    value: 3.4
+  - errors:
+    - {label: stat, symerror: 0.2}
+    - {label: sys, symerror: 0.1}
+    value: 4.1
+  - errors:
+    - {label: stat, symerror: 0.1}
+    - {label: sys, symerror: 0.1}
+    value: 3.4
+independent_variables:
+- header: {name: YRAP(P=3)}
+  values:
+  - {high: -1.2, low: -2.2}
+  - {high: 0.35, low: -0.35}
+  - {high: 2.2, low: 1.2}

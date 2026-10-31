@@ -1,0 +1,35 @@
+dependent_variables:
+- header: {name: '$\frac{1}{N_{\text{jets}}}\:\frac{\text{d}N}{\text{d}k_{\text{T,g}}}$',
+    units: '(GeV/c)^{-1}'}
+  qualifiers:
+  - {name: RE, value: Pb Pb --> jet+X}
+  - {name: CENTRALITY, value: '[30, 50]'}
+  - {name: SQRT(S), units: TeV, value: 5.02}
+  - {name: ETARAP, value: '|0.9-R|'}
+  - {name: jet radius, value: '0.2'}
+  - {name: jet method, value: 'Anti-$k_{T}$'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0055}
+    - {label: 'sys,trk_eff', symerror: -0.001}
+    - {label: 'sys,gen', symerror: -0.027}
+    - {label: 'sys,unfold,bkg,non_closure', symerror: 0.0052}
+    value: 0.112
+  - errors:
+    - {label: stat, symerror: 0.0032}
+    - {label: 'sys,trk_eff', symerror: 0.0013}
+    - {label: 'sys,gen', symerror: -0.009}
+    - {label: 'sys,unfold,bkg,non_closure', symerror: 0.0032}
+    value: 0.04
+  - errors:
+    - {label: stat, symerror: 0.0014}
+    - {label: 'sys,trk_eff', symerror: 0.00082}
+    - {label: 'sys,gen', symerror: -0.0037}
+    - {label: 'sys,unfold,bkg,non_closure', symerror: 0.0015}
+    value: 0.0145
+independent_variables:
+- header: {name: '$k_{\text{T}}$', units: GeV/c}
+  values:
+  - {high: 3.0, low: 2.0}
+  - {high: 4.0, low: 3.0}
+  - {high: 6.0, low: 4.0}

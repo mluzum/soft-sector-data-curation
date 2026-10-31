@@ -1,0 +1,22 @@
+dependent_variables:
+- header: {name: SIG, units: MUB}
+  qualifiers:
+  - {name: PT, units: GEV, value: '> 0.0'}
+  - {name: RE, value: P PB --> UPSI(2S) X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.61}
+    - {label: sys, symerror: 0.32}
+    - {label: 'sys,global systematic uncertainty', symerror: 1.6%}
+    value: 1.85
+  - errors:
+    - {label: stat, symerror: 0.82}
+    - {label: sys, symerror: 0.5}
+    - {label: 'sys,global systematic uncertainty', symerror: 1.6%}
+    value: 2.97
+independent_variables:
+- header: {name: YRAP}
+  values:
+  - {high: -2.96, low: -4.46}
+  - {high: 3.53, low: 2.03}

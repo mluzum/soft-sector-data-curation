@@ -1,0 +1,31 @@
+dependent_variables:
+- header: {name: '$\Lambda_{\rm c}^+$ $R_{\rm pPb}$ nuclear modification factor'}
+  qualifiers:
+  - {name: RE, value: P PB --> Lc X}
+  - {name: SQRT(S), units: GEV, value: '5020.0'}
+  - {name: YRAP, value: -0.96 TO 0.04}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.18}
+    - asymerror: {minus: -0.26, plus: 0.22}
+      label: sys
+    - {label: 'sys,uncertainty on normalisation', symerror: 5.1%}
+    value: 1.22
+  - errors:
+    - {label: stat, symerror: 0.17}
+    - asymerror: {minus: -0.19, plus: 0.18}
+      label: sys
+    - {label: 'sys,uncertainty on normalisation', symerror: 5.1%}
+    value: 1.07
+  - errors:
+    - {label: stat, symerror: 0.31}
+    - asymerror: {minus: -0.26, plus: 0.25}
+      label: sys
+    - {label: 'sys,uncertainty on normalisation', symerror: 5.1%}
+    value: 1.27
+independent_variables:
+- header: {name: PT, units: GEV/C}
+  values:
+  - {high: 4.0, low: 2.0, value: 3.0}
+  - {high: 6.0, low: 4.0, value: 5.0}
+  - {high: 8.0, low: 6.0, value: 7.0}

@@ -1,0 +1,41 @@
+dependent_variables:
+- header: {name: '(1/N$_{\rm{ev}}$)*d$^{2}N$/(d$p_{\rm{T}}$d$y$) [GeV$^{-1}$]'}
+  qualifiers:
+  - {name: RE, value: P PB --> SIGMA(1385)+ X}
+  - {name: SQRT(S)/NUCLEON, value: 5020.0 GeV}
+  - {name: YRAP(C=CM), value: -0.5-0.0}
+  - {name: class, value: NSD}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0009}
+    - {label: sys, symerror: 0.0018}
+    value: 0.0221
+  - errors:
+    - {label: stat, symerror: 0.0006}
+    - {label: sys, symerror: 0.0012}
+    value: 0.0149
+  - errors:
+    - {label: stat, symerror: 0.00034}
+    - {label: sys, symerror: 0.00069}
+    value: 0.00865
+  - errors:
+    - {label: stat, symerror: 0.0002}
+    - {label: sys, symerror: 0.00039}
+    value: 0.00486
+  - errors:
+    - {label: stat, symerror: 8.0e-05}
+    - {label: sys, symerror: 0.00016}
+    value: 0.00201
+  - errors:
+    - {label: stat, symerror: 1.9e-05}
+    - {label: sys, symerror: 2.4e-05}
+    value: 0.000302
+independent_variables:
+- header: {name: '$p_{\rm{T}}$ [GeV]'}
+  values:
+  - {high: 1.5, low: 1.0}
+  - {high: 2.0, low: 1.5}
+  - {high: 2.5, low: 2.0}
+  - {high: 3.0, low: 2.5}
+  - {high: 4.0, low: 3.0}
+  - {high: 6.0, low: 4.0}

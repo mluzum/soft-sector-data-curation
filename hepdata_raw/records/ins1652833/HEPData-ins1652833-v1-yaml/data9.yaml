@@ -1,0 +1,50 @@
+dependent_variables:
+- header: {name: 1/N dN/dxJ}
+  qualifiers:
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 5020}
+  - {name: RE, value: PB PB --> BJET BJET}
+  - {name: CENTRALITY, value: 10-30%}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0077}
+    - {label: sys, symerror: 0.0005}
+    value: 0.0053
+  - errors:
+    - {label: stat, symerror: 0.021}
+    - {label: sys, symerror: 0.01}
+    value: 0.099
+  - errors:
+    - {label: stat, symerror: 0.025}
+    - {label: sys, symerror: 0.013}
+    value: 0.137
+  - errors:
+    - {label: stat, symerror: 0.023}
+    - {label: sys, symerror: 0.013}
+    value: 0.134
+  - errors:
+    - {label: stat, symerror: 0.025}
+    - {label: sys, symerror: 0.021}
+    value: 0.212
+  - errors:
+    - {label: stat, symerror: 0.021}
+    - {label: sys, symerror: 0.021}
+    value: 0.15
+  - errors:
+    - {label: stat, symerror: 0.02}
+    - {label: sys, symerror: 0.02}
+    value: 0.144
+  - errors:
+    - {label: stat, symerror: 0.018}
+    - {label: sys, symerror: 0.017}
+    value: 0.12
+independent_variables:
+- header: {name: xJ}
+  values:
+  - {high: 0.2, low: 0.3}
+  - {high: 0.3, low: 0.4}
+  - {high: 0.4, low: 0.5}
+  - {high: 0.5, low: 0.6}
+  - {high: 0.6, low: 0.7}
+  - {high: 0.7, low: 0.8}
+  - {high: 0.8, low: 0.9}
+  - {high: 0.9, low: 1.0}

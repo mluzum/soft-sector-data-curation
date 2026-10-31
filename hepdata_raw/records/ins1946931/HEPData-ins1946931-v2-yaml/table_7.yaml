@@ -1,0 +1,62 @@
+dependent_variables:
+- header: {name: '$(\mathrm{D}_s^+/\mathrm{D}^0)_\mathrm{Pb-Pb}/(\mathrm{D}_s^+/\mathrm{D}^0)_\mathrm{pp}$'}
+  qualifiers:
+  - {name: CENTRALITY, value: 0.0-10.0 pct}
+  - {name: REACTION, value: PBPB --> Ds + X}
+  - {name: REACTION, value: PBPB --> D0 + X}
+  - {name: REACTION, value: PP --> Ds + X}
+  - {name: REACTION, value: PP --> D0 + X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 5020.0}
+  - {name: YRAP, value: -0.5 TO 0.5}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.19978}
+    - asymerror: {minus: -0.19587, plus: 0.17425}
+      label: sys
+    value: 1.0676
+  - errors:
+    - {label: stat, symerror: 0.16183}
+    - asymerror: {minus: -0.16139, plus: 0.14196}
+      label: sys
+    value: 1.2308
+  - errors:
+    - {label: stat, symerror: 0.19136}
+    - asymerror: {minus: -0.19726, plus: 0.17577}
+      label: sys
+    value: 1.5742
+  - errors:
+    - {label: stat, symerror: 0.24162}
+    - asymerror: {minus: -0.2742, plus: 0.1849}
+      label: sys
+    value: 1.8366
+  - errors:
+    - {label: stat, symerror: 0.1698}
+    - asymerror: {minus: -0.19553, plus: 0.13722}
+      label: sys
+    value: 1.4537
+  - errors:
+    - {label: stat, symerror: 0.14313}
+    - asymerror: {minus: -0.18785, plus: 0.11753}
+      label: sys
+    value: 1.1991
+  - errors:
+    - {label: stat, symerror: 0.18908}
+    - asymerror: {minus: -0.12195, plus: 0.11343}
+      label: sys
+    value: 0.94426
+  - errors:
+    - {label: stat, symerror: 0.27298}
+    - asymerror: {minus: -0.14768, plus: 0.11747}
+      label: sys
+    value: 0.95982
+independent_variables:
+- header: {name: '$p_\mathrm{T}$', units: '$\mathrm{GeV}/c$'}
+  values:
+  - {high: 3.0, low: 2.0}
+  - {high: 4.0, low: 3.0}
+  - {high: 5.0, low: 4.0}
+  - {high: 6.0, low: 5.0}
+  - {high: 8.0, low: 6.0}
+  - {high: 12.0, low: 8.0}
+  - {high: 16.0, low: 12.0}
+  - {high: 24.0, low: 16.0}

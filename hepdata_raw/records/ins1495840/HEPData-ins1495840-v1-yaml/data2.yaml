@@ -1,0 +1,40 @@
+dependent_variables:
+- header: {name: '$(N_{\psi\mathrm{(2S)}} / N_{J/\psi})_{\mathrm{PbPb}} / (N_{\psi\mathrm{(2S)}}
+      / N_{J/\psi})_{pp}$ (95% CL interval, lower bound)'}
+  qualifiers:
+  - {name: ABS(YRAP), value: 0.0-1.6}
+  - {name: Centrality, value: 0-100 %}
+  - {name: RE, value: P P --> J/PSI < MU+ MU- > X}
+  - {name: RE, value: P P --> PSI(2S) < MU+ MU- > X}
+  - {name: RE, value: PB PB --> J/PSI < MU+ MU- > X}
+  - {name: RE, value: PB PB --> PSI(2S) < MU+ MU- > X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  values:
+  - {value: 0.01}
+  - {value: 0.18}
+  - {value: 0.23}
+  - {value: 0.08}
+  - {value: 0}
+- header: {name: '$(N_{\psi\mathrm{(2S)}} / N_{J/\psi})_{\mathrm{PbPb}} / (N_{\psi\mathrm{(2S)}}
+      / N_{J/\psi})_{pp}$ (95% CL interval, upper bound)'}
+  qualifiers:
+  - {name: ABS(YRAP), value: 0.0-1.6}
+  - {name: RE, value: P P --> J/PSI < MU+ MU- > X}
+  - {name: RE, value: P P --> PSI(2S) < MU+ MU- > X}
+  - {name: RE, value: PB PB --> J/PSI < MU+ MU- > X}
+  - {name: RE, value: PB PB --> PSI(2S) < MU+ MU- > X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  values:
+  - {value: 0.65}
+  - {value: 0.59}
+  - {value: 0.75}
+  - {value: 0.78}
+  - {value: 0.81}
+independent_variables:
+- header: {name: PT, units: GeV}
+  values:
+  - {high: 9.0, low: 6.5}
+  - {high: 12.0, low: 9.0}
+  - {high: 15.0, low: 12.0}
+  - {high: 20.0, low: 15.0}
+  - {high: 30.0, low: 20.0}

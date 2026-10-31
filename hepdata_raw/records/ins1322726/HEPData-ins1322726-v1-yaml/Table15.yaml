@@ -1,0 +1,45 @@
+dependent_variables:
+- header: {name: D2SIG/DPT/DYRAP, units: PB}
+  qualifiers:
+  - {name: ABS(YRAP), value: '1.44'}
+  - {name: RE, value: P P --> Z0 < LEPTON+ LEPTON- >}
+  - {name: SQRT(S), units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.252}
+    - {label: sys, symerror: 0.193}
+    value: 4.03
+  - errors:
+    - {label: stat, symerror: 0.244}
+    - {label: sys, symerror: 0.149}
+    value: 2.98
+  - errors:
+    - {label: stat, symerror: 0.117}
+    - {label: sys, symerror: 0.084}
+    value: 1.71
+  - errors:
+    - {label: stat, symerror: 0.0715}
+    - {label: sys, symerror: 0.0328}
+    value: 0.632
+  - errors:
+    - {label: stat, symerror: 0.0483}
+    - {label: sys, symerror: 0.0143}
+    value: 0.257
+  - errors:
+    - {label: stat, symerror: 0.0377}
+    - {label: sys, symerror: 0.00851}
+    value: 0.168
+  - errors:
+    - {label: stat, symerror: 0.00931}
+    - {label: sys, symerror: 0.0021}
+    value: 0.0464
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {high: 5.0, low: 0.0}
+  - {high: 10.0, low: 5.0}
+  - {high: 20.0, low: 10.0}
+  - {high: 30.0, low: 20.0}
+  - {high: 40.0, low: 30.0}
+  - {high: 50.0, low: 40.0}
+  - {high: 100.0, low: 50.0}

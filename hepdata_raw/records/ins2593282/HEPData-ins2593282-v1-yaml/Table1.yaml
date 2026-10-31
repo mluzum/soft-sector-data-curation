@@ -1,0 +1,41 @@
+dependent_variables:
+- header: {name: '$d^{2}\sigma/dp_{T}dy$ [mb/GeV/c]'}
+  qualifiers:
+  - {name: RE, value: pp -> b(->c)->e + X}
+  - {name: SQRT(S), units: GeV, value: 5020.0}
+  - {name: YRAP, value: -0.8 to 0.8}
+  - {name: Normalization uncertainity, value: 2.1%}
+  values:
+  - errors:
+    - {label: stat, symerror: 6.21639e-05}
+    - {label: sys, symerror: 0.000317905}
+    value: 0.00125175
+  - errors:
+    - {label: stat, symerror: 4.00085e-05}
+    - {label: sys, symerror: 0.000185107}
+    value: 0.000824534
+  - errors:
+    - {label: stat, symerror: 1.75478e-05}
+    - {label: sys, symerror: 8.59854e-05}
+    value: 0.00038301
+  - errors:
+    - {label: stat, symerror: 1.03375e-05}
+    - {label: sys, symerror: 3.86405e-05}
+    value: 0.000171948
+  - errors:
+    - {label: stat, symerror: 6.98811e-06}
+    - {label: sys, symerror: 2.01102e-05}
+    value: 8.56722e-05
+  - errors:
+    - {label: stat, symerror: 3.27421e-06}
+    - {label: sys, symerror: 7.42542e-06}
+    value: 3.301e-05
+independent_variables:
+- header: {name: '$p_{T}$', units: GeV/c}
+  values:
+  - {high: 2.5, low: 2.0}
+  - {high: 3.0, low: 2.5}
+  - {high: 4.0, low: 3.0}
+  - {high: 5.0, low: 4.0}
+  - {high: 6.0, low: 5.0}
+  - {high: 8.0, low: 6.0}

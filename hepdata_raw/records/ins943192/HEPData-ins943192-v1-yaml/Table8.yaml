@@ -1,0 +1,23 @@
+dependent_variables:
+- header: {name: Yield}
+  qualifiers:
+  - {name: ABS(DELTA ETA), value: 0.0-1.78}
+  - {name: ABS(DELTA PHI), value: 0.0-0.78}
+  - {name: ABS(ETA), value: 0.0-1.0}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '62.4'}
+  values:
+  - errors:
+    - {symerror: 0.0036}
+    value: 0.0378
+  - errors:
+    - {symerror: 0.0045}
+    value: 0.0378
+  - errors:
+    - {symerror: 0.0125}
+    value: 0.036
+independent_variables:
+- header: {name: '$N_{part}$'}
+  values:
+  - {value: 42.0}
+  - {value: 169.0}
+  - {value: 320.0}

@@ -1,0 +1,33 @@
+dependent_variables:
+- header: {name: N(D+)/N(D0)}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 0.0-10.0}
+  - {name: RE, value: PB PB --> D/S+ X}
+  - {name: RE, value: PB PB --> D0 X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  - {name: YRAP, value: -0.5-0.5}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.298}
+    - asymerror: {minus: -0.44, plus: 0.222}
+      label: sys
+    - {label: 'sys,uncertainty on branching ratio', symerror: 4.6%}
+    value: 0.77
+  - errors:
+    - {label: stat, symerror: 0.312}
+    - asymerror: {minus: -0.453, plus: 0.242}
+      label: sys
+    - {label: 'sys,uncertainty on branching ratio', symerror: 4.6%}
+    value: 0.75
+  - errors:
+    - {label: stat, symerror: 0.144}
+    - asymerror: {minus: -0.286, plus: 0.148}
+      label: sys
+    - {label: 'sys,uncertainty on branching ratio', symerror: 4.6%}
+    value: 0.482
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {high: 6.0, low: 4.0}
+  - {high: 8.0, low: 6.0}
+  - {high: 12.0, low: 8.0}

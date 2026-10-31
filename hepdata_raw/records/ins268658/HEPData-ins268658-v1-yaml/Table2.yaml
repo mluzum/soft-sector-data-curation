@@ -1,0 +1,53 @@
+dependent_variables:
+- header: {name: MEAN(N=ET), units: MEV}
+  qualifiers:
+  - {name: RE, value: P C --> CHARGED X}
+  values:
+  - {value: 150.0}
+- header: {name: MEAN(N=ET), units: MEV}
+  qualifiers:
+  - {name: RE, value: P C --> CHARGED(S) X}
+  values:
+  - errors:
+    - {symerror: 10.0}
+    value: 380.0
+- header: {name: MEAN(N=ET), units: MEV}
+  qualifiers:
+  - {name: RE, value: DEUT C --> CHARGED X}
+  values:
+  - {value: 160.0}
+- header: {name: MEAN(N=ET), units: MEV}
+  qualifiers:
+  - {name: RE, value: DEUT C --> CHARGED(S) X}
+  values:
+  - errors:
+    - {symerror: 10.0}
+    value: 490.0
+- header: {name: MEAN(N=ET), units: MEV}
+  qualifiers:
+  - {name: RE, value: HE C --> CHARGED X}
+  values:
+  - {value: 170.0}
+- header: {name: MEAN(N=ET), units: MEV}
+  qualifiers:
+  - {name: RE, value: HE C --> CHARGED(S) X}
+  values:
+  - errors:
+    - {symerror: 20.0}
+    value: 830.0
+- header: {name: MEAN(N=ET), units: MEV}
+  qualifiers:
+  - {name: RE, value: C C --> CHARGED X}
+  values:
+  - {value: 170.0}
+- header: {name: MEAN(N=ET), units: MEV}
+  qualifiers:
+  - {name: RE, value: C C --> CHARGED(S) X}
+  values:
+  - errors:
+    - {symerror: 30.0}
+    value: 1050.0
+independent_variables:
+- header: {name: P, units: GEV}
+  values:
+  - {value: 4.2}

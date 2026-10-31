@@ -1,0 +1,43 @@
+observable_type: femtoscopy
+description: >
+  HBT / Bose-Einstein correlation measurements that extract source
+  size parameters (R_out, R_side, R_long) from two-particle correlations.
+
+composes:
+  - _common#collision_system
+  - centrality#centrality
+  - _common#particle_id
+  - _common#kinematic_range
+
+required_fields:
+  observable:
+    type: string
+    required: true
+    description: Short identifier.
+    example: "hbt_radii"
+  value_type:
+    type: string
+    required: true
+    description: >
+      One of: 'R_out', 'R_side', 'R_long', 'R_out_R_side', 'lambda',
+      'R_inv'
+    example: "R_out"
+  pair_type:
+    type: string
+    required: true
+    description: "Identical particle pair (e.g. 'pi+pi+', 'pi-pi-', 'KK')."
+    example: "pi+pi+"
+
+optional_fields:
+  kT_range:
+    type: object
+    required: false
+    description: "Average transverse momentum of the pair [GeV/c]."
+    fields:
+      min: {type: float, required: true, example: 0.2}
+      max: {type: float, required: true, example: 0.3}
+  frame:
+    type: string
+    required: false
+    description: "Reference frame. One of: 'LCMS', 'PRF' (pair rest frame)."
+    example: "LCMS"

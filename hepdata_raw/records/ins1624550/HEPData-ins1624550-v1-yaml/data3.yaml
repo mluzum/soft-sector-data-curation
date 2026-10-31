@@ -1,0 +1,45 @@
+dependent_variables:
+- header: {name: v_2^JPSI}
+  qualifiers:
+  - {name: RE, value: P PB --> JPSI < MU+ MU- > X}
+  - {name: SQRT(S), units: GEV, value: '8160.0'}
+  - {name: YRAP, value: 2.03 TO 3.53}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.023}
+    - asymerror: {minus: -0.015, plus: 0.015}
+      label: sys,uncorrel
+    - {label: 'sys,correl', symerror: -0.001}
+    value: -0.014
+  - errors:
+    - {label: stat, symerror: 0.026}
+    - asymerror: {minus: -0.016, plus: 0.016}
+      label: sys,uncorrel
+    - {label: 'sys,correl', symerror: 0.0}
+    value: 0.004
+  - errors:
+    - {label: stat, symerror: 0.029}
+    - asymerror: {minus: -0.016, plus: 0.016}
+      label: sys,uncorrel
+    - {label: 'sys,correl', symerror: 0.002}
+    value: 0.038
+  - errors:
+    - {label: stat, symerror: 0.026}
+    - asymerror: {minus: -0.015, plus: 0.013}
+      label: sys,uncorrel
+    - {label: 'sys,correl', symerror: 0.005}
+    value: 0.092
+  - errors:
+    - {label: stat, symerror: 0.039}
+    - asymerror: {minus: -0.026, plus: 0.019}
+      label: sys,uncorrel
+    - {label: 'sys,correl', symerror: 0.002}
+    value: 0.033
+independent_variables:
+- header: {name: PT, units: GEV/C}
+  values:
+  - {high: 2.0, low: 0.0, value: 1.24}
+  - {high: 3.0, low: 2.0, value: 2.48}
+  - {high: 4.0, low: 3.0, value: 3.48}
+  - {high: 6.0, low: 4.0, value: 4.87}
+  - {high: 8.0, low: 6.0, value: 6.83}

@@ -1,0 +1,21 @@
+dependent_variables:
+- header: {name: '$d^{2}N/2pip_{T}dp_{T}dy$'}
+  values:
+  - errors:
+    - {label: stat, symerror: '4.5e-10'}
+    - {label: sys, symerror: '1.1e-10'}
+    value: '1.58e-9'
+  - errors:
+    - {label: stat, symerror: '1.03e-10'}
+    - {label: sys, symerror: '2.2e-11'}
+    value: '1.88e-10'
+  - errors:
+    - {label: stat, symerror: '2.62e-11'}
+    - {label: sys, symerror: '5.5e-12'}
+    value: '1.98e-11'
+independent_variables:
+- header: {name: '$p_{T}$', units: GeV/c}
+  values:
+  - {high: 2.0, low: 0.0}
+  - {high: 5.0, low: 2.0}
+  - {high: 10.0, low: 5.0}

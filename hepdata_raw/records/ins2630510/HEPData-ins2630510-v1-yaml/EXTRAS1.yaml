@@ -1,0 +1,50 @@
+dependent_variables:
+- header: {name: a, units: GeV^(1/2)}
+  values:
+  - errors:
+    - {symerror: 0.03}
+    value: 0.74
+  - errors:
+    - {symerror: 0.01}
+    value: 0.73
+  - errors:
+    - {symerror: 0.01}
+    value: 0.73
+  - errors:
+    - {symerror: 0.01}
+    value: 0.71
+- header: {name: b, units: GeV}
+  values:
+  - errors:
+    - {symerror: 0.1}
+    value: 11.3
+  - errors:
+    - {symerror: 0.04}
+    value: 9.48
+  - errors:
+    - {symerror: 0.02}
+    value: 7.36
+  - errors:
+    - {symerror: 0.02}
+    value: 4.92
+- header: {name: c}
+  values:
+  - errors:
+    - {symerror: 0.001}
+    value: 0.055
+  - errors:
+    - {symerror: 0.001}
+    value: 0.056
+  - errors:
+    - {symerror: 0.001}
+    value: 0.056
+  - errors:
+    - {symerror: 0.001}
+    value: 0.056
+independent_variables:
+- header: {name: CENTRALITY, units: PERCENT}
+  values:
+  - {high: 10.0, low: 0.0}
+  - {high: 20.0, low: 10.0}
+  - {high: 40.0, low: 20.0}
+  - {high: 80.0, low: 40.0}

@@ -1,0 +1,37 @@
+dependent_variables:
+- header: {name: (1/N)*(1/TAA)*DN/DPT, units: PB/GEV}
+  qualifiers:
+  - {name: ABS(ETARAP(C = BJET)), value: < 2.0}
+  - {name: CENTRALITY in PCT, value: 0.0-10.0}
+  - {name: R, value: '0.3'}
+  - {name: RE, value: PB PB --> BJET X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 8.36}
+    - {label: sys, symerror: 15.05}
+    value: 49.02
+  - errors:
+    - {label: stat, symerror: 2.96}
+    - {label: sys, symerror: 5.9}
+    value: 17.22
+  - errors:
+    - {label: stat, symerror: 1.275}
+    - {label: sys, symerror: 2.374}
+    value: 6.992
+  - errors:
+    - {label: stat, symerror: 0.492}
+    - {label: sys, symerror: 0.803}
+    value: 1.947
+  - errors:
+    - {label: stat, symerror: 0.102}
+    - {label: sys, symerror: 0.1516}
+    value: 0.2207
+independent_variables:
+- header: {name: PT(C=BJET), units: GEV}
+  values:
+  - {high: 90.0, low: 80.0}
+  - {high: 110.0, low: 90.0}
+  - {high: 130.0, low: 110.0}
+  - {high: 170.0, low: 130.0}
+  - {high: 250.0, low: 170.0}

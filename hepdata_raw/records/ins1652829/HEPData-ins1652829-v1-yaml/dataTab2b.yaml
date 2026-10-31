@@ -1,0 +1,30 @@
+dependent_variables:
+- header: {name: fraction of J/$\psi$ from Beauty meson decays $f_B$}
+  qualifiers:
+  - {name: RE, value: P P --> JPSI < E+ E- > X}
+  - {name: SQRT(S), units: GEV, value: '5020.0'}
+  - {name: YRAP, value: -1.37 TO 0.43}
+  values:
+  - errors:
+    - {symerror: 0.013}
+    value: 0.134
+  - errors:
+    - {symerror: 0.013}
+    value: 0.139
+  - errors:
+    - {symerror: 0.013}
+    value: 0.118
+  - errors:
+    - {symerror: 0.012}
+    value: 0.143
+  - errors:
+    - {symerror: 0.013}
+    value: 0.202
+independent_variables:
+- header: {name: PT, units: GEV/C}
+  values:
+  - {value: '>0.0'}
+  - {value: '>1.3'}
+  - {high: 3.0, low: 1.3}
+  - {high: 5.0, low: 3.0}
+  - {high: 10.0, low: 5.0}

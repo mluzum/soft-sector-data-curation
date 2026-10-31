@@ -1,0 +1,40 @@
+---
+observable_type: charge_dependent_correlations
+inspire_id: '681688'
+version: 1
+hepdata_file: Fig4inset.yaml
+hepdata_table_label: $(<\Delta p_{t,i}\Delta p_{t,j}>)^{1/2}/<<p_{t}>>$ as a function of incident energy for 0-5% most central
+  Au+Au collisions compared with CERES results.
+qualifiers:
+  \sqrt{s_{nn}}: ''
+collision_system:
+  energy_gev: 200.0
+  reaction: AuAu --> X
+centrality:
+  classes:
+  - 0-5%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: p
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+    bins:
+    - -1.0
+    - 1.0
+  pT:
+    min: 0.15
+    max: 10
+    bins:
+    - 0.15
+    - 10
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all

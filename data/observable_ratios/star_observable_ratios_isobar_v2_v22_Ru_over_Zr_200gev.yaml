@@ -1,0 +1,54 @@
+observable_type: observable_ratios
+inspire_id: '1914564'
+version: 1
+hepdata_file: fig4_left_low_isobarpaper_star_blue_v2_tpc_ratio.yaml
+hepdata_table_label: ''
+collision_system:
+  energy_gev: 200.0
+  reaction: Ru+Ru and Zr+Zr
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  - 60-70%
+  - 70-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  pT:
+    min: 0.2
+    max: 100.0
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+    bins:
+    - -1.0
+    - 1.0
+  pT:
+    min: 0.2
+    max: 100.0
+    bins:
+    - 0.2
+    - 100.0
+observable: v2
+value_type: v2{2}_Ru_over_Zr
+numerator: Ru+Ru
+denominator: Zr+Zr
+ratio_type: system_ratio
+numerator_system: Ru+Ru
+denominator_system: Zr+Zr
+numerator_record: data/flow_vn/star_flow_vn_isobar_v2_v22_RuRu_200gev.yaml
+denominator_record: data/flow_vn/star_flow_vn_isobar_v2_v22_ZrZr_200gev.yaml
+dv_index: 0

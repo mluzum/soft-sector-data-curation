@@ -1,0 +1,36 @@
+dependent_variables:
+- header: {name: RAA}
+  qualifiers:
+  - {name: ABS(ETARAP), value: < 1.44}
+  - {name: CENTRALITY, units: pct, value: 0.0-10.0}
+  - {name: RE, value: PB PB --> GAMMA X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.12}
+    - {label: sys, symerror: 0.35}
+    value: 1.03
+  - errors:
+    - {label: stat, symerror: 0.14}
+    - {label: sys, symerror: 0.27}
+    value: 0.84
+  - errors:
+    - {label: stat, symerror: 0.22}
+    - {label: sys, symerror: 0.4}
+    value: 1.37
+  - errors:
+    - {label: stat, symerror: 0.24}
+    - {label: sys, symerror: 0.27}
+    value: 0.98
+  - errors:
+    - {label: stat, symerror: 0.31}
+    - {label: sys, symerror: 0.26}
+    value: 0.99
+independent_variables:
+- header: {name: ET(P=3), units: GEV}
+  values:
+  - {high: 25.0, low: 20.0, value: 22.3}
+  - {high: 30.0, low: 25.0, value: 27.3}
+  - {high: 40.0, low: 30.0, value: 34.4}
+  - {high: 50.0, low: 40.0, value: 44.5}
+  - {high: 80.0, low: 50.0, value: 61.7}

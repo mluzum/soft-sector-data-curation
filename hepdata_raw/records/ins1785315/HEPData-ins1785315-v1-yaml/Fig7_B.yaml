@@ -1,0 +1,40 @@
+dependent_variables:
+- header: {name: RPA}
+  qualifiers:
+  - {name: RE, value: P PB --> PSI(2S) < MU+ MU- > X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 8160.0}
+  - {name: YRAP, value: -4.46 TO -2.96}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.099}
+    - {label: 'sys, uncorrel', symerror: 0.123}
+    - {label: 'sys, correl', symerror: 0.049}
+    value: 0.685
+  - errors:
+    - {label: stat, symerror: 0.119}
+    - {label: 'sys, uncorrel', symerror: 0.077}
+    - {label: 'sys, correl', symerror: 0.035}
+    value: 0.494
+  - errors:
+    - {label: stat, symerror: 0.114}
+    - {label: 'sys, uncorrel', symerror: 0.112}
+    - {label: 'sys, correl', symerror: 0.061}
+    value: 0.86
+  - errors:
+    - {label: stat, symerror: 0.128}
+    - {label: 'sys, uncorrel', symerror: 0.168}
+    - {label: 'sys, correl', symerror: 0.056}
+    value: 0.79
+  - errors:
+    - {label: stat, symerror: 0.226}
+    - {label: 'sys, uncorrel', symerror: 0.207}
+    - {label: 'sys, correl', symerror: 0.053}
+    value: 0.74
+independent_variables:
+- header: {name: PT, units: GEV/C}
+  values:
+  - {high: 2.0, low: 0.0}
+  - {high: 3.0, low: 2.0}
+  - {high: 5.0, low: 3.0}
+  - {high: 8.0, low: 5.0}
+  - {high: 12.0, low: 8.0}

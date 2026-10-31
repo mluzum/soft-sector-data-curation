@@ -1,0 +1,40 @@
+---
+observable_type: femtoscopy
+inspire_id: '1697838'
+version: 1
+hepdata_file: Table8.yaml
+hepdata_table_label: Observed exclusion limits at 95% CL in the ALP-photon coupling g$_{a \gamma}$ versus ALP mass $m_{a}$
+  plane.
+qualifiers:
+  re: gamma gamma --> a --> gamma gamma
+  sqrt(s)/nucleon: '5020.0'
+collision_system:
+  energy_gev: 5020.0
+  reaction: gamma gamma --> a --> gamma gamma
+centrality:
+  classes:
+  - MB
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: Lambda
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: hbt_radii
+value_type: lambda
+pair_type: pi+pi+

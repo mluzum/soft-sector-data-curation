@@ -1,0 +1,58 @@
+dependent_variables:
+- header: {name: DN/DYRAP}
+  qualifiers:
+  - {name: RE, value: PB PB --> K0S X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  - {name: YRAP, value: -0.5-0.5}
+  values:
+  - errors:
+    - {label: stat, symerror: 3.0}
+    - {label: sys, symerror: 9.54}
+    value: 107.0
+  - errors:
+    - {label: stat, symerror: 2.6}
+    - {label: sys, symerror: 5.41}
+    value: 89.3
+  - errors:
+    - {label: stat, symerror: 1.9}
+    - {label: sys, symerror: 4.62}
+    value: 67.8
+  - errors:
+    - {label: stat, symerror: 1.2}
+    - {label: sys, symerror: 2.75}
+    value: 38.5
+  - errors:
+    - {label: stat, symerror: 0.35}
+    - {label: sys, symerror: 0.937}
+    value: 14.46
+  - errors:
+    - {label: stat, symerror: 0.12}
+    - {label: sys, symerror: 0.16}
+    value: 3.91
+  - errors:
+    - {label: stat, symerror: 0.059}
+    - {label: sys, symerror: 0.068}
+    value: 0.846
+- header: {name: ExtFrac(pT<0.4 GeV/c), units: PCT}
+  qualifiers:
+  - {name: RE, value: PB PB --> K0S X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  - {name: YRAP, value: -0.5-0.5}
+  values:
+  - {value: 20.0}
+  - {value: 21.0}
+  - {value: 21.0}
+  - {value: 23.0}
+  - {value: 25.0}
+  - {value: 31.0}
+  - {value: 33.0}
+independent_variables:
+- header: {name: CENTRALITY, units: PCT}
+  values:
+  - {high: 5.0, low: 0.0}
+  - {high: 10.0, low: 5.0}
+  - {high: 20.0, low: 10.0}
+  - {high: 40.0, low: 20.0}
+  - {high: 60.0, low: 40.0}
+  - {high: 80.0, low: 60.0}
+  - {high: 90.0, low: 80.0}

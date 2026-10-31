@@ -1,0 +1,132 @@
+dependent_variables:
+- header: {name: 10**6*(1/Ncoll)*(1/Nevt)*D2(N)/DPT(jet)/DETARAP(jet), units: GEV**-1}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 50.0-80.0}
+  - {name: ETARAP(jet), value: -0.5-0.5}
+  - {name: PT(leading track), units: GEV, value: '> 10'}
+  - {name: PT(track), units: GEV, value: '> 0.15'}
+  - {name: RE, value: PB PB --> CHARGED X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  - {name: '', value: Anti-kT R = 0.2}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.047}
+    - asymerror: {minus: -0.136, plus: 0.059}
+      label: sys
+    - {label: sys, symerror: 0.118}
+    - {label: 'sys,normalisation uncertainty', symerror: 10.0%}
+    value: 1.205
+  - errors:
+    - {label: stat, symerror: 0.0221}
+    - asymerror: {minus: -0.007, plus: 0.0259}
+      label: sys
+    - {label: sys, symerror: 0.0182}
+    - {label: 'sys,normalisation uncertainty', symerror: 10.0%}
+    value: 0.3403
+  - errors:
+    - {label: stat, symerror: 0.01069}
+    - asymerror: {minus: -9.0e-05, plus: 0.00895}
+      label: sys
+    - {label: sys, symerror: 0.00574}
+    - {label: 'sys,normalisation uncertainty', symerror: 10.0%}
+    value: 0.09689
+  - errors:
+    - {label: stat, symerror: 0.00434}
+    - asymerror: {minus: -0.00458, plus: 0.00277}
+      label: sys
+    - {label: sys, symerror: 0.00248}
+    - {label: 'sys,normalisation uncertainty', symerror: 10.0%}
+    value: 0.03243
+  - errors:
+    - {label: stat, symerror: 0.00222}
+    - asymerror: {minus: -0.00025, plus: 0.00125}
+      label: sys
+    - {label: sys, symerror: 0.00109}
+    - {label: 'sys,normalisation uncertainty', symerror: 10.0%}
+    value: 0.01383
+  - errors:
+    - {label: stat, symerror: 0.001538}
+    - asymerror: {minus: -0.001321, plus: 0.001994}
+      label: sys
+    - {label: sys, symerror: 0.000492}
+    - {label: 'sys,normalisation uncertainty', symerror: 10.0%}
+    value: 0.006829
+  - errors:
+    - {label: stat, symerror: 0.001258}
+    - asymerror: {minus: -0.000186, plus: 0.000729}
+      label: sys
+    - {label: sys, symerror: 0.000236}
+    - {label: 'sys,normalisation uncertainty', symerror: 10.0%}
+    value: 0.003699
+  - {value: '-'}
+  - {value: '-'}
+- header: {name: 10**6*(1/Ncoll)*(1/Nevt)*D2(N)/DPT(jet)/DETARAP(jet), units: GEV**-1}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 50.0-80.0}
+  - {name: ETARAP(jet), value: -0.5-0.5}
+  - {name: PT(leading track), units: GEV, value: '> 10'}
+  - {name: PT(track), units: GEV, value: '> 0.15'}
+  - {name: RE, value: PB PB --> CHARGED X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  - {name: '', value: Anti-kT R = 0.3}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.067}
+    - asymerror: {minus: -0.241, plus: 0.092}
+      label: sys
+    - {label: sys, symerror: 0.142}
+    - {label: 'sys,normalisation uncertainty', symerror: 10.0%}
+    value: 1.471
+  - errors:
+    - {label: stat, symerror: 0.0259}
+    - asymerror: {minus: -0.0233, plus: 0.0349}
+      label: sys
+    - asymerror: {minus: -0.0327, plus: 0.0161}
+      label: sys
+    - {label: 'sys,normalisation uncertainty', symerror: 10.0%}
+    value: 0.4046
+  - errors:
+    - {label: stat, symerror: 0.0126}
+    - asymerror: {minus: -0.0008, plus: 0.0061}
+      label: sys
+    - {label: sys, symerror: 0.0076}
+    - {label: 'sys,normalisation uncertainty', symerror: 10.0%}
+    value: 0.1158
+  - errors:
+    - {label: stat, symerror: 0.00567}
+    - asymerror: {minus: -0.0004, plus: 0.00377}
+      label: sys
+    - asymerror: {minus: -0.00276, plus: 0.00126}
+      label: sys
+    - {label: 'sys,normalisation uncertainty', symerror: 10.0%}
+    value: 0.04168
+  - errors:
+    - {label: stat, symerror: 0.00271}
+    - asymerror: {minus: -0.00252, plus: 0.00216}
+      label: sys
+    - asymerror: {minus: -0.00092, plus: 0.00034}
+      label: sys
+    - {label: 'sys,normalisation uncertainty', symerror: 10.0%}
+    value: 0.01766
+  - errors:
+    - {label: stat, symerror: 0.002047}
+    - asymerror: {minus: -0.001715, plus: 0.001143}
+      label: sys
+    - {label: sys, symerror: 0.000484}
+    - {label: 'sys,normalisation uncertainty', symerror: 10.0%}
+    value: 0.008573
+  - {value: '-'}
+  - {value: '-'}
+  - {value: '-'}
+independent_variables:
+- header: {name: PT(jet), units: GEV}
+  values:
+  - {high: 30.0, low: 20.0}
+  - {high: 40.0, low: 30.0}
+  - {high: 50.0, low: 40.0}
+  - {high: 60.0, low: 50.0}
+  - {high: 70.0, low: 60.0}
+  - {high: 80.0, low: 70.0}
+  - {high: 90.0, low: 80.0}
+  - {high: 100.0, low: 90.0}
+  - {high: 110.0, low: 100.0}

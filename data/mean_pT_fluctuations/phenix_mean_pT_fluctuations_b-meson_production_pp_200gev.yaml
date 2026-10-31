@@ -1,0 +1,35 @@
+---
+observable_type: mean_pT_fluctuations
+inspire_id: '1512141'
+version: 1
+hepdata_file: ppg199tab6.yaml
+hepdata_table_label: Differential cross section for $p$+$p$ $\rightarrow$ $b\bar{b}$ at $\sqrt{s}$ = 200 GeV.
+collision_system:
+  energy_gev: 200.0
+  reaction: p p --> CHARGED X
+centrality:
+  classes:
+  - MB
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: Sigma
+kinematic_range:
+  eta:
+    min: -0.35
+    max: 0.35
+  pT:
+    min: 0.2
+    max: 20
+    bins:
+    - 0.2
+    - 20
+observable: sigma_mean_pT
+value_type: Sigma

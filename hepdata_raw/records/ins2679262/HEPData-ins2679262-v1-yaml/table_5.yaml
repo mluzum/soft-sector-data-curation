@@ -1,0 +1,89 @@
+dependent_variables:
+- header: {name: '$\Lambda_{c}^{+}/\mathrm{D^0}$ production ratio'}
+  qualifiers:
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020'}
+  - {name: $|y(\Lambda_c^+)|$, value: < 1}
+  - {name: RE, value: PB PB --> LAMBDAc+ --> P+ + K- + PI+}
+  - {name: CENTRALITY, units: $\%$, value: 0.0-90.0}
+  - {name: GLOBAL UNCERTAINTY, units: $\%$, value: '7.3'}
+  values:
+  - errors:
+    - asymerror: {minus: -0.084, plus: 0.084}
+      label: stat
+    - {label: sys, symerror: 0.108}
+    value: 0.39
+  - errors:
+    - asymerror: {minus: -0.032, plus: 0.041}
+      label: stat
+    - {label: sys, symerror: 0.154}
+    value: 0.448
+  - errors:
+    - asymerror: {minus: -0.021, plus: 0.027}
+      label: stat
+    - {label: sys, symerror: 0.039}
+    value: 0.196
+  - errors:
+    - asymerror: {minus: -0.012, plus: 0.015}
+      label: stat
+    - {label: sys, symerror: 0.036}
+    value: 0.165
+  - errors:
+    - asymerror: {minus: -0.014, plus: 0.014}
+      label: stat
+    - {label: sys, symerror: 0.044}
+    value: 0.158
+  - errors:
+    - asymerror: {minus: -0.018, plus: 0.02}
+      label: stat
+    - {label: sys, symerror: 0.052}
+    value: 0.169
+  - errors:
+    - asymerror: {minus: -0.017, plus: 0.018}
+      label: stat
+    - {label: sys, symerror: 0.035}
+    value: 0.111
+- header: {name: '$\Lambda_{c}^{+}/\mathrm{D^0}$ production ratio'}
+  qualifiers:
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020'}
+  - {name: $|y(\Lambda_c^+)|$, value: < 1}
+  - {name: RE, value: PB PB --> LAMBDAc+ --> P+ + K- + PI+}
+  - {name: CENTRALITY, units: $\%$, value: 0.0-10.0}
+  - {name: GLOBAL UNCERTAINTY, units: $\%$, value: '7.3'}
+  values:
+  - {value: ''}
+  - {value: ''}
+  - errors:
+    - asymerror: {minus: -0.039, plus: 0.052}
+      label: stat
+    - {label: sys, symerror: 0.065}
+    value: 0.231
+  - errors:
+    - asymerror: {minus: -0.037, plus: 0.04}
+      label: stat
+    - {label: sys, symerror: 0.084}
+    value: 0.174
+  - errors:
+    - asymerror: {minus: -0.025, plus: 0.025}
+      label: stat
+    - {label: sys, symerror: 0.047}
+    value: 0.168
+  - errors:
+    - asymerror: {minus: -0.027, plus: 0.033}
+      label: stat
+    - {label: sys, symerror: 0.041}
+    value: 0.147
+  - errors:
+    - asymerror: {minus: -0.029, plus: 0.03}
+      label: stat
+    - {label: sys, symerror: 0.033}
+    value: 0.103
+independent_variables:
+- header: {name: '$p_\mathrm{T}$'}
+  values:
+  - {high: 8.0, low: 6.0}
+  - {high: 10.0, low: 8.0}
+  - {high: 12.5, low: 10.0}
+  - {high: 15.0, low: 12.5}
+  - {high: 20.0, low: 15.0}
+  - {high: 30.0, low: 20.0}
+  - {high: 40.0, low: 30.0}

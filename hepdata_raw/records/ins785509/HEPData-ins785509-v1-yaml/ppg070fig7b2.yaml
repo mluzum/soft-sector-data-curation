@@ -1,0 +1,37 @@
+dependent_variables:
+- header: {name: '$N_{part}$'}
+  qualifiers:
+  - {name: $p_T$ (GeV/$c$), value: ''}
+  values:
+  - {value: 104.3}
+  - {value: 92.2}
+  - {value: 79.6}
+  - {value: 67.7}
+  - {value: 57.4}
+- header: {name: '$\omega_{ch,dyn}$'}
+  qualifiers:
+  - {name: $p_T$ (GeV/$c$), value: 0.2 < $p_T$ < 0.75}
+  values:
+  - errors:
+    - {label: sys., symerror: 0.02}
+    value: 1.09
+  - errors:
+    - {label: sys., symerror: 0.033}
+    value: 1.12
+  - errors:
+    - {label: sys., symerror: 0.039}
+    value: 1.14
+  - errors:
+    - {label: sys., symerror: 0.03}
+    value: 1.13
+  - errors:
+    - {label: sys., symerror: 0.033}
+    value: 1.12
+independent_variables:
+- header: {name: Centrality (%)}
+  values:
+  - {high: 5, low: 0}
+  - {high: 10, low: 5}
+  - {high: 15, low: 10}
+  - {high: 20, low: 15}
+  - {high: 25, low: 20}

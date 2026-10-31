@@ -1,0 +1,59 @@
+---
+observable_type: particle_yields
+inspire_id: '1193044'
+version: 1
+hepdata_file: Table1.yaml
+hepdata_table_label: 'The corrected per-event rapidity distribution of Z bosons over the centrality region 0-80%.
+
+  '
+qualifiers:
+  centrality: 0.0-80.0
+  re: PB PB --> Z0 < LEPTON+ LEPTON- > X
+  sqrt(s): '2760.0'
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> Z0 < LEPTON+ LEPTON- > X
+centrality:
+  classes:
+  - 0.0-80.0%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.1
+  - min: 3.1
+    max: 4.9
+particle_id:
+  species: charged
+kinematic_range:
+  y:
+    min: -2.5
+    max: 2.5
+    bins:
+    - -2.5
+    - -2.0
+    - -1.5
+    - -1.0
+    - -0.5
+    - 0.0
+    - 0.5
+    - 1.0
+    - 1.5
+    - 2.0
+    - 2.5
+  eta:
+    min: -2.5
+    max: 2.5
+    bins:
+    - -2.5
+    - 2.5
+  pT:
+    min: 0.5
+    max: 20
+    bins:
+    - 0.5
+    - 20
+observable: dN_dy
+value_type: dN_dy

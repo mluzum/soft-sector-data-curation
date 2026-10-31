@@ -1,0 +1,52 @@
+dependent_variables:
+- header: {name: $p_T$ (GeV/$c$)}
+  qualifiers:
+  - {name: Decay Channel, value: ''}
+  - {name: Collision, value: ''}
+  - {name: Centrality, value: ''}
+  values:
+  - {value: 3.5}
+  - {value: 4.5}
+  - {value: 5.5}
+  - {value: 6.5}
+  - {value: 7.5}
+  - {value: 9.0}
+- header: {name: $1/(2\pi p_T) d^2\sigma/(dydp_T)$ (mb(GeV/$c$)$^-2$)}
+  qualifiers:
+  - {name: Decay Channel, value: $\omega \longrightarrow \pi^0 \pi^+ \pi^-$}
+  - {name: Collision, value: $d$+Au}
+  - {name: Centrality, value: Minimum Bias}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.098}
+    - {label: sys., symerror: 0.052}
+    value: 0.23
+  - errors:
+    - {label: stat., symerror: 0.01}
+    - {label: sys., symerror: 0.0089}
+    value: 0.048
+  - errors:
+    - {label: stat., symerror: 0.0015}
+    - {label: sys., symerror: 0.0012}
+    value: 0.0064
+  - errors:
+    - {label: stat., symerror: 0.00032}
+    - {label: sys., symerror: 0.00021}
+    value: 0.0012
+  - errors:
+    - {label: stat., symerror: 0.00011}
+    - {label: sys., symerror: 7.7e-05}
+    value: 0.00043
+  - errors:
+    - {label: stat., symerror: 3.0e-05}
+    - {label: sys., symerror: 2.2e-05}
+    value: 0.0001
+independent_variables:
+- header: {name: $p_T$ Bins (GeV/$c$)}
+  values:
+  - {high: 4.0, low: 3.0}
+  - {high: 5.0, low: 4.0}
+  - {high: 6.0, low: 5.0}
+  - {high: 7.0, low: 6.0}
+  - {high: 8.0, low: 7.0}
+  - {high: 10.0, low: 8.0}

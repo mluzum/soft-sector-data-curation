@@ -1,0 +1,102 @@
+dependent_variables:
+- header: {name: '$\frac{1}{\sigma_{inc}} \frac{d\sigma}{d\lambda_{\alpha,g}}$'}
+  qualifiers:
+  - {name: RE, value: Pb Pb --> jet+X}
+  - {name: SQRT(S), units: TeV, value: 5.02}
+  - {name: ETARAP, value: '|0.9-R|'}
+  - {name: jet radius, value: 0.2}
+  - {name: jet method, value: 'Anti-$k_{T}$'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0533}
+    - {label: 'sys,unfolding', symerror: 0.0643}
+    - {label: 'sys,generator', symerror: 0.0266}
+    - {label: 'sys,trkeff', symerror: -0.82}
+    - {label: 'sys,random_mass', symerror: 0.0473}
+    - {label: 'sys,subtraction1', symerror: 0.0846}
+    - {label: 'sys,thermal_closure', symerror: 0.0188}
+    value: 1.01
+  - errors:
+    - {label: stat, symerror: 15.7}
+    - {label: 'sys,unfolding', symerror: 12.5}
+    - {label: 'sys,generator', symerror: 12.3}
+    - {label: 'sys,trkeff', symerror: 13.8}
+    - {label: 'sys,random_mass', symerror: 3.15}
+    - {label: 'sys,subtraction1', symerror: 14.2}
+    - {label: 'sys,thermal_closure', symerror: 12.2}
+    value: 502.0
+  - errors:
+    - {label: stat, symerror: 3.94}
+    - {label: 'sys,unfolding', symerror: 2.78}
+    - {label: 'sys,generator', symerror: 1.81}
+    - {label: 'sys,trkeff', symerror: 6.74}
+    - {label: 'sys,random_mass', symerror: 0.0179}
+    - {label: 'sys,subtraction1', symerror: 2.86}
+    - {label: 'sys,thermal_closure', symerror: 6.21}
+    value: 114.0
+  - errors:
+    - {label: stat, symerror: 1.36}
+    - {label: 'sys,unfolding', symerror: 1.09}
+    - {label: 'sys,generator', symerror: 0.893}
+    - {label: 'sys,trkeff', symerror: 2.36}
+    - {label: 'sys,random_mass', symerror: 0.0936}
+    - {label: 'sys,subtraction1', symerror: 0.512}
+    - {label: 'sys,thermal_closure', symerror: 0.396}
+    value: 35.5
+  - errors:
+    - {label: stat, symerror: 0.61}
+    - {label: 'sys,unfolding', symerror: 0.367}
+    - {label: 'sys,generator', symerror: 0.537}
+    - {label: 'sys,trkeff', symerror: 1.17}
+    - {label: 'sys,random_mass', symerror: 0.3}
+    - {label: 'sys,subtraction1', symerror: 0.37}
+    - {label: 'sys,thermal_closure', symerror: 0.468}
+    value: 11.5
+  - errors:
+    - {label: stat, symerror: 0.287}
+    - {label: 'sys,unfolding', symerror: 0.115}
+    - {label: 'sys,generator', symerror: 0.2}
+    - {label: 'sys,trkeff', symerror: 0.331}
+    - {label: 'sys,random_mass', symerror: 0.00165}
+    - {label: 'sys,subtraction1', symerror: 0.421}
+    - {label: 'sys,thermal_closure', symerror: 0.161}
+    value: 4.7
+  - errors:
+    - {label: stat, symerror: 0.106}
+    - {label: 'sys,unfolding', symerror: 0.0329}
+    - {label: 'sys,generator', symerror: 0.0819}
+    - {label: 'sys,trkeff', symerror: 0.101}
+    - {label: 'sys,random_mass', symerror: 0.018}
+    - {label: 'sys,subtraction1', symerror: 0.036}
+    - {label: 'sys,thermal_closure', symerror: 0.0824}
+    value: 1.44
+  - errors:
+    - {label: stat, symerror: 0.0416}
+    - {label: 'sys,unfolding', symerror: 0.0158}
+    - {label: 'sys,generator', symerror: 0.0511}
+    - {label: 'sys,trkeff', symerror: 0.0544}
+    - {label: 'sys,random_mass', symerror: 0.00947}
+    - {label: 'sys,subtraction1', symerror: 0.02}
+    - {label: 'sys,thermal_closure', symerror: 0.01}
+    value: 0.565
+  - errors:
+    - {label: stat, symerror: 0.0164}
+    - {label: 'sys,unfolding', symerror: 0.00431}
+    - {label: 'sys,generator', symerror: 0.0149}
+    - {label: 'sys,trkeff', symerror: 0.0194}
+    - {label: 'sys,random_mass', symerror: 0.00466}
+    - {label: 'sys,subtraction1', symerror: 0.0151}
+    - {label: 'sys,thermal_closure', symerror: 0.00608}
+    value: 0.165
+independent_variables:
+- header: {name: '$\lambda_{\alpha,g}$'}
+  values:
+  - {high: 0.0, low: -0.1}
+  - {high: 0.001, low: 0.0}
+  - {high: 0.002, low: 0.001}
+  - {high: 0.005, low: 0.002}
+  - {high: 0.01, low: 0.005}
+  - {high: 0.02, low: 0.01}
+  - {high: 0.05, low: 0.02}
+  - {high: 0.1, low: 0.05}
+  - {high: 0.25, low: 0.1}

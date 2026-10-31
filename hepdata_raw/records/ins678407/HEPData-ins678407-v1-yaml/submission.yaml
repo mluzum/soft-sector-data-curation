@@ -1,0 +1,274 @@
+additional_resources:
+- {description: Figures and original data files, location: 'http://www4.rcf.bnl.gov/brahms/WWW/publication-data/mrsCentrality2005',
+  type: url}
+- {description: BRAHMS Homepage, location: 'http://www4.rcf.bnl.gov/brahms/WWW', type: url}
+comment: BNL-RHIC-BRAHMS. Particle production of identified charged hadrons, $\pi^{\pm}$,
+  $K^{\pm}$, $p$, and $\bar{p}$ in Au+Au collisions at $\sqrt(snn) =$ 200 GeV has
+  been studied as a function of transverse momentum and collision centrality at $y=0$
+  and $y\sim1$ by the BRAHMS experiment at RHIC. Significant collective transverse
+  flow at kinetic freeze-out has been observed in the collisions. The magnitude of
+  the flow rises with the collision centrality. Proton and kaon yields relative to
+  the pion production increase strongly as the transverse momentum increases and also
+  increase with centrality. Particle yields per participant nucleon show a weak dependence
+  on the centrality for all particle species. Hadron production remains relatively
+  constant within one unit around midrapidity in Au+Au collisions at $\sqrt(snn) =$
+  200 GeV.
+hepdata_doi: 10.17182/hepdata.89446.v1
+preprintyear: '2005'
+publicationyear: '2005'
+record_ids:
+- {id: 678407, type: inspire}
+- {id: nucl-ex/0503010, type: arxiv}
+- {id: 10.1103/PhysRevC.72.014908, type: doi}
+- {id: '6154484', type: SPIRES}
+---
+data_file: tab5.yaml
+description: '$\frac{1}{2\pi p_{\mathrm{T}}}\frac{\mathrm{d}^2N}{\mathrm{d}p_{\mathrm{T}}\mathrm{d}y}$
+  versus $p_{\mathrm{T}}$ for $\mathrm{\pi}^{+}$,$\mathrm{\pi}^{-}$,$\mathrm{K}^{+}$,$\mathrm{K}^{-}$,$\mathrm{p}$,$\overline{\mathrm{p}}$
+  in $\mathrm{Au}-\mathrm{Au}$ at $\sqrt{s_{\mathrm{NN}}}=200\,\mathrm{Ge\!V}$ '
+keywords:
+- name: reactions
+  values: [AU AU --> PI+, AU AU --> PI-, AU AU --> K+, AU AU --> K-, AU AU --> P,
+    AU AU --> PBAR]
+- name: observables
+  values: [1/(2*PI*PT)*D2N/DPT/DYRAP]
+- name: cmenergies
+  values: ['200.0']
+- name: phrases
+  values: [Invariant Yield, Transverse Momentum Dependence, Rapidity Dependence, Transverse
+      Momentum Dependence, Centrality Dependence]
+location: Table 5
+name: Table 5
+table_doi: 10.17182/hepdata.89446.v1/t1
+---
+data_file: tab6.yaml
+description: '$\langle p_{\mathrm{T}}\rangle$ versus $N_{\mathrm{part}}$ for $\mathrm{\pi}^{+}$,$\mathrm{\pi}^{-}$,$\mathrm{K}^{+}$,$\mathrm{K}^{-}$,$\mathrm{p}$,$\overline{\mathrm{p}}$
+  in $\mathrm{Au}-\mathrm{Au}$ at $\sqrt{s_{\mathrm{NN}}}=200\,\mathrm{Ge\!V}$ '
+keywords:
+- name: reactions
+  values: [AU AU --> PI+, AU AU --> PI-, AU AU --> K+, AU AU --> K-, AU AU --> P,
+    AU AU --> PBAR]
+- name: observables
+  values: [MEAN(PT)]
+- name: cmenergies
+  values: ['200.0']
+- name: phrases
+  values: [Transverse Momentum Dependence, Centrality Dependence]
+location: Table 6
+name: Table 6
+table_doi: 10.17182/hepdata.89446.v1/t2
+---
+data_file: tab7.yaml
+description: '$\beta_{\mathrm{S}}$,$T$,$\chi^2$,$\nu$ versus $\mathrm{Centrality}$
+  for $\mathrm{h}^{+}$ in $\mathrm{Au}-\mathrm{Au}$ at $\sqrt{s_{\mathrm{NN}}}=200\,\mathrm{Ge\!V}$ '
+keywords:
+- name: reactions
+  values: [AU AU --> HADRON+]
+- name: observables
+  values: [BETA_S, TEMP, CHI2, NDF]
+- name: cmenergies
+  values: ['200.0']
+- name: phrases
+  values: [Blast-wave Fit, Phrases.TEMPERATURE, Fit Result, Centrality Dependence]
+location: Table 7
+name: Table 7
+table_doi: 10.17182/hepdata.89446.v1/t3
+---
+data_file: tab9.yaml
+description: $\frac{\mathrm{d}N}{\mathrm{d}y}\frac{2}{N_{\mathrm{part}}}$ versus $N_{\mathrm{part}}$
+  for $\mathrm{\pi}^{+}$,$\mathrm{\pi}^{-}$,$\mathrm{K}^{+}$,$\mathrm{K}^{-}$,$\mathrm{p}$,$\overline{\mathrm{p}}$,$\mathrm{p}-\overline{\mathrm{p}}$
+  in $\mathrm{Au}-\mathrm{Au}$ at $\sqrt{s_{\mathrm{NN}}}=200\,\mathrm{Ge\!V}$  for
+  $0-1$% central
+keywords:
+- name: reactions
+  values: [AU AU --> PI+, AU AU --> PI-, AU AU --> K+, AU AU --> K-, AU AU --> P,
+    AU AU --> PBAR, AU AU --> P - PBAR]
+- name: observables
+  values: [DN/DYRAP/(NPART/2)]
+- name: cmenergies
+  values: ['200.0']
+- name: phrases
+  values: [Rapidity Dependence, Density, Centrality Dependence, Centrality Dependence,
+    Centrality Dependence]
+location: Table 9
+name: Table 9
+table_doi: 10.17182/hepdata.89446.v1/t4
+---
+data_file: tab10a.yaml
+description: $\mathrm{K}^{+}/\mathrm{\pi}^{+}$ versus $p_{\mathrm{T}}$ for $\mathrm{K}^{+}$,$\mathrm{\pi}^{+}$
+  in $\mathrm{Au}-\mathrm{Au}$ at $\sqrt{s_{\mathrm{NN}}}=200\,\mathrm{Ge\!V}$  near
+  $y=0$ for $0-10$% central, $40-60$% central
+keywords:
+- name: reactions
+  values: [AU AU --> K+, AU AU --> PI+]
+- name: observables
+  values: [K+/PI+]
+- name: cmenergies
+  values: ['200.0']
+- name: phrases
+  values: [Particle Ratio, Transverse Momentum Dependence, Centrality Dependence,
+    Rapidity Dependence, Centrality Dependence]
+location: Table 10
+name: Table 10a
+table_doi: 10.17182/hepdata.89446.v1/t5
+---
+data_file: tab10b.yaml
+description: $\mathrm{K}^{-}/\mathrm{\pi}^{-}$ versus $p_{\mathrm{T}}$ for $\mathrm{K}^{-}$,$\mathrm{\pi}^{-}$
+  in $\mathrm{Au}-\mathrm{Au}$ at $\sqrt{s_{\mathrm{NN}}}=200\,\mathrm{Ge\!V}$  near
+  $y=0$ for $0-10$% central, $40-60$% central
+keywords:
+- name: reactions
+  values: [AU AU --> K-, AU AU --> PI-]
+- name: observables
+  values: [K-/PI-]
+- name: cmenergies
+  values: ['200.0']
+- name: phrases
+  values: [Particle Ratio, Transverse Momentum Dependence, Centrality Dependence,
+    Rapidity Dependence, Centrality Dependence, Rapidity Dependence, Centrality Dependence]
+location: Table 10
+name: Table 10b
+table_doi: 10.17182/hepdata.89446.v1/t6
+---
+data_file: tab10c.yaml
+description: $\mathrm{K}^{+}/\mathrm{\pi}^{+}$ versus $p_{\mathrm{T}}$ for $\mathrm{K}^{+}$,$\mathrm{\pi}^{+}$
+  in $\mathrm{Au}-\mathrm{Au}$ at $\sqrt{s_{\mathrm{NN}}}=200\,\mathrm{Ge\!V}$  near
+  $y=1$ for $0-10$% central, $40-60$% central
+keywords:
+- name: reactions
+  values: [AU AU --> K+, AU AU --> PI+]
+- name: observables
+  values: [K+/PI+]
+- name: cmenergies
+  values: ['200.0']
+- name: phrases
+  values: [Particle Ratio, Transverse Momentum Dependence, Centrality Dependence,
+    Rapidity Dependence, Centrality Dependence, Rapidity Dependence, Centrality Dependence,
+    Rapidity Dependence, Centrality Dependence]
+location: Table 10
+name: Table 10c
+table_doi: 10.17182/hepdata.89446.v1/t7
+---
+data_file: tab10d.yaml
+description: $\mathrm{K}^{-}/\mathrm{\pi}^{-}$ versus $p_{\mathrm{T}}$ for $\mathrm{K}^{-}$,$\mathrm{\pi}^{-}$
+  in $\mathrm{Au}-\mathrm{Au}$ at $\sqrt{s_{\mathrm{NN}}}=200\,\mathrm{Ge\!V}$  near
+  $y=1$ for $0-10$% central, $40-60$% central
+keywords:
+- name: reactions
+  values: [AU AU --> K-, AU AU --> PI-]
+- name: observables
+  values: [K-/PI-]
+- name: cmenergies
+  values: ['200.0']
+- name: phrases
+  values: [Particle Ratio, Transverse Momentum Dependence, Centrality Dependence,
+    Rapidity Dependence, Centrality Dependence, Rapidity Dependence, Centrality Dependence,
+    Rapidity Dependence, Centrality Dependence, Rapidity Dependence, Centrality Dependence]
+location: Table 10
+name: Table 10d
+table_doi: 10.17182/hepdata.89446.v1/t8
+---
+data_file: tab11a.yaml
+description: $\mathrm{p}/\mathrm{\pi}^{+}$ versus $p_{\mathrm{T}}$ for $\mathrm{p}$,$\mathrm{\pi}^{+}$
+  in $\mathrm{Au}-\mathrm{Au}$ at $\sqrt{s_{\mathrm{NN}}}=200\,\mathrm{Ge\!V}$  near
+  $y=0$ for $0-10$% central, $40-60$% central
+keywords:
+- name: reactions
+  values: [AU AU --> P, AU AU --> PI+]
+- name: observables
+  values: [P/PI+]
+- name: cmenergies
+  values: ['200.0']
+- name: phrases
+  values: [Particle Ratio, Transverse Momentum Dependence, Centrality Dependence,
+    Rapidity Dependence, Centrality Dependence, Rapidity Dependence, Centrality Dependence,
+    Rapidity Dependence, Centrality Dependence, Rapidity Dependence, Centrality Dependence,
+    Rapidity Dependence, Centrality Dependence]
+location: Table 11
+name: Table 11a
+table_doi: 10.17182/hepdata.89446.v1/t9
+---
+data_file: tab11b.yaml
+description: $\overline{\mathrm{p}}/\mathrm{\pi}^{-}$ versus $p_{\mathrm{T}}$ for
+  $\overline{\mathrm{p}}$,$\mathrm{\pi}^{-}$ in $\mathrm{Au}-\mathrm{Au}$ at $\sqrt{s_{\mathrm{NN}}}=200\,\mathrm{Ge\!V}$  near
+  $y=0$ for $0-10$% central, $40-60$% central
+keywords:
+- name: reactions
+  values: [AU AU --> PBAR, AU AU --> PI-]
+- name: observables
+  values: [PBAR/PI-]
+- name: cmenergies
+  values: ['200.0']
+- name: phrases
+  values: [Particle Ratio, Transverse Momentum Dependence, Centrality Dependence,
+    Rapidity Dependence, Centrality Dependence, Rapidity Dependence, Centrality Dependence,
+    Rapidity Dependence, Centrality Dependence, Rapidity Dependence, Centrality Dependence,
+    Rapidity Dependence, Centrality Dependence, Rapidity Dependence, Centrality Dependence]
+location: Table 11
+name: Table 11b
+table_doi: 10.17182/hepdata.89446.v1/t10
+---
+data_file: tab11c.yaml
+description: $\mathrm{p}/\mathrm{\pi}^{+}$ versus $p_{\mathrm{T}}$ for $\mathrm{p}$,$\mathrm{\pi}^{+}$
+  in $\mathrm{Au}-\mathrm{Au}$ at $\sqrt{s_{\mathrm{NN}}}=200\,\mathrm{Ge\!V}$  near
+  $y=1$ for $0-10$% central, $40-60$% central
+keywords:
+- name: reactions
+  values: [AU AU --> P, AU AU --> PI+]
+- name: observables
+  values: [P/PI+]
+- name: cmenergies
+  values: ['200.0']
+- name: phrases
+  values: [Particle Ratio, Transverse Momentum Dependence, Centrality Dependence,
+    Rapidity Dependence, Centrality Dependence, Rapidity Dependence, Centrality Dependence,
+    Rapidity Dependence, Centrality Dependence, Rapidity Dependence, Centrality Dependence,
+    Rapidity Dependence, Centrality Dependence, Rapidity Dependence, Centrality Dependence,
+    Rapidity Dependence, Centrality Dependence]
+location: Table 11
+name: Table 11c
+table_doi: 10.17182/hepdata.89446.v1/t11
+---
+data_file: tab11d.yaml
+description: $\overline{\mathrm{p}}/\mathrm{\pi}^{-}$ versus $p_{\mathrm{T}}$ for
+  $\overline{\mathrm{p}}$,$\mathrm{\pi}^{-}$ in $\mathrm{Au}-\mathrm{Au}$ at $\sqrt{s_{\mathrm{NN}}}=200\,\mathrm{Ge\!V}$  near
+  $y=1$ for $0-10$% central, $40-60$% central
+keywords:
+- name: reactions
+  values: [AU AU --> PBAR, AU AU --> PI-]
+- name: observables
+  values: [PBAR/PI-]
+- name: cmenergies
+  values: ['200.0']
+- name: phrases
+  values: [Particle Ratio, Transverse Momentum Dependence, Centrality Dependence,
+    Rapidity Dependence, Centrality Dependence, Rapidity Dependence, Centrality Dependence,
+    Rapidity Dependence, Centrality Dependence, Rapidity Dependence, Centrality Dependence,
+    Rapidity Dependence, Centrality Dependence, Rapidity Dependence, Centrality Dependence,
+    Rapidity Dependence, Centrality Dependence, Rapidity Dependence, Centrality Dependence]
+location: Table 11
+name: Table 11d
+table_doi: 10.17182/hepdata.89446.v1/t12
+---
+data_file: tab12.yaml
+description: $\mathrm{K}^{+}/\mathrm{\pi}^{+}$,$\mathrm{K}^{-}/\mathrm{\pi}^{-}$,$\mathrm{p}/\mathrm{\pi}^{+}$,$\overline{\mathrm{p}}/\mathrm{\pi}^{-}$
+  versus $N_{\mathrm{part}}$ for $\mathrm{K}^{+}$,$\mathrm{K}^{-}$,$\mathrm{p}$,$\overline{\mathrm{p}}$
+  in $\mathrm{Au}-\mathrm{Au}$ at $\sqrt{s_{\mathrm{NN}}}=200\,\mathrm{Ge\!V}$  near
+  $y=0$
+keywords:
+- name: reactions
+  values: [AU AU --> K+, AU AU --> K-, AU AU --> P, AU AU --> PBAR]
+- name: observables
+  values: [K+/PI+, K-/PI-, P/PI+, PBAR/PI-]
+- name: cmenergies
+  values: ['200.0']
+- name: phrases
+  values: [Particle Ratio, Particle Ratio, Particle Ratio, Particle Ratio, Centrality
+      Dependence, Centrality Dependence, Rapidity Dependence, Centrality Dependence,
+    Rapidity Dependence, Centrality Dependence, Rapidity Dependence, Centrality Dependence,
+    Rapidity Dependence, Centrality Dependence, Rapidity Dependence, Centrality Dependence,
+    Rapidity Dependence, Centrality Dependence, Rapidity Dependence, Centrality Dependence,
+    Rapidity Dependence, Centrality Dependence, Rapidity Dependence]
+location: Table 12
+name: Table 12
+table_doi: 10.17182/hepdata.89446.v1/t13

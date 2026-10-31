@@ -1,0 +1,30 @@
+dependent_variables:
+- header: {name: '$R_{\rm AA}^{b \rightarrow e}$/$R_{\rm AA}^{c \rightarrow e}$'}
+  values:
+  - errors:
+    - {label: Statistical, symerror: 0.5}
+    - asymerror: {minus: 0.35, plus: 0.31}
+      label: Systematic
+    value: 1.77
+  - errors:
+    - {label: Statistical, symerror: 0.51}
+    - asymerror: {minus: 0.33, plus: 0.47}
+      label: Systematic
+    value: 1.84
+  - errors:
+    - {label: Statistical, symerror: 0.77}
+    - asymerror: {minus: 0.67, plus: 0.86}
+      label: Systematic
+    value: 1.91
+  - errors:
+    - {label: Statistical, symerror: 0.73}
+    - asymerror: {minus: 0.93, plus: 0.78}
+      label: Systematic
+    value: 1.75
+independent_variables:
+- header: {name: '$p_{\rm T}$ (GeV/$c$)'}
+  values:
+  - {high: 3.5, low: 2.5}
+  - {high: 4.5, low: 3.5}
+  - {high: 5.5, low: 4.5}
+  - {high: 8.5, low: 5.5}

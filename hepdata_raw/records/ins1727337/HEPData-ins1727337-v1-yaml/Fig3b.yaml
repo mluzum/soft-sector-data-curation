@@ -1,0 +1,46 @@
+dependent_variables:
+- header: {name: $\lambda$, units: none}
+  qualifiers:
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020.0'}
+  - {name: MULT, units: '%', value: 0-20}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.026}
+    - {label: sys, symerror: 0.026}
+    value: 0.426
+  - errors:
+    - {label: stat, symerror: 0.027}
+    - {label: sys, symerror: 0.0214}
+    value: 0.357
+- header: {name: $\lambda$, units: none}
+  qualifiers:
+  - {name: '$\sqrt(s_{\rm NN})$', units: GEV, value: '5020.0'}
+  - {name: MULT, units: '%', value: 20-40}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.035}
+    - {label: sys, symerror: 0.027}
+    value: 0.453
+  - errors:
+    - {label: stat, symerror: 0.041}
+    - {label: sys, symerror: 0.0}
+    value: 0.349
+- header: {name: $\lambda$, units: none}
+  qualifiers:
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020.0'}
+  - {name: MULT, units: '%', value: 40-90}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.028}
+    - {label: sys, symerror: 0.025}
+    value: 0.411
+  - errors:
+    - {label: stat, symerror: 0.038}
+    - {label: sys, symerror: 0.025}
+    value: 0.424
+independent_variables:
+- header: {name: '$k_{\rm T}$', units: GEV/C}
+  values:
+  - {value: 0.3596}
+  - {value: 0.6981}
+name: Fig3b.yaml

@@ -1,0 +1,92 @@
+---
+observable_type: strangeness
+inspire_id: '1838481'
+version: 1
+hepdata_file: HEPData-xipol-fig2.yaml
+hepdata_table_label: $\Xi$ and $\Omega$ global polarization in Au+Au collisions at 200 GeV. Decay parameter from PDG2020,
+  $\alpha_{\Xi}$=-$\alpha_{\bar{\Xi}}$=-0.401, is used.
+qualifiers:
+  centrality: 20.0 TO 80.0
+  particles: $\Omega$+$\bar{\Omega}$
+  pt: $>0.5$
+  rapidity: -1.0 TO 1.0
+  sqrt(s)/nucleon: '200.0'
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> \Lambda, AU AU --> \bar{\Lambda}
+centrality:
+  classes:
+  - 20.0-80.0%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+    bins:
+    - -1.0
+    - 1.0
+  pT:
+    min: 0.15
+    max: 10
+    bins:
+    - 0.15
+    - 10
+observable: charged_spectra
+value_type: invariant_yield
+---
+observable_type: strangeness
+inspire_id: '1838481'
+version: 1
+hepdata_file: HEPData-xipol-fig3.yaml
+hepdata_table_label: Centrality dependence of $\Xi$ global poalrization in Au+Au collisions at 200 GeV. Decay parameter from
+  PDG2020, $\alpha_{\Xi}$=-$\alpha_{\bar{\Xi}}$=-0.401, is used.
+qualifiers:
+  particles: $\Xi$+$\bar{\Xi}$ (via daughter $\Lambda$ $P_\Lambda$)
+  pt: $>0.5$
+  rapidity: -1.0 TO 1.0
+  sqrt(s)/nucleon: '200.0'
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> \Lambda, AU AU --> \bar{\Lambda}
+centrality:
+  classes:
+  - 0-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  - 60-70%
+  - 70-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: Lambda
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+    bins:
+    - -1.0
+    - 1.0
+  pT:
+    min: 0.15
+    max: 10
+    bins:
+    - 0.15
+    - 10
+observable: Lambda_spectra
+value_type: invariant_yield

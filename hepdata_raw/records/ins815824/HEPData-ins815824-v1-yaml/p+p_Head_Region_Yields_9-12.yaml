@@ -1,0 +1,33 @@
+dependent_variables:
+- header: {name: '$dN/p^{h}_{T} \, \textrm{[GEV/c]}^{-1}$'}
+  qualifiers:
+  - {name: '$p^{h}_{T} \, \textrm{[GEV/c]}$', value: '$\textrm{p+p Head Region Yields:}
+      \, 9 \, < \, p^{\gamma}_{T} \, < 12 \, \textrm{GEV/c}$'}
+  values:
+  - errors:
+    - {label: Stat, symerror: 0.0299}
+    - asymerror: {minus: -0.0252, plus: 0.0249}
+      label: Sys
+    value: 0.259
+  - errors:
+    - {label: Stat, symerror: 0.0173}
+    - asymerror: {minus: -0.0102, plus: 0.00986}
+      label: Sys
+    value: 0.0701
+  - errors:
+    - {label: Stat, symerror: 0.00721}
+    - asymerror: {minus: -0.00386, plus: 0.00367}
+      label: Sys
+    value: 0.0194
+  - errors:
+    - {label: Stat, symerror: 0.00245}
+    - asymerror: {minus: -0.000863, plus: 0.000833}
+      label: Sys
+    value: 0.00456
+independent_variables:
+- header: {name: '$p^{h}_{T} \, \textrm{[GEV/c]}$'}
+  values:
+  - {high: 2, low: 1}
+  - {high: 3, low: 2}
+  - {high: 5, low: 3}
+  - {high: 10, low: 5}

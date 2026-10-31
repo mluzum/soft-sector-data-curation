@@ -1,0 +1,99 @@
+observable_type: flow_harmonic_correlations
+inspire_id: '2825785'
+version: 1
+hepdata_file: TableA2Bottom.yaml
+hepdata_table_label: Ratio between Xe$-$Xe and Pb$-$Pb charged particle NSC$(3,2)$ as a function of centrality.
+collision_system:
+  energy_gev: 5020.0
+  reaction: Xe-Xe, Pb-Pb
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-15%
+  - 15-20%
+  - 20-25%
+  - 25-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+    bins:
+    - -0.8
+    - 0.8
+  pT:
+    min: 0.15
+    max: 50
+    bins:
+    - 0.15
+    - 50
+observable: NSC_3_2
+correlation_type: symmetric_cumulant
+harmonics:
+- 3
+- 2
+value_type: NSC(3,2)
+dimensionality: integrated
+estimator: standard
+---
+observable_type: flow_harmonic_correlations
+inspire_id: '2825785'
+version: 1
+hepdata_file: TableA2Top.yaml
+hepdata_table_label: Charged particle NSC$(3,2)$ as a function of centrality in Xe$-$Xe and Pb$-$Pb collisions at $\sqrt{s_\mathrm{NN}}$ = 5.44 TeV and $\sqrt{s_\mathrm{NN}}$ = 5.02 TeV, respectively.
+collision_system:
+  energy_gev: 5020.0
+  reaction: Pb-Pb
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-15%
+  - 15-20%
+  - 20-25%
+  - 25-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+    bins:
+    - -0.8
+    - 0.8
+  pT:
+    min: 0.15
+    max: 50
+    bins:
+    - 0.15
+    - 50
+observable: NSC_3_2
+correlation_type: symmetric_cumulant
+harmonics:
+- 3
+- 2
+value_type: NSC(3,2)
+dimensionality: integrated
+estimator: standard

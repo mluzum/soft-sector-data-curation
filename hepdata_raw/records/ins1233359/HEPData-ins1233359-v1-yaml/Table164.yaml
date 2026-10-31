@@ -1,0 +1,60 @@
+dependent_variables:
+- header: {name: PROB(V4)}
+  qualifiers:
+  - {name: ABS(ETARAP), value: < 2.5}
+  - {name: CENTRALITY, units: pct, value: 0.0-1.0}
+  - {name: PT, units: GeV, value: 0.5-1.0}
+  - {name: RE, value: PB PB --> CHARGED X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.4032}
+    - asymerror: {minus: -2.8508, plus: 1.6353}
+      label: sys
+    value: 39.134
+  - errors:
+    - {label: stat, symerror: 0.7226}
+    - asymerror: {minus: -5.8265, plus: 4.5148}
+      label: sys
+    value: 99.5235
+  - errors:
+    - {label: stat, symerror: 0.6353}
+    - asymerror: {minus: -5.3099, plus: 5.8742}
+      label: sys
+    value: 120.0279
+  - errors:
+    - {label: stat, symerror: 0.5589}
+    - asymerror: {minus: -4.4334, plus: 5.2024}
+      label: sys
+    value: 104.0483
+  - errors:
+    - {label: stat, symerror: 0.5051}
+    - asymerror: {minus: -3.149, plus: 3.3993}
+      label: sys
+    value: 67.9869
+  - errors:
+    - {label: stat, symerror: 0.4763}
+    - asymerror: {minus: -1.9965, plus: 1.9871}
+      label: sys
+    value: 39.5531
+  - errors:
+    - {label: stat, symerror: 0.3493}
+    - asymerror: {minus: -2.0483, plus: 1.4609}
+      label: sys
+    value: 17.4722
+  - errors:
+    - {label: stat, symerror: 0.1714}
+    - asymerror: {minus: -1.6289, plus: 1.0859}
+      label: sys
+    value: 6.2835
+independent_variables:
+- header: {name: V4}
+  values:
+  - {value: 0.001}
+  - {value: 0.003}
+  - {value: 0.005}
+  - {value: 0.007}
+  - {value: 0.009}
+  - {value: 0.011}
+  - {value: 0.013}
+  - {value: 0.015}

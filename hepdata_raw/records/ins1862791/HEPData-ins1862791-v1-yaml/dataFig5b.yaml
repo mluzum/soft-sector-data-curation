@@ -1,0 +1,40 @@
+dependent_variables:
+- header: {name: d$^2\sigma$/d$y$/d$p_T$, units: $\mu$b/GeV/$c$}
+  qualifiers:
+  - {name: RE, value: P PB --> JPSI (Q=PROMPT) X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020.0'}
+  - {name: YRAP, value: -1.37 TO 0.43}
+  values:
+  - errors:
+    - {label: stat, symerror: 13.8}
+    - {label: 'sys, correlated', symerror: 11.8}
+    - {label: 'sys, uncorrelated', symerror: 5.7}
+    value: 209.5
+  - errors:
+    - {label: stat, symerror: 6.4}
+    - {label: 'sys, correlated', symerror: 6.3}
+    - {label: 'sys, uncorrelated', symerror: 1.4}
+    value: 123.5
+  - errors:
+    - {label: stat, symerror: 2.5}
+    - {label: 'sys, correlated', symerror: 1.9}
+    - {label: 'sys, uncorrelated', symerror: 0.5}
+    value: 36.1
+  - errors:
+    - {label: stat, symerror: 0.86}
+    - {label: 'sys, correlated', symerror: 0.52}
+    - {label: 'sys, uncorrelated', symerror: 0.12}
+    value: 7.77
+  - errors:
+    - {label: stat, symerror: 0.36}
+    - {label: 'sys, correlated', symerror: 0.13}
+    - {label: 'sys, uncorrelated', symerror: 0.02}
+    value: 1.54
+independent_variables:
+- header: {name: '$p_{\rm T}$', units: GeV/$c$}
+  values:
+  - {high: 3.0, low: 1.0}
+  - {high: 5.0, low: 3.0}
+  - {high: 7.0, low: 5.0}
+  - {high: 10.0, low: 7.0}
+  - {high: 14.0, low: 10.0}

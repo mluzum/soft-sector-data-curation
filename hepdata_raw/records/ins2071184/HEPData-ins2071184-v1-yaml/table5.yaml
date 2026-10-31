@@ -1,0 +1,46 @@
+dependent_variables:
+- header: {name: W$^-$}
+  qualifiers:
+  - {name: reaction, value: p-Pb $\rightarrow$ W$^\pm$ + X $\rightarrow$ $\mu^\pm$
+      + X}
+  - {name: sqrt(s) per nucleon pair, value: 8160.0 GeV}
+  - {name: fiducial region, value: -4 < $y$(lab) < -2.5 and $p_T$ > 10 GeV/$c$}
+  - {name: observable, value: R$pPb$}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.057}
+    - {label: syst, symerror: 0.079}
+    - asymerror: {minus: -0.062, plus: 0.092}
+      label: pp ref
+    value: 1.62
+  - errors:
+    - {label: stat, symerror: 0.047}
+    - {label: syst, symerror: 0.08}
+    - asymerror: {minus: -0.039, plus: 0.06}
+      label: pp ref
+    value: 0.888
+- header: {name: W$^+$}
+  qualifiers:
+  - {name: reaction, value: p-Pb $\rightarrow$ W$^\pm$ + X $\rightarrow$ $\mu^\pm$
+      + X}
+  - {name: sqrt(s) per nucleon pair, value: 8160.0 GeV}
+  - {name: fiducial region, value: -4 < $y$(lab) < -2.5 and $p_T$ > 10 GeV/$c$}
+  - {name: observable, value: R$pPb$}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.036}
+    - {label: syst, symerror: 0.051}
+    - asymerror: {minus: -0.031, plus: 0.046}
+      label: pp ref
+    value: 0.643
+  - errors:
+    - {label: stat, symerror: 0.034}
+    - {label: syst, symerror: 0.051}
+    - asymerror: {minus: -0.037, plus: 0.048}
+      label: pp ref
+    value: 0.793
+independent_variables:
+- header: {name: $y$(cms)}
+  values:
+  - {high: -2.96, low: -4.46}
+  - {high: 3.53, low: 2.03}

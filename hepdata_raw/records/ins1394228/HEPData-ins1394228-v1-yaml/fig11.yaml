@@ -1,0 +1,24 @@
+dependent_variables:
+- header: {name: forward/backward ratio}
+  values:
+  - errors:
+    - asymerror: {minus: -0.2, plus: 0.3}
+      label: stat. + A sys.
+    - {label: B sys., symerror: 0.1}
+    value: 0.2
+  - errors:
+    - asymerror: {minus: -0.3, plus: 0.4}
+      label: stat. + A sys.
+    - {label: B sys., symerror: 0.1}
+    value: 1.0
+  - errors:
+    - asymerror: {minus: -0.3, plus: 0.4}
+      label: stat. + A sys.
+    - {label: B sys., symerror: 0.1}
+    value: 0.6
+independent_variables:
+- header: {name: Centrality (%)}
+  values:
+  - {high: 20, low: 0}
+  - {high: 40, low: 20}
+  - {high: 93, low: 40}

@@ -1,0 +1,22 @@
+dependent_variables:
+- header: {name: (1/(2*PI*PT))*D2(N)/DYRAP/DPT, units: GEV**-2}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 0.0-20.0}
+  - {name: RE, value: CU CU --> J/PSI < E+ E- > X}
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  values:
+  - errors:
+    - asymerror: {minus: -1.4e-08, plus: 2.9e-08}
+      label: stat
+    - {label: sys, symerror: 7.0e-09}
+    value: 6.0e-08
+  - errors:
+    - asymerror: {minus: -1.4e-09, plus: 2.6e-09}
+      label: stat
+    - {label: sys, symerror: 7.0e-10}
+    value: 5.6e-09
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {high: 6.0, low: 5.0}
+  - {high: 8.0, low: 6.0}

@@ -1,0 +1,71 @@
+dependent_variables:
+- header: {name: '$R_{\mathrm{pPb}}$'}
+  qualifiers:
+  - {name: RE, value: P Pb --> JET $X$}
+  - {name: 'p-Pb $\sqrt{s_{\mathrm{NN}}}$', units: TeV, value: 5.02}
+  - {name: jet method, value: 'Anti-$k_{T}$'}
+  - {name: '$p_\mathrm{T}^{track}$', units: GeV/$c$, value: '> 0.15'}
+  - {name: '$|\eta^{track}|$', value: < 0.9}
+  - {name: '$|\eta^{jet}|$', value: < 0.5}
+  - {name: $R$, value: 0.4}
+  - {name: Method, value: SV}
+  values:
+  - errors:
+    - asymerror: {minus: -0.02744336, plus: 0.02744336}
+      label: stat
+    - asymerror: {minus: -0.07599474, plus: 0.1212622}
+      label: full syst.
+    value: 1.042998
+  - errors:
+    - asymerror: {minus: -0.03764262, plus: 0.03764262}
+      label: stat
+    - asymerror: {minus: -0.1058423, plus: 0.124219}
+      label: full syst.
+    value: 1.066059
+  - errors:
+    - asymerror: {minus: -0.04834224, plus: 0.04834224}
+      label: stat
+    - asymerror: {minus: -0.0682353, plus: 0.1406862}
+      label: full syst.
+    value: 1.05921
+  - errors:
+    - asymerror: {minus: -0.06602758, plus: 0.06602758}
+      label: stat
+    - asymerror: {minus: -0.1079965, plus: 0.1062073}
+      label: full syst.
+    value: 1.039795
+  - errors:
+    - asymerror: {minus: -0.08659216, plus: 0.08659216}
+      label: stat
+    - asymerror: {minus: -0.1033861, plus: 0.1543725}
+      label: full syst.
+    value: 0.9957378
+  - errors:
+    - asymerror: {minus: -0.124804, plus: 0.124804}
+      label: stat
+    - asymerror: {minus: -0.06503118, plus: 0.1396155}
+      label: full syst.
+    value: 1.002759
+  - errors:
+    - asymerror: {minus: -0.1856981, plus: 0.1856981}
+      label: stat
+    - asymerror: {minus: -0.1003626, plus: 0.1845754}
+      label: full syst.
+    value: 1.05985
+  - errors:
+    - asymerror: {minus: -0.2621806, plus: 0.2621806}
+      label: stat
+    - asymerror: {minus: -0.167144, plus: 0.27758}
+      label: full syst.
+    value: 1.166253
+independent_variables:
+- header: {name: '$p_\mathrm{T,ch jet}$', units: GeV/$c$}
+  values:
+  - {high: 20, low: 10}
+  - {high: 30, low: 20}
+  - {high: 40, low: 30}
+  - {high: 50, low: 40}
+  - {high: 60, low: 50}
+  - {high: 70, low: 60}
+  - {high: 80, low: 70}
+  - {high: 100, low: 80}

@@ -1,0 +1,44 @@
+dependent_variables:
+- header: {name: D(SIG)/DPT, units: MUB/(GEV/C)}
+  qualifiers:
+  - {name: ABS(YRAP), value: < 2.4}
+  - {name: LUMINOSITY, value: '34.6 nb$^{-1}$'}
+  - {name: RE, value: P PB --> B0 X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  - {name: '', value: data}
+  values:
+  - errors:
+    - {label: stat, symerror: 20.18}
+    - {label: sys, symerror: 24.82}
+    value: 133.46
+  - errors:
+    - {label: stat, symerror: 5.47}
+    - {label: sys, symerror: 5.49}
+    value: 30.34
+  - errors:
+    - {label: stat, symerror: 0.39}
+    - {label: sys, symerror: 0.51}
+    value: 2.82
+- header: {name: D(SIG)/DPT, units: MUB/(GEV/C)}
+  qualifiers:
+  - {name: ABS(YRAP), value: < 2.4}
+  - {name: LUMINOSITY, value: '34.6 nb$^{-1}$'}
+  - {name: RE, value: P PB --> B0 X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  - {name: '', value: FONLL}
+  values:
+  - errors:
+    - asymerror: {minus: -30.91, plus: 48.2}
+    value: 134.6
+  - errors:
+    - asymerror: {minus: -7.61, plus: 11.17}
+    value: 36.76
+  - errors:
+    - asymerror: {minus: -0.48, plus: 0.66}
+    value: 2.74
+independent_variables:
+- header: {name: PT, units: GEV/C}
+  values:
+  - {high: 15.0, low: 10.0}
+  - {high: 20.0, low: 15.0}
+  - {high: 60.0, low: 20.0}

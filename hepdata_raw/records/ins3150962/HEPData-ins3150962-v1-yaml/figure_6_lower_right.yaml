@@ -1,0 +1,94 @@
+dependent_variables:
+- header: {name: Counts}
+  qualifiers:
+  - {name: PT(L), value: '$p_{T}(\ell)>20 GeV$'}
+  - {name: ETA(L), value: '$|\eta(\mu)|<2.4~\wedge~|\eta(e)|\in[0,1.444]\cup[1.566,2.5]$'}
+  - {name: M(LL), value: $m(\ell^+\ell^-)>20 GeV$}
+  - {name: CHARGE(LL), value: '0'}
+  - {name: LL, value: $\ell\ell = e\mu$}
+  - {name: PT(J), value: '$p_{T}(jet)>30 GeV$'}
+  - {name: ETA(J), value: $|\eta(jet)|<2.4$}
+  - {name: 'DELTAR(L,J)', value: '$\Delta R(\ell,jet)>0.4$'}
+  - {name: BTAG(J), value: UParT medium working point}
+  - {name: CENTRALITY_BIN, value: '$cen \in [10,90]$'}
+  - {name: RE, value: Pb Pb --> T Tbar}
+  - {name: SQRT(S_NN), units: GeV, value: 5360}
+  values:
+  - errors:
+    - asymerror: {minus: -5.1, plus: 6.2}
+      label: stat
+    value: 26.0
+  - errors:
+    - asymerror: {minus: -2.94, plus: 4.1}
+      label: stat
+    value: 9.0
+  - errors:
+    - asymerror: {minus: -2.38, plus: 3.6}
+      label: stat
+    value: 6.0
+  - errors:
+    - asymerror: {minus: -2.58, plus: 3.8}
+      label: stat
+    value: 7.0
+  - errors:
+    - asymerror: {minus: -2.38, plus: 3.6}
+      label: stat
+    value: 6.0
+  - errors:
+    - asymerror: {minus: -1.63, plus: 2.92}
+      label: stat
+    value: 3.0
+  - errors:
+    - asymerror: {minus: -1.63, plus: 2.92}
+      label: stat
+    value: 3.0
+  - errors:
+    - asymerror: {minus: -1.63, plus: 2.92}
+      label: stat
+    value: 3.0
+  - errors:
+    - asymerror: {minus: -2.38, plus: 3.6}
+      label: stat
+    value: 6.0
+  - errors:
+    - asymerror: {minus: -0.83, plus: 2.3}
+      label: stat
+    value: 1.0
+  - errors:
+    - asymerror: {minus: -0.83, plus: 2.3}
+      label: stat
+    value: 1.0
+  - errors:
+    - asymerror: {minus: -1.29, plus: 2.64}
+      label: stat
+    value: 2.0
+  - errors:
+    - asymerror: {minus: -0.0, plus: 1.84}
+      label: stat
+    value: 0.0
+  - errors:
+    - asymerror: {minus: -0.83, plus: 2.3}
+      label: stat
+    value: 1.0
+  - errors:
+    - asymerror: {minus: -1.29, plus: 2.64}
+      label: stat
+    value: 2.0
+independent_variables:
+- header: {name: Discriminator output}
+  values:
+  - {value: 0.5}
+  - {value: 1.5}
+  - {value: 2.5}
+  - {value: 3.5}
+  - {value: 4.5}
+  - {value: 5.5}
+  - {value: 6.5}
+  - {value: 7.5}
+  - {value: 8.5}
+  - {value: 9.5}
+  - {value: 10.5}
+  - {value: 11.5}
+  - {value: 12.5}
+  - {value: 13.5}
+  - {value: 14.5}

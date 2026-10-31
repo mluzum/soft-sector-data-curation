@@ -1,0 +1,36 @@
+dependent_variables:
+- header: {name: '$\langle P_Z \sin(2\phi-2\Psi_2) \rangle$ [%]'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.05}
+    - asymerror: {minus: 0.09, plus: 0.09}
+      label: syst
+    value: 0.01
+  - errors:
+    - {label: stat, symerror: 0.029}
+    - asymerror: {minus: 0.021, plus: 0.022}
+      label: syst
+    value: 0.138
+  - errors:
+    - {label: stat, symerror: 0.027}
+    - asymerror: {minus: 0.021, plus: 0.023}
+      label: syst
+    value: 0.192
+  - errors:
+    - {label: stat, symerror: 0.032}
+    - asymerror: {minus: 0.019, plus: 0.021}
+      label: syst
+    value: 0.164
+  - errors:
+    - {label: stat, symerror: 0.09}
+    - asymerror: {minus: 0.15, plus: 0.15}
+      label: syst
+    value: 0.25
+independent_variables:
+- header: {name: '$p_T$ [GeV/c]'}
+  values:
+  - {value: 0.685}
+  - {value: 1.094}
+  - {value: 1.51}
+  - {value: 2.116}
+  - {value: 3.203}

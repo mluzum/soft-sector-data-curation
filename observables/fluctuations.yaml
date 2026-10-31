@@ -1,0 +1,45 @@
+observable_type: fluctuations
+description: >
+  Event-by-event fluctuations of conserved charges (net charge, net baryon,
+  net strangeness) and related cumulants.
+
+composes:
+  - _common#collision_system
+  - centrality#centrality
+  - _common#kinematic_range
+
+required_fields:
+  observable:
+    type: string
+    required: true
+    description: Short identifier.
+    example: "net_charge_cumulants"
+  value_type:
+    type: string
+    required: true
+    description: >
+      One of: 'variances', 'skewness', 'kurtosis', 'cumulant_C1', 'cumulant_C2',
+      'cumulant_C3', 'cumulant_C4', 'ratio_C2_C1', 'ratio_C3_C2', 'ratio_C4_C2',
+      'D_measure', 'nu_dyn'
+    example: "cumulant_C2"
+  charge_type:
+    type: string
+    required: true
+    description: "One of: 'net_charge', 'net_proton', 'net_kaon', 'net_pion'"
+    example: "net_charge"
+
+optional_fields:
+  acceptance:
+    type: object
+    required: false
+    description: "Acceptance window for the measurement."
+    fields:
+      eta_min: {type: float, required: true, example: -1.0}
+      eta_max: {type: float, required: true, example: 1.0}
+      pT_min: {type: float, required: false, example: 0.2}
+      pT_max: {type: float, required: false, example: 2.0}
+  efficiency_corrected:
+    type: boolean
+    required: false
+    description: "Whether efficiency corrections have been applied."
+    example: true

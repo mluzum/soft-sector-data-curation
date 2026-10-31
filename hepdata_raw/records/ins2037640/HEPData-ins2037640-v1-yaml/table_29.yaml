@@ -1,0 +1,32 @@
+dependent_variables:
+- header: {name: RFB}
+  qualifiers:
+  - {name: RE, value: P Pb --> UPSILON(2S) < MU+ MU- > X}
+  - {name: PT, units: GeV/c, value: 0-30}
+  - {name: '$|y^{Y}_{CM}|$', value: 0-1.93}
+  - {name: '$N^{|\eta_{lab}|<2.4}_{tracks}$', value: 0-400}
+  - {name: SQRT(S), units: GeV, value: 5020.0}
+  values:
+  - errors:
+    - {label: stat, symerror: '0.16'}
+    - {label: syst, symerror: '0.09'}
+    value: 0.88
+  - errors:
+    - {label: stat, symerror: '0.24'}
+    - {label: syst, symerror: '0.19'}
+    value: 1.17
+  - errors:
+    - {label: stat, symerror: '0.17'}
+    - {label: syst, symerror: '0.13'}
+    value: 0.96
+  - errors:
+    - {label: stat, symerror: '0.19'}
+    - {label: syst, symerror: '0.14'}
+    value: 1.03
+independent_variables:
+- header: {name: '$E^{|\eta_{lab}|>4}_{T}$', units: GeV}
+  values:
+  - {high: 12.0, low: 0.0}
+  - {high: 19.0, low: 12.0}
+  - {high: 27.0, low: 19.0}
+  - {high: 120.0, low: 27.0}

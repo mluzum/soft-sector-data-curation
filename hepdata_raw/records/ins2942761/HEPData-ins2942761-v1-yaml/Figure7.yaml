@@ -1,0 +1,39 @@
+dependent_variables:
+- header: {name: '$\frac{B_{\mu\mu}}{2\pi p_T} \frac{d^2N}{dydp_T} [GeV/c]^{-2}$'}
+  qualifiers:
+  - {name: particle, value: $\omega+\rho$}
+  values:
+  - errors:
+    - {label: stat, symerror: 1.2e-07}
+    - {label: sys, symerror: 6.0e-08}
+    value: 4.3e-07
+  - errors:
+    - {label: stat, symerror: 3.6e-08}
+    - {label: sys, symerror: 2.2e-08}
+    value: 1.52e-07
+  - errors:
+    - {label: stat, symerror: 4.3e-09}
+    - {label: sys, symerror: 2.6e-09}
+    value: 1.75e-08
+- header: {name: '$\frac{B_{\mu\mu}}{2\pi p_T} \frac{d^2 N}{dydp_T} [GeV/c]^{-2}$'}
+  qualifiers:
+  - {name: particle, value: $\phi$}
+  values:
+  - errors:
+    - {label: stat, symerror: 1.2e-07}
+    - {label: sys, symerror: 9.0e-08}
+    value: 5.8e-07
+  - errors:
+    - {label: stat, symerror: 3.5e-08}
+    - {label: sys, symerror: 2.6e-08}
+    value: 1.76e-07
+  - errors:
+    - {label: stat, symerror: 2.8e-09}
+    - {label: sys, symerror: 1.9e-09}
+    value: 1.31e-08
+independent_variables:
+- header: {name: '$p_T$ [GeV/$c$]'}
+  values:
+  - {high: 3.0, low: 2.5}
+  - {high: 3.5, low: 3.0}
+  - {high: 5.0, low: 3.5}

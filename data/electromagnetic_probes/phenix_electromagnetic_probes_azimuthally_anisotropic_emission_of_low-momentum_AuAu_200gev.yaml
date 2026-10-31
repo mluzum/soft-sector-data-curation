@@ -1,0 +1,93 @@
+---
+observable_type: electromagnetic_probes
+inspire_id: '1394895'
+version: 1
+hepdata_file: ppg176fig6a.yaml
+hepdata_table_label: Direct photon $v_2$ and $v_3$ at midrapidity ($|\eta|$ < 0.35), for different centralities, measured
+  with the conversion method. The event plane was determined with the reaction plane detector (1 < $|\eta|$ < 2.8).
+qualifiers:
+  centrality: 0-20%
+collision_system:
+  energy_gev: 200.0
+  reaction: Au Au --> Direct \gamma X
+centrality:
+  classes:
+  - 0-20%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: photon
+kinematic_range:
+  pT:
+    min: 0.4
+    max: 5.0
+    bins:
+    - 0.4
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+    - 2.0
+    - 2.5
+    - 3.5
+    - 5.0
+  eta:
+    min: -0.35
+    max: 0.35
+observable: direct_photon_spectra
+value_type: direct_photon_yield
+probe: direct_photon
+---
+observable_type: electromagnetic_probes
+inspire_id: '1394895'
+version: 1
+hepdata_file: ppg176fig6b.yaml
+hepdata_table_label: Direct photon $v_2$ and $v_3$ at midrapidity ($|\eta|$ < 0.35), for different centralities, measured
+  with the calorimeter method. The event plane was determined with the reaction plane detector (1 < $|\eta|$ < 2.8).
+qualifiers:
+  centrality: 40-60%
+collision_system:
+  energy_gev: 200.0
+  reaction: Au Au --> Direct \gamma X
+centrality:
+  classes:
+  - 40-60%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: photon
+kinematic_range:
+  pT:
+    min: 0.95
+    max: 4.25
+    bins:
+    - 0.95
+    - 1.45
+    - 1.95
+    - 2.45
+    - 2.95
+    - 3.45
+    - 4.25
+  eta:
+    min: -0.35
+    max: 0.35
+observable: direct_photon_spectra
+value_type: direct_photon_yield
+probe: direct_photon

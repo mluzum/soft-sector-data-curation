@@ -1,0 +1,67 @@
+dependent_variables:
+- header: {name: '$1/N_{\mathrm{ev}}\mathrm{d}^{2}N/(\mathrm{d}y\mathrm{d}p_{T})$',
+    units: c/GeV}
+  qualifiers:
+  - {name: RE, value: P PB--> d + X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020.0'}
+  - {name: YRAP(CM), value: -1 TO 0}
+  - {name: Multiplicity, value: 0-10% V0A class}
+  values:
+  - errors:
+    - {label: Statistical uncertainty, symerror: 4.6024e-05}
+    - {label: Systematic uncertainty, symerror: 9.8447e-05}
+    value: 0.0013415
+  - errors:
+    - {label: Statistical uncertainty, symerror: 3.9241e-05}
+    - {label: Systematic uncertainty, symerror: 0.00010105}
+    value: 0.0013785
+  - errors:
+    - {label: Statistical uncertainty, symerror: 3.6353e-05}
+    - {label: Systematic uncertainty, symerror: 9.7951e-05}
+    value: 0.0013398
+  - errors:
+    - {label: Statistical uncertainty, symerror: 3.4829e-05}
+    - {label: Systematic uncertainty, symerror: 9.3459e-05}
+    value: 0.0012819
+  - errors:
+    - {label: Statistical uncertainty, symerror: 3.1623e-06}
+    - {label: Systematic uncertainty, symerror: 8.1792e-05}
+    value: 0.0011229
+  - errors:
+    - {label: Statistical uncertainty, symerror: 3.156e-05}
+    - {label: Systematic uncertainty, symerror: 7.0378e-05}
+    value: 0.00096474
+  - errors:
+    - {label: Statistical uncertainty, symerror: 3.213e-05}
+    - {label: Systematic uncertainty, symerror: 6.0277e-05}
+    value: 0.00082316
+  - errors:
+    - {label: Statistical uncertainty, symerror: 3.958e-05}
+    - {label: Systematic uncertainty, symerror: 4.8566e-05}
+    value: 0.00065778
+  - errors:
+    - {label: Statistical uncertainty, symerror: 3.4123e-05}
+    - {label: Systematic uncertainty, symerror: 3.9701e-05}
+    value: 0.00052578
+  - errors:
+    - {label: Statistical uncertainty, symerror: 3.1234e-05}
+    - {label: Systematic uncertainty, symerror: 2.9909e-05}
+    value: 0.00038214
+  - errors:
+    - {label: Statistical uncertainty, symerror: 3.1536e-05}
+    - {label: Systematic uncertainty, symerror: 2.8208e-05}
+    value: 0.00034648
+independent_variables:
+- header: {name: '$p_{T}$', units: GeV/c}
+  values:
+  - {high: 1.0, low: 0.8}
+  - {high: 1.2, low: 1.0}
+  - {high: 1.4, low: 1.2}
+  - {high: 1.6, low: 1.4}
+  - {high: 1.8, low: 1.6}
+  - {high: 2.0, low: 1.8}
+  - {high: 2.2, low: 2.0}
+  - {high: 2.4, low: 2.2}
+  - {high: 2.6, low: 2.4}
+  - {high: 2.8, low: 2.6}
+  - {high: 3.0, low: 2.8}

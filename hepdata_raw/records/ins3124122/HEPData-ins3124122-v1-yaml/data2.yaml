@@ -1,0 +1,68 @@
+dependent_variables:
+- header: {name: 'near-side, out-of-plane/in-plane'}
+  qualifiers:
+  - {name: SQRT(SNN), units: GEV, value: 5020}
+  - {name: Centrality, value: 30-50%}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.141381}
+    - {label: sys, symerror: 0.21818}
+    value: 0.634777
+  - errors:
+    - {label: stat, symerror: 0.0556297}
+    - {label: sys, symerror: 0.108776}
+    value: 0.501465
+  - errors:
+    - {label: stat, symerror: 0.0649592}
+    - {label: sys, symerror: 0.135084}
+    value: 1.04977
+  - errors:
+    - {label: stat, symerror: 0.041746}
+    - {label: sys, symerror: 0.0254385}
+    value: 0.941397
+  - errors:
+    - {label: stat, symerror: 0.0444247}
+    - {label: sys, symerror: 0.0429117}
+    value: 0.953036
+  - errors:
+    - {label: stat, symerror: 0.0898069}
+    - {label: sys, symerror: 0.161108}
+    value: 1.17547
+- header: {name: 'away-side, out-of-plane/in-plane'}
+  qualifiers:
+  - {name: SQRT(SNN), units: GEV, value: 5020}
+  - {name: Centrality, value: 30-50%}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.244016}
+    - {label: sys, symerror: 0.308089}
+    value: 0.945046
+  - errors:
+    - {label: stat, symerror: 0.0952842}
+    - {label: sys, symerror: 0.165201}
+    value: 0.275908
+  - errors:
+    - {label: stat, symerror: 0.142408}
+    - {label: sys, symerror: 0.223791}
+    value: 0.871792
+  - errors:
+    - {label: stat, symerror: 0.105617}
+    - {label: sys, symerror: 0.0554223}
+    value: 0.802418
+  - errors:
+    - {label: stat, symerror: 0.0926422}
+    - {label: sys, symerror: 0.113473}
+    value: 0.931554
+  - errors:
+    - {label: stat, symerror: 0.149675}
+    - {label: sys, symerror: 0.184779}
+    value: 1.14599
+independent_variables:
+- header: {name: '$p_{T}^{\rm assoc}$', units: GEV/c}
+  values:
+  - {high: 1.5, low: 0.75}
+  - {high: 2.5, low: 1.5}
+  - {high: 4, low: 2.5}
+  - {high: 7, low: 4}
+  - {high: 11, low: 7}
+  - {high: 17, low: 11}

@@ -1,0 +1,46 @@
+---
+observable_type: fluctuations
+inspire_id: '1848438'
+version: 1
+hepdata_file: rho.yaml
+hepdata_table_label: The yield ratio $\rho^{\mathrm{PbPb}}$ of prompt X(3872) over $\psi(\mathrm{2S})$ production in PbPb
+  collisions at 5.02 TeV
+qualifiers:
+  absrap(psi(2s)): $<$ 1.6
+  absrap(x(3872)): $<$ 1.6
+  centrality: 0-90%
+  re: Pb Pb --> PSI(2S) --> MU+ + MU- + PI+ + PI-
+  sqrt(s): '5020'
+collision_system:
+  energy_gev: 5020.0
+  reaction: Pb Pb --> PSI(2S) --> MU+ + MU- + PI+ + PI-
+centrality:
+  classes:
+  - 0-90%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: pi+
+kinematic_range:
+  pT:
+    min: 15.0
+    max: 50.0
+    bins:
+    - 15.0
+    - 50.0
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+observable: cumulant_C2
+value_type: cumulant_C2
+charge_type: net_charge

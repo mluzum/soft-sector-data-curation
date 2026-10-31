@@ -1,0 +1,24 @@
+dependent_variables:
+- header: {name: RAW_3HBAR_TOF_TPC, units: NO_UNIT}
+  qualifiers:
+  - {name: RE, value: PB PB --> X}
+  - {name: SQRT(S_NN), units: GEV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.00542686}
+    - {label: sys, symerror: 0}
+    value: 0.0954661
+  - errors:
+    - {label: stat, symerror: 0.00859348}
+    - {label: sys, symerror: 0}
+    value: 0.255412
+  - errors:
+    - {label: stat, symerror: 0.00889033}
+    - {label: sys, symerror: 0}
+    value: 0.310973
+independent_variables:
+- header: {name: P_PRIMARY, units: GEV/C}
+  values:
+  - {high: 1.1, low: 0.9, value: 1}
+  - {high: 1.3, low: 1.1, value: 1.2}
+  - {high: 1.5, low: 1.3, value: 1.4}

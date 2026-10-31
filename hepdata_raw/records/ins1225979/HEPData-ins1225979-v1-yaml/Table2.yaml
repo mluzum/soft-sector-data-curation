@@ -1,0 +1,40 @@
+dependent_variables:
+- header: {name: N(chgd)}
+  qualifiers:
+  - {name: ABS(ETARAP(chgd))), value: < YRAP(beam)}
+  - {name: RE, value: PB PB --> CHARGED X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0}
+    - {label: sys, symerror: 552.0}
+    - {label: sys, symerror: 540.0}
+    value: 17165.0
+  - errors:
+    - {label: stat, symerror: 0.0}
+    - {label: sys, symerror: 468.0}
+    - {label: sys, symerror: 458.0}
+    value: 14099.0
+  - errors:
+    - {label: stat, symerror: 0.0}
+    - {label: sys, symerror: 383.0}
+    - {label: sys, symerror: 374.0}
+    value: 10581.0
+  - errors:
+    - {label: stat, symerror: 0.0}
+    - {label: sys, symerror: 276.0}
+    - {label: sys, symerror: 271.0}
+    value: 7278.0
+independent_variables:
+- header: {name: CENTRALITY, units: PCT}
+  values:
+  - {high: 5.0, low: 0.0}
+  - {high: 10.0, low: 5.0}
+  - {high: 20.0, low: 10.0}
+  - {high: 30.0, low: 20.0}
+- header: {name: MEAN(Npart)}
+  values:
+  - {high: 385.9, low: 379.7}
+  - {high: 334.3, low: 325.1}
+  - {high: 264.9, low: 256.1}
+  - {high: 190.3, low: 182.5}

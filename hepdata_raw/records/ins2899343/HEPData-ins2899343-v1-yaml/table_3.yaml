@@ -1,0 +1,54 @@
+dependent_variables:
+- header: {name: '$\sigma(\gamma \mathrm{Pb} \ \rightarrow \mathrm{J}/\psi \mathrm{Pb}*)$',
+    units: microbarn}
+  qualifiers:
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020'}
+  - {name: RE, value: PB PB -> J/PSI <MU+ MU-> PB PB*}
+  - {name: ABS(YRAP), value: 1.6 - 2.4}
+  - {name: MUON ABS(ETA), value: 0.0 - 2.4}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.135}
+    - {label: syst_theory, symerror: 0.033}
+    - asymerror: {minus: -0.718, plus: 0.72}
+      label: syst_experiment
+    value: 7.137
+  - errors:
+    - {label: stat, symerror: 0.134}
+    - {label: syst_theory, symerror: 0.038}
+    - asymerror: {minus: -0.749, plus: 0.76}
+      label: syst_experiment
+    value: 7.662
+  - errors:
+    - {label: stat, symerror: 0.22}
+    - {label: syst_theory, symerror: 0.04}
+    - asymerror: {minus: -0.774, plus: 0.776}
+      label: syst_experiment
+    value: 7.674
+  - errors:
+    - {label: stat, symerror: 0.62}
+    - {label: syst_theory, symerror: 0.17}
+    - asymerror: {minus: -1.53, plus: 1.49}
+      label: syst_experiment
+    value: 8.64
+  - errors:
+    - {label: stat, symerror: 0.46}
+    - {label: syst_theory, symerror: 0.24}
+    - asymerror: {minus: -1.63, plus: 1.33}
+      label: syst_experiment
+    value: 10.58
+  - errors:
+    - {label: stat, symerror: 0.58}
+    - {label: syst_theory, symerror: 0.28}
+    - asymerror: {minus: -1.86, plus: 1.76}
+      label: syst_experiment
+    value: 10.74
+independent_variables:
+- header: {name: '$W_{\gamma \mathrm{N}}^{\mathrm{Pb}}$', units: GeV}
+  values:
+  - {value: 40.5}
+  - {value: 45.9}
+  - {value: 52.0}
+  - {value: 299.0}
+  - {value: 339.0}
+  - {value: 384.0}

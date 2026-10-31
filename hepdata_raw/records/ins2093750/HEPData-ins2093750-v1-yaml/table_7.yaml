@@ -1,0 +1,35 @@
+dependent_variables:
+- header: {name: '$v_2\{\mathrm{2, |\Delta\eta|>0.8}\}$'}
+  qualifiers:
+  - {name: SQRT(S_NN), units: TeV, value: 5.02}
+  - {name: ABS(ETA), value: < 0.8}
+  - {name: CENTRALITY, value: 10-20%}
+  values:
+  - errors:
+    - {label: Stat, symerror: 0.0078245}
+    - {label: Syst, symerror: 0.0019587}
+    value: 0.045375
+  - errors:
+    - {label: Stat, symerror: 0.014421}
+    - {label: Syst, symerror: 0.003336}
+    value: 0.077284
+  - errors:
+    - {label: Stat, symerror: 0.0070736}
+    - {label: Syst, symerror: 0.0061543}
+    value: 0.14257
+  - errors:
+    - {label: Stat, symerror: 0.010406}
+    - {label: Syst, symerror: 0.0061838}
+    value: 0.14326
+  - errors:
+    - {label: Stat, symerror: 0.016342}
+    - {label: Syst, symerror: 0.0048689}
+    value: 0.11279
+independent_variables:
+- header: {name: PT, units: GeV/c}
+  values:
+  - {value: 1.25}
+  - {value: 1.75}
+  - {value: 2.5}
+  - {value: 3.5}
+  - {value: 5.0}

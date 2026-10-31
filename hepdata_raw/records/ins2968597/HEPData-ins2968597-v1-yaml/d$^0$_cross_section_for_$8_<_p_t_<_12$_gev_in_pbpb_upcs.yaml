@@ -1,0 +1,31 @@
+dependent_variables:
+- header: {name: 'd$^{2}\sigma$/dydp$_{\mathrm{T}}$ (mb/GeV)'}
+  qualifiers:
+  - {name: PT, value: 8 -- 12 GeV}
+  - {name: SQRT(S)/NUCLEON, value: 5360 GeV}
+  - {name: RE, value: PB PB --> D0 <pi+ K-> + PB + X}
+  - {name: Y, value: -2.0 -- 2.0}
+  values:
+  - errors:
+    - {label: Stat., symerror: '0.0014'}
+    - {label: Syst., symerror: '0.0087'}
+    value: '0.0325'
+  - errors:
+    - {label: Stat., symerror: '0.0009'}
+    - {label: Syst., symerror: '0.0076'}
+    value: '0.0300'
+  - errors:
+    - {label: Stat., symerror: '0.0007'}
+    - {label: Syst., symerror: '0.0042'}
+    value: '0.0158'
+  - errors:
+    - {label: Stat., symerror: '0.0005'}
+    - {label: Syst., symerror: '0.0012'}
+    value: '0.0040'
+independent_variables:
+- header: {name: $y$}
+  values:
+  - {high: -1.0, low: -2.0}
+  - {high: 0.0, low: -1.0}
+  - {high: 1.0, low: 0.0}
+  - {high: 2.0, low: 1.0}

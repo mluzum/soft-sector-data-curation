@@ -1,0 +1,117 @@
+---
+observable_type: fluctuations
+inspire_id: '1616207'
+version: 1
+hepdata_file: figure2_PbPb.yaml
+hepdata_table_label: The $p_{T}$-differential production yields of $(D^{0}+\overline{D}\hspace{.01cm}^{0})/2$ divided by the
+  nuclear overlap functions $T_{AA}$ for PbPb collisions in the $0-100\%$ and $0-10\%$ centrality ranges.
+qualifiers:
+  centrality: 0.0 - 10.0
+  global uncertainty (taa and lumi and br): -3.7 +2.9
+  re: PB PB --> D0 --> K + PI
+  sqrt(s): '5020'
+  '|$rapidity(d)$|': $<$ 1
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> D0 --> K + PI
+centrality:
+  classes:
+  - 0.0-10.0%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: D0
+kinematic_range:
+  pT:
+    min: 2.0
+    max: 100.0
+    bins:
+    - 2.0
+    - 3.0
+    - 4.0
+    - 5.0
+    - 6.0
+    - 8.0
+    - 10.0
+    - 12.5
+    - 15.0
+    - 20.0
+    - 25.0
+    - 30.0
+    - 40.0
+    - 60.0
+    - 100.0
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+observable: cumulant_C2
+value_type: cumulant_C2
+charge_type: net_charge
+---
+observable_type: fluctuations
+inspire_id: '1616207'
+version: 1
+hepdata_file: figure2_pp.yaml
+hepdata_table_label: The $p_{T}$-differential production cross section of $(D^{0}+\overline{D}\hspace{.01cm}^{0})/2$ in pp
+  collisions.
+qualifiers:
+  global uncertainty (lumi and br): '2.5'
+  re: P P --> D0 --> K + PI
+  sqrt(s): '5020'
+  '|$rapidity(d)$|': $<$ 1
+collision_system:
+  energy_gev: 5020.0
+  reaction: P P --> D0 --> K + PI
+centrality:
+  classes:
+  - MB
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: Sigma
+kinematic_range:
+  pT:
+    min: 2.0
+    max: 100.0
+    bins:
+    - 2.0
+    - 3.0
+    - 4.0
+    - 5.0
+    - 6.0
+    - 8.0
+    - 10.0
+    - 12.5
+    - 15.0
+    - 20.0
+    - 25.0
+    - 30.0
+    - 40.0
+    - 60.0
+    - 100.0
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+observable: cumulant_C2
+value_type: cumulant_C2
+charge_type: net_charge

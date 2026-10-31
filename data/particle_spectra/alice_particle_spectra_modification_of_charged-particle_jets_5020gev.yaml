@@ -1,0 +1,82 @@
+---
+observable_type: particle_spectra
+inspire_id: '2681682'
+version: 1
+hepdata_file: data1.yaml
+hepdata_table_label: Charged-particle jet yields, R=0.2
+qualifiers:
+  re: 30-50%, R=0.2
+  sqrt(s): '5020'
+collision_system:
+  energy_gev: 5020.0
+  reaction: 30-50%, R=0.2
+centrality:
+  classes:
+  - 30-50%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+    bins:
+    - -0.8
+    - 0.8
+  pT:
+    min: 0.15
+    max: 50
+    bins:
+    - 0.15
+    - 50
+observable: dN_dpT_dy
+value_type: invariant_yield
+---
+observable_type: particle_spectra
+inspire_id: '2681682'
+version: 1
+hepdata_file: data2.yaml
+hepdata_table_label: Charged-particle jet yields, R=0.4
+qualifiers:
+  re: 30-50%, R=0.4
+  sqrt(s): '5020'
+collision_system:
+  energy_gev: 5020.0
+  reaction: 30-50%, R=0.4
+centrality:
+  classes:
+  - 30-50%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+    bins:
+    - -0.8
+    - 0.8
+  pT:
+    min: 0.15
+    max: 50
+    bins:
+    - 0.15
+    - 50
+observable: dN_dpT_dy
+value_type: invariant_yield

@@ -1,0 +1,134 @@
+---
+observable_type: charge_dependent_correlations
+inspire_id: '731669'
+version: 1
+hepdata_file: ppg067fig1.yaml
+hepdata_table_label: The measured correlation $C(\Delta\phi)$ and the dijet correlation $J(\Delta\phi)$ in central Au+Au collisions
+  at $\sqrt{s_{NN}}$ = 200 GeV.
+collision_system:
+  energy_gev: 200.0
+  reaction: Cu Cu --> CHARGED X
+centrality:
+  classes:
+  - 0-0.157%
+  - 0.157-0.314%
+  - 0.314-0.471%
+  - 0.471-0.628%
+  - 0.628-0.785%
+  - 0.785-0.942%
+  - 0.942-1.099%
+  - 1.099-1.256%
+  - 1.256-1.413%
+  - 1.413-1.57%
+  - 1.57-1.727%
+  - 1.727-1.884%
+  - 1.884-2.041%
+  - 2.041-2.198%
+  - 2.198-2.355%
+  - 2.355-2.512%
+  - 2.512-2.669%
+  - 2.669-2.826%
+  - 2.826-2.983%
+  - 2.983-3.14%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.35
+    max: 0.35
+  pT:
+    min: 0.2
+    max: 20
+    bins:
+    - 0.2
+    - 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '731669'
+version: 1
+hepdata_file: ppg067fig2a.yaml
+hepdata_table_label: Dijet correlations in Au+Au and Cu+Cu collisions at $\sqrt{s_{NN}}$ = 62.4 and 200 GeV.
+qualifiers:
+  centrality: 60-90%
+  collision: Au+Au
+collision_system:
+  energy_gev: 200.0
+  reaction: Cu Cu --> CHARGED X
+centrality:
+  classes:
+  - 60-90%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.35
+    max: 0.35
+  pT:
+    min: 0.2
+    max: 20
+    bins:
+    - 0.2
+    - 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '731669'
+version: 1
+hepdata_file: ppg067fig2b.yaml
+hepdata_table_label: Dijet correlations in Au+Au and Cu+Cu collisions at $\sqrt{s_{NN}}$ = 62.4 and 200 GeV.
+qualifiers:
+  centrality: 40-80%
+  collision: Cu+Cu
+collision_system:
+  energy_gev: 200.0
+  reaction: Cu Cu --> CHARGED X
+centrality:
+  classes:
+  - 40-80%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.35
+    max: 0.35
+  pT:
+    min: 0.2
+    max: 20
+    bins:
+    - 0.2
+    - 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all

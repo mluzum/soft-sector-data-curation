@@ -1,0 +1,26 @@
+dependent_variables:
+- header: {name: Assoc. yield/trigger}
+  qualifiers:
+  - {name: '$p_T^{trig}$', value: 6-10 GeV/c}
+  - {name: '$p_T^{assoc}$', value: '3 GeV/c-$p_T^{trig}$'}
+  - {name: projection, value: systematics}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.005}
+    value: 0.094
+  - errors:
+    - {label: stat, symerror: 0.005}
+    value: 0.095
+  - errors:
+    - {label: stat, symerror: 0.005}
+    value: 0.09
+  - errors:
+    - {label: stat, symerror: 0.005}
+    value: 0.091
+independent_variables:
+- header: {name: '$N_{part}$'}
+  values:
+  - {value: 23.0769}
+  - {value: 47.1154}
+  - {value: 75.0}
+  - {value: 99.0385}

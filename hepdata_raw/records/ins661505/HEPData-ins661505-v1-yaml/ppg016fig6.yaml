@@ -1,0 +1,54 @@
+dependent_variables:
+- header: {name: '$T_{fo}$ (MeV)'}
+  values:
+  - errors:
+    - asymerror: {minus: 2.4, plus: 2.6}
+      label: stat.
+    value: 109
+  - errors:
+    - asymerror: {minus: 1.5, plus: 1.5}
+      label: stat.
+    value: 119
+  - errors:
+    - asymerror: {minus: 2.0, plus: 2.0}
+      label: stat.
+    value: 150
+- header: {name: $\beta_T$}
+  values:
+  - errors:
+    - asymerror: {minus: 0.004, plus: 0.003}
+      label: stat.
+    value: 0.771
+  - errors:
+    - asymerror: {minus: 0.005, plus: 0.003}
+      label: stat.
+    value: 0.748
+  - errors:
+    - asymerror: {minus: 0.005, plus: 0.005}
+      label: stat.
+    value: 0.63
+- header: {name: $\langle\beta_T\rangle$}
+  values:
+  - errors:
+    - asymerror: {minus: 0.003, plus: 0.003}
+      label: stat.
+    value: 0.572
+  - errors:
+    - asymerror: {minus: 0.002, plus: 0.002}
+      label: stat.
+    value: 0.55
+  - errors:
+    - asymerror: {minus: 0.004, plus: 0.004}
+      label: stat.
+    value: 0.447
+- header: {name: '$\chi^2/{NDF}$'}
+  values:
+  - {value: 148.0/46}
+  - {value: 212.1/46}
+  - {value: 150.9/46}
+independent_variables:
+- header: {name: Centrality (%)}
+  values:
+  - {high: 10, low: 0}
+  - {high: 40, low: 10}
+  - {high: 92, low: 40}

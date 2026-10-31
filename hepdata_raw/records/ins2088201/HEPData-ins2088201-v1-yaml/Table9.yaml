@@ -1,0 +1,28 @@
+dependent_variables:
+- header: {name: '$\langle p_{\rm{T}} \rangle$', units: GeV/$c$}
+  qualifiers:
+  - {name: REACTION, value: PBPB --> Sigma*+ + X}
+  - {name: REACTION, value: PBPB --> Sigma*BAR- + X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: 5020.0}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0007}
+    - {label: sys, symerror: 0.0812}
+    - {label: multipl. uncorrelated, symerror: 0.0748}
+    value: 1.7185
+  - errors:
+    - {label: stat, symerror: 0.001}
+    - {label: sys, symerror: 0.068}
+    - {label: multipl. uncorrelated, symerror: 0.057}
+    value: 1.556
+  - errors:
+    - {label: stat, symerror: 0.001}
+    - {label: sys, symerror: 0.086}
+    - {label: multipl. uncorrelated, symerror: 0.079}
+    value: 1.465
+independent_variables:
+- header: {name: Cent, units: ptc.}
+  values:
+  - {high: 0.0, low: 10.0}
+  - {high: 30.0, low: 50.0}
+  - {high: 50.0, low: 90.0}

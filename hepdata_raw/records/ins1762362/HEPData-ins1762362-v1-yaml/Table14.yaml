@@ -1,0 +1,38 @@
+dependent_variables:
+- header: {name: '$\rho_{00}$'}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 10.0-50.0}
+  - {name: RE, value: 'Pb-Pb $\rightarrow$ K$^{*0}$ X, Pb-Pb $\rightarrow$ $\bar{\rm{K}}^{*0}$
+      X'}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  - {name: Plane, value: Production Plane}
+  - {name: YRAP, value: -0.5-0.5}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.0257421}
+    - {label: syst., symerror: 0.0333559}
+    value: 0.191522
+  - errors:
+    - {label: stat., symerror: 0.0216987}
+    - {label: syst., symerror: 0.0366159}
+    value: 0.255211
+  - errors:
+    - {label: stat., symerror: 0.0197231}
+    - {label: syst., symerror: 0.0411117}
+    value: 0.348345
+  - errors:
+    - {label: stat., symerror: 0.0224033}
+    - {label: syst., symerror: 0.0338747}
+    value: 0.301602
+  - errors:
+    - {label: stat., symerror: 0.02116}
+    - {label: syst., symerror: 0.0455457}
+    value: 0.33064
+independent_variables:
+- header: {name: '$p_{\rm T}$', units: GeV/$c$}
+  values:
+  - {high: 1.2, low: 0.4}
+  - {high: 1.8, low: 1.2}
+  - {high: 2.4, low: 1.8}
+  - {high: 3.0, low: 2.4}
+  - {high: 5.0, low: 3.0}

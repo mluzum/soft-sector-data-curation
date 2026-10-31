@@ -1,0 +1,27 @@
+dependent_variables:
+- header: {name: MEANLIGHT-JET-MASS, units: GEV/C2}
+  qualifiers:
+  - {name: ABS(ETAJET), value: 0.0-0.5}
+  - {name: MINTRPT, units: GeV/c, value: '0.15'}
+  - {name: ALGO-JET, value: anti-kt}
+  - {name: R, value: '0.4'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.089095}
+    - {label: sys, symerror: 0.2941}
+    value: 8.58316
+  - errors:
+    - {label: stat, symerror: 0.0928389}
+    - {label: sys, symerror: 0.365459}
+    value: 10.1795
+  - errors:
+    - {label: stat, symerror: 0.149912}
+    - {label: sys, symerror: 0.579678}
+    value: 11.4047
+independent_variables:
+- header: {name: PT, units: GEV/C}
+  values:
+  - {value: 70}
+  - {value: 90}
+  - {value: 110}
+name: JetMassALICE_MeanMasspPb.yaml

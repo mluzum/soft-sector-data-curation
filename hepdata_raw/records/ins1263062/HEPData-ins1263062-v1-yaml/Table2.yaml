@@ -1,0 +1,42 @@
+dependent_variables:
+- header: {name: RAA}
+  qualifiers:
+  - {name: ABS(YRAP), value: < 0.8}
+  - {name: PT, units: GEV, value: '> 0'}
+  - {name: RE, value: PB PB --> J/PSI X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  - {name: '', value: e+e- decay mode}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.09}
+    - {label: sys, symerror: 0.06}
+    - {label: 'sys,global systematic uncertainty', symerror: 13.0%}
+    value: 0.73
+  - errors:
+    - {label: stat, symerror: 0.08}
+    - {label: sys, symerror: 0.05}
+    - {label: 'sys,global systematic uncertainty', symerror: 13.0%}
+    value: 0.7
+  - errors:
+    - {label: stat, symerror: 0.15}
+    - {label: sys, symerror: 0.09}
+    - {label: 'sys,global systematic uncertainty', symerror: 13.0%}
+    value: 0.79
+  - errors:
+    - {label: stat, symerror: 0.06}
+    - {label: sys, symerror: 0.04}
+    - {label: 'sys,global systematic uncertainty', symerror: 13.0%}
+    value: 0.72
+independent_variables:
+- header: {name: MEAN(NPART)}
+  values:
+  - {high: 359.6, low: 352.4, value: 356.0 +- 3.6}
+  - {high: 194.8, low: 188.2, value: 191.5 +- 3.3}
+  - {high: 39.1, low: 36.7, value: 37.9 +- 1.2}
+  - {high: 126.6, low: 122.2, value: 124.4 +- 2.2}
+- header: {name: CENTRALITY, units: PCT}
+  values:
+  - {high: 10.0, low: 0.0}
+  - {high: 40.0, low: 10.0}
+  - {high: 90.0, low: 40.0}
+  - {high: 90.0, low: 0.0}

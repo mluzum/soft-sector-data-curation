@@ -1,0 +1,51 @@
+# Schema for nuclear modification factors.
+#
+#   R_AA(pT)  = dN_AA/dpT  /  (⟨N_coll⟩ · dN_pp/dpT)
+#   R_CP(pT)  = dN_central/dpT  /  (⟨N_coll⟩_ratio · dN_peripheral/dpT)
+#
+# Reported as a function of pT (or, rarely, centrality or rapidity).
+
+observable_type: nuclear_modification
+description: >
+  Nuclear modification factors R_AA, R_CP, and related ratios
+  that compare heavy-ion yields to a pp or peripheral reference.
+
+composes:
+  - _common#collision_system
+  - centrality#centrality
+  - _common#particle_id
+  - _common#kinematic_range
+  - _common#reference
+
+required_fields:
+  observable:
+    type: string
+    required: true
+    description: Short identifier.
+    example: "R_AA"
+  value_type:
+    type: string
+    required: true
+    description: "One of: 'R_AA', 'R_CP', 'R_pA', 'R_dAu', 'rho_AA'"
+    example: "R_AA"
+
+optional_fields:
+  N_coll:
+    type: float
+    required: false
+    description: "Number of binary nucleon-nucleon collisions ⟨N_coll⟩ used for normalisation."
+    example: 295.0
+  N_part:
+    type: float
+    required: false
+    description: "Number of participating nucleons ⟨N_part⟩."
+    example: 130.0
+  T_AA:
+    type: float
+    required: false
+    description: "Nuclear overlap function T_AA [mb^{-1}]."
+    example: 5.5
+
+validation:
+  rules:
+    - "raa_must_be_positive"

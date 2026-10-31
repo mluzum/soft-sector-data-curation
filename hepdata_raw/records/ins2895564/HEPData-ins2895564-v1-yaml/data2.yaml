@@ -1,0 +1,67 @@
+dependent_variables:
+- header: {name: '$d^{2}\mathrm{\sigma_{\gamma}}^{iso} / d{p}_{\mathrm{T}}^{\gamma}dy$',
+    units: 'nb/GeV/$\mathrm{c}$'}
+  qualifiers:
+  - {name: REACTION, value: P Pb --> ISO GAMMA X}
+  - {name: ABS(YRAP), value: <0.7}
+  - {name: SQRT(S), units: GEV, value: 8160.0}
+  - {name: Isolation cut, value: 'R = 0.4, $p_{\mathrm{T}}^{iso,ch}$ < 1.5 GeV/$\mathrm{c}$,
+      charged particle only'}
+  values:
+  - errors:
+    - {label: stat, symerror: 33.0402}
+    - {label: sys, symerror: 522.235}
+    - {label: norm, symerror: 89.8958}
+    value: 3066.65
+  - errors:
+    - {label: stat, symerror: 30.4439}
+    - {label: sys, symerror: 226.161}
+    - {label: norm, symerror: 56.2827}
+    value: 1919.99
+  - errors:
+    - {label: stat, symerror: 26.8231}
+    - {label: sys, symerror: 135.228}
+    - {label: norm, symerror: 35.5266}
+    value: 1211.93
+  - errors:
+    - {label: stat, symerror: 23.1957}
+    - {label: sys, symerror: 88.9515}
+    - {label: norm, symerror: 23.4744}
+    value: 800.792
+  - errors:
+    - {label: stat, symerror: 11.2368}
+    - {label: sys, symerror: 47.6368}
+    - {label: norm, symerror: 12.4655}
+    value: 425.24
+  - errors:
+    - {label: stat, symerror: 7.83158}
+    - {label: sys, symerror: 22.0615}
+    - {label: norm, symerror: 5.67869}
+    value: 193.719
+  - errors:
+    - {label: stat, symerror: 3.59378}
+    - {label: sys, symerror: 9.0474}
+    - {label: norm, symerror: 2.26426}
+    value: 77.2415
+  - errors:
+    - {label: stat, symerror: 1.27008}
+    - {label: sys, symerror: 2.17081}
+    - {label: norm, symerror: 0.509122}
+    value: 17.3679
+  - errors:
+    - {label: stat, symerror: 0.602553}
+    - {label: sys, symerror: 0.477042}
+    - {label: norm, symerror: 0.101467}
+    value: 3.4614
+independent_variables:
+- header: {name: PT, units: GEV/c}
+  values:
+  - {high: 14, low: 12}
+  - {high: 16, low: 14}
+  - {high: 18, low: 16}
+  - {high: 20, low: 18}
+  - {high: 25, low: 20}
+  - {high: 30, low: 25}
+  - {high: 40, low: 30}
+  - {high: 60, low: 40}
+  - {high: 80, low: 60}

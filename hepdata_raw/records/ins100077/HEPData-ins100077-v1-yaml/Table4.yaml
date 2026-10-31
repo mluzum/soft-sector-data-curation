@@ -1,0 +1,44 @@
+dependent_variables:
+- header: {name: 'RHO(MM=1-1,XYZ=TH)'}
+  qualifiers:
+  - {name: P, units: GeV, value: '4.0'}
+  - {name: RE, value: PI+ N --> OMEGA P}
+  - {name: SQRT(S), units: GeV, value: '2.896'}
+  - {name: SYS, value: 'DECAY-BR(BRN=OMEGA --> ANYTHING - PI+ PI- PI0, BR=10.0 +-
+      0.6 PCT)//RES-DEF(RES=OMEGA,BACK=CORRECTED)//GLAUBER//PAULI'}
+  values:
+  - errors:
+    - {symerror: 0.06}
+    value: 0.03
+  - errors:
+    - {symerror: 0.04}
+    value: 0.18
+  - errors:
+    - {symerror: 0.04}
+    value: 0.18
+  - errors:
+    - {symerror: 0.04}
+    value: 0.08
+  - errors:
+    - {symerror: 0.05}
+    value: 0.1
+  - errors:
+    - {symerror: 0.05}
+    value: 0.11
+  - errors:
+    - {symerror: 0.09}
+    value: 0.06
+  - errors:
+    - {symerror: 0.07}
+    value: 0.22
+independent_variables:
+- header: {name: -T, units: GEV**2}
+  values:
+  - {high: 0.1, low: 0.0}
+  - {high: 0.2, low: 0.1}
+  - {high: 0.3, low: 0.2}
+  - {high: 0.4, low: 0.3}
+  - {high: 0.5, low: 0.4}
+  - {high: 0.6, low: 0.5}
+  - {high: 0.8, low: 0.6}
+  - {high: 1.0, low: 0.8}

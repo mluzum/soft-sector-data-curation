@@ -1,0 +1,49 @@
+dependent_variables:
+- header: {name: 'R(0.2,0.4)'}
+  qualifiers:
+  - {name: ALGO-JET, value: 'anti-$k_{\rm T}$'}
+  - {name: CENTRALITY, units: pct, value: 20.0-40.0}
+  - {name: ETARAP-JET, value: -0.5-0.5}
+  - {name: ETARAP-PARTICLE, value: -0.9-0.9}
+  - {name: PT-PARTICLE, value: '> 0.15 GeV/c'}
+  - {name: RADIUS-JET, value: 0.2/0.4}
+  - {name: SQRT(SNN), units: GeV, value: '5023.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.008}
+    - {label: sys, symerror: 0.019}
+    value: 0.5266
+  - errors:
+    - {label: stat, symerror: 0.018}
+    - {label: sys, symerror: 0.021}
+    value: 0.605
+  - errors:
+    - {label: stat, symerror: 0.025}
+    - {label: sys, symerror: 0.039}
+    value: 0.616
+  - errors:
+    - {label: stat, symerror: 0.036}
+    - {label: sys, symerror: 0.04}
+    value: 0.642
+  - errors:
+    - {label: stat, symerror: 0.05}
+    - {label: sys, symerror: 0.042}
+    value: 0.66
+  - errors:
+    - {label: stat, symerror: 0.071}
+    - {label: sys, symerror: 0.071}
+    value: 0.669
+  - errors:
+    - {label: stat, symerror: 0.094}
+    - {label: sys, symerror: 0.11}
+    value: 0.662
+independent_variables:
+- header: {name: '$p_{\rm {T, ch. jet}} $(GeV/$c$)'}
+  values:
+  - {high: 30.0, low: 20.0}
+  - {high: 40.0, low: 30.0}
+  - {high: 50.0, low: 40.0}
+  - {high: 60.0, low: 50.0}
+  - {high: 70.0, low: 60.0}
+  - {high: 80.0, low: 70.0}
+  - {high: 100.0, low: 80.0}

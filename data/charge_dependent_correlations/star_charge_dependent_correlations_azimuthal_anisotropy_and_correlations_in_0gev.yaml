@@ -1,0 +1,80 @@
+---
+observable_type: charge_dependent_correlations
+inspire_id: '588226'
+version: 1
+hepdata_file: figure_4_down.yaml
+hepdata_table_label: 'High $p_{T}$ azimuthal correlation functions for central events. Upper panel: Correlation function for
+  $|\Delta\eta|$ < 0.5 (solid circles) and scaled correlation function for 0.5 < $|\Delta\eta|$ < 1.4 (open squares). Lower
+  panel: Difference of the two correlation functions. Also shown are the fits to the data (described in the text).'
+collision_system:
+  energy_gev: 0.0
+  reaction: unknown
+centrality:
+  classes:
+  - MB
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+    bins:
+    - -1.0
+    - 1.0
+  pT:
+    min: 0.15
+    max: 10
+    bins:
+    - 0.15
+    - 10
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '588226'
+version: 1
+hepdata_file: figure_4_up.yaml
+hepdata_table_label: 'High $p_{T}$ azimuthal correlation functions for central events. Upper panel: Correlation function for
+  $|\Delta\eta|$ < 0.5 (solid circles) and scaled correlation function for 0.5 < $|\Delta\eta|$ < 1.4 (open squares). Lower
+  panel: Difference of the two correlation functions. Also shown are the fits to the data (described in the text).'
+qualifiers:
+  \delta\eta: 0.5 < $\Delta\eta$ < 1.4
+collision_system:
+  energy_gev: 0.0
+  reaction: unknown
+centrality:
+  classes:
+  - MB
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+    bins:
+    - -1.0
+    - 1.0
+  pT:
+    min: 0.15
+    max: 10
+    bins:
+    - 0.15
+    - 10
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all

@@ -1,0 +1,48 @@
+dependent_variables:
+- header: {name: '$\mathrm{B}^{0}_{\mathrm{s}}/\mathrm{B}^{+}$'}
+  qualifiers:
+  - {name: RE, value: Pb Pb --> Bs0 --> J/PSI (MU+ MU-) + PHI (K+ K-) and Pb Pb -->
+      B+ --> J/PSI (MU+ MU-) + K+}
+  - {name: SQRT(s)/NUCLEON, units: GeV, value: 5020}
+  - {name: '$p_{T}$', units: GeV/c, value: 7.0 - 50.0}
+  - {name: ABS(YRAP), value: 0 - 2.4}
+  - {name: Centrality, value: 0 - 90.0%}
+  - {name: Global uncertainty, value: 8.05%}
+  values:
+  - errors:
+    - asymerror: {minus: -0.26, plus: 0.28}
+      label: stat
+    - asymerror: {minus: -0.24, plus: 0.24}
+      label: syst
+    value: 0.51
+  - errors:
+    - asymerror: {minus: -0.075, plus: 0.064}
+      label: stat
+    - asymerror: {minus: -0.054, plus: 0.054}
+      label: syst
+    value: 0.28
+  - errors:
+    - asymerror: {minus: -0.085, plus: 0.089}
+      label: stat
+    - asymerror: {minus: -0.036, plus: 0.036}
+      label: syst
+    value: 0.394
+  - errors:
+    - asymerror: {minus: -0.051, plus: 0.067}
+      label: stat
+    - asymerror: {minus: -0.041, plus: 0.041}
+      label: syst
+    value: 0.295
+independent_variables:
+- header: {name: '$p_{T}$ (GeV/c)'}
+  values:
+  - {value: 8.75}
+  - {value: 12.6}
+  - {value: 17.4}
+  - {value: 27.3}
+- header: {name: $|y|$}
+  values:
+  - {value: 1.5 - 2.4}
+  - {value: 0 - 2.4}
+  - {value: 0 - 2.4}
+  - {value: 0 - 2.4}

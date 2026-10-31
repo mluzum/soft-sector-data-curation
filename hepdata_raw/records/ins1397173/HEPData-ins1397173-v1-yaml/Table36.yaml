@@ -1,0 +1,32 @@
+dependent_variables:
+- header: {name: Associated yield}
+  qualifiers:
+  - {name: '$p_{T}$', value: '1.0 $< p_{T} <$ 2.0'}
+  - {name: $|\Delta\eta|$, value: '> 2'}
+  - {name: RE, value: P P --> CHARGED X}
+  - {name: SQRT(S), units: GeV, value: '7000.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0002}
+    - asymerror: {minus: 0.00125, plus: -0.00125}
+      label: sys
+    value: -0.0002
+  - errors:
+    - {label: stat, symerror: 0.0002}
+    - {label: sys, symerror: 0.000686}
+    value: 0.0016
+  - errors:
+    - {label: stat, symerror: 0.0008}
+    - {label: sys, symerror: 0.00144}
+    value: 0.0092
+  - errors:
+    - {label: stat, symerror: 0.0006}
+    - {label: sys, symerror: 0.00182}
+    value: 0.0122
+independent_variables:
+- header: {name: '$N_{trk}^{offline}$'}
+  values:
+  - {value: 13.6}
+  - {value: 45.8}
+  - {value: 97.1}
+  - {value: 118.0}

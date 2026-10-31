@@ -1,0 +1,29 @@
+dependent_variables:
+- header: {name: '$v_{2}/n_{q}$'}
+  qualifiers:
+  - {name: '$(m_{T}-m_{0})/n_{q} (GeV/c^{2})$', value: '$\varphi$, 11.5 GeV'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.005381}
+    - asymerror: {minus: -0.003273, plus: 0.004749}
+      label: sys
+    - {label: sys glob, symerror: 0.002794}
+    value: -0.001861
+  - errors:
+    - {label: stat, symerror: 0.007046}
+    - asymerror: {minus: -0.00248, plus: 0.003693}
+      label: sys
+    - {label: sys glob, symerror: 0.002794}
+    value: 0.029596
+  - errors:
+    - {label: stat, symerror: 0.014502}
+    - asymerror: {minus: -0.005187, plus: 0.004664}
+      label: sys
+    - {label: sys glob, symerror: 0.002794}
+    value: 0.009001
+independent_variables:
+- header: {name: '$(m_{T}-m_{0})/n_{q} (GeV/c^{2})$'}
+  values:
+  - {value: 0.131325}
+  - {value: 0.290784}
+  - {value: 0.562438}

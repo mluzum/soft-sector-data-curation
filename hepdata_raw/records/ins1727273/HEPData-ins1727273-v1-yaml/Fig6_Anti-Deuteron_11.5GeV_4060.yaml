@@ -1,0 +1,33 @@
+dependent_variables:
+- header: {name: $40-60\%$}
+  qualifiers:
+  - {name: '$p_{T}$ $(GeV/c)$', value: '$d^{2}N/(N_{event}2\pi p_{T}dp_{T}dy)$ $(GeV/c)^{-2}$'}
+  values:
+  - errors:
+    - {label: stat, symerror: 6.0e-06}
+    - {label: sys, symerror: 1.3e-06}
+    value: 1.39e-05
+  - errors:
+    - {label: stat, symerror: 5.0e-06}
+    - {label: sys, symerror: 1.7e-06}
+    value: 1.73e-05
+  - errors:
+    - {label: stat, symerror: 3.1e-06}
+    - {label: sys, symerror: 5.0e-07}
+    value: 7.6e-06
+  - errors:
+    - {label: stat, symerror: 1.8e-06}
+    - {label: sys, symerror: 1.1e-06}
+    value: 4.8e-06
+  - errors:
+    - {label: stat, symerror: 2.9e-06}
+    - {label: sys, symerror: 2.5e-07}
+    value: 4.06e-06
+independent_variables:
+- header: {name: '$p_{T}$ $(GeV/c)$'}
+  values:
+  - {high: 0.8, low: 0.6, value: 0.69}
+  - {high: 1.0, low: 0.8, value: 0.907}
+  - {high: 1.2, low: 1.0, value: 1.1}
+  - {high: 1.4, low: 1.2, value: 1.3}
+  - {high: 1.6, low: 1.4, value: 1.5}

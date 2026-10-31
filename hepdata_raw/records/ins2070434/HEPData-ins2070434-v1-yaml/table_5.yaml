@@ -1,0 +1,42 @@
+dependent_variables:
+- header: {name: '$\frac{1}{\sigma_{z_r>0.6}} \frac{d\sigma}{dz_r}$'}
+  qualifiers:
+  - {name: RE, value: P P --> jet+X}
+  - {name: SQRT(S), units: TeV, value: 5.02}
+  - {name: ETARAP, value: '|0.9-R|'}
+  - {name: jet radius, value: 0.4}
+  - {name: jet method, value: 'Anti-$k_{T}$'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.16}
+    - {label: sys, symerror: 0.043}
+    value: 1.04
+  - errors:
+    - {label: stat, symerror: 0.25}
+    - {label: sys, symerror: 0.051}
+    value: 1.54
+  - errors:
+    - {label: stat, symerror: 0.33}
+    - {label: sys, symerror: 0.043}
+    value: 2.19
+  - errors:
+    - {label: stat, symerror: 0.35}
+    - {label: sys, symerror: 0.14}
+    value: 3.05
+  - errors:
+    - {label: stat, symerror: 0.48}
+    - {label: sys, symerror: 0.21}
+    value: 3.67
+  - errors:
+    - {label: stat, symerror: 0.56}
+    - {label: sys, symerror: 0.44}
+    value: 5.07
+independent_variables:
+- header: {name: $z_r$}
+  values:
+  - {high: 0.7, low: 0.6}
+  - {high: 0.77, low: 0.7}
+  - {high: 0.83, low: 0.77}
+  - {high: 0.89, low: 0.83}
+  - {high: 0.95, low: 0.89}
+  - {high: 1.0, low: 0.95}

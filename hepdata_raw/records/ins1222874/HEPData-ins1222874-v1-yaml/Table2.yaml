@@ -1,0 +1,53 @@
+dependent_variables:
+- header: {name: C3}
+  qualifiers:
+  - {name: ABS(DELTA(ETARAP)), value: 0.48-0.7}
+  - {name: ABS(ETARAP), value: 0.0-0.35}
+  - {name: CENTRALITY, units: pct, value: 0.0-5.0}
+  - {name: PT(trigger), units: GeV, value: 0.5-0.75}
+  - {name: RE, value: DEUT AU --> CHGD-HADRONS X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '200.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.000611512}
+    - {label: sys, symerror: 0.000563534}
+    value: 0.00033478
+  - errors:
+    - {label: stat, symerror: 0.000794734}
+    - {label: sys, symerror: 0.000563534}
+    value: -2.69236e-05
+  - errors:
+    - {label: stat, symerror: 0.00106896}
+    - {label: sys, symerror: 0.000563534}
+    value: 2.79741e-05
+  - errors:
+    - {label: stat, symerror: 0.00143018}
+    - {label: sys, symerror: 0.000563534}
+    value: 0.00241494
+  - errors:
+    - {label: stat, symerror: 0.00153251}
+    - {label: sys, symerror: 0.000563534}
+    value: 0.00405275
+  - errors:
+    - {label: stat, symerror: 0.002717}
+    - {label: sys, symerror: 0.000563534}
+    value: -0.000635885
+  - errors:
+    - {label: stat, symerror: 0.00461955}
+    - {label: sys, symerror: 0.000563534}
+    value: -0.00213844
+  - errors:
+    - {label: stat, symerror: 0.00776943}
+    - {label: sys, symerror: 0.000563534}
+    value: 0.000838454
+independent_variables:
+- header: {name: PT(associated), units: GEV}
+  values:
+  - {value: 0.645}
+  - {value: 0.895}
+  - {value: 1.145}
+  - {value: 1.395}
+  - {value: 1.77}
+  - {value: 2.27}
+  - {value: 2.77}
+  - {value: 3.27}

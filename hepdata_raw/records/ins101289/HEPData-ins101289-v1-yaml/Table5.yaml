@@ -1,0 +1,39 @@
+dependent_variables:
+- header: {name: D(SIG)/DU, units: MUB/GEV**2}
+  qualifiers:
+  - {name: P, units: GeV, value: '4.15'}
+  - {name: RE, value: K- P --> RHO- SIGMA(1385P13)+}
+  - {name: SQRT(S), units: GeV, value: '2.994'}
+  - {name: SYS, value: /SLICE TECHNIQUE USED TO FIT RESONANCES AND REMOVE BACKGROUND}
+  values:
+  - errors:
+    - {symerror: 5.2}
+    value: 14.8
+  - errors:
+    - {symerror: 3.6}
+    value: 3.4
+  - errors:
+    - {symerror: 3.2}
+    value: 8.4
+  - errors:
+    - {symerror: 3.1}
+    value: 2.0
+  - errors:
+    - {symerror: 2.8}
+    value: 3.3
+  - errors:
+    - {symerror: 2.4}
+    value: 4.6
+  - errors:
+    - {symerror: 1.95}
+    value: 0.55
+independent_variables:
+- header: {name: -UP, units: GEV**2}
+  values:
+  - {high: 0.2, low: 0.0}
+  - {high: 0.6, low: 0.2}
+  - {high: 1.0, low: 0.6}
+  - {high: 1.4, low: 1.0}
+  - {high: 1.8, low: 1.4}
+  - {high: 2.2, low: 1.8}
+  - {high: 2.8, low: 2.2}

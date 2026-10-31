@@ -1,0 +1,42 @@
+dependent_variables:
+- header: {name: BR x SIG/NCOLL, units: NB}
+  qualifiers:
+  - {name: PT(MU), units: GEV, value: '> 10.0'}
+  - {name: RE, value: P PB --> ( W+ < MU+ NU > + W- <MU- NUBAR> ) X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020.0'}
+  - {name: YRAP(RF=CM), value: -4.46--2.96}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.9}
+    - {label: sys, symerror: 1.2}
+    - {label: 'sys,global uncertainty', symerror: 4.8%}
+    value: 13.3
+  - errors:
+    - {label: stat, symerror: 1.5}
+    - {label: sys, symerror: 0.9}
+    - {label: 'sys,global uncertainty', symerror: 4.8%}
+    value: 11.6
+  - errors:
+    - {label: stat, symerror: 1.6}
+    - {label: sys, symerror: 0.9}
+    - {label: 'sys,global uncertainty', symerror: 4.8%}
+    value: 13.7
+  - errors:
+    - {label: stat, symerror: 1.8}
+    - {label: sys, symerror: 0.8}
+    - {label: 'sys,global uncertainty', symerror: 4.8%}
+    value: 12.4
+  - errors:
+    - {label: stat, symerror: 2.4}
+    - {label: sys, symerror: 1.1}
+    - {label: 'sys,global uncertainty', symerror: 4.8%}
+    value: 16.8
+independent_variables:
+- header: {name: CENTRALITY, units: PCT}
+  values:
+  - {high: 100, low: 0}
+  - {high: 20, low: 2}
+  - {high: 40, low: 20}
+  - {high: 60, low: 40}
+  - {high: 100, low: 60}
+name: data5.yaml

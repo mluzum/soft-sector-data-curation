@@ -1,0 +1,76 @@
+dependent_variables:
+- header: {name: data/PYTHIA8, units: ''}
+  qualifiers:
+  - {name: SQRT(S), units: TeV, value: '5.02'}
+  - {name: ABS(RAP), value: < 1}
+  - {name: RE, value: P P --> DS+ --> PHI<K+K-> PI+}
+  values:
+  - errors:
+    - {label: sys, symerror: 0.064}
+    - {label: stat, symerror: 0.042}
+    value: 0.39
+  - errors:
+    - {label: sys, symerror: 0.071}
+    - {label: stat, symerror: 0.024}
+    value: 0.499
+  - errors:
+    - {label: sys, symerror: 0.076}
+    - {label: stat, symerror: 0.021}
+    value: 0.479
+  - errors:
+    - {label: sys, symerror: 0.089}
+    - {label: stat, symerror: 0.028}
+    value: 0.551
+  - errors:
+    - {label: sys, symerror: 0.092}
+    - {label: stat, symerror: 0.028}
+    value: 0.652
+  - errors:
+    - {label: sys, symerror: 0.13}
+    - {label: stat, symerror: 0.05}
+    value: 0.91
+  - errors:
+    - {label: sys, symerror: 0.15}
+    - {label: stat, symerror: 0.06}
+    value: 1.03
+  - errors:
+    - {label: sys, symerror: 0.21}
+    - {label: stat, symerror: 0.24}
+    value: 1.52
+- header: {name: data/PYTHIA8, units: ''}
+  qualifiers:
+  - {name: SQRT(S), units: TeV, value: '5.02'}
+  - {name: ABS(RAP), value: < 1}
+  - {name: RE, value: PB PB --> DS+ --> PHI<K+K-> PI+}
+  values:
+  - {value: ''}
+  - {value: ''}
+  - {value: ''}
+  - {value: ''}
+  - errors:
+    - {label: sys, symerror: 0.053}
+    - {label: stat, symerror: 0.02}
+    value: 0.244
+  - errors:
+    - {label: sys, symerror: 0.081}
+    - {label: stat, symerror: 0.017}
+    value: 0.348
+  - errors:
+    - {label: sys, symerror: 0.067}
+    - {label: stat, symerror: 0.009}
+    value: 0.332
+  - errors:
+    - {label: sys, symerror: 0.096}
+    - {label: stat, symerror: 0.027}
+    value: 0.527
+independent_variables:
+- header: {name: $p_T$}
+  values:
+  - {high: 3.0, low: 2.0}
+  - {high: 4.0, low: 3.0}
+  - {high: 5.0, low: 4.0}
+  - {high: 6.0, low: 5.0}
+  - {high: 8.0, low: 6.0}
+  - {high: 10.0, low: 8.0}
+  - {high: 20.0, low: 10.0}
+  - {high: 40.0, low: 20.0}

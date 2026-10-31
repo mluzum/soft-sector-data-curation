@@ -1,0 +1,30 @@
+dependent_variables:
+- header: {name: '$\mathbf{Y}_{\text {ridge }}$'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0029}
+    - asymerror: {minus: -0.04, plus: 0.033}
+      label: sys
+    value: 0.1384
+  - errors:
+    - {label: stat, symerror: 0.007}
+    - asymerror: {minus: -0.04, plus: 0.035}
+      label: sys
+    value: 0.129
+  - errors:
+    - {label: stat, symerror: 0.016}
+    - asymerror: {minus: -0.04, plus: 0.032}
+      label: sys
+    value: 0.09
+  - errors:
+    - {label: stat, symerror: 0.024}
+    - asymerror: {minus: -0.034, plus: 0.027}
+      label: sys
+    value: 0.089
+independent_variables:
+- header: {name: '${p}_{t}^{trig}$[GeV/c]'}
+  values:
+  - {value: 3.37}
+  - {value: 4.39}
+  - {value: 5.41}
+  - {value: 6.92}

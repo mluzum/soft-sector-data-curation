@@ -1,0 +1,64 @@
+dependent_variables:
+- header: {name: N(Q=PB-PB)/N(Q=P-P)}
+  qualifiers:
+  - {name: BKG SUBTRACTION, value: FLAT}
+  - {name: CENTRALITY, units: pct, value: 60.0-90.0}
+  - {name: DELTA(PHI), value: PI-0.7 TO PI+0.7}
+  - {name: ETARAP, value: -1.0-1.0}
+  - {name: PT(C=ASSOC), value: < PT(C=TRIG)}
+  - {name: PT(C=TRIG), units: GeV, value: 8.0-15.0}
+  - {name: RE(Q=P-P), value: P P --> CHARGED x}
+  - {name: RE(Q=PB-PB), value: PB PB --> CHARGED x}
+  - {name: sqrts/NUCLEON, units: GeV, value: '2.76'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.04}
+    - {label: sys, symerror: 0.08}
+    value: 0.99
+  - errors:
+    - {label: stat, symerror: 0.04}
+    - {label: sys, symerror: 0.07}
+    value: 0.95
+  - errors:
+    - {label: stat, symerror: 0.06}
+    - {label: sys, symerror: 0.07}
+    value: 0.92
+  - errors:
+    - {label: stat, symerror: 0.09}
+    - {label: sys, symerror: 0.07}
+    value: 0.86
+- header: {name: N(Q=PB-PB)/N(Q=P-P)}
+  qualifiers:
+  - {name: BKG SUBTRACTION, value: v2}
+  - {name: CENTRALITY, units: pct, value: 60.0-90.0}
+  - {name: DELTA(PHI), value: PI-0.7 TO PI+0.7}
+  - {name: ETARAP, value: -1.0-1.0}
+  - {name: PT(C=ASSOC), value: < PT(C=TRIG)}
+  - {name: PT(C=TRIG), units: GeV, value: 8.0-15.0}
+  - {name: RE(Q=P-P), value: P P --> CHARGED x}
+  - {name: RE(Q=PB-PB), value: PB PB --> CHARGED x}
+  - {name: sqrts/NUCLEON, units: GeV, value: '2.76'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.04}
+    - {label: sys, symerror: 0.07}
+    value: 0.87
+  - errors:
+    - {label: stat, symerror: 0.04}
+    - {label: sys, symerror: 0.07}
+    value: 0.9
+  - errors:
+    - {label: stat, symerror: 0.06}
+    - {label: sys, symerror: 0.07}
+    value: 0.9
+  - errors:
+    - {label: stat, symerror: 0.09}
+    - {label: sys, symerror: 0.07}
+    value: 0.85
+independent_variables:
+- header: {name: PT(C=ASSOC), units: GEV}
+  values:
+  - {high: 4.0, low: 3.0}
+  - {high: 6.0, low: 4.0}
+  - {high: 8.0, low: 6.0}
+  - {high: 10.0, low: 8.0}

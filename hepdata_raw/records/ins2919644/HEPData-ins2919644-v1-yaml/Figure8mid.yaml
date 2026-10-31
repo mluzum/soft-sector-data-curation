@@ -1,0 +1,21 @@
+dependent_variables:
+- header: {name: '$P_{y,c2}$ [%]'}
+  qualifiers:
+  - {name: '20-50 Centrality [%]', value: Method-1}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.038}
+    - {label: sys, symerror: 0.058}
+    value: 0.138
+- header: {name: '$P_{y,c2}$ [%]'}
+  qualifiers:
+  - {name: '20-50 Centrality [%]', value: Method-2}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.038}
+    - {label: sys, symerror: 0.05}
+    value: 0.119
+independent_variables:
+- header: {name: '20-50 Centrality [%]'}
+  values:
+  - {high: 50, low: 20}

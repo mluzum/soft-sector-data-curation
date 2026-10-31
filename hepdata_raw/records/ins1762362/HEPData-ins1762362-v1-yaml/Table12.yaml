@@ -1,0 +1,52 @@
+dependent_variables:
+- header: {name: '$\rho_{00}$'}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 20.0-40.0}
+  - {name: RE, value: 'Pb-Pb $\rightarrow$ K$_{S}^{0}$ X'}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  - {name: Plane, value: Event Plane}
+  - {name: YRAP, value: -0.5-0.5}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.013745}
+    - {label: syst., symerror: 0.0192015}
+    value: 0.349119
+  - errors:
+    - {label: stat., symerror: 0.0106227}
+    - {label: syst., symerror: 0.0194352}
+    value: 0.353368
+  - errors:
+    - {label: stat., symerror: 0.0101744}
+    - {label: syst., symerror: 0.0193112}
+    value: 0.351113
+  - errors:
+    - {label: stat., symerror: 0.00950973}
+    - {label: syst., symerror: 0.0191792}
+    value: 0.348712
+  - errors:
+    - {label: stat., symerror: 0.00976741}
+    - {label: syst., symerror: 0.0191876}
+    value: 0.348865
+  - errors:
+    - {label: stat., symerror: 0.0101747}
+    - {label: syst., symerror: 0.0186332}
+    value: 0.338786
+  - errors:
+    - {label: stat., symerror: 0.0110607}
+    - {label: syst., symerror: 0.0201713}
+    value: 0.336189
+  - errors:
+    - {label: stat., symerror: 0.0115016}
+    - {label: syst., symerror: 0.0200666}
+    value: 0.334443
+independent_variables:
+- header: {name: '$p_{\rm T}$', units: GeV/$c$}
+  values:
+  - {high: 0.6, low: 0.4}
+  - {high: 0.8, low: 0.6}
+  - {high: 1.0, low: 0.8}
+  - {high: 1.6, low: 1.0}
+  - {high: 2.2, low: 1.6}
+  - {high: 2.8, low: 2.2}
+  - {high: 3.5, low: 2.8}
+  - {high: 5.0, low: 3.5}

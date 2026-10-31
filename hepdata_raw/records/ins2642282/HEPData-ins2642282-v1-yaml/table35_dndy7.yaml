@@ -1,0 +1,33 @@
+dependent_variables:
+- header: {name: dN/dy}
+  qualifiers:
+  - {name: particles, value: '$\mathrm{K^{*0}} + \bar{\mathrm{K^{*0}}}$'}
+  - {name: '$\sqrt{s_{NN}}$', units: GeV, value: '7.7'}
+  values:
+  - errors:
+    - {label: stat, symerror: 1.52}
+    - {label: syst (uncorr), symerror: 0.28}
+    - {label: syst (corr), symerror: 0.33}
+    value: 3.86
+  - errors:
+    - {label: stat, symerror: 0.59}
+    - {label: syst (uncorr), symerror: 0.14}
+    - {label: syst (corr), symerror: 0.14}
+    value: 1.71
+  - errors:
+    - {label: stat, symerror: 0.23}
+    - {label: syst (uncorr), symerror: 0.05}
+    - {label: syst (corr), symerror: 0.05}
+    value: 0.7
+  - errors:
+    - {label: stat, symerror: 0.1}
+    - {label: syst (uncorr), symerror: 0.02}
+    - {label: syst (corr), symerror: 0.03}
+    value: 0.24
+independent_variables:
+- header: {name: <Npart>}
+  values:
+  - {value: 270}
+  - {value: 135}
+  - {value: 58.5}
+  - {value: 20}

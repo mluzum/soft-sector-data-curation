@@ -1,0 +1,51 @@
+dependent_variables:
+- header: {name: v2}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 10.0-40.0}
+  - {name: RE, value: AU AU --> PI- X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '7.7'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.000459}
+    - {label: sys, symerror: 0.0}
+    value: 0.026444
+  - errors:
+    - {label: stat, symerror: 0.000602}
+    - asymerror: {minus: -2.1e-05, plus: 4.2e-05}
+      label: sys
+    value: 0.045379
+  - errors:
+    - {label: stat, symerror: 0.00087}
+    - asymerror: {minus: -0.000351, plus: 0.000711}
+      label: sys
+    value: 0.061325
+  - errors:
+    - {label: stat, symerror: 0.001299}
+    - asymerror: {minus: -0.000146, plus: 7.3e-05}
+      label: sys
+    value: 0.075211
+  - errors:
+    - {label: stat, symerror: 0.00165}
+    - asymerror: {minus: -0.000229, plus: 0.000458}
+      label: sys
+    value: 0.088676
+  - errors:
+    - {label: stat, symerror: 0.003836}
+    - asymerror: {minus: -0.000212, plus: 0.000396}
+      label: sys
+    value: 0.110444
+  - errors:
+    - {label: stat, symerror: 0.009173}
+    - asymerror: {minus: -0.000307, plus: 0.000562}
+      label: sys
+    value: 0.110866
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {value: 0.285}
+  - {value: 0.495}
+  - {value: 0.675}
+  - {value: 0.885}
+  - {value: 1.155}
+  - {value: 1.545}
+  - {value: 1.935}

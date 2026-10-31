@@ -1,0 +1,92 @@
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1084331'
+version: 1
+hepdata_file: Table3.yaml
+hepdata_table_label: 'Dependence of the standard deviation on the uncorrected charged  particle multiplicity. As in figure
+  2 the data are given for three different random cone probes:  (1) sampling all the events,  (2) avoiding overlap with the
+  leading jet candidate in the event and  (3) after randomizing the (ETA,PHI) direction of the tracks hence  destroying any
+  correlations.
+
+  '
+qualifiers:
+  centrality: 0.0-10.0
+  pt(c=charged): '> 0.15'
+  r: '0.4'
+  re: PB PB --> JET < CHARGED X > X
+  sqrts/nucleon: '2760.0'
+collision_system:
+  energy_gev: 2760
+  reaction: PB PB --> JET CHARGED X
+centrality:
+  classes:
+  - 0.0-10.0%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.15
+    max: 50
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1084331'
+version: 1
+hepdata_file: Table7.yaml
+hepdata_table_label: 'The centrality dependence of the flucuations. Given here is the standard deviation and statistical uncertainty
+  for different centrality bins  and PT minima using  the track embedding probe.RE = PB PB --> JET X.
+
+  '
+qualifiers:
+  pt(c=charged): '2.0'
+  r: '0.4'
+  re: PB PB --> JET < CHARGED X > X
+  sqrts/nucleon: '2760.0'
+collision_system:
+  energy_gev: 2760
+  reaction: PB PB --> JET CHARGED X
+centrality:
+  classes:
+  - 0-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  - 60-70%
+  - 70-80%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.15
+    max: 50
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all

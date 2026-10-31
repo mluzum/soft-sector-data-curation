@@ -1,0 +1,33 @@
+dependent_variables:
+- header: {name: W$^-$}
+  qualifiers:
+  - {name: reaction, value: Pb-Pb $\rightarrow$ W$^\pm$ + X $\rightarrow$ $\mu^\pm$
+      + X}
+  - {name: sqrt(s) per nucleon pair, value: 5020.0 GeV}
+  - {name: fiducial region, value: 2.5 < $y$ < 4 and $p_T$ > 10 GeV/$c$}
+  - {name: centrality, value: 0-90%}
+  - {name: observable, value: R$PbPb$}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.05}
+    - {label: syst, symerror: 0.06}
+    - {label: pp ref, symerror: 0.14}
+    value: 1.32
+- header: {name: W$^+$}
+  qualifiers:
+  - {name: reaction, value: Pb-Pb $\rightarrow$ W$^\pm$ + X $\rightarrow$ $\mu^\pm$
+      + X}
+  - {name: sqrt(s) per nucleon pair, value: 5020.0 GeV}
+  - {name: fiducial region, value: 2.5 < $y$ < 4 and $p_T$ > 10 GeV/$c$}
+  - {name: centrality, value: 0-90%}
+  - {name: observable, value: R$PbPb$}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.03}
+    - {label: syst, symerror: 0.02}
+    - {label: pp ref, symerror: 0.07}
+    value: 0.57
+independent_variables:
+- header: {name: centrality}
+  values:
+  - {high: 90, low: 0}

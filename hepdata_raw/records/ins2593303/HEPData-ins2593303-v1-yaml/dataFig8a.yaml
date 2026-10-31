@@ -1,0 +1,40 @@
+dependent_variables:
+- header: {name: d$^2\sigma$/d$y$/d$p_T$, units: $\mu$b/GeV/$c$}
+  qualifiers:
+  - {name: RE, value: P PB --> JPSI (Q=PROMPT) X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '8160.0'}
+  - {name: YRAP, value: -1.37 TO 0.43}
+  values:
+  - errors:
+    - {label: stat, symerror: 33.174}
+    - {label: sys, symerror: 14.488}
+    - {label: 'sys,normalization/luminosity/B.R. uncertainty', symerror: 2.0%}
+    value: 266.24
+  - errors:
+    - {label: stat, symerror: 9.9923}
+    - {label: sys, symerror: 3.9277}
+    - {label: 'sys,normalization/luminosity/B.R. uncertainty', symerror: 2.0%}
+    value: 95.629
+  - errors:
+    - {label: stat, symerror: 3.5732}
+    - {label: sys, symerror: 1.117}
+    - {label: 'sys,normalization/luminosity/B.R. uncertainty', symerror: 2.0%}
+    value: 28.195
+  - errors:
+    - {label: stat, symerror: 1.6384}
+    - {label: sys, symerror: 0.4334}
+    - {label: 'sys,normalization/luminosity/B.R. uncertainty', symerror: 2.0%}
+    value: 7.7328
+  - errors:
+    - {label: stat, symerror: 0.5855}
+    - {label: sys, symerror: 0.1457}
+    - {label: 'sys,normalization/luminosity/B.R. uncertainty', symerror: 2.0%}
+    value: 2.4956
+independent_variables:
+- header: {name: '$p_{\rm T}$', units: GeV/$c$}
+  values:
+  - {high: 4.0, low: 2.0}
+  - {high: 6.0, low: 4.0}
+  - {high: 8.0, low: 6.0}
+  - {high: 10.0, low: 8.0}
+  - {high: 14.0, low: 10.0}

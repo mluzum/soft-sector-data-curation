@@ -1,0 +1,32 @@
+dependent_variables:
+- header: {name: '$N_{Part}$'}
+  qualifiers:
+  - {name: Collision, value: ' '}
+  - {name: Decay Channel, value: ' '}
+  values:
+  - {value: 280.5}
+  - {value: 101.6}
+  - {value: 11.8}
+- header: {name: '$R_{AA}$'}
+  qualifiers:
+  - {name: Collision, value: Au + Au}
+  - {name: Decay Channel, value: $\omega$ $\rightarrow$ $\pi^0 \gamma$}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.06}
+    - {label: sys., symerror: 0.06}
+    value: 0.25
+  - errors:
+    - {label: stat, symerror: 0.08}
+    - {label: sys., symerror: 0.09}
+    value: 0.43
+  - errors:
+    - {label: stat, symerror: 0.4}
+    - {label: sys., symerror: 0.6}
+    value: 1.8
+independent_variables:
+- header: {name: Centrality (%)}
+  values:
+  - {high: 20, low: 0}
+  - {high: 60, low: 20}
+  - {high: 92, low: 60}

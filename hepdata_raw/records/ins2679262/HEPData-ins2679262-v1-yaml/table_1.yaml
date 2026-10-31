@@ -1,0 +1,65 @@
+dependent_variables:
+- header: {name: '$\frac{\mathrm{d}\sigma}{\mathrm{d}p_\text{T}}$', units: '($\mu$b(GeV/c)$^{-1})$'}
+  qualifiers:
+  - {name: SQRT(S), units: GeV, value: '5020'}
+  - {name: $|y(\Lambda_c^+)|$, value: < 1}
+  - {name: RE, value: P P --> LAMBDAc+ --> P+ + K- + PI+}
+  - {name: GLOBAL UNCERTAINTY, units: $\%$, value: '8.6'}
+  values:
+  - errors:
+    - {label: sys, symerror: 17}
+    - asymerror: {minus: -11, plus: 11}
+      label: stat
+    value: 59
+  - errors:
+    - {label: sys, symerror: 6.9}
+    - asymerror: {minus: -2.5, plus: 2.5}
+      label: stat
+    value: 20.0
+  - errors:
+    - {label: sys, symerror: 0.88}
+    - asymerror: {minus: -0.71, plus: 0.75}
+      label: stat
+    value: 6.18
+  - errors:
+    - {label: sys, symerror: 0.38}
+    - asymerror: {minus: -0.2, plus: 0.21}
+      label: stat
+    value: 2.31
+  - errors:
+    - {label: sys, symerror: 0.089}
+    - asymerror: {minus: -0.055, plus: 0.056}
+      label: stat
+    value: 0.472
+  - errors:
+    - {label: sys, symerror: 0.04}
+    - asymerror: {minus: -0.025, plus: 0.027}
+      label: stat
+    value: 0.19
+  - errors:
+    - {label: sys, symerror: 0.011}
+    - asymerror: {minus: -0.013, plus: 0.014}
+      label: stat
+    value: 0.077
+  - errors:
+    - {label: sys, symerror: 0.003}
+    - asymerror: {minus: -0.0042, plus: 0.0041}
+      label: stat
+    value: 0.0188
+  - errors:
+    - {label: sys, symerror: 0.00055}
+    - asymerror: {minus: -0.0009, plus: 0.00098}
+      label: stat
+    value: 0.00323
+independent_variables:
+- header: {name: '$p_\mathrm{T}$'}
+  values:
+  - {high: 4.0, low: 3.0}
+  - {high: 5.0, low: 4.0}
+  - {high: 6.0, low: 5.0}
+  - {high: 8.0, low: 6.0}
+  - {high: 10.0, low: 8.0}
+  - {high: 12.5, low: 10.0}
+  - {high: 15.0, low: 12.5}
+  - {high: 20.0, low: 15.0}
+  - {high: 30.0, low: 20.0}

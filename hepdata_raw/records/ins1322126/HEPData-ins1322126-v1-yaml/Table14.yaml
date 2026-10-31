@@ -1,0 +1,42 @@
+dependent_variables:
+- header: {name: Value}
+  qualifiers:
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  - {name: '', value: $<n_q>$}
+  values:
+  - {value: 2.0}
+  - {value: 2.619}
+  - {value: 3.0}
+- header: {name: Value}
+  qualifiers:
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  - {name: '', value: $V_3/V_2$}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.25}
+    - {label: sys, symerror: 0.018}
+    value: 0.546
+  - errors:
+    - {label: stat, symerror: 0.25}
+    - asymerror: {minus: -0.015, plus: 0.025}
+      label: sys
+    value: 0.681
+  - errors:
+    - {label: stat, symerror: 0.38}
+    - asymerror: {minus: -0.032, plus: 0.038}
+      label: sys
+    value: 0.736
+- header: {name: Value}
+  qualifiers:
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  - {name: '', value: ''}
+  values:
+  - {value: '-'}
+  - {value: '-'}
+  - {value: '-'}
+independent_variables:
+- header: {name: Trigger}
+  values:
+  - {value: $\pi$}
+  - {value: Non-$\pi$}
+  - {value: Protons (extrapolated)}

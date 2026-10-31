@@ -1,0 +1,67 @@
+dependent_variables:
+- header: {name: ' $\sigma$ (NS)'}
+  qualifiers:
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: 5020.0}
+  - {name: pTe, units: GeV/c, value: 4 to 12}
+  - {name: pT condition, value: '$p_{T}^{e} > p_{T}^{assoc}$'}
+  - {name: Electron ETA, value: -0.6 to 0.6}
+  - {name: DELTA ETA, value: -1 to 1}
+  - {name: RE, value: 'pp -> (c,b)->e + X'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.01572969}
+    - {label: sys, symerror: 0.03058812}
+    value: 0.299682
+  - errors:
+    - {label: stat, symerror: 0.01665994}
+    - {label: sys, symerror: 0.02372167}
+    value: 0.2316653
+  - errors:
+    - {label: stat, symerror: 0.01713193}
+    - {label: sys, symerror: 0.0203998}
+    value: 0.1719132
+  - errors:
+    - {label: stat, symerror: 0.02692581}
+    - {label: sys, symerror: 0.02422397}
+    value: 0.200479
+  - errors:
+    - {label: stat, symerror: 0.01655073}
+    - {label: sys, symerror: 0.01655942}
+    value: 0.1417875
+- header: {name: ' $\sigma$ (NS)'}
+  qualifiers:
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: 5020.0}
+  - {name: pTe, units: GeV/c, value: 4 to 12}
+  - {name: pT condition, value: '$p_{T}^{e} > p_{T}^{assoc}$'}
+  - {name: Electron ETA, value: -0.6 to 0.6}
+  - {name: DELTA ETA, value: -1 to 1}
+  - {name: RE, value: 'p$\textendash$Pb  -> (c,b)->e + X'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.02222062}
+    - {label: sys, symerror: 0.03693815}
+    value: 0.3264902
+  - errors:
+    - {label: stat, symerror: 0.0168319}
+    - {label: sys, symerror: 0.02839927}
+    value: 0.2510164
+  - errors:
+    - {label: stat, symerror: 0.01946122}
+    - {label: sys, symerror: 0.02597177}
+    value: 0.2295602
+  - errors:
+    - {label: stat, symerror: 0.01681947}
+    - {label: sys, symerror: 0.01963799}
+    value: 0.1715779
+  - errors:
+    - {label: stat, symerror: 0.01277108}
+    - {label: sys, symerror: 0.01892988}
+    value: 0.1520484
+independent_variables:
+- header: {name: '$p_{T}^{assoc}$', units: GeV/c}
+  values:
+  - {high: 2.0, low: 1.0}
+  - {high: 3.0, low: 2.0}
+  - {high: 4.0, low: 3.0}
+  - {high: 5.0, low: 4.0}
+  - {high: 7.0, low: 5.0}

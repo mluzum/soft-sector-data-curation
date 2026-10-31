@@ -1,0 +1,27 @@
+dependent_variables:
+- header: {name: 'E(P=3,RF=LAB)*D3(SIG)/D3(P(P=3,RF=LAB))', units: B/GEV**2}
+  qualifiers:
+  - {name: P, units: GeV, value: '67.0'}
+  - {name: PT, units: GeV, value: '0.0'}
+  - {name: RE, value: P AL --> PI+ X}
+  - {name: SYS, value: NOT GIVEN}
+  values:
+  - errors:
+    - {symerror: 10.0%}
+    value: 0.305
+  - errors:
+    - {symerror: 5.0%}
+    value: 0.199
+  - errors:
+    - {symerror: 10.0%}
+    value: 0.139
+  - errors:
+    - {symerror: 10.0%}
+    value: 0.0937
+independent_variables:
+- header: {name: 'XL(P=3,DEF=PL/PMAX)'}
+  values:
+  - {value: 0.1}
+  - {value: 0.15}
+  - {value: 0.2}
+  - {value: 0.25}

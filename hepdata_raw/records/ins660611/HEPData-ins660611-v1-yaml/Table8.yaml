@@ -1,0 +1,44 @@
+dependent_variables:
+- header: {name: (1/(2*PI*PT(P=3)))*D2(N(P=3))/DYRAP(P=3)/DPT(P=3), units: GEV**-2}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 60.0-92.0}
+  - {name: RE, value: AU AU --> BOTTOM < E- X > BOTTOMBAR < E+ X > X}
+  - {name: RE, value: AU AU --> CHARM < E+ X > CHARMBAR < E- X> X}
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  - {name: YRAP, value: -0.35-0.35}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0044116}
+    - asymerror: {minus: -0.0032462, plus: 0.0030686}
+      label: sys
+    value: 0.0062483
+  - errors:
+    - {label: stat, symerror: 0.0012876}
+    - asymerror: {minus: -0.00075697, plus: 0.0007172}
+      label: sys
+    value: 0.0019156
+  - errors:
+    - {label: stat, symerror: 0.00026902}
+    - asymerror: {minus: -7.286e-05, plus: 6.9811e-05}
+      label: sys
+    value: 0.00030672
+  - errors:
+    - {label: stat, symerror: 7.6627e-05}
+    - asymerror: {minus: -2.4331e-05, plus: 2.34e-05}
+      label: sys
+    value: 0.00011195
+  - {value: <1.64E-5}
+  - errors:
+    - {label: stat, symerror: 4.5662e-06}
+    - asymerror: {minus: -1.2212e-06, plus: 1.1877e-06}
+      label: sys
+    value: 7.1337e-06
+independent_variables:
+- header: {name: PT, units: GEV**}
+  values:
+  - {value: 0.347}
+  - {value: 0.484}
+  - {value: 0.74}
+  - {value: 1.149}
+  - {value: 1.611}
+  - {value: 2.32}

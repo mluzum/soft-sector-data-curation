@@ -1,0 +1,46 @@
+dependent_variables:
+- header: {name: CONST(Q=1)}
+  qualifiers:
+  - {name: EKIN/A(P=1), units: GeV, value: '1.0'}
+  - {name: RE, value: AU AU --> N X}
+  - {name: 'YRAP(C=''Ycm'')-YRAP(P=3,RF=LAB)', value: 0.04 TO O.45}
+  values:
+  - {value: -0.31}
+  - {value: -0.32}
+  - {value: -0.3}
+  - {value: -0.29}
+  - {value: -0.23}
+  - {value: -0.13}
+- header: {name: CONST(Q=2)}
+  qualifiers:
+  - {name: EKIN/A(P=1), units: GeV, value: '1.0'}
+  - {name: RE, value: AU AU --> N X}
+  - {name: 'YRAP(C=''Ycm'')-YRAP(P=3,RF=LAB)', value: 0.04 TO O.45}
+  values:
+  - {value: -0.05}
+  - {value: -0.05}
+  - {value: -0.07}
+  - {value: -0.09}
+  - {value: -0.1}
+  - {value: -0.13}
+- header: {name: (1-CONST(Q=2))/(1+CONST(Q=2))}
+  qualifiers:
+  - {name: EKIN/A(P=1), units: GeV, value: '1.0'}
+  - {name: RE, value: AU AU --> N X}
+  - {name: 'YRAP(C=''Ycm'')-YRAP(P=3,RF=LAB)', value: 0.04 TO O.45}
+  values:
+  - {value: 1.1}
+  - {value: 1.1}
+  - {value: 1.14}
+  - {value: 1.19}
+  - {value: 1.23}
+  - {value: 1.3}
+independent_variables:
+- header: {name: 'P(P=3,RF=LAB)/E(P=3,RF=LAB)'}
+  values:
+  - {high: 0.53, low: 0.49}
+  - {high: 0.58, low: 0.53}
+  - {high: 0.63, low: 0.58}
+  - {high: 0.69, low: 0.63}
+  - {high: 0.78, low: 0.69}
+  - {high: 0.88, low: 0.78}

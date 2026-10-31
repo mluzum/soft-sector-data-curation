@@ -1,0 +1,18 @@
+dependent_variables:
+- header: {name: SLOPE, units: GEV**-2}
+  qualifiers:
+  - {name: -T, units: GEV**2, value: 0.02 TO 0.2}
+  - {name: RE, value: K+ P --> K+ P}
+  - {name: SQRT(S), units: GeV, value: 4.545-5.235}
+  values:
+  - errors:
+    - {symerror: 0.06}
+    value: 5.49
+  - errors:
+    - {symerror: 0.04}
+    value: 5.94
+independent_variables:
+- header: {name: P, units: GEV}
+  values:
+  - {value: 10.4}
+  - {value: 14.0}

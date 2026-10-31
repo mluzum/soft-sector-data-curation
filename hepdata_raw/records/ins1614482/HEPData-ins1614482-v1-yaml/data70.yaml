@@ -1,0 +1,38 @@
+dependent_variables:
+- header: {name: <COS(phi_alpha - phi_beta) (OS-SS)}
+  qualifiers:
+  - {name: RE, value: PB PB ---> H X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020'}
+  - {name: ETA, value: -2.4 TO 2.4}
+  - {name: Averaged over |DeltaEta|, value: 0 to 1.6}
+  - {name: Pt, value: 0.3 to 3.0 GEV}
+  values:
+  - errors:
+    - {label: stat, symerror: 9.0e-07}
+    - {label: sys, symerror: 8.3e-05}
+    value: 0.0013
+  - errors:
+    - {label: stat, symerror: 6.9e-07}
+    - {label: sys, symerror: 8.3e-05}
+    value: 0.0011
+  - errors:
+    - {label: stat, symerror: 5.4e-07}
+    - {label: sys, symerror: 8.3e-05}
+    value: 0.00089
+  - errors:
+    - {label: stat, symerror: 4.4e-07}
+    - {label: sys, symerror: 8.3e-05}
+    value: 0.00073
+independent_variables:
+- header: {name: Centrality}
+  values:
+  - {high: 50.0, low: 45.0}
+  - {high: 45.0, low: 40.0}
+  - {high: 40.0, low: 35.0}
+  - {high: 35.0, low: 30.0}
+- header: {name: Average multiplicity}
+  values:
+  - {value: 624.8}
+  - {value: 810.5}
+  - {value: 1025.0}
+  - {value: 1256.0}

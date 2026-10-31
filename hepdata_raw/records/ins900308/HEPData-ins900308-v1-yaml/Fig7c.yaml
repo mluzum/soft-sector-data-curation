@@ -1,0 +1,62 @@
+dependent_variables:
+- header: {name: '$p_T$ ($\mathrm{GeV}$/$c$) ($\mathrm{actual}$ $\mathrm{values}$)'}
+  qualifiers:
+  - {name: Collision, value: ' '}
+  - {name: Decay Channel, value: ' '}
+  values:
+  - {value: 2.5}
+  - {value: 3.5}
+  - {value: 4.5}
+  - {value: 5.5}
+  - {value: 6.5}
+  - {value: 7.5}
+  - {value: 9.0}
+  - {value: 11.0}
+- header: {name: Ratio}
+  qualifiers:
+  - {name: Collision, value: $p$+$p$}
+  - {name: Decay Channel, value: $\pi^0 \gamma$}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.06}
+    - {label: sys., symerror: 0.15}
+    value: 0.76
+  - errors:
+    - {label: stat., symerror: 0.04}
+    - {label: sys., symerror: 0.16}
+    value: 0.9
+  - errors:
+    - {label: stat., symerror: 0.06}
+    - {label: sys., symerror: 0.12}
+    value: 0.69
+  - errors:
+    - {label: stat., symerror: 0.12}
+    - {label: sys., symerror: 0.12}
+    value: 0.76
+  - errors:
+    - {label: stat., symerror: 0.11}
+    - {label: sys., symerror: 0.16}
+    value: 0.86
+  - errors:
+    - {label: stat., symerror: 0.16}
+    - {label: sys., symerror: 0.12}
+    value: 0.64
+  - errors:
+    - {label: stat., symerror: 0.23}
+    - {label: sys., symerror: 0.16}
+    value: 0.72
+  - errors:
+    - {label: stat., symerror: 0.3}
+    - {label: sys., symerror: 0.22}
+    value: 0.92
+independent_variables:
+- header: {name: '$p_T$ ($\mathrm{GeV}$/$c$)'}
+  values:
+  - {high: 3.0, low: 2.0}
+  - {high: 4.0, low: 3.0}
+  - {high: 5.0, low: 4.0}
+  - {high: 6.0, low: 5.0}
+  - {high: 7.0, low: 6.0}
+  - {high: 8.0, low: 7.0}
+  - {high: 10.0, low: 8.0}
+  - {high: 12.0, low: 10.0}

@@ -1,0 +1,33 @@
+dependent_variables:
+- header: {name: '$\frac{{\rm d}\sigma_{\rm PbPb}}{{\rm d}y} (mb)$'}
+  qualifiers:
+  - {name: RE, value: PB PB}
+  - {name: SQRT(S), units: TeV, value: '5.02'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.021}
+    - {label: uncorr sys, symerror: 0.003}
+    - {label: corr sys, symerror: 0.018}
+    - asymerror: {minus: -0.009, plus: 0.009}
+      label: migr
+    value: 0.242
+  - errors:
+    - {label: stat, symerror: 0.01}
+    - {label: uncorr sys, symerror: 0.002}
+    - {label: corr sys, symerror: 0.013}
+    - asymerror: {minus: -0.006, plus: 0.006}
+      label: migr
+    value: 0.172
+  - errors:
+    - {label: stat, symerror: 0.009}
+    - {label: uncorr sys, symerror: 0.001}
+    - {label: corr sys, symerror: 0.008}
+    - asymerror: {minus: -0.003, plus: 0.003}
+      label: migr
+    value: 0.101
+independent_variables:
+- header: {name: $y$}
+  values:
+  - {high: 3.0, low: 2.5, value: 2.75}
+  - {high: 3.5, low: 3.0, value: 3.25}
+  - {high: 4.0, low: 3.5, value: 3.75}

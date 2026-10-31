@@ -1,0 +1,96 @@
+---
+observable_type: heavy_flavor
+inspire_id: '2165947'
+version: 1
+hepdata_file: Fig1_top.yaml
+hepdata_table_label: Ratio of the $\psi$(2S) over J/$\psi$ cross sections, not corrected for the branching ratio, shown as
+  a function of centrality
+qualifiers:
+  .: mu+mu- decay mode
+  npart: 0.0 TO 400.0
+  re: PB PB --> PSI(2S) - > X
+  sqrt(s)/nucleon: '5020.0'
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> PSI(2S) - > X
+centrality:
+  classes: []
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: Sigma
+  particle: psi(2s)
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+    bins:
+    - -0.8
+    - 0.8
+  pT:
+    min: 0.15
+    max: 50
+    bins:
+    - 0.15
+    - 50
+observable: psi(2s)_invariant_yield
+value_type: invariant_yield
+particle: psi(2s)
+---
+observable_type: heavy_flavor
+inspire_id: '2165947'
+version: 1
+hepdata_file: FigC1_top.yaml
+hepdata_table_label: Ratio of the $\psi$(2S) over J/$\psi$ cross sections, not corrected for the branching ratio, shown as
+  a function of transverse momentum
+qualifiers:
+  .: mu+mu- decay mode
+  centrality: 0.00 TO 90.00
+  pt: 0.0 TO 12.00
+  re: PB PB --> PSI(2S) - > X
+  sqrt(s)/nucleon: '5020.0'
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> PSI(2S) - > X
+centrality:
+  classes:
+  - 0.0-90.0%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: Sigma
+  particle: psi(2s)
+kinematic_range:
+  pT:
+    min: 0.0
+    max: 12.0
+    bins:
+    - 0.0
+    - 2.0
+    - 4.0
+    - 6.0
+    - 12.0
+  eta:
+    min: -0.8
+    max: 0.8
+    bins:
+    - -0.8
+    - 0.8
+observable: psi(2s)_invariant_yield
+value_type: invariant_yield
+particle: psi(2s)

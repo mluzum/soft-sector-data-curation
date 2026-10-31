@@ -1,0 +1,585 @@
+---
+observable_type: electromagnetic_probes
+inspire_id: '1126017'
+version: 1
+hepdata_file: ppg140fig1a.yaml
+hepdata_table_label: 'Direct photon fraction. The direct-photon fractions from the virtual-photon analysis as a function of
+  $p_{T}$ in $p+p$ (MB) [1] collisions. The values in the table are equal to this mean value. The statistical and systematic
+  uncertainties are shown by the bars and bands, respectively. The curves show expectations from a NLO pQCD calculation [17,
+  18] with different cutoff mass scales: (solid) $\mu$ = 0.5 $p_{T}$ , (dash) $\mu$ = 1.0 $p_{T}$ , and (dash-dot) $\mu$ =
+  2.0 $p_{T}$.'
+qualifiers:
+  particle: $p+p$ (RUN5 & RUN6 combined)
+collision_system:
+  energy_gev: 200.0
+  reaction: Au + Au\implies CHARGED X
+centrality:
+  classes:
+  - 1.1-1.3%
+  - 1.3-1.6%
+  - 1.6-1.8%
+  - 1.8-2.1%
+  - 2.1-2.3%
+  - 2.3-2.6%
+  - 2.6-2.8%
+  - 2.8-3.2%
+  - 3.2-3.4%
+  - 3.4-4.3%
+  - 4.3-4.5%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: photon
+kinematic_range:
+  eta:
+    min: -0.35
+    max: 0.35
+  pT:
+    min: 0.2
+    max: 20
+    bins:
+    - 0.2
+    - 20
+observable: direct_photon_spectra
+value_type: direct_photon_yield
+probe: direct_photon
+---
+observable_type: electromagnetic_probes
+inspire_id: '1126017'
+version: 1
+hepdata_file: ppg140fig1b.yaml
+hepdata_table_label: 'Direct photon fraction. The direct-photon fractions from the virtual-photon analysis as a function of
+  $p_{T}$ in $d$+Au (MB) [1] collisions. The values in the table are equal to this mean value. The statistical and systematic
+  uncertainties are shown by the bars and bands, respectively. The curves show expectations from a NLO pQCD calculation [17,
+  18] with different cutoff mass scales: (solid) $\mu$ = 0.5 $p_{T}$ , (dash) $\mu$ = 1.0 $p_{T}$ , and (dash-dot) $\mu$ =
+  2.0 $p_{T}$.'
+qualifiers:
+  particle: $d$+Au
+collision_system:
+  energy_gev: 200.0
+  reaction: Au + Au\implies CHARGED X
+centrality:
+  classes:
+  - 1.1-1.3%
+  - 1.3-1.6%
+  - 1.6-1.8%
+  - 1.8-2.1%
+  - 2.1-2.3%
+  - 2.3-2.6%
+  - 2.6-2.8%
+  - 2.8-3.1%
+  - 3.1-3.3%
+  - 3.3-3.6%
+  - 3.6-3.8%
+  - 3.8-4.1%
+  - 4.1-4.3%
+  - 4.3-4.6%
+  - 4.6-4.8%
+  - 4.8-5.3%
+  - 5.3-5.5%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: photon
+kinematic_range:
+  eta:
+    min: -0.35
+    max: 0.35
+  pT:
+    min: 0.2
+    max: 20
+    bins:
+    - 0.2
+    - 20
+observable: direct_photon_spectra
+value_type: direct_photon_yield
+probe: direct_photon
+---
+observable_type: electromagnetic_probes
+inspire_id: '1126017'
+version: 1
+hepdata_file: ppg140fig2a.yaml
+hepdata_table_label: Direct photon cross section. (a) The invariant cross sections of the direct photon in $p+p$ [3, 4] and
+  $d$+Au collisions. The $p+p$ fit result with the empirical parameterization described in the text is shown as well as NLO
+  pQCD calculations, and the scaled $p+p$ fit is compared with the $d$+Au data. The closed and open symbols show the results
+  from the virtual photon and $\pi_{0}$-tagging methods, respectively. The asterisk symbols show the result from the statistical
+  subtraction method for $d$+Au data, overlapping with the virtual photon result in 3 < $p_{T}$ < 5 GeV/c. The values in the
+  table are equal to this mean value. The bars and bands represent the point-to-point (ptp.) and $p_{T}$-correlated (cor.)
+  uncertainties, respectively. (b) The $p+p$ data over the fit. The uncertainties of the fit due to both point-to-point (ptp.)
+  and pT -correlated uncertainties of the data are summed quadratically, and the sum is shown as dotted lines. The NLO pQCD
+  calculations divided by the fit are also shown.
+qualifiers:
+  particle: $p+p$ (virtual photon)
+collision_system:
+  energy_gev: 200.0
+  reaction: Au + Au\implies CHARGED X
+centrality:
+  classes:
+  - 1.17-1.19%
+  - 1.19-1.68%
+  - 1.68-1.7%
+  - 1.7-2.19%
+  - 2.19-2.21%
+  - 2.21-2.69%
+  - 2.69-2.71%
+  - 2.71-3.34%
+  - 3.34-3.36%
+  - 3.36-4.36%
+  - 4.36-4.38%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: Sigma
+kinematic_range:
+  eta:
+    min: -0.35
+    max: 0.35
+  pT:
+    min: 0.2
+    max: 20
+    bins:
+    - 0.2
+    - 20
+observable: direct_photon_spectra
+value_type: direct_photon_yield
+probe: direct_photon
+---
+observable_type: electromagnetic_probes
+inspire_id: '1126017'
+version: 1
+hepdata_file: ppg140fig2b.yaml
+hepdata_table_label: Direct photon cross section. (a) The invariant cross sections of the direct photon in $p+p$ [3, 4] and
+  $d$+Au collisions. The $p+p$ fit result with the empirical parameterization described in the text is shown as well as NLO
+  pQCD calculations, and the scaled $p+p$ fit is compared with the $d$+Au data. The closed and open symbols show the results
+  from the virtual photon and $\pi_{0}$-tagging methods, respectively. The asterisk symbols show the result from the statistical
+  subtraction method for $d$+Au data, overlapping with the virtual photon result in 3 < $p_{T}$ < 5 GeV/c. The values in the
+  table are equal to this mean value. The bars and bands represent the point-to-point (ptp.) and $p_{T}$-correlated (cor.)
+  uncertainties, respectively. (b) The $p+p$ data over the fit. The uncertainties of the fit due to both point-to-point (ptp.)
+  and pT -correlated uncertainties of the data are summed quadratically, and the sum is shown as dotted lines. The NLO pQCD
+  calculations divided by the fit are also shown.
+qualifiers:
+  particle: $p+p$ (real photon)
+collision_system:
+  energy_gev: 200.0
+  reaction: Au + Au\implies CHARGED X
+centrality:
+  classes:
+  - 4-4.5%
+  - 4.5-5%
+  - 5-5.5%
+  - 5.5-6%
+  - 6-6.5%
+  - 6.5-7%
+  - 7-7.5%
+  - 7.5-8%
+  - 8-8.5%
+  - 8.5-9%
+  - 9-9.5%
+  - 9.5-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: Sigma
+kinematic_range:
+  eta:
+    min: -0.35
+    max: 0.35
+  pT:
+    min: 0.2
+    max: 20
+    bins:
+    - 0.2
+    - 20
+observable: direct_photon_spectra
+value_type: direct_photon_yield
+probe: direct_photon
+---
+observable_type: electromagnetic_probes
+inspire_id: '1126017'
+version: 1
+hepdata_file: ppg140fig2c.yaml
+hepdata_table_label: Direct photon cross section. (a) The invariant cross sections of the direct photon in $p+p$ [3, 4] and
+  $d$+Au collisions. The $p+p$ fit result with the empirical parameterization described in the text is shown as well as NLO
+  pQCD calculations, and the scaled $p+p$ fit is compared with the $d$+Au data. The closed and open symbols show the results
+  from the virtual photon and $\pi_{0}$-tagging methods, respectively. The asterisk symbols show the result from the statistical
+  subtraction method for $d$+Au data, overlapping with the virtual photon result in 3 < $p_{T}$ < 5 GeV/c. The values in the
+  table are equal to this mean value. The bars and bands represent the point-to-point (ptp.) and $p_{T}$-correlated (cor.)
+  uncertainties, respectively. (b) The $p+p$ data over the fit. The uncertainties of the fit due to both point-to-point (ptp.)
+  and pT -correlated uncertainties of the data are summed quadratically, and the sum is shown as dotted lines. The NLO pQCD
+  calculations divided by the fit are also shown.
+qualifiers:
+  particle: $d$+Au (virtual photon)
+collision_system:
+  energy_gev: 200.0
+  reaction: Au + Au\implies CHARGED X
+centrality:
+  classes:
+  - 1.18-1.2%
+  - 1.2-1.68%
+  - 1.68-1.7%
+  - 1.7-2.19%
+  - 2.19-2.21%
+  - 2.21-2.69%
+  - 2.69-2.71%
+  - 2.71-3.2%
+  - 3.2-3.22%
+  - 3.22-3.7%
+  - 3.7-3.72%
+  - 3.72-4.21%
+  - 4.21-4.23%
+  - 4.23-4.71%
+  - 4.71-4.73%
+  - 4.73-5.38%
+  - 5.38-5.4%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: Sigma
+kinematic_range:
+  eta:
+    min: -0.35
+    max: 0.35
+  pT:
+    min: 0.2
+    max: 20
+    bins:
+    - 0.2
+    - 20
+observable: direct_photon_spectra
+value_type: direct_photon_yield
+probe: direct_photon
+---
+observable_type: electromagnetic_probes
+inspire_id: '1126017'
+version: 1
+hepdata_file: ppg140fig2d.yaml
+hepdata_table_label: (a) The invariant cross sections of the direct photon in $p+p$ [3, 4] and $d$+Au collisions. The $p+p$
+  fit result with the empirical parameterization described in the text is shown as well as NLO pQCD calculations, and the
+  scaled $p+p$ fit is compared with the $d$+Au data. The closed and open symbols show the results from the virtual photon
+  and $\pi_{0}$-tagging methods, respectively. The asterisk symbols show the result from the statistical subtraction method
+  for $d$+Au data, overlapping with the virtual photon result in 3 < $p_{T}$ < 5 GeV/c. The values in the table are equal
+  to this mean value. The bars and bands represent the point-to-point (ptp.) and $p_{T}$-correlated (cor.) uncertainties,
+  respectively. (b) The $p+p$ data over the fit. The uncertainties of the fit due to both point-to-point (ptp.) and pT -correlated
+  uncertainties of the data are summed quadratically, and the sum is shown as dotted lines. The NLO pQCD calculations divided
+  by the fit are also shown.
+qualifiers:
+  particle: $d$+Au (real photon)
+collision_system:
+  energy_gev: 200.0
+  reaction: Au + Au\implies CHARGED X
+centrality:
+  classes:
+  - 5-5.5%
+  - 5.5-6%
+  - 6-6.5%
+  - 6.5-7%
+  - 7-7.5%
+  - 7.5-8%
+  - 8-8.5%
+  - 8.5-9%
+  - 9-9.25%
+  - 9.25-9.75%
+  - 9.75-10.25%
+  - 10.25-10.75%
+  - 10.75-11.25%
+  - 11.25-11.75%
+  - 11.75-12.25%
+  - 12.25-12.75%
+  - 12.75-13%
+  - 13-15%
+  - 15-17%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: Sigma
+kinematic_range:
+  eta:
+    min: -0.35
+    max: 0.35
+  pT:
+    min: 0.2
+    max: 20
+    bins:
+    - 0.2
+    - 20
+observable: direct_photon_spectra
+value_type: direct_photon_yield
+probe: direct_photon
+---
+observable_type: electromagnetic_probes
+inspire_id: '1126017'
+version: 1
+hepdata_file: ppg140fig3a.yaml
+hepdata_table_label: $R_{dA}$ ($d$+Au data/scaled $p+p$ fit). Nuclear modification factor for $d$+Au, $R_{dA}$, as a function
+  of $p_{T}$ . The closed and open symbols show the results from the virtual- and real-photon measurements, respectively.
+  The values in the table are equal to this mean value. The bars and bands represent the point-to-point (ptp.) and $p_{T}$-correlated
+  (cor.) uncertainties, respectively. The box on the right shows the uncertainty of $T_{dA}$ for $d$+Au. The curves indicate
+  the theoretical calculations [24] with different combinations of the CNM effects such as the Cronin enhancement, isospin
+  effect, nuclear shadowing and initial state energy loss.
+qualifiers:
+  particle: Virtual Photon
+collision_system:
+  energy_gev: 200.0
+  reaction: Au + Au\implies CHARGED X
+centrality:
+  classes:
+  - 1.18-1.2%
+  - 1.2-1.68%
+  - 1.68-1.7%
+  - 1.7-2.19%
+  - 2.19-2.21%
+  - 2.21-2.69%
+  - 2.69-2.71%
+  - 2.71-3.2%
+  - 3.2-3.22%
+  - 3.22-3.7%
+  - 3.7-3.72%
+  - 3.72-4.21%
+  - 4.21-4.23%
+  - 4.23-4.71%
+  - 4.71-4.73%
+  - 4.73-5.38%
+  - 5.38-5.4%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: photon
+kinematic_range:
+  eta:
+    min: -0.35
+    max: 0.35
+  pT:
+    min: 0.2
+    max: 20
+    bins:
+    - 0.2
+    - 20
+observable: direct_photon_spectra
+value_type: direct_photon_yield
+probe: direct_photon
+---
+observable_type: electromagnetic_probes
+inspire_id: '1126017'
+version: 1
+hepdata_file: ppg140fig3b.yaml
+hepdata_table_label: $R_{dA}$ ($d$+Au data/scaled $p+p$ fit). Nuclear modification factor for $d$+Au, $R_{dA}$, as a function
+  of $p_{T}$ . The closed and open symbols show the results from the virtual- and real-photon measurements, respectively.
+  The values in the table are equal to this mean value. The bars and bands represent the point-to-point (ptp.) and $p_{T}$-correlated
+  (cor.) uncertainties, respectively. The box on the right shows the uncertainty of $T_{dA}$ for $d$+Au. The curves indicate
+  the theoretical calculations [24] with different combinations of the CNM effects such as the Cronin enhancement, isospin
+  effect, nuclear shadowing and initial state energy loss.
+qualifiers:
+  particle: Real Photon
+collision_system:
+  energy_gev: 200.0
+  reaction: Au + Au\implies CHARGED X
+centrality:
+  classes:
+  - 5-5.5%
+  - 5.5-6%
+  - 6-6.5%
+  - 6.5-7%
+  - 7-7.5%
+  - 7.5-8%
+  - 8-8.5%
+  - 8.5-9%
+  - 9-9.25%
+  - 9.25-9.75%
+  - 9.75-10.25%
+  - 10.25-10.75%
+  - 10.75-11.25%
+  - 11.25-11.75%
+  - 11.75-12.25%
+  - 12.25-12.75%
+  - 12.75-13%
+  - 13-15%
+  - 15-17%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: photon
+kinematic_range:
+  eta:
+    min: -0.35
+    max: 0.35
+  pT:
+    min: 0.2
+    max: 20
+    bins:
+    - 0.2
+    - 20
+observable: direct_photon_spectra
+value_type: direct_photon_yield
+probe: direct_photon
+---
+observable_type: electromagnetic_probes
+inspire_id: '1126017'
+version: 1
+hepdata_file: ppg140fig4a.yaml
+hepdata_table_label: $R_{AA}$ (Au+Au MB data/scaled $p+p$ fit). Nuclear modification factors for Au+Au (MB) and $d$+Au as
+  a function of $p_{T}$ . The triangle symbols show results from the (closed) virtual [1] and (open) real photon [5] measurements,
+  respectively. The values in the table are equal to this mean value. The bars and bands represent the point-to-point (ptp.)
+  and $p_{T}$-correlated (cor.) uncertainties, respectively. The (+) symbols for $R_{dA}$ for $p_{T}$ < 5 GeV/$c$ illustrates
+  the difference in magnitude for $R_{AA}$ between Au+Au and $d$+Au collisions.
+qualifiers:
+  particle: Virtual Photon
+collision_system:
+  energy_gev: 200.0
+  reaction: Au + Au\implies CHARGED X
+centrality:
+  classes:
+  - 1.17-1.19%
+  - 1.19-1.68%
+  - 1.68-1.7%
+  - 1.7-2.18%
+  - 2.18-2.2%
+  - 2.2-2.69%
+  - 2.69-2.71%
+  - 2.71-3.33%
+  - 3.33-3.35%
+  - 3.35-4.36%
+  - 4.36-4.38%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: photon
+kinematic_range:
+  eta:
+    min: -0.35
+    max: 0.35
+  pT:
+    min: 0.2
+    max: 20
+    bins:
+    - 0.2
+    - 20
+observable: direct_photon_spectra
+value_type: direct_photon_yield
+probe: direct_photon
+---
+observable_type: electromagnetic_probes
+inspire_id: '1126017'
+version: 1
+hepdata_file: ppg140fig4b.yaml
+hepdata_table_label: $R_{AA}$ (Au+Au MB data/scaled $p+p$ fit). Nuclear modification factors for Au+Au (MB) and $d$+Au as
+  a function of $p_{T}$ . The triangle symbols show results from the (closed) virtual [1] and (open) real photon [5] measurements,
+  respectively. The values in the table are equal to this mean value. The bars and bands represent the point-to-point (ptp.)
+  and $p_{T}$-correlated (cor.) uncertainties, respectively. The (+) symbols for $R_{dA}$ for $p_{T}$ < 5 GeV/$c$ illustrates
+  the difference in magnitude for $R_{AA}$ between Au+Au and $d$+Au collisions.
+qualifiers:
+  particle: Real Photon
+collision_system:
+  energy_gev: 200.0
+  reaction: Au + Au\implies CHARGED X
+centrality:
+  classes:
+  - 4-4.5%
+  - 4.5-5%
+  - 5-5.5%
+  - 5.5-6%
+  - 6-6.5%
+  - 6.5-7%
+  - 7-7.5%
+  - 7.5-8%
+  - 8-8.5%
+  - 8.5-9%
+  - 9-9.5%
+  - 9.5-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: photon
+kinematic_range:
+  eta:
+    min: -0.35
+    max: 0.35
+  pT:
+    min: 0.2
+    max: 20
+    bins:
+    - 0.2
+    - 20
+observable: direct_photon_spectra
+value_type: direct_photon_yield
+probe: direct_photon

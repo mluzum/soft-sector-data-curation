@@ -1,0 +1,87 @@
+---
+observable_type: strangeness
+inspire_id: '651461'
+version: 1
+hepdata_file: figure_1.yaml
+hepdata_table_label: Transverse mass distributions for $\phi$ meson from Au+Au (circles) and p+p (squares) collisions at 200
+  GeV. For clarity, some Au+Au distributions for different centralities are scaled by factors. The top 5% data are obtained
+  from the central trigger data set. All other distributions are obtained from the minimum-bias data set. Dashed lines represent
+  the exponential fits to the distributions and the dotted-dashed line is the result of a double-exponential fit to the distribution
+  from p+p collisions. Error bars are statistical errors only. (x500), (x30), etc. in plot refers to the scaling of data for
+  clearer visual results.
+qualifiers:
+  p_t$ (gev/c): pp NSD
+collision_system:
+  energy_gev: 200.0
+  reaction: pp -->
+centrality:
+  classes:
+  - 0-5%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: p
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+    bins:
+    - -1.0
+    - 1.0
+  pT:
+    min: 0.15
+    max: 10
+    bins:
+    - 0.15
+    - 10
+observable: p_spectra
+value_type: invariant_yield
+---
+observable_type: strangeness
+inspire_id: '651461'
+version: 1
+hepdata_file: table_1.yaml
+hepdata_table_label: 'Results of $\phi$ meson inverse slope parameter, $<p_T>$, and dN/dy from NSD p+p and Au+Au collisions
+  at RHIC. All values are for |y| < 0.5. Systematic uncertainties: for Au, 11% on both dN/dy and $<p_T>$. For p+p, 15% on
+  dN/dy and 5% on $<p_T>$.'
+qualifiers:
+  centrality (%): $<p_T> (GeV/c)$
+collision_system:
+  energy_gev: 200.0
+  reaction: pp -->
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-30%
+  - 30-50%
+  - 50-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: p
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+    bins:
+    - -1.0
+    - 1.0
+  pT:
+    min: 0.15
+    max: 10
+    bins:
+    - 0.15
+    - 10
+observable: p_spectra
+value_type: invariant_yield

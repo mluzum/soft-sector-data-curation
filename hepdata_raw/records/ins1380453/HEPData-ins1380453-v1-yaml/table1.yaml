@@ -1,0 +1,53 @@
+dependent_variables:
+- header: {name: DSIG/DPT, units: MB/GEV}
+  qualifiers:
+  - {name: ABS(YRAP), value: 2.5-4.0}
+  - {name: RE, value: P P --> PHI < MU+ MU- >}
+  - {name: SQRT(S), units: GEV, value: '2760'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.067}
+    - {label: 'sys, bin-to-bin uncorrelated', symerror: 0.043}
+    - {label: 'sys, bin-to-bin correlated', symerror: 3.9%}
+    value: 0.423
+  - errors:
+    - {label: stat, symerror: 0.025}
+    - {label: 'sys, bin-to-bin uncorrelated', symerror: 0.018}
+    - {label: 'sys, bin-to-bin correlated', symerror: 3.9%}
+    value: 0.182
+  - errors:
+    - {label: stat, symerror: 0.011}
+    - {label: 'sys, bin-to-bin uncorrelated', symerror: 0.007}
+    - {label: 'sys, bin-to-bin correlated', symerror: 3.9%}
+    value: 0.089
+  - errors:
+    - {label: stat, symerror: 0.0056}
+    - {label: 'sys, bin-to-bin uncorrelated', symerror: 0.002}
+    - {label: 'sys, bin-to-bin correlated', symerror: 3.9%}
+    value: 0.034
+  - errors:
+    - {label: stat, symerror: 0.0032}
+    - {label: 'sys, bin-to-bin uncorrelated', symerror: 0.0011}
+    - {label: 'sys, bin-to-bin correlated', symerror: 3.9%}
+    value: 0.0139
+  - errors:
+    - {label: stat, symerror: 0.0022}
+    - {label: 'sys, bin-to-bin uncorrelated', symerror: 0.0006}
+    - {label: 'sys, bin-to-bin correlated', symerror: 3.9%}
+    value: 0.0087
+  - errors:
+    - {label: stat, symerror: 0.0012}
+    - {label: 'sys, bin-to-bin uncorrelated', symerror: 0.0002}
+    - {label: 'sys, bin-to-bin correlated', symerror: 3.9%}
+    value: 0.0028
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {high: 1.5, low: 1.0}
+  - {high: 2.0, low: 1.5}
+  - {high: 2.5, low: 2.0}
+  - {high: 3.0, low: 2.5}
+  - {high: 3.5, low: 3.0}
+  - {high: 4.0, low: 3.5}
+  - {high: 5.0, low: 4.0}
+name: table1.yaml

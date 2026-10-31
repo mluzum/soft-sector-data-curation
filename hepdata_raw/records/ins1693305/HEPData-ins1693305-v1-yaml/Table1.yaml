@@ -1,0 +1,91 @@
+dependent_variables:
+- header: {name: D(SIG)/DYRAP, units: MUB}
+  qualifiers:
+  - {name: RE, value: P PB --> P PB J/PSI < MU+ MU- >}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 1.4}
+    - {label: sys, symerror: 0.6}
+    value: 6.9
+  - errors:
+    - {label: stat, symerror: 1.5}
+    - {label: sys, symerror: 0.6}
+    value: 8.7
+  - errors:
+    - {label: stat, symerror: 0.8}
+    - {label: sys, symerror: 1.2}
+    value: 10.6
+  - errors:
+    - {label: stat, symerror: 0.8}
+    - {label: sys, symerror: 1.1}
+    value: 10.0
+  - errors:
+    - {label: stat, symerror: 1.0}
+    - {label: sys, symerror: 0.5}
+    value: 7.1
+- header: {name: K*(DN/DK)}
+  qualifiers:
+  - {name: RE, value: P PB --> P PB J/PSI < MU+ MU- >}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: sys, symerror: 1.5}
+    value: 163.6
+  - errors:
+    - {label: sys, symerror: 1.5}
+    value: 140.2
+  - errors:
+    - {label: sys, symerror: 1.5}
+    value: 104.3
+  - errors:
+    - {label: sys, symerror: 1.5}
+    value: 79.4
+  - errors:
+    - {label: sys, symerror: 1.4}
+    value: 36.5
+- header: {name: SIG(GAMMA P), units: NB}
+  qualifiers:
+  - {name: RE, value: P PB --> P PB J/PSI < MU+ MU- >}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 9}
+    - {label: 'sys,syst', symerror: 4}
+    - {label: 'sys,theo', symerror: 1}
+    value: 42
+  - errors:
+    - {label: stat, symerror: 11}
+    - {label: 'sys,syst', symerror: 4}
+    - {label: 'sys,theo', symerror: 1}
+    value: 62
+  - errors:
+    - {label: stat, symerror: 8}
+    - {label: 'sys,syst', symerror: 11}
+    - {label: 'sys,theo', symerror: 1}
+    value: 101
+  - errors:
+    - {label: stat, symerror: 10}
+    - {label: 'sys,syst', symerror: 14}
+    - {label: 'sys,theo', symerror: 2}
+    value: 126
+  - errors:
+    - {label: stat, symerror: 27}
+    - {label: 'sys,syst', symerror: 15}
+    - {label: 'sys,theo', symerror: 7}
+    value: 194
+independent_variables:
+- header: {name: YRAP}
+  values:
+  - {high: 2.7, low: 1.9}
+  - {high: 1.9, low: 1.2}
+  - {high: 0.8, low: 0.0}
+  - {high: 0.0, low: -0.8}
+  - {high: -1.2, low: -2.5}
+- header: {name: W(GAMMA P), units: GEV}
+  values:
+  - {high: 60.9, low: 40.8, value: 50.4}
+  - {high: 86.4, low: 60.9, value: 73.1}
+  - {high: 157.4, low: 105.5, value: 129.9}
+  - {high: 234.9, low: 157.4, value: 193.3}
+  - {high: 549.5, low: 286.9, value: 391.2}

@@ -1,0 +1,57 @@
+dependent_variables:
+- header: {name: 1/N(Z) * DN(TRKZ))/DDELTA(PHI_TRKZ) PBPB}
+  qualifiers:
+  - {name: RE, value: PB PB --> Z JET}
+  - {name: SQRT(s)/NUCLEON, units: GEV, value: '5020'}
+  - {name: CENTRALITY, value: 70 - 90%}
+  - {name: PT(Z), units: GEV/C, value: '> 30'}
+  - {name: PT(TRK), units: GEV/C, value: '> 1'}
+  values:
+  - errors:
+    - {label: stat, symerror: 1.02}
+    - {label: sys, symerror: 0.25}
+    value: 3.32
+  - errors:
+    - {label: stat, symerror: 1.16}
+    - {label: sys, symerror: 0.25}
+    value: 3.4
+  - errors:
+    - {label: stat, symerror: 0.94}
+    - {label: sys, symerror: 0.16}
+    value: 2.14
+  - errors:
+    - {label: stat, symerror: 1.67}
+    - {label: sys, symerror: 0.29}
+    value: 3.89
+  - errors:
+    - {label: stat, symerror: 0.75}
+    - {label: sys, symerror: 0.25}
+    value: 3.53
+  - errors:
+    - {label: stat, symerror: 1.94}
+    - {label: sys, symerror: 0.28}
+    value: 4.16
+  - errors:
+    - {label: stat, symerror: 1.88}
+    - {label: sys, symerror: 0.42}
+    value: 6.8
+  - errors:
+    - {label: stat, symerror: 2.8}
+    - {label: sys, symerror: 0.93}
+    value: 15.98
+  - errors:
+    - {label: stat, symerror: 4.4}
+    - {label: sys, symerror: 1.0}
+    value: 18.1
+independent_variables:
+- header: {name: DELTA(PHI_TRKZ)}
+  values:
+  - {high: 0.47, low: 0.0}
+  - {high: 0.94, low: 0.47}
+  - {high: 1.41, low: 0.94}
+  - {high: 1.88, low: 1.41}
+  - {high: 2.2, low: 1.88}
+  - {high: 2.51, low: 2.2}
+  - {high: 2.83, low: 2.51}
+  - {high: 2.98, low: 2.83}
+  - {high: 3.14, low: 2.98}

@@ -1,0 +1,90 @@
+---
+observable_type: heavy_flavor
+inspire_id: '1733223'
+version: 1
+hepdata_file: Table2.yaml
+hepdata_table_label: 'Differential production cross sections for $\textrm{pPb} \to W^{+} + X \to \mu^{+} \nu + X$ for positively
+  charged muons of $p_T$ larger than 25 GeV$/c$, in nanobarns, as a function of the muon pseudorapidity in the centre-of-mass
+  frame. The global normalisation uncertainty of 3.5% is listed separately.
+
+  '
+qualifiers:
+  pt(mu+): '> 25.0'
+  re: P PB --> W+ <MU+ NU> X
+  sqrt(s)/nucleon: '8160.0'
+collision_system:
+  energy_gev: 8160.0
+  reaction: P PB --> W+ <MU+ NU> X
+centrality:
+  classes:
+  - MB
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+  particle: ds
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: ds_invariant_yield
+value_type: invariant_yield
+particle: ds
+---
+observable_type: heavy_flavor
+inspire_id: '1733223'
+version: 1
+hepdata_file: Table3.yaml
+hepdata_table_label: 'Differential production cross sections for $\textrm{pPb} \to W^{-} + X \to \mu^{-} \bar{\nu} + X$ for
+  negatively charged muons of $p_T$ larger than 25 GeV$/c$, in nanobarns, as a function of the muon pseudorapidity in the
+  centre-of-mass frame. The global normalisation uncertainty of 3.5% is listed separately.
+
+  '
+qualifiers:
+  pt(mu-): '> 25.0'
+  re: P PB --> W- <MU- NU> X
+  sqrt(s)/nucleon: '8160.0'
+collision_system:
+  energy_gev: 8160.0
+  reaction: P PB --> W- <MU- NU> X
+centrality:
+  classes:
+  - MB
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+  particle: ds
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: ds_invariant_yield
+value_type: invariant_yield
+particle: ds

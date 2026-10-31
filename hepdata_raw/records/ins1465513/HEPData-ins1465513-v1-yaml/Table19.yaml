@@ -1,0 +1,55 @@
+dependent_variables:
+- header: {name: D2(SIG)/DPT/DYRAP, units: MUB/GEV}
+  qualifiers:
+  - {name: PT, value: 8.0 TO 16.0 GEV}
+  - {name: RE, value: P PB --> D*+ X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 6.24}
+    - {label: sys, symerror: 8.4}
+    - asymerror: {minus: -2.4, plus: 1.06}
+      label: sys
+    - {label: 'sys,uncertainty on branching ratio', symerror: 1.5%}
+    - {label: 'sys,uncertainty on integrated luminomisty', symerror: 3.7%}
+    value: 58.6
+  - errors:
+    - {label: stat, symerror: 6.03}
+    - {label: sys, symerror: 6.81}
+    - asymerror: {minus: -2.12, plus: 0.938}
+      label: sys
+    - {label: 'sys,uncertainty on branching ratio', symerror: 1.5%}
+    - {label: 'sys,uncertainty on integrated luminomisty', symerror: 3.7%}
+    value: 51.2
+  - errors:
+    - {label: stat, symerror: 7.38}
+    - {label: sys, symerror: 7.19}
+    - asymerror: {minus: -2.16, plus: 0.952}
+      label: sys
+    - {label: 'sys,uncertainty on branching ratio', symerror: 1.5%}
+    - {label: 'sys,uncertainty on integrated luminomisty', symerror: 3.7%}
+    value: 53.8
+  - errors:
+    - {label: stat, symerror: 6.47}
+    - {label: sys, symerror: 8.73}
+    - asymerror: {minus: -2.62, plus: 1.16}
+      label: sys
+    - {label: 'sys,uncertainty on branching ratio', symerror: 1.5%}
+    - {label: 'sys,uncertainty on integrated luminomisty', symerror: 3.7%}
+    value: 65.6
+  - errors:
+    - {label: stat, symerror: 6.51}
+    - {label: sys, symerror: 8.18}
+    - asymerror: {minus: -2.22, plus: 0.979}
+      label: sys
+    - {label: 'sys,uncertainty on branching ratio', symerror: 1.5%}
+    - {label: 'sys,uncertainty on integrated luminomisty', symerror: 3.7%}
+    value: 56.9
+independent_variables:
+- header: {name: YRAP}
+  values:
+  - {high: -0.865, low: -1.265}
+  - {high: -0.565, low: -0.865}
+  - {high: -0.365, low: -0.565}
+  - {high: -0.065, low: -0.365}
+  - {high: 0.335, low: -0.065}

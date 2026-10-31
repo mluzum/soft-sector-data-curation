@@ -1,0 +1,24 @@
+dependent_variables:
+- header: {name: 'Quadrupole Amplitude $A_{Q}$'}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.0022}
+    - asymerror: {minus: -0.0001, plus: 0.0004}
+      label: sys.
+    value: 0.0
+  - errors:
+    - {label: stat., symerror: 0.003}
+    - asymerror: {minus: -0.0003, plus: 0.0004}
+      label: sys.
+    value: 0.0066
+  - errors:
+    - {label: stat., symerror: 0.003}
+    - asymerror: {minus: -0.002, plus: 0.001}
+      label: sys.
+    value: 0.004
+independent_variables:
+- header: {name: Centrality, units: percent}
+  values:
+  - {high: 20, low: 0}
+  - {high: 50, low: 20}
+  - {high: 80, low: 50}

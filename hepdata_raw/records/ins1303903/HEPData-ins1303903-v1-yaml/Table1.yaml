@@ -1,0 +1,69 @@
+dependent_variables:
+- header: {name: D(SIG)/DYRAP, units: MUB}
+  qualifiers:
+  - {name: RE, value: P PB --> P PB J/PSI < MU+ MU- >}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.43}
+    - {label: sys, symerror: 0.6}
+    value: 6.42
+  - errors:
+    - {label: stat, symerror: 0.76}
+    - {label: sys, symerror: 0.57}
+    value: 5.77
+  - errors:
+    - {label: stat, symerror: 0.6}
+    - {label: sys, symerror: 0.54}
+    value: 6.71
+  - errors:
+    - {label: stat, symerror: 1.0}
+    - {label: sys, symerror: 0.74}
+    value: 6.83
+- header: {name: K*(DN/DK)}
+  qualifiers:
+  - {name: RE, value: P PB --> P PB J/PSI < MU+ MU- >}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  values:
+  - {value: 193.3}
+  - {value: 208.9}
+  - {value: 193.3}
+  - {value: 177.6}
+- header: {name: SIG(GAMMA P), units: NB}
+  qualifiers:
+  - {name: RE, value: P PB --> P PB J/PSI < MU+ MU- >}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 2.2}
+    - {label: 'sys,syst', symerror: 3.1}
+    - {label: 'sys,theo', symerror: 0.7}
+    value: 33.2
+  - errors:
+    - {label: stat, symerror: 3.6}
+    - {label: 'sys,syst', symerror: 2.7}
+    - {label: 'sys,theo', symerror: 0.6}
+    value: 27.6
+  - errors:
+    - {label: stat, symerror: 3.1}
+    - {label: 'sys,syst', symerror: 2.8}
+    - {label: 'sys,theo', symerror: 0.7}
+    value: 34.7
+  - errors:
+    - {label: stat, symerror: 5.6}
+    - {label: 'sys,syst', symerror: 4.1}
+    - {label: 'sys,theo', symerror: 0.8}
+    value: 38.5
+independent_variables:
+- header: {name: YRAP}
+  values:
+  - {high: 4.0, low: 2.5}
+  - {high: 4.0, low: 3.5}
+  - {high: 3.5, low: 3.0}
+  - {high: 3.0, low: 2.5}
+- header: {name: W(GAMMA P), units: GEV}
+  values:
+  - {high: 45.0, low: 21.0, value: 29.8}
+  - {high: 27.0, low: 21.0, value: 24.1}
+  - {high: 35.0, low: 27.0, value: 30.9}
+  - {high: 45.0, low: 35.0, value: 39.6}

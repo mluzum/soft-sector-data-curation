@@ -1,0 +1,26 @@
+dependent_variables:
+- header: {name: non-prompt J/$\psi$ R_AA}
+  qualifiers:
+  - {name: RE, value: PB PB --> J/$\psi$ <E+E-> + X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020.0'}
+  - {name: YRAP(CM), value: '[-0.9, 0.9]'}
+  - {name: CENTRALITY, value: 10 TO 30%}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.332536}
+    - {label: syst, symerror: 0.167303}
+    value: 0.837645
+  - errors:
+    - {label: stat, symerror: 0.133637}
+    - {label: syst, symerror: 0.101207}
+    value: 0.704047
+  - errors:
+    - {label: stat, symerror: 0.065808}
+    - {label: syst, symerror: 0.056151}
+    value: 0.389605
+independent_variables:
+- header: {name: '$p_{T}$ (GeV/c)'}
+  values:
+  - {high: 3.0, low: 1.5, value: 2.25}
+  - {high: 5.0, low: 3.0, value: 4.0}
+  - {high: 10.0, low: 5.0, value: 7.5}

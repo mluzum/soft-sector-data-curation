@@ -1,0 +1,30 @@
+dependent_variables:
+- header: {name: '$R_{pPb}$'}
+  qualifiers:
+  - {name: RAPIDITY, value: -0.96 < Y < 0.04}
+  values:
+  - errors:
+    - {label: Stat., symerror: 0.33}
+    - {label: Sys., symerror: 0.21}
+    value: 1.15
+  - errors:
+    - {label: Stat., symerror: 0.23}
+    - asymerror: {minus: -0.21, plus: 0.19}
+      label: Sys.
+    value: 1.18
+  - errors:
+    - {label: Stat., symerror: 0.4}
+    - asymerror: {minus: -0.34, plus: 0.29}
+      label: Sys.
+    value: 1.6
+  - errors:
+    - {label: Stat., symerror: 0.56}
+    - {label: Sys., symerror: 0.35}
+    value: 2.02
+independent_variables:
+- header: {name: '$p_\mathrm{T}$', units: GeV/$c$}
+  values:
+  - {high: 4.0, low: 2.0}
+  - {high: 6.0, low: 4.0}
+  - {high: 8.0, low: 6.0}
+  - {high: 12.0, low: 8.0}

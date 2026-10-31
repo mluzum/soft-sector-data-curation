@@ -1,0 +1,87 @@
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1452590'
+version: 1
+hepdata_file: Table2.yaml
+hepdata_table_label: 'Centrality dependence of normalized observables SC(4,2) and SC(3,2) in Pb-Pb collisions at 2.76 TeV.
+
+  '
+qualifiers:
+  etarap: -0.8-0.8
+  pt: 0.2-5.0
+  re: PB PB --> CHARGED X
+  sqrt(s)/nucleon: '2760.0'
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  pT:
+    min: 0.2
+    max: 5.0
+  eta:
+    min: 0.8
+    max: 0.8
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1452590'
+version: 1
+hepdata_file: Table4.yaml
+hepdata_table_label: 'Centrality dependence of normalized observables SC(4,2) and SC(3,2) in Pb-Pb collisions at 2.76 TeV,
+  in 0-10% most central collisions.
+
+  '
+qualifiers:
+  etarap: -0.8-0.8
+  pt: 0.2-5.0
+  re: PB PB --> CHARGED X
+  sqrt(s)/nucleon: '2760.0'
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  pT:
+    min: 0.2
+    max: 5.0
+  eta:
+    min: 0.8
+    max: 0.8
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all

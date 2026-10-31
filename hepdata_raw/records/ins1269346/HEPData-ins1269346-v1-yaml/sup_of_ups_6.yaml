@@ -1,0 +1,40 @@
+dependent_variables:
+- header: {name: '$R_{AA}$'}
+  qualifiers:
+  - {name: 'Binding Energy $(GeV/c^{2})$', value: '$\Upsilon$ (2S+3S), 95% limit,
+      0-60% Centrality'}
+  values:
+  - errors:
+    - asymerror: {minus: -0.05, plus: 0.04}
+      label: sys
+    value: 0.32
+  - {value: ''}
+  - {value: ''}
+- header: {name: '$R_{AA}$'}
+  qualifiers:
+  - {name: 'Binding Energy $(GeV/c^{2})$', value: 'J/$\Psi$, $p_{T}>5$ GeV/$c$, 0-10%
+      Centrality'}
+  values:
+  - {value: ''}
+  - errors:
+    - {label: stat, symerror: 0.14}
+    - {label: sys, symerror: 0.03}
+    value: 0.64
+  - {value: ''}
+- header: {name: '$R_{AA}$'}
+  qualifiers:
+  - {name: 'Binding Energy $(GeV/c^{2})$', value: '$\Upsilon$ (1S), 0-10% Centrality'}
+  values:
+  - {value: ''}
+  - {value: ''}
+  - errors:
+    - {label: stat, symerror: 0.14}
+    - asymerror: {minus: -0.1, plus: 0.09}
+      label: sys
+    value: 0.66
+independent_variables:
+- header: {name: 'Binding Energy $(GeV/c^{2})$'}
+  values:
+  - {high: 0.54, low: 0.2, value: 0.4}
+  - {value: 0.633}
+  - {value: 1.098}

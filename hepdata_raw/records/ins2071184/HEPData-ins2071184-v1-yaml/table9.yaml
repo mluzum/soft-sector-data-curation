@@ -1,0 +1,18 @@
+dependent_variables:
+- header: {name: W$^\pm$}
+  qualifiers:
+  - {name: reaction, value: Pb-Pb $\rightarrow$ W$^\pm$ + X $\rightarrow$ $\mu^\pm$
+      + X}
+  - {name: sqrt(s) per nucleon pair, value: 5020.0 GeV}
+  - {name: fiducial region, value: 2.5 < $y$ < 4 and $p_T$ > 10 GeV/$c$}
+  - {name: centrality, value: 0-90%}
+  - {name: observable, value: A$ch$}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.026}
+    - {label: syst, symerror: 0.03}
+    value: -0.453
+independent_variables:
+- header: {name: centrality}
+  values:
+  - {high: 90, low: 0}

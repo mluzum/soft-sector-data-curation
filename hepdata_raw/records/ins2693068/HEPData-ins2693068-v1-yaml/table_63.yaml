@@ -1,0 +1,25 @@
+dependent_variables:
+- header: {name: '$(1 / \langle T_{AB}\rangle )(1 / N^{ cent}_{evt})(d^{3}N^{ cent}_{dijet}/dp_{T,Avg}dy^{*}dy_{b})$',
+    units: mb/GeV}
+  values:
+  - errors:
+    - {label: stat, symerror: 4.037e-08}
+    - asymerror: {minus: -1.2204e-07, plus: 1.5213e-07}
+      label: syst
+    value: 1.0038e-06
+  - errors:
+    - {label: stat, symerror: 1.8095e-08}
+    - asymerror: {minus: -8.0028e-08, plus: 7.9821e-08}
+      label: syst
+    value: 6.5837e-07
+  - errors:
+    - {label: stat, symerror: 2.2324e-08}
+    - asymerror: {minus: -6.6228e-08, plus: 5.1828e-08}
+      label: syst
+    value: 5.0455e-07
+independent_variables:
+- header: {name: '$\langle y_{b}\rangle$'}
+  values:
+  - {value: -0.42376}
+  - {value: 0.49878}
+  - {value: 1.3333}

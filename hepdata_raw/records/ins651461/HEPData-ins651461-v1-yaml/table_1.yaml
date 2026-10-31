@@ -1,0 +1,94 @@
+dependent_variables:
+- header: {name: 'Inverse Slope Parameter, T (MeV)'}
+  qualifiers:
+  - {name: Centrality (%), value: T}
+  values:
+  - errors:
+    - {label: stat, symerror: 8}
+    - {label: sys, symerror: 0}
+    value: 363
+  - errors:
+    - {label: stat, symerror: 14}
+    - {label: sys, symerror: 0}
+    value: 357
+  - errors:
+    - {label: stat, symerror: 8}
+    - {label: sys, symerror: 0}
+    value: 353
+  - errors:
+    - {label: stat, symerror: 10}
+    - {label: sys, symerror: 0}
+    value: 383
+  - errors:
+    - {label: stat, symerror: 9}
+    - {label: sys, symerror: 0}
+    value: 344
+  - errors:
+    - {label: stat, symerror: '-'}
+    - {label: sys, symerror: '-'}
+    value: '-'
+- header: {name: $dN/dy$}
+  qualifiers:
+  - {name: Centrality (%), value: $dN/dy$}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.3}
+    - {label: sys, symerror: 0.85}
+    value: 7.7
+  - errors:
+    - {label: stat, symerror: 0.35}
+    - {label: sys, symerror: 0.73}
+    value: 6.65
+  - errors:
+    - {label: stat, symerror: 0.19}
+    - {label: sys, symerror: 0.42}
+    value: 3.82
+  - errors:
+    - {label: stat, symerror: 0.06}
+    - {label: sys, symerror: 0.19}
+    value: 1.72
+  - errors:
+    - {label: stat, symerror: 0.02}
+    - {label: sys, symerror: 0.05}
+    value: 0.48
+  - errors:
+    - {label: stat, symerror: 0.001}
+    - {label: sys, symerror: 0.003}
+    value: 0.018
+- header: {name: $<p_T>$}
+  qualifiers:
+  - {name: Centrality (%), value: $<p_T> (GeV/c)$}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.02}
+    - {label: sys, symerror: 0.11}
+    value: 0.97
+  - errors:
+    - {label: stat, symerror: 0.03}
+    - {label: sys, symerror: 0.1}
+    value: 0.95
+  - errors:
+    - {label: stat, symerror: 0.02}
+    - {label: sys, symerror: 0.11}
+    value: 0.97
+  - errors:
+    - {label: stat, symerror: 0.03}
+    - {label: sys, symerror: 0.11}
+    value: 1.02
+  - errors:
+    - {label: stat, symerror: 0.02}
+    - {label: sys, symerror: 0.1}
+    value: 0.94
+  - errors:
+    - {label: stat, symerror: 0.03}
+    - {label: sys, symerror: 0.04}
+    value: 0.82
+independent_variables:
+- header: {name: Centrality (%)}
+  values:
+  - {high: 5, low: 0, value: None}
+  - {high: 10, low: 0, value: None}
+  - {high: 30, low: 10, value: None}
+  - {high: 50, low: 30, value: None}
+  - {high: 80, low: 50, value: None}
+  - {high: 0, low: 0, value: ppNSD}

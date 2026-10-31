@@ -1,0 +1,21 @@
+dependent_variables:
+- header: {name: EP-Resolution}
+  qualifiers:
+  - {name: CENTRALITY, units: PCT, value: 20-50}
+  - {name: '$p_{T, track}$', units: GeV/c, value: 0.2-1.0}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.018}
+    value: 0.319
+  - errors:
+    - {label: stat, symerror: 0.021}
+    value: 0.284
+  - errors:
+    - {label: stat, symerror: 0.024}
+    value: 0.195
+independent_variables:
+- header: {name: CENTRALITY, units: PCT}
+  values:
+  - {high: 30.0, low: 20.0}
+  - {high: 40.0, low: 30.0}
+  - {high: 50.0, low: 40.0}

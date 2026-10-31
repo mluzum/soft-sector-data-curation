@@ -1,0 +1,92 @@
+additional_resources: []
+comment: "The total charm-quark production cross section per unit of rapidity $\\mathrm{d}\\sigma(\\mathrm{c\\bar{c}})/\\mathrm{d}y$,
+  and the fragmentation fractions of charm quarks to different charm-hadron species
+  $f(\\mathrm{c}\\rightarrow \\mathrm{h}_\\mathrm{c})$, are measured for the first
+  time in p-Pb collisions at $\\sqrt{s_\\mathrm{NN}}=5.02\\,$TeV at midrapidity ($-0.96<y<0.04$
+  in the centre-of-mass frame) using data collected by ALICE at the CERN LHC. The
+  results are obtained based on all the available measurements of prompt production
+  of ground-state charm-hadron species: $\\mathrm{D}^{0}$, $\\mathrm{D}^{+}$, $\\mathrm{D}_\\mathrm{s}^{+}$,
+  and $\\mathrm{J/\\psi}$ mesons, and $\\Lambda_\\mathrm{c}^{+}$ and $\\Xi_{\\rm c}^{0}$
+  baryons. The resulting cross section is consistent with a binary scaling of pQCD
+  calculations from pp collisions. The measured fragmentation fractions are compatible
+  with those measured in pp collisions at $\\sqrt{s} = 5.02$ and $13$ TeV, showing
+  an increase in the relative production rates of charm baryons with respect to charm
+  mesons in pp and p\u2013Pb collisions compared with $\\mathrm{e^{+}e^{-}}$ and $\\mathrm{e^{-}p}$
+  collisions. The $p_\\mathrm{T}$-integrated nuclear modification factor of charm
+  quarks is found to be consistent with unity and with theoretical predictions including
+  nuclear modifications of the parton distribution functions."
+hepdata_doi: 10.17182/hepdata.154667.v1
+---
+additional_resources: []
+data_file: hepdataTotalCrossSectionCharmSpecies.yaml
+description: The $p_\mathrm{T}$-integrated rapidity-differential cross sections for
+  all measured charm-hadron species at midrapidity in p-Pb collisions at $\sqrt{s_\mathrm{NN}}
+  = 5.02$ TeV.
+keywords:
+- name: reactions
+  values: [P PB --> Lc (Q=PROMPT) X, P PB --> D0 (Q=PROMPT) X, P PB --> DPLUS (Q=PROMPT)
+      X, P PB --> DS (Q=PROMPT) X, P PB --> XICZERO (Q=PROMPT) X, P PB --> JPSI (Q=PROMPT)
+      X, P PB --> DSTARPLUS (Q=PROMPT) X]
+- name: observables
+  values: [DSIG/DY]
+- name: phrases
+  values: [Proton - Lead Scattering, Charm-hadron production]
+- name: cmenergies
+  values: [5020.0]
+location: Data from Table 1.
+name: Table 1
+table_doi: 10.17182/hepdata.154667.v1/t1
+---
+additional_resources: []
+data_file: hepdataFragFractions.yaml
+description: The fragmentation fractions $f(\mathrm{c}\rightarrow\mathrm{h}_{\mathrm{c}})$
+  of charm hadrons in p-Pb collisions at $\sqrt{s_\mathrm{NN}} = 5.02$ TeV.
+keywords:
+- name: reactions
+  values: [P PB --> Lc (Q=PROMPT) X, P PB --> D0 (Q=PROMPT) X, P PB --> DPLUS (Q=PROMPT)
+      X, P PB --> DS (Q=PROMPT) X, P PB --> XICZERO (Q=PROMPT) X, P PB --> JPSI (Q=PROMPT)
+      X, P PB --> DSTARPLUS (Q=PROMPT) X]
+- name: observables
+  values: [Fragmentation fractions]
+- name: phrases
+  values: [Proton - Lead Scattering, Charm fragmentation fractions]
+- name: cmenergies
+  values: [5020.0]
+location: Data from Table 2 and Figure 1 (left).
+name: Table 2
+table_doi: 10.17182/hepdata.154667.v1/t2
+---
+additional_resources: []
+data_file: hepdataTotalCrossSection.yaml
+description: The total $\mathrm{c\overline{c}}$ production cross section at midrapidity
+  in p-Pb collisions at $\sqrt{s_\mathrm{NN}} = 5.02$ TeV.
+keywords:
+- name: reactions
+  values: [P PB --> CCBAR]
+- name: observables
+  values: [DSIG/DY]
+- name: phrases
+  values: [Proton - Lead Scattering, Charm cross section]
+- name: cmenergies
+  values: [5020.0]
+location: Data from Equation 2 and Figure 1 (right).
+name: Table 3
+table_doi: 10.17182/hepdata.154667.v1/t3
+---
+additional_resources: []
+data_file: hepdataRpPb.yaml
+description: The $p_\mathrm{T}$-integrated nuclear modification factor $R_\mathrm{pPb}$
+  of charm production at midrapidity in p-Pb collisions at $\sqrt{s_\mathrm{NN}} =
+  5.02$ TeV.
+keywords:
+- name: reactions
+  values: [P PB --> CCBAR]
+- name: observables
+  values: [DSIG/DPT/DY]
+- name: phrases
+  values: [Nuclear modification factor, Charm production]
+- name: cmenergies
+  values: [5020.0]
+location: Data from Equation 4 and Figure 2.
+name: Table 4
+table_doi: 10.17182/hepdata.154667.v1/t4

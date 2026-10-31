@@ -1,0 +1,74 @@
+dependent_variables:
+- header: {name: '$R_\mathrm{AA}$'}
+  qualifiers:
+  - {name: CENTRALITY, value: 30.0-50.0 pct}
+  - {name: REACTION, value: PBPB --> Ds + X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 5020.0}
+  - {name: YRAP, value: -0.5 TO 0.5}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.17126}
+    - asymerror: {minus: -0.22315, plus: 0.17511}
+      label: sys
+    - {label: 'sys, global norm. unc.', symerror: 3.265%}
+    value: 0.99177
+  - errors:
+    - {label: stat, symerror: 0.10365}
+    - asymerror: {minus: -0.19976, plus: 0.14767}
+      label: sys
+    - {label: 'sys, global norm. unc.', symerror: 3.265%}
+    value: 0.91516
+  - errors:
+    - {label: stat, symerror: 0.081285}
+    - asymerror: {minus: -0.17014, plus: 0.12166}
+      label: sys
+    - {label: 'sys, global norm. unc.', symerror: 3.265%}
+    value: 0.72222
+  - errors:
+    - {label: stat, symerror: 0.09017}
+    - asymerror: {minus: -0.19035, plus: 0.13269}
+      label: sys
+    - {label: 'sys, global norm. unc.', symerror: 3.265%}
+    value: 0.74181
+  - errors:
+    - {label: stat, symerror: 0.054659}
+    - asymerror: {minus: -0.13283, plus: 0.093819}
+      label: sys
+    - {label: 'sys, global norm. unc.', symerror: 3.265%}
+    value: 0.52939
+  - errors:
+    - {label: stat, symerror: 0.053507}
+    - asymerror: {minus: -0.11796, plus: 0.080965}
+      label: sys
+    - {label: 'sys, global norm. unc.', symerror: 3.265%}
+    value: 0.47728
+  - errors:
+    - {label: stat, symerror: 0.068488}
+    - asymerror: {minus: -0.078198, plus: 0.054529}
+      label: sys
+    - {label: 'sys, global norm. unc.', symerror: 3.265%}
+    value: 0.36451
+  - errors:
+    - {label: stat, symerror: 0.12342}
+    - asymerror: {minus: -0.11322, plus: 0.088256}
+      label: sys
+    - {label: 'sys, global norm. unc.', symerror: 3.265%}
+    value: 0.45696
+  - errors:
+    - {label: stat, symerror: 0.14395}
+    - asymerror: {minus: -0.23945, plus: 0.17861}
+      label: sys
+    - {label: 'sys, global norm. unc.', symerror: 3.265%}
+    value: 0.49171
+independent_variables:
+- header: {name: '$p_\mathrm{T}$', units: '$\mathrm{GeV}/c$'}
+  values:
+  - {high: 3.0, low: 2.0}
+  - {high: 4.0, low: 3.0}
+  - {high: 5.0, low: 4.0}
+  - {high: 6.0, low: 5.0}
+  - {high: 8.0, low: 6.0}
+  - {high: 12.0, low: 8.0}
+  - {high: 16.0, low: 12.0}
+  - {high: 24.0, low: 16.0}
+  - {high: 36.0, low: 24.0}

@@ -1,0 +1,66 @@
+dependent_variables:
+- header: {name: (1/Nev)*D2(N)/DPT/DYRAP, units: '$(GeV/c)^{-1}$'}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 50.0-70.0}
+  - {name: RE, value: XE XE --> PHI X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5440.0'}
+  - {name: YRAP, value: -0.5-0.5}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.084617}
+    - {label: syst., symerror: 0.068694}
+    value: 0.62446
+  - errors:
+    - {label: stat., symerror: 0.041014}
+    - {label: syst., symerror: 0.056059}
+    value: 0.51412
+  - errors:
+    - {label: stat., symerror: 0.029728}
+    - {label: syst., symerror: 0.055475}
+    value: 0.51247
+  - errors:
+    - {label: stat., symerror: 0.019976}
+    - {label: syst., symerror: 0.038905}
+    value: 0.36016
+  - errors:
+    - {label: stat., symerror: 0.023302}
+    - {label: syst., symerror: 0.036335}
+    value: 0.33552
+  - errors:
+    - {label: stat., symerror: 0.013339}
+    - {label: syst., symerror: 0.024329}
+    value: 0.22076
+  - errors:
+    - {label: stat., symerror: 0.0050441}
+    - {label: syst., symerror: 0.0086154}
+    value: 0.079475
+  - errors:
+    - {label: stat., symerror: 0.0016449}
+    - {label: syst., symerror: 0.0041033}
+    value: 0.022674
+  - errors:
+    - {label: stat., symerror: 0.00072786}
+    - {label: syst., symerror: 0.0013087}
+    value: 0.0073502
+  - errors:
+    - {label: stat., symerror: 0.00026633}
+    - {label: syst., symerror: 0.00033351}
+    value: 0.0019238
+  - errors:
+    - {label: stat., symerror: 7.5806e-05}
+    - {label: syst., symerror: 1.9203e-05}
+    value: 0.00027439
+independent_variables:
+- header: {name: '$p_{T}$', units: $GeV/c$}
+  values:
+  - {high: 0.7, low: 0.5}
+  - {high: 0.9, low: 0.7}
+  - {high: 1.1, low: 0.9}
+  - {high: 1.3, low: 1.1}
+  - {high: 1.5, low: 1.3}
+  - {high: 2.0, low: 1.5}
+  - {high: 3.0, low: 2.0}
+  - {high: 4.0, low: 3.0}
+  - {high: 5.0, low: 4.0}
+  - {high: 7.0, low: 5.0}
+  - {high: 10.0, low: 7.0}

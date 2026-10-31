@@ -1,0 +1,27 @@
+dependent_variables:
+- header: {name: SIG*BR, units: NB}
+  qualifiers:
+  - {name: PT(UPSILON), units: GeV, value: 0.0-15.0}
+  - {name: RE, value: P PB --> UPSILON(1S) < MU+ MU- > X}
+  - {name: SQRT(S(NN)), units: GeV, value: '5000.0'}
+  - {name: YRAP, value: -4.0--2.5}
+  values:
+  - errors:
+    - {label: stat, symerror: 53.0}
+    - {label: sys, symerror: 25.0}
+    value: 282.0
+- header: {name: SIG*BR, units: NB}
+  qualifiers:
+  - {name: PT(UPSILON), units: GeV, value: 0.0-15.0}
+  - {name: RE, value: P PB --> UPSILON(1S) < MU+ MU- > X}
+  - {name: SQRT(S(NN)), units: GeV, value: '5000.0'}
+  - {name: YRAP, value: 2.5-4.0}
+  values:
+  - errors:
+    - {label: stat, symerror: 23.0}
+    - {label: sys, symerror: 11.0}
+    value: 211.0
+independent_variables:
+- header: {name: PARTICLE}
+  values:
+  - {value: UPSILON(1S)}

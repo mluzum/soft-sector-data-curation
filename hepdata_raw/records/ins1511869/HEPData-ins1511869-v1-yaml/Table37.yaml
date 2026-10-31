@@ -1,0 +1,73 @@
+dependent_variables:
+- header: {name: RDZ}
+  qualifiers:
+  - {name: CENTRALITY, value: 0-10 PCT}
+  - {name: ABS(YJET), value: 1.2 < abs(y) < 2.1}
+  - {name: JET PT, units: GeV, value: 100-398}
+  - {name: R(JETS), value: '0.4'}
+  - {name: RE, value: PB PB --> JET X; P P --> JET X}
+  - {name: SQRT(S_NN), units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.06}
+    - asymerror: {minus: -0.04, plus: 0.1}
+      label: sys
+    value: 1.55
+  - errors:
+    - {label: stat, symerror: 0.031}
+    - asymerror: {minus: -0.061, plus: 0.037}
+      label: sys
+    value: 1.202
+  - errors:
+    - {label: stat, symerror: 0.017}
+    - asymerror: {minus: -0.044, plus: 0.022}
+      label: sys
+    value: 0.928
+  - errors:
+    - {label: stat, symerror: 0.015}
+    - asymerror: {minus: -0.024, plus: 0.018}
+      label: sys
+    value: 0.853
+  - errors:
+    - {label: stat, symerror: 0.016}
+    - asymerror: {minus: -0.024, plus: 0.018}
+      label: sys
+    value: 0.818
+  - errors:
+    - {label: stat, symerror: 0.018}
+    - asymerror: {minus: -0.028, plus: 0.019}
+      label: sys
+    value: 0.878
+  - errors:
+    - {label: stat, symerror: 0.024}
+    - asymerror: {minus: -0.019, plus: 0.029}
+      label: sys
+    value: 1.005
+  - errors:
+    - {label: stat, symerror: 0.034}
+    - asymerror: {minus: -0.079, plus: 0.047}
+      label: sys
+    value: 1.025
+  - errors:
+    - {label: stat, symerror: 0.06}
+    - asymerror: {minus: -0.05, plus: 0.07}
+      label: sys
+    value: 1.19
+  - errors:
+    - {label: stat, symerror: 0.15}
+    - asymerror: {minus: -0.17, plus: 0.23}
+      label: sys
+    value: 1.07
+independent_variables:
+- header: {name: Z}
+  values:
+  - {high: 0.016, low: 0.01}
+  - {high: 0.025, low: 0.016}
+  - {high: 0.04, low: 0.025}
+  - {high: 0.063, low: 0.04}
+  - {high: 0.1, low: 0.063}
+  - {high: 0.16, low: 0.1}
+  - {high: 0.25, low: 0.16}
+  - {high: 0.4, low: 0.25}
+  - {high: 0.63, low: 0.4}
+  - {high: 1.0, low: 0.63}

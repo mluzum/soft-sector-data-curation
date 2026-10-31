@@ -1,0 +1,157 @@
+additional_resources:
+- {description: Created with hepdata_lib 0.16.0, location: 'https://doi.org/10.5281/zenodo.1217998'}
+- {description: Webpage with all figures and tables, location: 'https://cms-results.web.cern.ch/cms-results/public-results/preliminary-results/HIN-24-016/index.html'}
+- {description: Original abstract file, location: Abstract.txt}
+comment: The first relative transverse momentum ($k_{\text{T}}$) scan of the Lund
+  jet plane of high-energy jets produced in lead-lead (PbPb) collisions is presented
+  and compared to the result obtained in proton-proton (pp) collisions. The PbPb (pp)
+  data were recorded by the CMS experiment in 2018 (2017) and correspond to an integrated
+  luminosity of $1.7$ nb$^{-1}$ ($301$ pb$^{-1}$) at a nucleon-nucleon center-of-mass
+  energy of 5.02 TeV. The angular distribution of the primary emissions with the highest
+  $k_{\text{T}}$ of anti-$k_{\text{T}}$ jets with a distance parameter $R=0.4$ is
+  reported. Two different ranges of $k_{\text{T}}$ are investigated for jets with
+  transverse momentum in the range $200 < p_{\text{T}}^\text{jet} < 1000$ GeV, in
+  order to explore the energy scale dependence of the jet quenching phenomena.The
+  measurement was designed to test whether the earliest jet emissions are produced
+  before the formation of the quark-gluon plasma in PbPb collisions.The angular distribution
+  of emissions at high $k_{\text{T}}$ has a similar shape in pp and PbPb collisions,
+  which is consistent with the emissions being part of the early and vacuum-like regime
+  of the jet evolution in PbPb collisions.
+data_license: {description: 'CC0 enables reusers to distribute, remix, adapt, and
+    build upon the material in any medium or format, with no conditions.', name: CC0,
+  url: 'https://creativecommons.org/publicdomain/zero/1.0/'}
+hepdata_doi: 10.17182/hepdata.159627.v1
+---
+additional_resources:
+- {description: Image file, location: pp_no_PEerrors_3.png}
+- {description: Thumbnail image file, location: thumb_pp_no_PEerrors_3.png}
+data_file: figure_2a.yaml
+description: The unfolded highest kT distribution in pp collisions for kT bin 10-20
+  GeV. Normalised to number of jets and by bin width.
+keywords:
+- name: observables
+  values: ['$1/N_{jets}  dN_{emissions}/dln(1/\Delta)$']
+- name: phrases
+  values: [Lund plane, jet, substructure, declustering]
+- name: reactions
+  values: [PP-->jets]
+- name: cmenergies
+  values: [5020]
+location: Data from Figure 2 (left)
+name: Figure 2a
+table_doi: 10.17182/hepdata.159627.v1/t1
+---
+additional_resources:
+- {description: Image file, location: pp_no_PEerrors_4.png}
+- {description: Thumbnail image file, location: thumb_pp_no_PEerrors_4.png}
+data_file: figure_2b.yaml
+description: The unfolded highest kT distribution in pp collisions for kT bin 20-40
+  GeV. Normalised to number of jets and by bin width.
+keywords:
+- name: observables
+  values: ['$1/N_{jets}  dN_{emissions}/dln(1/\Delta)$']
+- name: phrases
+  values: [Lund plane, jet, substructure, declustering]
+- name: reactions
+  values: [PP-->jets]
+- name: cmenergies
+  values: [5020]
+location: Data from Figure 2 (right)
+name: Figure 2b
+table_doi: 10.17182/hepdata.159627.v1/t2
+---
+additional_resources:
+- {description: Image file, location: Ratio_noPEerrors_3.png}
+- {description: Thumbnail image file, location: thumb_Ratio_noPEerrors_3.png}
+data_file: figure_3a.yaml
+description: The unfolded ratio of highest kT distribution in pp and PbPb collisions
+  for kT bin 10-20 GeV. Normalised to number of jets and by bin width.
+keywords:
+- name: observables
+  values: ['$1/N_{jets}  dN_{emissions}/dln(1/\Delta)$']
+- name: phrases
+  values: [Lund plane, jet, substructure, declustering]
+- name: reactions
+  values: [PbPb-->jets, PP-->jets]
+- name: cmenergies
+  values: [5020]
+location: Data from Figure 3 (left)
+name: Figure 3a
+table_doi: 10.17182/hepdata.159627.v1/t3
+---
+additional_resources:
+- {description: Image file, location: Ratio_noPEerrors_4.png}
+- {description: Thumbnail image file, location: thumb_Ratio_noPEerrors_4.png}
+data_file: figure_3b.yaml
+description: The unfolded ratio of highest kT distribution in pp and PbPb collisions
+  for kT bin 20-40 GeV. Normalised to number of jets and by bin width.
+keywords:
+- name: observables
+  values: ['$1/N_{jets}  dN_{emissions}/dln(1/\Delta)$']
+- name: phrases
+  values: [Lund plane, jet, substructure, declustering]
+- name: reactions
+  values: [PbPb-->jets, PP-->jets]
+- name: cmenergies
+  values: [5020]
+location: Data from Figure 3 (right)
+name: Figure 3b
+table_doi: 10.17182/hepdata.159627.v1/t4
+---
+data_file: covariance_matrix.yaml
+description: "The covariance matrix of the unfolded ratio of the normalised PbPb and
+  pp distributions containing the 12 bins of $ln(1/\u0394)$ reported in the paper.
+  The first 7 bins in each axis are from the medium kT band (Figure 3 (left) in the
+  paper), while the last 5 are from the high kT band (Figure 3 (right) in the paper)."
+keywords:
+- name: phrases
+  values: [Lund plane, jet, substructure, declustering]
+- name: reactions
+  values: [PbPb-->jets, PP-->jets]
+- name: observables
+  values: [Covariance matrix]
+- name: cmenergies
+  values: [5020]
+location: Not shown in the paper, associated with Figure 3 distributions.
+name: Covariance matrix
+table_doi: 10.17182/hepdata.159627.v1/t5
+---
+data_file: response_matrix_pbpb.yaml
+description: The response matrix used for the unfolding of the PbPb collision data.
+  The binning of the reconstruction (truth) level is divided into 2 (4) large blocks
+  of pt with binning (100-)185-200-1000(1200), divided into blocks of different kt
+  with binning (0-)3-5-10-20-40(-70), divided into $ln(1/\Delta)$ with binning (0.01-)0.916291-1.04982-1.20397-1.30933-1.60944-1.96611-2.30258-2.58279-2.91609-3.24939-3.91599-4.24929(-10).
+  The bins situated outside of the Lund plane at angle 3.91599-4.24929 and kT of 20-40
+  GeV represent the number of jets in the corresponding pT range.
+keywords:
+- name: phrases
+  values: [Lund plane, jet, substructure, declustering]
+- name: reactions
+  values: [PbPb-->jets]
+- name: observables
+  values: [Response matrix]
+- name: cmenergies
+  values: [5020]
+location: Not shown in the paper, associated with Figure 3 distributions.
+name: Response matrix PbPb
+table_doi: 10.17182/hepdata.159627.v1/t6
+---
+data_file: response_matrix_pp.yaml
+description: The response matrix used for the unfolding of the pp collision data.
+  The binning of the reconstruction (truth) level is divided into 2 (4) large blocks
+  of pt with binning (100-)185-200-1000(1200), divided into blocks of different kt
+  with binning (0-)3-5-10-20-40(-70), divided into $ln(1/\Delta)$ with binning (0.01-)0.916291-1.04982-1.20397-1.30933-1.60944-1.96611-2.30258-2.58279-2.91609-3.24939-3.91599-4.24929(-10).
+  The bins situated outside of the Lund plane at angle 3.91599-4.24929 and kT of 20-40
+  GeV represent the number of jets in the corresponding pT range.
+keywords:
+- name: phrases
+  values: [Lund plane, jet, substructure, declustering]
+- name: reactions
+  values: [PP-->jets]
+- name: observables
+  values: [Response matrix]
+- name: cmenergies
+  values: [5020]
+location: Not shown in the paper, associated with distributions in Figures 2 and 3.
+name: Response matrix pp
+table_doi: 10.17182/hepdata.159627.v1/t7

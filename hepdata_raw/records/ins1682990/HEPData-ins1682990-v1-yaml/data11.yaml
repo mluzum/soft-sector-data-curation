@@ -1,0 +1,58 @@
+dependent_variables:
+- header: {name: '$1/N^{\rm{jets}}{\rm d} N^{\rm{jets}}/{\rm d} g$ Data/MC'}
+  qualifiers:
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '2760.0'}
+  - {name: YRAP, value: -0.7 TO 0.7}
+  - {name: CENTRALITY, value: 0 < CENTRALITY < 10}
+  values:
+  - errors:
+    - {label: stat, symerror: '0.10'}
+    - asymerror: {minus: '-0.23', plus: '0.22'}
+      label: sys
+    value: '1.72'
+  - errors:
+    - {label: stat, symerror: '0.086'}
+    - asymerror: {minus: '-0.243', plus: '0.214'}
+      label: sys
+    value: '1.668'
+  - errors:
+    - {label: stat, symerror: '0.053'}
+    - asymerror: {minus: '-0.126', plus: '0.085'}
+      label: sys
+    value: '1.177'
+  - errors:
+    - {label: stat, symerror: '0.040'}
+    - asymerror: {minus: '-0.124', plus: '0.110'}
+      label: sys
+    value: '0.901'
+  - errors:
+    - {label: stat, symerror: '0.047'}
+    - asymerror: {minus: '-0.051', plus: '0.102'}
+      label: sys
+    value: '0.945'
+  - errors:
+    - {label: stat, symerror: '0.041'}
+    - asymerror: {minus: '-0.103', plus: '0.128'}
+      label: sys
+    value: '0.692'
+  - errors:
+    - {label: stat, symerror: '0.034'}
+    - asymerror: {minus: '-0.067', plus: '0.127'}
+      label: sys
+    value: '0.488'
+  - errors:
+    - {label: stat, symerror: '0.038'}
+    - asymerror: {minus: '-0.134', plus: '0.202'}
+      label: sys
+    value: '0.433'
+independent_variables:
+- header: {name: $g$}
+  values:
+  - {high: 0.02, low: 0.0}
+  - {high: 0.03, low: 0.02}
+  - {high: 0.04, low: 0.03}
+  - {high: 0.05, low: 0.04}
+  - {high: 0.06, low: 0.05}
+  - {high: 0.07, low: 0.06}
+  - {high: 0.08, low: 0.07}
+  - {high: 0.12, low: 0.08}

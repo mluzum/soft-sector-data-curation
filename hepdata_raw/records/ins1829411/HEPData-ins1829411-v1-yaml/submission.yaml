@@ -1,0 +1,73 @@
+comment: CERN-LHC. Jet fragmentation transverse momentum ($j_\mathrm{T}$) distributions
+  are measured in proton-proton (pp) and proton-lead (p--Pb) collisions at $\sqrt{s_\mathrm{NN}}$
+  with the ALICE experiment at the LHC. Jets are reconstructed with the ALICE tracking
+  detectors and electromagnetic calorimeter using the anti-$k_\mathrm{T}$ algorithm
+  with resolution parameter $R = 0.4$ in the pseudorapidity range $|\eta|<0.25$. The
+  $j_\mathrm{T}$ values are calculated for charged particles inside a fixed cone with
+  a radius $R = 0.4$ around the reconstructed jet axis. The $j_\mathrm{T}$ distributions
+  are further characterised by fitting them with a function composed of an inverse
+  gamma function for higher $j_\mathrm{T}$ values (called the wide component), related
+  to the perturbative component of the fragmentation process, and with a Gaussian
+  for lower $j_\mathrm{T}$ values (called the narrow component), predominantly connected
+  to the hadronisation process.
+hepdata_doi: 10.17182/hepdata.113760.v1
+record_ids:
+- {id: 1507090, type: inspire}
+- {id: 2239845, type: cds}
+- {id: 9999, type: red}
+---
+data_file: Table1.yaml
+description: |
+  $j_\mathrm{T}$ distribution in pp collisions at $\sqrt{s}$ = 5.02 TeV in $40 < p_\mathrm{T, jet}$ < 60 GeV/$c$.
+keywords:
+- name: reactions
+  values: [PROTON PROTON --> CHARGED X]
+- name: observables
+  values: ['$1/j_\mathrm{T} \mathrm{d}N/\mathrm{d}j_\mathrm{T}$']
+- name: cmenergies
+  values: [5020.0]
+location: Data from Figure 1
+name: Table 1
+table_doi: 10.17182/hepdata.113760.v1/t1
+---
+data_file: Table2.yaml
+description: |
+  $j_\mathrm{T}$ distributions in p--Pb collisions at $\sqrt{s_\mathrm{NN}}$ = 5.02 TeV in $40 < p_\mathrm{T, jet}$ < 150 GeV/$c$.
+keywords:
+- name: reactions
+  values: [PROTON PB --> CHARGED X]
+- name: observables
+  values: ['$1/j_\mathrm{T} \mathrm{d}N/\mathrm{d}j_\mathrm{T}$']
+- name: cmenergies
+  values: [5020.0]
+location: Data from Figure 2
+name: Table 2
+table_doi: 10.17182/hepdata.113760.v1/t2
+---
+data_file: Table3.yaml
+description: |
+  $\sqrt{\langle j_\mathrm{T}^2 \rangle }$ values for the narrow and wide components in pp collisions at $\sqrt{s}$ = 5.02 TeV in $40 < p_\mathrm{T, jet}$ < 60 GeV/$c$.
+keywords:
+- name: reactions
+  values: [PROTON PROTON --> CHARGED X]
+- name: observables
+  values: ['$\sqrt{\langle j_\mathrm{T}^2 \rangle }$']
+- name: cmenergies
+  values: [5020.0]
+location: Data from Figure 5
+name: Table 3
+table_doi: 10.17182/hepdata.113760.v1/t3
+---
+data_file: Table4.yaml
+description: |
+  $\sqrt{\langle j_\mathrm{T}^2 \rangle }$ values for the narrow and wide components in p--Pb collisions at $\sqrt{s_\mathrm{NN}}$ = 5.02 TeV in $40 < p_\mathrm{T, jet}$ < 150 GeV/$c$.
+keywords:
+- name: reactions
+  values: [PROTON PB --> CHARGED X]
+- name: observables
+  values: ['$\sqrt{\langle j_\mathrm{T}^2 \rangle }$']
+- name: cmenergies
+  values: [5020.0]
+location: Data from Figure 5
+name: Table 4
+table_doi: 10.17182/hepdata.113760.v1/t4

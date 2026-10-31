@@ -1,0 +1,17 @@
+dependent_variables:
+- header: {name: d$\sigma$/d$y$, units: mb}
+  qualifiers:
+  - {name: RE, value: P PB --> B BBAR  X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020.0'}
+  - {name: PT, value: '>0.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.77}
+    - {label: sys, symerror: 0.75}
+    - asymerror: {minus: -0.12, plus: 0.07}
+      label: sys,extrapolation
+    value: 5.52
+independent_variables:
+- header: {name: YRAP}
+  values:
+  - {high: 0.43, low: -1.37}

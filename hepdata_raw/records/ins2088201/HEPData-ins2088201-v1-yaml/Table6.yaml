@@ -1,0 +1,58 @@
+dependent_variables:
+- header: {name: '$\frac{1}{N_{\mathrm{ev}} \frac{\mathrm{d}^{2}N}{\mathrm{d}p_{\mathrm{T}}\mathrm{d}y}$',
+    units: '$(GeV/c)^{-1}$'}
+  qualifiers:
+  - {name: YRAP, value: -0.5 TO 0.5}
+  - {name: REACTION, value: PBPB --> Sigma*- + X}
+  - {name: REACTION, value: PBPB --> Sigma*BAR+ + X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: 5020.0}
+  - {name: CENTRALITY, value: 50 TO 90%}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.003035}
+    - {label: sys, symerror: 0.016142}
+    value: 0.117072
+  - errors:
+    - {label: stat, symerror: 0.001369}
+    - {label: sys, symerror: 0.007275}
+    value: 0.059072
+  - errors:
+    - {label: stat, symerror: 0.000801}
+    - {label: sys, symerror: 0.004689}
+    value: 0.04049
+  - errors:
+    - {label: stat, symerror: 0.000345}
+    - {label: sys, symerror: 0.002114}
+    value: 0.019461
+  - errors:
+    - {label: stat, symerror: 0.000166}
+    - {label: sys, symerror: 0.001023}
+    value: 0.009629
+  - errors:
+    - {label: stat, symerror: 8.9e-05}
+    - {label: sys, symerror: 0.000533}
+    value: 0.005127
+  - errors:
+    - {label: stat, symerror: 2.3e-05}
+    - {label: sys, symerror: 0.00018}
+    value: 0.001711
+  - errors:
+    - {label: stat, symerror: 7.0e-06}
+    - {label: sys, symerror: 5.2e-05}
+    value: 0.000492
+  - errors:
+    - {label: stat, symerror: 2.0e-06}
+    - {label: sys, symerror: 9.0e-06}
+    value: 8.8e-05
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {high: 2.0, low: 1.0}
+  - {high: 2.5, low: 2.0}
+  - {high: 3.0, low: 2.5}
+  - {high: 3.5, low: 3.0}
+  - {high: 4.0, low: 3.5}
+  - {high: 4.5, low: 4.0}
+  - {high: 5.5, low: 4.5}
+  - {high: 7.0, low: 5.5}
+  - {high: 9.0, low: 7.0}

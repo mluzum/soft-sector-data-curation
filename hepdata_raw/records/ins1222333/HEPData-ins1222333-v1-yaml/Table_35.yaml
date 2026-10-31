@@ -1,0 +1,98 @@
+dependent_variables:
+- header: {name: DNch/DETARAP (|ETARAP| .LT. 0.5)}
+  qualifiers:
+  - {name: RE(P), value: PB PB --> P X}
+  - {name: RE(PBAR), value: PB PB --> PBAR X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  - {name: YRAP, value: -0.5-0.5}
+  values:
+  - errors:
+    - {symerror: 60.0}
+    value: 1601.0
+  - errors:
+    - {symerror: 49.0}
+    value: 1294.0
+  - errors:
+    - {symerror: 37.0}
+    value: 966.0
+  - errors:
+    - {symerror: 23.0}
+    value: 649.0
+  - errors:
+    - {symerror: 15.0}
+    value: 426.0
+  - errors:
+    - {symerror: 9.0}
+    value: 261.0
+  - errors:
+    - {symerror: 6.0}
+    value: 149.0
+  - errors:
+    - {symerror: 4.0}
+    value: 76.0
+  - errors:
+    - {symerror: 2.0}
+    value: 35.0
+  - errors:
+    - asymerror: {minus: -1.2, plus: 1.6}
+    value: 13.4
+- header: {name: SIG(PBAR)/SIG(P)}
+  qualifiers:
+  - {name: RE(P), value: PB PB --> P X}
+  - {name: RE(PBAR), value: PB PB --> PBAR X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  - {name: YRAP, value: -0.5-0.5}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0036}
+    - {label: sys, symerror: 0.0534}
+    value: 0.9896
+  - errors:
+    - {label: stat, symerror: 0.0042}
+    - {label: sys, symerror: 0.0537}
+    value: 0.9954
+  - errors:
+    - {label: stat, symerror: 0.003}
+    - {label: sys, symerror: 0.054}
+    value: 1.003
+  - errors:
+    - {label: stat, symerror: 0.004}
+    - {label: sys, symerror: 0.054}
+    value: 1.005
+  - errors:
+    - {label: stat, symerror: 0.004}
+    - {label: sys, symerror: 0.055}
+    value: 1.016
+  - errors:
+    - {label: stat, symerror: 0.005}
+    - {label: sys, symerror: 0.055}
+    value: 1.017
+  - errors:
+    - {label: stat, symerror: 0.007}
+    - {label: sys, symerror: 0.055}
+    value: 1.017
+  - errors:
+    - {label: stat, symerror: 0.008}
+    - {label: sys, symerror: 0.055}
+    value: 1.026
+  - errors:
+    - {label: stat, symerror: 0.011}
+    - {label: sys, symerror: 0.056}
+    value: 1.031
+  - errors:
+    - {label: stat, symerror: 0.018}
+    - {label: sys, symerror: 0.055}
+    value: 1.02
+independent_variables:
+- header: {name: CENTRALITY, units: PCT}
+  values:
+  - {high: 5.0, low: 0.0}
+  - {high: 10.0, low: 5.0}
+  - {high: 20.0, low: 10.0}
+  - {high: 30.0, low: 20.0}
+  - {high: 40.0, low: 30.0}
+  - {high: 50.0, low: 40.0}
+  - {high: 60.0, low: 50.0}
+  - {high: 70.0, low: 60.0}
+  - {high: 80.0, low: 70.0}
+  - {high: 90.0, low: 80.0}

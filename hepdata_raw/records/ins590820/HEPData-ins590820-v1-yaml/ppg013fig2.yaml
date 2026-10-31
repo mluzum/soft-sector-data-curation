@@ -1,0 +1,88 @@
+dependent_variables:
+- header: {name: '$N_{part}$'}
+  values:
+  - errors:
+    - {label: syst., symerror: 10.0}
+    value: 348.0
+  - errors:
+    - {label: syst., symerror: 9.0}
+    value: 271.0
+  - errors:
+    - {label: syst., symerror: 6.6}
+    value: 180.0
+  - errors:
+    - {label: syst., symerror: 4.6}
+    value: 79.0
+  - errors:
+    - {label: syst., symerror: 3.5}
+    value: 19.5
+  - errors:
+    - {label: syst., symerror: 2.6}
+    value: 5.5
+- header: {name: '$N_{coll}$'}
+  values:
+  - errors:
+    - {label: syst., symerror: 101.0}
+    value: 1009.0
+  - errors:
+    - {label: syst., symerror: 72.0}
+    value: 712.0
+  - errors:
+    - {label: syst., symerror: 46.0}
+    value: 406.0
+  - errors:
+    - {label: syst., symerror: 23.0}
+    value: 131.0
+  - errors:
+    - {label: syst., symerror: 6.0}
+    value: 20.0
+  - errors:
+    - {label: syst., symerror: 1.7}
+    value: 4.1
+- header: {name: '${N^{central}_{coll}}/{N_{coll}}$'}
+  values:
+  - {value: 1.0}
+  - errors:
+    - {label: syst., symerror: 0.03}
+    value: 1.4
+  - errors:
+    - {label: syst., symerror: 0.1}
+    value: 2.5
+  - errors:
+    - {label: syst., symerror: 1.1}
+    value: 7.7
+  - errors:
+    - {label: syst., symerror: 13.0}
+    value: 50.4
+  - errors:
+    - {label: syst., symerror: 98.0}
+    value: 246.0
+- header: {name: '${2N_{coll}}/{N_{part}}$'}
+  values:
+  - errors:
+    - {label: syst., symerror: 0.6}
+    value: 5.8
+  - errors:
+    - {label: syst., symerror: 0.6}
+    value: 5.2
+  - errors:
+    - {label: syst., symerror: 0.5}
+    value: 4.5
+  - errors:
+    - {label: syst., symerror: 0.6}
+    value: 3.4
+  - errors:
+    - {label: syst., symerror: 0.5}
+    value: 2.1
+  - errors:
+    - {label: syst., symerror: 0.5}
+    value: 1.5
+independent_variables:
+- header: {name: centrality}
+  values:
+  - {high: 5, low: 0}
+  - {high: 15, low: 5}
+  - {high: 30, low: 15}
+  - {high: 60, low: 30}
+  - {high: 80, low: 60}
+  - {high: 92, low: 80}

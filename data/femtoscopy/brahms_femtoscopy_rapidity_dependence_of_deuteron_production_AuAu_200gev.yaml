@@ -1,0 +1,117 @@
+---
+observable_type: femtoscopy
+inspire_id: '856692'
+version: 1
+hepdata_file: tab2.yaml
+hepdata_table_label: $C_{\Lambda}(p_{\mathrm{T}})$ versus $p_{\mathrm{T}}$ for $\mathrm{\Lambda}$ in $\mathrm{Au}-\mathrm{Au}$
+  at $\sqrt{s_{\mathrm{NN}}}=200\,\mathrm{Ge\!V}$  near $y=[0, 1, 2, 3]$ for $0-20$% central
+qualifiers:
+  function: T(LAMBDA)=(M(LAMBDA)/M(P))*T(P)
+  particle: 0-20
+  yrap: '3'
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> LAMBDA
+centrality:
+  classes:
+  - 0.0-20.0%
+  estimator:
+    name: TMA
+    observable: Nch
+    detector: TMA
+  eta:
+  - min: -2.3
+    max: 2.3
+particle_id:
+  species: Lambda
+kinematic_range:
+  pT:
+    min: -0.225
+    max: 3.72
+    bins:
+    - -0.225
+    - -0.175
+    - -0.125
+    - -0.075
+    - -0.025
+    - 0.025
+    - 0.075
+    - 0.125
+    - 0.175
+    - 0.225
+    - 0.275
+    - 0.325
+    - 0.375
+    - 0.425
+    - 0.475
+    - 0.525
+    - 0.575
+    - 0.625
+    - 0.675
+    - 0.725
+    - 0.775
+    - 0.825
+    - 0.875
+    - 0.925
+    - 0.975
+    - 1.02
+    - 1.08
+    - 1.12
+    - 1.18
+    - 1.22
+    - 1.28
+    - 1.32
+    - 1.38
+    - 1.42
+    - 1.48
+    - 1.52
+    - 1.58
+    - 1.62
+    - 1.68
+    - 1.72
+    - 1.78
+    - 1.82
+    - 1.88
+    - 1.92
+    - 1.98
+    - 2.02
+    - 2.08
+    - 2.12
+    - 2.18
+    - 2.22
+    - 2.28
+    - 2.32
+    - 2.38
+    - 2.42
+    - 2.48
+    - 2.52
+    - 2.58
+    - 2.62
+    - 2.68
+    - 2.72
+    - 2.78
+    - 2.82
+    - 2.88
+    - 2.92
+    - 2.98
+    - 3.02
+    - 3.08
+    - 3.12
+    - 3.18
+    - 3.22
+    - 3.28
+    - 3.32
+    - 3.38
+    - 3.42
+    - 3.48
+    - 3.52
+    - 3.58
+    - 3.62
+    - 3.68
+    - 3.72
+  eta:
+    min: -0.1
+    max: 3.3
+observable: hbt_radii
+value_type: lambda
+pair_type: pi+pi+

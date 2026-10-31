@@ -1,0 +1,26 @@
+dependent_variables:
+- header: {name: RAA}
+  qualifiers:
+  - {name: RE, value: P P --> PSI(2S) < MU+ MU- > X}
+  - {name: RE, value: PB PB --> PSI(2S) < MU+ MU- > X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.04}
+    - {label: sys, symerror: 0.02}
+    - {label: 'sys,pp', symerror: 0.01}
+    value: 0.13
+  - errors:
+    - {label: stat, symerror: 0.16}
+    - {label: sys, symerror: 0.11}
+    - {label: 'sys,pp', symerror: 0.07}
+    value: 0.67
+independent_variables:
+- header: {name: ABS(YRAP)}
+  values:
+  - {high: 1.6, low: 0.0}
+  - {high: 2.4, low: 1.6}
+- header: {name: PT, units: GEV}
+  values:
+  - {high: 30.0, low: 6.5}
+  - {high: 30.0, low: 3.0}

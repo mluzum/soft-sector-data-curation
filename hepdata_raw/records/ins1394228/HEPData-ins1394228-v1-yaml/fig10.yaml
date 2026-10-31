@@ -1,0 +1,40 @@
+dependent_variables:
+- header: {name: $\langle |y| \rangle$ (Gev/$c$)}
+  qualifiers:
+  - {name: Rapidity, value: 1.2 < $|y|$ < 2.2}
+  values:
+  - {value: 2}
+  - {value: 1.6}
+- header: {name: '$R_{CuAu}$ (Cu-going)'}
+  qualifiers:
+  - {name: Rapidity, value: 1.2 < $y$ < 2.2}
+  values:
+  - errors:
+    - {label: stat. + A sys., symerror: 0.6}
+    - {label: B sys., symerror: 0.2}
+    - {label: C sys., symerror: 0.13}
+    value: 1.2
+  - errors:
+    - {label: stat. + A sys., symerror: 0.3}
+    - {label: B sys., symerror: 0.1}
+    - {label: C sys., symerror: 0.08}
+    value: 0.7
+- header: {name: '$R_{CuAu}$ (Au-going)'}
+  qualifiers:
+  - {name: Rapidity, value: -2.2 < $y$ < -1.2}
+  values:
+  - errors:
+    - {label: stat. + A sys., symerror: 0.5}
+    - {label: B sys., symerror: 0.3}
+    - {label: C sys., symerror: 0.23}
+    value: 2.1
+  - errors:
+    - {label: stat. + A sys., symerror: 0.4}
+    - {label: B sys., symerror: 0.2}
+    - {label: C sys., symerror: 0.15}
+    value: 1.4
+independent_variables:
+- header: {name: $|y|$}
+  values:
+  - {high: 2.2, low: 1.8}
+  - {high: 1.8, low: 1.2}

@@ -1,0 +1,52 @@
+dependent_variables:
+- header: {name: '$\frac{(p+\overline{p})}{(K^{*0}+\overline{K^{*0}})}$'}
+  qualifiers:
+  - {name: CENTRALITY, units: $\%$, value: 60 - 80}
+  - {name: RE, value: 'PB PB $\rightarrow$ $K^{*0}$ + X; PB PB $\rightarrow$ $\overline{K^{*0}}$
+      + X'}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '2760.0'}
+  - {name: YRAP(CM), value: -0.5 TO 0.5}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.071464}
+    - {label: sys (total), symerror: 0.15156}
+    value: 1.2859
+  - errors:
+    - {label: stat, symerror: 0.077727}
+    - {label: sys (total), symerror: 0.19454}
+    value: 1.3775
+  - errors:
+    - {label: stat, symerror: 0.080102}
+    - {label: sys (total), symerror: 0.21083}
+    value: 1.4502
+  - errors:
+    - {label: stat, symerror: 0.093783}
+    - {label: sys (total), symerror: 0.21049}
+    value: 1.4667
+  - errors:
+    - {label: stat, symerror: 0.049005}
+    - {label: sys (total), symerror: 0.16583}
+    value: 0.9977
+  - errors:
+    - {label: stat, symerror: 0.053368}
+    - {label: sys (total), symerror: 0.12967}
+    value: 0.91589
+  - errors:
+    - {label: stat, symerror: 0.040392}
+    - {label: sys (total), symerror: 0.10843}
+    value: 0.74983
+  - errors:
+    - {label: stat, symerror: 0.033982}
+    - {label: sys (total), symerror: 0.081808}
+    value: 0.44808
+independent_variables:
+- header: {name: '$p_{T}$', units: GeV/$c$}
+  values:
+  - {high: 0.8, low: 0.3, value: 0.55}
+  - {high: 1.2, low: 0.8, value: 1}
+  - {high: 1.6, low: 1.2, value: 1.4}
+  - {high: 2, low: 1.6, value: 1.8}
+  - {high: 2.5, low: 2, value: 2.25}
+  - {high: 3, low: 2.5, value: 2.75}
+  - {high: 4, low: 3, value: 3.5}
+  - {high: 5, low: 4, value: 4.5}

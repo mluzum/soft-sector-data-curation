@@ -1,0 +1,30 @@
+dependent_variables:
+- header: {name: $\langle v_2 \rangle$}
+  qualifiers:
+  - {name: SQRT(S_NN), units: TeV, value: 5.02}
+  - {name: ABS(ETA), value: < 0.8}
+  - {name: CENTRALITY, value: 40-50%}
+  values:
+  - errors:
+    - {label: Stat, symerror: 0.010655}
+    - {label: Syst, symerror: 0.0010197}
+    value: 0.098589
+  - errors:
+    - {label: Stat, symerror: 0.0065318}
+    - {label: Syst, symerror: 0.0024322}
+    value: 0.19763
+  - errors:
+    - {label: Stat, symerror: 0.0064895}
+    - {label: Syst, symerror: 0.0020159}
+    value: 0.24112
+  - errors:
+    - {label: Stat, symerror: 0.013005}
+    - {label: Syst, symerror: 0.0028948}
+    value: 0.24824
+independent_variables:
+- header: {name: PT, units: GeV/c}
+  values:
+  - {value: 1.75}
+  - {value: 2.5}
+  - {value: 3.5}
+  - {value: 5.0}

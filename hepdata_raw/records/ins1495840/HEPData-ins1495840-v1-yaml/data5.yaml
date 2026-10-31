@@ -1,0 +1,71 @@
+dependent_variables:
+- header: {name: '$(N_{\psi\mathrm{(2S)}} / N_{J/\psi})_{\mathrm{PbPb}} / (N_{\psi\mathrm{(2S)}}
+      / N_{J/\psi})_{pp}$'}
+  qualifiers:
+  - {name: ABS(YRAP), value: 0.0-1.6}
+  - {name: PT, units: GeV, value: 6.5-30.0}
+  - {name: RE, value: P P --> J/PSI < MU+ MU- > X}
+  - {name: RE, value: P P --> PSI(2S) < MU+ MU- > X}
+  - {name: RE, value: PB PB --> J/PSI < MU+ MU- > X}
+  - {name: RE, value: PB PB --> PSI(2S) < MU+ MU- > X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.17}
+    - {label: sys, symerror: 0.11}
+    - {label: 'sys,global pp uncertainty', symerror: 1.8%}
+    value: 0.14
+  - errors:
+    - {label: stat, symerror: 0.16}
+    - {label: sys, symerror: 0.07}
+    - {label: 'sys,global pp uncertainty', symerror: 1.8%}
+    value: 0.35
+  - errors:
+    - {label: stat, symerror: 0.18}
+    - {label: sys, symerror: 0.08}
+    - {label: 'sys,global pp uncertainty', symerror: 1.8%}
+    value: 0.54
+  - errors:
+    - {label: stat, symerror: 0.16}
+    - {label: sys, symerror: 0.09}
+    - {label: 'sys,global pp uncertainty', symerror: 1.8%}
+    value: 0.53
+  - errors:
+    - {label: stat, symerror: 0.15}
+    - {label: sys, symerror: 0.08}
+    - {label: 'sys,global pp uncertainty', symerror: 1.8%}
+    value: 0.31
+  - errors:
+    - {label: stat, symerror: 0.13}
+    - {label: sys, symerror: 0.06}
+    - {label: 'sys,global pp uncertainty', symerror: 1.8%}
+    value: 0.43
+- header: {name: NPART}
+  values:
+  - errors:
+    - {symerror: 2}
+    value: 359
+  - errors:
+    - {symerror: 2}
+    value: 264
+  - errors:
+    - {symerror: 4}
+    value: 189
+  - errors:
+    - {symerror: 4}
+    value: 131
+  - errors:
+    - {symerror: 3}
+    value: 87
+  - errors:
+    - {symerror: 1}
+    value: 22
+independent_variables:
+- header: {name: Centrality, units: PCT}
+  values:
+  - {high: 10.0, low: 0.0}
+  - {high: 20.0, low: 10.0}
+  - {high: 30.0, low: 20.0}
+  - {high: 40.0, low: 30.0}
+  - {high: 50.0, low: 40.0}
+  - {high: 100.0, low: 50.0}

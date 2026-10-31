@@ -1,0 +1,36 @@
+dependent_variables:
+- header: {name: (1/2)*SIG(K*(892)0 + AK*(892)0)/SIG(K-)}
+  qualifiers:
+  - {name: RE(K*(892)0 + AK*(892)0), value: PB PB --> (K*(892)0 < PI- K+ > + AK*(892)0
+      < PI+ K- >) X}
+  - {name: RE(K-), value: PB PB --> K- X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  - {name: YRAP, value: -0.5-0.5}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0077}
+    - {label: 'sys,uncorrelated', symerror: 0.0265}
+    - {label: 'sys,correlated between centrality intervals', symerror: 5.11%}
+    value: 0.1979
+  - errors:
+    - {label: stat, symerror: 0.0206}
+    - {label: 'sys,uncorrelated', symerror: 0.0221}
+    - {label: 'sys,correlated between centrality intervals', symerror: 5.11%}
+    value: 0.2356
+  - errors:
+    - {label: stat, symerror: 0.0229}
+    - {label: 'sys,uncorrelated', symerror: 0.0228}
+    - {label: 'sys,correlated between centrality intervals', symerror: 5.11%}
+    value: 0.2781
+  - errors:
+    - {label: stat, symerror: 0.0232}
+    - {label: 'sys,uncorrelated', symerror: 0.0196}
+    - {label: 'sys,correlated between centrality intervals', symerror: 5.11%}
+    value: 0.3064
+independent_variables:
+- header: {name: CENTRALITY, units: PCT}
+  values:
+  - {high: 20.0, low: 0.0}
+  - {high: 40.0, low: 20.0}
+  - {high: 60.0, low: 40.0}
+  - {high: 80.0, low: 60.0}

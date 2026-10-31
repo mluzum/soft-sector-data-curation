@@ -1,0 +1,44 @@
+dependent_variables:
+- header: {name: '$\text{d}N(PSI(2S))/\text{d}y / \text{d}N(J/PSI(1S))/\text{d}y /
+      \left< \text{d}N(PSI(2S))/\text{d}y / \text{d}N(J/PSI(1S))/\text{d}y\right>$'}
+  qualifiers:
+  - {name: RE, value: P PB --> J/PSI(1S) X}
+  - {name: RE, value: P PB --> PSI(2S) X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '8160.0'}
+  - {name: ETARAP, value: -1.0 TO 1.0}
+  - {name: YRAP(J/PSI), value: 2.03 TO 3.53}
+  values:
+  - errors:
+    - {label: stat, symerror: '0.249'}
+    - {label: sys, symerror: '0.041'}
+    value: '1.070'
+  - errors:
+    - {label: stat, symerror: '0.248'}
+    - {label: sys, symerror: '0.0533'}
+    value: '0.979'
+  - errors:
+    - {label: stat, symerror: '0.319'}
+    - {label: sys, symerror: '0.094'}
+    value: '1.414'
+  - errors:
+    - {label: stat, symerror: '0.329'}
+    - {label: sys, symerror: '0.082'}
+    value: '1.197'
+  - errors:
+    - {label: stat, symerror: '0.263'}
+    - {label: sys, symerror: '0.064'}
+    value: '0.994'
+  - errors:
+    - {label: stat, symerror: '0.220'}
+    - {label: sys, symerror: '0.066'}
+    value: '0.857'
+independent_variables:
+- header: {name: '$\text{d}N_{\text{ch}}/\text{d}\eta / \left< \text{d}N_{\text{ch}}/\text{d}\eta
+      \right> $'}
+  values:
+  - {high: 0.352, low: 0.309}
+  - {high: 0.875, low: 0.785}
+  - {high: 1.191, low: 1.069}
+  - {high: 1.444, low: 1.296}
+  - {high: 1.813, low: 1.627}
+  - {high: 2.672, low: 2.388}

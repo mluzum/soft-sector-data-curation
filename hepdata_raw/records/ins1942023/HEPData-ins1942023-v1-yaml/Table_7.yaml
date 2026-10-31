@@ -1,0 +1,49 @@
+dependent_variables:
+- header: {name: b-jet fraction}
+  qualifiers:
+  - {name: RE, value: P P --> JET $X$}
+  - {name: 'pp $\sqrt{s}$', units: TeV, value: 5.02}
+  - {name: jet method, value: 'Anti-$k_{T}$'}
+  - {name: '$p_\mathrm{T}^{track}$', units: GeV/$c$, value: '> 0.15'}
+  - {name: '$|\eta^{track}|$', value: < 0.9}
+  - {name: '$|\eta^{jet}|$', value: < 0.5}
+  - {name: $R$, value: 0.4}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0003102139}
+    - {label: full syst., symerror: 0.004023613}
+    value: 0.01667148
+  - errors:
+    - {label: stat, symerror: 0.000967679}
+    - {label: full syst., symerror: 0.005540297}
+    value: 0.02763213
+  - errors:
+    - {label: stat, symerror: 0.001652133}
+    - {label: full syst., symerror: 0.006856878}
+    value: 0.03460495
+  - errors:
+    - {label: stat, symerror: 0.002409441}
+    - {label: full syst., symerror: 0.006913558}
+    value: 0.03511074
+  - errors:
+    - {label: stat, symerror: 0.003659477}
+    - {label: full syst., symerror: 0.007136644}
+    value: 0.03470692
+  - errors:
+    - {label: stat, symerror: 0.005446206}
+    - {label: full syst., symerror: 0.007404231}
+    value: 0.03436463
+  - errors:
+    - {label: stat, symerror: 0.005942601}
+    - {label: full syst., symerror: 0.00603072}
+    value: 0.03490208
+independent_variables:
+- header: {name: '$p_\mathrm{T,ch jet}$', units: GeV/$c$}
+  values:
+  - {high: 20, low: 10}
+  - {high: 30, low: 20}
+  - {high: 40, low: 30}
+  - {high: 50, low: 40}
+  - {high: 60, low: 50}
+  - {high: 70, low: 60}
+  - {high: 100, low: 70}

@@ -1,0 +1,46 @@
+dependent_variables:
+- header: {name: '$r_{3}^{unsub}$'}
+  qualifiers:
+  - {name: 140 <= NCHREC < 180, value: ''}
+  - {name: ABS(DELTA(ETARAP)), value: 2.0-5.0}
+  - {name: PT(b), units: GeV, value: 1.5-2.0}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - {symerror: 0.053541}
+    value: 0.98808
+  - errors:
+    - {symerror: 0.086466}
+    value: 0.90045
+  - errors:
+    - {symerror: 0.10867}
+    value: 0.88333
+  - errors:
+    - {symerror: 0.16981}
+    value: 0.95667
+- header: {name: '$r_{3}$'}
+  qualifiers:
+  - {name: 140 <= NCHREC < 180, value: ''}
+  - {name: ABS(DELTA(ETARAP)), value: 2.0-5.0}
+  - {name: PT(b), units: GeV, value: 1.5-2.0}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - {symerror: 0.054742}
+    value: 0.99933
+  - errors:
+    - {symerror: 0.091741}
+    value: 0.89152
+  - errors:
+    - {symerror: 0.11596}
+    value: 0.89965
+  - errors:
+    - {symerror: 0.14673}
+    value: 0.88433
+independent_variables:
+- header: {name: '$p_{T}^{b}$ - $p_{T}^{a}$ [GeV]'}
+  values:
+  - {value: 0.5}
+  - {value: 0.82}
+  - {value: 1.02}
+  - {value: 1.22}

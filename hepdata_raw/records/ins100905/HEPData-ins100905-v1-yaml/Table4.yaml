@@ -1,0 +1,54 @@
+dependent_variables:
+- header: {name: SIG, units: MB (C='FOLDED')}
+  qualifiers:
+  - {name: RE, value: K- N --> K- N}
+  - {name: SQRT(S), units: GeV, value: 1.889-2.468}
+  values:
+  - {value: 31.2}
+  - {value: 28.5}
+  - {value: 24.9}
+- header: {name: RE(AMP)/IM(AMP)}
+  qualifiers:
+  - {name: RE, value: K- N --> K- N}
+  - {name: SQRT(S), units: GeV, value: 1.889-2.468}
+  values:
+  - errors:
+    - {symerror: 0.07}
+    - {label: 'sys,UNCERTAINTY FROM NORMALIZATION AND FIT INPUT PARAMETERS', symerror: 0.06%}
+    value: 0.13
+  - errors:
+    - {symerror: 0.07}
+    - {label: 'sys,UNCERTAINTY FROM NORMALIZATION AND FIT INPUT PARAMETERS', symerror: 0.06%}
+    value: 0.08
+  - errors:
+    - {symerror: 0.08}
+    - {label: 'sys,UNCERTAINTY FROM NORMALIZATION AND FIT INPUT PARAMETERS', symerror: 0.06%}
+    value: 0.04
+- header: {name: IM(AMP), units: FM (C='FOLDED')}
+  qualifiers:
+  - {name: RE, value: K- N --> K- N}
+  - {name: SQRT(S), units: GeV, value: 1.889-2.468}
+  values:
+  - {value: 1.52}
+  - {value: 1.63}
+  - {value: 2.62}
+- header: {name: RE(AMP), units: FM (C='FOLDED')}
+  qualifiers:
+  - {name: RE, value: K- N --> K- N}
+  - {name: SQRT(S), units: GeV, value: 1.889-2.468}
+  values:
+  - errors:
+    - {symerror: 0.11}
+    value: 0.2
+  - errors:
+    - {symerror: 0.11}
+    value: 0.13
+  - errors:
+    - {symerror: 0.21}
+    value: 0.1
+independent_variables:
+- header: {name: P, units: GEV}
+  values:
+  - {value: 1.21}
+  - {value: 1.42}
+  - {value: 2.61}

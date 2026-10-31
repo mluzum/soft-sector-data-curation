@@ -1,0 +1,25 @@
+dependent_variables:
+- header: {name: LAMBDA_THETA_COLLINS_SOPER}
+  qualifiers:
+  - {name: RE, value: PB PB --> J/PSI < MU+ MU- > X}
+  - {name: Y, value: 2.5 < Y_J/psi < 4.0}
+  - {name: SQRT(S), units: GEV, value: 5200}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.049}
+    - {label: 'sys, uncorrel', symerror: 0.058}
+    value: -0.157
+  - errors:
+    - {label: stat, symerror: 0.059}
+    - {label: 'sys, uncorrel', symerror: 0.055}
+    value: -0.057
+  - errors:
+    - {label: stat, symerror: 0.063}
+    - {label: 'sys, uncorrel', symerror: 0.026}
+    value: -0.008
+independent_variables:
+- header: {name: PT, units: GEV/C}
+  values:
+  - {high: 4, low: 2}
+  - {high: 6, low: 4}
+  - {high: 10, low: 6}

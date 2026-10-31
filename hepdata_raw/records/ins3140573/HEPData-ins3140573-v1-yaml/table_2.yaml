@@ -1,0 +1,26 @@
+dependent_variables:
+- header: {name: '$\sigma(\gamma \mathrm{Pb} \rightarrow \Upsilon(1S) \mathrm{Pb})$',
+    units: nb}
+  qualifiers:
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020'}
+  - {name: RE, value: PB PB -> UPSILON <MU+ MU-> PB PB}
+  - {name: ABS(YRAP), value: 0.0 - 0.2}
+  values:
+  - errors:
+    - {label: stat, symerror: '27.08'}
+    - {label: syst, symerror: '5.62'}
+    value: '64.68'
+- header: {name: '$R_{\mathrm{g}}^{\mathrm{Pb}}$'}
+  qualifiers:
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020'}
+  - {name: RE, value: PB PB -> UPSILON <MU+ MU-> PB PB}
+  - {name: ABS(YRAP), value: 0.0 - 0.2}
+  values:
+  - errors:
+    - {label: stat, symerror: '0.12'}
+    - {label: syst, symerror: '0.02'}
+    value: '0.55'
+independent_variables:
+- header: {name: '$W_{\gamma \mathrm{N}}^{\mathrm{Pb}}$', units: GeV}
+  values:
+  - {value: 217.92}

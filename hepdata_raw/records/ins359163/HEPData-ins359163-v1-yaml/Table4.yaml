@@ -1,0 +1,30 @@
+dependent_variables:
+- header: {name: MEAN(N=PT), units: MEV}
+  qualifiers:
+  - {name: 'ABS(YRAP(C=''Ycm'')-YRAP(P=3,RF=LAB))', value: <=0.15}
+  - {name: EKIN/A(P=1), units: GeV, value: '1.0'}
+  - {name: RE, value: AU AU --> PI0 X}
+  values:
+  - errors:
+    - {symerror: 5.0}
+    value: 168.0
+  - errors:
+    - {symerror: 5.0}
+    value: 188.0
+- header: {name: '1/SLOPE(N=MT(P=3),YN=D(N)/D(PT))', units: MEV}
+  qualifiers:
+  - {name: 'ABS(YRAP(C=''Ycm'')-YRAP(P=3,RF=LAB))', value: <=0.15}
+  - {name: EKIN/A(P=1), units: GeV, value: '1.0'}
+  - {name: RE, value: AU AU --> PI0 X}
+  values:
+  - errors:
+    - {symerror: 2.0}
+    value: 58.0
+  - errors:
+    - {symerror: 2.0}
+    value: 70.0
+independent_variables:
+- header: {name: PHI, units: DEG}
+  values:
+  - {value: (-45 TO 45) OR (135}
+  - {value: (45 TO 135) OR (225}

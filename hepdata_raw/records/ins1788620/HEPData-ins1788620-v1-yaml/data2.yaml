@@ -1,0 +1,51 @@
+dependent_variables:
+- header: {name: '$\frac{\mathrm{d^{2}}\sigma^{\gamma}_{pp}}{\mathrm{d}E_{T}^{\gamma}\mathrm{d}\eta}$',
+    units: '$\frac{\mathrm{pb}}{\mathrm{GeV}}$'}
+  qualifiers:
+  - {name: RE, value: p p --> GAMMA X}
+  - {name: '$\sqrt{s_{NN}}$', units: GeV, value: 5020}
+  - {name: '$|\eta^{\gamma}|$', value: $<$ 1.44}
+  values:
+  - errors:
+    - {label: stat, symerror: 10}
+    - {label: sys, symerror: 120}
+    value: 770
+  - errors:
+    - {label: stat, symerror: 3}
+    - {label: sys, symerror: 35}
+    value: 273
+  - errors:
+    - {label: stat, symerror: 1}
+    - {label: sys, symerror: 12}
+    value: 83
+  - errors:
+    - {label: stat, symerror: 0.2}
+    - {label: sys, symerror: 1.9}
+    value: 31.6
+  - errors:
+    - {label: stat, symerror: 0.09}
+    - {label: sys, symerror: 0.45}
+    value: 10.82
+  - errors:
+    - {label: stat, symerror: 0.05}
+    - {label: sys, symerror: 0.16}
+    value: 3.24
+  - errors:
+    - {label: stat, symerror: 0.022}
+    - {label: sys, symerror: 0.076}
+    value: 0.973
+  - errors:
+    - {label: stat, symerror: 0.006}
+    - {label: sys, symerror: 0.027}
+    value: 0.174
+independent_variables:
+- header: {name: '$E_{T}^{\gamma}$', units: GeV}
+  values:
+  - {high: 30.0, low: 25.0}
+  - {high: 40.0, low: 30.0}
+  - {high: 50.0, low: 40.0}
+  - {high: 60.0, low: 50.0}
+  - {high: 80.0, low: 60.0}
+  - {high: 100.0, low: 80.0}
+  - {high: 130.0, low: 100.0}
+  - {high: 200.0, low: 130.0}

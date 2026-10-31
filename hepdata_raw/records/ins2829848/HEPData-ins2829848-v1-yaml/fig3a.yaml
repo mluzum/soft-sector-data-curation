@@ -1,0 +1,67 @@
+dependent_variables:
+- header: {name: '$\frac{d^{2}\sigma_{coh}^{J/\psi}}{dy dp_{T}}$', units: mb/GeV}
+  qualifiers:
+  - {name: SQRT(S), units: GeV, value: 5020.0}
+  - {name: Particle, value: J/$\psi$}
+  - {name: System, value: Pb--Pb}
+  - {name: centrality, value: 50--70%}
+  values:
+  - errors:
+    - asymerror: {minus: -0.98778, plus: 0.0}
+      label: stat
+    - {label: syst, symerror: 0.0}
+    value: 0.98778
+  - errors:
+    - {label: stat, symerror: 1.2}
+    - {label: syst, symerror: 0.02388}
+    value: 2.0345
+  - errors:
+    - {label: stat, symerror: 1.6}
+    - {label: syst, symerror: 0.021923}
+    value: 6.3098
+  - errors:
+    - {label: stat, symerror: 1.32}
+    - {label: syst, symerror: 0.023324}
+    value: 3.1978
+  - errors:
+    - {label: stat, symerror: 1.0}
+    - {label: syst, symerror: 0.022814}
+    value: 1.2783
+  - errors:
+    - asymerror: {minus: -0.88261, plus: 0.0}
+      label: stat
+    - {label: syst, symerror: 0.0}
+    value: 0.88261
+  - errors:
+    - asymerror: {minus: -0.036659, plus: 0.0}
+      label: stat
+    - {label: syst, symerror: 0.0}
+    value: 0.036659
+  - errors:
+    - asymerror: {minus: -0.50391, plus: 0.0}
+      label: stat
+    - {label: syst, symerror: 0.0}
+    value: 0.50391
+  - errors:
+    - asymerror: {minus: -0.61307, plus: 0.0}
+      label: stat
+    - {label: syst, symerror: 0.0}
+    value: 0.61307
+  - errors:
+    - asymerror: {minus: -0.98747, plus: 0.0}
+      label: stat
+    - {label: syst, symerror: 0.0}
+    value: 0.98747
+independent_variables:
+- header: {name: '$p_{T}$', units: GeV/$c$}
+  values:
+  - {value: 0.01}
+  - {value: 0.03}
+  - {value: 0.05}
+  - {value: 0.07}
+  - {value: 0.09}
+  - {value: 0.11}
+  - {value: 0.13}
+  - {value: 0.15}
+  - {value: 0.17}
+  - {value: 0.19}

@@ -1,0 +1,39 @@
+dependent_variables:
+- header: {name: D(SIG(Q=1))/D(SIG(Q=2))}
+  qualifiers:
+  - {name: P, units: GeV, value: '25.8'}
+  - {name: RE(Q=1), value: P BE --> SIGMA- X}
+  - {name: RE(Q=2), value: P BE --> PI- X}
+  - {name: 'THETA(P=3,P=1,RF=LAB)', units: Mrad, value: '0.0'}
+  values:
+  - errors:
+    - {symerror: 0.042}
+    value: 0.329
+  - errors:
+    - {symerror: 0.048}
+    value: 0.465
+  - errors:
+    - {symerror: 0.067}
+    value: 0.669
+  - errors:
+    - {symerror: 0.077}
+    value: 1.08
+  - errors:
+    - {symerror: 0.14}
+    value: 2.41
+  - errors:
+    - {symerror: 0.14}
+    value: 2.85
+  - errors:
+    - {symerror: 1.4}
+    value: 21.91
+independent_variables:
+- header: {name: 'P(P=3,RF=LAB)', units: GEV}
+  values:
+  - {value: 17.75}
+  - {value: 18.75}
+  - {value: 19.75}
+  - {value: 20.75}
+  - {value: 21.75}
+  - {value: 22.75}
+  - {value: 23.75}

@@ -1,0 +1,170 @@
+---
+observable_type: particle_yields
+inspire_id: '1463284'
+version: 1
+hepdata_file: Table1.yaml
+hepdata_table_label: 'Invariant differential $p_{T}$ spectra of charged particles which are produced in p+Pb collisions at
+  $\sqrt{s_{NN}} = 5.02$ TeV shown in six $\eta$ intervals, for the 0--90% centrality interval. The individual spectra are
+  scaled by constant factors (indicated in the legend) for visibility. The statistical uncertainties are indicated with vertical
+  lines and the systematic uncertainties are indicated with boxes, but are generally much smaller than the size of the symbols.
+
+  '
+qualifiers:
+  \sqrt{s_{nn}}$ in gev: '5020.0'
+  centrality: 0--90%
+  etarap: -2.3--2.0
+collision_system:
+  energy_gev: 200
+  reaction: P PB --> CHARGED X
+centrality:
+  classes:
+  - 0-90%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.1
+  - min: 3.1
+    max: 4.9
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: 2.0
+    max: 2.3
+    bins:
+    - -2.5
+    - 2.5
+  pT:
+    min: 0.1
+    max: 22.5
+    bins:
+    - 0.1
+    - 0.15
+    - 0.2
+    - 0.25
+    - 0.3
+    - 0.35
+    - 0.4
+    - 0.45
+    - 0.5
+    - 0.563
+    - 0.625
+    - 0.687
+    - 0.75
+    - 0.812
+    - 0.875
+    - 0.937
+    - 1.0
+    - 1.12
+    - 1.25
+    - 1.37
+    - 1.5
+    - 1.62
+    - 1.75
+    - 1.87
+    - 2.0
+    - 2.25
+    - 2.5
+    - 2.75
+    - 3.0
+    - 3.25
+    - 3.5
+    - 3.75
+    - 4.0
+    - 4.5
+    - 5.0
+    - 5.5
+    - 6.0
+    - 7.0
+    - 8.0
+    - 9.0
+    - 10.0
+    - 12.5
+    - 15.0
+    - 22.5
+observable: dN_dy
+value_type: dN_dy
+---
+observable_type: particle_yields
+inspire_id: '1463284'
+version: 1
+hepdata_file: Table3.yaml
+hepdata_table_label: 'The invariant differential y* spectra of charged particles produced in p+Pb collisions at $\sqrt{s_{NN}}=5.02$
+  TeV are shown in five centrality intervals for $p_{T}>0.1$ GeV. The statistical uncertainties are indicated with vertical
+  lines and the systematic uncertainties are indicated with boxes.
+
+  '
+qualifiers:
+  \sqrt{s_{nn}}$ in gev: '5020.0'
+  centrality: 60-90%
+collision_system:
+  energy_gev: 200
+  reaction: P PB --> CHARGED X
+centrality:
+  classes:
+  - 60-90%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.1
+  - min: 3.1
+    max: 4.9
+particle_id:
+  species: charged
+kinematic_range:
+  y:
+    min: -1.8
+    max: 1.3
+    bins:
+    - -1.8
+    - -1.7
+    - -1.6
+    - -1.5
+    - -1.4
+    - -1.3
+    - -1.2
+    - -1.1
+    - -1.0
+    - -0.9
+    - -0.8
+    - -0.7
+    - -0.6
+    - -0.5
+    - -0.4
+    - -0.3
+    - -0.2
+    - -0.1
+    - 0.0
+    - 0.1
+    - 0.2
+    - 0.3
+    - 0.4
+    - 0.5
+    - 0.6
+    - 0.7
+    - 0.8
+    - 0.9
+    - 1.0
+    - 1.1
+    - 1.2
+    - 1.3
+  eta:
+    min: -2.5
+    max: 2.5
+    bins:
+    - -2.5
+    - 2.5
+  pT:
+    min: 0.5
+    max: 20
+    bins:
+    - 0.5
+    - 20
+observable: dN_dy
+value_type: dN_dy

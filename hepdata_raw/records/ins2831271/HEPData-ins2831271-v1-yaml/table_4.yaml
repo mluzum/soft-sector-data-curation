@@ -1,0 +1,62 @@
+dependent_variables:
+- header: {name: '$\frac{1}{N_{\text{jets}}}\:\frac{\text{d}N}{\text{d}k_{\text{T,g}}}$',
+    units: '(GeV/c)^{-1}'}
+  qualifiers:
+  - {name: RE, value: P P --> jet+X}
+  - {name: SQRT(S), units: TeV, value: 5.02}
+  - {name: ETARAP, value: '|0.9-R|'}
+  - {name: jet radius, value: '0.2'}
+  - {name: jet method, value: 'Anti-$k_{T}$'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.057}
+    - {label: 'sys,trk_eff', symerror: -0.0054}
+    - {label: 'sys,gen', symerror: -0.016}
+    - {label: 'sys,unfold', symerror: 0.0027}
+    value: 0.404
+  - errors:
+    - {label: stat, symerror: 0.042}
+    - {label: 'sys,trk_eff', symerror: 0.0011}
+    - {label: 'sys,gen', symerror: -0.0094}
+    - {label: 'sys,unfold', symerror: 0.0052}
+    value: 0.497
+  - errors:
+    - {label: stat, symerror: 0.039}
+    - {label: 'sys,trk_eff', symerror: 0.0023}
+    - {label: 'sys,gen', symerror: -0.0057}
+    - {label: 'sys,unfold', symerror: 0.0057}
+    value: 0.393
+  - errors:
+    - {label: stat, symerror: 0.028}
+    - {label: 'sys,trk_eff', symerror: 0.0045}
+    - {label: 'sys,gen', symerror: -0.0063}
+    - {label: 'sys,unfold', symerror: 0.0033}
+    value: 0.202
+  - errors:
+    - {label: stat, symerror: 0.014}
+    - {label: 'sys,trk_eff', symerror: 0.004}
+    - {label: 'sys,gen', symerror: -0.0057}
+    - {label: 'sys,unfold', symerror: 0.0018}
+    value: 0.107
+  - errors:
+    - {label: stat, symerror: 0.0092}
+    - {label: 'sys,trk_eff', symerror: 0.0012}
+    - {label: 'sys,gen', symerror: 0.003}
+    - {label: 'sys,unfold', symerror: 0.00076}
+    value: 0.0477
+  - errors:
+    - {label: stat, symerror: 0.0033}
+    - {label: 'sys,trk_eff', symerror: 0.00028}
+    - {label: 'sys,gen', symerror: -0.00095}
+    - {label: 'sys,unfold', symerror: 0.00022}
+    value: 0.015
+independent_variables:
+- header: {name: '$k_{\text{T}}$', units: GeV/c}
+  values:
+  - {high: 0.5, low: 0.25}
+  - {high: 1.0, low: 0.5}
+  - {high: 1.5, low: 1.0}
+  - {high: 2.0, low: 1.5}
+  - {high: 3.0, low: 2.0}
+  - {high: 4.0, low: 3.0}
+  - {high: 6.0, low: 4.0}

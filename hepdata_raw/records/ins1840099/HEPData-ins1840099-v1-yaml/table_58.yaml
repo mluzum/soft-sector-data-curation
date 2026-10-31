@@ -1,0 +1,37 @@
+dependent_variables:
+- header: {name: '$(\phi)/(\pi^{+}+\pi^{-})$'}
+  qualifiers:
+  - {name: RE(PHI), value: XE XE --> PHI X}
+  - {name: RE(PI+ + PI-), value: 'XE XE --> PI+ X, XE XE --> PI- X'}
+  - {name: RE, value: XE XE --> CHARGED X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5440.0'}
+  - {name: YRAP, value: -0.5-0.5}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.00057876}
+    - {label: syst., symerror: 0.0023656}
+    value: 0.020228
+  - errors:
+    - {label: stat., symerror: 0.00043247}
+    - {label: syst., symerror: 0.0027293}
+    value: 0.021318
+  - errors:
+    - {label: stat., symerror: 0.00056173}
+    - {label: syst., symerror: 0.0026462}
+    value: 0.019975
+  - errors:
+    - {label: stat., symerror: 0.00055058}
+    - {label: syst., symerror: 0.0028181}
+    value: 0.019405
+  - errors:
+    - {label: stat., symerror: 0.0010174}
+    - {label: syst., symerror: 0.0025224}
+    value: 0.017375
+independent_variables:
+- header: {name: Cent, units: ptc.}
+  values:
+  - {value: 0.0-10.0}
+  - {value: 10.0-30.0}
+  - {value: 30.0-50.0}
+  - {value: 50.0-70.0}
+  - {value: 70.0-90.0}

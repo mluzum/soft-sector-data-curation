@@ -1,0 +1,65 @@
+dependent_variables:
+- header: {name: '$d^2N/(d\Delta{\eta}d\Delta\phi)$'}
+  qualifiers:
+  - {name: CENTRALITY, units: PCT, value: (0 TO 20)-1.29*(40 TO 100)}
+  - {name: RE, value: DEUT AU --> CHGD-HADRONS X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '200.0'}
+  - {name: '', value: Near-side Yield}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.003085}
+    - {label: sys, symerror: 0.000653018}
+    value: 0.00306985
+  - errors:
+    - {label: stat, symerror: 0.00187896}
+    - {label: sys, symerror: 0.00150682}
+    value: 0.00558509
+  - errors:
+    - {label: stat, symerror: 0.00150387}
+    - asymerror: {minus: -0.00112632, plus: 0.000746615}
+      label: sys
+    value: 0.00750754
+  - errors:
+    - {label: stat, symerror: 0.00155378}
+    - asymerror: {minus: -0.00130341, plus: 0.000644435}
+      label: sys
+    value: 0.00625701
+  - errors:
+    - {label: stat, symerror: 0.00146183}
+    - {label: sys, symerror: 0.000184513}
+    value: -0.00143357
+  - errors:
+    - {label: stat, symerror: 0.00146171}
+    - {label: sys, symerror: 0.00058891}
+    value: -0.00181428
+  - errors:
+    - {label: stat, symerror: 0.00155374}
+    - asymerror: {minus: -0.000927194, plus: 0.000973853}
+      label: sys
+    value: 0.00659986
+  - errors:
+    - {label: stat, symerror: 0.00150345}
+    - asymerror: {minus: -0.00119037, plus: 0.000536385}
+      label: sys
+    value: 0.00807567
+  - errors:
+    - {label: stat, symerror: 0.00188447}
+    - {label: sys, symerror: 0.000912075}
+    value: 0.00548092
+  - errors:
+    - {label: stat, symerror: 0.0031008}
+    - {label: sys, symerror: 0.000217073}
+    value: 0.000728142
+independent_variables:
+- header: {name: $\Delta\eta$}
+  values:
+  - {value: -1.6}
+  - {value: -1.2}
+  - {value: -0.8}
+  - {value: -0.45}
+  - {value: -0.15}
+  - {value: 0.15}
+  - {value: 0.45}
+  - {value: 0.8}
+  - {value: 1.2}
+  - {value: 1.6}

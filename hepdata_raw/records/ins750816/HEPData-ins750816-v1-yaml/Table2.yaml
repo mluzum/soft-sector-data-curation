@@ -1,0 +1,27 @@
+dependent_variables:
+- header: {name: 'Yield/N_{part} relative to pp'}
+  qualifiers:
+  - {name: RE, value: 'Au Au $\rightarrow$  $\Omega^{-}$ $\bar{\Omega}^{+}$ X, p p
+      $\rightarrow$ $\Omega^{-}$ $\bar{\Omega}^{+}$ X'}
+  - {name: SQRT(sNN), units: GeV, value: '200.0'}
+  - {name: YRAP, value: -0.75-0.75}
+  values:
+  - errors:
+    - {label: stat.+syst., symerror: 0.529412}
+    value: 1.0
+  - errors:
+    - {label: stat.+syst., symerror: 1.663571}
+    value: 7.969639
+  - errors:
+    - {label: stat.+syst., symerror: 1.296875}
+    value: 9.929078
+  - errors:
+    - {label: stat.+syst., symerror: 1.17455}
+    value: 12.399733
+independent_variables:
+- header: {name: '$N_{part}$'}
+  values:
+  - {value: 2.0}
+  - {value: 62.0}
+  - {value: 141.0}
+  - {value: 352.0}

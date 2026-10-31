@@ -1,0 +1,66 @@
+dependent_variables:
+- header: {name: FOURIER(C=V3)}
+  qualifiers:
+  - {name: Multiplicity Class, units: pct, value: 0.0-20.0}
+  - {name: RE, value: P PB --> CHARGED CHARGED X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.004}
+    - {label: sys, symerror: 0.005}
+    value: 0.024
+  - errors:
+    - {label: stat, symerror: 0.004}
+    - {label: sys, symerror: 0.009}
+    value: 0.039
+  - errors:
+    - {label: stat, symerror: 0.017}
+    - {label: sys, symerror: 0.011}
+    value: 0.047
+- header: {name: FOURIER(C=V3)}
+  qualifiers:
+  - {name: Multiplicity Class, units: pct, value: 20.0-40.0}
+  - {name: RE, value: P PB --> CHARGED CHARGED X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.009}
+    - {label: sys, symerror: 0.007}
+    value: 0.017
+  - errors:
+    - {label: stat, symerror: 0.006}
+    - {label: sys, symerror: 0.019}
+    value: 0.046
+  - errors:
+    - {label: stat, symerror: 0.02}
+    - {label: sys, symerror: 0.03}
+    value: 0.072
+- header: {name: FOURIER(C=V3)}
+  qualifiers:
+  - {name: Multiplicity Class, units: pct, value: 40.0-60.0}
+  - {name: RE, value: P PB --> CHARGED CHARGED X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.01}
+    - {label: sys, symerror: 0.009}
+    value: 0.021
+  - errors:
+    - {label: stat, symerror: 0.012}
+    - {label: sys, symerror: 0.015}
+    value: 0.035
+  - errors:
+    - {label: stat, symerror: 0.032}
+    - {label: sys, symerror: 0.03}
+    value: 0.071
+independent_variables:
+- header: {name: PT(C=TRIG), units: GEV}
+  values:
+  - {high: 1.0, low: 0.5}
+  - {high: 2.0, low: 1.0}
+  - {high: 4.0, low: 2.0}
+- header: {name: PT(C=ASSOC), units: GEV}
+  values:
+  - {high: 1.0, low: 0.5}
+  - {high: 2.0, low: 1.0}
+  - {high: 4.0, low: 2.0}

@@ -1,0 +1,76 @@
+dependent_variables:
+- header: {name: '$R_{\rm AA}$'}
+  qualifiers:
+  - {name: RE, value: PbPb --> J/$\psi$ -->$\mu^+\mu^-$}
+  - {name: SQRT(s)/NUCLEON, units: GeV, value: 5020}
+  - {name: '$p_{\rm T, J/\psi}$', units: GeV, value: '> 6.5'}
+  - {name: '$p_{\rm T, jet}$', units: GeV, value: 30 - 40}
+  - {name: 'ABS($\eta_{jet}$)', value: < 2}
+  - {name: Centrality, value: 0-20%}
+  - {name: normalization uncertainty, value: 0.027}
+  values:
+  - errors:
+    - asymerror: {minus: -0.008, plus: 0.008}
+      label: stat
+    - asymerror: {minus: -0.139, plus: 0.157}
+      label: syst
+    value: 0.235
+  - errors:
+    - asymerror: {minus: -0.004, plus: 0.004}
+      label: stat
+    - asymerror: {minus: -0.047, plus: 0.065}
+      label: syst
+    value: 0.138
+  - errors:
+    - asymerror: {minus: -0.009, plus: 0.009}
+      label: stat
+    - asymerror: {minus: -0.078, plus: 0.085}
+      label: syst
+    value: 0.241
+  - errors:
+    - asymerror: {minus: -0.044, plus: 0.044}
+      label: stat
+    - asymerror: {minus: -0.194, plus: 0.152}
+      label: syst
+    value: 0.727
+- header: {name: '$R_{\rm AA}$'}
+  qualifiers:
+  - {name: RE, value: PbPb --> J/$\psi$ -->$\mu^+\mu^-$}
+  - {name: SQRT(s)/NUCLEON, units: GeV, value: 5020}
+  - {name: '$p_{\rm T, J/\psi}$', units: GeV, value: '> 6.5'}
+  - {name: '$p_{\rm T, jet}$', units: GeV, value: 30 - 40}
+  - {name: 'ABS($\eta_{jet}$)', value: < 2}
+  - {name: Centrality, value: 20-90%}
+  - {name: normalization uncertainty, value: 0.041}
+  values:
+  - errors:
+    - asymerror: {minus: -0.02, plus: 0.02}
+      label: stat
+    - asymerror: {minus: -0.199, plus: 0.299}
+      label: syst
+    value: 0.553
+  - errors:
+    - asymerror: {minus: -0.01, plus: 0.01}
+      label: stat
+    - asymerror: {minus: -0.119, plus: 0.13}
+      label: syst
+    value: 0.316
+  - errors:
+    - asymerror: {minus: -0.018, plus: 0.018}
+      label: stat
+    - asymerror: {minus: -0.174, plus: 0.119}
+      label: syst
+    value: 0.531
+  - errors:
+    - asymerror: {minus: -0.056, plus: 0.056}
+      label: stat
+    - asymerror: {minus: -0.184, plus: 0.184}
+      label: syst
+    value: 0.577
+independent_variables:
+- header: {name: $z$}
+  values:
+  - {high: 0.532, low: 0.376}
+  - {high: 0.688, low: 0.532}
+  - {high: 0.844, low: 0.688}
+  - {high: 1, low: 0.844}

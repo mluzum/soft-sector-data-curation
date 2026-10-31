@@ -1,0 +1,222 @@
+observable_type: flow_vn
+description: >
+  Anisotropic flow coefficients vn.  A single schema covers all
+  method/dimensionality variants; the combination of `method`,
+  `cumulant_order`, and `dimensionality` determines which fields are
+  required and what the independent variable represents.
+
+  Method variants:
+    - cumulant:  vn{2}, vn{4}, vn{6}, vn{8}  (cumulant_order required)
+    - event_plane:  vn(EP)
+    - scalar_product:  vn(SP)
+    - subevent:  vn(EP) with sub-event method
+    - gaussian_estimator:  vn(GE)
+
+  Dimensionality:
+    - integrated:  vn vs centrality (single pT/eta acceptance)
+    - differential_pT:  vn vs pT for a fixed centrality bin
+    - differential_eta:  vn vs eta for a fixed centrality bin
+
+composes:
+  - _common#collision_system
+  - _common#particle_id
+  - _common#kinematic_range
+
+optional_composes:
+  - centrality#centrality
+  # Reference sample for event_plane / scalar_product / subevent methods.
+  # Composed so the computation can read the reference acceptance straight
+  # from the record.  See _common#flow_reference.
+  - _common#flow_reference
+  - _common#notes
+
+# experiment and particle_id.species are set during export but
+# should also be set at classification time (already stored in
+# raw HEPData metadata and qualifiers respectively).
+
+optional_fields:
+  value_scale:
+    type: float
+    required: false
+    description: >-
+      Factor converting the stored experimental values to the canonical unit
+      for this observable (default 1.0).  Publications frequently tabulate
+      a quantity in percent or pre-multiplied for legibility -- HEPData
+      reports these verbatim with `units: none`, so the scale survives only
+      in the column header text (e.g. "v_3(TPC) (%)", "v_3*100 (TPC)",
+      "v_3^2*10^4").  Without this field a percent table is compared
+      against a dimensionless fraction and is wrong by 100x.  Set to 0.01
+      for a percent table, 1e-4 for a *10^4 table, etc.  Leave unset when
+      the factor is not stated (e.g. a column merely labelled "Scaled") --
+      an unknown scale must not be guessed.
+    example: 0.01
+  source_column:
+    type: string
+    required: false
+    description: >-
+      The HEPData dependent-variable column header this record was derived
+      from, verbatim.  Provenance: `value_type` carries a normalised label
+      and this preserves the original text, including any scale or
+      centrality decoration that was stripped out of it.
+    example: "v_3(TPC) (%)"
+  experiment:
+    type: string
+    required: false
+    description: "Collaboration/experiment name (e.g. ALICE, STAR, PHENIX, CMS, ATLAS, PHOBOS)"
+    example: "STAR"
+  dv_index:
+    type: integer
+    required: false
+    description: >
+      Index into the HEPData table's dependent_variables list when one
+      table holds several measured series (e.g. v2{2} and v2{4} vs eta).
+      Default 0. Used by load_experimental to read the matching series.
+    example: 1
+  dv_average:
+    type: list
+    required: false
+    description: >
+      Average several dependent_variables element-wise (e.g. particle +
+      antiparticle series like pi+/pi- mean-pT, matching calibration
+      usage). Values and errors are arithmetically averaged; all series
+      must have equal length. Mutually exclusive with dv_index.
+    example: [0, 1]
+
+required_fields:
+  harmonic:
+    type: integer
+    required: true
+    description: "Fourier harmonic n (1, 2, 3, ...)"
+    example: 2
+  method:
+    type: string
+    required: true
+    allowed:
+      - cumulant
+      - event_plane
+      - scalar_product
+      - subevent
+      - gaussian_estimator
+      - lyz
+    description: "Analysis method used to extract vn"
+    example: "cumulant"
+  value_type:
+    type: string
+    required: true
+    description: >
+      HEPData column header for the observable.
+      Examples: 'v2{2}', 'v2{4}', 'v2{6}', 'v2{8}', 'v2(EP)', 'v2(SP)', 'v2(GE)'
+    example: "v2{2}"
+  dimensionality:
+    type: string
+    required: true
+    allowed:
+      - integrated
+      - differential_pT
+      - differential_eta
+    description: "What the independent variable of the measurement is"
+    example: "differential_pT"
+
+conditional_fields:
+  cumulant_order:
+    type: integer
+    required_if:
+      field: method
+      value: cumulant
+    description: "Order of the cumulant (2, 4, 6, 8). Only for method='cumulant'."
+    example: 2
+  eta_gap:
+    type: float
+    required: false
+    description: >
+      Pseudorapidity gap |Δη| applied. Typical for vn{2} and subevent EP.
+      Can be derived from subevent η ranges; set explicitly when the gap
+      is larger than the separation (e.g. mid-rapidity gap with FVTX).
+    example: 1.0
+  particles:
+    type: string
+    required: false
+    description: >
+      Assigns each particle in the N-particle correlator to a subevent
+      (one letter per particle). Length must equal cumulant_order.
+      Examples:
+        "AB"     = v₂{2}ab (one in A, one in B)
+        "AAAA"   = v₄{4} single acceptance (no subevents)
+        "AABB"   = v₄{4} two-subevent (2+2)
+        "ABCD"   = v₄{4} four-subevent
+      Absent: all particles share kinematic_range (legacy single-acceptance).
+    example: "AB"
+  subevents:
+    type: object
+    required: false
+    description: >
+      Defines per-subevent η range, pT range, and particle species.
+      Keys are labels from `particles` (A, B, C, ...). Each value may
+      contain kinematic_range and/or particle_id which override the
+      top-level defaults. Required when `particles` contains >1 unique
+      letter.
+    fields:
+      kinematic_range:
+        type: object
+        required: false
+        description: >
+          Phase-space coverage for particles in this subevent.
+          Overrides top-level kinematic_range for this subevent.
+        fields:
+          eta:
+            type: object
+            required: false
+            description: "Pseudorapidity range for this subevent."
+            fields:
+              min: {type: float, required: true, example: 1.0}
+              max: {type: float, required: true, example: 3.0}
+          pT:
+            type: object
+            required: false
+            description: "Transverse momentum range for this subevent."
+            fields:
+              min: {type: float, required: true, example: 0.2}
+              max: {type: float, required: true, example: 20.0}
+          y:
+            type: object
+            required: false
+            description: "Rapidity range for this subevent."
+            fields:
+              min: {type: float, required: true, example: -0.5}
+              max: {type: float, required: true, example: 0.5}
+      particle_id:
+        type: object
+        required: false
+        description: >
+          Particle species for this subevent. Overrides top-level
+          particle_id. Only needed for subevent-specific species
+          (e.g. proton-triggered A, associated B).
+        fields:
+          species: {type: string, required: true, example: "charged"}
+          pdg_id: {type: integer, required: false, example: 211}
+          is_antiparticle: {type: boolean, required: false, example: false}
+
+dimensionality_rules:
+  differential_pT:
+    independent_variable: pT
+    qualifiers:
+      centrality.classes: "single fixed centrality bin (required)"
+      kinematic_range.eta: "pseudorapidity range (required)"
+  differential_eta:
+    independent_variable: eta
+    qualifiers:
+      centrality.classes: "single fixed centrality bin (required)"
+      kinematic_range.pT: "transverse momentum range (required)"
+  integrated:
+    independent_variable: centrality
+    qualifiers:
+      kinematic_range.pT: "transverse momentum integration range (required)"
+      kinematic_range.eta: "pseudorapidity range (required)"
+
+validation:
+  rules:
+    - "harmonic_must_be_positive"
+    - "harmonic_must_be_at_most_10"  # larger values = misclassified correlator
+    - "cumulant_order_required_if_method_cumulant"
+    - "vn_between_minus_one_and_one"
+    - "subevent_consistency"

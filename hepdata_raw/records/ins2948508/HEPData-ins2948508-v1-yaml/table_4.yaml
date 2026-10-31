@@ -1,0 +1,46 @@
+dependent_variables:
+- header: {name: '$1/N_\mathrm{ev} \: \mathrm{d^2}N/\mathrm{d}y/\mathrm{d}p_\mathrm{T}$',
+    units: '$(\mathrm{GeV}/c)^{-1}$'}
+  qualifiers:
+  - {name: REACTION, value: p Pb --> Sigmabar- + X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 5020.0}
+  - {name: YRAP(CMS), value: -0.5 TO 0.5}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0032654}
+    - {label: sys, symerror: 0.0074973}
+    value: 0.025039
+  - errors:
+    - {label: stat, symerror: 0.002344}
+    - {label: sys, symerror: 0.0098354}
+    value: 0.034077
+  - errors:
+    - {label: stat, symerror: 0.0023103}
+    - {label: sys, symerror: 0.010642}
+    value: 0.039579
+  - errors:
+    - {label: stat, symerror: 0.0020898}
+    - {label: sys, symerror: 0.0081391}
+    value: 0.031128
+  - errors:
+    - {label: stat, symerror: 0.0016856}
+    - {label: sys, symerror: 0.0084342}
+    value: 0.03058
+  - errors:
+    - {label: stat, symerror: 0.002287}
+    - {label: sys, symerror: 0.0063885}
+    value: 0.024701
+  - errors:
+    - {label: stat, symerror: 0.00082383}
+    - {label: sys, symerror: 0.003816}
+    value: 0.012718
+independent_variables:
+- header: {name: '$p_\mathrm{{T}}$', units: '$\mathrm{GeV}/c$'}
+  values:
+  - {value: 0.61685}
+  - {value: 0.85229}
+  - {value: 1.1405}
+  - {value: 1.3787}
+  - {value: 1.6258}
+  - {value: 1.8745}
+  - {value: 2.4689}

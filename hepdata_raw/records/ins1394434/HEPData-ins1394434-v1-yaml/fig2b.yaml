@@ -1,0 +1,76 @@
+dependent_variables:
+- header: {name: '$N_{part}$'}
+  qualifiers:
+  - {name: Collision, value: Au+Au}
+  - {name: '$\sqrt{s_{NN}}$', value: 62.4 GeV}
+  values:
+  - errors:
+    - {label: sys., symerror: 6}
+    value: 317
+  - errors:
+    - {label: sys., symerror: 9}
+    value: 225
+  - errors:
+    - {label: sys., symerror: 9}
+    value: 131
+  - errors:
+    - {label: sys., symerror: 6}
+    value: 55
+- header: {name: '$N_{qp}$'}
+  qualifiers:
+  - {name: Collision, value: Au+Au}
+  - {name: '$\sqrt{s_{NN}}$', value: 62.4 GeV}
+  values:
+  - errors:
+    - {label: sys., symerror: 21}
+    value: 824
+  - errors:
+    - {label: sys., symerror: 17}
+    value: 560
+  - errors:
+    - {label: sys., symerror: 13}
+    value: 310
+  - errors:
+    - {label: sys., symerror: 8}
+    value: 118
+- header: {name: '$dN_{ch}/d \eta$'}
+  qualifiers:
+  - {name: Collision, value: Au+Au}
+  - {name: '$\sqrt{s_{NN}}$', value: 62.4 GeV}
+  values:
+  - errors:
+    - {label: sys., symerror: 32}
+    value: 405
+  - errors:
+    - {label: sys., symerror: 21}
+    value: 273
+  - errors:
+    - {label: sys., symerror: 13}
+    value: 151
+  - errors:
+    - {label: sys., symerror: 4}
+    value: 58
+- header: {name: '$\epsilon B_j \tau_0$ [GeV/fm$^2$]'}
+  qualifiers:
+  - {name: Collision, value: Au+Au}
+  - {name: '$\sqrt{s_{NN}}$', value: 62.4 GeV}
+  values:
+  - errors:
+    - {label: sys., symerror: 0.4}
+    value: 3.4
+  - errors:
+    - {label: sys., symerror: 0.3}
+    value: 2.95
+  - errors:
+    - {label: sys., symerror: 0.22}
+    value: 2.17
+  - errors:
+    - {label: sys., symerror: 0.13}
+    value: 1.31
+independent_variables:
+- header: {name: 'Centrality [%]'}
+  values:
+  - {high: 10, low: 0}
+  - {high: 20, low: 10}
+  - {high: 40, low: 20}
+  - {high: 60, low: 40}

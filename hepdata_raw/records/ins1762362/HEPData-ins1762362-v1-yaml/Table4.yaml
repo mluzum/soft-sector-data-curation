@@ -1,0 +1,38 @@
+dependent_variables:
+- header: {name: '$(1/N_{\rm{ev}})(\rm{d}N/\rm{d}cos\theta^{*}$)'}
+  qualifiers:
+  - {name: '$p_{\rm T}$ range', units: GeV/$c$, value: 0.5-0.8}
+  - {name: CENTRALITY, units: GeV/$c$, value: 10.0-50.0}
+  - {name: RE, value: Pb-Pb $\rightarrow$ $\phi$ X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  - {name: Plane, value: Production Plane}
+  - {name: YRAP, value: -0.5-0.5}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.0568839}
+    - {label: syst., symerror: 0.149122}
+    value: 0.968327
+  - errors:
+    - {label: stat., symerror: 0.0546008}
+    - {label: syst., symerror: 0.135957}
+    value: 0.882835
+  - errors:
+    - {label: stat., symerror: 0.051271}
+    - {label: syst., symerror: 0.144035}
+    value: 0.935289
+  - errors:
+    - {label: stat., symerror: 0.0424933}
+    - {label: syst., symerror: 0.129898}
+    value: 0.843495
+  - errors:
+    - {label: stat., symerror: 0.0342415}
+    - {label: syst., symerror: 0.122419}
+    value: 0.794931
+independent_variables:
+- header: {name: 'cos\theta^{*}'}
+  values:
+  - {high: 0.2, low: 0.0}
+  - {high: 0.4, low: 0.2}
+  - {high: 0.6, low: 0.4}
+  - {high: 0.8, low: 0.6}
+  - {high: 1.0, low: 0.8}

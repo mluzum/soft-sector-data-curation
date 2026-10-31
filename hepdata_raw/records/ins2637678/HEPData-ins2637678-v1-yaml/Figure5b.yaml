@@ -1,0 +1,50 @@
+dependent_variables:
+- header: {name: '$(1/N_{evt})(dN_{\gamma}/d\eta_{lab})$'}
+  qualifiers:
+  - {name: SYSTEM, value: Proton-Lead (p-Pb)}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: 5020}
+  - {name: ETARAP, value: 2.3 - 3.9}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.0010151}
+    - {label: syst., symerror: 1.99743}
+    value: 19.9512
+  - errors:
+    - {label: stat., symerror: 0.0010488}
+    - {label: syst., symerror: 2.02367}
+    value: 19.0347
+  - errors:
+    - {label: stat., symerror: 0.00109231}
+    - {label: syst., symerror: 1.99349}
+    value: 19.2001
+  - errors:
+    - {label: stat., symerror: 0.00105233}
+    - {label: syst., symerror: 1.98113}
+    value: 18.2547
+  - errors:
+    - {label: stat., symerror: 0.00110052}
+    - {label: syst., symerror: 1.86755}
+    value: 17.812
+  - errors:
+    - {label: stat., symerror: 0.00114041}
+    - {label: syst., symerror: 1.82327}
+    value: 17.8251
+  - errors:
+    - {label: stat., symerror: 0.00113634}
+    - {label: syst., symerror: 1.72359}
+    value: 17.5951
+  - errors:
+    - {label: stat., symerror: 0.0014775}
+    - {label: syst., symerror: 1.57412}
+    value: 17.2229
+independent_variables:
+- header: {name: '$\eta_{lab}$'}
+  values:
+  - {high: 2.5, low: 2.3}
+  - {high: 2.7, low: 2.5}
+  - {high: 2.9, low: 2.7}
+  - {high: 3.1, low: 2.9}
+  - {high: 3.3, low: 3.1}
+  - {high: 3.5, low: 3.3}
+  - {high: 3.7, low: 3.5}
+  - {high: 3.9, low: 3.7}

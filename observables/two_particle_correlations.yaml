@@ -1,0 +1,84 @@
+observable_type: two_particle_correlations
+description: >
+  Two-particle angular correlation functions and per-trigger yields.
+  The standard observables are:
+    C(Δφ, Δη)  — correlation function
+    Y(Δφ, Δη)  — per-trigger yield (associated particles per trigger)
+    Y(Δφ)      — per-trigger yield projected onto Δφ
+  Commonly reported as a function of trigger pT and associated pT,
+  for different centrality bins and charge combinations.
+
+composes:
+  - _common#collision_system
+  - _common#kinematic_range
+
+optional_composes:
+  - centrality#centrality
+
+required_fields:
+  observable:
+    type: string
+    required: true
+    description: Short identifier.
+    example: "per_trigger_yield"
+  correlation_type:
+    type: string
+    required: true
+    allowed:
+      - delta_phi_delta_eta
+      - delta_phi_projection
+      - delta_eta_projection
+    description: "Dimensionality of the correlation function."
+    example: "delta_phi_delta_eta"
+  value_type:
+    type: string
+    required: true
+    description: >
+      One of: 'C(Δφ,Δη)', 'Y(Δφ,Δη)', 'Y(Δφ)', 'C(Δφ)',
+      'dN_pair/dΔφdΔη', 'per_trigger_yield'
+    example: "Y(Δφ,Δη)"
+
+optional_fields:
+  trigger_particle:
+    type: string
+    required: false
+    description: "Trigger particle species or selection (e.g. 'charged', 'pi0')."
+    example: "charged"
+  associated_particle:
+    type: string
+    required: false
+    description: "Associated particle species or selection."
+    example: "charged"
+  pT_trigger:
+    type: object
+    required: false
+    description: "Trigger pT range [GeV/c]."
+    fields:
+      min: {type: float, required: true, example: 2.0}
+      max: {type: float, required: true, example: 4.0}
+  pT_associate:
+    type: object
+    required: false
+    description: "Associated pT range [GeV/c]."
+    fields:
+      min: {type: float, required: true, example: 1.0}
+      max: {type: float, required: true, example: 2.0}
+  charge_combo:
+    type: string
+    required: false
+    description: "Charge combination. One of: 'same', 'opposite', 'all'."
+    example: "all"
+  eta_gap:
+    type: float
+    required: false
+    description: "Pseudorapidity gap between trigger and associated."
+    example: 2.0
+  efficiency_corrected:
+    type: boolean
+    required: false
+    description: "Whether per-trigger yields are corrected for detection efficiency."
+    example: true
+
+validation:
+  rules:
+    - "per_trigger_yield_must_be_positive"

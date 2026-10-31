@@ -1,0 +1,50 @@
+dependent_variables:
+- header: {name: '$dN/dM_{ee}$'}
+  qualifiers:
+  - {name: AU AU --> E-  E+ X, value: ''}
+  - {name: M_ee, units: GeV c^-2, value: 1.8-2.8}
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 5.65e-06}
+    - {label: sys, symerror: 4.8e-06}
+    value: 2.44e-05
+  - errors:
+    - {label: stat, symerror: 7.8e-06}
+    - {label: sys, symerror: 8.59e-06}
+    value: 5.45e-05
+  - errors:
+    - {label: stat, symerror: 7.48e-06}
+    - {label: sys, symerror: 8.21e-06}
+    value: 5.34e-05
+  - errors:
+    - {label: stat, symerror: 6.58e-06}
+    - {label: sys, symerror: 5.44e-06}
+    value: 2.25e-05
+- header: {name: Cocktail}
+  qualifiers:
+  - {name: AU AU --> E-  E+ X, value: ''}
+  - {name: M_ee, units: GeV c^-2, value: 1.8-2.8}
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  values:
+  - {value: 2.4e-05}
+  - {value: 4.46e-05}
+  - {value: 3.26e-05}
+  - {value: 1.75e-05}
+- header: {name: Cocktail_un(100%)}
+  qualifiers:
+  - {name: AU AU --> E-  E+ X, value: ''}
+  - {name: M_ee, units: GeV c^-2, value: 1.8-2.8}
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  values:
+  - {value: 0.181}
+  - {value: 0.181}
+  - {value: 0.181}
+  - {value: 0.181}
+independent_variables:
+- header: {name: '$p_T^{ee}$'}
+  values:
+  - {value: 0.25}
+  - {value: 0.75}
+  - {value: 1.25}
+  - {value: 1.75}

@@ -1,0 +1,79 @@
+dependent_variables:
+- header: {name: RD(pT r)}
+  qualifiers:
+  - {name: RE, value: Ratio of charged particle distributions}
+  - {name: pT(jet), units: GeV, value: 251.2 - 316.2}
+  - {name: pT(trk), units: GeV, value: 6.3 - 10.0}
+  - {name: Centrality, value: 10-20%}
+  - {name: abs. rapidity(jet), value: 0 - 1.7}
+  - {name: SQRT(S), units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - asymerror: {minus: -0.0643795, plus: 0.0645949}
+      label: sys
+    - {label: stat, symerror: 0.0301138}
+    value: 1.06184
+  - errors:
+    - asymerror: {minus: -0.0331281, plus: 0.0331157}
+      label: sys
+    - {label: stat, symerror: 0.0259879}
+    value: 0.831372
+  - errors:
+    - asymerror: {minus: -0.0228848, plus: 0.0225589}
+      label: sys
+    - {label: stat, symerror: 0.0368086}
+    value: 0.80922
+  - errors:
+    - asymerror: {minus: -0.0252096, plus: 0.0248603}
+      label: sys
+    - {label: stat, symerror: 0.0488248}
+    value: 0.773858
+  - errors:
+    - asymerror: {minus: -0.0479403, plus: 0.0481927}
+      label: sys
+    - {label: stat, symerror: 0.0607119}
+    value: 0.73367
+  - errors:
+    - asymerror: {minus: -0.0364673, plus: 0.0367223}
+      label: sys
+    - {label: stat, symerror: 0.0651483}
+    value: 0.552802
+  - errors:
+    - asymerror: {minus: -0.0593183, plus: 0.0593551}
+      label: sys
+    - {label: stat, symerror: 0.0666168}
+    value: 0.492715
+  - errors:
+    - asymerror: {minus: -0.0423838, plus: 0.0416113}
+      label: sys
+    - {label: stat, symerror: 0.100018}
+    value: 0.526928
+  - errors:
+    - asymerror: {minus: -0.116978, plus: 0.117058}
+      label: sys
+    - {label: stat, symerror: 0.122252}
+    value: 0.373618
+  - errors:
+    - asymerror: {minus: -0.223711, plus: 0.223781}
+      label: sys
+    - {label: stat, symerror: 0.164124}
+    value: 0.421986
+  - errors:
+    - asymerror: {minus: -0.0921342, plus: 0.092552}
+      label: sys
+    - {label: stat, symerror: 0.14009}
+    value: 0.279306
+independent_variables:
+- header: {name: r}
+  values:
+  - {high: 0.05, low: 0}
+  - {high: 0.1, low: 0.05}
+  - {high: 0.15, low: 0.1}
+  - {high: 0.2, low: 0.15}
+  - {high: 0.25, low: 0.2}
+  - {high: 0.3, low: 0.25}
+  - {high: 0.4, low: 0.3}
+  - {high: 0.5, low: 0.4}
+  - {high: 0.6, low: 0.5}
+  - {high: 0.7, low: 0.6}
+  - {high: 0.8, low: 0.7}

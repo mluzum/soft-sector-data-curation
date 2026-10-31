@@ -1,0 +1,48 @@
+dependent_variables:
+- header: {name: Measured ($\gamma\gamma \rightarrow \gamma\gamma$), units: '$d\sigma^{fid}/d|cos(\theta*)|
+      [nb]$'}
+  qualifiers:
+  - {name: 'Pb+Pb $\sqrt{s_{NN}}$', units: GeV, value: 5020}
+  - {name: LUMINOSITY, units: 'nb$^{-1}$', value: 2.2}
+  values:
+  - errors:
+    - {label: total, symerror: 63.81773}
+    - {label: stat, symerror: 42.45373}
+    value: 200.8752
+  - errors:
+    - {label: total, symerror: 43.6092}
+    - {label: stat, symerror: 34.45908}
+    value: 120.1529
+  - errors:
+    - {label: total, symerror: 34.98136}
+    - {label: stat, symerror: 28.25555}
+    value: 81.90318
+  - errors:
+    - {label: total, symerror: 30.39353}
+    - {label: stat, symerror: 26.9585}
+    value: 81.76371
+- header: {name: Predicted Superchic 3.0($\gamma\gamma \rightarrow \gamma\gamma$),
+    units: '1/$\sigma^{fid} d\sigma^{fid}/d|cos(\theta*)|$'}
+  qualifiers:
+  - {name: 'Pb+Pb $\sqrt{s_{NN}}$', units: GeV, value: 5020}
+  - {name: LUMINOSITY, units: 'nb$^{-1}$', value: 2.2}
+  values:
+  - errors:
+    - {symerror: 3.428189}
+    value: 103.8362
+  - errors:
+    - {symerror: 3.158363}
+    value: 95.41533
+  - errors:
+    - {symerror: 2.601157}
+    value: 78.00547
+  - errors:
+    - {symerror: 1.122255}
+    value: 31.88694
+independent_variables:
+- header: {name: $|cos(\theta*)|$, units: ''}
+  values:
+  - {high: 0.25, low: 0.0}
+  - {high: 0.5, low: 0.25}
+  - {high: 0.75, low: 0.5}
+  - {high: 1.0, low: 0.75}

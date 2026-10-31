@@ -1,0 +1,32 @@
+dependent_variables:
+- header: {name: V2/EPSILON2}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 0.0-5.0}
+  - {name: EPSILON2, value: point-like centers}
+  - {name: RE, value: DEUT AU --> CHGD-HADRONS X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '200.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0395238}
+    - {label: sys, symerror: 0.0401587}
+    value: 0.261905
+- header: {name: V2/EPSILON2}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 0.0-5.0}
+  - {name: EPSILON2, value: Gaussian smearing (sigma = 0.4)}
+  - {name: RE, value: DEUT AU --> CHGD-HADRONS X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '200.0'}
+  values:
+  - {value: 0.307836}
+- header: {name: V2/EPSILON2}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 0.0-5.0}
+  - {name: EPSILON2, value: disks (R = 1 fm)}
+  - {name: RE, value: DEUT AU --> CHGD-HADRONS X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '200.0'}
+  values:
+  - {value: 0.335366}
+independent_variables:
+- header: {name: D(Nch)/DETARAP (ETARAP=0)}
+  values:
+  - {value: 18.2}

@@ -1,0 +1,35 @@
+dependent_variables:
+- header: {name: '$p_T$ ($\mathrm{GeV}$/$c$) ($\mathrm{actual}$ $\mathrm{values}$)'}
+  qualifiers:
+  - {name: Collision, value: ' '}
+  - {name: Decay Channel, value: ' '}
+  - {name: Centrality, value: ' '}
+  values:
+  - {value: 4.0}
+  - {value: 5.0}
+  - {value: 6.0}
+- header: {name: '$1/{N_{evt}}$ ${1}/{2} \pi {p}_{T} $ $ {{d}^{2}N}/{dy d{p}_{T}}
+      {(GeV/c)}^{-2}$'}
+  qualifiers:
+  - {name: Collision, value: Au + Au}
+  - {name: Decay Channel, value: $\omega$ $\rightarrow$ $\pi^0 \gamma$}
+  - {name: Centrality, value: 60-92%}
+  values:
+  - errors:
+    - {label: stat., symerror: 2.2e-05}
+    - {label: sys., symerror: 1.0e-05}
+    value: 4.3e-05
+  - errors:
+    - {label: stat., symerror: 4.0e-06}
+    - {label: sys., symerror: 4.0e-06}
+    value: 1.4e-05
+  - errors:
+    - {label: stat., symerror: 1.1e-06}
+    - {label: sys., symerror: 8.0e-07}
+    value: 2.3e-06
+independent_variables:
+- header: {name: '$p_T$ ($\mathrm{GeV}$/$c$)'}
+  values:
+  - {high: 4.5, low: 3.5}
+  - {high: 5.5, low: 4.5}
+  - {high: 6.5, low: 5.5}

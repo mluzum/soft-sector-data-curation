@@ -1,0 +1,29 @@
+dependent_variables:
+- header: {name: '$R_{dAu}$'}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.11}
+    - asymerror: {minus: -0.16, plus: 0.19}
+      label: sys.
+    value: 0.54
+  - errors:
+    - {label: stat., symerror: 0.41}
+    - {label: sys., symerror: 0.18}
+    value: 0.77
+  - errors:
+    - {label: stat., symerror: 0.12}
+    - {label: sys., symerror: 0.23}
+    value: 0.81
+  - errors:
+    - {label: stat., symerror: 0.14}
+    - asymerror: {minus: -0.08, plus: 0.13}
+      label: sys.
+    - {label: global, symerror: 0.16}
+    value: 0.68
+independent_variables:
+- header: {name: Quarkonium Binding Energy (GeV)}
+  values:
+  - {value: '$\psi^{\prime}$'}
+  - {value: $\chi_c$}
+  - {value: Feed-Down Corrected $J/\psi$}
+  - {value: 'Relative Modification $\psi^{\prime}$/($J/\psi$)'}

@@ -1,0 +1,29 @@
+dependent_variables:
+- header: {name: Yield Ratio}
+  qualifiers:
+  - {name: ABS(DELTA ETA), value: 0.0-1.78}
+  - {name: ABS(DELTA PHI), value: 0.0-0.78}
+  - {name: ABS(ETA), value: 0.0-1.0}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '62.4'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.4675}
+    - asymerror: {minus: -0.1573, plus: 1.7511}
+      label: sys,total
+    value: -1.5321
+  - errors:
+    - {label: stat, symerror: 0.6112}
+    - asymerror: {minus: -0.5399, plus: 3.4577}
+      label: sys,total
+    value: -0.4297
+  - errors:
+    - {label: stat, symerror: 1.8159}
+    - asymerror: {minus: -0.3468, plus: 2.0588}
+      label: sys,total
+    value: 4.5634
+independent_variables:
+- header: {name: '$N_{part}$'}
+  values:
+  - {value: 42.0}
+  - {value: 169.0}
+  - {value: 320.0}

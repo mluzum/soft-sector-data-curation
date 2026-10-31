@@ -1,0 +1,30 @@
+dependent_variables:
+- header: {name: Associated yield}
+  qualifiers:
+  - {name: SQRT(S), units: GEV, value: '7000.0'}
+  - {name: YRAP, value: '-0.5 TO 0.5 (D0, D+, D*+)'}
+  - {name: ABS(DETA), value: <1}
+  - {name: PT(CHARGED), units: GEV, value: '>1.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0642}
+    - asymerror: {minus: -0.0579, plus: 0.0619}
+      label: sys,uncorr
+    value: 0.2657
+  - errors:
+    - {label: stat, symerror: 0.0724}
+    - asymerror: {minus: -0.0613, plus: 0.0692}
+      label: sys,uncorr
+    value: 0.4654
+  - errors:
+    - {label: stat, symerror: 0.1141}
+    - asymerror: {minus: -0.1488, plus: 0.1689}
+      label: sys,uncorr
+    value: 1.1064
+independent_variables:
+- header: {name: 'D-meson $p_{\rm T}$ (GeV/$c$)'}
+  values:
+  - {high: 5.0, low: 3.0}
+  - {high: 8.0, low: 5.0}
+  - {high: 16.0, low: 8.0}
+name: data29.yaml

@@ -1,0 +1,70 @@
+dependent_variables:
+- header: {name: '$2\rho^{0}/(\pi^{+}+\pi^{-})$'}
+  qualifiers:
+  - {name: RE, value: 'P P $\rightarrow$ $\rho^{0}$ + X'}
+  - {name: SQRT(S), units: GeV, value: '2760.0'}
+  - {name: YRAP(CM), value: -0.5 TO 0.5}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.00503407}
+    - asymerror: {minus: -0.0282287, plus: 0.0197164}
+      label: sys (total)
+    value: 0.20202
+  - errors:
+    - {label: stat, symerror: 0.0106575}
+    - asymerror: {minus: -0.068744, plus: 0.0458883}
+      label: sys (total)
+    value: 0.465326
+  - errors:
+    - {label: stat, symerror: 0.0185987}
+    - asymerror: {minus: -0.088656, plus: 0.0606556}
+      label: sys (total)
+    value: 0.64659
+  - errors:
+    - {label: stat, symerror: 0.0203992}
+    - asymerror: {minus: -0.0860517, plus: 0.0655146}
+      label: sys (total)
+    value: 0.697398
+  - errors:
+    - {label: stat, symerror: 0.0324167}
+    - asymerror: {minus: -0.0816069, plus: 0.0676381}
+      label: sys (total)
+    value: 0.760988
+  - errors:
+    - {label: stat, symerror: 0.0273653}
+    - asymerror: {minus: -0.0726127, plus: 0.0722254}
+      label: sys (total)
+    value: 0.748943
+  - errors:
+    - {label: stat, symerror: 0.0399718}
+    - asymerror: {minus: -0.0929763, plus: 0.0926044}
+      label: sys (total)
+    value: 0.830775
+  - errors:
+    - {label: stat, symerror: 0.0498665}
+    - asymerror: {minus: -0.104686, plus: 0.104231}
+      label: sys (total)
+    value: 0.97514
+  - errors:
+    - {label: stat, symerror: 0.115337}
+    - asymerror: {minus: -0.100452, plus: 0.100069}
+      label: sys (total)
+    value: 0.87682
+  - errors:
+    - {label: stat, symerror: 0.268388}
+    - asymerror: {minus: -0.099451, plus: 0.0991145}
+      label: sys (total)
+    value: 0.817482
+independent_variables:
+- header: {name: '$p_{T}$', units: GeV/c}
+  values:
+  - {high: 1, low: 0.5, value: 0.75}
+  - {high: 1.5, low: 1, value: 1.25}
+  - {high: 2, low: 1.5, value: 1.75}
+  - {high: 2.5, low: 2, value: 2.25}
+  - {high: 3, low: 2.5, value: 2.75}
+  - {high: 4, low: 3, value: 3.5}
+  - {high: 5, low: 4, value: 4.5}
+  - {high: 7, low: 5, value: 6}
+  - {high: 9, low: 7, value: 8}
+  - {high: 11, low: 9, value: 10}

@@ -1,0 +1,40 @@
+dependent_variables:
+- header: {name: '$R_{PbPb}(B_c)$'}
+  qualifiers:
+  - {name: RE, value: B/C+ --> (J/PSI(1S) --> MU+ MU-) MU+ NUMU}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: 5020}
+  - {name: CENTRALITY, value: 0-90%}
+  - {name: ABS(RAP), value: 1.3-2.3}
+  - {name: bin-to-bin correlation factor, value: 0.43}
+  values:
+  - errors:
+    - asymerror: {minus: -0.578, plus: 0.912}
+      label: total
+    - asymerror: {minus: -0.526, plus: 0.851}
+      label: uncorrelated
+    - asymerror: {minus: -0.24, plus: 0.327}
+      label: correlated
+    value: 1.666
+  - {value: --}
+- header: {name: '$R_{PbPb}(B_c)$'}
+  qualifiers:
+  - {name: RE, value: B/C+ --> (J/PSI(1S) --> MU+ MU-) MU+ NUMU}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: 5020}
+  - {name: CENTRALITY, value: 0-90%}
+  - {name: ABS(RAP), value: 0-2.3}
+  - {name: bin-to-bin correlation factor, value: 0.43}
+  values:
+  - {value: --}
+  - errors:
+    - asymerror: {minus: -0.121, plus: 0.14}
+      label: total
+    - asymerror: {minus: -0.11, plus: 0.131}
+      label: uncorrelated
+    - asymerror: {minus: -0.05, plus: 0.05}
+      label: correlated
+    value: 0.696
+independent_variables:
+- header: {name: trimuon $p_T$}
+  values:
+  - {high: 11.0, low: 6.0, value: 8.059}
+  - {high: 35.0, low: 11.0, value: 17.165}

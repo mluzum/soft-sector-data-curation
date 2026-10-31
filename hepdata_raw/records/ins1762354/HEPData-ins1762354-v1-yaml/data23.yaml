@@ -1,0 +1,66 @@
+dependent_variables:
+- header: {name: Near-side Peak width (rad) (pp)}
+  qualifiers:
+  - {name: SQRT(S) (PP), units: GEV, value: '5020'}
+  - {name: SQRT(S)/NUCLEON (P-PB), units: GEV, value: '5020'}
+  - {name: YRAP (PP), value: '-0.5 TO 0.5 (D0, D+, D*+)'}
+  - {name: YRAP(RF=CMS) (P-PB), value: '-0.96 TO 0.04 (D0, D+, D*+)'}
+  - {name: ABS(DETA), value: <1}
+  - {name: PT(CHARGED), units: GEV, value: 1.0 TO 2.0}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.033192}
+    - asymerror: {minus: -0.030217, plus: 0.030217}
+      label: sys,uncorr
+    value: 0.291953
+  - errors:
+    - {label: stat, symerror: 0.029283}
+    - asymerror: {minus: -0.016924, plus: 0.016924}
+      label: sys,uncorr
+    value: 0.355758
+  - errors:
+    - {label: stat, symerror: 0.020957}
+    - asymerror: {minus: -0.01396, plus: 0.01396}
+      label: sys,uncorr
+    value: 0.277327
+  - errors:
+    - {label: stat, symerror: 0.072464}
+    - asymerror: {minus: -0.040339, plus: 0.040339}
+      label: sys,uncorr
+    value: 0.368901
+- header: {name: Near-side Peak width (rad) (p-Pb)}
+  qualifiers:
+  - {name: SQRT(S) (PP), units: GEV, value: '5020'}
+  - {name: SQRT(S)/NUCLEON (P-PB), units: GEV, value: '5020'}
+  - {name: YRAP (PP), value: '-0.5 TO 0.5 (D0, D+, D*+)'}
+  - {name: YRAP(RF=CMS) (P-PB), value: '-0.96 TO 0.04 (D0, D+, D*+)'}
+  - {name: ABS(DETA), value: <1}
+  - {name: PT(CHARGED), units: GEV, value: 1.0 TO 2.0}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.04052}
+    - asymerror: {minus: -0.034095, plus: 0.026261}
+      label: sys,uncorr
+    value: 0.271213
+  - errors:
+    - {label: stat, symerror: 0.026053}
+    - asymerror: {minus: -0.017619, plus: 0.015749}
+      label: sys,uncorr
+    value: 0.288977
+  - errors:
+    - {label: stat, symerror: 0.024688}
+    - asymerror: {minus: -0.015658, plus: 0.015347}
+      label: sys,uncorr
+    value: 0.336855
+  - errors:
+    - {label: stat, symerror: 0.037009}
+    - asymerror: {minus: -0.018915, plus: 0.018847}
+      label: sys,uncorr
+    value: 0.290327
+independent_variables:
+- header: {name: 'D-meson $p_{\rm T}$ (GeV/$c$)'}
+  values:
+  - {high: 5.0, low: 3.0}
+  - {high: 8.0, low: 5.0}
+  - {high: 16.0, low: 8.0}
+  - {high: 24.0, low: 16.0}

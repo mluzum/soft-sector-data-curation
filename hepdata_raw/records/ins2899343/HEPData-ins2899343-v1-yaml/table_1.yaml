@@ -1,0 +1,83 @@
+dependent_variables:
+- header: {name: '$\frac{d\sigma_{\mathrm{J}/\psi}^{\mathrm{AnAn}}}{d|y|}$', units: mb}
+  qualifiers:
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020'}
+  - {name: RE, value: PB PB -> J/PSI <MU+ MU-> PB PB*}
+  - {name: ABS(YRAP), value: 1.6 - 2.4}
+  - {name: MUON ABS(ETA), value: 0.0 - 2.4}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.035}
+    - {label: syst, symerror: 0.154}
+    value: 1.324
+  - errors:
+    - {label: stat, symerror: 0.022}
+    - {label: syst, symerror: 0.134}
+    value: 1.366
+  - errors:
+    - {label: stat, symerror: 0.023}
+    - {label: syst, symerror: 0.146}
+    value: 1.341
+- header: {name: '$\frac{d\sigma_{\mathrm{J}/\psi}^{\mathrm{0n0n}}}{d|y|}$', units: mb}
+  qualifiers:
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020'}
+  - {name: RE, value: PB PB -> J/PSI <MU+ MU-> PB PB*}
+  - {name: ABS(YRAP), value: 1.6 - 2.4}
+  - {name: MUON ABS(ETA), value: 0.0 - 2.4}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0081}
+    - {label: syst, symerror: 0.0134}
+    value: 0.0494
+  - errors:
+    - {label: stat, symerror: 0.0087}
+    - {label: syst, symerror: 0.031}
+    value: 0.1091
+  - errors:
+    - {label: stat, symerror: 0.0061}
+    - {label: syst, symerror: 0.0147}
+    value: 0.0654
+- header: {name: '$\frac{d\sigma_{\mathrm{J}/\psi}^{\mathrm{0nXn}}}{d|y|}$', units: mb}
+  qualifiers:
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020'}
+  - {name: RE, value: PB PB -> J/PSI <MU+ MU-> PB PB*}
+  - {name: ABS(YRAP), value: 1.6 - 2.4}
+  - {name: MUON ABS(ETA), value: 0.0 - 2.4}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.031}
+    - {label: syst, symerror: 0.129}
+    value: 1.134
+  - errors:
+    - {label: stat, symerror: 0.019}
+    - {label: syst, symerror: 0.1}
+    value: 1.121
+  - errors:
+    - {label: stat, symerror: 0.02}
+    - {label: syst, symerror: 0.122}
+    value: 1.101
+- header: {name: '$\frac{d\sigma_{\mathrm{J}/\psi}^{\mathrm{XnXn}}}{d|y|}$', units: mb}
+  qualifiers:
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020'}
+  - {name: RE, value: PB PB -> J/PSI <MU+ MU-> PB PB*}
+  - {name: ABS(YRAP), value: 1.6 - 2.4}
+  - {name: MUON ABS(ETA), value: 0.0 - 2.4}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.014}
+    - {label: syst, symerror: 0.029}
+    value: 0.141
+  - errors:
+    - {label: stat, symerror: 0.0076}
+    - {label: syst, symerror: 0.0179}
+    value: 0.1358
+  - errors:
+    - {label: stat, symerror: 0.0092}
+    - {label: syst, symerror: 0.0231}
+    value: 0.1747
+independent_variables:
+- header: {name: $|y|$}
+  values:
+  - {high: 1.9, low: 1.6}
+  - {high: 2.1, low: 1.9}
+  - {high: 2.4, low: 2.1}

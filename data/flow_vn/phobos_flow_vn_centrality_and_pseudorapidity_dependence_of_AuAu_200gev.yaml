@@ -1,0 +1,762 @@
+observable_type: flow_vn
+inspire_id: PHOBOS_nucl-ex/0407012
+version: 1
+particle_id:
+  species: charged
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - MB
+  notes: centrality derived from minimum-bias event selection by the Octagon detector
+  estimator:
+    name: Octagon
+    observable: Nch
+    detector: Octagon
+  eta:
+  - min: -3.2
+    max: 3.2
+kinematic_range:
+  eta:
+    min: -5.289149999999999
+    max: 5.45105
+    bins:
+    - -5.289149999999999
+    - -4.43365
+    - -3.5252
+    - -2.39725
+    - -1.49985
+    - -1.00275
+    - -0.5303
+    - -0.0021000000000000185
+    - 0.5288999999999999
+    - 1.00695
+    - 1.5059
+    - 2.7151
+    - 3.9643499999999996
+    - 4.652749999999999
+    - 5.45105
+  pT:
+    min: 0.075
+    max: 3.645
+hepdata_file: phobos/final_ascii_table.txt
+method: event_plane
+value_type: v2
+dimensionality: differential_eta
+harmonic: 2
+flow_reference:
+  detector: Octagon
+  mirror: true
+  eta:
+  - min: 0.1
+    max: 3.0
+  notes: Hit-based method (subevent technique on the symmetrised, weighted detector hit map). Subevent
+    regions 0.1 < |eta| < 3.0; for v2 in the positive (negative) eta region the subevent on the OPPOSITE
+    side of midrapidity is used, so the reference never shares particles with the particle of interest.
+    Suppression corrected with Hijing+GEANT 3.21.
+notes:
+  value: Fig. 1 (minimum-bias v2 vs eta, 200 GeV). Hit-based method, 0-50% equivalent (minimum bias).
+    15 bins, two-sided as published.
+---
+observable_type: flow_vn
+inspire_id: PHOBOS_nucl-ex/0407012
+version: 1
+particle_id:
+  species: charged
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - MB
+  notes: centrality derived from minimum-bias event selection by the Octagon detector
+  estimator:
+    name: Octagon
+    observable: Nch
+    detector: Octagon
+  eta:
+  - min: -3.2
+    max: 3.2
+kinematic_range:
+  eta:
+    min: -3.2
+    max: 3.2
+  pT:
+    min: 0.075
+    max: 3.645
+hepdata_file: phobos/final_ascii_table.txt
+method: event_plane
+value_type: v2
+dimensionality: integrated
+harmonic: 2
+flow_reference:
+  detector: Octagon
+  eta:
+  - min: -3.2
+    max: -2.05
+  - min: 2.05
+    max: 3.2
+  notes: Track-based method. Event plane from the octagon using only the parts with complete azimuthal
+    acceptance (i.e. away from midrapidity); the two eta-symmetric sub-events, which lie between 2.05
+    < |eta| < 3.2, are combined for maximum resolution. C_res from the sub-event technique, centrality-
+    and vertex-dependent.
+notes:
+  value: Fig. 2 (track-based v2(|eta|<1) vs <Npart>). Track-based method, 0 < eta < 1. Straight-line and
+    curved tracks agree; the published curve is the straight-line sample.
+---
+observable_type: flow_vn
+inspire_id: PHOBOS_nucl-ex/0407012
+version: 1
+particle_id:
+  species: charged
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - MB
+  notes: centrality derived from minimum-bias event selection by the Octagon detector
+  estimator:
+    name: Octagon
+    observable: Nch
+    detector: Octagon
+  eta:
+  - min: -3.2
+    max: 3.2
+kinematic_range:
+  eta:
+    min: -3.2
+    max: 3.2
+  pT:
+    min: 0.075
+    max: 3.645
+hepdata_file: phobos/final_ascii_table.txt
+method: event_plane
+value_type: v2
+dimensionality: integrated
+harmonic: 2
+flow_reference:
+  detector: Octagon
+  mirror: true
+  eta:
+  - min: 0.1
+    max: 3.0
+  notes: Hit-based method (subevent technique on the symmetrised, weighted detector hit map). Subevent
+    regions 0.1 < |eta| < 3.0; for v2 in the positive (negative) eta region the subevent on the OPPOSITE
+    side of midrapidity is used, so the reference never shares particles with the particle of interest.
+    Suppression corrected with Hijing+GEANT 3.21.
+notes:
+  value: Fig. 2 (hit-based v2(|eta|<1) vs <Npart>). Hit-based method at midrapidity, shown for comparison
+    with the track-based result.
+---
+observable_type: flow_vn
+inspire_id: PHOBOS_nucl-ex/0407012
+version: 1
+particle_id:
+  species: charged
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 0-50%
+  estimator:
+    name: Octagon
+    observable: Nch
+    detector: Octagon
+  eta:
+  - min: -3.2
+    max: 3.2
+kinematic_range:
+  eta:
+    min: -3.2
+    max: 3.2
+  pT:
+    min: 0.075
+    max: 3.645
+    bins:
+    - 0.075
+    - 0.22499999999999998
+    - 0.395
+    - 0.59
+    - 0.79
+    - 0.99
+    - 1.19
+    - 1.3900000000000001
+    - 1.63
+    - 1.985
+    - 2.45
+    - 3.015
+    - 3.645
+hepdata_file: phobos/final_ascii_table.txt
+method: event_plane
+value_type: v2
+dimensionality: differential_pT
+harmonic: 2
+flow_reference:
+  detector: Octagon
+  eta:
+  - min: -3.2
+    max: -2.05
+  - min: 2.05
+    max: 3.2
+  notes: Track-based method. Event plane from the octagon using only the parts with complete azimuthal
+    acceptance (i.e. away from midrapidity); the two eta-symmetric sub-events, which lie between 2.05
+    < |eta| < 3.2, are combined for maximum resolution. C_res from the sub-event technique, centrality-
+    and vertex-dependent.
+notes:
+  value: Fig. 3 (track-based v2 vs pT, 0-50%). Track-based method using tracks that traverse the full
+    field region of the spectrometer, 0 < eta < 1.5, 0-50% centrality.
+---
+observable_type: flow_vn
+inspire_id: PHOBOS_nucl-ex/0407012
+version: 1
+particle_id:
+  species: charged
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 25-50%
+  estimator:
+    name: Octagon
+    observable: Nch
+    detector: Octagon
+  eta:
+  - min: -3.2
+    max: 3.2
+kinematic_range:
+  eta:
+    min: -5.295300000000001
+    max: 5.4567
+    bins:
+    - -5.295300000000001
+    - -4.4353
+    - -3.5242500000000003
+    - -2.39505
+    - -1.4975999999999998
+    - -1.0009
+    - -0.5289999999999999
+    - -0.002349999999999991
+    - 0.5277000000000001
+    - 1.00485
+    - 1.5041
+    - 2.7109
+    - 3.95965
+    - 4.6533
+    - 5.4567
+  pT:
+    min: 0.075
+    max: 3.645
+hepdata_file: phobos/final_ascii_table.txt
+method: event_plane
+value_type: v2
+dimensionality: differential_eta
+harmonic: 2
+flow_reference:
+  detector: Octagon
+  mirror: true
+  eta:
+  - min: 0.1
+    max: 3.0
+  notes: Hit-based method (subevent technique on the symmetrised, weighted detector hit map). Subevent
+    regions 0.1 < |eta| < 3.0; for v2 in the positive (negative) eta region the subevent on the OPPOSITE
+    side of midrapidity is used, so the reference never shares particles with the particle of interest.
+    Suppression corrected with Hijing+GEANT 3.21.
+notes:
+  value: Fig. 4 top panel (hit-based, 25-50%). Hit-based method. 15 two-sided bins, 7 of them paired about
+    midrapidity.
+---
+observable_type: flow_vn
+inspire_id: PHOBOS_nucl-ex/0407012
+version: 1
+particle_id:
+  species: charged
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 15-25%
+  estimator:
+    name: Octagon
+    observable: Nch
+    detector: Octagon
+  eta:
+  - min: -3.2
+    max: 3.2
+kinematic_range:
+  eta:
+    min: -5.291600000000001
+    max: 5.45345
+    bins:
+    - -5.291600000000001
+    - -4.4344
+    - -3.5244999999999997
+    - -2.396
+    - -1.4987499999999998
+    - -1.0017
+    - -0.5297000000000001
+    - -0.002050000000000024
+    - 0.52845
+    - 1.0058
+    - 1.50485
+    - 2.713
+    - 3.9621500000000003
+    - 4.652950000000001
+    - 5.45345
+  pT:
+    min: 0.075
+    max: 3.645
+hepdata_file: phobos/final_ascii_table.txt
+method: event_plane
+value_type: v2
+dimensionality: differential_eta
+harmonic: 2
+flow_reference:
+  detector: Octagon
+  mirror: true
+  eta:
+  - min: 0.1
+    max: 3.0
+  notes: Hit-based method (subevent technique on the symmetrised, weighted detector hit map). Subevent
+    regions 0.1 < |eta| < 3.0; for v2 in the positive (negative) eta region the subevent on the OPPOSITE
+    side of midrapidity is used, so the reference never shares particles with the particle of interest.
+    Suppression corrected with Hijing+GEANT 3.21.
+notes:
+  value: Fig. 4 middle panel (hit-based, 15-25%). Hit-based method. 15 two-sided bins.
+---
+observable_type: flow_vn
+inspire_id: PHOBOS_nucl-ex/0407012
+version: 1
+particle_id:
+  species: charged
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 3-15%
+  estimator:
+    name: Octagon
+    observable: Nch
+    detector: Octagon
+  eta:
+  - min: -3.2
+    max: 3.2
+kinematic_range:
+  eta:
+    min: -5.2873
+    max: 5.44885
+    bins:
+    - -5.2873
+    - -4.4331
+    - -3.5254000000000003
+    - -2.3977
+    - -1.5002499999999999
+    - -1.00305
+    - -0.53045
+    - -0.0020000000000000018
+    - 0.52915
+    - 1.0074
+    - 1.5063
+    - 2.71635
+    - 3.96585
+    - 4.65255
+    - 5.44885
+  pT:
+    min: 0.075
+    max: 3.645
+hepdata_file: phobos/final_ascii_table.txt
+method: event_plane
+value_type: v2
+dimensionality: differential_eta
+harmonic: 2
+flow_reference:
+  detector: Octagon
+  mirror: true
+  eta:
+  - min: 0.1
+    max: 3.0
+  notes: Hit-based method (subevent technique on the symmetrised, weighted detector hit map). Subevent
+    regions 0.1 < |eta| < 3.0; for v2 in the positive (negative) eta region the subevent on the OPPOSITE
+    side of midrapidity is used, so the reference never shares particles with the particle of interest.
+    Suppression corrected with Hijing+GEANT 3.21.
+notes:
+  value: Fig. 4 bottom panel (hit-based, 3-15%). Hit-based method. 15 two-sided bins.
+---
+observable_type: flow_vn
+inspire_id: PHOBOS_nucl-ex/0407012
+version: 1
+particle_id:
+  species: charged
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 25-50%
+  estimator:
+    name: Octagon
+    observable: Nch
+    detector: Octagon
+  eta:
+  - min: -3.2
+    max: 3.2
+kinematic_range:
+  eta:
+    min: 0.024999999999999994
+    max: 1.7600000000000002
+    bins:
+    - 0.024999999999999994
+    - 0.315
+    - 0.61
+    - 0.905
+    - 1.195
+    - 1.48
+    - 1.7600000000000002
+  pT:
+    min: 0.075
+    max: 3.645
+hepdata_file: phobos/final_ascii_table.txt
+method: event_plane
+value_type: v2
+dimensionality: differential_eta
+harmonic: 2
+flow_reference:
+  detector: Octagon
+  eta:
+  - min: -3.2
+    max: -2.05
+  - min: 2.05
+    max: 3.2
+  notes: Track-based method. Event plane from the octagon using only the parts with complete azimuthal
+    acceptance (i.e. away from midrapidity); the two eta-symmetric sub-events, which lie between 2.05
+    < |eta| < 3.2, are combined for maximum resolution. C_res from the sub-event technique, centrality-
+    and vertex-dependent.
+notes:
+  value: Fig. 4 top panel (track-based, 25-50%). Track-based method (straight-line tracks, 0 < eta < 1.8,
+    dphi ~ 22 deg). 7 bins, eta > 0 only.
+---
+observable_type: flow_vn
+inspire_id: PHOBOS_nucl-ex/0407012
+version: 1
+particle_id:
+  species: charged
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 15-25%
+  estimator:
+    name: Octagon
+    observable: Nch
+    detector: Octagon
+  eta:
+  - min: -3.2
+    max: 3.2
+kinematic_range:
+  eta:
+    min: 0.024999999999999994
+    max: 1.7600000000000002
+    bins:
+    - 0.024999999999999994
+    - 0.315
+    - 0.61
+    - 0.905
+    - 1.195
+    - 1.48
+    - 1.7600000000000002
+  pT:
+    min: 0.075
+    max: 3.645
+hepdata_file: phobos/final_ascii_table.txt
+method: event_plane
+value_type: v2
+dimensionality: differential_eta
+harmonic: 2
+flow_reference:
+  detector: Octagon
+  eta:
+  - min: -3.2
+    max: -2.05
+  - min: 2.05
+    max: 3.2
+  notes: Track-based method. Event plane from the octagon using only the parts with complete azimuthal
+    acceptance (i.e. away from midrapidity); the two eta-symmetric sub-events, which lie between 2.05
+    < |eta| < 3.2, are combined for maximum resolution. C_res from the sub-event technique, centrality-
+    and vertex-dependent.
+notes:
+  value: Fig. 4 middle panel (track-based, 15-25%). Track-based method. 7 bins, eta > 0 only.
+---
+observable_type: flow_vn
+inspire_id: PHOBOS_nucl-ex/0407012
+version: 1
+particle_id:
+  species: charged
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 3-15%
+  estimator:
+    name: Octagon
+    observable: Nch
+    detector: Octagon
+  eta:
+  - min: -3.2
+    max: 3.2
+kinematic_range:
+  eta:
+    min: 0.024999999999999994
+    max: 1.7600000000000002
+    bins:
+    - 0.024999999999999994
+    - 0.315
+    - 0.61
+    - 0.905
+    - 1.195
+    - 1.48
+    - 1.7600000000000002
+  pT:
+    min: 0.075
+    max: 3.645
+hepdata_file: phobos/final_ascii_table.txt
+method: event_plane
+value_type: v2
+dimensionality: differential_eta
+harmonic: 2
+flow_reference:
+  detector: Octagon
+  eta:
+  - min: -3.2
+    max: -2.05
+  - min: 2.05
+    max: 3.2
+  notes: Track-based method. Event plane from the octagon using only the parts with complete azimuthal
+    acceptance (i.e. away from midrapidity); the two eta-symmetric sub-events, which lie between 2.05
+    < |eta| < 3.2, are combined for maximum resolution. C_res from the sub-event technique, centrality-
+    and vertex-dependent.
+notes:
+  value: Fig. 4 bottom panel (track-based, 3-15%). Track-based method. 7 bins, eta > 0 only.
+---
+observable_type: flow_vn
+inspire_id: PHOBOS_nucl-ex/0407012
+version: 1
+particle_id:
+  species: charged
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 25-50%
+  estimator:
+    name: Octagon
+    observable: Nch
+    detector: Octagon
+  eta:
+  - min: -3.2
+    max: 3.2
+kinematic_range:
+  eta:
+    min: 0.08499999999999999
+    max: 5.375
+    bins:
+    - 0.08499999999999999
+    - 0.535
+    - 0.99
+    - 1.455
+    - 2.365
+    - 3.355
+    - 3.9
+    - 4.545
+    - 5.375
+  pT:
+    min: 0.075
+    max: 3.645
+hepdata_file: phobos/final_ascii_table.txt
+method: event_plane
+value_type: v2
+dimensionality: differential_eta
+harmonic: 2
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 1.8
+    detector: Octagon
+    eta:
+    - min: -3.2
+      max: -2.05
+    - min: 2.05
+      max: 3.2
+    notes: Track-based method. Event plane from the octagon using only the parts with complete azimuthal
+      acceptance (i.e. away from midrapidity); the two eta-symmetric sub-events, which lie between 2.05
+      < |eta| < 3.2, are combined for maximum resolution. C_res from the sub-event technique, centrality-
+      and vertex-dependent. Applies to the track-based part of the combined series.
+  - applies_to_eta:
+      min: 1.8
+      max: 5.5
+    detector: Octagon
+    mirror: true
+    eta:
+    - min: 0.1
+      max: 3.0
+    notes: Hit-based method (subevent technique on the symmetrised, weighted detector hit map). Subevent
+      regions 0.1 < |eta| < 3.0; for v2 in the positive (negative) eta region the subevent on the OPPOSITE
+      side of midrapidity is used, so the reference never shares particles with the particle of interest.
+      Suppression corrected with Hijing+GEANT 3.21. Applies to the large-|eta| part of the combined series,
+      which reaches the paper via the reflected hit-based points.
+notes:
+  value: 'Fig. 5 squares (combined, 25-50%). COMBINED series: hit-based and track-based results are averaged
+    weighted by their combined statistical and systematic errors. The eta > 0 points at large |eta| come
+    from the hit-based results REFLECTED about midrapidity; the paper publishes the eta > 0 half only
+    and reflects it for the figure, so this record is eta > 0 only by construction. 8 bins. Two methods
+    with two different references in one series -- see flow_reference.'
+---
+observable_type: flow_vn
+inspire_id: PHOBOS_nucl-ex/0407012
+version: 1
+particle_id:
+  species: charged
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 15-25%
+  estimator:
+    name: Octagon
+    observable: Nch
+    detector: Octagon
+  eta:
+  - min: -3.2
+    max: 3.2
+kinematic_range:
+  eta:
+    min: 0.08499999999999999
+    max: 5.375
+    bins:
+    - 0.08499999999999999
+    - 0.535
+    - 0.99
+    - 1.455
+    - 2.365
+    - 3.355
+    - 3.9
+    - 4.545
+    - 5.375
+  pT:
+    min: 0.075
+    max: 3.645
+hepdata_file: phobos/final_ascii_table.txt
+method: event_plane
+value_type: v2
+dimensionality: differential_eta
+harmonic: 2
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 1.8
+    detector: Octagon
+    eta:
+    - min: -3.2
+      max: -2.05
+    - min: 2.05
+      max: 3.2
+    notes: Track-based method. Event plane from the octagon using only the parts with complete azimuthal
+      acceptance (i.e. away from midrapidity); the two eta-symmetric sub-events, which lie between 2.05
+      < |eta| < 3.2, are combined for maximum resolution. C_res from the sub-event technique, centrality-
+      and vertex-dependent. Applies to the track-based part of the combined series.
+  - applies_to_eta:
+      min: 1.8
+      max: 5.5
+    detector: Octagon
+    mirror: true
+    eta:
+    - min: 0.1
+      max: 3.0
+    notes: Hit-based method (subevent technique on the symmetrised, weighted detector hit map). Subevent
+      regions 0.1 < |eta| < 3.0; for v2 in the positive (negative) eta region the subevent on the OPPOSITE
+      side of midrapidity is used, so the reference never shares particles with the particle of interest.
+      Suppression corrected with Hijing+GEANT 3.21. Applies to the large-|eta| part of the combined series,
+      which reaches the paper via the reflected hit-based points.
+notes:
+  value: Fig. 5 triangles (combined, 15-25%). COMBINED series; see doc 10. 8 bins, eta > 0 only.
+---
+observable_type: flow_vn
+inspire_id: PHOBOS_nucl-ex/0407012
+version: 1
+particle_id:
+  species: charged
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 3-15%
+  estimator:
+    name: Octagon
+    observable: Nch
+    detector: Octagon
+  eta:
+  - min: -3.2
+    max: 3.2
+kinematic_range:
+  eta:
+    min: 0.08499999999999999
+    max: 5.375
+    bins:
+    - 0.08499999999999999
+    - 0.535
+    - 0.99
+    - 1.455
+    - 2.365
+    - 3.355
+    - 3.9
+    - 4.545
+    - 5.375
+  pT:
+    min: 0.075
+    max: 3.645
+hepdata_file: phobos/final_ascii_table.txt
+method: event_plane
+value_type: v2
+dimensionality: differential_eta
+harmonic: 2
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 1.8
+    detector: Octagon
+    eta:
+    - min: -3.2
+      max: -2.05
+    - min: 2.05
+      max: 3.2
+    notes: Track-based method. Event plane from the octagon using only the parts with complete azimuthal
+      acceptance (i.e. away from midrapidity); the two eta-symmetric sub-events, which lie between 2.05
+      < |eta| < 3.2, are combined for maximum resolution. C_res from the sub-event technique, centrality-
+      and vertex-dependent. Applies to the track-based part of the combined series.
+  - applies_to_eta:
+      min: 1.8
+      max: 5.5
+    detector: Octagon
+    mirror: true
+    eta:
+    - min: 0.1
+      max: 3.0
+    notes: Hit-based method (subevent technique on the symmetrised, weighted detector hit map). Subevent
+      regions 0.1 < |eta| < 3.0; for v2 in the positive (negative) eta region the subevent on the OPPOSITE
+      side of midrapidity is used, so the reference never shares particles with the particle of interest.
+      Suppression corrected with Hijing+GEANT 3.21. Applies to the large-|eta| part of the combined series,
+      which reaches the paper via the reflected hit-based points.
+notes:
+  value: Fig. 5 circles (combined, 3-15%). COMBINED series; see doc 10. 8 bins, eta > 0 only.

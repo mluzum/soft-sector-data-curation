@@ -1,0 +1,65 @@
+dependent_variables:
+- header: {name: MULT}
+  qualifiers:
+  - {name: RE, value: C P --> LAMBDA X}
+  values:
+  - errors:
+    - {symerror: 0.002}
+    value: 0.005
+- header: {name: SIG, units: MB}
+  qualifiers:
+  - {name: RE, value: C P --> LAMBDA X}
+  values:
+  - errors:
+    - {symerror: 0.5}
+    value: 1.3
+- header: {name: MULT}
+  qualifiers:
+  - {name: RE, value: C C --> LAMBDA X}
+  values:
+  - errors:
+    - {symerror: 0.003}
+    value: 0.028
+- header: {name: SIG, units: MB}
+  qualifiers:
+  - {name: RE, value: C C --> LAMBDA X}
+  - {name: '', value: 'Axis error includes +- 20/20 contribution (DUE TO SEPARATION
+      C P AND C C EVENTS,MODEL DEPENDENT ESTIMATION)'}
+  values:
+  - errors:
+    - {symerror: 2.5}
+    value: 23.2
+- header: {name: MULT}
+  qualifiers:
+  - {name: RE, value: C P --> KS X}
+  values:
+  - errors:
+    - {symerror: 0.001}
+    value: 0.002
+- header: {name: SIG, units: MB}
+  qualifiers:
+  - {name: RE, value: C P --> KS X}
+  values:
+  - errors:
+    - {symerror: 0.27}
+    value: 0.53
+- header: {name: MULT}
+  qualifiers:
+  - {name: RE, value: C C --> KS X}
+  values:
+  - errors:
+    - {symerror: 0.003}
+    value: 0.013
+- header: {name: SIG, units: MB}
+  qualifiers:
+  - {name: RE, value: C C --> KS X}
+  - {name: '', value: 'Axis error includes +- 10/10 contribution (DUE TO SEPARATION
+      C P AND C C EVENTS,MODEL DEPENDENT ESTIMATION)'}
+  values:
+  - errors:
+    - {symerror: 2.5}
+    value: 10.8
+independent_variables:
+- header: {name: P/A, units: GEV}
+  values:
+  - {value: 4.2}

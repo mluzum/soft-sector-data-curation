@@ -1,0 +1,47 @@
+dependent_variables:
+- header: {name: N(P + PBAR)/N(PI+ + PI-)}
+  qualifiers:
+  - {name: ETARAP, value: -0.8-0.8}
+  - {name: NPART, value: N(P + PBAR)/N(PI+ + PI-)}
+  - {name: RE(P + PBAR), value: PB PB --> (P + PBAR) X}
+  - {name: RE(PI+ + PI-), value: PB PB --> (PI+ + PI-) X}
+  - {name: SQRT(S)/NUCLEON, units: TeV, value: '2.76'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.009344}
+    - {label: sys, symerror: 0.01258}
+    value: 0.08078
+  - errors:
+    - {label: stat, symerror: 0.01036}
+    - {label: sys, symerror: 0.0197}
+    value: 0.091
+  - errors:
+    - {label: stat, symerror: 0.005947}
+    - {label: sys, symerror: 0.01978}
+    value: 0.09236
+  - errors:
+    - {label: stat, symerror: 0.003911}
+    - {label: sys, symerror: 0.02033}
+    value: 0.08897
+  - errors:
+    - {label: stat, symerror: 0.00459}
+    - {label: sys, symerror: 0.01997}
+    value: 0.08697
+  - errors:
+    - {label: stat, symerror: 0.00678}
+    - {label: sys, symerror: 0.01639}
+    value: 0.08204
+  - errors:
+    - {label: stat, symerror: 0.006265}
+    - {label: sys, symerror: 0.01661}
+    value: 0.08146
+independent_variables:
+- header: {name: NPART}
+  values:
+  - {value: 2.0}
+  - {value: 22.52}
+  - {value: 68.56}
+  - {value: 157.2}
+  - {value: 260.1}
+  - {value: 329.4}
+  - {value: 382.7}

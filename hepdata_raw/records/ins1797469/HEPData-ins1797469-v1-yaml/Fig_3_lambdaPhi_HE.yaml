@@ -1,0 +1,25 @@
+dependent_variables:
+- header: {name: LAMBDA_PHI_HELICITY}
+  qualifiers:
+  - {name: RE, value: PB PB --> J/PSI < MU+ MU- > X}
+  - {name: Y, value: 2.5 < Y_J/psi < 4.0}
+  - {name: SQRT(S), units: GEV, value: 5200}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.017}
+    - {label: 'sys, uncorrel', symerror: 0.031}
+    value: -0.029
+  - errors:
+    - {label: stat, symerror: 0.019}
+    - {label: 'sys, uncorrel', symerror: 0.036}
+    value: -0.013
+  - errors:
+    - {label: stat, symerror: 0.021}
+    - {label: 'sys, uncorrel', symerror: 0.01}
+    value: 0.047
+independent_variables:
+- header: {name: PT, units: GEV/C}
+  values:
+  - {high: 4, low: 2}
+  - {high: 6, low: 4}
+  - {high: 10, low: 6}

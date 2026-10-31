@@ -1,0 +1,31 @@
+dependent_variables:
+- header: {name: $k_s(P_T^s)$}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 0.0-5.0}
+  - {name: RE(Omega+Anti-Omega), value: AU AU --> (OMEGA- + OMEGABAR+) X}
+  - {name: RE(phi), value: AU AU --> PHI X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '200.0'}
+  values:
+  - errors:
+    - {symerror: 0.00283216}
+    value: 0.0153603
+  - errors:
+    - {symerror: 0.0020722}
+    value: 0.0138472
+  - errors:
+    - {symerror: 0.00183651}
+    value: 0.0116372
+  - errors:
+    - {symerror: 0.0014118}
+    value: 0.00798084
+  - errors:
+    - {symerror: 0.000773213}
+    value: 0.00283299
+independent_variables:
+- header: {name: $P_T^s$, units: GeV/c}
+  values:
+  - {value: 0.4375}
+  - {value: 0.645833}
+  - {value: 0.854167}
+  - {value: 1.0625}
+  - {value: 1.33333}

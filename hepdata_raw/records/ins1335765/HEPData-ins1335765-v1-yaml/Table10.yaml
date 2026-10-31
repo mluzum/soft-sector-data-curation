@@ -1,0 +1,36 @@
+dependent_variables:
+- header: {name: Y}
+  qualifiers:
+  - {name: RE, value: DEUT AU --> CHGD-HADRONS X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '200.0'}
+  - {name: '', value: ZDC event activity}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.001339}
+    - {label: sys, symerror: 0.001}
+    value: 0.04433
+  - errors:
+    - {label: stat, symerror: 0.001741}
+    - {label: sys, symerror: 0.001}
+    value: 0.053438
+  - errors:
+    - {label: stat, symerror: 0.001802}
+    - {label: sys, symerror: 0.001674}
+    value: 0.058048
+  - errors:
+    - {label: stat, symerror: 0.003064}
+    - asymerror: {minus: -0.001, plus: 0.002121}
+      label: sys
+    value: 0.058549
+  - errors:
+    - {label: stat, symerror: 0.002472}
+    - {label: sys, symerror: 0.001}
+    value: 0.053777
+independent_variables:
+- header: {name: dN/d$\eta$}
+  values:
+  - {value: 4.5}
+  - {value: 8.58}
+  - {value: 12.07}
+  - {value: 15.27}
+  - {value: 18.75}

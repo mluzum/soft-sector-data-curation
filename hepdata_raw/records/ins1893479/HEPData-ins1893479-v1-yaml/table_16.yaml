@@ -1,0 +1,48 @@
+dependent_variables:
+- header: {name: '$\frac{1}{\sigma_{jet, inc}} \frac{d\sigma}{d\theta_{{\mathrm{g}}}}$'}
+  qualifiers:
+  - {name: RE, value: P P --> jet+X}
+  - {name: SQRT(S), units: TeV, value: 5.02}
+  - {name: ETARAP, value: '|0.9-R|'}
+  - {name: jet radius, value: 0.4}
+  - {name: jet method, value: 'Anti-$k_{T}$'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.22}
+    - asymerror: {minus: -0.21, plus: 0.21}
+      label: sys
+    value: 4.49
+  - errors:
+    - {label: stat, symerror: 0.2}
+    - asymerror: {minus: -0.09, plus: 0.16}
+      label: sys
+    value: 1.23
+  - errors:
+    - {label: stat, symerror: 0.27}
+    - asymerror: {minus: -0.08, plus: 0.1}
+      label: sys
+    value: 2.34
+  - errors:
+    - {label: stat, symerror: 0.22}
+    - asymerror: {minus: -0.06, plus: 0.07}
+      label: sys
+    value: 1.43
+  - errors:
+    - {label: stat, symerror: 0.12}
+    - asymerror: {minus: -0.064, plus: 0.064}
+      label: sys
+    value: 0.921
+  - errors:
+    - {label: stat, symerror: 0.04}
+    - asymerror: {minus: -0.05, plus: 0.04}
+      label: sys
+    value: 0.23
+independent_variables:
+- header: {name: '$\theta_{{\mathrm{g}}}$'}
+  values:
+  - {high: 0.0, low: -0.125}
+  - {high: 0.05, low: 0.0}
+  - {high: 0.1, low: 0.05}
+  - {high: 0.15, low: 0.1}
+  - {high: 0.25, low: 0.15}
+  - {high: 0.5, low: 0.25}

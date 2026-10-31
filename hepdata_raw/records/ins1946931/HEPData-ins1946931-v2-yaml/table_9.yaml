@@ -1,0 +1,53 @@
+dependent_variables:
+- header: {name: $v_2$}
+  qualifiers:
+  - {name: CENTRALITY, value: 30.0-50.0 pct}
+  - {name: REACTION, value: PBPB --> Ds + X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 5020.0}
+  - {name: YRAP, value: -0.8 TO 0.8}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.04871}
+    - {label: 'sys, data', symerror: 0.010495}
+    - asymerror: {minus: -0.0071575, plus: 0.030603}
+      label: sys, non-prompt contr.
+    value: 0.18381
+  - errors:
+    - {label: stat, symerror: 0.037497}
+    - {label: 'sys, data', symerror: 0.010662}
+    - asymerror: {minus: -0.0090947, plus: 0.039085}
+      label: sys, non-prompt contr.
+    value: 0.17447
+  - errors:
+    - {label: stat, symerror: 0.047133}
+    - {label: 'sys, data', symerror: 0.010675}
+    - asymerror: {minus: -0.0055288, plus: 0.023998}
+      label: sys, non-prompt contr.
+    value: 0.10131
+  - errors:
+    - {label: stat, symerror: 0.042591}
+    - {label: 'sys, data', symerror: 0.01069}
+    - asymerror: {minus: -0.0052698, plus: 0.022633}
+      label: sys, non-prompt contr.
+    value: 0.094434
+  - errors:
+    - {label: stat, symerror: 0.070756}
+    - {label: 'sys, data', symerror: 0.021081}
+    - asymerror: {minus: -0.0064543, plus: 0.027937}
+      label: sys, non-prompt contr.
+    value: 0.1465
+  - errors:
+    - {label: stat, symerror: 0.090908}
+    - {label: 'sys, data', symerror: 0.03168}
+    - asymerror: {minus: -0.0046437, plus: 0.019851}
+      label: sys, non-prompt contr.
+    value: 0.10091
+independent_variables:
+- header: {name: '$p_\mathrm{T}$', units: '$\mathrm{GeV}/c$'}
+  values:
+  - {high: 4.0, low: 2.0}
+  - {high: 6.0, low: 4.0}
+  - {high: 8.0, low: 6.0}
+  - {high: 12.0, low: 8.0}
+  - {high: 16.0, low: 12.0}
+  - {high: 24.0, low: 16.0}

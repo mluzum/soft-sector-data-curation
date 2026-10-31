@@ -1,0 +1,47 @@
+dependent_variables:
+- header: {name: RAA}
+  qualifiers:
+  - {name: ABS(ETARAP(C = BJET)), value: < 2.0}
+  - {name: PT(C = BJET), units: GeV, value: 80.0-90.0}
+  - {name: R, value: '0.3'}
+  - {name: RE, value: P P --> BJET X}
+  - {name: RE, value: PB PB --> BJET X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0672}
+    - {label: sys, symerror: 0.0924}
+    - {label: 'sys,TAA', symerror: 0.0169}
+    - {label: 'sys,global pp uncertainty', symerror: 3.6%}
+    value: 0.3927
+  - errors:
+    - {label: stat, symerror: 0.0547}
+    - {label: sys, symerror: 0.0859}
+    - {label: 'sys,TAA', symerror: 0.0265}
+    - {label: 'sys,global pp uncertainty', symerror: 3.6%}
+    value: 0.465
+  - errors:
+    - {label: stat, symerror: 0.0469}
+    - {label: sys, symerror: 0.1129}
+    - {label: 'sys,TAA', symerror: 0.0576}
+    - {label: 'sys,global pp uncertainty', symerror: 3.6%}
+    value: 0.6106
+  - errors:
+    - {label: stat, symerror: 0.0706}
+    - {label: sys, symerror: 0.1443}
+    - {label: 'sys,TAA', symerror: 0.1047}
+    - {label: 'sys,global pp uncertainty', symerror: 3.6%}
+    value: 0.6983
+independent_variables:
+- header: {name: CENTRALITY, units: PCT}
+  values:
+  - {high: 10.0, low: 0.0}
+  - {high: 30.0, low: 10.0}
+  - {high: 50.0, low: 30.0}
+  - {high: 100.0, low: 50.0}
+- header: {name: NPART}
+  values:
+  - {value: 358.0}
+  - {value: 234.0}
+  - {value: 113.0}
+  - {value: 33.0}

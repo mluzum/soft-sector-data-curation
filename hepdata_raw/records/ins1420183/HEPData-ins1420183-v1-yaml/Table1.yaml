@@ -1,0 +1,19 @@
+dependent_variables:
+- header: {name: '$<p^2_{T}>$', units: (GeV/c^2)^2}
+  qualifiers:
+  - {name: RE, value: AU AU --> (J/PSI + X)}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '200.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.85}
+    - {label: sys, symerror: 1.22}
+    value: 3.45
+  - errors:
+    - {label: stat, symerror: 0.33}
+    - {label: sys, symerror: 0.44}
+    value: 3.7
+independent_variables:
+- header: {name: Reaction}
+  values:
+  - {value: p+p}
+  - {value: d+Au}

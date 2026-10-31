@@ -1,0 +1,86 @@
+---
+observable_type: strangeness
+inspire_id: '2643014'
+version: 1
+hepdata_file: HEPData-pzisobar-fig2-psi2.yaml
+hepdata_table_label: $sgn(\alpha_H)\langle\cos(\theta_p^{\ast})\rangle$ of $\Lambda$ and $\bar{\Lambda}$ as a function of
+  hyperon azimuthal angle relative to the second-order event plane in isobar collisions at 200 GeV.
+qualifiers:
+  \sqrt{s_{nn}}: '200.0'
+  centrality: 20.0 TO 60.0
+  p_t: $>0.5$
+  particles: $\bar{\Lambda}$
+  rapidity: -1.0 TO 1.0
+collision_system:
+  energy_gev: 200
+  reaction: AU AU --> \Lambda, AU AU --> \bar{\Lambda}
+centrality:
+  classes:
+  - 20.0-60.0%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: Lambda
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+    bins:
+    - -1.0
+    - 1.0
+  pT:
+    min: 0.15
+    max: 10
+    bins:
+    - 0.15
+    - 10
+observable: Lambda_spectra
+value_type: invariant_yield
+---
+observable_type: strangeness
+inspire_id: '2643014'
+version: 1
+hepdata_file: HEPData-pzisobar-fig2-psi3.yaml
+hepdata_table_label: $sgn(\alpha_H)\langle\cos(\theta_p^{\ast})\rangle$ of $\Lambda$ and $\bar{\Lambda}$ as a function of
+  hyperon azimuthal angle relative to the third-order event plane in isobar collisions at 200 GeV.
+qualifiers:
+  \sqrt{s_{nn}}: '200.0'
+  centrality: 20.0 TO 60.0
+  p_t: $>0.5$
+  particles: $\bar{\Lambda}$
+  rapidity: -1.0 TO 1.0
+collision_system:
+  energy_gev: 200
+  reaction: AU AU --> \Lambda, AU AU --> \bar{\Lambda}
+centrality:
+  classes:
+  - 20.0-60.0%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: Lambda
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+    bins:
+    - -1.0
+    - 1.0
+  pT:
+    min: 0.15
+    max: 10
+    bins:
+    - 0.15
+    - 10
+observable: Lambda_spectra
+value_type: invariant_yield

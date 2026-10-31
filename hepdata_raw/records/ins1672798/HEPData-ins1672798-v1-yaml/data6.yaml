@@ -1,0 +1,32 @@
+dependent_variables:
+- header: {name: RAA(UPSI(2S))/RAA(UPSI(1S))}
+  qualifiers:
+  - {name: YRAP, value: 2.5 TO 4.0}
+  - {name: PT, units: GEV/c, value: 0 TO 15}
+  - {name: RE, value: Pb Pb --> UPSI(1S) < MU+ MU- > X}
+  - {name: RE, value: Pb Pb --> UPSI(2S) < MU+ MU- > X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020'}
+  values:
+  - errors:
+    - {label: stat, symerror: '0.12'}
+    - {label: sys, symerror: '0.06'}
+    value: '0.28'
+- header: {name: Y(UPSI(2S))/Y(UPSI(1S))}
+  qualifiers:
+  - {name: YRAP, value: 2.5 TO 4.0}
+  - {name: PT, units: GEV/c, value: 0 TO 15}
+  - {name: RE, value: Pb Pb --> UPSI(1S) < MU+ MU- > X}
+  - {name: RE, value: Pb Pb --> UPSI(2S) < MU+ MU- > X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020'}
+  values:
+  - errors:
+    - {label: stat, symerror: '0.029'}
+    - {label: sys, symerror: '0.014'}
+    value: '0.068'
+independent_variables:
+- header: {name: CENTRALITY, units: '%'}
+  values:
+  - {high: 90.0, low: 0.0}
+- header: {name: <NPART>}
+  values:
+  - {value: '125.3'}

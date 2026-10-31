@@ -1,0 +1,58 @@
+dependent_variables:
+- header: {name: SLOPE, units: GEV**-2}
+  qualifiers:
+  - {name: RE, value: LAMBDA P --> LAMBDA P}
+  - {name: SYS, value: SYSTEMATIC ERRORS POSSIBLE - AUTHORS CLAIM NO INDICATION FOR
+      THEM IN DATA}
+  values:
+  - errors:
+    - {symerror: 0.5}
+    value: 3.2
+  - errors:
+    - {symerror: 0.7}
+    value: 3.3
+  - errors:
+    - {symerror: 1.9}
+    value: 7.1
+  - errors:
+    - {symerror: 1.3}
+    value: 4.1
+  - errors:
+    - {symerror: 3.0}
+    value: 8.7
+  - errors:
+    - {symerror: 2.0}
+    value: 7.2
+- header: {name: SIG, units: MB}
+  qualifiers:
+  - {name: RE, value: LAMBDA P --> LAMBDA P}
+  - {name: SYS, value: SYSTEMATIC ERRORS POSSIBLE - AUTHORS CLAIM NO INDICATION FOR
+      THEM IN DATA}
+  values:
+  - errors:
+    - {symerror: 5.8}
+    value: 22.3
+  - errors:
+    - {symerror: 4.8}
+    value: 16.3
+  - errors:
+    - {symerror: 4.8}
+    value: 14.4
+  - errors:
+    - {symerror: 3.2}
+    value: 7.7
+  - errors:
+    - {symerror: 3.3}
+    value: 6.2
+  - errors:
+    - {symerror: 1.6}
+    value: 4.1
+independent_variables:
+- header: {name: P, units: GEV}
+  values:
+  - {high: 2.0, low: 1.0}
+  - {high: 3.0, low: 2.0}
+  - {high: 4.0, low: 3.0}
+  - {high: 5.0, low: 4.0}
+  - {high: 6.0, low: 5.0}
+  - {high: 17.0, low: 6.0}

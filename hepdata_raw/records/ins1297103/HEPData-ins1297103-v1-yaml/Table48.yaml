@@ -1,0 +1,66 @@
+dependent_variables:
+- header: {name: v2}
+  qualifiers:
+  - {name: ABS(Y(RF=LAB)), value: <0.5}
+  - {name: Centrality, value: 0-5%}
+  - {name: Particle, value: Xi+AntiXi}
+  - {name: Range, value: 1.0 < pT < 6.0 (GeV/c)}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0067}
+    - asymerror: {minus: 0.002, plus: -0.002}
+      label: sys
+    value: 0.006
+  - errors:
+    - {label: stat, symerror: 0.0062}
+    - asymerror: {minus: 0.0022, plus: -0.0022}
+      label: sys
+    value: 0.0225
+  - errors:
+    - {label: stat, symerror: 0.0063}
+    - asymerror: {minus: 0.0024, plus: -0.0024}
+      label: sys
+    value: 0.0367
+  - errors:
+    - {label: stat, symerror: 0.0077}
+    - asymerror: {minus: 0.0031, plus: -0.0031}
+      label: sys
+    value: 0.0612
+  - errors:
+    - {label: stat, symerror: 0.0116}
+    - asymerror: {minus: 0.0032, plus: -0.0032}
+      label: sys
+    value: 0.0632
+  - errors:
+    - {label: stat, symerror: 0.0188}
+    - asymerror: {minus: 0.0035, plus: -0.0035}
+      label: sys
+    value: 0.0673
+  - errors:
+    - {label: stat, symerror: 0.0267}
+    - asymerror: {minus: 0.0039, plus: -0.0039}
+      label: sys
+    value: 0.0852
+  - errors:
+    - {label: stat, symerror: 0.0467}
+    - asymerror: {minus: 0.004, plus: -0.004}
+      label: sys
+    value: 0.0764
+  - errors:
+    - {label: stat, symerror: 0.0571}
+    - asymerror: {minus: 0.0056, plus: -0.0056}
+      label: sys
+    value: 0.1431
+independent_variables:
+- header: {name: pT, units: (GeV/c)}
+  values:
+  - {value: 1.312}
+  - {value: 1.7634}
+  - {value: 2.2407}
+  - {value: 2.7275}
+  - {value: 3.2162}
+  - {value: 3.7151}
+  - {value: 4.2141}
+  - {value: 4.7192}
+  - {value: 5.3685}

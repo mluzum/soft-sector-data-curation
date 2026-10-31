@@ -1,0 +1,66 @@
+dependent_variables:
+- header: {name: D(N)/DPT, units: GEV**-1}
+  qualifiers:
+  - {name: ABS(YRAP), value: < 0.5}
+  - {name: CENTRALITY, units: pct, value: 40.0-80.0}
+  - {name: RE, value: PB PB --> (D*+ + D*-) X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0055}
+    - asymerror: {minus: -0.0052, plus: 0.0055}
+      label: sys
+    - asymerror: {minus: -0.002, plus: 0.0005}
+      label: sys
+    - {label: 'sys,from branching ratios', symerror: 1.5%}
+    - {label: 'sys,from centrality limits', symerror: 3.0%}
+    value: 0.0194
+  - errors:
+    - {label: stat, symerror: 0.0014}
+    - {label: sys, symerror: 0.0013}
+    - asymerror: {minus: -0.0005, plus: 0.0002}
+      label: sys
+    - {label: 'sys,from branching ratios', symerror: 1.5%}
+    - {label: 'sys,from centrality limits', symerror: 3.0%}
+    value: 0.0049
+  - errors:
+    - {label: stat, symerror: 0.00043}
+    - {label: sys, symerror: 0.00041}
+    - asymerror: {minus: -0.00023, plus: 0.0001}
+      label: sys
+    - {label: 'sys,from branching ratios', symerror: 1.5%}
+    - {label: 'sys,from centrality limits', symerror: 3.0%}
+    value: 0.00175
+  - errors:
+    - {label: stat, symerror: 0.00019}
+    - {label: sys, symerror: 0.00016}
+    - asymerror: {minus: -9.0e-05, plus: 4.0e-05}
+      label: sys
+    - {label: 'sys,from branching ratios', symerror: 1.5%}
+    - {label: 'sys,from centrality limits', symerror: 3.0%}
+    value: 0.00069
+  - errors:
+    - {label: stat, symerror: 3.8e-05}
+    - {label: sys, symerror: 4.1e-05}
+    - asymerror: {minus: -2.0e-05, plus: 8.0e-06}
+      label: sys
+    - {label: 'sys,from branching ratios', symerror: 1.5%}
+    - {label: 'sys,from centrality limits', symerror: 3.0%}
+    value: 0.00018
+  - errors:
+    - {label: stat, symerror: 1.0e-05}
+    - {label: sys, symerror: 7.0e-06}
+    - asymerror: {minus: -3.0e-06, plus: 1.0e-06}
+      label: sys
+    - {label: 'sys,from branching ratios', symerror: 1.5%}
+    - {label: 'sys,from centrality limits', symerror: 3.0%}
+    value: 3.3e-05
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {high: 4.0, low: 2.0}
+  - {high: 5.0, low: 4.0}
+  - {high: 6.0, low: 5.0}
+  - {high: 8.0, low: 6.0}
+  - {high: 12.0, low: 8.0}
+  - {high: 16.0, low: 12.0}

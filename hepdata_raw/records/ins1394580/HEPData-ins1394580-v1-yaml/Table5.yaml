@@ -1,0 +1,74 @@
+dependent_variables:
+- header: {name: D(N)/DPT, units: c/GEV}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 30.0-50.0}
+  - {name: RE, value: 'PB PB --> ${\rm D}^{+}$ X'}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  - {name: YRAP, value: -0.5-0.5}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0214}
+    - {label: sys, symerror: 0.0185}
+    - asymerror: {minus: -0.0162, plus: 0.00658}
+      label: sys
+    - {label: 'sys,uncertainty on branching ratio', symerror: 2.1%}
+    - {label: 'sys,from centrality limits', symerror: 2.0%}
+    value: 0.0737
+  - errors:
+    - {label: stat, symerror: 0.00526}
+    - {label: sys, symerror: 0.00624}
+    - asymerror: {minus: -0.00417, plus: 0.00211}
+      label: sys
+    - {label: 'sys,uncertainty on branching ratio', symerror: 2.1%}
+    - {label: 'sys,from centrality limits', symerror: 2.0%}
+    value: 0.028
+  - errors:
+    - {label: stat, symerror: 0.00197}
+    - {label: sys, symerror: 0.00214}
+    - asymerror: {minus: -0.00147, plus: 0.000732}
+      label: sys
+    - {label: 'sys,uncertainty on branching ratio', symerror: 2.1%}
+    - {label: 'sys,from centrality limits', symerror: 2.0%}
+    value: 0.00998
+  - errors:
+    - {label: stat, symerror: 0.000841}
+    - {label: sys, symerror: 0.00081}
+    - asymerror: {minus: -0.000545, plus: 0.000432}
+      label: sys
+    - {label: 'sys,uncertainty on branching ratio', symerror: 2.1%}
+    - {label: 'sys,from centrality limits', symerror: 2.0%}
+    value: 0.00381
+  - errors:
+    - {label: stat, symerror: 0.000219}
+    - {label: sys, symerror: 0.000224}
+    - asymerror: {minus: -0.000153, plus: 0.000116}
+      label: sys
+    - {label: 'sys,uncertainty on branching ratio', symerror: 2.1%}
+    - {label: 'sys,from centrality limits', symerror: 2.0%}
+    value: 0.00106
+  - errors:
+    - {label: stat, symerror: 3.65e-05}
+    - {label: sys, symerror: 4.71e-05}
+    - asymerror: {minus: -2.93e-05, plus: 2.1e-05}
+      label: sys
+    - {label: 'sys,uncertainty on branching ratio', symerror: 2.1%}
+    - {label: 'sys,from centrality limits', symerror: 2.0%}
+    value: 0.000225
+  - errors:
+    - {label: stat, symerror: 1.47e-05}
+    - {label: sys, symerror: 9.44e-06}
+    - asymerror: {minus: -6.9e-06, plus: 7.45e-06}
+      label: sys
+    - {label: 'sys,uncertainty on branching ratio', symerror: 2.1%}
+    - {label: 'sys,from centrality limits', symerror: 2.0%}
+    value: 3.85e-05
+independent_variables:
+- header: {name: PT, units: GEV/c}
+  values:
+  - {high: 3.0, low: 2.0}
+  - {high: 4.0, low: 3.0}
+  - {high: 5.0, low: 4.0}
+  - {high: 6.0, low: 5.0}
+  - {high: 8.0, low: 6.0}
+  - {high: 12.0, low: 8.0}
+  - {high: 16.0, low: 12.0}

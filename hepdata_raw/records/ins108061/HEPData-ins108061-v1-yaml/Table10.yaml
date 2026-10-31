@@ -1,0 +1,42 @@
+dependent_variables:
+- header: {name: D(SIG)/DT, units: NB/GEV**2}
+  qualifiers:
+  - {name: P, units: GeV, value: '6.0'}
+  - {name: RE, value: GAMMA P --> K+ LAMBDA}
+  - {name: SQRT(S), units: GeV, value: '3.484'}
+  values:
+  - errors:
+    - {symerror: 0.95}
+    - {label: sys, symerror: 7.0%}
+    value: 13.6
+  - errors:
+    - {symerror: 0.12}
+    - {label: sys, symerror: 7.0%}
+    value: 1.17
+  - errors:
+    - {symerror: 0.12}
+    - {label: sys, symerror: 7.0%}
+    value: 0.328
+  - errors:
+    - {symerror: 0.1}
+    - {label: sys, symerror: 7.0%}
+    value: 0.242
+  - errors:
+    - {symerror: 0.069}
+    - {label: sys, symerror: 7.0%}
+    value: 0.115
+independent_variables:
+- header: {name: -T, units: GEV}
+  values:
+  - {value: 1.3}
+  - {value: 1.99}
+  - {value: 2.76}
+  - {value: 3.53}
+  - {value: 4.94}
+- header: {name: COS(THETA)}
+  values:
+  - {value: 0.738}
+  - {value: 0.597}
+  - {value: 0.44}
+  - {value: 0.284}
+  - {value: -0.003}

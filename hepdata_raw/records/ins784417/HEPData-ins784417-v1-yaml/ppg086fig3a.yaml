@@ -1,0 +1,48 @@
+dependent_variables:
+- header: {name: $p_T$ (GeV/$c$)}
+  qualifiers:
+  - {name: Collision, value: $p$+$p$}
+  values:
+  - {value: 1.184}
+  - {value: 1.691}
+  - {value: 2.198}
+  - {value: 2.704}
+  - {value: 3.349}
+  - {value: 4.375}
+- header: {name: $r$ = direct $\gamma$/inclusive $\gamma$}
+  qualifiers:
+  - {name: Collision, value: $p$+$p$}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.0039}
+    - {label: sys., symerror: 0.012}
+    value: -0.00107
+  - errors:
+    - {label: stat., symerror: 0.006}
+    - {label: sys., symerror: 0.012}
+    value: 0.0259
+  - errors:
+    - {label: stat., symerror: 0.0099}
+    - {label: sys., symerror: 0.013}
+    value: 0.0338
+  - errors:
+    - {label: stat., symerror: 0.016}
+    - {label: sys., symerror: 0.015}
+    value: 0.039
+  - errors:
+    - {label: stat., symerror: 0.02}
+    - {label: sys., symerror: 0.015}
+    value: 0.0308
+  - errors:
+    - {label: stat., symerror: 0.045}
+    - {label: sys., symerror: 0.021}
+    value: 0.0352
+independent_variables:
+- header: {name: $p_T$ (GeV/$c$) Bins}
+  values:
+  - {high: 1.438, low: 0.931}
+  - {high: 1.945, low: 1.438}
+  - {high: 2.452, low: 1.945}
+  - {high: 2.958, low: 2.452}
+  - {high: 3.603, low: 2.958}
+  - {high: 4.761, low: 3.603}

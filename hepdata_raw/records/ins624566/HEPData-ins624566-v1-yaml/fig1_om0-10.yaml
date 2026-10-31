@@ -1,0 +1,26 @@
+dependent_variables:
+- header: {name: $1/(2\pi m_T)dN/dy/dm_T$}
+  qualifiers:
+  - {name: CENTRALITY, value: 0.0 TO 10.0}
+  - {name: PARTICLES, value: '$\Omega^-+\bar{\Omega}^-$'}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 130}
+  values:
+  - errors:
+    - {label: $stat$, symerror: 0.011}
+    value: 0.029
+  - errors:
+    - {label: $stat$, symerror: 0.0032}
+    value: 0.0129
+  - errors:
+    - {label: $stat$, symerror: 0.0017}
+    value: 0.0069
+  - errors:
+    - {label: $stat$, symerror: 0.0004}
+    value: 0.0018
+independent_variables:
+- header: {name: $m_T-m_0$, units: $c^4/GeV^2$}
+  values:
+  - {value: 0.5}
+  - {value: 0.95}
+  - {value: 1.25}
+  - {value: 1.7}

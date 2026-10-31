@@ -1,0 +1,143 @@
+---
+observable_type: flow_vn
+inspire_id: '1696868'
+version: 1
+hepdata_file: table_1.yaml
+hepdata_table_label: The elliptic flow, $v_2$, for prompt $\mathrm{J}/\psi$ mesons as a function of $p_{\mathrm{T}}$ in pPb
+  collision at 8.16 TeV.
+qualifiers:
+  multiplicity class: $185 \leq N_{trk}^{offline}<250$
+  pt range: $0.2 < p_{\mathrm{T}} < 10$ GeV
+  rapidity: $-2.86<y_{\mathrm{cm}}<-1.86$ or $0.94<y_{\mathrm{cm}}<1.94$
+  sqrt(s)/nucleon: '8160.0'
+  '|\delta \eta|': '>1'
+collision_system:
+  energy_gev: 8160.0
+  reaction: P PB --> J/psi + X
+centrality:
+  classes:
+  - 0.4455-1.7005%
+  - 1.7005-2.9655%
+  - 2.9655-4.3485%
+  - 4.3485-5.934%
+  - 5.934-7.8115%
+  - 7.8115-9.8865%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+harmonic: 2
+method: event_plane
+value_type: v_2
+dimensionality: integrated
+---
+observable_type: flow_vn
+inspire_id: '1696868'
+version: 1
+hepdata_file: table_2.yaml
+hepdata_table_label: The elliptic flow corrected for residual jet correlations, $v_2^{\mathrm{sub}}$, for prompt $\mathrm{J}/\psi$
+  mesons as a function of $p_{\mathrm{T}}$ in pPb collision at 8.16 TeV.
+qualifiers:
+  multiplicity class: $185 \leq N_{trk}^{offline}<250$
+  pt range: $0.2 < p_{\mathrm{T}} < 10$ GeV
+  rapidity: $-2.86<y_{\mathrm{cm}}<-1.86$ or $0.94<y_{\mathrm{cm}}<1.94$
+  sqrt(s)/nucleon: '8160.0'
+  '|\delta \eta|': '>1'
+collision_system:
+  energy_gev: 8160.0
+  reaction: P PB --> J/psi + X
+centrality:
+  classes:
+  - 0.4455-1.7005%
+  - 1.7005-2.9655%
+  - 2.9655-4.3485%
+  - 4.3485-5.934%
+  - 5.934-7.8115%
+  - 7.8115-9.8865%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+harmonic: 2
+method: event_plane
+value_type: v_2^{\mathrm{sub}}
+dimensionality: integrated
+---
+observable_type: flow_vn
+inspire_id: '1696868'
+version: 1
+hepdata_file: table_3.yaml
+hepdata_table_label: The elliptic flow per constituent quark corrected for residual jet correlations, $v_2^{\mathrm{sub}}/n_q$,
+  for prompt $\mathrm{J}/\psi$ mesons as a function of transverse kinetic energy per constituent quark in pPb collision at
+  8.16 TeV.
+qualifiers:
+  ket range: $0.006 < KE_{\mathrm{T}} < 7.37$ GeV
+  multiplicity class: $185 \leq N_{trk}^{offline}<250$
+  rapidity: $-2.86<y_{\mathrm{cm}}<-1.86$ or $0.94<y_{\mathrm{cm}}<1.94$
+  sqrt(s)/nucleon: '8160.0'
+  '|\delta \eta|': '>1'
+collision_system:
+  energy_gev: 8160.0
+  reaction: P PB --> J/psi + X
+centrality:
+  classes:
+  - MB
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+harmonic: 2
+method: event_plane
+value_type: v_2^{\mathrm{sub}}/n_{q}
+dimensionality: integrated

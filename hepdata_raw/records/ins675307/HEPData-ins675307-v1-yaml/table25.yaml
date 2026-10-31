@@ -1,0 +1,38 @@
+dependent_variables:
+- header: {name: mean p_T, units: GEV/c}
+  qualifiers:
+  - {name: p_T^trig, units: GEV/c, value: 6-10}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.082}
+    - asymerror: {minus: 0.18, plus: 0.106}
+      label: sys
+    value: 1.026
+  - errors:
+    - {label: stat, symerror: 0.057}
+    - asymerror: {minus: 0.141, plus: 0.127}
+      label: sys
+    value: 0.932
+  - errors:
+    - {label: stat, symerror: 0.05}
+    - asymerror: {minus: 0.102, plus: 0.07}
+      label: sys
+    value: 0.821
+  - errors:
+    - {label: stat, symerror: 0.053}
+    - asymerror: {minus: 0.047, plus: 0.076}
+      label: sys
+    value: 0.795
+  - errors:
+    - {label: stat, symerror: 0.045}
+    - asymerror: {minus: 0.033, plus: 0.059}
+      label: sys
+    value: 0.699
+independent_variables:
+- header: {name: N_ch, units: none}
+  values:
+  - {value: 5.935}
+  - {value: 68}
+  - {value: 240}
+  - {value: 488}
+  - {value: 689}

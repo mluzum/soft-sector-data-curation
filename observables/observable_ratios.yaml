@@ -1,0 +1,79 @@
+observable_type: observable_ratios
+description: >
+  Ratios of a measured observable between two collision systems, two
+  particle species, or a double ratio of both.  These records are stored
+  for the Bayesian analysis, which forms model ratios after emulator
+  training; the analysis pipeline does not dispatch them.  Whenever the
+  numerator and denominator are separately curated, the optional
+  `numerator_record` / `denominator_record` fields point at those records.
+
+composes:
+  - _common#collision_system
+  - _common#kinematic_range
+
+optional_composes:
+  - centrality#centrality
+  - _common#particle_id
+
+required_fields:
+  observable:
+    type: string
+    required: true
+    description: Short identifier of the quantity being ratioed.
+    example: "v2"
+  value_type:
+    type: string
+    required: true
+    description: Human-readable ratio label.
+    example: "v2_Ru_over_Zr"
+  numerator:
+    type: string
+    required: true
+    description: Numerator system, species, or quantity.
+    example: "Ru+Ru"
+  denominator:
+    type: string
+    required: true
+    description: Denominator system, species, or quantity.
+    example: "Zr+Zr"
+  ratio_type:
+    type: string
+    required: true
+    description: "One of: 'system_ratio', 'particle_ratio', 'double_ratio', 'quantity_ratio'"
+    example: "system_ratio"
+
+optional_fields:
+  numerator_record:
+    type: string
+    required: false
+    description: Path or identifier of the curated numerator record, when separate.
+    example: "data/flow_vn/star_flow_vn_isobar_v2_v22_RuRu_200gev.yaml"
+  denominator_record:
+    type: string
+    required: false
+    description: Path or identifier of the curated denominator record, when separate.
+    example: "data/flow_vn/star_flow_vn_isobar_v2_v22_ZrZr_200gev.yaml"
+  numerator_system:
+    type: string
+    required: false
+    description: Collision system of the numerator, when it differs from the record reaction.
+    example: "Ru+Ru"
+  denominator_system:
+    type: string
+    required: false
+    description: Collision system of the denominator, when it differs from the record reaction.
+    example: "Zr+Zr"
+  numerator_particle:
+    type: string
+    required: false
+    description: Particle species of the numerator.
+    example: "pi+"
+  denominator_particle:
+    type: string
+    required: false
+    description: Particle species of the denominator.
+    example: "pi-"
+  notes:
+    type: string
+    required: false
+    description: Free-text provenance or caveats.

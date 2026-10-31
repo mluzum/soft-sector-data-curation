@@ -1,0 +1,82 @@
+---
+observable_type: charge_dependent_correlations
+inspire_id: '694429'
+version: 1
+hepdata_file: ppg039fig13.yaml
+hepdata_table_label: Fully corrected assorted charged pion-hadron conditional pair distributions for $d$+Au collisions centrality
+  0-80% and $p$+$p$ collisions. The trigger $\pi^{\pm}$s are within 5 < $p_{T,trig}$ < 10 GeV/$c$ and are correlated with
+  hadrons with $p_{T,assoc}$ 0.4-1.0 GeV/$c$, 1.0-2.0 GeV/$c$, 2.0-3.0 GeV/$c$, and 3.0-5.0 GeV/$c$.
+qualifiers:
+  collision: $p$+$p$
+  p_t$ range: 3.0 < $p_{T,assoc}$ < 5.0
+collision_system:
+  energy_gev: 200.0
+  reaction: p p --> CHARGED X
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.35
+    max: 0.35
+  pT:
+    min: 0.2
+    max: 20
+    bins:
+    - 0.2
+    - 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '694429'
+version: 1
+hepdata_file: ppg039fig14.yaml
+hepdata_table_label: Fully corrected assorted $\pi^{0}$-hadron conditional pair distributions for $d$+Au collisions centrality
+  0-88% and $p$+$p$ collisions. The trigger $\pi^0$s are within 5 < $p_{T,trig}$ < 10 GeV/$c$ and are correlated with hadrons
+  with $p_{T,assoc}$ of 1.5-2 GeV/$c$, 2-3GeV/$c$, 3-4 GeV/$c$, and 4-5 GeV/$c$.
+qualifiers:
+  collision: $p$+$p$
+  p_t$ range: 3.0 < $p_{T,assoc}$ < 5.0
+collision_system:
+  energy_gev: 200.0
+  reaction: p p --> CHARGED X
+centrality:
+  classes:
+  - 0-88%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: p
+kinematic_range:
+  eta:
+    min: -0.35
+    max: 0.35
+  pT:
+    min: 0.2
+    max: 20
+    bins:
+    - 0.2
+    - 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all

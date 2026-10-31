@@ -1,0 +1,69 @@
+additional_resources:
+- {description: Figures and original data files, location: 'http://www4.rcf.bnl.gov/brahms/WWW/publication-data/stopping_2003',
+  type: url}
+- {description: BRAHMS Homepage, location: 'http://www4.rcf.bnl.gov/brahms/WWW', type: url}
+comment: BNL-RHIC-BRAHMS. Transverse momentum spectra and rapidity densities, dN/dy,
+  of protons, anti-protons, and net--protons (p-pbar) from central (0-5%) Au+Au collisions
+  at sqrt(sNN) = 200 GeV were measured with the BRAHMS experiment within the rapidity
+  range 0 < y < 3. The proton and anti-proton dN/dy decrease from mid-rapidity to
+  y=3. The net-proton yield is roughly constant for y<1 at dN/dy~7, and increases
+  to dN/dy~12 at y~3. The data show that collisions at this energy exhibit a high
+  degree of transparency and that the linear scaling of rapidity loss with rapidity
+  observed at lower energies is broken. The energy loss per participant nucleon is
+  estimated to be 73 +- 6 GeV.
+hepdata_doi: 10.17182/hepdata.89443.v1
+preprintyear: '2003'
+publicationyear: '2004'
+record_ids:
+- {id: 636579, type: inspire}
+- {id: nucl-ex/0312023, type: arxiv}
+- {id: 10.1103/PhysRevLett.93.102301, type: doi}
+- {id: '5761905', type: SPIRES}
+---
+data_file: tab1.yaml
+description: $\frac{1}{2\pi p_{\mathrm{T}}}\frac{\mathrm{d}^2N}{\mathrm{d}p_{\mathrm{T}}\mathrm{d}y}$
+  versus $p_{\mathrm{T}}$ for $\mathrm{p}$,$\overline{\mathrm{p}}$ in $\mathrm{Au}-\mathrm{Au}$
+  at $\sqrt{s_{\mathrm{NN}}}=200\,\mathrm{Ge\!V}$ . NaN values means no observation.
+keywords:
+- name: reactions
+  values: [AU AU --> P, AU AU --> PBAR]
+- name: observables
+  values: [1/(2*PI*PT)*D2N/DPT/DYRAP]
+- name: cmenergies
+  values: ['200.0']
+- name: phrases
+  values: [Invariant Yield, Transverse Momentum Dependence, Rapidity Dependence, Transverse
+      Momentum Dependence, Rapidity Dependence]
+location: Table 1
+name: Table 1
+table_doi: 10.17182/hepdata.89443.v1/t1
+---
+data_file: tab2.yaml
+description: '$\frac{\mathrm{d}N}{\mathrm{d}y}$ versus $y$ for $\mathrm{p}$,$\overline{\mathrm{p}}$,$\mathrm{p}-\overline{\mathrm{p}}$
+  in $\mathrm{Au}-\mathrm{Au}$ at $\sqrt{s_{\mathrm{NN}}}=200\,\mathrm{Ge\!V}$ . The
+  correction for the $\Lambda$ contribution is not straight forward since BRAHMS does
+  not measure the $\Lambda$s and PHENIX and STAR only measures the $\Lambda$s at mid-rapidity!
+  If one assumes that the mid-rapidity estimated in the paper of  $$R=\frac{\Lambda-\bar{\Lambda}}{\mathrm{p}-\bar{\mathrm{p}}}
+  = \frac{\Lambda}{\mathrm{p}} = \frac{\bar{\Lambda}}{\bar{\mathrm{p}}} = 0.93\pm
+  0.11(\mathrm{stat})\pm 0.25(\mathrm{syst}) $$ and the BRAHMS "acceptance factor"
+  of  $A=0.53\pm 0.05$ which includes both that only 64% decays to protons and that
+  some are rejected by the requirement of the track to point back to the IP. The corrected
+  $\mathrm{p}$ ($\bar{\mathrm{p}}$ or net-$\mathrm{p}$) is then : $$\left.\frac{\mathrm{d}N}{\mathrm{d}y}\right|_{\mathrm{corrected}}
+  = \frac{\mathrm{d}N}{\mathrm{d}y}(1/(1+RA))= \frac{\mathrm{d}N}{\mathrm{d}y}\left(0.67\pm
+  0.05(\mathrm{stat})\pm 0.11(\mathrm{syst})\right)$$ Which can be used at all rapidities
+  if one believes that R is constant. The fact that net-$\mathrm{K}=\mathrm{K}^{+}-\mathrm{K}^{-}$
+  follows net-$\mathrm{p}$ (see fx. talk by Djamel Ouerdane at QM04), seems to indicate
+  that the net-$\Lambda$ follow the net-$\mathrm{p}$ trend and the correction is reasonable.'
+keywords:
+- name: reactions
+  values: [AU AU --> P, AU AU --> PBAR, AU AU --> P - PBAR]
+- name: observables
+  values: [DN/DYRAP]
+- name: cmenergies
+  values: ['200.0']
+- name: phrases
+  values: [Rapidity Dependence, Density, Rapidity Dependence, Rapidity Dependence,
+    Rapidity Dependence]
+location: Table 2
+name: Table 2
+table_doi: 10.17182/hepdata.89443.v1/t2

@@ -1,0 +1,128 @@
+dependent_variables:
+- header: {name: 'V2{EP,ABS(DELTA(ETA))>2.0}'}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 5.0-10.0}
+  - {name: ETARAP, value: -0.8-0.8}
+  - {name: RE, value: PB PB --> (PI+ + PI-) X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0015204}
+    - asymerror: {minus: -0.00689651, plus: 0.00580865}
+      label: sys
+    value: 0.100286
+  - errors:
+    - {label: stat, symerror: 0.00226955}
+    - asymerror: {minus: -0.00707924, plus: 0.00578348}
+      label: sys
+    value: 0.0951594
+  - errors:
+    - {label: stat, symerror: 0.00323721}
+    - asymerror: {minus: -0.00734455, plus: 0.00584499}
+      label: sys
+    value: 0.0870573
+  - errors:
+    - {label: stat, symerror: 0.00443409}
+    - asymerror: {minus: -0.00788459, plus: 0.00624582}
+      label: sys
+    value: 0.0786874
+  - errors:
+    - {label: stat, symerror: 0.00452888}
+    - asymerror: {minus: -0.00791104, plus: 0.00581914}
+      label: sys
+    value: 0.0653645
+  - errors:
+    - {label: stat, symerror: 0.00689104}
+    - asymerror: {minus: -0.00968098, plus: 0.00752639}
+      label: sys
+    value: 0.0541408
+  - errors:
+    - {label: stat, symerror: 0.00966223}
+    - asymerror: {minus: -0.0120989, plus: 0.00999457}
+      label: sys
+    value: 0.0457221
+  - errors:
+    - {label: stat, symerror: 0.0102573}
+    - asymerror: {minus: -0.0140755, plus: 0.0116407}
+      label: sys
+    value: 0.0482269
+  - errors:
+    - {label: stat, symerror: 0.0160961}
+    - asymerror: {minus: -0.0195466, plus: 0.0171533}
+      label: sys
+    value: 0.0519502
+  - errors:
+    - {label: stat, symerror: 0.019199}
+    - asymerror: {minus: -0.0224317, plus: 0.0192231}
+      label: sys
+    value: 0.0084316
+- header: {name: 'V2{EP,ABS(DELTA(ETA))>2.0}'}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 5.0-10.0}
+  - {name: ETARAP, value: -0.8-0.8}
+  - {name: RE, value: PB PB --> (P + PBAR) X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.00193571}
+    - asymerror: {minus: -0.0105171, plus: 0.00853625}
+      label: sys
+    value: 0.152701
+  - errors:
+    - {label: stat, symerror: 0.0026302}
+    - asymerror: {minus: -0.0109951, plus: 0.00863663}
+      label: sys
+    value: 0.154497
+  - errors:
+    - {label: stat, symerror: 0.00376345}
+    - asymerror: {minus: -0.0110044, plus: 0.00808465}
+      label: sys
+    value: 0.144623
+  - errors:
+    - {label: stat, symerror: 0.00542586}
+    - asymerror: {minus: -0.0116416, plus: 0.00833558}
+      label: sys
+    value: 0.149111
+  - errors:
+    - {label: stat, symerror: 0.00623612}
+    - asymerror: {minus: -0.0119572, plus: 0.00773496}
+      label: sys
+    value: 0.138367
+  - errors:
+    - {label: stat, symerror: 0.0112432}
+    - asymerror: {minus: -0.0119323, plus: 0.00577688}
+      label: sys
+    value: 0.10334
+  - errors:
+    - {label: stat, symerror: 0.0177243}
+    - asymerror: {minus: -0.01312, plus: 0.00581118}
+      label: sys
+    value: 0.103953
+  - errors:
+    - {label: stat, symerror: 0.0202246}
+    - asymerror: {minus: -0.02066, plus: 0.0154233}
+      label: sys
+    value: 0.123783
+  - errors:
+    - {label: stat, symerror: 0.0345635}
+    - asymerror: {minus: -0.0251137, plus: 0.0190274}
+      label: sys
+    value: 0.152709
+  - errors:
+    - {label: stat, symerror: 0.0402301}
+    - asymerror: {minus: -0.020858, plus: 0.0045426}
+      label: sys
+    value: 0.0364577
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {high: 3.5, low: 3.0}
+  - {high: 4.0, low: 3.5}
+  - {high: 4.5, low: 4.0}
+  - {high: 5.0, low: 4.5}
+  - {high: 6.0, low: 5.0}
+  - {high: 7.0, low: 6.0}
+  - {high: 8.0, low: 7.0}
+  - {high: 10.0, low: 8.0}
+  - {high: 12.0, low: 10.0}
+  - {high: 16.0, low: 12.0}

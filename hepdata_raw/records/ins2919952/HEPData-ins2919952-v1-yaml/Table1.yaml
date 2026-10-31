@@ -1,0 +1,36 @@
+dependent_variables:
+- header: {name: Yield}
+  qualifiers:
+  - {name: Process, value: $\pi^0$+jet}
+  - {name: Collision system, value: pp}
+  - {name: Jet radius, value: R = 0.2}
+  - {name: Jet pT, value: "10\u201315 GeV/c"}
+  - {name: Observable, value: Yield($\Delta \phi$)}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.000122109}
+    - asymerror: {minus: 8.0e-05, plus: 8.0e-05}
+      label: sys_uncorr
+    - asymerror: {minus: 0.000280018, plus: 0.000280018}
+      label: sys_corr
+    value: 0.00227125
+  - errors:
+    - {label: stat, symerror: 0.000436331}
+    - asymerror: {minus: 0.000175265, plus: 0.000175265}
+      label: sys_uncorr
+    - asymerror: {minus: 0.00231832, plus: 0.00231832}
+      label: sys_corr
+    value: 0.0177848
+  - errors:
+    - {label: stat, symerror: 0.000777163}
+    - asymerror: {minus: 0.00250348, plus: 0.00250348}
+      label: sys_uncorr
+    - asymerror: {minus: 0.00632845, plus: 0.00632845}
+      label: sys_corr
+    value: 0.0439537
+independent_variables:
+- header: {name: $\Delta \phi$, units: rad}
+  values:
+  - {value: 2.67052}
+  - {value: 2.90918}
+  - {value: 3.07451}

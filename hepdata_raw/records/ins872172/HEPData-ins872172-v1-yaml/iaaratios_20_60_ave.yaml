@@ -1,0 +1,21 @@
+dependent_variables:
+- header: {name: '$I^{out}_{AA}/I^{in}_{AA}$'}
+  qualifiers:
+  - {name: '$p^{a}_{T}$', value: '$\textrm{Near-side}$ $I^{out}_{AA}/I^{in}_{AA}$
+      $\textrm{ratio, mid-central collisions}$'}
+  values:
+  - errors:
+    - {label: '$\sigma_{total}$', symerror: 0.1}
+    value: 0.89
+- header: {name: '$I^{out}_{AA}/I^{in}_{AA}$'}
+  qualifiers:
+  - {name: '$p^{a}_{T}$', value: '$\textrm{Away-side}$ $I^{out}_{AA}/I^{in}_{AA}$
+      $\textrm{ratio, mid-central collisions}$'}
+  values:
+  - errors:
+    - {label: '$\sigma_{total}$', symerror: 0.2}
+    value: 0.26
+independent_variables:
+- header: {name: '$p^{a}_{T}$'}
+  values:
+  - {high: 7, low: 3}

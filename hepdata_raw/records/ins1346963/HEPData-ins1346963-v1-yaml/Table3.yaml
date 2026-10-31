@@ -1,0 +1,46 @@
+dependent_variables:
+- header: {name: '$\mathrm{d}^{2}\sigma/\mathrm{d}p_\mathrm{T} \mathrm{d}\eta_\mathrm{lab}
+      (\mathrm{mb}\,\, c/\mathrm{GeV})$'}
+  qualifiers:
+  - {name: ALGO-JET, value: ANTIKT}
+  - {name: ETARAP-JET, value: 0.25-0.65}
+  - {name: ETARAP-PARTICLE, value: -0.9-0.9}
+  - {name: NORMALIZATION UNCERTAINTY, value: 3.5 %}
+  - {name: RADIUS-JET, value: '0.2'}
+  - {name: SQRT(SNN), units: GeV, value: '5023.0'}
+  values:
+  - errors:
+    - {symerror: 0.000691}
+    value: 0.07291
+  - errors:
+    - {symerror: 0.0003132}
+    value: 0.01549
+  - errors:
+    - {symerror: 0.000132}
+    value: 0.004545
+  - errors:
+    - {symerror: 5.675e-05}
+    value: 0.00161
+  - errors:
+    - {symerror: 3.212e-05}
+    value: 0.0006561
+  - errors:
+    - {symerror: 2.278e-05}
+    value: 0.0003202
+  - errors:
+    - {symerror: 1.293e-05}
+    value: 0.0001318
+  - errors:
+    - {symerror: 5.5e-06}
+    value: 4.5e-05
+independent_variables:
+- header: {name: '$p_\mathrm{T,\;ch\;jet} (\mathrm{GeV}/c)$'}
+  values:
+  - {value: '25 +5,-5'}
+  - {value: '35 +5,-5'}
+  - {value: '45 +5,-5'}
+  - {value: '55 +5,-5'}
+  - {value: '65 +5,-5'}
+  - {value: '75 +5,-5'}
+  - {value: '90 +10,-10'}
+  - {value: '110 +10,-10'}

@@ -1,0 +1,62 @@
+observable_type: mean_pT
+inspire_id: '851937'
+version: 1
+hepdata_file: fig8.yaml
+hepdata_table_label: '  Mean transverse momentum <pT> of associated particles with
+  0.25 < pT,assoc < 4.0 GeV/c, for four different centrality selections.'
+qualifiers:
+  dataset: 0-12% Au+Au, 6.0 < pt,trig < 10.0
+collision_system:
+  energy_gev: 200.0
+  reaction: AuAu --> X
+centrality:
+  classes:
+  - 0-12%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: charged
+observable: mean_pT
+value_type: mean_pT
+kinematic_range:
+  eta:
+    min: -0.5
+    max: 0.5
+---
+observable_type: mean_pT
+inspire_id: '851937'
+version: 1
+hepdata_file: fig9.yaml
+hepdata_table_label: Mean transverse momentum <pT> (DeltaPhi) of associated hadrons
+  in the range 0.25 < pT_assoc < 4.0 GeV/c in the core (|DeltaPhi − pi| < pi/6) and
+  cone (pi/6 < |DeltaPhi − pi| < pi/2) azimuthal regions for 3 < pT_trig < 4 GeV/c
+  and 4 < pT_trig < 6 GeV/c as a function of number of participants. The inclusive
+  <pT> in the same pT range for events with a trigger hadron is also indicated.
+qualifiers:
+  dataset: 4.0 < pt,trig < 6.0, core
+collision_system:
+  energy_gev: 200.0
+  reaction: AuAu --> X
+centrality:
+  classes: []
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: charged
+observable: mean_pT
+value_type: mean_pT
+kinematic_range:
+  eta:
+    min: -0.5
+    max: 0.5

@@ -1,0 +1,48 @@
+dependent_variables:
+- header: {name: '${v_2}$'}
+  qualifiers:
+  - {name: SQRT(S), units: GEV, value: 19.6}
+  - {name: Au+Au, value: '${\Omega}{^-}$'}
+  - {name: Centrality, units: percentage, value: 0-80}
+  values:
+  - errors:
+    - asymerror: {minus: -0.021258, plus: 0.015996}
+      label: sys
+    - {label: stat, symerror: 0.033797}
+    - {label: glob, symerror: 0.006711}
+    value: 0.027841
+  - errors:
+    - asymerror: {minus: -0.010638, plus: 0.014723}
+      label: sys
+    - {label: stat, symerror: 0.039866}
+    - {label: glob, symerror: 0.006711}
+    value: 0.050858
+  - {value: '-'}
+  - {value: '-'}
+- header: {name: '${v_2}$'}
+  qualifiers:
+  - {name: SQRT(S), units: GEV, value: 19.6}
+  - {name: Au+Au, value: '$\bar{\Omega}{^+}$'}
+  - {name: Centrality, units: percentage, value: 0-80}
+  values:
+  - {value: '-'}
+  - {value: '-'}
+  - errors:
+    - asymerror: {minus: -0.016972, plus: 0.016165}
+      label: sys
+    - {label: stat, symerror: 0.039209}
+    - {label: glob, symerror: 0.006711}
+    value: 0.049285
+  - errors:
+    - asymerror: {minus: -0.022582, plus: 0.042037}
+      label: sys
+    - {label: stat, symerror: 0.046856}
+    - {label: glob, symerror: 0.006711}
+    value: 0.096625
+independent_variables:
+- header: {name: '${p_T}$'}
+  values:
+  - {value: 1.4155}
+  - {value: 2.1905}
+  - {value: 1.4195}
+  - {value: 2.1875}

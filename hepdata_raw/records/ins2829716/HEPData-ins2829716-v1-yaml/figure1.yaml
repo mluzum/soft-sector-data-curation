@@ -1,0 +1,94 @@
+dependent_variables:
+- header: {name: '$\mathrm{d}^{2}N / \mathrm{d}p_{\mathrm{T,ch\ jet}}\mathrm{d}\eta_{\mathrm{ch\
+      jet}}$', units: '(GeV/$c$)$^{-1}$'}
+  qualifiers:
+  - {name: System, units: TeV, value: Pb$-$Pb at 5.02}
+  - {name: Clustering algorithm, value: 'anti-$k_{\mathrm{T}}$'}
+  - {name: Recombination scheme, value: '$p_{\mathrm{T}}$'}
+  - {name: $R$, value: 0.3}
+  - {name: '$|\eta_{\mathrm{ch\ jet}}|$', value: $<0.6$}
+  - {name: '$p_{\mathrm{T,D^0}}$', units: GeV/$c$, value: $3-36$}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.00213036}
+    - asymerror: {minus: -0.0156466, plus: 0.0128}
+      label: sys
+    value: 0.083554
+  - errors:
+    - {label: stat, symerror: 0.00125655}
+    - asymerror: {minus: -0.00779546, plus: 0.00645984}
+      label: sys
+    value: 0.0426748
+  - errors:
+    - {label: stat, symerror: 0.000655699}
+    - asymerror: {minus: -0.00309043, plus: 0.00255052}
+      label: sys
+    value: 0.0175019
+  - errors:
+    - {label: stat, symerror: 0.000382454}
+    - asymerror: {minus: -0.00118403, plus: 0.00103933}
+      label: sys
+    value: 0.00625532
+  - errors:
+    - {label: stat, symerror: 0.000174131}
+    - asymerror: {minus: -0.000419582, plus: 0.000389719}
+      label: sys
+    value: 0.00172968
+  - errors:
+    - {label: stat, symerror: 8.61991e-05}
+    - asymerror: {minus: -0.000113951, plus: 0.000109299}
+      label: sys
+    value: 0.000413247
+  - errors:
+    - {label: stat, symerror: 2.91522e-05}
+    - asymerror: {minus: -2.77437e-05, plus: 3.04316e-05}
+      label: sys
+    value: 5.85781e-05
+- header: {name: '$\langle T_{\mathrm{AA}}^{\mathrm{0-10\%}}\rangle\mathrm{d}^{2}\sigma
+      / \mathrm{d}p_{\mathrm{T,ch\ jet}}\mathrm{d}\eta_{\mathrm{ch\ jet}}$', units: '(GeV/$c$)$^{-1}$'}
+  qualifiers:
+  - {name: System, units: TeV, value: pp at 5.02}
+  - {name: Clustering algorithm, value: 'anti-$k_{\mathrm{T}}$'}
+  - {name: Recombination scheme, value: '$p_{\mathrm{T}}$'}
+  - {name: $R$, value: 0.3}
+  - {name: '$|\eta_{\mathrm{ch\ jet}}|$', value: $<0.6$}
+  - {name: '$p_{\mathrm{T,D^0}}$', units: GeV/$c$, value: $3-36$}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.012008}
+    - {label: sys, symerror: 0.0275007}
+    value: 0.262914
+  - errors:
+    - {label: stat, symerror: 0.00520947}
+    - {label: sys, symerror: 0.0117238}
+    value: 0.132187
+  - errors:
+    - {label: stat, symerror: 0.00275786}
+    - {label: stat, symerror: 0.00481713}
+    value: 0.0421019
+  - errors:
+    - {label: stat, symerror: 0.00108185}
+    - {label: stat, symerror: 0.00168002}
+    value: 0.0150319
+  - errors:
+    - {label: stat, symerror: 0.000360505}
+    - {label: stat, symerror: 0.000525997}
+    value: 0.00330914
+  - errors:
+    - {label: stat, symerror: 0.000142906}
+    - {label: stat, symerror: 0.000111816}
+    value: 0.000620326
+  - errors:
+    - {label: stat, symerror: 3.95151e-05}
+    - {label: stat, symerror: 2.35684e-05}
+    value: 0.000118077
+independent_variables:
+- header: {name: '$p_{\mathrm{T,ch\ jet}}$', units: GeV/$c$}
+  values:
+  - {high: 6.0, low: 5.0}
+  - {high: 8.0, low: 6.0}
+  - {high: 10.0, low: 8.0}
+  - {high: 14.0, low: 10.0}
+  - {high: 20.0, low: 14.0}
+  - {high: 30.0, low: 20.0}
+  - {high: 50.0, low: 30.0}

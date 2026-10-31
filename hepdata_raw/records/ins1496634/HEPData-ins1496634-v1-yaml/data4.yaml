@@ -1,0 +1,23 @@
+dependent_variables:
+- header: {name: 'ASYM = [N(W+ < MU+ NU >)-N(W- <MU- NUBAR>]/[N(W+ < MU+ NU >)+N(W-
+      <MU- NUBAR>]'}
+  qualifiers:
+  - {name: PT(MU), units: GEV, value: '> 10.0'}
+  - {name: RE(+), value: P PB --> W+ < MU+ NU > X}
+  - {name: RE(-), value: P PB --> W- < MU- NUBAR > X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.08}
+    - {label: sys, symerror: 0.02}
+    value: -0.64
+  - errors:
+    - {label: stat, symerror: 0.049}
+    - {label: sys, symerror: 0.006}
+    value: 0.048
+independent_variables:
+- header: {name: YRAP(RF=CM)}
+  values:
+  - {high: -2.96, low: -4.46}
+  - {high: 3.53, low: 2.03}
+name: data4.yaml

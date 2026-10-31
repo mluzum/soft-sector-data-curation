@@ -1,0 +1,52 @@
+dependent_variables:
+- header: {name: 'Delta I_{AA}=Delta_{recoil}^{PbPb}/Delta_{recoil}^{PYTHIA}'}
+  qualifiers:
+  - {name: ABS(ETA), value: 0.0-0.5}
+  - {name: R, value: '0.2'}
+  - {name: RE, value: 'Distribution of Delta I_{AA} in Pb-Pb at sqrt{s} = 2.76 TeV
+      for R=0.2'}
+  - {name: SQRT(S), units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0321}
+    - asymerror: {minus: -0.0429, plus: 0.0323}
+      label: sys
+    - asymerror: {minus: -0.0469, plus: 0.0283}
+      label: sys
+    value: 0.5438
+  - errors:
+    - {label: stat, symerror: 0.0493}
+    - asymerror: {minus: -0.0203, plus: 0.0185}
+      label: sys
+    - asymerror: {minus: -0.0511, plus: 0.0618}
+      label: sys
+    value: 0.4953
+  - errors:
+    - {label: stat, symerror: 0.0869}
+    - asymerror: {minus: -0.0243, plus: 0.0193}
+      label: sys
+    - asymerror: {minus: -0.0915, plus: 0.0576}
+      label: sys
+    value: 0.5953
+  - errors:
+    - {label: stat, symerror: 0.1341}
+    - asymerror: {minus: -0.0936, plus: 0.0522}
+      label: sys
+    - asymerror: {minus: -0.1027, plus: 0.0745}
+      label: sys
+    value: 0.6469
+  - errors:
+    - {label: stat, symerror: 0.2451}
+    - asymerror: {minus: -0.1289, plus: 0.0688}
+      label: sys
+    - asymerror: {minus: -0.0823, plus: 0.1127}
+      label: sys
+    value: 0.951
+independent_variables:
+- header: {name: 'p_{T,jet}^{ch}(GeV/c)'}
+  values:
+  - {high: 36.0, low: 20.0}
+  - {high: 52.0, low: 36.0}
+  - {high: 68.0, low: 52.0}
+  - {high: 84.0, low: 68.0}
+  - {high: 100.0, low: 84.0}

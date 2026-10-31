@@ -1,0 +1,31 @@
+dependent_variables:
+- header: {name: '$1/\left<T_{AA}\right> d^2N^{\Upsilon}/dptdy$', units: pb/GeV/c}
+  qualifiers:
+  - {name: RE, value: Pb Pb --> $\Upsilon(3S)$ < $\mu$$^+$ $\mu$$^-$ > X}
+  - {name: SQRT(S)/NUCLEON, value: 5020 GeV}
+  - {name: $|y|$, value: $ < 2.4$}
+  - {name: CENTRALITY, units: '%', value: 0 -- 90}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.44}
+    - {label: sys, symerror: 0.24}
+    value: 1.11
+  - errors:
+    - {label: stat, symerror: 0.39}
+    - {label: sys, symerror: 0.24}
+    value: 1.04
+  - errors:
+    - {label: stat, symerror: 0.14}
+    - {label: sys, symerror: 0.11}
+    value: 0.38
+  - errors:
+    - {label: stat, symerror: 0.02}
+    - {label: sys, symerror: 0.01}
+    value: 0.07
+independent_variables:
+- header: {name: '$p_\text{T}$', units: GeV/c}
+  values:
+  - {high: 4, low: 0}
+  - {high: 9, low: 4}
+  - {high: 15, low: 9}
+  - {high: 30, low: 15}

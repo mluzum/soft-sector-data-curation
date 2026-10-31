@@ -1,0 +1,51 @@
+---
+observable_type: mean_pT_fluctuations
+inspire_id: '1797444'
+version: 1
+hepdata_file: table1.yaml
+hepdata_table_label: 'Differential fiducial cross section in p-Pb
+
+  '
+qualifiers:
+  re: p-Pb --> Z0 + X --> (MU+ MU-) + X
+  sqrt(s)/(nucleon pair): 8160.0 GeV
+collision_system:
+  energy_gev: 5020.0
+  reaction: p-Pb --> Z0 + X --> (MU+ MU-) + X
+centrality:
+  classes:
+  - MB
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: Sigma
+kinematic_range:
+  y:
+    min: -4.46
+    max: 3.53
+    bins:
+    - -4.46
+    - -2.96
+    - 2.03
+    - 3.53
+  eta:
+    min: -0.8
+    max: 0.8
+    bins:
+    - -0.8
+    - 0.8
+  pT:
+    min: 0.15
+    max: 50
+    bins:
+    - 0.15
+    - 50
+observable: sigma_mean_pT
+value_type: Sigma

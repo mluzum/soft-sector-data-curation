@@ -1,0 +1,114 @@
+additional_resources:
+- {description: web page with auxiliary material, location: 'https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HION-2022-10/'}
+hepdata_doi: 10.17182/hepdata.156982.v1
+---
+additional_resources:
+- {description: Aux Figure 01a, location: fig_01a.png}
+data_file: emuSR1_postfit.yaml
+description: The figure shows the post-fit distribution of events as a function of
+  the dilepton invariant mass ($m_{e\mu}$), in lead-lead (Pb+Pb) collisions at a center-of-mass
+  energy of $\sqrt{s_{\mathrm{NN}}} = 5.02$ TeV, with an integrated luminosity of
+  1.9 nb$^{-1}$. The data correspond to the SR1 (Signal Region 1 (SR\(_1\)):} Events
+  with exactly one muon and one oppositely charged electron, a dilepton invariant
+  mass \( m_{e\mu} \geq 30 \, \mathrm{GeV} \), at least two jets with \( p_T \geq
+  35 \, \mathrm{GeV} \), and a dilepton transverse momentum \( p_T^{e\mu} > 40 \,
+  \mathrm{GeV} \). This region is expected to be signal-dominated) channel in a pre-fit
+  configuration. The stacked histograms represent different processes contributing
+  to the event yield.
+keywords:
+- name: reactions
+  values: [Pb Pb -> TOP TOP]
+- name: observables
+  values: ['$m_{ll}$']
+- name: cmenergies
+  values: [5020]
+location: Data from Figure 01a
+name: Postfit yields in the SR1 region
+table_doi: 10.17182/hepdata.156982.v1/t1
+---
+additional_resources:
+- {description: Aux Figure 01b, location: fig_01b.png}
+data_file: emuSR2_postfit.yaml
+description: The figure shows the post-fit distribution of events as a function of
+  the dilepton invariant mass ($m_{e\mu}$), in lead-lead (Pb+Pb) collisions at a center-of-mass
+  energy of $\sqrt{s_{\mathrm{NN}}} = 5.02$ TeV, with an integrated luminosity of
+  1.9 nb$^{-1}$. The data correspond to the SR2 (Signal Region 2 (SR\(_2\)):} Events
+  meeting the same criteria as SR\(_1\), but with a dilepton transverse momentum \(
+  p_T^{e\mu} \leq 40 \, \mathrm{GeV} \). This region includes events with a lower
+  \( p_T^{e\mu} \) and has a larger background contribution) channel in a pre-fit
+  configuration. The stacked histograms represent different processes contributing
+  to the event yield.
+keywords:
+- name: reactions
+  values: [Pb Pb -> TOP TOP]
+- name: observables
+  values: ['$m_{ll}$']
+- name: cmenergies
+  values: [5020]
+location: Data from Figure 01b
+name: Postfit yields in the SR2 region
+table_doi: 10.17182/hepdata.156982.v1/t2
+---
+additional_resources:
+- {description: AUX Figure 01, location: ranking.png}
+data_file: Ranking_mu_XS_ttbar.yaml
+description: The impact of systematic uncertainties on the fitted signal-strength
+  parameter $\hat{\mu}$ for the combined fit of all channels. Only the 10 most significant
+  systematic uncertainties are shown and listed in decreasing order of their impact
+  on $\mu$ on the $y$-axis. The empty (filled) blue/cyan boxes correspond to the pre-fit
+  (post-fit) impact on $\mu$, referring to the upper $x$-axis. The impact of each
+  systematic uncertainty, $\Delta \mu$, is calculated by comparing the nominal best-fit
+  value of $\mu$ with the result of the fit when fixing the corresponding nuisance
+  parameter $\theta$ to its best-fit value $\hat{\theta}$ shifted by its pre-fit (post-fit)
+  uncertainties $\hat{\theta} \pm \Delta \theta(\hat{\theta} \pm \Delta \hat{\theta})$.
+  The black points, which refer to the lower $x$-axis, show the pulls of the fitted
+  nuisance parameters, i.e., the deviations of the fitted parameters $\hat{\theta}$
+  from their nominal values $\theta_0$, normalized to their nominal uncertainties
+  $\Delta \theta$. The black lines show the post-fit uncertainties of the nuisance
+  parameters, relative to their nominal uncertainties, which are indicated by the
+  dashed lines.
+keywords:
+- name: reactions
+  values: [Pb Pb -> TOP TOP]
+- name: cmenergies
+  values: [5020]
+location: Data from AUX Figure 01
+name: Nuisance parameter ranking
+table_doi: 10.17182/hepdata.156982.v1/t3
+---
+additional_resources:
+- {description: AUX Table 01, location: tabaux_01.png}
+data_file: Impact_mu_XS_ttbar.yaml
+description: Breakdown of relative systematic uncertainties in the measured ${t\bar{t}}$
+  cross-section. The quoted uncertainties are obtained by repeating the fit with a
+  group of nuisance parameters fixed to their fitted values and subtracting in quadrature
+  the resulting total uncertainty from the uncertainty of the complete fit. However,
+  the total uncertainty is not the quadratic sum of the grouped impacts, as this approach
+  neglects the correlation among the different groups.
+keywords:
+- name: reactions
+  values: [Pb Pb -> TOP TOP]
+- name: cmenergies
+  values: [5020]
+location: Data from AUX Table 01
+name: Grouped impact table for signal strength
+table_doi: 10.17182/hepdata.156982.v1/t4
+---
+additional_resources:
+- {description: Figure 02, location: fig_02.png}
+data_file: fitted_xsec.yaml
+description: The figure shows the measurement of the top quark pair production cross-section,
+  $\sigma_{t\bar{t}}$, in lead-lead (Pb+Pb) collisions at a center-of-mass energy
+  of $\sqrt{s_{\mathrm{NN}}} = 5.02$ TeV, based on 1.9 nb$^{-1}$ of data.
+keywords:
+- name: reactions
+  values: [Pb Pb -> TOP TOP]
+- name: phrases
+  values: [Integrated Cross Section, Cross Section, Proton-Lead Scattering, top-quarkPair
+      Production, top-quark Production]
+- name: cmenergies
+  values: [5020]
+- name: observables
+  values: [SIG]
+name: Fitted cross section
+table_doi: 10.17182/hepdata.156982.v1/t5

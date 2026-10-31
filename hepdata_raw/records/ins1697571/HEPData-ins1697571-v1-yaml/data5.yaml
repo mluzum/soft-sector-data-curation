@@ -1,0 +1,23 @@
+dependent_variables:
+- header: {name: '$\rm{ R_{AA}^{B^{0}_{s}} / R_{AA}^{B^{+}} }$'}
+  qualifiers:
+  - {name: RE, value: PB PB (P P) --> B --> J/PSI (MU+ MU-) + PHI (K+ K-)}
+  - {name: RE, value: P P --> Bs0 --> J/PSI (MU+ MU-) + PHI (K+ K-)}
+  - {name: SQRT(s)/NUCLEON, units: GeV, value: '5020.0'}
+  - {name: '$p_{T}$', units: GeV/C, value: 7.0 ~ 50.0}
+  - {name: ABS(YRAP), value: 0 - 2.4}
+  - {name: Centrality, value: 0-100 %}
+  values:
+  - errors:
+    - {label: stat, symerror: 1.8}
+    - {label: syst, symerror: 1.3}
+    value: 4.0
+  - errors:
+    - {label: stat, symerror: 0.66}
+    - {label: syst, symerror: 0.34}
+    value: 1.8
+independent_variables:
+- header: {name: PT (GeV)}
+  values:
+  - {value: 11.0}
+  - {value: 32.5}

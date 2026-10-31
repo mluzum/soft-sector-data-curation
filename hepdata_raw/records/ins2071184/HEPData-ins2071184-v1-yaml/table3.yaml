@@ -1,0 +1,22 @@
+dependent_variables:
+- header: {name: W$^\pm$}
+  qualifiers:
+  - {name: reaction, value: p-Pb $\rightarrow$ W$^\pm$ + X $\rightarrow$ $\mu^\pm$
+      + X}
+  - {name: sqrt(s) per nucleon pair, value: 8160.0 GeV}
+  - {name: fiducial region, value: -4 < $y$(lab) < -2.5 and $p_T$ > 10 GeV/$c$}
+  - {name: observable, value: A$ch$}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.046}
+    - {label: syst, symerror: 0.056}
+    value: -0.479
+  - errors:
+    - {label: stat, symerror: 0.014}
+    - {label: syst, symerror: 0.021}
+    value: 0.145
+independent_variables:
+- header: {name: $y$(cms)}
+  values:
+  - {high: -2.96, low: -4.46}
+  - {high: 3.53, low: 2.03}

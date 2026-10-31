@@ -1,0 +1,48 @@
+dependent_variables:
+- header: {name: Slope parameter T, units: MeV}
+  qualifiers:
+  - {name: PARTICLES, value: $\phi$}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 130}
+  values:
+  - errors:
+    - {label: stat, symerror: 50}
+    value: 379
+  - errors:
+    - {label: stat, symerror: 73}
+    value: 369
+  - errors:
+    - {label: stat, symerror: 75}
+    value: 417
+- header: {name: dN/dy}
+  qualifiers:
+  - {name: PARTICLES, value: $\phi$}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 130}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.37}
+    value: 5.73
+  - errors:
+    - {label: stat, symerror: 0.38}
+    value: 3.33
+  - errors:
+    - {label: stat, symerror: 0.12}
+    value: 0.98
+- header: {name: $N_\phi/N_h^-$}
+  qualifiers:
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 130}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.001}
+    value: 0.021
+  - errors:
+    - {label: stat, symerror: 0.002}
+    value: 0.019
+  - errors:
+    - {label: stat, symerror: 0.002}
+    value: 0.019
+independent_variables:
+- header: {name: Centrality, units: PCT}
+  values:
+  - {value: 0 TO 11}
+  - {value: 11 TO 26}
+  - {value: 26 TO 85}

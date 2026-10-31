@@ -1,0 +1,35 @@
+dependent_variables:
+- header: {name: 'RHO(MM=00,XYZ=SH)'}
+  qualifiers:
+  - {name: P, units: GeV, value: '13.0'}
+  - {name: RE, value: K- P --> RHO0 <PI- PI+> (LAMBDA + SIGMA0)}
+  - {name: SQRT(S), units: GeV, value: '5.053'}
+  - {name: SYS, value: 'DECAY-BR(BRN=PHI --> K- K+,BR=0.466 +- 0.025)'}
+  - {name: SYS, value: 'RES-DEF(RES=F1(1540)0,BACK=CORRECTED, C=D-WAVE BREIT-WIGNER
+      PLUS LINEAR BACKGROUND)'}
+  - {name: SYS, value: 'RES-DEF(RES=PHI, C=1.009 < MASS(K- K+) < 1.029 GEV, C=1.00
+      < MASS(MM) < 1.25 GEV)'}
+  - {name: SYS, value: 'RES-DEF(RES=RHO0, C=0.70 < MASS(PI- PI+) < 0.84 GEV, C=1.05
+      < MASS(MM) < 1.225 GEV)'}
+  - {name: SYS, value: 'RES-DEF(RES=S*(993),BACK=CORRECTED, C= 0.965 < MASS(PI- PI+)
+      < 0.995 GEV)'}
+  values:
+  - errors:
+    - {symerror: 0.095}
+    value: 0.447
+  - errors:
+    - {symerror: 0.157}
+    value: 0.289
+  - errors:
+    - {symerror: 0.149}
+    value: 0.209
+  - errors:
+    - {symerror: 0.269}
+    value: 0.162
+independent_variables:
+- header: {name: -TP, units: GEV**2}
+  values:
+  - {high: 0.1, low: 0.0}
+  - {high: 0.2, low: 0.1}
+  - {high: 0.4, low: 0.2}
+  - {high: 1.0, low: 0.4}

@@ -1,0 +1,330 @@
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-15%
+  - 15-20%
+  - 20-25%
+  - 25-30%
+  - 30-35%
+  - 35-40%
+  - 40-45%
+  - 45-50%
+  - 50-55%
+  - 55-60%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 0.0
+  reaction: unknown
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: Figure3.yaml
+hepdata_table_label: Event plane resolutions for calculating $v_3\{\Psi_1\}$ as a
+  function of centrality from $\sqrt{s_{\textrm{NN}}}=3$ GeV Au+Au collisions at STAR.
+inspire_id: '2702151'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  centrality (\%): none
+value_type: R_{31}
+version: 2
+---
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-15%
+  - 15-20%
+  - 20-25%
+  - 25-30%
+  - 30-35%
+  - 35-40%
+  - 40-45%
+  - 45-50%
+  - 50-55%
+  - 55-60%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 0.0
+  reaction: unknown
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (p) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi and
+    is subtracted. INFERRED from the charged rows of the same table, not quoted from
+    the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: Figure4.yaml
+hepdata_table_label: $v_3\{\Psi_1\}$ vs. centrality for $\pi^+$, $\pi^-$, and protons
+  using the event plane method in $\sqrt{s_{\textrm{NN}}}=3$ GeV Au+Au collisions
+  at STAR.
+inspire_id: '2702151'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: p
+qualifiers:
+  centrality (\%): 'Particle: Proton, $0.4 \leq p_{T} \leq 2.0$ GeV/$c$'
+value_type: v_{3}\{\Psi_1\}
+version: 2
+---
+centrality:
+  classes:
+  - 0-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 0.0
+  reaction: unknown
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: Figure5.yaml
+hepdata_table_label: $v_3\{\Psi_1\}$ vs. centrality for $K^+$, and $K^-$ using the
+  event plane method in $\sqrt{s_{\textrm{NN}}}=3$ GeV Au+Au collisions at STAR.
+inspire_id: '2702151'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  centrality (\%): 'Particle: $K^{-}$'
+value_type: v_{3}\{\Psi_1\}
+version: 2
+---
+centrality:
+  classes:
+  - 40.0-60.0%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 0.0
+  reaction: unknown
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (p) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi and
+    is subtracted. INFERRED from the charged rows of the same table, not quoted from
+    the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: Figure6.yaml
+hepdata_table_label: $v_3\{\Psi_1\}$ vs. rapidity for protons in three large centrality
+  bins from a symmetric acceptance across midrapidity in $\sqrt{s_{\textrm{NN}}}=3$
+  GeV Au+Au collisions at STAR. Protons exhibit an increasingly negative slope as
+  the centrality increases.
+inspire_id: '2702151'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: p
+qualifiers:
+  y-y_{mid}: 'Centrality: 40-60\%'
+value_type: v_{3}\{\Psi_1\}
+version: 2
+---
+centrality:
+  classes:
+  - 40.0-60.0%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 0.0
+  reaction: unknown
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (p) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi and
+    is subtracted. INFERRED from the charged rows of the same table, not quoted from
+    the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: Figure7.yaml
+hepdata_table_label: $v_3\{\Psi_1\}$ vs. rapidity for protons in three large centrality
+  bins from only the backward region in $\sqrt{s_{\textrm{NN}}}=3$ GeV Au+Au collisions
+  at STAR. Note that the $p_{\mathrm{T}}$ acceptance extends to a lower limit than
+  in Fig. 6.
+inspire_id: '2702151'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: p
+qualifiers:
+  y-y_{mid}: 'Centrality: 40-60\%'
+value_type: v_{3}\{\Psi_1\}
+version: 2
+---
+centrality:
+  classes:
+  - 40.0-60.0%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 0.0
+  reaction: unknown
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (p) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi and
+    is subtracted. INFERRED from the charged rows of the same table, not quoted from
+    the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: Figure8.yaml
+hepdata_table_label: $v_3\{\Psi_1\}$ vs. $p_{\mathrm{T}}$ for protons in three large
+  centrality bins in $\sqrt{s_{\textrm{NN}}}=3$ GeV Au+Au collisions at STAR. $v_3\{\Psi_1\}$
+  becomes increasingly negative as $p_{\mathrm{T}}$ and centrality increase.
+inspire_id: '2702151'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.4
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2000000000000002
+    - 1.4
+    - 1.6
+    - 1.7999999999999998
+    - 2.0
+    max: 2.0
+    min: 0.4
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: p
+qualifiers:
+  p_{t} (gev/$c$): 'Centrality: 40-60\%'
+value_type: v_{3}\{\Psi_1\}
+version: 2

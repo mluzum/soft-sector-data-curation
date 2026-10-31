@@ -1,0 +1,46 @@
+dependent_variables:
+- header: {name: Width}
+  qualifiers:
+  - {name: CENTRALITY, units: PCT, value: 20-50}
+  - {name: '$p_{T, jet}$', units: GeV/c, value: 20-40}
+  - {name: $D\phi$, value: $-\pi/3-\pi/3$}
+  values:
+  - errors:
+    - {label: scale, symerror: 0.017}
+    - {label: stat, symerror: 0.037}
+    - {label: sys, symerror: 0.038}
+    value: 0.198
+  - errors:
+    - {label: scale, symerror: 0.006}
+    - {label: stat, symerror: 0.019}
+    - {label: sys, symerror: 0.034}
+    value: 0.149
+  - errors:
+    - {label: scale, symerror: 0.0008}
+    - {label: stat, symerror: 0.0066}
+    - {label: sys, symerror: 0.0065}
+    value: 0.1536
+  - errors:
+    - {label: scale, symerror: 6.0e-05}
+    - {label: stat, symerror: 0.00405}
+    - {label: sys, symerror: 0.00052}
+    value: 0.12211
+  - errors:
+    - {label: scale, symerror: 3.0e-05}
+    - {label: stat, symerror: 0.00211}
+    - {label: sys, symerror: 0.00058}
+    value: 0.09896
+  - errors:
+    - {label: scale, symerror: 0.00015}
+    - {label: stat, symerror: 0.00186}
+    - {label: sys, symerror: 0.00024}
+    value: 0.08008
+independent_variables:
+- header: {name: 'p_{T, assoc}', units: GeV/c}
+  values:
+  - {high: 1.5, low: 1.0}
+  - {high: 2.0, low: 1.5}
+  - {high: 3.0, low: 2.0}
+  - {high: 4.0, low: 3.0}
+  - {high: 6.0, low: 4.0}
+  - {high: 10.0, low: 6.0}

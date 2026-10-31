@@ -1,0 +1,56 @@
+dependent_variables:
+- header: {name: PROMPT J/PSI V3}
+  qualifiers:
+  - {name: RE, value: PB PB --> J/PSI < MU+ MU- > X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020.0'}
+  - {name: PT, units: GEV/C, value: 6.5-50.0}
+  - {name: ABS(YRAP), value: 0.0-2.4}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0078}
+    - {label: syst, symerror: 0.0032}
+    value: 0.0138
+  - errors:
+    - {label: stat, symerror: 0.0083}
+    - {label: syst, symerror: 0.0031}
+    value: 0.0208
+  - errors:
+    - {label: stat, symerror: 0.0165}
+    - {label: syst, symerror: 0.0043}
+    value: -0.0116
+- header: {name: NONPROMPT J/PSI V3}
+  qualifiers:
+  - {name: RE, value: PB PB --> NONPROMPT J/PSI < MU+ MU- > X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020.0'}
+  - {name: PT, units: GEV/C, value: 6.5-50.0}
+  - {name: ABS(YRAP), value: 0.0-2.4}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0078}
+    - {label: syst, symerror: 0.007}
+    value: 0.0255
+  - errors:
+    - {label: stat, symerror: 0.0084}
+    - {label: syst, symerror: 0.0054}
+    value: -0.0006
+  - errors:
+    - {label: stat, symerror: 0.0214}
+    - {label: syst, symerror: 0.0091}
+    value: -0.014
+- header: {name: <Npart>}
+  values:
+  - errors:
+    - {symerror: 1.0}
+    value: 309.6
+  - errors:
+    - {symerror: 1.4}
+    value: 159.6
+  - errors:
+    - {symerror: 0.7}
+    value: 39.14
+independent_variables:
+- header: {name: Centrality, units: PCT}
+  values:
+  - {high: 20.0, low: 0.0}
+  - {high: 40.0, low: 20.0}
+  - {high: 90.0, low: 40.0}

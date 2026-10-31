@@ -1,0 +1,21 @@
+dependent_variables:
+- header: {name: '$ \mathcal{B} \times \frac{d\sigma}{dp_{T} dy} $', units: nb/ GeV/c}
+  qualifiers:
+  - {name: RE, value: P Pb --> UPSILON(3S) < MU+ MU- > X}
+  - {name: '$|y^{Y}_{CM}|$', value: 0-1.93}
+  - {name: SQRT(S), units: GeV, value: 5020.0}
+  - {name: GLOBAL UNCERTAINTY, value: 3.5%}
+  values:
+  - errors:
+    - {label: stat, symerror: '0.0011'}
+    - {label: syst, symerror: '0.0008'}
+    value: 0.0057
+  - errors:
+    - {label: stat, symerror: '0.00016'}
+    - {label: syst, symerror: '0.00007'}
+    value: 0.00161
+independent_variables:
+- header: {name: PT, units: GeV/c}
+  values:
+  - {high: 6.0, low: 0.0}
+  - {high: 30.0, low: 6.0}

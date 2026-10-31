@@ -1,0 +1,41 @@
+dependent_variables:
+- header: {name: 'p$^{\eta}_\textrm{dyn}/$p$^{\eta}_\textrm{mix}$/N'}
+  qualifiers:
+  - {name: $\delta\eta$, value: Peripheral STAR data 1.1 $\leq$ p$_t$ $\leq$ 1.5 GeV/c}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0005}
+    value: -0.0004
+  - errors:
+    - {label: stat, symerror: 0.0006}
+    value: -0.0005
+  - errors:
+    - {label: stat, symerror: 0.0008}
+    value: 0.002
+  - errors:
+    - {label: stat, symerror: 0.0014}
+    value: 0.0069
+- header: {name: 'p$^{\eta}_\textrm{dyn}/$p$^{\eta}_\textrm{mix}$/N'}
+  qualifiers:
+  - {name: $\delta\eta$, value: Peripheral HIJING (no jet quenching) 1.1 $\leq$ p$_t$
+      $\leq$ 1.5 GeV/c}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.002}
+    value: -0.001
+  - errors:
+    - {label: stat, symerror: 0.002}
+    value: 0
+  - errors:
+    - {label: stat, symerror: 0.003}
+    value: 0.003
+  - errors:
+    - {label: stat, symerror: 0.004}
+    value: 0.028
+independent_variables:
+- header: {name: $\delta\eta$}
+  values:
+  - {value: 0.125}
+  - {value: 0.25}
+  - {value: 0.5}
+  - {value: 1}

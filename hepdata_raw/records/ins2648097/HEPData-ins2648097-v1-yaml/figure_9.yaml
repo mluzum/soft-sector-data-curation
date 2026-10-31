@@ -1,0 +1,67 @@
+dependent_variables:
+- header: {name: '$R_{\mathrm{AA}}^{\gamma\text{-jet}}/R_{\mathrm{AA}}^{\text{inclusive
+      jet}}$'}
+  qualifiers:
+  - {name: Jet, value: 'Anti-$k_{\mathrm{T}}$ R = 0.4 jets'}
+  - {name: '$|\eta^{\mathrm{jet}}|$', value: '$|\eta^{\mathrm{jet}}|<2.8$'}
+  - {name: '$p_{\mathrm{T}}^{\gamma}$', value: '$p_{\mathrm{T}}^{\gamma} > 50$ GeV'}
+  - {name: '$|\eta^{\gamma}|$', value: '$|\eta^{\gamma}| < 2.37$'}
+  - {name: '$\Delta\phi(\gamma,$jet$)$', value: '$\Delta\phi(\gamma,$jet$) > 7\pi/8$'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.048165}
+    - asymerror: {minus: -0.098624, plus: 0.099285}
+      label: sys
+    value: 1.461
+  - errors:
+    - {label: stat, symerror: 0.060291}
+    - asymerror: {minus: -0.10677, plus: 0.10688}
+      label: sys
+    value: 1.4663
+  - errors:
+    - {label: stat, symerror: 0.07597}
+    - asymerror: {minus: -0.12059, plus: 0.1203}
+      label: sys
+    value: 1.5158
+  - errors:
+    - {label: stat, symerror: 0.093676}
+    - asymerror: {minus: -0.12685, plus: 0.12662}
+      label: sys
+    value: 1.4491
+  - errors:
+    - {label: stat, symerror: 0.11294}
+    - {label: sys, symerror: 0.13506}
+    value: 1.393
+  - errors:
+    - {label: stat, symerror: 0.13501}
+    - {label: sys, symerror: 0.14072}
+    value: 1.2915
+  - errors:
+    - {label: stat, symerror: 0.15132}
+    - {label: sys, symerror: 0.13142}
+    value: 1.06
+  - errors:
+    - {label: stat, symerror: 0.19486}
+    - {label: sys, symerror: 0.1427}
+    value: 1.0065
+  - errors:
+    - {label: stat, symerror: 0.25863}
+    - {label: sys, symerror: 0.18671}
+    value: 1.145
+  - errors:
+    - {label: stat, symerror: 0.49736}
+    - {label: sys, symerror: 0.35233}
+    value: 1.8664
+independent_variables:
+- header: {name: '$p_{\mathrm{T}}^{\mathrm{jet}}$', units: GeV}
+  values:
+  - {high: 112.0, low: 100.0}
+  - {high: 125.0, low: 112.0}
+  - {high: 141.0, low: 125.0}
+  - {high: 158.0, low: 141.0}
+  - {high: 177.0, low: 158.0}
+  - {high: 199.0, low: 177.0}
+  - {high: 223.0, low: 199.0}
+  - {high: 251.0, low: 223.0}
+  - {high: 281.0, low: 251.0}
+  - {high: 316.0, low: 281.0}

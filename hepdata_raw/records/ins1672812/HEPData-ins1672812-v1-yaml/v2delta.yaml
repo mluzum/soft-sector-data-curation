@@ -1,0 +1,25 @@
+dependent_variables:
+- header: {name: '$V_{2\Delta}^{HFe-ch}$'}
+  qualifiers:
+  - {name: RE, value: P PB --> (E+ + E-)/2 X}
+  - {name: SQRT(S), units: GEV, value: '5020.0'}
+  - {name: YRAP, value: -1.26 TO 0.34}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0008}
+    - {label: sys, symerror: 0.0006}
+    value: 0.0038
+  - errors:
+    - {label: stat, symerror: 0.0007}
+    - {label: sys, symerror: 0.0005}
+    value: 0.004
+  - errors:
+    - {label: stat, symerror: 0.0019}
+    - {label: sys, symerror: 0.0003}
+    value: 0.0019
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {high: 2, low: 1.5}
+  - {high: 4, low: 2}
+  - {high: 6, low: 4}

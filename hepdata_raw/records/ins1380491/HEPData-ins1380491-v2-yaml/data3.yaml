@@ -1,0 +1,36 @@
+dependent_variables:
+- header: {name: '$^{3}\overline{He}$ / $^{3}He$ ratio'}
+  qualifiers:
+  - {name: YRAP, value: -0.5 TO 0.5}
+  - {name: RE, value: 'PB PB --> $^{3}$He +  X, PB PB --> $^{3}\overline{He}$ + X'}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '2760.0'}
+  - {name: CENTRALITY, value: 20-80%}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.1585}
+    - {label: sys, symerror: 0.3202}
+    value: 1.1027
+  - errors:
+    - {label: stat, symerror: 0.1579}
+    - {label: sys, symerror: 0.2316}
+    value: 1.0741
+  - errors:
+    - {label: stat, symerror: 0.1909}
+    - {label: sys, symerror: 0.1505}
+    value: 0.8905
+  - errors:
+    - {label: stat, symerror: 0.3671}
+    - {label: sys, symerror: 0.1283}
+    value: 0.8955
+  - errors:
+    - {label: stat, symerror: 1.0435}
+    - {label: sys, symerror: 0.1734}
+    value: 1.3655
+independent_variables:
+- header: {name: '$p_{T}$/A', units: GeV/c}
+  values:
+  - {high: 0.98, low: 0.65}
+  - {high: 1.32, low: 0.98}
+  - {high: 1.65, low: 1.32}
+  - {high: 1.98, low: 1.65}
+  - {high: 2.32, low: 1.98}

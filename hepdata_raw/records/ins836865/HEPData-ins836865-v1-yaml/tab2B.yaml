@@ -1,0 +1,343 @@
+dependent_variables:
+- header: {name: DN/DYRAP}
+  qualifiers:
+  - {name: PARTICLE, value: PI-}
+  - {name: CENTRALITY, units: PCT, value: 0-10}
+  - {name: PT, value: INTEGRATED}
+  - {name: FUNCTION, value: MEAN}
+  values:
+  - errors:
+    - {label: stat, symerror: 3.4}
+    - {label: sys, symerror: 6.1}
+    value: 223.1
+  - errors:
+    - {label: stat, symerror: 1.7}
+    - {label: sys, symerror: 6.8}
+    value: 225.2
+  - errors:
+    - {label: stat, symerror: 2.1}
+    - {label: sys, symerror: 6.6}
+    value: 200.6
+  - errors:
+    - {label: stat, symerror: 1.0}
+    - {label: sys, symerror: 6.4}
+    value: 208.0
+  - errors:
+    - {label: stat, symerror: 2.8}
+    - {label: sys, symerror: 3.6}
+    value: 57.8
+  - errors:
+    - {label: stat, symerror: 1.3}
+    - {label: sys, symerror: 3.4}
+    value: 56.5
+  - errors:
+    - {label: stat, symerror: 1.9}
+    - {label: sys, symerror: 6.6}
+    value: 20.8
+- header: {name: DN/DYRAP (FIDUCIAL)}
+  qualifiers:
+  - {name: PARTICLE, value: PI-}
+  - {name: CENTRALITY, units: PCT, value: 0-10}
+  - {name: PT, value: FIDUCIAL}
+  - {name: FUNCTION, value: MEAN}
+  values:
+  - errors:
+    - {label: stat, symerror: 2.3}
+    value: 170.4
+  - errors:
+    - {label: stat, symerror: 2.1}
+    value: 171.7
+  - errors:
+    - {label: stat, symerror: 0.6}
+    value: 100.3
+  - errors:
+    - {label: stat, symerror: 0.9}
+    value: 135.9
+  - errors:
+    - {label: stat, symerror: 0.5}
+    value: 24.8
+  - errors:
+    - {label: stat, symerror: 0.2}
+    value: 8.3
+  - errors:
+    - {label: stat, symerror: 0.1}
+    value: 4.9
+- header: {name: PT (Power), units: GEV/C}
+  qualifiers:
+  - {name: PARTICLE, value: PI-}
+  - {name: CENTRALITY, units: PCT, value: 0-10}
+  - {name: FUNCTION, value: A*(1+PT/P0)**B}
+  values:
+  - errors:
+    - {label: range, symerror: 0.9}
+    value: 1.1
+  - errors:
+    - {label: range, symerror: 0.9}
+    value: 1.1
+  - errors:
+    - {label: range, symerror: 0.78}
+    value: 1.12
+  - errors:
+    - {label: range, symerror: 0.78}
+    value: 1.02
+  - errors:
+    - {label: range, symerror: 0.68}
+    value: 0.92
+  - errors:
+    - {label: range, symerror: 0.62}
+    value: 0.88
+  - errors:
+    - {label: range, symerror: 0.25}
+    value: 0.75
+- header: {name: DN/DYRAP (Power)}
+  qualifiers:
+  - {name: PARTICLE, value: PI-}
+  - {name: CENTRALITY, units: PCT, value: 0-10}
+  - {name: FUNCTION, value: A*(1+PT/P0)**B}
+  values:
+  - errors:
+    - {label: stat, symerror: 2.9}
+    value: 232.4
+  - errors:
+    - {label: stat, symerror: 2.9}
+    value: 233.7
+  - errors:
+    - {label: stat, symerror: 2.2}
+    value: 213.1
+  - errors:
+    - {label: stat, symerror: 1.9}
+    value: 214.3
+  - errors:
+    - {label: stat, symerror: 3.2}
+    value: 68.6
+  - errors:
+    - {label: stat, symerror: 2.0}
+    value: 60.5
+  - errors:
+    - {label: stat, symerror: 3.7}
+    value: 24.3
+- header: {name: CHI2/NDF (Power)}
+  qualifiers:
+  - {name: PARTICLE, value: PI-}
+  - {name: CENTRALITY, units: PCT, value: 0-10}
+  - {name: FUNCTION, value: A*(1+PT/P0)**B}
+  values:
+  - errors: []
+    value: 1.2
+  - errors: []
+    value: 0.6
+  - errors: []
+    value: 1.2
+  - errors: []
+    value: 0.46
+  - errors: []
+    value: 1.8
+  - errors: []
+    value: 0.99
+  - errors: []
+    value: 1.8
+- header: {name: MEAN(PT) (Power), units: GEV/C}
+  qualifiers:
+  - {name: PARTICLE, value: PI-}
+  - {name: CENTRALITY, units: PCT, value: 0-10}
+  - {name: FUNCTION, value: A*(1+PT/P0)**B}
+  values:
+  - errors: []
+    value: 0.41
+  - errors: []
+    value: 0.41
+  - errors: []
+    value: 0.41
+  - errors: []
+    value: 0.41
+  - errors: []
+    value: 0.28
+  - errors: []
+    value: 0.28
+  - errors: []
+    value: 0.35
+- header: {name: P0 (Power), units: GEV/C}
+  qualifiers:
+  - {name: PARTICLE, value: PI-}
+  - {name: CENTRALITY, units: PCT, value: 0-10}
+  - {name: FUNCTION, value: A*(1+PT/P0)**B}
+  values:
+  - errors:
+    - {label: fit, symerror: 0.13}
+    value: 2.4
+  - errors:
+    - {label: fit, symerror: 0.13}
+    value: 2.4
+  - errors:
+    - {label: fit, symerror: 0.13}
+    value: 2.4
+  - errors:
+    - {label: fit, symerror: 0.13}
+    value: 2.4
+  - errors:
+    - {label: fit, symerror: 2.3}
+    value: 4.7
+  - errors:
+    - {label: fit, symerror: 2.3}
+    value: 4.7
+  - errors:
+    - {label: fit, symerror: 2.9}
+    value: 4.0
+- header: {name: B (Power)}
+  qualifiers:
+  - {name: PARTICLE, value: PI-}
+  - {name: CENTRALITY, units: PCT, value: 0-10}
+  - {name: FUNCTION, value: A*(1+PT/P0)**B}
+  values:
+  - errors:
+    - {label: fit, symerror: 0.6}
+    value: 14.9
+  - errors:
+    - {label: fit, symerror: 0.6}
+    value: 14.9
+  - errors:
+    - {label: fit, symerror: 0.6}
+    value: 14.9
+  - errors:
+    - {label: fit, symerror: 0.6}
+    value: 14.9
+  - errors:
+    - {label: fit, symerror: 14.0}
+    value: 31.0
+  - errors:
+    - {label: fit, symerror: 14.0}
+    value: 31.0
+  - errors:
+    - {label: fit, symerror: 7.9}
+    value: 26.0
+- header: {name: PT (Exponential), units: GEV/C}
+  qualifiers:
+  - {name: PARTICLE, value: PI-}
+  - {name: CENTRALITY, units: PCT, value: 0-10}
+  - {name: FUNCTION, value: A*exp(-MT/T)}
+  values:
+  - errors:
+    - {label: range, symerror: 0.4}
+    value: 0.6
+  - errors:
+    - {label: range, symerror: 0.4}
+    value: 0.6
+  - errors:
+    - {label: range, symerror: 0.32}
+    value: 0.68
+  - errors:
+    - {label: range, symerror: 0.38}
+    value: 0.62
+  - errors:
+    - {label: range, symerror: 0.68}
+    value: 0.92
+  - errors:
+    - {label: range, symerror: 0.62}
+    value: 0.88
+  - errors:
+    - {label: range, symerror: 0.25}
+    value: 0.75
+- header: {name: DN/DYRAP (Exponential)}
+  qualifiers:
+  - {name: PARTICLE, value: PI-}
+  - {name: CENTRALITY, units: PCT, value: 0-10}
+  - {name: FUNCTION, value: A*exp(-MT/T)}
+  values:
+  - errors:
+    - {label: stat, symerror: 2.4}
+    value: 202.1
+  - errors:
+    - {label: stat, symerror: 2.3}
+    value: 203.6
+  - errors:
+    - {label: stat, symerror: 1.4}
+    value: 182.4
+  - errors:
+    - {label: stat, symerror: 1.1}
+    value: 185.4
+  - errors:
+    - {label: stat, symerror: 0.8}
+    value: 52.2
+  - errors:
+    - {label: stat, symerror: 1.2}
+    value: 53.1
+  - errors:
+    - {label: stat, symerror: 1.0}
+    value: 19.9
+- header: {name: CHI2/NDF (Exponential)}
+  qualifiers:
+  - {name: PARTICLE, value: PI-}
+  - {name: CENTRALITY, units: PCT, value: 0-10}
+  - {name: FUNCTION, value: A*exp(-MT/T)}
+  values:
+  - errors: []
+    value: 3.2
+  - errors: []
+    value: 1.8
+  - errors: []
+    value: 2.7
+  - errors: []
+    value: 2.8
+  - errors: []
+    value: 3.9
+  - errors: []
+    value: 1.4
+  - errors: []
+    value: 1.6
+- header: {name: MEAN(PT) (Exponential), units: GEV/C}
+  qualifiers:
+  - {name: PARTICLE, value: PI-}
+  - {name: CENTRALITY, units: PCT, value: 0-10}
+  - {name: FUNCTION, value: A*exp(-MT/T)}
+  values:
+  - errors: []
+    value: 0.42
+  - errors: []
+    value: 0.42
+  - errors: []
+    value: 0.42
+  - errors: []
+    value: 0.42
+  - errors: []
+    value: 0.35
+  - errors: []
+    value: 0.35
+  - errors: []
+    value: 0.38
+- header: {name: P0 (Exponential), units: MEV}
+  qualifiers:
+  - {name: PARTICLE, value: PI-}
+  - {name: CENTRALITY, units: PCT, value: 0-10}
+  - {name: FUNCTION, value: A*exp(-MT/T)}
+  values:
+  - errors:
+    - {label: fit, symerror: 1.0}
+    value: 197.0
+  - errors:
+    - {label: fit, symerror: 1.0}
+    value: 197.0
+  - errors:
+    - {label: fit, symerror: 1.0}
+    value: 197.0
+  - errors:
+    - {label: fit, symerror: 1.0}
+    value: 197.0
+  - errors:
+    - {label: fit, symerror: 2.0}
+    value: 160.0
+  - errors:
+    - {label: fit, symerror: 2.0}
+    value: 160.0
+  - errors:
+    - {label: fit, symerror: 5.0}
+    value: 177.0
+independent_variables:
+- header: {name: YRAP}
+  values:
+  - {high: 0.0, low: -0.2}
+  - {high: 0.2, low: 0.0}
+  - {high: 0.9, low: 0.7}
+  - {high: 1.1, low: 0.9}
+  - {high: 3.15, low: 3.05}
+  - {high: 3.25, low: 3.15}
+  - {high: 3.6, low: 3.4}

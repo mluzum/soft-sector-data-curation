@@ -1,0 +1,22 @@
+dependent_variables:
+- header: {name: R_GAMMA}
+  qualifiers:
+  - {name: RE, value: PB PB --> E+ E- X}
+  - {name: SQRT(S), units: GEV, value: '2760.0'}
+  - {name: ETARAP, value: -0.8 TO 0.8}
+  - {name: PTMIN, units: GEV/C, value: '0.4'}
+  - {name: PTEE, units: GEV/C, value: 1.0 TO 4.0}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.04366}
+    - {label: sys, symerror: 0.02639}
+    value: 1.01912
+  - errors:
+    - {label: stat, symerror: 0.0784}
+    - {label: sys, symerror: 0.03467}
+    value: 1.10685
+independent_variables:
+- header: {name: PTEE, units: GEV/C}
+  values:
+  - {high: 2.0, low: 1.0, value: 1.5}
+  - {high: 4.0, low: 2.0, value: 3.0}

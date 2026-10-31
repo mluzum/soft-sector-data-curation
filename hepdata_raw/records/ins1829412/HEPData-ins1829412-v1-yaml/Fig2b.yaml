@@ -1,0 +1,65 @@
+dependent_variables:
+- header: {name: '$R_{\rm AA}$'}
+  qualifiers:
+  - {name: RE, value: PB PB --> MUON X}
+  - {name: SQRT(S), units: GeV, value: '5020.0'}
+  - {name: YRAP, value: 2.5 TO 4.0}
+  - {name: CENTRALITY, value: 60--80%}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.004}
+    - {label: sys, symerror: 0.071}
+    - {label: global, symerror: 0.056}
+    value: 0.755
+  - errors:
+    - {label: stat, symerror: 0.005}
+    - {label: sys, symerror: 0.054}
+    - {label: global, symerror: 0.055}
+    value: 0.739
+  - errors:
+    - {label: stat, symerror: 0.005}
+    - {label: sys, symerror: 0.045}
+    - {label: global, symerror: 0.056}
+    value: 0.749
+  - errors:
+    - {label: stat, symerror: 0.008}
+    - {label: sys, symerror: 0.035}
+    - {label: global, symerror: 0.054}
+    value: 0.718
+  - errors:
+    - {label: stat, symerror: 0.009}
+    - {label: sys, symerror: 0.034}
+    - {label: global, symerror: 0.056}
+    value: 0.753
+  - errors:
+    - {label: stat, symerror: 0.014}
+    - {label: sys, symerror: 0.036}
+    - {label: global, symerror: 0.05}
+    value: 0.675
+  - errors:
+    - {label: stat, symerror: 0.025}
+    - {label: sys, symerror: 0.036}
+    - {label: global, symerror: 0.053}
+    value: 0.706
+  - errors:
+    - {label: stat, symerror: 0.039}
+    - {label: sys, symerror: 0.038}
+    - {label: global, symerror: 0.059}
+    value: 0.791
+  - errors:
+    - {label: stat, symerror: 0.048}
+    - {label: sys, symerror: 0.037}
+    - {label: global, symerror: 0.049}
+    value: 0.655
+independent_variables:
+- header: {name: '$p_{\rm T}$', units: GeV/$c$}
+  values:
+  - {high: 3.5, low: 3.0}
+  - {high: 4.0, low: 3.5}
+  - {high: 5.0, low: 4.0}
+  - {high: 6.0, low: 5.0}
+  - {high: 8.0, low: 6.0}
+  - {high: 10.0, low: 8.0}
+  - {high: 12.0, low: 10.0}
+  - {high: 15.0, low: 12.0}
+  - {high: 20.0, low: 15.0}

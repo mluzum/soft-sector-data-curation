@@ -1,0 +1,66 @@
+dependent_variables:
+- header: {name: '(1/N$_{\rm ev}$)*d$^{2}N$/(d$p_{\rm T}$d$y$)', units: 'GeV$^{-1}$'}
+  qualifiers:
+  - {name: Multiplicity class, units: pct, value: 20 - 40}
+  - {name: REACTION, value: 'P PB $\rightarrow$ ($\Lambda$(1520) + $\overline{\Lambda}$(1520))
+      X'}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: 5020}
+  - {name: YRAP(CM), value: -0.5 - 0.}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.00456477}
+    - {label: 'sys,$p_{\rm T}$-correlated', symerror: 0.00307739}
+    - {label: 'sys,total', symerror: 0.00354559}
+    value: 0.0293487
+  - errors:
+    - {label: stat, symerror: 0.00372725}
+    - {label: 'sys,$p_{\rm T}$-correlated', symerror: 0.00353822}
+    - {label: 'sys,total', symerror: 0.00408955}
+    value: 0.0341784
+  - errors:
+    - {label: stat, symerror: 0.00253946}
+    - {label: 'sys,$p_{\rm T}$-correlated', symerror: 0.00282264}
+    - {label: 'sys,total', symerror: 0.00329991}
+    value: 0.0284902
+  - errors:
+    - {label: stat, symerror: 0.00202656}
+    - {label: 'sys,$p_{\rm T}$-correlated', symerror: 0.00220941}
+    - {label: 'sys,total', symerror: 0.0026348}
+    value: 0.0239251
+  - errors:
+    - {label: stat, symerror: 0.0027632}
+    - {label: 'sys,$p_{\rm T}$-correlated', symerror: 0.00164298}
+    - {label: 'sys,total', symerror: 0.00196407}
+    value: 0.0179366
+  - errors:
+    - {label: stat, symerror: 0.000906632}
+    - {label: 'sys,$p_{\rm T}$-correlated', symerror: 0.00108989}
+    - {label: 'sys,total', symerror: 0.0013367}
+    value: 0.0128983
+  - errors:
+    - {label: stat, symerror: 0.000606533}
+    - {label: 'sys,$p_{\rm T}$-correlated', symerror: 0.000474742}
+    - {label: 'sys,total', symerror: 0.000611723}
+    value: 0.00642963
+  - errors:
+    - {label: stat, symerror: 0.000329997}
+    - {label: 'sys,$p_{\rm T}$-correlated', symerror: 0.000157025}
+    - {label: 'sys,total', symerror: 0.000205824}
+    value: 0.00221778
+  - errors:
+    - {label: stat, symerror: 0.000106952}
+    - {label: 'sys,$p_{\rm T}$-correlated', symerror: 4.6941e-05}
+    - {label: 'sys,total', symerror: 5.93812e-05}
+    value: 0.000606142
+independent_variables:
+- header: {name: '$p_{\rm T}$', units: GeV}
+  values:
+  - {high: 1.0, low: 0.8}
+  - {high: 1.2, low: 1.0}
+  - {high: 1.5, low: 1.2}
+  - {high: 1.8, low: 1.5}
+  - {high: 2.1, low: 1.8}
+  - {high: 2.7, low: 2.1}
+  - {high: 3.5, low: 2.7}
+  - {high: 4.5, low: 3.5}
+  - {high: 6.0, low: 4.5}

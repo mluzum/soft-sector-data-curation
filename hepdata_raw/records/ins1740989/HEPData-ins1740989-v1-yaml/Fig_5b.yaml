@@ -1,0 +1,41 @@
+dependent_variables:
+- header: {name: Sigma(0-10%), units: rad}
+  values:
+  - errors:
+    - asymerror: {minus: -0.05, plus: 0.26}
+      label: stat
+    - asymerror: {minus: -0.05, plus: 0.4}
+      label: sys
+    value: 0.05
+  - errors:
+    - asymerror: {minus: -0.09, plus: 0.07}
+      label: stat
+    - asymerror: {minus: -0.15, plus: 0.1}
+      label: sys
+    value: 0.35
+  - errors:
+    - asymerror: {minus: -0.06, plus: 0.05}
+      label: stat
+    - asymerror: {minus: -0.17, plus: 0.12}
+      label: sys
+    value: 0.41
+  - errors:
+    - asymerror: {minus: -0.08, plus: 0.07}
+      label: stat
+    - asymerror: {minus: -0.08, plus: 0.07}
+      label: sys
+    value: 0.53
+  - errors:
+    - asymerror: {minus: -0.12, plus: 0.1}
+      label: stat
+    - asymerror: {minus: -0.19, plus: 0.15}
+      label: sys
+    value: 0.7
+independent_variables:
+- header: {name: pT_Assoc, units: GeV/c}
+  values:
+  - {high: 0.5, low: 0.15}
+  - {high: 1, low: 0.5}
+  - {high: 2, low: 1}
+  - {high: 3, low: 2}
+  - {high: 10, low: 3}

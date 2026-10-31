@@ -1,0 +1,36 @@
+dependent_variables:
+- header: {name: '$1/N_{\mathrm{ev}}\mathrm{d}^{2}N/(\mathrm{d}y\mathrm{d}p_{T})$',
+    units: c/GeV}
+  qualifiers:
+  - {name: RE, value: 'P PB--> $\bar{3He}$ + X'}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020.0'}
+  - {name: YRAP(CM), value: -1 TO 0}
+  values:
+  - errors:
+    - {label: Statistical uncertainty, symerror: 1.166436e-07}
+    - {label: Systematic uncertainty, symerror: 1.000323e-07}
+    value: 4.040529e-07
+  - errors:
+    - {label: Statistical uncertainty, symerror: 9.418897e-08}
+    - {label: Systematic uncertainty, symerror: 5.808796e-08}
+    value: 2.825622e-07
+  - errors:
+    - {label: Statistical uncertainty, symerror: 9.223767e-08}
+    - {label: Systematic uncertainty, symerror: 4.808531e-08}
+    value: 2.767089e-07
+  - errors:
+    - {label: Statistical uncertainty, symerror: 7.390322e-08}
+    - {label: Systematic uncertainty, symerror: 2.716448e-08}
+    value: 1.810235e-07
+  - errors:
+    - {label: Statistical uncertainty, symerror: 2.015202e-08}
+    - {label: Systematic uncertainty, symerror: 4.839094e-09}
+    value: 4.030396e-08
+independent_variables:
+- header: {name: '$p_{T}$', units: GeV/c}
+  values:
+  - {high: 2.0, low: 1.5}
+  - {high: 2.5, low: 2.0}
+  - {high: 3.0, low: 2.5}
+  - {high: 3.5, low: 3.0}
+  - {high: 5.0, low: 3.5}

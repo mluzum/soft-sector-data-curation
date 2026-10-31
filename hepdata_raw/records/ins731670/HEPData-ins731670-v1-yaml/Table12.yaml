@@ -1,0 +1,65 @@
+dependent_variables:
+- header: {name: N(NAME=PART)}
+  qualifiers:
+  - {name: RE, value: AU AU --> J/PSI < MU+ MU- > X}
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  values:
+  - errors:
+    - {symerror: 3.3}
+    value: 325.2
+  - errors:
+    - {symerror: 4.7}
+    value: 234.6
+  - errors:
+    - {symerror: 5.4}
+    value: 266.6
+  - errors:
+    - {symerror: 4.4}
+    value: 114.2
+  - errors:
+    - {symerror: 4.0}
+    value: 60.0
+  - errors:
+    - {symerror: 2.5}
+    value: 14.5
+- header: {name: R(NAME=AA)}
+  qualifiers:
+  - {name: RE, value: AU AU --> J/PSI < MU+ MU- > X}
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.061}
+    - asymerror: {minus: -0.021, plus: 0.033}
+      label: sys
+    value: 0.16
+  - errors:
+    - {label: stat, symerror: 0.041}
+    - asymerror: {minus: -0.032, plus: 0.04}
+      label: sys
+    value: 0.27
+  - errors:
+    - {label: stat, symerror: 0.04}
+    - asymerror: {minus: -0.037, plus: 0.039}
+      label: sys
+    value: 0.3
+  - errors:
+    - {label: stat, symerror: 0.044}
+    - {label: sys, symerror: 0.046}
+    value: 0.38
+  - errors:
+    - {label: stat, symerror: 0.036}
+    - {label: sys, symerror: 0.088}
+    value: 0.6
+  - errors:
+    - {label: stat, symerror: 0.059}
+    - {label: sys, symerror: 0.21}
+    value: 0.75
+independent_variables:
+- header: {name: CENTRALITY, units: PCT}
+  values:
+  - {high: 10.0, low: 0.0}
+  - {high: 20.0, low: 10.0}
+  - {high: 30.0, low: 20.0}
+  - {high: 40.0, low: 30.0}
+  - {high: 60.0, low: 40.0}
+  - {high: 92.0, low: 60.0}

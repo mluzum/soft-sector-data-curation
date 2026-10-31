@@ -1,0 +1,298 @@
+# Common/shared schema fragments for all observable types.
+# These are composable: an observable schema references fields by name.
+# Each field defines: type, description, required (default false), and constraints.
+
+collision_system:
+  description: >
+    Colliding species and beam energy. This is the top-level identifier for a
+    measurement.  The `reaction` string follows the HEPData convention
+    (e.g. "AU AU --> CHARGED X").
+  fields:
+    energy_gev:
+      type: float
+      required: true
+      description: Centre-of-mass energy per nucleon pair in GeV.
+      example: 200.0
+    reaction:
+      type: string
+      required: true
+      description: HEPData reaction string (e.g. "AU AU --> CHARGED X").
+      example: "AU AU --> CHARGED X"
+    collision_type:
+      type: string
+      required: false
+      description: Short label like "AuAu", "PbPb", "dAu", "pPb", "pp".
+      example: "AuAu"
+
+particle_id:
+  description: >
+    Identified-particle specification.  For unidentified charged particles
+    ("h±") omit the block or set species to "charged".
+  fields:
+    species:
+      type: string
+      required: true
+      description: >
+        Particle name (PDG style).  Common values: "pi+", "pi-", "pi±", "K+",
+        "K-", "K±", "p", "pbar", "K0_S", "Lambda", "Xi-", "Omega-", "charged".
+      example: "pi-"
+    pdg_id:
+      type: integer
+      required: false
+      description: PDG Monte Carlo number.
+      example: -211
+    is_antiparticle:
+      type: boolean
+      required: false
+      description: True when species is explicitly an antiparticle.
+      example: false
+
+kinematic_range:
+  description: >
+    Phase-space coverage of the measurement.  At least one of pT, y, eta
+    should be present.
+  fields:
+    pT:
+      description: Transverse momentum range or bin edges.
+      type: object
+      required: false
+      fields:
+        min: {type: float, required: true, description: "Minimum pT [GeV/c]", example: 0.0}
+        max: {type: float, required: true, description: "Maximum pT [GeV/c]", example: 6.0}
+        bins:
+          type: list
+          required: false
+          description: "Explicit bin boundaries [GeV/c]. Present when the measurement is binned in pT (default)."
+          items: {type: float}
+          example: [0.5, 0.75, 1.0, 1.25, 1.5, 2.0, 2.5]
+        unit: {type: string, required: false, description: "Unit (default GeV/c)", example: "GeV/c"}
+    y:
+      description: Rapidity range or bin edges.
+      type: object
+      required: false
+      fields:
+        min: {type: float, required: true, example: -0.5}
+        max: {type: float, required: true, example: 0.5}
+        bins:
+          type: list
+          required: false
+          description: "Explicit rapidity bin boundaries."
+          items: {type: float}
+          example: [-0.5, 0.0, 0.5]
+    eta:
+      description: Pseudorapidity range or bin edges.
+      type: object
+      required: false
+      fields:
+        min: {type: float, required: true, example: -1.0}
+        max: {type: float, required: true, example: 1.0}
+        bins:
+          type: list
+          required: false
+          description: "Explicit pseudorapidity bin boundaries."
+          items: {type: float}
+          example: [-0.8, 0.0, 0.8]
+    delta_eta:
+      description: >
+        Difference in pseudorapidity (Δη) — the correlation axis for
+        two-particle correlation measurements.  Distinct from `eta`
+        (the particle acceptance).  Can be a range (e.g. |Δη| = 2-5)
+        or have explicit bin boundaries.
+      type: object
+      required: false
+      fields:
+        min:
+          type: float
+          required: false
+          description: "Minimum Δη."
+          example: 2.0
+        max:
+          type: float
+          required: false
+          description: "Maximum Δη."
+          example: 5.0
+        bins:
+          type: list
+          required: false
+          description: "Δη bin boundaries."
+          items: {type: float}
+          example: [-4.8, -4.0, -3.2, -2.4, -1.6, -0.8, 0.0, 0.8, 1.6, 2.4, 3.2, 4.0, 4.8]
+    delta_phi:
+      description: >
+        Difference in azimuthal angle (Δφ) — the correlation axis for
+        two-particle correlation and CME measurements.  Can be a range
+        or have explicit bin boundaries.
+      type: object
+      required: false
+      fields:
+        min:
+          type: float
+          required: false
+          description: "Minimum Δφ [rad]."
+          example: 0.0
+        max:
+          type: float
+          required: false
+          description: "Maximum Δφ [rad]."
+          example: 3.142
+        bins:
+          type: list
+          required: false
+          description: "Δφ bin boundaries [rad]."
+          items: {type: float}
+          example: [0.0, 0.18, 0.36, 0.54, 0.72, 0.90, 1.08, 1.26, 1.44, 1.62, 1.80, 1.98, 2.16, 2.34, 2.52, 2.70, 2.88, 3.06, 3.24]
+
+notes:
+  description: >
+    Free-text provenance for the record: which figure/table of the
+    publication it corresponds to, how it was extracted, and any
+    transformation applied to the published numbers.  This matters most
+    when one publication contains several DISTINCT series that share the
+    same value_type and source file -- e.g. PHOBOS v2(eta) at 200 GeV
+    publishes a hit-based series, a track-based series and a combined
+    series, all with column header "v2".  Without a note a consumer
+    cannot tell them apart, and cannot tell a symmetrised (forward-only,
+    mirrored for display) series from a genuinely two-sided one.
+  fields:
+    value:
+      type: string
+      required: false
+      description: "Provenance / curation note."
+      example: >
+        Fig. 5 combined series: eta>0 points built by reflecting the
+        hit-based results about midrapidity and averaging with the
+        track-based results; the published table is eta>0 only and the
+        negative half shown in the figure is a reflection of it.
+
+flow_reference:
+  description: >
+    The reference ("flow proxy") sample that the particle of interest is
+    correlated with, for methods that need one: event_plane,
+    scalar_product, subevent.  Recording it here is what makes such a
+    record self-describing -- the computation reads the reference
+    acceptance from the record instead of requiring an external
+    assumption or a command-line override.
+
+    Conceptually distinct from `eta_gap`, which only records a PAIR
+    separation |Delta-eta| and therefore cannot express a reference taken
+    from BOTH sides of the rapidity gap (the usual case: two sub-events
+    on opposite sides, combined for resolution).  Prefer `flow_reference`
+    and leave `eta_gap` unset unless the gap itself is the salient fact.
+
+    A record may legitimately need MORE THAN ONE reference: a publication
+    can measure one observable with two different methods over different
+    ranges of the independent variable and then publish them merged (e.g.
+    PHOBOS v2(eta) at 200 GeV, Fig. 5, is track-based at small |eta| with
+    an octagon reference and mirrored hit-based at large |eta|).  Use
+    `segments` in that case; the computation then selects the segment
+    whose `applies_to_eta` contains each differential bin.
+
+    Absent for self-contained methods (cumulant) and for records whose
+    reference is the same sample as the particle of interest.
+  fields:
+    same_sample_as_poi:
+      type: boolean
+      required: false
+      description: >
+        True when the reference sample IS the particle-of-interest sample:
+        the event plane is reconstructed from the very tracks whose flow is
+        measured.  STAR's "standard event plane method" on the central TPC
+        is the common case -- the POI is the full |eta|<1 charged sample and
+        the event plane comes from the same tracks.
+
+        This is emphatically NOT a self-correlation-free measurement.  Every
+        POI particle also sits in the reference, so the diagonal of
+        Re<Q_poi Q_ref*> equals N_poi and must be subtracted, and the
+        reference's own |Q|^2 carries its auto-correlation.  Declaring the
+        case explicitly is what routes the record to the scalar-product
+        estimator with both corrections; left implicit (flow_reference
+        absent) it falls back to the single-set amplitude estimator, which
+        is a different observable and is only an approximation.
+
+        Independent variables stay per-bin as usual: a v2(pT) record is
+        nested in the reference, and a differential bin spanning eta=0
+        under a mirrored reference shares particles and needs the same
+        treatment.
+      example: true
+    detector:
+      type: string
+      required: false
+      description: >
+        Subdetector that defines the reference sample, as named by the
+        collaboration (e.g. BBC, Octagon, V0A, FTPC, FVTX, FCal).
+      example: "Octagon"
+    mirror:
+      type: boolean
+      required: false
+      description: >
+        True when the reference is the eta-MIRRORED image of `eta`, i.e.
+        the flow reference for a particle at eta>0 is the sub-event on
+        the negative side and vice versa.  This is the standard
+        "sub-event on the opposite side of midrapidity" construction, and
+        it has the useful property that the reference never shares
+        particles with the particle of interest.  Applies per
+        differential bin, so `eta` should be given as a single positive
+        window.
+      example: true
+    eta:
+      type: list
+      required: false
+      description: >
+        One or more pseudorapidity windows, each {min, max}, that make up
+        the reference sample.  More than one window means the reference
+        combines both sides of the beam-rapidity gap.  Order is
+        immaterial.  With `mirror: true` give one positive window.
+      example: [{min: -3.2, max: -2.05}, {min: 2.05, max: 3.2}]
+    pT:
+      type: object
+      required: false
+      description: >
+        pT window of the reference sample.  Omit to reuse the top-level
+        kinematic_range.pT.
+      fields:
+        min: {type: float, required: true, example: 0.0}
+        max: {type: float, required: true, example: 4.0}
+    notes:
+      type: string
+      required: false
+      description: "How the reference was constructed and corrected."
+      example: >
+        Two eta-symmetric sub-events combined for maximum resolution;
+        C_res from the sub-event technique, centrality- and
+        vertex-dependent.
+    segments:
+      type: list
+      required: false
+      description: >
+        Per-range reference definitions, for records that combine two
+        analysis methods with different references.  Each segment may
+        carry its own detector / mirror / eta / pT / notes.  For a
+        differential record, the segment whose `applies_to_eta` contains
+        the bin is used; if none matches, the top-level definition is
+        used.  Ignored for integrated records (which have a single
+        acceptance).
+      example:
+        - applies_to_eta: {min: 0.0, max: 1.8}
+          detector: Octagon
+          eta: [{min: -3.2, max: -2.05}, {min: 2.05, max: 3.2}]
+          notes: track-based; both sub-events combined for resolution
+        - applies_to_eta: {min: 1.8, max: 5.5}
+          detector: Octagon
+          mirror: true
+          eta: {min: 0.1, max: 3.0}
+          notes: hit-based; opposite-side sub-event
+
+reference:
+  description: >
+    Reference measurement used for normalisation (e.g. pp or peripheral
+    collisions for R_AA / R_CP).
+  fields:
+    type:
+      type: string
+      required: true
+      description: "Reference type: 'pp', 'peripheral', 'NSD', 'INEL'"
+      example: "pp"
+    energy_gev:
+      type: float
+      required: false
+      description: Reference energy if different from the main collision energy.

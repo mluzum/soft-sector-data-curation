@@ -1,0 +1,42 @@
+dependent_variables:
+- header: {name: K-/K+}
+  qualifiers:
+  - {name: PARTICLE, value: K- K+}
+  - {name: CENTRALITY, units: PCT, value: 0 TO 20}
+  - {name: YRAP, value: 2.0}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.086}
+    value: 0.755
+  - errors:
+    - {label: stat, symerror: 0.05}
+    value: 0.784
+  - errors:
+    - {label: stat, symerror: 0.064}
+    value: 0.755
+  - errors:
+    - {label: stat, symerror: 0.072}
+    value: 0.805
+  - errors:
+    - {label: stat, symerror: 0.064}
+    value: 0.798
+  - errors:
+    - {label: stat, symerror: 0.08}
+    value: 0.85
+  - errors:
+    - {label: stat, symerror: 0.19}
+    value: 1.01
+  - errors:
+    - {label: stat, symerror: 0.2}
+    value: 0.7
+independent_variables:
+- header: {name: PT, units: GEV/C}
+  values:
+  - {high: 0.4, low: 0.2}
+  - {high: 0.6, low: 0.4}
+  - {high: 0.8, low: 0.6}
+  - {high: 1.0, low: 0.8}
+  - {high: 1.2, low: 1.0}
+  - {high: 1.4, low: 1.2}
+  - {high: 1.6, low: 1.4}
+  - {high: 1.8, low: 1.6}

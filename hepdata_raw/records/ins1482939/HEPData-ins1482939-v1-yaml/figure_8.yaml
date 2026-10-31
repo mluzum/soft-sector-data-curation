@@ -1,0 +1,46 @@
+dependent_variables:
+- header: {name: '$\Upsilon$(2S+3S) $R_{AA}$ STAR 193 GeV U+U'}
+  qualifiers:
+  - {name: Centrality, value: 0 - 60%}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.32}
+    - asymerror: {minus: -0.11, plus: 0.07}
+      label: sys
+    - {label: p+p stat, symerror: 30%}
+    - {label: p+p lum common norm syst, symerror: 11%}
+    value: 0.48
+  - {value: '-'}
+  - {value: '-'}
+- header: {name: '$\Upsilon$(1S) $R_{AA}$ STAR 193 GeV U+U'}
+  qualifiers:
+  - {name: Centrality, value: 0 - 60%}
+  values:
+  - {value: '-'}
+  - errors:
+    - {label: stat, symerror: 0.21}
+    - asymerror: {minus: -0.13, plus: 0.18}
+      label: sys
+    - {label: p+p stat, symerror: 13.0%}
+    - {label: p+p lum common norm syst, symerror: 11%}
+    value: 0.96
+  - {value: '-'}
+- header: {name: '$\Upsilon$(1S) $R_{AA}$ STAR 193 GeV U+U'}
+  qualifiers:
+  - {name: Centrality, value: 0 - 10%}
+  values:
+  - {value: '-'}
+  - {value: '-'}
+  - errors:
+    - {label: stat, symerror: 0.23}
+    - asymerror: {minus: -0.1, plus: 0.12}
+      label: sys
+    - {label: p+p stat, symerror: 13.0%}
+    - {label: p+p lum common norm syst, symerror: 11%}
+    value: 0.49
+independent_variables:
+- header: {name: Binding energy, units: GeV}
+  values:
+  - {high: 0.5363, low: 0.2041, value: 0.3702}
+  - {value: 1.099}
+  - {value: 1.099}

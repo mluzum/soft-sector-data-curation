@@ -1,0 +1,18 @@
+dependent_variables:
+- header: {name: 'Non-prompt $\mathrm{D}^0$ $R_{\mathrm{pPb}}$ nuclear modification
+      factor'}
+  qualifiers:
+  - {name: REACTION, value: P PB --> hb --> D0 X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 5020.0}
+  - {name: YRAP, value: -0.96 TO 0.04}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.1}
+    - {label: sys, symerror: 0.12}
+    - asymerror: {minus: -0.11, plus: 0.06}
+      label: sys, uncertainty on extrapolation
+    value: 1.04
+independent_variables:
+- header: {name: '$y_{\mathrm{{cms}}}$'}
+  values:
+  - {high: 0.04, low: -0.96}

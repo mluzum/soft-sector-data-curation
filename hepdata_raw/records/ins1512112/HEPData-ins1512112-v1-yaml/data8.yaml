@@ -1,0 +1,34 @@
+dependent_variables:
+- header: {name: R_JZ}
+  qualifiers:
+  - {name: RE, value: PB PB --> Z0 < LEPTON+ LEPTON- > JET}
+  - {name: SQRT(S_NN), units: GEV, value: 5020}
+  - {name: CENTRALITY, value: 0-30%}
+  - {name: JET ALGO, value: ANTI-K_T JET R = 0.3}
+  - {name: PT(JET), units: GEV/C, value: '> 30'}
+  - {name: '|ETA(JET)|', value: < 1.6}
+  - {name: DELTA(PHI_JZ), value: '> 7 * PI / 8'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.04}
+    - {label: sys, symerror: 0.03}
+    value: 0.18
+  - errors:
+    - {label: stat, symerror: 0.07}
+    - {label: sys, symerror: 0.06}
+    value: 0.37
+  - errors:
+    - {label: stat, symerror: 0.07}
+    - {label: sys, symerror: 0.04}
+    value: 0.4
+  - errors:
+    - {label: stat, symerror: 0.08}
+    - {label: sys, symerror: 0.05}
+    value: 0.63
+independent_variables:
+- header: {name: PT(Z), units: GEV/C}
+  values:
+  - {value: 45.0}
+  - {value: 55.0}
+  - {value: 70.0}
+  - {value: 100.0}

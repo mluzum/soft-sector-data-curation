@@ -1,0 +1,77 @@
+dependent_variables:
+- header: {name: '$Y_\mathrm{frag}^\mathrm{near}$'}
+  qualifiers:
+  - {name: '$p_\mathrm{T,trig}$', units: GeV/c, value: 1-2}
+  - {name: '$p_\mathrm{T,assoc}$', units: GeV/c, value: 1-4}
+  - {name: stat, value: Statistical Uncertainty}
+  - {name: sys, value: Systematic Uncertainty}
+  values:
+  - errors:
+    - {label: stat, symerror: 5.0e-06}
+    - {label: sys, symerror: 0.00322}
+    value: 0.102902
+  - errors:
+    - {label: stat, symerror: 1.7e-05}
+    - {label: sys, symerror: 0.004414}
+    value: 0.090573
+  - errors:
+    - {label: stat, symerror: 9.0e-06}
+    - {label: sys, symerror: 0.004984}
+    value: 0.082973
+  - errors:
+    - {label: stat, symerror: 6.0e-06}
+    - {label: sys, symerror: 0.00365}
+    value: 0.071677
+- header: {name: '$Y_\mathrm{frag}^\mathrm{away}$'}
+  qualifiers:
+  - {name: '$p_\mathrm{T,trig}$', units: GeV/c, value: 1-2}
+  - {name: '$p_\mathrm{T,assoc}$', units: GeV/c, value: 1-4}
+  - {name: stat, value: Statistical Uncertainty}
+  - {name: sys, value: Systematic Uncertainty}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.000462}
+    - {label: sys, symerror: 0.002635}
+    value: 0.040581
+  - errors:
+    - {label: stat, symerror: 0.000811}
+    - {label: sys, symerror: 0.002465}
+    value: 0.038146
+  - errors:
+    - {label: stat, symerror: 0.000506}
+    - {label: sys, symerror: 0.002364}
+    value: 0.036681
+  - errors:
+    - {label: stat, symerror: 0.000404}
+    - {label: sys, symerror: 0.002099}
+    value: 0.032595
+- header: {name: '$Y_\mathrm{frag}^\mathrm{away}$/$Y_\mathrm{frag}^\mathrm{near}$'}
+  qualifiers:
+  - {name: '$p_\mathrm{T,trig}$', units: GeV/c, value: 1-2}
+  - {name: '$p_\mathrm{T,assoc}$', units: GeV/c, value: 1-4}
+  - {name: stat, value: Statistical Uncertainty}
+  - {name: sys, value: Systematic Uncertainty}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.004486}
+    - {label: sys, symerror: 0.028424}
+    value: 0.394368
+  - errors:
+    - {label: stat, symerror: 0.008952}
+    - {label: sys, symerror: 0.034089}
+    value: 0.421167
+  - errors:
+    - {label: stat, symerror: 0.006098}
+    - {label: sys, symerror: 0.03895}
+    value: 0.442092
+  - errors:
+    - {label: stat, symerror: 0.00563}
+    - {label: sys, symerror: 0.037339}
+    value: 0.45475
+independent_variables:
+- header: {name: Multiplicity percentile}
+  values:
+  - {high: 1, low: 0}
+  - {high: 2, low: 1}
+  - {high: 3, low: 2}
+  - {high: 4, low: 3}

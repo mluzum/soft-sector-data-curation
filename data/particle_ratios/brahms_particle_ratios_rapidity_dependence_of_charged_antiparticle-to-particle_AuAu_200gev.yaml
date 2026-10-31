@@ -1,0 +1,93 @@
+---
+observable_type: particle_ratios
+inspire_id: '590481'
+version: 1
+hepdata_file: tab2a.yaml
+hepdata_table_label: '$\mathrm{\pi}^{-}/\mathrm{\pi}^{+}$ versus $p_{\mathrm{T}}$ for $\mathrm{\pi}^{+}$, $\mathrm{\pi}^{-}$
+  in $\mathrm{Au}-\mathrm{Au}$ at $\sqrt{s_{\mathrm{NN}}}=200\,\mathrm{Ge\!V}$ '
+qualifiers:
+  centrality: 0 TO 20
+  particle: PI- PI+
+  yrap: '0.0'
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> K+
+centrality:
+  classes:
+  - 0.0-20.0%
+  estimator:
+    name: TMA
+    observable: Nch
+    detector: TMA
+  eta:
+  - min: -2.3
+    max: 2.3
+particle_id:
+  species: charged
+kinematic_range:
+  pT:
+    min: 0.2
+    max: 2.0
+    bins:
+    - 0.2
+    - 0.4
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+    - 2.0
+  eta:
+    min: -0.1
+    max: 3.3
+observable: unknown_over_unknown_ratio
+value_type: unknown_over_unknown
+numerator: unknown
+denominator: unknown
+---
+observable_type: particle_ratios
+inspire_id: '590481'
+version: 1
+hepdata_file: tab2d.yaml
+hepdata_table_label: '$\mathrm{\pi}^{-}/\mathrm{\pi}^{+}$ versus $p_{\mathrm{T}}$ for $\mathrm{\pi}^{+}$, $\mathrm{\pi}^{-}$
+  in $\mathrm{Au}-\mathrm{Au}$ at $\sqrt{s_{\mathrm{NN}}}=200\,\mathrm{Ge\!V}$ '
+qualifiers:
+  centrality: 0 TO 20
+  particle: PI- PI+
+  yrap: '2.0'
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> K+
+centrality:
+  classes:
+  - 0.0-20.0%
+  estimator:
+    name: TMA
+    observable: Nch
+    detector: TMA
+  eta:
+  - min: -2.3
+    max: 2.3
+particle_id:
+  species: charged
+kinematic_range:
+  pT:
+    min: 0.2
+    max: 1.4
+    bins:
+    - 0.2
+    - 0.4
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2
+    - 1.4
+  eta:
+    min: -0.1
+    max: 3.3
+observable: unknown_over_unknown_ratio
+value_type: unknown_over_unknown
+numerator: unknown
+denominator: unknown

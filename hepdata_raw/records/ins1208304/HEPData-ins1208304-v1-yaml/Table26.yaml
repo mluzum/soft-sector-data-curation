@@ -1,0 +1,62 @@
+dependent_variables:
+- header: {name: s2}
+  qualifiers:
+  - {name: ABS(DELTA(ETARAP)), value: 2.0-5.0}
+  - {name: PT(b), units: GeV, value: 0.5-4.0}
+  - {name: RE, value: P PB --> CHARGED X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  - {name: SUM(ET(PB)), units: GeV, value: 25.0-55.0}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.00125}
+    - asymerror: {minus: -0.000719, plus: 0.000715}
+      label: sys
+    value: 0.0229
+  - errors:
+    - {label: stat, symerror: 0.00112}
+    - asymerror: {minus: -0.000996, plus: 0.000993}
+      label: sys
+    value: 0.0414
+  - errors:
+    - {label: stat, symerror: 0.00182}
+    - asymerror: {minus: -0.00135, plus: 0.00134}
+      label: sys
+    value: 0.0613
+  - errors:
+    - {label: stat, symerror: 0.00291}
+    - {label: sys, symerror: 0.00172}
+    value: 0.0814
+  - errors:
+    - {label: stat, symerror: 0.00451}
+    - asymerror: {minus: -0.00182, plus: 0.00181}
+      label: sys
+    value: 0.0863
+  - errors:
+    - {label: stat, symerror: 0.00676}
+    - {label: sys, symerror: 0.00186}
+    value: 0.0887
+  - errors:
+    - {label: stat, symerror: 0.00794}
+    - {label: sys, symerror: 0.00197}
+    value: 0.0939
+  - errors:
+    - {label: stat, symerror: 0.0149}
+    - {label: sys, symerror: 0.00102}
+    value: 0.0424
+  - errors:
+    - {label: stat, symerror: 0.021}
+    - asymerror: {minus: -0.000774, plus: 0.00077}
+      label: sys
+    value: 0.0263
+independent_variables:
+- header: {name: PT(a), units: GEV}
+  values:
+  - {value: 0.4}
+  - {value: 0.75}
+  - {value: 1.25}
+  - {value: 1.75}
+  - {value: 2.25}
+  - {value: 2.75}
+  - {value: 3.4}
+  - {value: 4.4}
+  - {value: 5.8}

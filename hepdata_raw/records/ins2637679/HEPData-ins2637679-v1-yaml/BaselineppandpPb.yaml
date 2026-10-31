@@ -1,0 +1,57 @@
+dependent_variables:
+- header: {name: Baseline}
+  qualifiers:
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: 5020.0}
+  - {name: pTe, units: GeV/c, value: 4 to 12}
+  - {name: pT condition, value: '$p_{T}^{e} > p_{T}^{assoc}$'}
+  - {name: Electron ETA, value: -0.6 to 0.6}
+  - {name: DELTA ETA, value: -1 to 1}
+  - {name: RE, value: 'pp -> (c,b)->e + X'}
+  values:
+  - errors:
+    - {label: Corr, symerror: 0.023}
+    value: 0.556193
+  - errors:
+    - {label: Corr, symerror: 0.0055}
+    value: 0.12135
+  - errors:
+    - {label: Corr, symerror: 0.0042}
+    value: 0.0308491
+  - errors:
+    - {label: Corr, symerror: 0.0012}
+    value: 0.00798031
+  - errors:
+    - {label: Corr, symerror: 0.001}
+    value: 0
+- header: {name: Baseline}
+  qualifiers:
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: 5020.0}
+  - {name: pTe, units: GeV/c, value: 4 to 12}
+  - {name: pT condition, value: '$p_{T}^{e} > p_{T}^{assoc}$'}
+  - {name: Electron ETA, value: -0.6 to 0.6}
+  - {name: DELTA ETA, value: -1 to 1}
+  - {name: RE, value: 'p$\textendash$Pb -> (c,b)->e + X'}
+  values:
+  - errors:
+    - {label: Corr, symerror: 0.0202}
+    value: 1.55067
+  - errors:
+    - {label: Corr, symerror: 0.0069}
+    value: 0.306253
+  - errors:
+    - {label: Corr, symerror: 0.0035}
+    value: 0.0728933
+  - errors:
+    - {label: Corr, symerror: 0.0013}
+    value: 0.018444
+  - errors:
+    - {label: Corr, symerror: 0.0005}
+    value: 0.00506212
+independent_variables:
+- header: {name: '$p_{\rm T}^{assoc}$ GeV$/c$'}
+  values:
+  - {high: 2, low: 1}
+  - {high: 3, low: 2}
+  - {high: 4, low: 3}
+  - {high: 5, low: 4}
+  - {high: 7, low: 5}

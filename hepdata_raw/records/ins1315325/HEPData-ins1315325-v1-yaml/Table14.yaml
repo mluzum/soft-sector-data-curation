@@ -1,0 +1,72 @@
+dependent_variables:
+- header: {name: '$Y_{int}$'}
+  qualifiers:
+  - {name: ABS(DELTA(ETARAP)), value: 2.0-5.0}
+  - {name: ABS(DELTA(PHI)) < PI/3, value: ''}
+  - {name: NCHREC >= 260, value: ''}
+  - {name: PT(b), units: GeV, value: 1.0-3.0}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0024512}
+    - {label: sys, symerror: 0.0063031}
+    value: 0.14901
+  - errors:
+    - {label: stat, symerror: 0.0028691}
+    - {label: sys, symerror: 0.0087812}
+    value: 0.20922
+  - errors:
+    - {label: stat, symerror: 0.0033978}
+    - {label: sys, symerror: 0.010041}
+    value: 0.23941
+  - errors:
+    - {label: stat, symerror: 0.0040155}
+    - {label: sys, symerror: 0.012561}
+    value: 0.29953
+  - errors:
+    - {label: stat, symerror: 0.0036046}
+    - {label: sys, symerror: 0.014476}
+    value: 0.34763
+  - errors:
+    - {label: stat, symerror: 0.0049651}
+    - {label: sys, symerror: 0.016702}
+    value: 0.39928
+  - errors:
+    - {label: stat, symerror: 0.0062832}
+    - {label: sys, symerror: 0.019393}
+    value: 0.46154
+  - errors:
+    - {label: stat, symerror: 0.0091364}
+    - {label: sys, symerror: 0.020752}
+    value: 0.48146
+  - errors:
+    - {label: stat, symerror: 0.010528}
+    - {label: sys, symerror: 0.021487}
+    value: 0.50049
+  - errors:
+    - {label: stat, symerror: 0.019522}
+    - {label: sys, symerror: 0.019972}
+    value: 0.41004
+  - errors:
+    - {label: stat, symerror: 0.028107}
+    - {label: sys, symerror: 0.023023}
+    value: 0.28592
+  - errors:
+    - {label: stat, symerror: 0.060565}
+    - {label: sys, symerror: 0.037565}
+    value: 0.092405
+independent_variables:
+- header: {name: '$p_{T}^{a}$ [GeV]'}
+  values:
+  - {value: 0.4929}
+  - {value: 0.6934}
+  - {value: 0.8937}
+  - {value: 1.094}
+  - {value: 1.377}
+  - {value: 1.778}
+  - {value: 2.217}
+  - {value: 2.719}
+  - {value: 3.392}
+  - {value: 4.408}
+  - {value: 5.718}
+  - {value: 7.79}

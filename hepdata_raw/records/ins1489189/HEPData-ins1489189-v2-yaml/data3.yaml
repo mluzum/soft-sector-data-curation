@@ -1,0 +1,44 @@
+dependent_variables:
+- header: {name: PROMPT J/PSI V2}
+  qualifiers:
+  - {name: ABS(RAP), value: 1.6-2.4}
+  - {name: CENTRALITY, value: 10-60%}
+  - {name: RE, value: PB PB --> J/PSI X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 2760}
+  - {name: GLOBAL UNCERTAINTY, value: 2.7%}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.024}
+    - {label: syst, symerror: 0.031}
+    value: 0.054
+  - {value: --}
+  - {value: --}
+  - {value: --}
+- header: {name: PROMPT J/PSI V2}
+  qualifiers:
+  - {name: ABS(RAP), value: 0-2.4}
+  - {name: CENTRALITY, value: 10-60%}
+  - {name: RE, value: PB PB --> J/PSI X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 2760}
+  - {name: GLOBAL UNCERTAINTY, value: 2.7%}
+  values:
+  - {value: --}
+  - errors:
+    - {label: stat, symerror: 0.025}
+    - {label: syst, symerror: 0.011}
+    value: 0.069
+  - errors:
+    - {label: stat, symerror: 0.025}
+    - {label: syst, symerror: 0.013}
+    value: 0.09
+  - errors:
+    - {label: stat, symerror: 0.023}
+    - {label: syst, symerror: 0.013}
+    value: 0.033
+independent_variables:
+- header: {name: PT, units: GEV/C}
+  values:
+  - {high: 6.5, low: 3}
+  - {high: 8, low: 6.5}
+  - {high: 10, low: 8}
+  - {high: 30, low: 10}

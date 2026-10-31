@@ -1,0 +1,29 @@
+dependent_variables:
+- header: {name: '$P_{\Lambda}$ [%]'}
+  qualifiers:
+  - {name: 20-50% centrality, value: Ru+Ru}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.05}
+    - {label: sys, symerror: 0.04}
+    value: 0.31
+- header: {name: '$P_{\bar\Lambda}$ [%]'}
+  qualifiers:
+  - {name: 20-50% centrality, value: Ru+Ru}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.05}
+    - {label: sys, symerror: 0.03}
+    value: 0.27
+- header: {name: '$P_{\bar\Lambda - \Lambda}$ [%]'}
+  qualifiers:
+  - {name: 20-50% centrality, value: Ru+Ru}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.05}
+    - {label: sys, symerror: 0.05}
+    value: -0.04
+independent_variables:
+- header: {name: 20-50% centrality}
+  values:
+  - {high: 50, low: 20}

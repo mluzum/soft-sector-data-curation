@@ -1,0 +1,52 @@
+dependent_variables:
+- header: {name: D(SIG)/DYRAP, units: MB}
+  qualifiers:
+  - {name: RE, value: PB PB --> PB PB J/PSI < MU+ MU- >}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.022}
+    - asymerror: {minus: -0.237, plus: 0.209}
+      label: sys
+    value: 2.549
+  - errors:
+    - {label: stat, symerror: 0.06}
+    - asymerror: {minus: -0.147, plus: 0.135}
+      label: sys
+    value: 1.615
+  - errors:
+    - {label: stat, symerror: 0.042}
+    - asymerror: {minus: -0.19, plus: 0.166}
+      label: sys
+    value: 1.938
+  - errors:
+    - {label: stat, symerror: 0.04}
+    - asymerror: {minus: -0.229, plus: 0.212}
+      label: sys
+    value: 2.377
+  - errors:
+    - {label: stat, symerror: 0.047}
+    - asymerror: {minus: -0.28, plus: 0.253}
+      label: sys
+    value: 2.831
+  - errors:
+    - {label: stat, symerror: 0.061}
+    - asymerror: {minus: -0.294, plus: 0.259}
+      label: sys
+    value: 3.018
+  - errors:
+    - {label: stat, symerror: 0.139}
+    - asymerror: {minus: -0.362, plus: 0.294}
+      label: sys
+    value: 3.531
+independent_variables:
+- header: {name: YRAP}
+  values:
+  - {high: -2.5, low: -4.0}
+  - {high: -3.75, low: -4.0}
+  - {high: -3.5, low: -3.75}
+  - {high: -3.25, low: -3.5}
+  - {high: -3.0, low: -3.25}
+  - {high: -2.75, low: -3.0}
+  - {high: -2.5, low: -2.75}
+name: Table1.yaml

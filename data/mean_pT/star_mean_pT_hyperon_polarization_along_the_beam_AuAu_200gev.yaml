@@ -1,0 +1,107 @@
+observable_type: mean_pT
+inspire_id: '2643014'
+version: 1
+hepdata_file: HEPData-pzisobar-fig3.yaml
+hepdata_table_label: $P_z$ sine coefficients of $\Lambda+\bar{\Lambda}$ as a function
+  of centrality in isobar collisions at 200 GeV.
+qualifiers:
+  \sqrt{s_{nn}}: '200.0'
+  p_t: $>0.5$
+  particles: $\Lambda+\bar{\Lambda}$
+  rapidity: -1.0 TO 1.0
+collision_system:
+  energy_gev: 200
+  reaction: AU AU --> \Lambda, AU AU --> \bar{\Lambda}
+centrality:
+  classes:
+  - 0-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  - 60-70%
+  - 70-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: Lambda
+observable: mean_pT
+value_type: mean_pT
+kinematic_range:
+  eta:
+    min: -0.5
+    max: 0.5
+---
+observable_type: mean_pT
+inspire_id: '2643014'
+version: 1
+hepdata_file: HEPData-pzisobar-fig4.yaml
+hepdata_table_label: $P_z$ sine coefficients of $\Lambda+\bar{\Lambda}$ as a function
+  of transverse momentum in isobar collisions at 200 GeV.
+qualifiers:
+  \sqrt{s_{nn}}: '200.0'
+  centrality: 20.0 TO 60.0
+  particles: $\Lambda+\bar{\Lambda}$
+  rapidity: -1.0 TO 1.0
+collision_system:
+  energy_gev: 200
+  reaction: AU AU --> \Lambda, AU AU --> \bar{\Lambda}
+centrality:
+  classes:
+  - 20.0-60.0%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: Lambda
+observable: mean_pT
+value_type: mean_pT
+kinematic_range:
+  eta:
+    min: -0.5
+    max: 0.5
+---
+observable_type: mean_pT
+inspire_id: '2643014'
+version: 1
+hepdata_file: HEPData-pzisobar-fig5.yaml
+hepdata_table_label: $P_z$ sine coefficients of $\Lambda+\bar{\Lambda}$ as a function
+  of the number of participants in isobar collisions at 200 GeV. The number of participants
+  for isobar collisions were taken from Table III of Phys.Rev.C105, 014901 (2022)
+  and averaged. Same data as the centrality dependence in Fig. 3.
+qualifiers:
+  \sqrt{s_{nn}}: '200.0'
+  p_t: $>0.5$
+  particles: $\Lambda+\bar{\Lambda}$
+  rapidity: -1.0 TO 1.0
+collision_system:
+  energy_gev: 200
+  reaction: AU AU --> \Lambda, AU AU --> \bar{\Lambda}
+centrality:
+  classes: []
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: Lambda
+observable: mean_pT
+value_type: mean_pT
+kinematic_range:
+  eta:
+    min: -0.5
+    max: 0.5

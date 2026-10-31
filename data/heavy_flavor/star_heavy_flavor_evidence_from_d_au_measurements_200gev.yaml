@@ -1,0 +1,80 @@
+---
+observable_type: heavy_flavor
+inspire_id: '621394'
+version: 1
+hepdata_file: Figure_2.yaml
+hepdata_table_label: Inclusive $p_{T}$ distributions for minimum bias and central d+Au collisions, and non-singly diffractive
+  p+p collisions. Hash marks at the top indicate bin boundaries for $p_{T}$ > 3.8 GeV/c.
+collision_system:
+  energy_gev: 200.0
+  reaction: d+Au
+centrality:
+  classes:
+  - 0-20%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: p
+  particle: d+
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+    bins:
+    - -1.0
+    - 1.0
+  pT:
+    min: 0.15
+    max: 10
+    bins:
+    - 0.15
+    - 10
+observable: d+_invariant_yield
+value_type: invariant_yield
+particle: d+
+---
+observable_type: heavy_flavor
+inspire_id: '621394'
+version: 1
+hepdata_file: Figure_3.yaml
+hepdata_table_label: $R_{AB}(p_{T})$ from Eq. 1 for minimum bias and central d+Au collisions, and central Au+Au collisions.
+  The minimum bias d+Au data are displaced 100 MeV/c to the right for clarity. The error bars are the quadrature sum of the
+  statistical and point-to-point systematic uncertainties. The bands show the normalization uncertainties, which are highly
+  correlated point-to-point and between the two d+Au distributions.
+collision_system:
+  energy_gev: 200.0
+  reaction: d+Au
+centrality:
+  classes:
+  - 0-20%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: p
+  particle: d+
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+    bins:
+    - -1.0
+    - 1.0
+  pT:
+    min: 0.15
+    max: 10
+    bins:
+    - 0.15
+    - 10
+observable: d+_invariant_yield
+value_type: invariant_yield
+particle: d+

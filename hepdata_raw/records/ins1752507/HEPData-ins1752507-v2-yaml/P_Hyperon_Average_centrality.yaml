@@ -1,0 +1,18 @@
+dependent_variables:
+- header: {name: P_H (%)}
+  qualifiers:
+  - {name: RE, value: Pb Pb --> LAMBDA ANTI-LAMBDA X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 2760}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 5020}
+  - {name: Particle, value: LAMBDA+ANTI-LAMBDA}
+  - {name: ABS(RAPIDITY), value: < 0.5}
+  - {name: PT, units: GEV/C, value: 0.5 - 5.0}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.05}
+    - {label: sys, symerror: 0.03}
+    value: -0.01
+independent_variables:
+- header: {name: Centrality}
+  values:
+  - {high: 50, low: 15}

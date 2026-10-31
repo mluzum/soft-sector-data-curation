@@ -1,0 +1,38 @@
+dependent_variables:
+- header: {name: '${v_2}$'}
+  qualifiers:
+  - {name: SQRT(S), units: GEV, value: 62.4}
+  - {name: Au+Au, value: '$\pi^{-}$'}
+  - {name: Centrality, units: percentage, value: 0-80}
+  values:
+  - errors:
+    - asymerror: {minus: -0.000305, plus: 0.000627}
+      label: sys
+    - {label: stat, symerror: 5.3e-05}
+    - {label: glob, symerror: 0.000556}
+    value: 0.021712
+  - errors:
+    - asymerror: {minus: -4.7e-05, plus: 8.2e-05}
+      label: sys
+    - {label: stat, symerror: 6.3e-05}
+    - {label: glob, symerror: 0.000556}
+    value: 0.042727
+  - errors:
+    - asymerror: {minus: -9.3e-05, plus: 0.000179}
+      label: sys
+    - {label: stat, symerror: 8.5e-05}
+    - {label: glob, symerror: 0.000556}
+    value: 0.063633
+  - errors:
+    - asymerror: {minus: -2.1e-05, plus: 4.2e-05}
+      label: sys
+    - {label: stat, symerror: 0.00012}
+    - {label: glob, symerror: 0.000556}
+    value: 0.081991
+independent_variables:
+- header: {name: '${p_T}$'}
+  values:
+  - {value: 0.285}
+  - {value: 0.495}
+  - {value: 0.675}
+  - {value: 0.885}

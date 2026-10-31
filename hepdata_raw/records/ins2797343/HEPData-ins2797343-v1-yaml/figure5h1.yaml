@@ -1,0 +1,36 @@
+dependent_variables:
+- header: {name: '$I_{AA}$'}
+  qualifiers:
+  - {name: centrality, value: 20--40%}
+  - {name: '$p_{T}^{trig,min}$', units: GeV/c, value: '9.0'}
+  - {name: '$p_{T}^{trig,max}$', units: GeV/c, value: '12.0'}
+  - {name: '$p_{T}^{assoc,min}$', units: GeV/c, value: '1.0'}
+  - {name: '$p_{T}^{assoc,max}$', units: GeV/c, value: '2.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 1.43}
+    - asymerror: {minus: 0.27, plus: 0.24}
+      label: sys
+    value: 2.72
+  - errors:
+    - {label: stat, symerror: 0.26}
+    - asymerror: {minus: 0.06, plus: 0.05}
+      label: sys
+    value: 1.13
+  - errors:
+    - {label: stat, symerror: 0.18}
+    - asymerror: {minus: 0.06, plus: 0.05}
+      label: sys
+    value: 0.94
+  - errors:
+    - {label: stat, symerror: 0.15}
+    - asymerror: {minus: 0.05, plus: 0.04}
+      label: sys
+    value: 1.01
+independent_variables:
+- header: {name: $\Delta\phi$}
+  values:
+  - {value: 2.3}
+  - {value: 2.72}
+  - {value: 2.93}
+  - {value: 3.14}

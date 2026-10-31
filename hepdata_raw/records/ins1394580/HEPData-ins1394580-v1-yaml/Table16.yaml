@@ -1,0 +1,69 @@
+dependent_variables:
+- header: {name: '$R_{\rm AA}$'}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 30.0-50.0}
+  - {name: RE, value: 'PB PB --> ${\rm D}^{*+}$ X'}
+  - {name: RE, value: 'PB PB --> ${\rm D}^{+}$ X'}
+  - {name: RE, value: 'PB PB --> ${\rm D}^{0}$ X'}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  - {name: YRAP, value: -0.5-0.5}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.286}
+    - asymerror: {minus: -0.326, plus: 0.259}
+      label: sys
+    - {label: 'sys,global normalization uncertainty', symerror: 6.2%}
+    value: 0.858
+  - errors:
+    - {label: stat, symerror: 0.094}
+    - asymerror: {minus: -0.319, plus: 0.206}
+      label: sys
+    - {label: 'sys,global normalization uncertainty', symerror: 6.2%}
+    value: 0.828
+  - errors:
+    - {label: stat, symerror: 0.054}
+    - asymerror: {minus: -0.176, plus: 0.133}
+      label: sys
+    - {label: 'sys,global normalization uncertainty', symerror: 6.2%}
+    value: 0.568
+  - errors:
+    - {label: stat, symerror: 0.042}
+    - asymerror: {minus: -0.118, plus: 0.096}
+      label: sys
+    - {label: 'sys,global normalization uncertainty', symerror: 6.2%}
+    value: 0.424
+  - errors:
+    - {label: stat, symerror: 0.047}
+    - asymerror: {minus: -0.113, plus: 0.1}
+      label: sys
+    - {label: 'sys,global normalization uncertainty', symerror: 6.2%}
+    value: 0.434
+  - errors:
+    - {label: stat, symerror: 0.04}
+    - asymerror: {minus: -0.087, plus: 0.081}
+      label: sys
+    - {label: 'sys,global normalization uncertainty', symerror: 6.2%}
+    value: 0.349
+  - errors:
+    - {label: stat, symerror: 0.036}
+    - asymerror: {minus: -0.084, plus: 0.079}
+      label: sys
+    - {label: 'sys,global normalization uncertainty', symerror: 6.2%}
+    value: 0.343
+  - errors:
+    - {label: stat, symerror: 0.086}
+    - asymerror: {minus: -0.119, plus: 0.114}
+      label: sys
+    - {label: 'sys,global normalization uncertainty', symerror: 6.2%}
+    value: 0.475
+independent_variables:
+- header: {name: PT, units: GEV/c}
+  values:
+  - {high: 2.0, low: 1.0}
+  - {high: 3.0, low: 2.0}
+  - {high: 4.0, low: 3.0}
+  - {high: 5.0, low: 4.0}
+  - {high: 6.0, low: 5.0}
+  - {high: 8.0, low: 6.0}
+  - {high: 12.0, low: 8.0}
+  - {high: 16.0, low: 12.0}

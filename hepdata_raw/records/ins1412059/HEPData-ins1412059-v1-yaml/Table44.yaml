@@ -1,0 +1,55 @@
+dependent_variables:
+- header: {name: PbPb}
+  qualifiers:
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.029}
+    - asymerror: {minus: -0.033, plus: 0.028}
+      label: sys
+    value: 0.273
+  - errors:
+    - {label: stat, symerror: 0.018}
+    - {label: sys, symerror: 0.019}
+    value: 0.163
+  - errors:
+    - {label: stat, symerror: 0.008}
+    - asymerror: {minus: -0.009, plus: 0.013}
+      label: sys
+    value: 0.138
+  - errors:
+    - {label: stat, symerror: 0.002}
+    - asymerror: {minus: -0.007, plus: 0.013}
+      label: sys
+    value: 0.097
+- header: {name: pp}
+  qualifiers:
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.035}
+    - asymerror: {minus: -0.038, plus: 0.026}
+      label: sys
+    value: 0.223
+  - errors:
+    - {label: stat, symerror: 0.019}
+    - asymerror: {minus: -0.018, plus: 0.02}
+      label: sys
+    value: 0.152
+  - errors:
+    - {label: stat, symerror: 0.007}
+    - asymerror: {minus: -0.01, plus: 0.018}
+      label: sys
+    value: 0.123
+  - errors:
+    - {label: stat, symerror: 0.002}
+    - asymerror: {minus: -0.005, plus: 0.012}
+      label: sys
+    value: 0.092
+independent_variables:
+- header: {name: Track pT}
+  values:
+  - {high: 2.0, low: 1.0}
+  - {high: 3.0, low: 2.0}
+  - {high: 4.0, low: 3.0}
+  - {high: 8.0, low: 4.0}

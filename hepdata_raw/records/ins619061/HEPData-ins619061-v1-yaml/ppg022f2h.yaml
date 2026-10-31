@@ -1,0 +1,60 @@
+dependent_variables:
+- header: {name: $\langle p_T \rangle$ (GeV/$c$)}
+  qualifiers:
+  - {name: Particle, value: $K^+$ and $K^-$}
+  values:
+  - {value: 0.42}
+  - {value: 0.63}
+  - {value: 0.87}
+  - {value: 1.12}
+  - {value: 1.37}
+  - {value: 1.71}
+  - {value: 2.19}
+  - {value: 2.69}
+- header: {name: $v_2$}
+  qualifiers:
+  - {name: Particle, value: $K^+$ and $K^-$}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.004}
+    - {label: sys, symerror: 0.0018}
+    value: 0.0184
+  - errors:
+    - {label: stat, symerror: 0.0025}
+    - {label: sys, symerror: 0.004}
+    value: 0.0423
+  - errors:
+    - {label: stat, symerror: 0.0024}
+    - {label: sys, symerror: 0.006}
+    value: 0.0621
+  - errors:
+    - {label: stat, symerror: 0.0028}
+    - {label: sys, symerror: 0.009}
+    value: 0.0923
+  - errors:
+    - {label: stat, symerror: 0.0034}
+    - {label: sys, symerror: 0.011}
+    value: 0.107
+  - errors:
+    - {label: stat, symerror: 0.0035}
+    - {label: sys, symerror: 0.012}
+    value: 0.123
+  - errors:
+    - {label: stat, symerror: 0.007}
+    - {label: sys, symerror: 0.013}
+    value: 0.13
+  - errors:
+    - {label: stat, symerror: 0.014}
+    - {label: sys, symerror: 0.012}
+    value: 0.123
+independent_variables:
+- header: {name: $p_T$ (GeV/$c$)}
+  values:
+  - {high: 0.5, low: 0.25}
+  - {high: 0.75, low: 0.5}
+  - {high: 1.0, low: 0.75}
+  - {high: 1.25, low: 1.0}
+  - {high: 1.5, low: 1.25}
+  - {high: 2.0, low: 1.5}
+  - {high: 2.5, low: 2.0}
+  - {high: 3.0, low: 2.5}

@@ -1,0 +1,46 @@
+dependent_variables:
+- header: {name: '$\frac{1}{N_{\rm ev}} \frac{{\rm d}^{2}N}{{\rm d}p_{\rm T}/{\rm
+      d}y}$', units: '(GeV/$c$)$^{-1}$'}
+  qualifiers:
+  - {name: CENTRALITY, value: 40 - 60}
+  - {name: RE, value: Xe Xe --> MUON X}
+  - {name: SQRT(S), value: 5440.0 GeV}
+  values:
+  - errors:
+    - {label: stat, symerror: 2.22891e-05}
+    - {label: sys, symerror: 2.71033e-05}
+    value: 0.000370831
+  - errors:
+    - {label: stat, symerror: 1.74692e-05}
+    - {label: sys, symerror: 1.16199e-05}
+    value: 0.000214663
+  - errors:
+    - {label: stat, symerror: 1.43132e-05}
+    - {label: sys, symerror: 6.36748e-06}
+    value: 0.000140228
+  - errors:
+    - {label: stat, symerror: 1.15317e-05}
+    - {label: sys, symerror: 3.55361e-06}
+    value: 8.91032e-05
+  - errors:
+    - {label: stat, symerror: 8.31471e-06}
+    - {label: sys, symerror: 1.70462e-06}
+    value: 4.5833e-05
+  - errors:
+    - {label: stat, symerror: 7.05235e-06}
+    - {label: sys, symerror: 1.13322e-06}
+    value: 3.25948e-05
+  - errors:
+    - {label: stat, symerror: 4.14064e-06}
+    - {label: sys, symerror: 6.68142e-07}
+    value: 2.19632e-05
+independent_variables:
+- header: {name: '$p_{\rm T}$', units: GeV/$c$}
+  values:
+  - {high: 3.5, low: 3.0}
+  - {high: 4.0, low: 3.5}
+  - {high: 4.5, low: 4.0}
+  - {high: 5.0, low: 4.5}
+  - {high: 5.5, low: 5.0}
+  - {high: 6.0, low: 5.5}
+  - {high: 7.0, low: 6.0}

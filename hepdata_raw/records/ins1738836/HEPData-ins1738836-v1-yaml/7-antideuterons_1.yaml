@@ -1,0 +1,57 @@
+dependent_variables:
+- header: {name: '$1/N_{\mathrm{ev}}\mathrm{d}^{2}N/(\mathrm{d}y\mathrm{d}p_{T})$',
+    units: c/GeV}
+  qualifiers:
+  - {name: RE, value: 'P PB--> $\bar{d}$ + X'}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020.0'}
+  - {name: YRAP(CM), value: -1 TO 0}
+  - {name: Multiplicity, value: 10-20% V0A class}
+  values:
+  - errors:
+    - {label: Statistical uncertainty, symerror: 5.4304e-05}
+    - {label: Systematic uncertainty, symerror: 9.6036e-05}
+    value: 0.0011239
+  - errors:
+    - {label: Statistical uncertainty, symerror: 4.016e-05}
+    - {label: Systematic uncertainty, symerror: 8.6389e-05}
+    value: 0.0010112
+  - errors:
+    - {label: Statistical uncertainty, symerror: 3.5512e-05}
+    - {label: Systematic uncertainty, symerror: 8.2866e-05}
+    value: 0.00096873
+  - errors:
+    - {label: Statistical uncertainty, symerror: 3.1067e-05}
+    - {label: Systematic uncertainty, symerror: 6.9144e-05}
+    value: 0.00080773
+  - errors:
+    - {label: Statistical uncertainty, symerror: 2.8637e-05}
+    - {label: Systematic uncertainty, symerror: 6.0391e-05}
+    value: 0.0007051
+  - errors:
+    - {label: Statistical uncertainty, symerror: 2.795e-05}
+    - {label: Systematic uncertainty, symerror: 5.4723e-05}
+    value: 0.00063411
+  - errors:
+    - {label: Statistical uncertainty, symerror: 2.8771e-05}
+    - {label: Systematic uncertainty, symerror: 4.5173e-05}
+    value: 0.00051454
+  - errors:
+    - {label: Statistical uncertainty, symerror: 3.0706e-05}
+    - {label: Systematic uncertainty, symerror: 3.1443e-05}
+    value: 0.0003524
+  - errors:
+    - {label: Statistical uncertainty, symerror: 5.545e-05}
+    - {label: Systematic uncertainty, symerror: 2.9379e-05}
+    value: 0.00032474
+independent_variables:
+- header: {name: '$p_{T}$', units: GeV/c}
+  values:
+  - {high: 1.0, low: 0.8}
+  - {high: 1.2, low: 1.0}
+  - {high: 1.4, low: 1.2}
+  - {high: 1.6, low: 1.4}
+  - {high: 1.8, low: 1.6}
+  - {high: 2.0, low: 1.8}
+  - {high: 2.2, low: 2.0}
+  - {high: 2.4, low: 2.2}
+  - {high: 2.6, low: 2.4}

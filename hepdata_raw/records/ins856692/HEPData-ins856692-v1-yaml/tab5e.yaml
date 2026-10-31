@@ -1,0 +1,26 @@
+dependent_variables:
+- header: {name: MEAN(PHASE SPACE DENSITY)}
+  qualifiers:
+  - {name: PARTICLE, value: PBAR}
+  - {name: CENTRALITY, units: PCT, value: 0-20}
+  - {name: YRAP, value: '0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 6.0e-05}
+    value: 0.00057
+  - errors:
+    - {label: stat, symerror: 4.0e-05}
+    value: 0.000334
+  - errors:
+    - {label: stat, symerror: 3.8e-05}
+    value: 0.000262
+  - errors:
+    - {label: stat, symerror: 3.8e-05}
+    value: 0.000174
+independent_variables:
+- header: {name: MT/A, units: GEV/C}
+  values:
+  - {high: 1.31, low: 1.1}
+  - {high: 1.53, low: 1.29}
+  - {high: 1.77, low: 1.52}
+  - {high: 2.03, low: 1.77}

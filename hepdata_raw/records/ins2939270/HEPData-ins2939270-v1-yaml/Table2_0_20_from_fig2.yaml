@@ -1,0 +1,29 @@
+dependent_variables:
+- header: {name: 'Invariant yield J/$\psi$, 0-20\%'}
+  qualifiers:
+  - {name: '$p_{T} (GeV/c)$', value: 'Invariant yield J/$\psi$, 0-20\%, 54.4 GeV,
+      $p_{T} (GeV/c)$ > 0.2 GeV/c, $\vert y \vert$ < 1.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 9.0e-07}
+    - {label: sys, symerror: 1.3e-06}
+    value: 7.4e-06
+  - errors:
+    - {label: stat, symerror: 3.3e-07}
+    - {label: sys, symerror: 5.0e-07}
+    value: 3.33e-06
+  - errors:
+    - {label: stat, symerror: 1.3e-07}
+    - {label: sys, symerror: 1.7e-07}
+    value: 1.02e-06
+  - errors:
+    - {label: stat, symerror: 2.1e-08}
+    - {label: sys, symerror: 2.0e-08}
+    value: 1.01e-07
+independent_variables:
+- header: {name: '$p_{T} (GeV/c)$'}
+  values:
+  - {high: 1.0, low: 0.2}
+  - {high: 2.0, low: 1.0}
+  - {high: 3.0, low: 2.0}
+  - {high: 5.0, low: 3.0}

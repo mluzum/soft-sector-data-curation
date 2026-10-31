@@ -1,0 +1,29 @@
+dependent_variables:
+- header: {name: ''}
+  values:
+  - {value: '$p^{\uparrow}$+$p$'}
+  - {value: '$p^{\uparrow}$+Al'}
+  - {value: '$p^{\uparrow}$+Au'}
+- header: {name: $A_N$}
+  values:
+  - errors:
+    - {label: '$\sigma A^{stat.}_N$', symerror: 0.0037}
+    - asymerror: {minus: -0.0018, plus: 0.0005}
+      label: $\sigma A^{syst.}_N$
+    value: 0.0314
+  - errors:
+    - {label: '$\sigma A^{stat.}_N$', symerror: 0.0072}
+    - asymerror: {minus: -0.0002, plus: 0.0002}
+      label: $\sigma A^{syst.}_N$
+    value: 0.0142
+  - errors:
+    - {label: '$\sigma A^{stat.}_N$', symerror: 0.0055}
+    - asymerror: {minus: -0.0006, plus: 0.0006}
+      label: $\sigma A^{syst.}_N$
+    value: 0.0012
+independent_variables:
+- header: {name: '$A^{1/3}$'}
+  values:
+  - {value: 1}
+  - {value: 3}
+  - {value: 5.7}

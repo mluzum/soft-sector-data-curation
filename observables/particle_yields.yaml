@@ -1,0 +1,62 @@
+# Schema for integrated particle yields (dN/dy) and multiplicity.
+#
+#   dN/dy    — rapidity density at midrapidity (often extrapolated to pT → 0)
+#   dN_ch/dη — charged-particle pseudorapidity density
+#   ⟨dN_ch/dη⟩ — average over a pseudorapidity range
+#   N_ch      — total charged multiplicity
+
+observable_type: particle_yields
+description: >
+  Integrated particle yields, rapidity densities, and
+  charged-particle multiplicities.
+
+composes:
+  - _common#collision_system
+  - _common#particle_id
+  - _common#kinematic_range
+
+optional_composes:
+  - centrality#centrality
+
+required_fields:
+  observable:
+    type: string
+    required: true
+    description: Short identifier.
+    example: "dN_dy"
+  value_type:
+    type: string
+    required: true
+    description: >
+      One of: 'dN_dy', 'dNch_deta', 'dNch_deta_avg', 'Nch',
+      'dN_dy_per_pair', 'dN_dpT_dy_integrated'
+    example: "dN_dy"
+
+optional_fields:
+  rapidity_range:
+    type: object
+    required: false
+    description: Rapidity integration range.
+    fields:
+      min: {type: float, required: true, example: -0.5}
+      max: {type: float, required: true, example: 0.5}
+  pT_range:
+    type: object
+    required: false
+    description: "pT integration range used for the yield (if not full pT)."
+    fields:
+      min: {type: float, required: true, example: 0.0}
+      max: {type: float, required: true, example: 6.0}
+  is_extrapolated:
+    type: boolean
+    required: false
+    description: "True if the yield includes an extrapolation to pT=0."
+    example: true
+  extrapolation_method:
+    type: string
+    required: false
+    description: "Description of the low-pT extrapolation (e.g. 'Blast-wave fit')."
+
+validation:
+  rules:
+    - "yields_must_be_positive"

@@ -1,0 +1,21 @@
+dependent_variables:
+- header: {name: SLOPE, units: GEV**-2}
+  qualifiers:
+  - {name: -T, units: GEV**2, value: 0.025 TO 1.0}
+  - {name: RE, value: LAMBDA P --> LAMBDA P}
+  values:
+  - errors:
+    - {symerror: 1.4}
+    value: 3.5
+  - errors:
+    - {symerror: 1.0}
+    value: 4.2
+  - errors:
+    - {symerror: 2.0}
+    value: 10.0
+independent_variables:
+- header: {name: P, units: GEV}
+  values:
+  - {high: 3.0, low: 1.5}
+  - {high: 8.0, low: 3.0}
+  - {high: 24.0, low: 8.0}

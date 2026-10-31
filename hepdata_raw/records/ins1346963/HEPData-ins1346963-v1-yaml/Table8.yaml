@@ -1,0 +1,53 @@
+dependent_variables:
+- header: {name: '$R^\mathrm{ch\;jets}_\mathrm{pPb}$'}
+  qualifiers:
+  - {name: ALGO-JET, value: ANTIKT}
+  - {name: ETARAP-JET, value: -0.5-0.5}
+  - {name: ETARAP-PARTICLE, value: -0.9-0.9}
+  - {name: NORMALIZATION UNCERTAINTY, value: 11.56 %}
+  - {name: RADIUS-JET, value: '0.2'}
+  - {name: SQRT(SNN), units: GeV, value: '5023.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0116}
+    - {label: sys, symerror: 0.07061}
+    value: 0.9876
+  - errors:
+    - {label: stat, symerror: 0.01904}
+    - {label: sys, symerror: 0.07637}
+    value: 1.021
+  - errors:
+    - {label: stat, symerror: 0.02468}
+    - {label: sys, symerror: 0.0848}
+    value: 0.9314
+  - errors:
+    - {label: stat, symerror: 0.03383}
+    - {label: sys, symerror: 0.08437}
+    value: 0.9322
+  - errors:
+    - {label: stat, symerror: 0.04668}
+    - {label: sys, symerror: 0.08517}
+    value: 0.9454
+  - errors:
+    - {label: stat, symerror: 0.06391}
+    - {label: sys, symerror: 0.08531}
+    value: 0.9514
+  - errors:
+    - {label: stat, symerror: 0.08842}
+    - {label: sys, symerror: 0.09172}
+    value: 0.9941
+  - errors:
+    - {label: stat, symerror: 0.1063}
+    - {label: sys, symerror: 0.1154}
+    value: 0.9667
+independent_variables:
+- header: {name: '$p_\mathrm{T,\;ch\;jet} (\mathrm{GeV}/c)$'}
+  values:
+  - {value: '25 +5,-5'}
+  - {value: '35 +5,-5'}
+  - {value: '45 +5,-5'}
+  - {value: '55 +5,-5'}
+  - {value: '65 +5,-5'}
+  - {value: '75 +5,-5'}
+  - {value: '90 +10,-10'}
+  - {value: '110 +10,-10'}

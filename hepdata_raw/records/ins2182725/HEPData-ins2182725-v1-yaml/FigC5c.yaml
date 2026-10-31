@@ -1,0 +1,76 @@
+dependent_variables:
+- header: {name: '$(\Xi^{-} + \Xi^{+}) / 2{\rm K}_{\rm S}^{0}$'}
+  qualifiers:
+  - {name: RE, value: 'P PB --> JET KS X, P PB --> JET XI X'}
+  - {name: SQRT(S), units: GeV, value: '5020'}
+  - {name: CENTRALITY, value: $10$-$40\%$}
+  - {name: YRAP, value: '$-0.75 < \eta_{\rm particle} < 0.75$, $-0.35 < \eta_{\rm
+      jet} < 0.35$'}
+  - {name: SELECTION, value: Perp. cone}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0021}
+    - {label: sys, symerror: 0.00187}
+    value: 0.0374
+  - errors:
+    - {label: stat, symerror: 0.00385}
+    - {label: sys, symerror: 0.00318}
+    value: 0.075
+  - errors:
+    - {label: stat, symerror: 0.00612}
+    - {label: sys, symerror: 0.00346}
+    value: 0.108
+  - errors:
+    - {label: stat, symerror: 0.00782}
+    - {label: sys, symerror: 0.00323}
+    value: 0.12
+  - errors:
+    - {label: stat, symerror: 0.0114}
+    - {label: sys, symerror: 0.00597}
+    value: 0.109
+  - errors:
+    - {label: stat, symerror: 0.0195}
+    - {label: sys, symerror: 0.00351}
+    value: 0.0834
+- header: {name: '$(\Xi^{-} + \Xi^{+}) / 2{\rm K}_{\rm S}^{0}$'}
+  qualifiers:
+  - {name: RE, value: 'P PB --> JET KS X, P PB --> JET XI X'}
+  - {name: SQRT(S), units: GeV, value: '5020'}
+  - {name: CENTRALITY, value: $40$-$100\%$}
+  - {name: YRAP, value: '$-0.75 < \eta_{\rm particle} < 0.75$, $-0.35 < \eta_{\rm
+      jet} < 0.35$'}
+  - {name: SELECTION, value: Perp. cone}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.00288}
+    - {label: sys, symerror: 0.00148}
+    value: 0.0321
+  - errors:
+    - {label: stat, symerror: 0.00594}
+    - {label: sys, symerror: 0.00269}
+    value: 0.0785
+  - errors:
+    - {label: stat, symerror: 0.00873}
+    - {label: sys, symerror: 0.00293}
+    value: 0.0977
+  - errors:
+    - {label: stat, symerror: 0.011}
+    - {label: sys, symerror: 0.00249}
+    value: 0.105
+  - errors:
+    - {label: stat, symerror: 0.0148}
+    - {label: sys, symerror: 0.00335}
+    value: 0.079
+  - errors:
+    - {label: stat, symerror: 0.0273}
+    - {label: sys, symerror: 0.00336}
+    value: 0.0694
+independent_variables:
+- header: {name: '$p_{\rm T}$', units: GeV/$c$}
+  values:
+  - {high: 1.6, low: 0.6}
+  - {high: 2.2, low: 1.6}
+  - {high: 2.8, low: 2.2}
+  - {high: 3.7, low: 2.8}
+  - {high: 5.0, low: 3.7}
+  - {high: 8.0, low: 5.0}

@@ -1,0 +1,24 @@
+dependent_variables:
+- header: {name: '$\Lambda_{\rm c}^{+}$/${\rm D}^{0}$ baryon-to-meson ratio'}
+  qualifiers:
+  - {name: RE, value: P P --> Lc X}
+  - {name: RE, value: P PB --> Lc X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: '0.04'}
+    - {label: sys, symerror: '0.04'}
+    - asymerror: {minus: '-0.02', plus: '0.01'}
+      label: sys
+    value: '0.51'
+  - errors:
+    - {label: stat, symerror: '0.03'}
+    - {label: sys, symerror: '0.06'}
+    - asymerror: {minus: '-0.03', plus: '0.05'}
+      label: sys
+    value: '0.42'
+independent_variables:
+- header: {name: RE}
+  values:
+  - {value: P P --> Lc X}
+  - {value: P PB --> Lc X}

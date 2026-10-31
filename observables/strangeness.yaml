@@ -1,0 +1,36 @@
+observable_type: strangeness
+description: >
+  Production of strange hadrons (K_S^0, Λ, Ξ, Ω, φ) and
+  multi-strange baryons in heavy-ion collisions.
+
+composes:
+  - _common#collision_system
+  - centrality#centrality
+  - _common#particle_id
+  - _common#kinematic_range
+
+required_fields:
+  observable:
+    type: string
+    required: true
+    description: Short identifier.
+    example: "strangeness_spectra"
+  value_type:
+    type: string
+    required: true
+    description: >
+      One of: 'invariant_yield', 'dN_dy', 'R_AA', 'v2',
+      'particle_ratio', 'yield_ratio'
+    example: "invariant_yield"
+
+optional_fields:
+  particle_ratio:
+    type: string
+    required: false
+    description: "Ratio of two species if applicable (e.g. 'Xi-/Xi+', 'Lambda/Ks')."
+    example: "Xi-/Xi+"
+  feed_down_corrected:
+    type: boolean
+    required: false
+    description: "Whether weak-decay feed-down corrections were applied."
+    example: true

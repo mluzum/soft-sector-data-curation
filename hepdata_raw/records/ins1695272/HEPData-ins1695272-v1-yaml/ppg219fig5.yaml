@@ -1,0 +1,46 @@
+dependent_variables:
+- header: {name: '$\sigma N_{coll}$'}
+  qualifiers:
+  - {name: $x_E$, value: ''}
+  values:
+  - {value: 0.1}
+  - {value: 0.6}
+  - {value: 0.6}
+- header: {name: 'Squared Gaussian Width$_{p+A-p+p}$ (GeV/$c$)$^2$'}
+  qualifiers:
+  - {name: $x_E$, value: 0.15 - 0.25}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.004}
+    - {label: sys., symerror: 0.013}
+    value: 0.017
+  - errors:
+    - {label: stat., symerror: 0.004}
+    - {label: sys., symerror: 0.034}
+    value: 0.016
+  - errors:
+    - {label: stat., symerror: 0.005}
+    - {label: sys., symerror: 0.013}
+    value: 0.045
+- header: {name: 'Squared Gaussian Width$_{p+A-p+p}$ (GeV/$c$)$^2$'}
+  qualifiers:
+  - {name: $x_E$, value: 0.25 - 0.50}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.017}
+    - {label: sys., symerror: 0.022}
+    value: 0.02
+  - errors:
+    - {label: stat., symerror: 0.018}
+    - {label: sys., symerror: 0.023}
+    value: 0.039
+  - errors:
+    - {label: stat., symerror: 0.022}
+    - {label: sys., symerror: 0.016}
+    value: 0.105
+independent_variables:
+- header: {name: '$N_{coll}$'}
+  values:
+  - {value: 2.1}
+  - {value: 4.4}
+  - {value: 7.7}

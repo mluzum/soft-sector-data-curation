@@ -1,0 +1,65 @@
+dependent_variables:
+- header: {name: '$\mathrm{d}^{2}\sigma/\mathrm{d}y\mathrm{d}p_\mathrm{T}$', units: MUB}
+  qualifiers:
+  - {name: RE, value: P P --> Lc X}
+  - {name: SQRT(S), units: GEV, value: '5020.0'}
+  - {name: Y, value: -0.5 TO 0.5}
+  values:
+  - errors:
+    - {label: stat., symerror: 10.4}
+    - {label: syst., symerror: 6.1}
+    - {label: lumi., symerror: 2.1%}
+    value: 47.9
+  - errors:
+    - {label: stat., symerror: 10.3}
+    - asymerror: {minus: -7.99, plus: 7.92}
+      label: syst.
+    - {label: lumi., symerror: 2.1%}
+    value: 86.7
+  - errors:
+    - {label: stat., symerror: 4.1}
+    - asymerror: {minus: -4.34, plus: 4.28}
+      label: syst.
+    - {label: lumi., symerror: 2.1%}
+    value: 43
+  - errors:
+    - {label: stat., symerror: 1.59}
+    - asymerror: {minus: -1.91, plus: 1.88}
+      label: syst.
+    - {label: lumi., symerror: 2.1%}
+    value: 19.4
+  - errors:
+    - {label: stat., symerror: 0.707}
+    - asymerror: {minus: -0.735, plus: 0.714}
+      label: syst.
+    - {label: lumi., symerror: 2.1%}
+    value: 7.01
+  - errors:
+    - {label: stat., symerror: 0.335}
+    - asymerror: {minus: -0.298, plus: 0.285}
+      label: syst.
+    - {label: lumi., symerror: 2.1%}
+    value: 2.77
+  - errors:
+    - {label: stat., symerror: 0.106}
+    - asymerror: {minus: -0.114, plus: 0.108}
+      label: syst.
+    - {label: lumi., symerror: 2.1%}
+    value: 0.995
+  - errors:
+    - {label: stat., symerror: 0.0276}
+    - asymerror: {minus: -0.0208, plus: 0.0191}
+      label: syst.
+    - {label: lumi., symerror: 2.1%}
+    value: 0.179
+independent_variables:
+- header: {name: PT, units: GEV/C}
+  values:
+  - {high: 1, low: 0, value: 0.5}
+  - {high: 2, low: 1, value: 1.5}
+  - {high: 3, low: 2, value: 2.5}
+  - {high: 4, low: 3, value: 3.5}
+  - {high: 5, low: 4, value: 4.5}
+  - {high: 6, low: 5, value: 5.5}
+  - {high: 8, low: 6, value: 7}
+  - {high: 12, low: 8, value: 10}

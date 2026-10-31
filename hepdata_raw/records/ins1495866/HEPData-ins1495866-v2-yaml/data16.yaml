@@ -1,0 +1,39 @@
+dependent_variables:
+- header: {name: UPSILON(2S) RAA}
+  qualifiers:
+  - {name: RE, value: PB PB --> UPSILON(2S) < MU+ MU- > X}
+  - {name: RE, value: P P --> UPSILON(2S) < MU+ MU- > X}
+  - {name: ABS(RAP), value: 0-2.4}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 2760}
+  - {name: GLOBAL PBPB UNCERTAINTY, value: 3.2%}
+  - {name: GLOBAL PP UNCERTAINTY, value: 6.9%}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.155}
+    - {label: syst, symerror: 0.128}
+    value: 0.235
+  - errors:
+    - {label: stat, symerror: 0.079}
+    - {label: syst, symerror: 0.112}
+    value: 0.294
+  - errors:
+    - {label: stat, symerror: 0.043}
+    - {label: syst, symerror: 0.065}
+    value: 0.092
+  - errors:
+    - {label: stat, symerror: 0.045}
+    - {label: syst, symerror: 0.038}
+    value: 0.076
+independent_variables:
+- header: {name: CENTRALITY, units: PCT}
+  values:
+  - {high: 100, low: 50}
+  - {high: 50, low: 30}
+  - {high: 30, low: 10}
+  - {high: 10, low: 0}
+- header: {name: <Npart>}
+  values:
+  - {value: 22.1}
+  - {value: 108}
+  - {value: 224}
+  - {value: 355}

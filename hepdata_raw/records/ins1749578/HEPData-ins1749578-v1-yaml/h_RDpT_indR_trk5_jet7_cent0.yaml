@@ -1,0 +1,79 @@
+dependent_variables:
+- header: {name: RD(pT r)}
+  qualifiers:
+  - {name: RE, value: Ratio of charged particle distributions}
+  - {name: pT(jet), units: GeV, value: 125.9 - 158.5}
+  - {name: pT(trk), units: GeV, value: 4.0 - 6.3}
+  - {name: Centrality, value: 0-10%}
+  - {name: abs. rapidity(jet), value: 0 - 1.7}
+  - {name: SQRT(S), units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - asymerror: {minus: -0.0418219, plus: 0.041666}
+      label: sys
+    - {label: stat, symerror: 0.00804007}
+    value: 1.01563
+  - errors:
+    - asymerror: {minus: -0.0131299, plus: 0.0142468}
+      label: sys
+    - {label: stat, symerror: 0.00605973}
+    value: 0.967181
+  - errors:
+    - asymerror: {minus: -0.0176217, plus: 0.0178247}
+      label: sys
+    - {label: stat, symerror: 0.00746397}
+    value: 0.947255
+  - errors:
+    - asymerror: {minus: -0.0262721, plus: 0.026304}
+      label: sys
+    - {label: stat, symerror: 0.00960285}
+    value: 0.879899
+  - errors:
+    - asymerror: {minus: -0.0500427, plus: 0.0499919}
+      label: sys
+    - {label: stat, symerror: 0.0126672}
+    value: 0.838556
+  - errors:
+    - asymerror: {minus: -0.0482341, plus: 0.0484287}
+      label: sys
+    - {label: stat, symerror: 0.0162391}
+    value: 0.772231
+  - errors:
+    - asymerror: {minus: -0.0719171, plus: 0.0719777}
+      label: sys
+    - {label: stat, symerror: 0.0173071}
+    value: 0.762065
+  - errors:
+    - asymerror: {minus: -0.0557025, plus: 0.0566371}
+      label: sys
+    - {label: stat, symerror: 0.0268637}
+    value: 0.669028
+  - errors:
+    - asymerror: {minus: -0.102865, plus: 0.103449}
+      label: sys
+    - {label: stat, symerror: 0.0344254}
+    value: 0.535378
+  - errors:
+    - asymerror: {minus: -0.0575896, plus: 0.0575825}
+      label: sys
+    - {label: stat, symerror: 0.0445839}
+    value: 0.516738
+  - errors:
+    - asymerror: {minus: -0.0585313, plus: 0.0585192}
+      label: sys
+    - {label: stat, symerror: 0.0500768}
+    value: 0.375309
+independent_variables:
+- header: {name: r}
+  values:
+  - {high: 0.05, low: 0}
+  - {high: 0.1, low: 0.05}
+  - {high: 0.15, low: 0.1}
+  - {high: 0.2, low: 0.15}
+  - {high: 0.25, low: 0.2}
+  - {high: 0.3, low: 0.25}
+  - {high: 0.4, low: 0.3}
+  - {high: 0.5, low: 0.4}
+  - {high: 0.6, low: 0.5}
+  - {high: 0.7, low: 0.6}
+  - {high: 0.8, low: 0.7}

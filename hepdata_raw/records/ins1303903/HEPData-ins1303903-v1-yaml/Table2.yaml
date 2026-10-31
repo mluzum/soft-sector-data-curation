@@ -1,0 +1,35 @@
+dependent_variables:
+- header: {name: D(SIG)/DYRAP, units: MUB}
+  qualifiers:
+  - {name: RE, value: PB P --> PB P J/PSI < MU+ MU- >}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.31}
+    - asymerror: {minus: -0.27, plus: 0.23}
+      label: sys
+    value: 2.46
+- header: {name: K*(DN/DK)}
+  qualifiers:
+  - {name: RE, value: PB P --> PB P J/PSI < MU+ MU- >}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  values:
+  - {value: 8.66}
+- header: {name: SIG(GAMMA P), units: NB}
+  qualifiers:
+  - {name: RE, value: PB P --> PB P J/PSI < MU+ MU- >}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 36.0}
+    - asymerror: {minus: -32.0, plus: 27.0}
+      label: sys,syst
+    - {label: 'sys,theo', symerror: 26.0}
+    value: 284.0
+independent_variables:
+- header: {name: YRAP}
+  values:
+  - {high: -2.6, low: -3.6}
+- header: {name: W(GAMMA P), units: GEV}
+  values:
+  - {high: 952.0, low: 577.0, value: 706.0}

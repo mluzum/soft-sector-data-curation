@@ -1,0 +1,128 @@
+---
+observable_type: heavy_flavor
+inspire_id: '2641480'
+version: 1
+hepdata_file: Figure_3a.yaml
+hepdata_table_label: Ratios of NPE (non-photonic electron) to PHE (photonic electron) as a function of $p_{\rm T}$ in 0-10%
+  central (yellow circles) and 40-80% peripheral (green squares) Au+Au collisions at $\sqrt{s_{\rm NN}}=200$ GeV. Vertical
+  bars represent statistical uncertainties while boxes represent systematic uncertainties. Horizontal bars indicate the bin
+  width.
+collision_system:
+  energy_gev: 200.0
+  reaction: AuAu
+centrality:
+  classes:
+  - 0-10%
+  - 40-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: e-
+  particle: D0
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+    bins:
+    - -1.0
+    - 1.0
+  pT:
+    min: 0.15
+    max: 10
+    bins:
+    - 0.15
+    - 10
+observable: d0_invariant_yield
+value_type: invariant_yield
+particle: D0
+---
+observable_type: heavy_flavor
+inspire_id: '2641480'
+version: 1
+hepdata_file: Figure_6.yaml
+hepdata_table_label: HFE (electrons from semileptonic decays of heavy-flavor hadrons) $R_{\rm AA}$ (red circles) as a function
+  of $p_{\rm T}$ in different centrality intervals of Au+Au collisions at $\sqrt{s_{\rm NN}}=200$ GeV, compared with STAR
+  (yellow stars) and PHENIX (green squares) published results, and Duke ((modified Langevin transport model, blue line) and
+  PHSD (parton-hadron-string dynamics model, orange line) model calculations. Vertical bars and boxes around data points represent
+  combined statistical and systematic uncertainties from both Au+Au and $p$+$p$ measurements, respectively. Boxes at unity
+  show the global uncertainties, which for this analysis include the 8% global uncertainty on $p$+$p$ reference and the $N_{\rm
+  coll}$ uncertainties. The left box is for PHENIX and the right one for STAR.
+collision_system:
+  energy_gev: 200.0
+  reaction: AuAu
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: e-
+  particle: D0
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+    bins:
+    - -1.0
+    - 1.0
+  pT:
+    min: 0.15
+    max: 10
+    bins:
+    - 0.15
+    - 10
+observable: d0_invariant_yield
+value_type: invariant_yield
+particle: D0
+---
+observable_type: heavy_flavor
+inspire_id: '2641480'
+version: 1
+hepdata_file: Figure_7.yaml
+hepdata_table_label: HFE (electrons from semileptonic decays of heavy-flavor hadrons) $R_{\rm AA}$ (red circles) as a function
+  of $N_{\rm part}$ in Au+Au collisions at $\sqrt{s_{\rm NN}}=200$ GeV, compared with PHENIX measurements (green squares),
+  and Duke (blue line) and PHSD (orange line) model calculations. Vertical bars and boxes around data points represent statistical
+  and systematic uncertainties from Au+Au measurements, respectively. The gray band represents the $N_{\rm coll}$ uncertainties.
+  The boxes at unity show the global uncertainties including the total uncertainties of the $p$+$p$ reference.
+collision_system:
+  energy_gev: 200.0
+  reaction: AuAu
+centrality:
+  classes: []
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: e-
+  particle: D0
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+    bins:
+    - -1.0
+    - 1.0
+  pT:
+    min: 0.15
+    max: 10
+    bins:
+    - 0.15
+    - 10
+observable: d0_invariant_yield
+value_type: invariant_yield
+particle: D0

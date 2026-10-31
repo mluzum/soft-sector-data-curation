@@ -1,0 +1,92 @@
+dependent_variables:
+- header: {name: PROMPT J/PSI V2}
+  qualifiers:
+  - {name: RE, value: PB PB --> J/PSI < MU+ MU- > X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020.0'}
+  - {name: PT, units: GEV/C, value: 6.5-50.0}
+  - {name: ABS(YRAP), value: 0.0-2.4}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0126}
+    - {label: syst, symerror: 0.0034}
+    value: 0.0313
+  - errors:
+    - {label: stat, symerror: 0.0106}
+    - {label: syst, symerror: 0.0041}
+    value: 0.0596
+  - errors:
+    - {label: stat, symerror: 0.0108}
+    - {label: syst, symerror: 0.0028}
+    value: 0.0794
+  - errors:
+    - {label: stat, symerror: 0.0118}
+    - {label: syst, symerror: 0.0052}
+    value: 0.0712
+  - errors:
+    - {label: stat, symerror: 0.0155}
+    - {label: syst, symerror: 0.005}
+    value: 0.0695
+  - errors:
+    - {label: stat, symerror: 0.018}
+    - {label: syst, symerror: 0.0022}
+    value: 0.0546
+- header: {name: NONPROMPT J/PSI V2}
+  qualifiers:
+  - {name: RE, value: PB PB --> NONPROMPT J/PSI < MU+ MU- > X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020.0'}
+  - {name: PT, units: GEV/C, value: 6.5-50.0}
+  - {name: ABS(YRAP), value: 0.0-2.4}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0151}
+    - {label: syst, symerror: 0.0072}
+    value: -0.0049
+  - errors:
+    - {label: stat, symerror: 0.0128}
+    - {label: syst, symerror: 0.0058}
+    value: 0.0391
+  - errors:
+    - {label: stat, symerror: 0.0137}
+    - {label: syst, symerror: 0.0041}
+    value: 0.0408
+  - errors:
+    - {label: stat, symerror: 0.0152}
+    - {label: syst, symerror: 0.0068}
+    value: 0.0343
+  - errors:
+    - {label: stat, symerror: 0.0196}
+    - {label: syst, symerror: 0.0046}
+    value: 0.0791
+  - errors:
+    - {label: stat, symerror: 0.0259}
+    - {label: syst, symerror: 0.0074}
+    value: 0.0221
+- header: {name: <Npart>}
+  values:
+  - errors:
+    - {symerror: 0.9}
+    value: 356.9
+  - errors:
+    - {symerror: 1.3}
+    value: 262.3
+  - errors:
+    - {symerror: 1.4}
+    value: 188.2
+  - errors:
+    - {symerror: 1.4}
+    value: 131.0
+  - errors:
+    - {symerror: 1.3}
+    value: 87.19
+  - errors:
+    - {symerror: 0.6}
+    value: 27.12
+independent_variables:
+- header: {name: Centrality, units: PCT}
+  values:
+  - {high: 10.0, low: 0.0}
+  - {high: 20.0, low: 10.0}
+  - {high: 30.0, low: 20.0}
+  - {high: 40.0, low: 30.0}
+  - {high: 50.0, low: 40.0}
+  - {high: 90.0, low: 50.0}

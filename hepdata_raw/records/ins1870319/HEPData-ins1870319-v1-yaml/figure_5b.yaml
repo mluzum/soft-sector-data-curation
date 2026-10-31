@@ -1,0 +1,49 @@
+dependent_variables:
+- header: {name: 'R$_{\rm AA}$'}
+  qualifiers:
+  - {name: RE, value: PbPb --> J/$\psi$ -->$\mu^+\mu^-$}
+  - {name: SQRT(s)/NUCLEON, units: GeV, value: 5020}
+  - {name: '$p_{\rm T, J/\psi}$', units: GeV, value: '> 6.5'}
+  - {name: '$p_{\rm T, jet}$', units: GeV, value: 30 - 40}
+  - {name: 'ABS($\eta_{jet}$)', value: < 2}
+  - {name: Centrality, value: 0 - 90.0%}
+  - {name: normalization uncertainty, value: 0.032}
+  values:
+  - errors:
+    - asymerror: {minus: -0.031, plus: 0.031}
+      label: stat
+    - asymerror: {minus: -0.23, plus: 0.242}
+      label: syst
+    value: 0.118
+  - errors:
+    - asymerror: {minus: -0.007, plus: 0.007}
+      label: stat
+    - asymerror: {minus: -0.079, plus: 0.156}
+      label: syst
+    value: 0.243
+  - errors:
+    - asymerror: {minus: -0.006, plus: 0.006}
+      label: stat
+    - asymerror: {minus: -0.08, plus: 0.075}
+      label: syst
+    value: 0.272
+  - errors:
+    - asymerror: {minus: -0.01, plus: 0.01}
+      label: stat
+    - asymerror: {minus: -0.105, plus: 0.056}
+      label: syst
+    value: 0.408
+  - errors:
+    - asymerror: {minus: -0.037, plus: 0.037}
+      label: stat
+    - asymerror: {minus: -0.145, plus: 0.102}
+      label: syst
+    value: 0.62
+independent_variables:
+- header: {name: $z$}
+  values:
+  - {high: 0.376, low: 0.22}
+  - {high: 0.532, low: 0.376}
+  - {high: 0.688, low: 0.532}
+  - {high: 0.844, low: 0.688}
+  - {high: 1, low: 0.844}

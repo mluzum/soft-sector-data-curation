@@ -1,0 +1,46 @@
+dependent_variables:
+- header: {name: '(1/N_{jets})DN/D$p_{T, assoc}$', units: '$(GeV/c)^{-1}$'}
+  qualifiers:
+  - {name: CENTRALITY, units: PCT, value: 20-50}
+  - {name: '$p_{T, jet}$', units: GeV/c, value: 20-40}
+  - {name: $D\phi$, value: $-\pi/3-\pi/3$}
+  values:
+  - errors:
+    - {label: scale, symerror: 0.12}
+    - {label: stat, symerror: 0.13}
+    - {label: sys, symerror: 0.33}
+    value: 0.55
+  - errors:
+    - {label: scale, symerror: 0.06}
+    - {label: stat, symerror: 0.06}
+    - {label: sys, symerror: 0.29}
+    value: 0.26
+  - errors:
+    - {label: scale, symerror: 0.016}
+    - {label: stat, symerror: 0.033}
+    - {label: sys, symerror: 0.061}
+    value: 0.582
+  - errors:
+    - {label: scale, symerror: 0.0033}
+    - {label: stat, symerror: 0.0221}
+    - {label: sys, symerror: 0.0042}
+    value: 0.3827
+  - errors:
+    - {label: scale, symerror: 0.0006}
+    - {label: stat, symerror: 0.0148}
+    - {label: sys, symerror: 0.0009}
+    value: 0.2209
+  - errors:
+    - {label: scale, symerror: 0.0004}
+    - {label: stat, symerror: 0.0087}
+    - {label: sys, symerror: 0.002}
+    value: 0.1151
+independent_variables:
+- header: {name: 'p_{T, assoc}', units: GeV/c}
+  values:
+  - {high: 1.5, low: 1.0}
+  - {high: 2.0, low: 1.5}
+  - {high: 3.0, low: 2.0}
+  - {high: 4.0, low: 3.0}
+  - {high: 6.0, low: 4.0}
+  - {high: 10.0, low: 6.0}

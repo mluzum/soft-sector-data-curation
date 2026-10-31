@@ -1,0 +1,61 @@
+additional_resources:
+- {description: web page with auxiliary material, location: 'https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HION-2016-05/'}
+comment: |
+  CERN-LHC.  Measurement of the total fiducial cross section for light-by-light scattering in lead-lead collisions at a centre-of-mass energy of 5.02 TeV with 0.48 nb^-1 of data collected in 2015.  The final states used are 2 photons and no further activity in the detector.
+
+  The fiducial region is defined as:
+  - 2Gamma
+  - pt_Gamma > 3 GeV
+  - |eta_Gamma| < 2.4
+  - m_GammaGamma must be above 6 GeV
+  - pt_GammaGamma must be below 2 GeV
+  - aco_GammaGamma must be below 0.01
+hepdata_doi: 10.17182/hepdata.77761.v1
+---
+data_file: data1.yaml
+description: Detector-level diphoton acoplanarity distribution
+keywords:
+- name: reactions
+  values: [Pb Pb --> Pb(*) Pb(*) 2GAMMA]
+- name: observables
+  values: [EVTS]
+- name: cmenergies
+  values: [5020]
+- name: phrases
+  values: [Lead-Lead Collisions, Light-by-light scattering, Photon-Photon Scattering,
+    Photon pair Production, Light-by-Light Scattering]
+location: Data from Figure 3A
+name: Table 1
+table_doi: 10.17182/hepdata.77761.v1/t1
+---
+data_file: data2.yaml
+description: Detector-level diphoton invariant mass distribution
+keywords:
+- name: reactions
+  values: [Pb Pb --> Pb(*) Pb(*) 2GAMMA]
+- name: observables
+  values: [EVTS]
+- name: cmenergies
+  values: [5020]
+- name: phrases
+  values: [Lead-Lead Collisions, Light-by-light scattering, Photon-Photon Scattering,
+    Photon pair Production, Light-by-Light Scattering]
+location: Data from Figure 3B
+name: Table 2
+table_doi: 10.17182/hepdata.77761.v1/t2
+---
+data_file: data3.yaml
+description: The measured total fiducial cross section
+keywords:
+- name: reactions
+  values: [Pb Pb --> Pb(*) Pb(*) 2GAMMA]
+- name: observables
+  values: [SIG]
+- name: cmenergies
+  values: [5020]
+- name: phrases
+  values: [Lead-Lead Collisions, Light-by-light scattering, Cross Section, Photon-Photon
+      Scattering, Photon pair Production, Light-by-Light Scattering]
+location: Data from Page 10 of preprint
+name: Table 3
+table_doi: 10.17182/hepdata.77761.v1/t3

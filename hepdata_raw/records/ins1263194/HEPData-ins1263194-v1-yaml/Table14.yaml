@@ -1,0 +1,126 @@
+dependent_variables:
+- header: {name: N( PT(leading track) > 0.15 GeV ) / N( PT(leading track) > 5 GeV
+      )}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 0.0-10.0}
+  - {name: ETARAP(jet), value: -0.5-0.5}
+  - {name: PT(track), units: GEV, value: '> 0.15'}
+  - {name: RE, value: PB PB --> CHARGED X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  - {name: '', value: Anti-kT R = 0.2}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0615}
+    - asymerror: {minus: -0.0966, plus: 0.0262}
+      label: sys
+    - {label: sys, symerror: 0.0759}
+    value: 0.9843
+  - errors:
+    - {label: stat, symerror: 0.0653}
+    - asymerror: {minus: -0.0189, plus: 0.0593}
+      label: sys
+    - {label: sys, symerror: 0.0679}
+    value: 0.9974
+  - errors:
+    - {label: stat, symerror: 0.0902}
+    - asymerror: {minus: -0.0134, plus: 0.1058}
+      label: sys
+    - {label: sys, symerror: 0.0863}
+    value: 0.9937
+  - errors:
+    - {label: stat, symerror: 0.1033}
+    - asymerror: {minus: -0.0722, plus: 0.0256}
+      label: sys
+    - {label: sys, symerror: 0.1007}
+    value: 0.997
+  - errors:
+    - {label: stat, symerror: 0.122}
+    - asymerror: {minus: -0.014, plus: 0.0885}
+      label: sys
+    - {label: sys, symerror: 0.1077}
+    value: 0.9852
+  - errors:
+    - {label: stat, symerror: 0.145}
+    - asymerror: {minus: -0.0141, plus: 0.3175}
+      label: sys
+    - {label: sys, symerror: 0.1162}
+    value: 0.9841
+  - errors:
+    - {label: stat, symerror: 0.1863}
+    - asymerror: {minus: -0.1515, plus: 0.068}
+      label: sys
+    - {label: sys, symerror: 0.1384}
+    value: 0.9939
+  - errors:
+    - {label: stat, symerror: 0.2549}
+    - asymerror: {minus: -0.1146, plus: 0.1207}
+      label: sys
+    - {label: sys, symerror: 0.1782}
+    value: 1.0071
+  - {value: '-'}
+- header: {name: N( PT(leading track) > 0.15 GeV ) / N( PT(leading track) > 5 GeV
+      )}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 0.0-10.0}
+  - {name: ETARAP(jet), value: -0.5-0.5}
+  - {name: PT(track), units: GEV, value: '> 0.15'}
+  - {name: RE, value: PB PB --> CHARGED X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  - {name: '', value: Anti-kT R = 0.3}
+  values:
+  - {value: '-'}
+  - {value: '-'}
+  - errors:
+    - {label: stat, symerror: 0.3043}
+    - asymerror: {minus: -0.304, plus: 0.1237}
+      label: sys
+    - {label: sys, symerror: 0.3707}
+    value: 0.8901
+  - errors:
+    - {label: stat, symerror: 0.2345}
+    - asymerror: {minus: -0.3061, plus: 0.1082}
+      label: sys
+    - {label: sys, symerror: 0.2511}
+    value: 1.0536
+  - errors:
+    - {label: stat, symerror: 0.2017}
+    - asymerror: {minus: -0.2255, plus: 0.0822}
+      label: sys
+    - {label: sys, symerror: 0.1807}
+    value: 1.055
+  - errors:
+    - {label: stat, symerror: 0.207}
+    - asymerror: {minus: -0.1108, plus: 0.1088}
+      label: sys
+    - {label: sys, symerror: 0.1757}
+    value: 1.0279
+  - errors:
+    - {label: stat, symerror: 0.2205}
+    - asymerror: {minus: -0.1272, plus: 0.1722}
+      label: sys
+    - {label: sys, symerror: 0.1855}
+    value: 1.0099
+  - errors:
+    - {label: stat, symerror: 0.2831}
+    - asymerror: {minus: -0.0738, plus: 0.3165}
+      label: sys
+    - {label: sys, symerror: 0.2263}
+    value: 1.0002
+  - errors:
+    - {label: stat, symerror: 0.4186}
+    - asymerror: {minus: -0.0449, plus: 0.4765}
+      label: sys
+    - {label: sys, symerror: 0.3177}
+    value: 0.9944
+independent_variables:
+- header: {name: PT(jet), units: GEV}
+  values:
+  - {high: 30.0, low: 20.0}
+  - {high: 40.0, low: 30.0}
+  - {high: 50.0, low: 40.0}
+  - {high: 60.0, low: 50.0}
+  - {high: 70.0, low: 60.0}
+  - {high: 80.0, low: 70.0}
+  - {high: 90.0, low: 80.0}
+  - {high: 100.0, low: 90.0}
+  - {high: 110.0, low: 100.0}

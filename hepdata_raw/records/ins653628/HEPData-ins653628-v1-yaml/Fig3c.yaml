@@ -1,0 +1,32 @@
+dependent_variables:
+- header: {name: 'p$^{\eta}_\textrm{dyn}/$p$^{\eta}_\textrm{mix}$/N'}
+  qualifiers:
+  - {name: $\delta\eta$, value: 'Central STAR data, 0.2 $\leq$ p$_t$ $\leq$ 0.28 GeV/c'}
+  values:
+  - errors:
+    - {label: stat, symerror: 3.0e-06}
+    - asymerror: {minus: 7.0e-06, plus: 7.0e-06}
+      label: syst
+    value: -6.6e-05
+  - errors:
+    - {label: stat, symerror: 5.0e-06}
+    - asymerror: {minus: 3.0e-06, plus: 1.6e-05}
+      label: syst
+    value: 3.3e-05
+  - errors:
+    - {label: stat, symerror: 1.0e-05}
+    - asymerror: {minus: 8.0e-06, plus: 3.0e-05}
+      label: syst
+    value: 8.0e-05
+  - errors:
+    - {label: stat, symerror: 2.0e-05}
+    - asymerror: {minus: 3.0e-05, plus: 2.0e-05}
+      label: syst
+    value: 0.00022
+independent_variables:
+- header: {name: $\delta\eta$}
+  values:
+  - {value: 0.125}
+  - {value: 0.25}
+  - {value: 0.5}
+  - {value: 1}

@@ -1,0 +1,51 @@
+dependent_variables:
+- header: {name: '$1/N^{\rm{jets}}{\rm d} N^{\rm{jets}}/{\rm d} n_{\rm SD}$'}
+  qualifiers:
+  - {name: SQRT(S), units: GEV, value: '7000.0'}
+  - {name: YRAP, value: -0.5 TO 0.5}
+  values:
+  - errors:
+    - {label: stat, symerror: '0.0058'}
+    - asymerror: {minus: '-0.0055', plus: '0.0055'}
+      label: sys
+    value: '0.0341'
+  - errors:
+    - {label: stat, symerror: '0.0091'}
+    - asymerror: {minus: '-0.0084', plus: '0.0082'}
+      label: sys
+    value: '0.0950'
+  - errors:
+    - {label: stat, symerror: '0.015'}
+    - asymerror: {minus: '-0.020', plus: '0.020'}
+      label: sys
+    value: '0.251'
+  - errors:
+    - {label: stat, symerror: '0.016'}
+    - asymerror: {minus: '-0.021', plus: '0.017'}
+      label: sys
+    value: '0.267'
+  - errors:
+    - {label: stat, symerror: '0.012'}
+    - asymerror: {minus: '-0.017', plus: '0.010'}
+      label: sys
+    value: '0.210'
+  - errors:
+    - {label: stat, symerror: '0.0088'}
+    - asymerror: {minus: '-0.0269', plus: '0.0186'}
+      label: sys
+    value: '0.1051'
+  - errors:
+    - {label: stat, symerror: '0.0026'}
+    - asymerror: {minus: '-0.0036', plus: '0.0053'}
+      label: sys
+    value: '0.0189'
+independent_variables:
+- header: {name: '$n_{\rm SD}$'}
+  values:
+  - {high: 0.5, low: -0.5}
+  - {high: 1.5, low: 0.5}
+  - {high: 2.5, low: 1.5}
+  - {high: 3.5, low: 2.5}
+  - {high: 4.5, low: 3.5}
+  - {high: 5.5, low: 4.5}
+  - {high: 7.5, low: 5.5}

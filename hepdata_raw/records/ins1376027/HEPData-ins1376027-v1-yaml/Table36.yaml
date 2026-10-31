@@ -1,0 +1,50 @@
+dependent_variables:
+- header: {name: 'Delta_{recoil}(R=0.2)/Delta_{recoil}(R=0.5)'}
+  qualifiers:
+  - {name: RE, value: 'Jet Shape in Pb-Pb measured as Delta_{recoil}(R=0.2)/Delta_{recoil}(R=0.5)  at
+      $sqrt{s_{NN}} = 2.76$ TeV'}
+  - {name: SQRT(S), units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0904}
+    - asymerror: {minus: -0.096, plus: 0.0471}
+      label: sys
+    - asymerror: {minus: -0.0729, plus: 0.0175}
+      label: sys
+    value: 0.8035
+  - errors:
+    - {label: stat, symerror: 0.0749}
+    - asymerror: {minus: -0.0584, plus: 0.0538}
+      label: sys
+    - asymerror: {minus: -0.0032, plus: 0.0305}
+      label: sys
+    value: 0.5792
+  - errors:
+    - {label: stat, symerror: 0.1088}
+    - asymerror: {minus: -0.0407, plus: 0.0766}
+      label: sys
+    - asymerror: {minus: -0.0565, plus: 0.0277}
+      label: sys
+    value: 0.5917
+  - errors:
+    - {label: stat, symerror: 0.1704}
+    - asymerror: {minus: -0.106, plus: 0.1138}
+      label: sys
+    - asymerror: {minus: -0.0511, plus: 0.0361}
+      label: sys
+    value: 0.6543
+  - errors:
+    - {label: stat, symerror: 0.3902}
+    - asymerror: {minus: -0.172, plus: 0.2514}
+      label: sys
+    - asymerror: {minus: -0.1159, plus: 0.0783}
+      label: sys
+    value: 1.08
+independent_variables:
+- header: {name: 'p_{T,jet}^{ch}(GeV/c)'}
+  values:
+  - {high: 36.0, low: 20.0}
+  - {high: 52.0, low: 36.0}
+  - {high: 68.0, low: 52.0}
+  - {high: 84.0, low: 68.0}
+  - {high: 100.0, low: 84.0}

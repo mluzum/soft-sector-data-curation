@@ -1,0 +1,65 @@
+dependent_variables:
+- header: {name: N(NAME=COLL)}
+  qualifiers:
+  - {name: PT, units: GeV, value: 0.8-4.0}
+  - {name: RE, value: AU AU --> BOTTOM < E- X > BOTTOMBAR < E+ X > X}
+  - {name: RE, value: AU AU --> CHARM < E+ X > CHARMBAR < E- X> X}
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  - {name: YRAP, value: -0.35-0.35}
+  values:
+  - errors:
+    - {symerror: 93.6}
+    value: 955.4
+  - errors:
+    - {symerror: 59.3}
+    value: 602.6
+  - errors:
+    - {symerror: 31.3}
+    value: 296.8
+  - errors:
+    - {symerror: 11.8}
+    value: 90.65
+  - errors:
+    - {symerror: 4.0}
+    value: 14.83
+- header: {name: D(N(P=3))/DYRAP(P=3)/N(NAME=COLL)}
+  qualifiers:
+  - {name: PT, units: GeV, value: 0.8-4.0}
+  - {name: RE, value: AU AU --> BOTTOM < E- X > BOTTOMBAR < E+ X > X}
+  - {name: RE, value: AU AU --> CHARM < E+ X > CHARMBAR < E- X> X}
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  - {name: YRAP, value: -0.35-0.35}
+  values:
+  - errors:
+    - {label: stat, symerror: 6.522e-06}
+    - asymerror: {minus: -9.514e-06, plus: 9.222e-06}
+      label: sys
+    value: 4.072e-05
+  - errors:
+    - {label: stat, symerror: 8.007e-06}
+    - asymerror: {minus: -9.842e-06, plus: 9.533e-06}
+      label: sys
+    value: 4.155e-05
+  - errors:
+    - {label: stat, symerror: 8.122e-06}
+    - asymerror: {minus: -1.222e-05, plus: 1.185e-05}
+      label: sys
+    value: 5.143e-05
+  - errors:
+    - {label: stat, symerror: 1.441e-05}
+    - asymerror: {minus: -1.339e-05, plus: 1.304e-05}
+      label: sys
+    value: 5.437e-05
+  - errors:
+    - {label: stat, symerror: 2.595e-05}
+    - asymerror: {minus: -1.224e-05, plus: 1.207e-05}
+      label: sys
+    value: 3.576e-05
+independent_variables:
+- header: {name: CENTRALITY, units: PCT}
+  values:
+  - {high: 10.0, low: 0.0}
+  - {high: 20.0, low: 10.0}
+  - {high: 40.0, low: 20.0}
+  - {high: 60.0, low: 40.0}
+  - {high: 92.0, low: 60.0}

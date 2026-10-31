@@ -1,0 +1,111 @@
+dependent_variables:
+- header: {name: Yield/MEAN(Npart) relative to pp}
+  qualifiers:
+  - {name: RE, value: PB PB --> PHI < K- K+ > X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  - {name: YRAP, value: -0.5-0.5}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.091}
+    - {label: 'sys,uncorrelated', symerror: 0.206}
+    - {label: 'sys,normalization', symerror: 0.014}
+    - {label: 'sys,Npart', symerror: 0.021}
+    - {label: 'sys,from Pb-Pb yield, correlated between centrality intervals, excluding
+        normalization', symerror: 10.05%}
+    - {label: 'sys,from pp interpolated yield', symerror: 13.14%}
+    value: 2.719
+  - errors:
+    - {label: stat, symerror: 0.091}
+    - {label: 'sys,uncorrelated', symerror: 0.185}
+    - {label: 'sys,normalization', symerror: 0.013}
+    - {label: 'sys,Npart', symerror: 0.035}
+    - {label: 'sys,from Pb-Pb yield, correlated between centrality intervals, excluding
+        normalization', symerror: 10.05%}
+    - {label: 'sys,from pp interpolated yield', symerror: 13.14%}
+    value: 2.689
+  - errors:
+    - {label: stat, symerror: 0.063}
+    - {label: 'sys,uncorrelated', symerror: 0.15}
+    - {label: 'sys,normalization', symerror: 0.018}
+    - {label: 'sys,Npart', symerror: 0.038}
+    - {label: 'sys,from Pb-Pb yield, correlated between centrality intervals, excluding
+        normalization', symerror: 10.05%}
+    - {label: 'sys,from pp interpolated yield', symerror: 13.14%}
+    value: 2.632
+  - errors:
+    - {label: stat, symerror: 0.061}
+    - {label: 'sys,uncorrelated', symerror: 0.166}
+    - {label: 'sys,normalization', symerror: 0.028}
+    - {label: 'sys,Npart', symerror: 0.05}
+    - {label: 'sys,from Pb-Pb yield, correlated between centrality intervals, excluding
+        normalization', symerror: 10.05%}
+    - {label: 'sys,from pp interpolated yield', symerror: 13.14%}
+    value: 2.836
+  - errors:
+    - {label: stat, symerror: 0.056}
+    - {label: 'sys,uncorrelated', symerror: 0.12}
+    - {label: 'sys,normalization', symerror: 0.05}
+    - {label: 'sys,Npart', symerror: 0.058}
+    - {label: 'sys,from Pb-Pb yield, correlated between centrality intervals, excluding
+        normalization', symerror: 10.05%}
+    - {label: 'sys,from pp interpolated yield', symerror: 13.14%}
+    value: 2.519
+  - errors:
+    - {label: stat, symerror: 0.044}
+    - {label: 'sys,uncorrelated', symerror: 0.112}
+    - {label: 'sys,normalization', symerror: 0.057}
+    - {label: 'sys,Npart', symerror: 0.069}
+    - {label: 'sys,from Pb-Pb yield, correlated between centrality intervals, excluding
+        normalization', symerror: 10.05%}
+    - {label: 'sys,from pp interpolated yield', symerror: 13.14%}
+    value: 2.387
+  - errors:
+    - {label: stat, symerror: 0.045}
+    - {label: 'sys,uncorrelated', symerror: 0.101}
+    - {label: 'sys,normalization', symerror: 0.075}
+    - {label: 'sys,Npart', symerror: 0.065}
+    - {label: 'sys,from Pb-Pb yield, correlated between centrality intervals, excluding
+        normalization', symerror: 10.05%}
+    - {label: 'sys,from pp interpolated yield', symerror: 13.14%}
+    value: 2.145
+  - errors:
+    - {label: stat, symerror: 0.05}
+    - {label: 'sys,uncorrelated', symerror: 0.079}
+    - {label: 'sys,normalization', symerror: 0.091}
+    - {label: 'sys,Npart', symerror: 0.06}
+    - {label: 'sys,from Pb-Pb yield, correlated between centrality intervals, excluding
+        normalization', symerror: 10.05%}
+    - {label: 'sys,from pp interpolated yield', symerror: 13.14%}
+    value: 1.818
+  - errors:
+    - {label: stat, symerror: 0.051}
+    - {label: 'sys,uncorrelated', symerror: 0.108}
+    - {label: 'sys,normalization', symerror: 0.1}
+    - {label: 'sys,Npart', symerror: 0.054}
+    - {label: 'sys,from Pb-Pb yield, correlated between centrality intervals, excluding
+        normalization', symerror: 10.05%}
+    - {label: 'sys,from pp interpolated yield', symerror: 13.14%}
+    value: 1.494
+  - errors:
+    - {label: stat, symerror: 0.0391}
+    - {label: 'sys,uncorrelated', symerror: 0.0732}
+    - asymerror: {minus: -0.0836, plus: 0.118}
+      label: sys,normalization
+    - {label: 'sys,Npart', symerror: 0.0296}
+    - {label: 'sys,from Pb-Pb yield, correlated between centrality intervals, excluding
+        normalization', symerror: 10.05%}
+    - {label: 'sys,from pp interpolated yield', symerror: 13.14%}
+    value: 0.9836
+independent_variables:
+- header: {name: CENTRALITY, units: PCT}
+  values:
+  - {high: 5.0, low: 0.0}
+  - {high: 10.0, low: 5.0}
+  - {high: 20.0, low: 10.0}
+  - {high: 30.0, low: 20.0}
+  - {high: 40.0, low: 30.0}
+  - {high: 50.0, low: 40.0}
+  - {high: 60.0, low: 50.0}
+  - {high: 70.0, low: 60.0}
+  - {high: 80.0, low: 70.0}
+  - {high: 90.0, low: 80.0}

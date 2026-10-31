@@ -1,0 +1,88 @@
+---
+observable_type: particle_spectra
+inspire_id: '1296307'
+version: 1
+hepdata_file: Table4.yaml
+hepdata_table_label: "The Psi(2S) pT-differential cross sections in p-Pb, in the centre of mass rapidity range 2.03<y_cms<3.53.\n\
+  First uncertainty is statistical, the second one is the pT-correlated systematic, the third is the uncorrelated systematic.\
+  \ \nThe fourth is a global uncertainty common to p-Pb and Pb-p results.\n"
+qualifiers:
+  re: P PB --> PSI(2S) < MU+ MU- > X
+  sqrt(s)/nucleon: '5020.0'
+  yrap(rf=cm): 2.03-3.53
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> PSI(2S) < MU+ MU- > X
+centrality:
+  classes:
+  - MB
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: p
+kinematic_range:
+  pT:
+    min: 0.0
+    max: 8.0
+    bins:
+    - 0.0
+    - 2.0
+    - 3.0
+    - 5.0
+    - 8.0
+  eta:
+    min: -0.8
+    max: 0.8
+observable: dN_dpT_dy
+value_type: invariant_yield
+---
+observable_type: particle_spectra
+inspire_id: '1296307'
+version: 1
+hepdata_file: Table5.yaml
+hepdata_table_label: "The Psi(2S) pT-differential cross sections in Pb-p, in the centre of mass rapidity range -4.46<y_cms<-2.96.\n\
+  First uncertainty is statistical, the second one is the pT-correlated systematic, the third the uncorrelated systematic.\
+  \ \nThe fourth is a global uncertainty common to p-Pb and Pb-p results.\n"
+qualifiers:
+  re: P PB --> PSI(2S) < MU+ MU- > X
+  sqrt(s)/nucleon: '5020.0'
+  yrap(rf=cm): -4.46--2.96
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> PSI(2S) < MU+ MU- > X
+centrality:
+  classes:
+  - MB
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: p
+kinematic_range:
+  pT:
+    min: 0.0
+    max: 8.0
+    bins:
+    - 0.0
+    - 2.0
+    - 3.0
+    - 5.0
+    - 8.0
+  eta:
+    min: -0.8
+    max: 0.8
+observable: dN_dpT_dy
+value_type: invariant_yield

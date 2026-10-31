@@ -1,0 +1,78 @@
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1798493'
+version: 1
+hepdata_file: hre_fig1.yaml
+hepdata_table_label: Per-trigger yield of hadrons associated to direct photons in Au+Au collisions for direct photon $p_T$
+  5-9 GeV/$c$, compared with p+p baseline, in various $\xi$ bins.
+qualifiers:
+  \delta\phi[rad]: 0.0 < $\xi$ < 0.4
+collision_system:
+  energy_gev: 200.0
+  reaction: d AU
+centrality:
+  classes:
+  - 5.0-9.0%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: photon
+kinematic_range:
+  eta:
+    min: -0.35
+    max: 0.35
+  pT:
+    min: 0.2
+    max: 20
+    bins:
+    - 0.2
+    - 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1798493'
+version: 1
+hepdata_file: hre_fig2.yaml
+hepdata_table_label: Per-trigger yield of hadrons associated to direct photons in d+Au collisions for direct photon $p_T$
+  7-9 GeV/$c$, compared with p+p baseline, in various $\xi$ bins.
+qualifiers:
+  \delta\phi[rad]: 0.4 < $\xi$ < 0.8
+collision_system:
+  energy_gev: 200.0
+  reaction: d AU
+centrality:
+  classes:
+  - 7.0-9.0%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: photon
+kinematic_range:
+  eta:
+    min: -0.35
+    max: 0.35
+  pT:
+    min: 0.2
+    max: 20
+    bins:
+    - 0.2
+    - 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all

@@ -1,0 +1,27 @@
+dependent_variables:
+- header: {name: Npart}
+  qualifiers:
+  - {name: Lattice QCD Calculation, value: ''}
+  values:
+  - {value: 400.0}
+  - {value: 400.0}
+  - {value: 400.0}
+- header: {name: $S\sigma$}
+  qualifiers:
+  - {name: Lattice QCD Calculation, value: ''}
+  values:
+  - errors:
+    - {symerror: 0.6}
+    value: 1.5
+  - errors:
+    - {symerror: 0.04}
+    value: 0.32
+  - errors:
+    - {symerror: 0.01}
+    value: 0.09
+independent_variables:
+- header: {name: '$\sqrt{s_{NN}}$', units: GeV}
+  values:
+  - {value: 19.6}
+  - {value: 62.4}
+  - {value: 200.0}

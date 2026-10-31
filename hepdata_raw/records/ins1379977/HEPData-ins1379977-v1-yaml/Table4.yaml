@@ -1,0 +1,35 @@
+dependent_variables:
+- header: {name: '$v_{2}^{\mu}\{\rm{Pb-going}\}/v_{2}^{\mu}\{\rm{p-going}\}$'}
+  qualifiers:
+  - {name: ETARAP, value: -4.0--2.5}
+  - {name: RE, value: P PB --> CHARGED X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0734}
+    - {label: sys, symerror: 0.0547}
+    value: 1.1448
+  - errors:
+    - {label: stat, symerror: 0.0824}
+    - {label: sys, symerror: 0.073}
+    value: 1.1132
+  - errors:
+    - {label: stat, symerror: 0.1359}
+    - {label: sys, symerror: 0.1076}
+    value: 1.2215
+  - errors:
+    - {label: stat, symerror: 0.1547}
+    - {label: sys, symerror: 0.1579}
+    value: 1.2872
+  - errors:
+    - {label: stat, symerror: 0.5586}
+    - {label: sys, symerror: 0.2859}
+    value: 1.6998
+independent_variables:
+- header: {name: '$p_{T}$', units: GeV/c}
+  values:
+  - {high: 1.0, low: 0.5, value: 0.7182}
+  - {high: 1.5, low: 1.0, value: 1.2148}
+  - {high: 2.0, low: 1.5, value: 1.7255}
+  - {high: 3.0, low: 2.0, value: 2.4317}
+  - {high: 4.0, low: 3.0, value: 3.4348}

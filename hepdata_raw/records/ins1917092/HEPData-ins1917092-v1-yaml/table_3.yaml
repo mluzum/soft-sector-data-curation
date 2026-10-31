@@ -1,0 +1,39 @@
+dependent_variables:
+- header: {name: '$\frac{1}{T_{AA}} N$ (pb)'}
+  qualifiers:
+  - {name: RE, value: Pb Pb --> Bs0 --> J/PSI (MU+ MU-) + PHI (K+ K-)}
+  - {name: SQRT(s)/NUCLEON, units: GeV, value: 5020}
+  - {name: '$p_{T}$', units: GeV/c, value: 10.0 - 50.0}
+  - {name: ABS(YRAP), value: 0 - 2.4}
+  - {name: Centrality, value: 0 - 90.0%}
+  - {name: Global uncertainty, value: 7.5%}
+  values:
+  - errors:
+    - asymerror: {minus: -97980, plus: 96985}
+      label: stat
+    - asymerror: {minus: -63144, plus: 63899}
+      label: syst
+    value: 497359
+  - errors:
+    - asymerror: {minus: -96995, plus: 106516}
+      label: stat
+    - asymerror: {minus: -75975, plus: 77336}
+      label: syst
+    value: 595064
+  - errors:
+    - asymerror: {minus: -143174, plus: 137967}
+      label: stat
+    - asymerror: {minus: -89342, plus: 90975}
+      label: syst
+    value: 650790
+independent_variables:
+- header: {name: '$\langle N_{part} \rangle$'}
+  values:
+  - {value: 54.45}
+  - {value: 126}
+  - {value: 269.1}
+- header: {name: Centrality (%)}
+  values:
+  - {value: 30 - 90}
+  - {value: 0 - 90}
+  - {value: 0 - 30}

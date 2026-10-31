@@ -1,0 +1,100 @@
+dependent_variables:
+- header: {name: 1/(2*PI*PT)*D2N/DPT/DYRAP, units: (GEV/C)**(-1)}
+  qualifiers:
+  - {name: PARTICLE, value: K-}
+  - {name: YRAP, value: 0.0}
+  - {name: CENTRALITY, units: PCT, value: 0 TO 10}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.17}
+    - {label: sys, symerror: 0.31}
+    value: 4.38
+  - errors:
+    - {label: stat, symerror: 0.099}
+    - {label: sys, symerror: 0.236}
+    value: 3.342
+  - errors:
+    - {label: stat, symerror: 0.067}
+    - {label: sys, symerror: 0.192}
+    value: 2.712
+  - errors:
+    - {label: stat, symerror: 0.048}
+    - {label: sys, symerror: 0.145}
+    value: 2.05
+  - errors:
+    - {label: stat, symerror: 0.034}
+    - {label: sys, symerror: 0.1}
+    value: 1.409
+  - errors:
+    - {label: stat, symerror: 0.025}
+    - {label: sys, symerror: 0.071}
+    value: 1.01
+  - errors:
+    - {label: stat, symerror: 0.012}
+    - {label: sys, symerror: 0.046}
+    value: 0.648
+  - errors:
+    - {label: stat, symerror: 0.0063}
+    - {label: sys, symerror: 0.0233}
+    value: 0.3292
+  - errors:
+    - {label: stat, symerror: 0.0038}
+    - {label: sys, symerror: 0.0125}
+    value: 0.1771
+  - errors:
+    - {label: stat, symerror: 0.0022}
+    - {label: sys, symerror: 0.0063}
+    value: 0.0887
+  - errors:
+    - {label: stat, symerror: 0.0013}
+    - {label: sys, symerror: 0.0037}
+    value: 0.0524
+  - errors:
+    - {label: stat, symerror: 0.00035}
+    - {label: sys, symerror: 0.00139}
+    value: 0.01971
+- header: {name: MT-M, units: GEV/C**2}
+  qualifiers:
+  - {name: PARTICLE, value: K-}
+  - {name: YRAP, value: 0.0}
+  - {name: CENTRALITY, units: PCT, value: 0 TO 10}
+  values:
+  - errors: []
+    value: 0.67
+  - errors: []
+    value: 0.74
+  - errors: []
+    value: 0.82
+  - errors: []
+    value: 0.9
+  - errors: []
+    value: 0.98
+  - errors: []
+    value: 1.1
+  - errors: []
+    value: 1.2
+  - errors: []
+    value: 1.4
+  - errors: []
+    value: 1.6
+  - errors: []
+    value: 1.8
+  - errors: []
+    value: 2.0
+  - errors: []
+    value: 2.3
+independent_variables:
+- header: {name: PT, units: GEV/C}
+  values:
+  - {high: 0.5, low: 0.4}
+  - {high: 0.6, low: 0.5}
+  - {high: 0.7, low: 0.6}
+  - {high: 0.8, low: 0.7}
+  - {high: 0.9, low: 0.8}
+  - {high: 1.0, low: 0.9}
+  - {high: 1.2, low: 1.0}
+  - {high: 1.4, low: 1.2}
+  - {high: 1.6, low: 1.4}
+  - {high: 1.8, low: 1.6}
+  - {high: 2.0, low: 1.8}
+  - {high: 2.5, low: 2.0}

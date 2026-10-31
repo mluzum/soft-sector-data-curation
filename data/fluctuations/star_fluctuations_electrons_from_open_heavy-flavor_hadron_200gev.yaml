@@ -1,0 +1,121 @@
+---
+observable_type: fluctuations
+inspire_id: '2641480'
+version: 1
+hepdata_file: Figure_4a.yaml
+hepdata_table_label: Invariant yields of electrons from decays of prompt $J/\psi$ (dot-dashed line), $\Upsilon$ (dotted line),
+  Drell-Yan (long dash-dotted line), light vector mesons (long dashed line) and the combined HDE (hadron decayed electron)
+  contribution (solid line), estimated utilizing experimental measurements, theoretical calculations, and PYTHIA and $\rm
+  E_{VT}G_{EN}$ event generators, in 0-10% central Au+Au collisions at $\sqrt{s_{\rm NN}}=200$ GeV. Color bands represent
+  systematic uncertainties.
+collision_system:
+  energy_gev: 200.0
+  reaction: AuAu
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: e-
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+    bins:
+    - -1.0
+    - 1.0
+  pT:
+    min: 0.15
+    max: 10
+    bins:
+    - 0.15
+    - 10
+observable: cumulant_C2
+value_type: cumulant_C2
+charge_type: net_charge
+---
+observable_type: fluctuations
+inspire_id: '2641480'
+version: 1
+hepdata_file: Figure_4b.yaml
+hepdata_table_label: Invariant yields of electrons from decays of prompt $J/\psi$ (dot-dashed line), $\Upsilon$ (dotted line),
+  Drell-Yan (long dash-dotted line), light vector mesons (long dashed line) and the combined HDE (hadron decayed electron)
+  contribution (solid line), estimated utilizing experimental measurements, theoretical calculations, and PYTHIA and $\rm
+  E_{VT}G_{EN}$ event generators, in 40-80% central Au+Au collisions at $\sqrt{s_{\rm NN}}=200$ GeV. Color bands represent
+  systematic uncertainties.
+collision_system:
+  energy_gev: 200.0
+  reaction: AuAu
+centrality:
+  classes:
+  - 40-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: e-
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+    bins:
+    - -1.0
+    - 1.0
+  pT:
+    min: 0.15
+    max: 10
+    bins:
+    - 0.15
+    - 10
+observable: cumulant_C2
+value_type: cumulant_C2
+charge_type: net_charge
+---
+observable_type: fluctuations
+inspire_id: '2641480'
+version: 1
+hepdata_file: Figure_5.yaml
+hepdata_table_label: HFE (electrons from semileptonic decays of heavy-flavor hadrons) invariant yields in different centrality
+  intervals of Au+Au collisions at $\sqrt{s_{\rm NN}}=200$ GeV. The vertical bars and the boxes represent statistical and
+  systematic uncertainties, respectively. The horizontal bars indicate the bin width.
+collision_system:
+  energy_gev: 200.0
+  reaction: AuAu
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: e-
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+    bins:
+    - -1.0
+    - 1.0
+  pT:
+    min: 0.15
+    max: 10
+    bins:
+    - 0.15
+    - 10
+observable: cumulant_C2
+value_type: cumulant_C2
+charge_type: net_charge

@@ -1,0 +1,49 @@
+dependent_variables:
+- header: {name: Probability}
+  qualifiers:
+  - {name: Collision system, value: pp}
+  - {name: '$\sqrt{s}$', units: TeV, value: 13}
+  - {name: 'TT$\{20, 30\}$', value: '$|\eta_{\mathrm{TT}}|$ < 0.9'}
+  - {name: Jet algorithm, value: 'anti-$k_{\mathrm{T}}$'}
+  - {name: Jet $R$, value: 0.4}
+  - {name: '$|\eta_{\mathrm{jet}}|$', value: < 0.5}
+  - {name: '$\phi_{\mathrm{jet}}$', value: '$|\phi_{\mathrm{TT}} - \phi_{\mathrm{jet}}|
+      > \pi/2$'}
+  - {name: ALICE data, value: Minimum Bias}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0013}
+    value: 0.1119
+  - errors:
+    - {label: stat, symerror: 0.00028}
+    value: 0.00487
+  - errors:
+    - {label: stat, symerror: 4.5e-05}
+    value: 0.00013
+- header: {name: Probability}
+  qualifiers:
+  - {name: Collision system, value: pp}
+  - {name: '$\sqrt{s}$', units: TeV, value: 13}
+  - {name: 'TT$\{20, 30\}$', value: '$|\eta_{\mathrm{TT}}|$ < 0.9'}
+  - {name: Jet algorithm, value: 'anti-$k_{\mathrm{T}}$'}
+  - {name: Jet $R$, value: 0.4}
+  - {name: '$|\eta_{\mathrm{jet}}|$', value: < 0.5}
+  - {name: '$\phi_{\mathrm{jet}}$', value: '$|\phi_{\mathrm{TT}} - \phi_{\mathrm{jet}}|
+      > \pi/2$'}
+  - {name: ALICE data, value: High Multiplicity}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.00074}
+    value: 0.1092
+  - errors:
+    - {label: stat, symerror: 0.00017}
+    value: 0.00576
+  - errors:
+    - {label: stat, symerror: 3.5e-05}
+    value: 0.000244
+independent_variables:
+- header: {name: 'Number of recoil jets with $p_{\mathrm{T}} > 15$ GeV/$c$'}
+  values:
+  - {high: 2.0, low: 1.0}
+  - {high: 3.0, low: 2.0}
+  - {high: 4.0, low: 3.0}

@@ -1,0 +1,78 @@
+dependent_variables:
+- header: {name: '(1/TAA)(1/NEVT)*D2(NJET)/DPT/DYRAP [nb/GEV]'}
+  qualifiers:
+  - {name: ABS(YRAP), value: '|y| < 2.8'}
+  - {name: R(JETS), value: '0.4'}
+  - {name: RE, value: PB PB --> JET(S) X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  - {name: CENTRALITY, value: 60-70 ptc}
+  values:
+  - errors:
+    - asymerror: {minus: -4.04, plus: 4.38}
+      label: sys
+    - {label: stat, symerror: 0.31}
+    value: 34.69
+  - errors:
+    - asymerror: {minus: -1.39, plus: 1.39}
+      label: sys
+    - {label: stat, symerror: 0.15}
+    value: 11.41
+  - errors:
+    - asymerror: {minus: -0.4, plus: 0.41}
+      label: sys
+    - {label: stat, symerror: 0.07}
+    value: 3.52
+  - errors:
+    - asymerror: {minus: -0.112, plus: 0.116}
+      label: sys
+    - {label: stat, symerror: 0.01}
+    value: 1.001
+  - errors:
+    - asymerror: {minus: -0.0309, plus: 0.0311}
+      label: sys
+    - {label: stat, symerror: 0.0033}
+    value: 0.2862
+  - errors:
+    - asymerror: {minus: -0.0079, plus: 0.0079}
+      label: sys
+    - {label: stat, symerror: 0.0014}
+    value: 0.0718
+  - errors:
+    - asymerror: {minus: -0.0019, plus: 0.0019}
+      label: sys
+    - {label: stat, symerror: 0.0006}
+    value: 0.0185
+  - errors:
+    - asymerror: {minus: -0.00049, plus: 0.00048}
+      label: sys
+    - {label: stat, symerror: 0.00026}
+    value: 0.00397
+  - errors:
+    - asymerror: {minus: -8.0e-05, plus: 8.0e-05}
+      label: sys
+    - {label: stat, symerror: 0.00011}
+    value: 0.00087
+  - errors:
+    - asymerror: {minus: -3.0e-05, plus: 3.0e-05}
+      label: sys
+    - {label: stat, symerror: 5.0e-05}
+    value: 0.00023
+  - errors:
+    - asymerror: {minus: -2.0e-06, plus: 2.0e-06}
+      label: sys
+    - {label: stat, symerror: 1.2e-05}
+    value: 2.0e-05
+independent_variables:
+- header: {name: 'PT [GEV]', units: GeV}
+  values:
+  - {high: 63, low: 50}
+  - {high: 79, low: 63}
+  - {high: 100, low: 79}
+  - {high: 126, low: 100}
+  - {high: 158, low: 126}
+  - {high: 200, low: 158}
+  - {high: 251, low: 200}
+  - {high: 316, low: 251}
+  - {high: 398, low: 316}
+  - {high: 501, low: 398}
+  - {high: 631, low: 501}

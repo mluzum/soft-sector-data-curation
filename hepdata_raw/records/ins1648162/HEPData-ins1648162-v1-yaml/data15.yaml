@@ -1,0 +1,56 @@
+dependent_variables:
+- header: {name: PBPB / PP}
+  qualifiers:
+  - {name: RE, value: P P --> GAMMA JET PB PB --> GAMMA JET}
+  - {name: CENTRALITY, value: 10 - 30%}
+  - {name: PT(GAMMA), units: GEV/C, value: '> 60'}
+  - {name: '|ETA(GAMMA)|', value: < 1.44}
+  - {name: DELTA(PHI_JGAMMA), value: '> 7 * PI / 8'}
+  - {name: JET ALGO, value: ANTI-K_T JET R = 0.3}
+  - {name: PT(JET), units: GEV/C, value: '> 30'}
+  - {name: '|ETA(JET)|', value: < 1.6}
+  - {name: PT(TRK), units: GEV/C, value: '> 1'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.104}
+    - {label: sys, symerror: 0.068}
+    value: 0.842
+  - errors:
+    - {label: stat, symerror: 0.062}
+    - {label: sys, symerror: 0.065}
+    value: 0.845
+  - errors:
+    - {label: stat, symerror: 0.047}
+    - {label: sys, symerror: 0.07}
+    value: 0.948
+  - errors:
+    - {label: stat, symerror: 0.039}
+    - {label: sys, symerror: 0.068}
+    value: 0.928
+  - errors:
+    - {label: stat, symerror: 0.04}
+    - {label: sys, symerror: 0.081}
+    value: 1.06
+  - errors:
+    - {label: stat, symerror: 0.053}
+    - {label: sys, symerror: 0.088}
+    value: 1.14
+  - errors:
+    - {label: stat, symerror: 0.097}
+    - {label: sys, symerror: 0.136}
+    value: 1.68
+  - errors:
+    - {label: stat, symerror: 0.165}
+    - {label: sys, symerror: 0.153}
+    value: 1.67
+independent_variables:
+- header: {name: XI_T_(GAMMA)}
+  values:
+  - {high: 1.0, low: 0.5}
+  - {high: 1.5, low: 1.0}
+  - {high: 2.0, low: 1.5}
+  - {high: 2.5, low: 2.0}
+  - {high: 3.0, low: 2.5}
+  - {high: 3.5, low: 3.0}
+  - {high: 4.0, low: 3.5}
+  - {high: 4.5, low: 4.0}

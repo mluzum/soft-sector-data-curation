@@ -1,0 +1,182 @@
+---
+observable_type: flow_vn
+inspire_id: '1632759'
+version: 1
+hepdata_file: ppg207fig1a.yaml
+hepdata_table_label: Transverse momentum dependence of $v_2$ for identified pions and protons within $|\eta|$ < 0.35 in 0-5%
+  central $p$+Au collisions.
+collision_system:
+  energy_gev: 200.0
+  reaction: ^3He Au --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: p
+kinematic_range:
+  pT:
+    min: 0.4
+    max: 3.4
+    bins:
+    - 0.4
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2
+    - 1.5
+    - 1.9
+    - 2.4
+    - 3.0
+    - 3.4
+  eta:
+    min: -0.35
+    max: 0.35
+harmonic: 2
+method: event_plane
+value_type: v_2
+dimensionality: differential_pT
+---
+observable_type: flow_vn
+inspire_id: '1632759'
+version: 1
+hepdata_file: ppg207fig1b.yaml
+hepdata_table_label: Transverse momentum dependence of $v_2$ for identified pions and protons within $|\eta|$ < 0.35 in 0-5%
+  central $^3$He+Au collisions.
+collision_system:
+  energy_gev: 200.0
+  reaction: ^3He Au --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: p
+kinematic_range:
+  pT:
+    min: 0.4
+    max: 3.0
+    bins:
+    - 0.4
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+    - 2.0
+    - 2.2
+    - 2.4
+    - 2.6
+    - 2.8
+    - 3.0
+  eta:
+    min: -0.35
+    max: 0.35
+harmonic: 2
+method: event_plane
+value_type: v_2
+dimensionality: differential_pT
+---
+observable_type: flow_vn
+inspire_id: '1632759'
+version: 1
+hepdata_file: ppg207tab1a.yaml
+hepdata_table_label: Values of $v_2$($p_T$) for kaons in central 0-5% $p$+Au collisions at $\sqrt{s_{NN}}$ = 200 GeV.
+collision_system:
+  energy_gev: 200.0
+  reaction: ^3He Au --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: charged
+kinematic_range:
+  pT:
+    min: 0.4
+    max: 1.9
+    bins:
+    - 0.4
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2
+    - 1.5
+    - 1.9
+  eta:
+    min: -0.35
+    max: 0.35
+harmonic: 2
+method: event_plane
+value_type: v_2
+dimensionality: differential_pT
+---
+observable_type: flow_vn
+inspire_id: '1632759'
+version: 1
+hepdata_file: ppg207tab1b.yaml
+hepdata_table_label: Values of $v_2$($p_T$) for kaons in central 0-5% $^3$He+Au collisions at $\sqrt{s_{NN}}$ = 200 GeV.
+collision_system:
+  energy_gev: 200.0
+  reaction: ^3He Au --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: charged
+kinematic_range:
+  pT:
+    min: 0.4
+    max: 2.0
+    bins:
+    - 0.4
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+    - 2.0
+  eta:
+    min: -0.35
+    max: 0.35
+harmonic: 2
+method: event_plane
+value_type: v_2
+dimensionality: differential_pT

@@ -1,0 +1,79 @@
+dependent_variables:
+- header: {name: D(pT r) PbPb}
+  qualifiers:
+  - {name: RE, value: Charged particle distribution in PbPb}
+  - {name: pT(jet), units: GeV, value: 251.2 - 316.2}
+  - {name: pT(trk), units: GeV, value: 25.1 - 63.1}
+  - {name: Centrality, value: 0-10%}
+  - {name: abs. rapidity(jet), value: 0 - 1.7}
+  - {name: SQRT(S), units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - asymerror: {minus: -0.323443, plus: 0.322699}
+      label: sys
+    - {label: stat, symerror: 0.054034}
+    value: 3.34542
+  - errors:
+    - asymerror: {minus: -0.00631709, plus: 0.0061613}
+      label: sys
+    - {label: stat, symerror: 0.00650577}
+    value: 0.150544
+  - errors:
+    - asymerror: {minus: -0.0010939, plus: 0.00115514}
+      label: sys
+    - {label: stat, symerror: 0.00193899}
+    value: 0.0213993
+  - errors:
+    - asymerror: {minus: -0.000524762, plus: 0.000517797}
+      label: sys
+    - {label: stat, symerror: 0.000988867}
+    value: 0.00736728
+  - errors:
+    - asymerror: {minus: -0.00016902, plus: 0.000134061}
+      label: sys
+    - {label: stat, symerror: 0.000464007}
+    value: 0.0022108
+  - errors:
+    - asymerror: {minus: -9.62199e-05, plus: 9.41617e-05}
+      label: sys
+    - {label: stat, symerror: 0.000241396}
+    value: 0.000784691
+  - errors:
+    - asymerror: {minus: -3.33286e-05, plus: 3.34585e-05}
+      label: sys
+    - {label: stat, symerror: 1.88227e-05}
+    value: 4.14212e-05
+  - errors:
+    - asymerror: {minus: -3.40085e-05, plus: 3.23063e-05}
+      label: sys
+    - {label: stat, symerror: 6.947e-05}
+    value: 0.000171821
+  - errors:
+    - asymerror: {minus: -1.51875e-05, plus: 1.50715e-05}
+      label: sys
+    - {label: stat, symerror: 2.84627e-05}
+    value: 4.0239e-05
+  - errors:
+    - asymerror: {minus: -3.56233e-05, plus: 3.55281e-05}
+      label: sys
+    - {label: stat, symerror: 4.39849e-05}
+    value: 9.89887e-05
+  - errors:
+    - asymerror: {minus: -1.0278e-05, plus: 1.04322e-05}
+      label: sys
+    - {label: stat, symerror: 1.49974e-05}
+    value: 1.64288e-05
+independent_variables:
+- header: {name: r}
+  values:
+  - {high: 0.05, low: 0}
+  - {high: 0.1, low: 0.05}
+  - {high: 0.15, low: 0.1}
+  - {high: 0.2, low: 0.15}
+  - {high: 0.25, low: 0.2}
+  - {high: 0.3, low: 0.25}
+  - {high: 0.4, low: 0.3}
+  - {high: 0.5, low: 0.4}
+  - {high: 0.6, low: 0.5}
+  - {high: 0.7, low: 0.6}
+  - {high: 0.8, low: 0.7}

@@ -1,0 +1,65 @@
+dependent_variables:
+- header: {name: '$1/N_{\rm ev} {\rm d}^{2}N/{\rm d}p_{\rm T}/{\rm d}y$', units: '(GeV/$c$)$^{-1}$'}
+  qualifiers:
+  - {name: RE, value: PB PB --> MUON X}
+  - {name: SQRT(S), units: GeV, value: '5020.0'}
+  - {name: YRAP, value: 2.5 TO 4.0}
+  - {name: CENTRALITY, value: 60--80%}
+  values:
+  - errors:
+    - {label: stat, symerror: 5.38e-06}
+    - {label: sys, symerror: 3.43e-05}
+    - {label: global, symerror: 1.22e-06}
+    value: 0.000405
+  - errors:
+    - {label: stat, symerror: 3.88e-06}
+    - {label: sys, symerror: 1.46e-05}
+    - {label: global, symerror: 6.68e-07}
+    value: 0.000223
+  - errors:
+    - {label: stat, symerror: 8.95e-07}
+    - {label: sys, symerror: 5.5e-06}
+    - {label: global, symerror: 3.14e-07}
+    value: 0.000105
+  - errors:
+    - {label: stat, symerror: 5.53e-07}
+    - {label: sys, symerror: 1.74e-06}
+    - {label: global, symerror: 1.21e-07}
+    value: 4.05e-05
+  - errors:
+    - {label: stat, symerror: 3.97e-08}
+    - {label: sys, symerror: 4.98e-07}
+    - {label: global, symerror: 9.81e-08}
+    value: 1.4e-05
+  - errors:
+    - {label: stat, symerror: 1.78e-08}
+    - {label: sys, symerror: 1.47e-07}
+    - {label: global, symerror: 2.44e-08}
+    value: 3.49e-06
+  - errors:
+    - {label: stat, symerror: 1.03e-08}
+    - {label: sys, symerror: 4.7e-08}
+    - {label: global, symerror: 8.11e-09}
+    value: 1.16e-06
+  - errors:
+    - {label: stat, symerror: 6.29e-09}
+    - {label: sys, symerror: 1.61e-08}
+    - {label: global, symerror: 2.87e-09}
+    value: 4.09e-07
+  - errors:
+    - {label: stat, symerror: 2.54e-09}
+    - {label: sys, symerror: 4.47e-09}
+    - {label: global, symerror: 6.45e-10}
+    value: 9.21e-08
+independent_variables:
+- header: {name: '$p_{\rm T}$', units: GeV/$c$}
+  values:
+  - {high: 3.5, low: 3.0}
+  - {high: 4.0, low: 3.5}
+  - {high: 5.0, low: 4.0}
+  - {high: 6.0, low: 5.0}
+  - {high: 8.0, low: 6.0}
+  - {high: 10.0, low: 8.0}
+  - {high: 12.0, low: 10.0}
+  - {high: 15.0, low: 12.0}
+  - {high: 20.0, low: 15.0}

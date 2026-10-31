@@ -1,0 +1,81 @@
+dependent_variables:
+- header: {name: RAA}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 20.0-40.0}
+  - {name: RE, value: PB PB --> J/PSI X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  - {name: YRAP, value: 2.5-4.0}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.08}
+    - {label: sys, symerror: 0.097}
+    value: 0.733
+  - errors:
+    - {label: stat, symerror: 0.051}
+    - {label: sys, symerror: 0.08}
+    value: 0.66
+  - errors:
+    - {label: stat, symerror: 0.044}
+    - {label: sys, symerror: 0.067}
+    value: 0.543
+  - errors:
+    - {label: stat, symerror: 0.048}
+    - {label: sys, symerror: 0.06}
+    value: 0.493
+  - errors:
+    - {label: stat, symerror: 0.063}
+    - {label: sys, symerror: 0.051}
+    value: 0.444
+  - errors:
+    - {label: stat, symerror: 0.067}
+    - {label: sys, symerror: 0.045}
+    value: 0.399
+  - errors:
+    - {label: stat, symerror: 0.116}
+    - {label: sys, symerror: 0.059}
+    value: 0.523
+- header: {name: 10**3 * D2(Y)/DPT/DYRAP, units: (GeV/c)**-1}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 20.0-40.0}
+  - {name: RE, value: PB PB --> J/PSI X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  - {name: YRAP, value: 2.5-4.0}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.128}
+    - {label: sys, symerror: 0.229}
+    value: 1.909
+  - errors:
+    - {label: stat, symerror: 0.154}
+    - {label: sys, symerror: 0.344}
+    value: 3.189
+  - errors:
+    - {label: stat, symerror: 0.106}
+    - {label: sys, symerror: 0.238}
+    value: 2.167
+  - errors:
+    - {label: stat, symerror: 0.055}
+    - {label: sys, symerror: 0.117}
+    value: 1.084
+  - errors:
+    - {label: stat, symerror: 0.027}
+    - {label: sys, symerror: 0.04}
+    value: 0.411
+  - errors:
+    - {label: stat, symerror: 0.014}
+    - {label: sys, symerror: 0.02}
+    value: 0.2
+  - errors:
+    - {label: stat, symerror: 0.005}
+    - {label: sys, symerror: 0.007}
+    value: 0.068
+independent_variables:
+- header: {name: PT, units: GeV/c}
+  values:
+  - {high: 1.0, low: 0.0}
+  - {high: 2.0, low: 1.0}
+  - {high: 3.0, low: 2.0}
+  - {high: 4.0, low: 3.0}
+  - {high: 5.0, low: 4.0}
+  - {high: 6.0, low: 5.0}
+  - {high: 8.0, low: 6.0}

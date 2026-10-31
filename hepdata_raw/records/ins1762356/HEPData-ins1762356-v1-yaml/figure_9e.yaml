@@ -1,0 +1,26 @@
+dependent_variables:
+- header: {name: $B_3$, units: '$\mathrm{GeV}^{4}/c^6$'}
+  qualifiers:
+  - {name: CENTRALITY, value: $40-100\%$}
+  - {name: Particle, value: '$(^3\mathrm{He} +\,^3\overline{\mathrm{He}}) / 2$'}
+  - {name: YRAP, value: $-1.0 - 0.0$}
+  - {name: SQRT(S)/NUCLEON, value: 5020.0 GeV}
+  values:
+  - errors:
+    - {label: stat, symerror: 1.0746e-05}
+    - {label: syst, symerror: 8.2298e-06}
+    value: 6.2254e-05
+  - errors:
+    - {label: stat, symerror: 1.3203e-05}
+    - {label: syst, symerror: 1.0545e-05}
+    value: 7.9448e-05
+  - errors:
+    - {label: stat, symerror: 4.6016e-05}
+    - {label: syst, symerror: 2.3645e-05}
+    value: 0.00016549
+independent_variables:
+- header: {name: '$p_\mathrm{T}/A$', units: GeV/$c$}
+  values:
+  - {high: 0.66667, low: 0.5}
+  - {high: 1.0, low: 0.66667}
+  - {high: 1.6667, low: 1.0}

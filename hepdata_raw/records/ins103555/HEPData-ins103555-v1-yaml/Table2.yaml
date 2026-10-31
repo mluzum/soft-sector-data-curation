@@ -1,0 +1,20 @@
+dependent_variables:
+- header: {name: SIG, units: MB}
+  qualifiers:
+  - {name: RE, value: LAMBDA P --> LAMBDA P PI+ PI-}
+  values:
+  - errors:
+    - asymerror: {minus: -0.25, plus: 0.5}
+    value: 0.5
+  - errors:
+    - {symerror: 0.9}
+    value: 2.6
+  - errors:
+    - {symerror: 0.6}
+    value: 1.8
+independent_variables:
+- header: {name: P, units: GEV}
+  values:
+  - {high: 3.0, low: 1.5}
+  - {high: 8.0, low: 3.0}
+  - {high: 24.0, low: 8.0}

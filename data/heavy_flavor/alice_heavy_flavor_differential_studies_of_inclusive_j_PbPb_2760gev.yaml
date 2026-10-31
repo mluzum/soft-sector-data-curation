@@ -1,0 +1,89 @@
+---
+observable_type: heavy_flavor
+inspire_id: '1380192'
+version: 1
+hepdata_file: Table15.yaml
+hepdata_table_label: 'Inclusive $[\psi\text{(2S)/J/}\psi]_{\rm Pb-Pb}$ and $[\psi\text{(2S)/J/}\psi]_{\rm Pb-Pb}\;/\;[\psi\text{(2S)/J/}\psi]_{\rm
+  pp}$ ratios as a function of centrality for $p_{\rm T}<3$ GeV/$c$. Statistical and systematic uncertainties are reported
+  when the value is not given as an upper limit.
+
+  '
+qualifiers:
+  pt: 0.0-3.0
+  re: PB PB --> PSI(2S) X
+  sqrt(s)/nucleon: '2760.0'
+  yrap: 2.5-4.0
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> PSI(2S) X
+centrality:
+  classes:
+  - 0-20%
+  - 20-40%
+  - 40-60%
+  - 60-90%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+  particle: psi(2s)
+kinematic_range:
+  pT:
+    min: 0.0
+    max: 3.0
+  eta:
+    min: -0.8
+    max: 0.8
+observable: psi(2s)_invariant_yield
+value_type: invariant_yield
+particle: psi(2s)
+---
+observable_type: heavy_flavor
+inspire_id: '1380192'
+version: 1
+hepdata_file: Table16.yaml
+hepdata_table_label: 'Inclusive $[\psi\text{(2S)/J/}\psi]_{\rm Pb-Pb}$ and $[\psi\text{(2S)/J/}\psi]_{\rm Pb-Pb}\;/\;[\psi\text{(2S)/J/}\psi]_{\rm
+  pp}$ ratios as a function of centrality for $3<p_{\rm T}<8$ GeV/$c$.
+
+  '
+qualifiers:
+  pt: 3.0-8.0
+  re: PB PB --> PSI(2S) X
+  sqrt(s)/nucleon: '2760.0'
+  yrap: 2.5-4.0
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> PSI(2S) X
+centrality:
+  classes:
+  - 0-20%
+  - 20-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+  particle: psi(2s)
+kinematic_range:
+  pT:
+    min: 3.0
+    max: 8.0
+  eta:
+    min: -0.8
+    max: 0.8
+observable: psi(2s)_invariant_yield
+value_type: invariant_yield
+particle: psi(2s)

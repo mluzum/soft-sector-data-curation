@@ -1,0 +1,25 @@
+dependent_variables:
+- header: {name: '$R_{\mathrm{AA}}$'}
+  qualifiers:
+  - {name: Reaction, value: Pb + Pb --> Upsilon(2S) (--> Mu+ Mu-) + X}
+  - {name: '$\sqrt{s_{\mathrm{NN}}}$', units: TeV, value: '5.02'}
+  - {name: Rapidity interval, value: "2.5\u20134.0"}
+  - {name: Global uncertainty, value: 8.7%}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.057}
+    - {label: syst, symerror: 0.032}
+    value: 0.226
+  - errors:
+    - {label: stat, symerror: 0.026}
+    - {label: syst, symerror: 0.024}
+    value: 0.104
+independent_variables:
+- header: {name: '$\langle N_{\mathrm{part}} \rangle$'}
+  values:
+  - {value: 54.3}
+  - {value: 269.1}
+- header: {name: Centrality interval, units: '%'}
+  values:
+  - {high: 90, low: 30}
+  - {high: 30, low: 0}

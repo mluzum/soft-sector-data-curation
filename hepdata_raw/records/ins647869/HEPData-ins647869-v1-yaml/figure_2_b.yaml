@@ -1,0 +1,34 @@
+dependent_variables:
+- header: {name: '$d\sigma/dp_{T}$', units: mb/(MeV/c)}
+  values:
+  - errors:
+    - {label: total, symerror: 0.009}
+    value: 0.017
+  - errors:
+    - {label: total, symerror: 0.011}
+    value: 0.042
+  - errors:
+    - {label: total, symerror: 0.007}
+    value: 0.017
+  - errors:
+    - {label: total, symerror: 0.006}
+    value: 0.011
+  - errors:
+    - {label: total, symerror: 0.002}
+    value: 0.002
+  - errors:
+    - {label: total, symerror: 0.002}
+    value: 0.002
+  - errors:
+    - {label: total, symerror: 0.002}
+    value: 0.002
+independent_variables:
+- header: {name: 'Pair Transverse Momentum $p_{T}$', units: GeV}
+  values:
+  - {high: 15, low: 0, value: 7.5}
+  - {high: 30, low: 15, value: 22.5}
+  - {high: 45, low: 30, value: 37.5}
+  - {high: 60, low: 45, value: 52.5}
+  - {high: 75, low: 60, value: 67.5}
+  - {high: 90, low: 75, value: 82.5}
+  - {high: 105, low: 90, value: 97.5}

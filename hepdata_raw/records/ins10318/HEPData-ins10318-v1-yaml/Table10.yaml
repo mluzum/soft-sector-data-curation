@@ -1,0 +1,40 @@
+dependent_variables:
+- header: {name: MULT(P=3)}
+  qualifiers:
+  - {name: RE, value: P NE --> GAMMA X}
+  - {name: SYS, value: 'PROTONS WERE IDENTIFIED ONLY IN  0.13 < PLAB < 1.2 GEV/C REGION.
+      ADMIXTURE OF HEAVY PARTICLES (DEUT, T, HE ETC) AMONG THE SECONDARY PROTONS DOES
+      NOT EXHAUST  9 +- 3 PCT.//K- MESONS AND ANTIPROTONS CONSIST 5 AND 1.4 PCT OF
+      NEGATIVELY CHARGED PARTICLES RESPECTIVELY'}
+  values:
+  - errors:
+    - {symerror: 0.03}
+    value: 1.93
+- header: {name: MULT(P=3)}
+  qualifiers:
+  - {name: RE, value: P P --> GAMMA X}
+  - {name: SQRT(S), units: GeV, value: '23.761'}
+  - {name: SYS, value: 'PROTONS WERE IDENTIFIED ONLY IN  0.13 < PLAB < 1.2 GEV/C REGION.
+      ADMIXTURE OF HEAVY PARTICLES (DEUT, T, HE ETC) AMONG THE SECONDARY PROTONS DOES
+      NOT EXHAUST  9 +- 3 PCT.//K- MESONS AND ANTIPROTONS CONSIST 5 AND 1.4 PCT OF
+      NEGATIVELY CHARGED PARTICLES RESPECTIVELY'}
+  values:
+  - errors:
+    - {symerror: 0.03}
+    value: 1.47
+- header: {name: MULT(P=3)}
+  qualifiers:
+  - {name: RE, value: P N --> GAMMA X}
+  - {name: SQRT(S), units: GeV, value: '23.735'}
+  - {name: SYS, value: 'PROTONS WERE IDENTIFIED ONLY IN  0.13 < PLAB < 1.2 GEV/C REGION.
+      ADMIXTURE OF HEAVY PARTICLES (DEUT, T, HE ETC) AMONG THE SECONDARY PROTONS DOES
+      NOT EXHAUST  9 +- 3 PCT.//K- MESONS AND ANTIPROTONS CONSIST 5 AND 1.4 PCT OF
+      NEGATIVELY CHARGED PARTICLES RESPECTIVELY'}
+  values:
+  - errors:
+    - {symerror: 0.05}
+    value: 1.34
+independent_variables:
+- header: {name: P, units: GEV}
+  values:
+  - {value: 300.0}

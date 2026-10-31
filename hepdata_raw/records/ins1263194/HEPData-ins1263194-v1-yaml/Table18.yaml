@@ -1,0 +1,97 @@
+dependent_variables:
+- header: {name: RCP}
+  qualifiers:
+  - {name: CENTRALITY(central), units: pct, value: 0.0-10.0}
+  - {name: CENTRALITY(peripheral), units: pct, value: 50.0-80.0}
+  - {name: ETARAP(jet), value: -0.5-0.5}
+  - {name: PT(leading track), units: GEV, value: '> 0.15'}
+  - {name: PT(track), units: GEV, value: '> 0.15'}
+  - {name: RE, value: PB PB --> CHARGED X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  - {name: '', value: Anti-kT R = 0.2}
+  values:
+  - {value: '-'}
+  - errors:
+    - {label: stat, symerror: 0.0441}
+    - asymerror: {minus: -0.0406, plus: 0.0379}
+      label: sys
+    - {label: sys, symerror: 0.0145}
+    value: 0.3186
+  - errors:
+    - {label: stat, symerror: 0.06}
+    - asymerror: {minus: -0.0518, plus: 0.0363}
+      label: sys
+    - {label: sys, symerror: 0.0192}
+    value: 0.4175
+  - errors:
+    - {label: stat, symerror: 0.0792}
+    - asymerror: {minus: -0.1095, plus: 0.0158}
+      label: sys
+    - {label: sys, symerror: 0.0389}
+    value: 0.5223
+  - errors:
+    - {label: stat, symerror: 0.0972}
+    - asymerror: {minus: -0.0537, plus: 0.0674}
+      label: sys
+    - {label: sys, symerror: 0.0411}
+    value: 0.5334
+  - errors:
+    - {label: stat, symerror: 0.1195}
+    - asymerror: {minus: -0.1021, plus: 0.1212}
+      label: sys
+    - {label: sys, symerror: 0.026}
+    value: 0.4747
+  - errors:
+    - {label: stat, symerror: 0.141}
+    - asymerror: {minus: -0.0254, plus: 0.1355}
+      label: sys
+    - {label: sys, symerror: 0.0103}
+    value: 0.4032
+- header: {name: RCP}
+  qualifiers:
+  - {name: CENTRALITY(central), units: pct, value: 0.0-10.0}
+  - {name: CENTRALITY(peripheral), units: pct, value: 50.0-80.0}
+  - {name: ETARAP(jet), value: -0.5-0.5}
+  - {name: PT(leading track), units: GEV, value: '> 0.15'}
+  - {name: PT(track), units: GEV, value: '> 0.15'}
+  - {name: RE, value: PB PB --> CHARGED X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  - {name: '', value: Anti-kT R = 0.3}
+  values:
+  - {value: '-'}
+  - {value: '-'}
+  - errors:
+    - {label: stat, symerror: 0.1173}
+    - asymerror: {minus: -0.1103, plus: 0.0368}
+      label: sys
+    - {label: sys, symerror: 0.0985}
+    value: 0.3558
+  - errors:
+    - {label: stat, symerror: 0.1164}
+    - asymerror: {minus: -0.1468, plus: 0.0398}
+      label: sys
+    - {label: sys, symerror: 0.0757}
+    value: 0.5055
+  - errors:
+    - {label: stat, symerror: 0.1091}
+    - asymerror: {minus: -0.1404, plus: 0.0234}
+      label: sys
+    - {label: sys, symerror: 0.0484}
+    value: 0.5133
+  - errors:
+    - {label: stat, symerror: 0.1331}
+    - asymerror: {minus: -0.1108, plus: 0.0359}
+      label: sys
+    - {label: sys, symerror: 0.0402}
+    value: 0.4549
+  - {value: '-'}
+independent_variables:
+- header: {name: PT(jet), units: GEV}
+  values:
+  - {high: 30.0, low: 20.0}
+  - {high: 40.0, low: 30.0}
+  - {high: 50.0, low: 40.0}
+  - {high: 60.0, low: 50.0}
+  - {high: 70.0, low: 60.0}
+  - {high: 80.0, low: 70.0}
+  - {high: 90.0, low: 80.0}

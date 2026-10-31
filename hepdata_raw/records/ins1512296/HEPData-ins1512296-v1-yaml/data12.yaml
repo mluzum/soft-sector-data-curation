@@ -1,0 +1,40 @@
+dependent_variables:
+- header: {name: '$R_{\textrm{FB}}$'}
+  qualifiers:
+  - {name: RE, value: P PB --> J/PSI < MU+ MU- > X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 5020}
+  - {name: '$|y_{\textrm{CM}}|$', value: 1.5-1.93}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.029}
+    - {label: syst, symerror: 0.05}
+    value: 0.803
+  - errors:
+    - {label: stat, symerror: 0.04}
+    - {label: syst, symerror: 0.06}
+    value: 0.9
+  - errors:
+    - {label: stat, symerror: 0.05}
+    - {label: syst, symerror: 0.06}
+    value: 0.94
+  - errors:
+    - {label: stat, symerror: 0.04}
+    - {label: syst, symerror: 0.05}
+    value: 0.76
+  - errors:
+    - {label: stat, symerror: 0.05}
+    - {label: syst, symerror: 0.06}
+    value: 0.93
+  - errors:
+    - {label: stat, symerror: 0.09}
+    - {label: syst, symerror: 0.07}
+    value: 0.96
+independent_variables:
+- header: {name: '$p_{\textrm{T}}$', units: GEV}
+  values:
+  - {high: 6.5, low: 5}
+  - {high: 7.5, low: 6.5}
+  - {high: 8.5, low: 7.5}
+  - {high: 10, low: 8.5}
+  - {high: 14, low: 10}
+  - {high: 30, low: 14}

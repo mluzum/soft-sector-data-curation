@@ -1,0 +1,79 @@
+dependent_variables:
+- header: {name: D(pT r) PbPb}
+  qualifiers:
+  - {name: RE, value: Charged particle distribution in PbPb}
+  - {name: pT(jet), units: GeV, value: 158.5 - 199.5}
+  - {name: pT(trk), units: GeV, value: 2.5 - 4.0}
+  - {name: Centrality, value: 0-10%}
+  - {name: abs. rapidity(jet), value: 0 - 1.7}
+  - {name: SQRT(S), units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - asymerror: {minus: -1.13766, plus: 1.13132}
+      label: sys
+    - {label: stat, symerror: 0.244761}
+    value: 18.6249
+  - errors:
+    - asymerror: {minus: -0.344255, plus: 0.338396}
+      label: sys
+    - {label: stat, symerror: 0.11178}
+    value: 11.9212
+  - errors:
+    - asymerror: {minus: -0.109485, plus: 0.1092}
+      label: sys
+    - {label: stat, symerror: 0.0692124}
+    value: 6.66417
+  - errors:
+    - asymerror: {minus: -0.0747626, plus: 0.0745495}
+      label: sys
+    - {label: stat, symerror: 0.0489857}
+    value: 3.67486
+  - errors:
+    - asymerror: {minus: -0.0568496, plus: 0.0548891}
+      label: sys
+    - {label: stat, symerror: 0.0383458}
+    value: 2.13183
+  - errors:
+    - asymerror: {minus: -0.040917, plus: 0.0408287}
+      label: sys
+    - {label: stat, symerror: 0.0318154}
+    value: 1.30571
+  - errors:
+    - asymerror: {minus: -0.0230122, plus: 0.022888}
+      label: sys
+    - {label: stat, symerror: 0.0191211}
+    value: 0.650854
+  - errors:
+    - asymerror: {minus: -0.0125003, plus: 0.0127121}
+      label: sys
+    - {label: stat, symerror: 0.0162733}
+    value: 0.319176
+  - errors:
+    - asymerror: {minus: -0.0146172, plus: 0.0143633}
+      label: sys
+    - {label: stat, symerror: 0.0150984}
+    value: 0.175197
+  - errors:
+    - asymerror: {minus: -0.010754, plus: 0.010629}
+      label: sys
+    - {label: stat, symerror: 0.0132502}
+    value: 0.0913366
+  - errors:
+    - asymerror: {minus: -0.0117506, plus: 0.0117868}
+      label: sys
+    - {label: stat, symerror: 0.0142326}
+    value: 0.0859259
+independent_variables:
+- header: {name: r}
+  values:
+  - {high: 0.05, low: 0}
+  - {high: 0.1, low: 0.05}
+  - {high: 0.15, low: 0.1}
+  - {high: 0.2, low: 0.15}
+  - {high: 0.25, low: 0.2}
+  - {high: 0.3, low: 0.25}
+  - {high: 0.4, low: 0.3}
+  - {high: 0.5, low: 0.4}
+  - {high: 0.6, low: 0.5}
+  - {high: 0.7, low: 0.6}
+  - {high: 0.8, low: 0.7}

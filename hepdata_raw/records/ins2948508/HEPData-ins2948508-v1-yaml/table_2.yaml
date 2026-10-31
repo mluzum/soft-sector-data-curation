@@ -1,0 +1,41 @@
+dependent_variables:
+- header: {name: '$1/N_\mathrm{ev} \: \mathrm{d^2}N/\mathrm{d}y/\mathrm{d}p_\mathrm{T}$',
+    units: '$(\mathrm{GeV}/c)^{-1}$'}
+  qualifiers:
+  - {name: REACTION, value: p p --> Sigmabar- + X}
+  - {name: SQRT(S), units: GEV, value: 5020.0}
+  - {name: YRAP, value: -0.5 TO 0.5}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0010336}
+    - {label: sys, symerror: 0.002767}
+    value: 0.012248
+  - errors:
+    - {label: stat, symerror: 0.00086214}
+    - {label: sys, symerror: 0.0025437}
+    value: 0.011662
+  - errors:
+    - {label: stat, symerror: 0.0008131}
+    - {label: sys, symerror: 0.0023619}
+    value: 0.011242
+  - errors:
+    - {label: stat, symerror: 0.00077591}
+    - {label: sys, symerror: 0.0017957}
+    value: 0.0085382
+  - errors:
+    - {label: stat, symerror: 0.00036863}
+    - {label: sys, symerror: 0.00093743}
+    value: 0.0042177
+  - errors:
+    - {label: stat, symerror: 0.0001891}
+    - {label: sys, symerror: 0.00049949}
+    value: 0.0018895
+independent_variables:
+- header: {name: '$p_\mathrm{{T}}$', units: '$\mathrm{GeV}/c$'}
+  values:
+  - {value: 0.60477}
+  - {value: 0.89236}
+  - {value: 1.128}
+  - {value: 1.3746}
+  - {value: 1.7398}
+  - {value: 2.434}

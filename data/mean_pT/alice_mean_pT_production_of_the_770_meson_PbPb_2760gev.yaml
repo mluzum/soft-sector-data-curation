@@ -1,0 +1,37 @@
+observable_type: mean_pT
+inspire_id: '1672860'
+version: 1
+hepdata_file: Table12.yaml
+hepdata_table_label: Mean transverse momentum of $\rho^{0}$ meson as a function of
+  $(dN_{ch}/d\eta)^{1/3}$ in pp and 0-20$\%$, 20-40$\%$, 40-60$\%$, 60-80$\%$ central
+  Pb-Pb collisions at $\sqrt{s_{\rm NN}}=2.76~{\rm TeV}$.
+qualifiers:
+  re: PB PB $\rightarrow$ $\rho^{0}$ + X; P P $\rightarrow$ $\rho^{0}$ + X
+  sqrt(s): '2760.0'
+  yrap(cm): -0.5 TO 0.5
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB \rightarrow \rho^{0} + X; P P \rightarrow \rho^{0} + X
+centrality:
+  classes:
+  - 0.0-20.0%
+  - 20.0-40.0%
+  - 40.0-60.0%
+  - 60.0-80.0%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: p
+observable: mean_pT
+value_type: mean_pT
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8

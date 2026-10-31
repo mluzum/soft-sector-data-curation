@@ -1,0 +1,31 @@
+dependent_variables:
+- header: {name: ''}
+  qualifiers:
+  - {name: ABS(DELTA ETA), value: 0.0-0.78}
+  - {name: ABS(DELTA PHI), value: 0.0-0.78}
+  - {name: ABS(ETA), value: 0.0-1.0}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '200.0'}
+  values:
+  - errors:
+    - {symerror: 0.036}
+    value: 0.16
+  - errors:
+    - {symerror: 0.045}
+    value: 0.24
+  - {value: '-'}
+  - errors:
+    - {symerror: 0.033}
+    value: 0.091
+independent_variables:
+- header: {name: $p_T$}
+  values:
+  - {value: 3.5-4.5}
+  - {value: 4.5-5.5}
+  - {value: 3.5-4.5}
+  - {value: 4.5-5.5}
+- header: {name: $p_T$}
+  values:
+  - {value: 3.5-4.5}
+  - {value: 3.5-4.5}
+  - {value: 4.5-5.5}
+  - {value: 4.5-5.5}

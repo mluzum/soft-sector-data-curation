@@ -1,0 +1,25 @@
+dependent_variables:
+- header: {name: Efficiency, units: none}
+  qualifiers:
+  - {name: SQRT(S), units: GEV, value: 200}
+  - {name: CENTRALITY, value: 40-100 %}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0055}
+    value: 0.09
+  - errors:
+    - {label: stat, symerror: 0.012}
+    value: 0.117
+  - errors:
+    - {label: stat, symerror: 0.018}
+    value: 0.12
+  - errors:
+    - {label: stat, symerror: 0.039}
+    value: 0.0951
+independent_variables:
+- header: {name: pT, units: GeV/c}
+  values:
+  - {value: 1.25}
+  - {value: 1.75}
+  - {value: 2.25}
+  - {value: 3.0}

@@ -1,0 +1,21 @@
+dependent_variables:
+- header: {name: D(SIG)/DT, units: MB/GEV**2}
+  qualifiers:
+  - {name: RE, value: LAMBDA P --> LAMBDA P}
+  - {name: T, units: GeV^2, value: '0.0'}
+  values:
+  - errors:
+    - {symerror: 24.0}
+    value: 42.0
+  - errors:
+    - {symerror: 16.0}
+    value: 52.0
+  - errors:
+    - {symerror: 28.0}
+    value: 77.0
+independent_variables:
+- header: {name: P, units: GEV}
+  values:
+  - {high: 3.0, low: 1.5}
+  - {high: 8.0, low: 3.0}
+  - {high: 24.0, low: 8.0}

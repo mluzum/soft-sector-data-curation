@@ -1,0 +1,35 @@
+dependent_variables:
+- header: {name: $v_3$}
+  qualifiers:
+  - {name: $p_T$ range, value: $2.0<p_T<8.0~GeV/c$}
+  - {name: Rapidity range, value: $1<|y|<2$}
+  - {name: SQRT(S)/NUCLEON, value: $5020.0~GeV$}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.008}
+    - {label: sys, symerror: 0.012}
+    value: 0.043
+  - errors:
+    - {label: stat, symerror: 0.006}
+    - {label: sys, symerror: 0.012}
+    value: 0.062
+  - errors:
+    - {label: stat, symerror: 0.007}
+    - {label: sys, symerror: 0.012}
+    value: 0.045
+  - errors:
+    - {label: stat, symerror: 0.007}
+    - {label: sys, symerror: 0.011}
+    value: 0.05
+  - errors:
+    - {label: stat, symerror: 0.02}
+    - {label: sys, symerror: 0.01}
+    value: 0.04
+independent_variables:
+- header: {name: Centrality (%)}
+  values:
+  - {value: 5.0}
+  - {value: 15.0}
+  - {value: 25.0}
+  - {value: 40.0}
+  - {value: 60.0}

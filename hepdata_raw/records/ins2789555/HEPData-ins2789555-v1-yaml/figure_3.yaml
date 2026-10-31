@@ -1,0 +1,25 @@
+dependent_variables:
+- header: {name: $\cos(2\phi)$ amplitude}
+  qualifiers:
+  - {name: YRAP, value: -0.8 TO 0.8}
+  - {name: PT, units: GEV/C, value: 0 TO 0.1}
+  - {name: '$m_{\pi\pi}$', units: GEV/C$^2$, value: '0.6 < $m_{\pi\pi}$ < 0.95'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.011}
+    - {label: syst, symerror: 0.003}
+    value: 0.028
+  - errors:
+    - {label: stat, symerror: 0.04}
+    - {label: syst, symerror: 0.016}
+    value: 0.14
+  - errors:
+    - {label: stat, symerror: 0.06}
+    - {label: syst, symerror: 0.03}
+    value: 0.25
+independent_variables:
+- header: {name: Neutron emission class}
+  values:
+  - {value: 0n0n}
+  - {value: Xn0n}
+  - {value: XnXn}

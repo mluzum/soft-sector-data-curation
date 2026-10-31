@@ -1,0 +1,47 @@
+dependent_variables:
+- header: {name: R_dAu}
+  qualifiers:
+  - {name: RE, value: AU AU --> (J/PSI + X)}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.26}
+    - asymerror: {minus: -0.31, plus: 0.37}
+      label: sys
+    value: 1.1
+  - errors:
+    - {label: stat, symerror: 0.26}
+    - asymerror: {minus: -0.35, plus: 0.39}
+      label: sys
+    value: 1.27
+  - errors:
+    - {label: stat, symerror: 0.35}
+    - asymerror: {minus: -0.17, plus: 0.27}
+      label: sys
+    value: 0.66
+- header: {name: p+p stat}
+  qualifiers:
+  - {name: RE, value: AU AU --> (J/PSI + X)}
+  values:
+  - {value: 0.04}
+  - {value: 0.04}
+  - {value: 0.15}
+- header: {name: p+p syst}
+  qualifiers:
+  - {name: RE, value: AU AU --> (J/PSI + X)}
+  values:
+  - {value: 0.13}
+  - {value: 0.13}
+  - {value: 0.09}
+- header: {name: N_coll}
+  qualifiers:
+  - {name: RE, value: AU AU --> (J/PSI + X)}
+  values:
+  - {value: 0.17}
+  - {value: 0.17}
+  - {value: 0.17}
+independent_variables:
+- header: {name: $p_T$, units: GeV/c}
+  values:
+  - {value: 0.63}
+  - {value: 1.45}
+  - {value: 2.4}

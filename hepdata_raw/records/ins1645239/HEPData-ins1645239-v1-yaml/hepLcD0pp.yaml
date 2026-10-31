@@ -1,0 +1,40 @@
+dependent_variables:
+- header: {name: '$\Lambda_{\rm c}^{+}$/${\rm D}^{0}$ baryon-to-meson ratio'}
+  qualifiers:
+  - {name: RE, value: P P --> Lc X}
+  - {name: SQRT(S), units: GEV, value: '7000.0'}
+  - {name: YRAP, value: -0.5 TO 0.5}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.118}
+    - asymerror: {minus: -0.193, plus: 0.193}
+      label: sys
+    value: 0.568
+  - errors:
+    - {label: stat, symerror: 0.075}
+    - asymerror: {minus: -0.066, plus: 0.066}
+      label: sys
+    value: 0.546
+  - errors:
+    - {label: stat, symerror: 0.066}
+    - asymerror: {minus: -0.062, plus: 0.062}
+      label: sys
+    value: 0.532
+  - errors:
+    - {label: stat, symerror: 0.048}
+    - asymerror: {minus: -0.053, plus: 0.052}
+      label: sys
+    value: 0.464
+  - errors:
+    - {label: stat, symerror: 0.076}
+    - asymerror: {minus: -0.056, plus: 0.056}
+      label: sys
+    value: 0.386
+independent_variables:
+- header: {name: PT, units: GEV/C}
+  values:
+  - {high: 2.0, low: 1.0, value: 1.5}
+  - {high: 3.0, low: 2.0, value: 2.5}
+  - {high: 4.0, low: 3.0, value: 3.5}
+  - {high: 6.0, low: 4.0, value: 5.0}
+  - {high: 8.0, low: 6.0, value: 7.0}

@@ -1,0 +1,38 @@
+dependent_variables:
+- header: {name: $v_2$}
+  qualifiers:
+  - {name: SQRT(S), units: GEV, value: 27}
+  - {name: Au+Au, value: '${\phi}$'}
+  - {name: Centrality, units: percentage, value: 0-80}
+  values:
+  - errors:
+    - asymerror: {minus: -0.003334, plus: 0.00256}
+      label: sys
+    - {label: stat, symerror: 0.005854}
+    - {label: glob, symerror: 0.002045}
+    value: 0.022027
+  - errors:
+    - asymerror: {minus: -0.003722, plus: 0.001666}
+      label: sys
+    - {label: stat, symerror: 0.004246}
+    - {label: glob, symerror: 0.002045}
+    value: 0.046974
+  - errors:
+    - asymerror: {minus: -0.002584, plus: 0.002849}
+      label: sys
+    - {label: stat, symerror: 0.005393}
+    - {label: glob, symerror: 0.002045}
+    value: 0.061347
+  - errors:
+    - asymerror: {minus: -0.008059, plus: 0.00151}
+      label: sys
+    - {label: stat, symerror: 0.008059}
+    - {label: glob, symerror: 0.002045}
+    value: 0.084116
+independent_variables:
+- header: {name: $Reduced ~transverse~ mass~(GeV/C^2)$}
+  values:
+  - {value: 0.6515}
+  - {value: 0.9985}
+  - {value: 0.3765}
+  - {value: 1.7825}

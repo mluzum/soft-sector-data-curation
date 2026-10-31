@@ -1,0 +1,55 @@
+dependent_variables:
+- header: {name: SIG(OMEGA- + AOMEGA+)/SIG(PHI)}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 0.0-10.0}
+  - {name: RE(OMEGA- + AOMEGA+), value: PB PB --> (OMEGA- < LAMBDA K- > + AOMEGA+
+      < ALAMBDA K+ >) X}
+  - {name: RE(PHI), value: PB PB --> PHI < K- K+ > X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  - {name: YRAP, value: -0.5-0.5}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.00921}
+    - {label: 'sys,uncorrelated', symerror: 0.00633}
+    - {label: 'sys,normalization of phi(1020)', symerror: 0.5%}
+    - {label: 'sys,other pT-correlated systematic uncertainties', symerror: 7.68%}
+    value: 0.0807
+  - errors:
+    - {label: stat, symerror: 0.0082}
+    - {label: 'sys,uncorrelated', symerror: 0.011}
+    - {label: 'sys,normalization of phi(1020)', symerror: 0.5%}
+    - {label: 'sys,other pT-correlated systematic uncertainties', symerror: 7.68%}
+    value: 0.1034
+  - errors:
+    - {label: stat, symerror: 0.0111}
+    - {label: 'sys,uncorrelated', symerror: 0.0129}
+    - {label: 'sys,normalization of phi(1020)', symerror: 0.5%}
+    - {label: 'sys,other pT-correlated systematic uncertainties', symerror: 7.68%}
+    value: 0.1387
+  - errors:
+    - {label: stat, symerror: 0.0137}
+    - {label: 'sys,uncorrelated', symerror: 0.0163}
+    - {label: 'sys,normalization of phi(1020)', symerror: 0.5%}
+    - {label: 'sys,other pT-correlated systematic uncertainties', symerror: 7.68%}
+    value: 0.177
+  - errors:
+    - {label: stat, symerror: 0.0186}
+    - {label: 'sys,uncorrelated', symerror: 0.0258}
+    - {label: 'sys,normalization of phi(1020)', symerror: 0.5%}
+    - {label: 'sys,other pT-correlated systematic uncertainties', symerror: 7.68%}
+    value: 0.2588
+  - errors:
+    - {label: stat, symerror: 0.0305}
+    - {label: 'sys,uncorrelated', symerror: 0.0351}
+    - {label: 'sys,normalization of phi(1020)', symerror: 0.5%}
+    - {label: 'sys,other pT-correlated systematic uncertainties', symerror: 7.68%}
+    value: 0.2559
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {high: 1.5, low: 1.2}
+  - {high: 2.0, low: 1.5}
+  - {high: 2.5, low: 2.0}
+  - {high: 3.0, low: 2.5}
+  - {high: 4.0, low: 3.0}
+  - {high: 5.0, low: 4.0}

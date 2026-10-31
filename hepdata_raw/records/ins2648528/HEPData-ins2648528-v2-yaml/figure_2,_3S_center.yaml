@@ -1,0 +1,23 @@
+dependent_variables:
+- header: {name: '$R_{\rm AA}$', units: ''}
+  qualifiers:
+  - {name: RE, value: Pb Pb --> $\Upsilon(3S)$ < $\mu$$^+$ $\mu$$^-$ > X}
+  - {name: SQRT(S)/NUCLEON, value: 5020 GeV}
+  - {name: $|y|$, value: $ < 2.4$}
+  - {name: '$p_{T}$', units: GeV/c, value: 0 -- 30}
+  - {name: GLOBAL UNC. PP MB, value: 2.3 %}
+  - {name: GLOBAL UNC. PP 3S, value: 1.5 %}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.02}
+    - {label: sys, symerror: 0.01}
+    value: 0.08
+- header: {name: '$\left< N_\text{part} \right>$', units: ''}
+  values:
+  - errors:
+    - {symerror: 0.8}
+    value: 126.0
+independent_variables:
+- header: {name: Centrality, units: PCT}
+  values:
+  - {high: 90, low: 0}

@@ -1,0 +1,24 @@
+dependent_variables:
+- header: {name: '$(^3\mathrm{H} +\,^3\overline{\mathrm{H}}) / (^3\mathrm{He} +\,^3\overline{\mathrm{He}})$'}
+  qualifiers:
+  - {name: YRAP, value: $-1.0 - 0.0$}
+  - {name: SQRT(S)/NUCLEON, value: 5020.0 GeV}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.15058}
+    - {label: syst, symerror: 0.11276}
+    value: 1.0788
+  - errors:
+    - {label: stat, symerror: 0.20325}
+    - {label: syst, symerror: 0.18573}
+    value: 1.3666
+  - errors:
+    - {label: stat, symerror: 0.26117}
+    - {label: syst, symerror: 0.32747}
+    value: 1.7132
+independent_variables:
+- header: {name: '$p_\mathrm{T}/A$', units: GeV/$c$}
+  values:
+  - {high: 0.66667, low: 0.5}
+  - {high: 0.83333, low: 0.66667}
+  - {high: 1.0, low: 0.83333}

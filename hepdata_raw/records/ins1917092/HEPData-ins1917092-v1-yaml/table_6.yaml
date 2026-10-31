@@ -1,0 +1,40 @@
+dependent_variables:
+- header: {name: '$\mathrm{B}^{0}_{\mathrm{s}}/\mathrm{B}^{+}$'}
+  qualifiers:
+  - {name: RE, value: Pb Pb --> Bs0 --> J/PSI (MU+ MU-) + PHI (K+ K-) and Pb Pb -->
+      B+ --> J/PSI (MU+ MU-) + K+}
+  - {name: SQRT(s)/NUCLEON, units: GeV, value: 5020}
+  - {name: '$p_{T}$', units: GeV/c, value: 10.0 - 50.0}
+  - {name: ABS(YRAP), value: 0 - 2.4}
+  - {name: Centrality, value: 0 - 90.0%}
+  - {name: Global uncertainty, value: 8.05%}
+  values:
+  - errors:
+    - asymerror: {minus: -0.046, plus: 0.045}
+      label: stat
+    - asymerror: {minus: -0.026, plus: 0.026}
+      label: syst
+    value: 0.217
+  - errors:
+    - asymerror: {minus: -0.052, plus: 0.057}
+      label: stat
+    - asymerror: {minus: -0.045, plus: 0.045}
+      label: syst
+    value: 0.307
+  - errors:
+    - asymerror: {minus: -0.084, plus: 0.08}
+      label: stat
+    - asymerror: {minus: -0.063, plus: 0.063}
+      label: syst
+    value: 0.365
+independent_variables:
+- header: {name: '$\langle N_{part} \rangle$'}
+  values:
+  - {value: 54.45}
+  - {value: 126}
+  - {value: 269.1}
+- header: {name: Centrality (%)}
+  values:
+  - {value: 30 - 90}
+  - {value: 0 - 90}
+  - {value: 0 - 30}

@@ -1,0 +1,33 @@
+dependent_variables:
+- header: {name: '$\rho_{\overline{p}\overline{d}}$'}
+  qualifiers:
+  - {name: Centrality, units: pct, value: 50.0-60.0}
+  - {name: '$p_{\rm T} (\overline{d})$', units: GeV/c, value: 0.8-1.8}
+  - {name: '$p_{\rm T} (\overline{p})$', units: GeV/c, value: 0.4-0.9}
+  - {name: RE, value: 'Pb Pb $\rightarrow$ $\overline{\rm d}$ X'}
+  - {name: RE, value: 'Pb Pb $\rightarrow$ $\overline{\rm p}$ X'}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.00126374}
+    - {label: syst., symerror: 0.000769369}
+    value: 0.000137891
+  - errors:
+    - {label: stat., symerror: 0.00104761}
+    - {label: syst., symerror: 0.000548033}
+    value: -0.00181586
+  - errors:
+    - {label: stat., symerror: 0.00103139}
+    - {label: syst., symerror: 0.000565984}
+    value: -0.0035897
+  - errors:
+    - {label: stat., symerror: 0.000970756}
+    - {label: syst., symerror: 0.000558624}
+    value: -0.004226
+independent_variables:
+- header: {name: $|\eta|<$x}
+  values:
+  - {high: 0.2, low: 0}
+  - {high: 0.4, low: 0}
+  - {high: 0.6, low: 0}
+  - {high: 0.8, low: 0}

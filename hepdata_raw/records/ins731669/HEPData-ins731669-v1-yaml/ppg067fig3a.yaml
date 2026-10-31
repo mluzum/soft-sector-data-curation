@@ -1,0 +1,30 @@
+dependent_variables:
+- header: {name: rms (rad)}
+  qualifiers:
+  - {name: Collision, value: $d$+Au}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.09}
+    - {label: sys., symerror: 0.06}
+    value: 0.72
+- header: {name: kurtosis}
+  qualifiers:
+  - {name: Collision, value: $d$+Au}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.4}
+    - {label: sys., symerror: 0.2}
+    value: 2.63
+- header: {name: $D$ (rad)}
+  qualifiers:
+  - {name: Collision, value: $d$+Au}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.05}
+    - asymerror: {minus: -0.4, plus: 0.02}
+      label: sys.
+    value: 0.44
+independent_variables:
+- header: {name: Centrality Integrated (%)}
+  values:
+  - {value: 0}

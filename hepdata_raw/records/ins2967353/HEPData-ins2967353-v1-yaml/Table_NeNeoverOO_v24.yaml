@@ -1,0 +1,31 @@
+dependent_variables:
+- header: {name: '$v_{2}${4}(Ne$-$Ne)/$v_{2}${4}(OO)'}
+  qualifiers:
+  - {name: '$p_\mathrm{T}$', units: GeV/c, value: 0.2-3.0}
+  - {name: $\eta$, value: -0.8 - 0.8}
+  - {name: RE, value: 'Ne$-$Ne, OO'}
+  - {name: SQRT(S), value: '5.36 TeV, 5.36 TeV'}
+  values:
+  - errors:
+    - {label: stat, symerror: '0.006412'}
+    - {label: sys, symerror: '0.004794'}
+    value: 1.070628
+  - errors:
+    - {label: stat, symerror: '0.005841'}
+    - {label: sys, symerror: '0.004622'}
+    value: 1.032135
+  - errors:
+    - {label: stat, symerror: '0.003785'}
+    - {label: sys, symerror: '0.004562'}
+    value: 1.018843
+  - errors:
+    - {label: stat, symerror: '0.004524'}
+    - {label: sys, symerror: '0.004520'}
+    value: 1.009423
+independent_variables:
+- header: {name: Centrality percentile}
+  values:
+  - {high: 5.0, low: 0.0}
+  - {high: 10.0, low: 5.0}
+  - {high: 20.0, low: 10.0}
+  - {high: 30.0, low: 20.0}

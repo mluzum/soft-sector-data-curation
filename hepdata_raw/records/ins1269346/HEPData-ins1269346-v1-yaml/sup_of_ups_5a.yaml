@@ -1,0 +1,74 @@
+dependent_variables:
+- header: {name: '$N_{part}$'}
+  qualifiers:
+  - {name: centrality, value: 'Au+Au, $|y|<1$, 1S+2S+3S'}
+  values:
+  - errors:
+    - {label: stat, symerror: 9}
+    value: 162
+  - errors:
+    - {label: stat, symerror: 4}
+    value: 326
+  - errors:
+    - {label: stat, symerror: 10}
+    value: 203
+  - errors:
+    - {label: stat, symerror: 10}
+    value: 80
+  - {value: 0}
+- header: {name: '$R_{AA,da}$'}
+  qualifiers:
+  - {name: centrality, value: 'Au+Au, $|y|<1$, 1S+2S+3S'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.09}
+    - {label: stat p+p, symerror: 0.1}
+    - asymerror: {minus: -0.02, plus: 0.02}
+      label: sys
+    - {label: sys p+p, symerror: 0.08}
+    value: 0.66
+  - errors:
+    - {label: stat, symerror: 0.13}
+    - {label: stat p+p, symerror: 0.07}
+    - asymerror: {minus: -0.02, plus: 0.02}
+      label: sys
+    - {label: sys p+p, symerror: 0.06}
+    value: 0.49
+  - errors:
+    - {label: stat, symerror: 0.2}
+    - {label: stat p+p, symerror: 0.12}
+    - asymerror: {minus: -0.03, plus: 0.03}
+      label: sys
+    - {label: sys p+p, symerror: 0.1}
+    value: 0.82
+  - errors:
+    - {label: stat, symerror: 0.22}
+    - {label: stat p+p, symerror: 0.12}
+    - asymerror: {minus: -0.03, plus: 0.03}
+      label: sys
+    - {label: sys p+p, symerror: 0.1}
+    value: 0.82
+  - {value: ''}
+- header: {name: '$R_{AA,da}$'}
+  qualifiers:
+  - {name: centrality, value: 'd+Au, $|y|<1$, 1S+2S+3S'}
+  values:
+  - {value: ''}
+  - {value: ''}
+  - {value: ''}
+  - {value: ''}
+  - errors:
+    - {label: stat, symerror: 0.14}
+    - {label: stat p+p, symerror: 0.1}
+    - asymerror: {minus: -0.03, plus: 0.03}
+      label: sys
+    - {label: sys p+p, symerror: 0.09}
+    value: 0.79
+independent_variables:
+- header: {name: centrality}
+  values:
+  - {high: 60, low: 0}
+  - {high: 10, low: 0}
+  - {high: 30, low: 10}
+  - {high: 60, low: 30}
+  - {value: 100}

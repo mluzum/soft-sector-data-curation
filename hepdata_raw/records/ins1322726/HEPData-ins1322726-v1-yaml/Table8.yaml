@@ -1,0 +1,52 @@
+dependent_variables:
+- header: {name: D2N/DPT/DYRAP}
+  qualifiers:
+  - {name: ABS(YRAP), value: '1.44'}
+  - {name: RE, value: PB PB --> Z0 < E+ E- >}
+  - {name: SQRT(SNN), units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 4.16e-09}
+    - {label: sys, symerror: 2.43e-09}
+    - {label: 'sys,TAA scaling uncertainty', symerror: 6.2%}
+    value: 2.81e-08
+  - errors:
+    - {label: stat, symerror: 3.7e-09}
+    - {label: sys, symerror: 1.74e-09}
+    - {label: 'sys,TAA scaling uncertainty', symerror: 6.2%}
+    value: 2.01e-08
+  - errors:
+    - {label: stat, symerror: 1.54e-09}
+    - {label: sys, symerror: 7.01e-10}
+    - {label: 'sys,TAA scaling uncertainty', symerror: 6.2%}
+    value: 8.17e-09
+  - errors:
+    - {label: stat, symerror: 1.1e-09}
+    - {label: sys, symerror: 3.57e-10}
+    - {label: 'sys,TAA scaling uncertainty', symerror: 6.2%}
+    value: 4.16e-09
+  - errors:
+    - {label: stat, symerror: 9.02e-10}
+    - {label: sys, symerror: 1.42e-10}
+    - {label: 'sys,TAA scaling uncertainty', symerror: 6.2%}
+    value: 1.67e-09
+  - errors:
+    - {label: stat, symerror: 5.5e-10}
+    - {label: sys, symerror: 1.38e-10}
+    - {label: 'sys,TAA scaling uncertainty', symerror: 6.2%}
+    value: 1.62e-09
+  - errors:
+    - {label: stat, symerror: 1.11e-10}
+    - {label: sys, symerror: 1.84e-11}
+    - {label: 'sys,TAA scaling uncertainty', symerror: 6.2%}
+    value: 2.16e-10
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {high: 5.0, low: 0.0}
+  - {high: 10.0, low: 5.0}
+  - {high: 20.0, low: 10.0}
+  - {high: 30.0, low: 20.0}
+  - {high: 40.0, low: 30.0}
+  - {high: 50.0, low: 40.0}
+  - {high: 100.0, low: 50.0}

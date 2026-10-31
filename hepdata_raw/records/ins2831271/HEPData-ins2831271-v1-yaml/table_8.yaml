@@ -1,0 +1,27 @@
+dependent_variables:
+- header: {name: '$\text{Pb--Pb}/\text{pp}$'}
+  qualifiers:
+  - {name: RE, value: 'P P --> jet+X, Pb Pb --> jet+X'}
+  - {name: CENTRALITY, value: '[0, 10]'}
+  - {name: SQRT(S), units: TeV, value: 5.02}
+  - {name: ETARAP, value: '|0.9-R|'}
+  - {name: jet radius, value: '0.2'}
+  - {name: jet method, value: 'Anti-$k_{T}$'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.16}
+    - {label: 'sys,trk_eff', symerror: -0.0015}
+    - {label: 'sys,gen', symerror: -0.0087}
+    - {label: 'sys,unfold,bkg,non_closure', symerror: 0.0054}
+    value: 0.826
+  - errors:
+    - {label: stat, symerror: 0.19}
+    - {label: 'sys,trk_eff', symerror: -0.0009}
+    - {label: 'sys,gen', symerror: -0.0031}
+    - {label: 'sys,unfold,bkg,non_closure', symerror: 0.0023}
+    value: 0.836
+independent_variables:
+- header: {name: '$k_{\text{T}}$', units: GeV/c}
+  values:
+  - {high: 4.0, low: 3.0}
+  - {high: 6.0, low: 4.0}

@@ -1,0 +1,121 @@
+dependent_variables:
+- header: {name: Counts}
+  qualifiers:
+  - {name: PT(L), value: '$p_{T}(\ell)>20 GeV$'}
+  - {name: ETA(L), value: '$|\eta(\mu)|<2.4~\wedge~|\eta(e)|\in[0,1.444]\cup[1.566,2.5]$'}
+  - {name: M(LL), value: $|m(\ell^+\ell^-)-91|<15 GeV$}
+  - {name: CHARGE(LL), value: '0'}
+  - {name: LL, value: '$\ell\ell \in [ee,\mu\mu]$'}
+  - {name: ACOPL(LL), value: $1-|\Delta\phi(\ell^+\ell^-)|/\pi > 0.01$}
+  - {name: PT(J), value: '$p_{T}(jet)>30 GeV$'}
+  - {name: ETA(J), value: $|\eta(jet)|<2.4$}
+  - {name: 'DELTAR(L,J)', value: '$\Delta R(\ell,jet)>0.4$'}
+  - {name: PT(Z), value: '$p_{T}(\ell\ell)>30 GeV$'}
+  - {name: 'DPHI(Z,J)', value: '$|\Delta\phi(Z,jet)|>2\pi/3$'}
+  - {name: CENTRALITY_BIN, value: '$cen \in [10,90]$'}
+  - {name: RE, value: Pb Pb --> T Tbar}
+  - {name: SQRT(S_NN), units: GeV, value: 5360}
+  values:
+  - errors:
+    - asymerror: {minus: -0.0, plus: 1.15}
+      label: stat
+    value: 0.0
+  - errors:
+    - asymerror: {minus: -4.4, plus: 5.5}
+      label: stat
+    value: 20.0
+  - errors:
+    - asymerror: {minus: -7.2, plus: 8.3}
+      label: stat
+    value: 52.0
+  - errors:
+    - asymerror: {minus: -9.8, plus: 10.9}
+      label: stat
+    value: 97.0
+  - errors:
+    - asymerror: {minus: -8.8, plus: 9.9}
+      label: stat
+    value: 78.0
+  - errors:
+    - asymerror: {minus: -9.9, plus: 10.9}
+      label: stat
+    value: 108.0
+  - errors:
+    - asymerror: {minus: -10.5, plus: 11.5}
+      label: stat
+    value: 120.0
+  - errors:
+    - asymerror: {minus: -10.0, plus: 11.0}
+      label: stat
+    value: 109.0
+  - errors:
+    - asymerror: {minus: -8.3, plus: 9.3}
+      label: stat
+    value: 69.0
+  - errors:
+    - asymerror: {minus: -7.0, plus: 8.1}
+      label: stat
+    value: 50.0
+  - errors:
+    - asymerror: {minus: -5.6, plus: 6.7}
+      label: stat
+    value: 32.0
+  - errors:
+    - asymerror: {minus: -5.3, plus: 6.4}
+      label: stat
+    value: 28.0
+  - errors:
+    - asymerror: {minus: -4.1, plus: 5.2}
+      label: stat
+    value: 17.0
+  - errors:
+    - asymerror: {minus: -2.77, plus: 3.9}
+      label: stat
+    value: 8.0
+  - errors:
+    - asymerror: {minus: -2.77, plus: 3.9}
+      label: stat
+    value: 8.0
+  - errors:
+    - asymerror: {minus: -1.91, plus: 3.16}
+      label: stat
+    value: 4.0
+  - errors:
+    - asymerror: {minus: -3.11, plus: 4.3}
+      label: stat
+    value: 10.0
+  - errors:
+    - asymerror: {minus: -0.0, plus: 1.15}
+      label: stat
+    value: 0.0
+  - errors:
+    - asymerror: {minus: -1.29, plus: 2.64}
+      label: stat
+    value: 2.0
+  - errors:
+    - asymerror: {minus: -1.63, plus: 2.92}
+      label: stat
+    value: 3.0
+independent_variables:
+- header: {name: Jet-Z PT balance}
+  values:
+  - {value: 0.055}
+  - {value: 0.165}
+  - {value: 0.275}
+  - {value: 0.385}
+  - {value: 0.495}
+  - {value: 0.605}
+  - {value: 0.715}
+  - {value: 0.825}
+  - {value: 0.935}
+  - {value: 1.045}
+  - {value: 1.155}
+  - {value: 1.265}
+  - {value: 1.375}
+  - {value: 1.485}
+  - {value: 1.595}
+  - {value: 1.705}
+  - {value: 1.815}
+  - {value: 1.925}
+  - {value: 2.035}
+  - {value: 2.145}

@@ -1,0 +1,32 @@
+dependent_variables:
+- header: {name: $U+U$ $40-60\%$}
+  qualifiers:
+  - {name: '$p_{T}$ $(GeV/c)$', value: '$B_{e^{+}e^{-}}d^{2}N/(2\pi p_{T}dp_{T}dy)$
+      $[(GeV/c)^{-2}]$'}
+  values:
+  - errors:
+    - {label: stat, symerror: 4.7e-05}
+    - {label: sys, symerror: 2.1e-05}
+    value: 0.00015
+  - errors:
+    - {label: stat, symerror: 2.06e-05}
+    - {label: sys, symerror: 6.94e-06}
+    value: 4.96e-05
+- header: {name: $U+U$ $60-80\%$}
+  qualifiers:
+  - {name: '$p_{T}$ $(GeV/c)$', value: '$B_{e^{+}e^{-}}d^{2}N/(2\pi p_{T}dp_{T}dy)$
+      $[(GeV/c)^{-2}]$'}
+  values:
+  - errors:
+    - {label: stat, symerror: 4.3e-05}
+    - {label: sys, symerror: 1.74e-05}
+    value: 0.000124
+  - errors:
+    - {label: stat, symerror: 1.86e-05}
+    - {label: sys, symerror: 8.65e-06}
+    value: 6.18e-05
+independent_variables:
+- header: {name: '$p_{T}$ $(GeV/c)$'}
+  values:
+  - {high: 0.05, low: 0}
+  - {high: 0.1, low: 0.05}

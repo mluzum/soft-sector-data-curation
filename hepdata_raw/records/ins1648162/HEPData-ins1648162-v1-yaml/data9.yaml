@@ -1,0 +1,100 @@
+dependent_variables:
+- header: {name: 1/N(JET) * DN(TRK))/XI_T_(GAMMA) PP smeared}
+  qualifiers:
+  - {name: RE, value: P P --> GAMMA JET PB PB --> GAMMA JET}
+  - {name: CENTRALITY, value: 50 - 100%}
+  - {name: PT(GAMMA), units: GEV/C, value: '> 60'}
+  - {name: '|ETA(GAMMA)|', value: < 1.44}
+  - {name: DELTA(PHI_JGAMMA), value: '> 7 * PI / 8'}
+  - {name: JET ALGO, value: ANTI-K_T JET R = 0.3}
+  - {name: PT(JET), units: GEV/C, value: '> 30'}
+  - {name: '|ETA(JET)|', value: < 1.6}
+  - {name: PT(TRK), units: GEV/C, value: '> 1'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.008}
+    - {label: sys, symerror: 0.009}
+    value: 0.217
+  - errors:
+    - {label: stat, symerror: 0.013}
+    - {label: sys, symerror: 0.026}
+    value: 0.603
+  - errors:
+    - {label: stat, symerror: 0.017}
+    - {label: sys, symerror: 0.048}
+    value: 1.14
+  - errors:
+    - {label: stat, symerror: 0.02}
+    - {label: sys, symerror: 0.069}
+    value: 1.67
+  - errors:
+    - {label: stat, symerror: 0.023}
+    - {label: sys, symerror: 0.089}
+    value: 2.09
+  - errors:
+    - {label: stat, symerror: 0.023}
+    - {label: sys, symerror: 0.103}
+    value: 2.18
+  - errors:
+    - {label: stat, symerror: 0.022}
+    - {label: sys, symerror: 0.099}
+    value: 1.87
+  - errors:
+    - {label: stat, symerror: 0.017}
+    - {label: sys, symerror: 0.067}
+    value: 1.11
+- header: {name: 1/N(JET) * DN(TRK))/XI_T_(GAMMA) PBPB}
+  qualifiers:
+  - {name: RE, value: P P --> GAMMA JET PB PB --> GAMMA JET}
+  - {name: CENTRALITY, value: 50 - 100%}
+  - {name: PT(GAMMA), units: GEV/C, value: '> 60'}
+  - {name: '|ETA(GAMMA)|', value: < 1.44}
+  - {name: DELTA(PHI_JGAMMA), value: '> 7 * PI / 8'}
+  - {name: JET ALGO, value: ANTI-K_T JET R = 0.3}
+  - {name: PT(JET), units: GEV/C, value: '> 30'}
+  - {name: '|ETA(JET)|', value: < 1.6}
+  - {name: PT(TRK), units: GEV/C, value: '> 1'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.052}
+    - {label: sys, symerror: 0.014}
+    value: 0.203
+  - errors:
+    - {label: stat, symerror: 0.09}
+    - {label: sys, symerror: 0.042}
+    value: 0.672
+  - errors:
+    - {label: stat, symerror: 0.126}
+    - {label: sys, symerror: 0.072}
+    value: 1.2
+  - errors:
+    - {label: stat, symerror: 0.157}
+    - {label: sys, symerror: 0.116}
+    value: 1.82
+  - errors:
+    - {label: stat, symerror: 0.172}
+    - {label: sys, symerror: 0.13}
+    value: 1.76
+  - errors:
+    - {label: stat, symerror: 0.187}
+    - {label: sys, symerror: 0.182}
+    value: 2.05
+  - errors:
+    - {label: stat, symerror: 0.201}
+    - {label: sys, symerror: 0.243}
+    value: 2.04
+  - errors:
+    - {label: stat, symerror: 0.17}
+    - {label: sys, symerror: 0.189}
+    value: 1.02
+independent_variables:
+- header: {name: XI_T_(GAMMA)}
+  values:
+  - {high: 1.0, low: 0.5}
+  - {high: 1.5, low: 1.0}
+  - {high: 2.0, low: 1.5}
+  - {high: 2.5, low: 2.0}
+  - {high: 3.0, low: 2.5}
+  - {high: 3.5, low: 3.0}
+  - {high: 4.0, low: 3.5}
+  - {high: 4.5, low: 4.0}

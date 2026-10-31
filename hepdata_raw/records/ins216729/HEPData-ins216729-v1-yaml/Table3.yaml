@@ -1,0 +1,32 @@
+dependent_variables:
+- header: {name: 6-MEAN(N=Q(P=3))}
+  qualifiers:
+  - {name: P(P=3)/Q(P=3), units: GEV, value: '>3.'}
+  - {name: RE, value: C C --> FRAGB LAMBDA X}
+  - {name: THETA(RF=LAB), units: DEG, value: <4.}
+  values:
+  - errors:
+    - {symerror: 0.2}
+    value: 2.8
+- header: {name: 6-MEAN(N=Q(P=3))}
+  qualifiers:
+  - {name: P(P=3)/Q(P=3), units: GEV, value: '>3.'}
+  - {name: RE, value: C C --> FRAGB KS X}
+  - {name: THETA(RF=LAB), units: DEG, value: <4.}
+  values:
+  - errors:
+    - {symerror: 0.3}
+    value: 2.8
+- header: {name: 6-MEAN(N=Q(P=3))}
+  qualifiers:
+  - {name: P(P=3)/Q(P=3), units: GEV, value: '>3.'}
+  - {name: RE, value: C C --> FRAGB X}
+  - {name: THETA(RF=LAB), units: DEG, value: <4.}
+  values:
+  - errors:
+    - {symerror: 0.15}
+    value: 2.15
+independent_variables:
+- header: {name: P/A, units: GEV}
+  values:
+  - {value: 4.2}

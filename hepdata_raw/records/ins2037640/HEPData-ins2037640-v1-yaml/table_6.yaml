@@ -1,0 +1,26 @@
+dependent_variables:
+- header: {name: '$ \mathcal{B} \times \frac{d\sigma}{dy_{CM}} $', units: nb}
+  qualifiers:
+  - {name: RE, value: P Pb --> UPSILON(3S) < MU+ MU- > X}
+  - {name: PT, units: GeV/c, value: 0-30}
+  - {name: SQRT(S), units: GeV, value: 5020.0}
+  - {name: GLOBAL UNCERTAINTY, value: 3.5%}
+  values:
+  - errors:
+    - {label: stat, symerror: '0.0050'}
+    - {label: syst, symerror: '0.0034'}
+    value: 0.0141
+  - errors:
+    - {label: stat, symerror: '0.0027'}
+    - {label: syst, symerror: '0.0012'}
+    value: 0.0175
+  - errors:
+    - {label: stat, symerror: '0.0031'}
+    - {label: syst, symerror: '0.0015'}
+    value: 0.0227
+independent_variables:
+- header: {name: '$y^{Y}_{CM}$'}
+  values:
+  - {high: -1.93, low: -2.87}
+  - {high: 0.0, low: -1.93}
+  - {high: 1.93, low: 0.0}

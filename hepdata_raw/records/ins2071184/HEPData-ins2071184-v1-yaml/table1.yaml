@@ -1,0 +1,38 @@
+dependent_variables:
+- header: {name: W$^-$, units: nb}
+  qualifiers:
+  - {name: reaction, value: p-Pb $\rightarrow$ W$^\pm$ + X $\rightarrow$ $\mu^\pm$
+      + X}
+  - {name: sqrt(s) per nucleon pair, value: 8160.0 GeV}
+  - {name: fiducial region, value: -4 < $y$(lab) < -2.5 and $p_T$ > 10 GeV/$c$}
+  - {name: observable, value: d$\sigma$ / d$y$}
+  values:
+  - errors:
+    - {label: stat, symerror: 3.7}
+    - {label: syst, symerror: 5.2}
+    value: 105.4
+  - errors:
+    - {label: stat, symerror: 4.8}
+    - {label: syst, symerror: 8.2}
+    value: 90.2
+- header: {name: W$^+$, units: nb}
+  qualifiers:
+  - {name: reaction, value: p-Pb $\rightarrow$ W$^\pm$ + X $\rightarrow$ $\mu^\pm$
+      + X}
+  - {name: sqrt(s) per nucleon pair, value: 8160.0 GeV}
+  - {name: fiducial region, value: -4 < $y$(lab) < -2.5 and $p_T$ > 10 GeV/$c$}
+  - {name: observable, value: d$\sigma$ / d$y$}
+  values:
+  - errors:
+    - {label: stat, symerror: 2.1}
+    - {label: syst, symerror: 2.9}
+    value: 37.1
+  - errors:
+    - {label: stat, symerror: 5.2}
+    - {label: syst, symerror: 7.7}
+    value: 120.8
+independent_variables:
+- header: {name: $y$(cms)}
+  values:
+  - {high: -2.96, low: -4.46}
+  - {high: 3.53, low: 2.03}

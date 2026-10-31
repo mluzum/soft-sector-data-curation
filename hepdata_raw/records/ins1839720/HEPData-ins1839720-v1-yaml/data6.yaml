@@ -1,0 +1,36 @@
+dependent_variables:
+- header: {name: 'NSC(2,3,5)'}
+  qualifiers:
+  - {name: ETARAP, value: -0.8 TO 0.8}
+  - {name: PT, units: GEV/c, value: 0.2 TO 5.0}
+  - {name: RE, value: PB PB --> CHARGED X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 2760}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.01475393}
+    - {label: sys, symerror: 0.03348064}
+    value: 0.04127824
+  - errors:
+    - {label: stat, symerror: 0.01267038}
+    - {label: sys, symerror: 0.02371821}
+    value: 0.07997417
+  - errors:
+    - {label: stat, symerror: 0.02114206}
+    - {label: sys, symerror: 0.02043286}
+    value: 0.05188638
+  - errors:
+    - {label: stat, symerror: 0.01962741}
+    - {label: sys, symerror: 0.01890165}
+    value: 0.0479981
+  - errors:
+    - {label: stat, symerror: 0.03371361}
+    - {label: sys, symerror: 0.004383829}
+    value: 0.01113212
+independent_variables:
+- header: {name: CENTRALITY, units: PCT}
+  values:
+  - {high: 10.0, low: 5.0}
+  - {high: 20.0, low: 10.0}
+  - {high: 30.0, low: 20.0}
+  - {high: 40.0, low: 30.0}
+  - {high: 50.0, low: 40.0}

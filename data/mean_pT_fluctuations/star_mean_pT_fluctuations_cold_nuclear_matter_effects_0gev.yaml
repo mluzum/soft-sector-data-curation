@@ -1,0 +1,48 @@
+---
+observable_type: mean_pT_fluctuations
+inspire_id: '1946829'
+version: 1
+hepdata_file: figure_3.yaml
+hepdata_table_label: Inclusive J/psi cross section times branching ratio of the dimuon decay channel in p+p collisions at
+  200 GeV. Global uncertainty of 12.5% not shown.
+collision_system:
+  energy_gev: 0.0
+  reaction: p+Au --> J/psi + X
+centrality:
+  classes:
+  - MB
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: Sigma
+kinematic_range:
+  pT:
+    min: 0.003500000000000003
+    max: 9.87
+    bins:
+    - 0.003500000000000003
+    - 0.4825
+    - 1.021
+    - 1.54
+    - 2.005
+    - 2.495
+    - 2.99
+    - 3.49
+    - 4.095000000000001
+    - 4.95
+    - 6.145
+    - 7.85
+    - 9.87
+  eta:
+    min: -1.0
+    max: 1.0
+    bins:
+    - -1.0
+    - 1.0
+observable: sigma_mean_pT
+value_type: Sigma

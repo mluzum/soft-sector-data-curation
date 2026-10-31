@@ -1,0 +1,55 @@
+dependent_variables:
+- header: {name: '$v_6\{EP\}$', units: '%'}
+  qualifiers:
+  - {name: CENTRALITY, units: PCT, value: 0.0 TO 80.0}
+  - {name: PARTICLES, value: $h^++h^-$}
+  - {name: PSEUDORAPIDITY, value: -1.2 TO 1.2}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 200}
+  values:
+  - errors:
+    - {label: $stat$, symerror: 0.08}
+    value: -0.01
+  - errors:
+    - {label: $stat$, symerror: 0.08}
+    value: 0.02
+  - errors:
+    - {label: $stat$, symerror: 0.09}
+    value: 0.02
+  - errors:
+    - {label: $stat$, symerror: 0.11}
+    value: 0.02
+  - errors:
+    - {label: $stat$, symerror: 0.13}
+    value: 0.08
+  - errors:
+    - {label: $stat$, symerror: 0.15}
+    value: 0.08
+  - errors:
+    - {label: $stat$, symerror: 0.14}
+    value: 0.1
+  - errors:
+    - {label: $stat$, symerror: 0.2}
+    value: 0.32
+  - errors:
+    - {label: $stat$, symerror: 0.29}
+    value: 0.29
+  - errors:
+    - {label: $stat$, symerror: 0.4}
+    value: 0.1
+  - errors:
+    - {label: $stat$, symerror: 0.5}
+    value: 0.2
+independent_variables:
+- header: {name: $p_T$, units: GeV/$c$}
+  values:
+  - {high: 0.3, low: 0.15, value: 0.225}
+  - {high: 0.45, low: 0.3, value: 0.375}
+  - {high: 0.6, low: 0.45, value: 0.525}
+  - {high: 0.75, low: 0.6, value: 0.675}
+  - {high: 0.9, low: 0.75, value: 0.825}
+  - {high: 1.05, low: 0.9, value: 0.975}
+  - {high: 1.35, low: 1.05, value: 1.186}
+  - {high: 1.65, low: 1.35, value: 1.486}
+  - {high: 1.95, low: 1.65, value: 1.786}
+  - {high: 2.25, low: 1.95, value: 2.086}
+  - {high: 3.15, low: 2.25, value: 2.553}

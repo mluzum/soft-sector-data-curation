@@ -1,0 +1,26 @@
+dependent_variables:
+- header: {name: '$v_{2}^{\mu\leftarrow{\rm HF}}$'}
+  qualifiers:
+  - {name: CENT, units: pct, value: 0.0-40.0}
+  - {name: PT, units: GeV, value: 3.0-5.0}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  - {name: YRAP, value: 2.5-4.0}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0059}
+    - {label: sys, symerror: 0.0082}
+    value: 0.0263
+  - errors:
+    - {label: stat, symerror: 0.012}
+    - {label: sys, symerror: 0.009}
+    value: 0.0606
+  - errors:
+    - {label: stat, symerror: 0.012}
+    - {label: sys, symerror: 0.015}
+    value: 0.091
+independent_variables:
+- header: {name: Centrality (%)}
+  values:
+  - {high: 10.0, low: 0.0}
+  - {high: 20.0, low: 10.0}
+  - {high: 40.0, low: 20.0}

@@ -1,0 +1,91 @@
+comment: |
+  CERN-LHC. The charged-particle pseudorapidity density distribution is measured for different centralities of Pb Pb collisions at $\sqrt{s}$/nucleon-pair of 2760 GeV. From this the total number of produced charged particles is calculated versus the number of participating nucleons along with the pseudorapidity density of charged particles per participant pair versus the number of participating nucleons for different eta ranges. Finally the distribution is converted to the charged-particle rapidity density distribution to extract the width of the distribution and compare it to lower energy data. UPDATE(15/07/2015):typo correction; 20-30%, 30-40% labels changed to 10-20, 20-30% on first table.
+dateupdated: 02/06/2016 14:22:30
+hepdata_doi: 10.17182/hepdata.68753.v1
+modifications:
+- {action: Update, date: 15 July 2015, who: Ernesto Lopez}
+- {action: Encoded, date: 18 OCT 2013, who: Mike Whalley}
+- {action: Modified, date: 02 Jun 2016, who: Mike Whalley}
+record_ids:
+- {id: 1225979, type: inspire}
+- {id: 6120, type: red}
+---
+data_file: Table1.yaml
+description: |
+  $\rm dN_{ch}/d\eta$ versus $\eta$ for different centralities. Errors are systematic as statistical errors are negligible.
+keywords:
+- name: reactions
+  values: [PB PB --> CHARGED X]
+- name: observables
+  values: [DN/DETARAP]
+- name: phrases
+  values: [Inclusive, Single Differential Distribution]
+- name: cmenergies
+  values: [2760.0]
+location: Data from F 3
+name: Table 1
+table_doi: 10.17182/hepdata.68753.v1/t1
+---
+data_file: Table2.yaml
+description: |
+  Total number of produced charged particles extrapolated to beam rapidity as a function of the number of participating nucleons in the collision. Statistical errors  are negligible. The first(sys) error is the correlated systematic error and the second is  that which is uncorrelated to the other points.
+keywords:
+- name: reactions
+  values: [PB PB --> CHARGED X]
+- name: observables
+  values: [MULT]
+- name: phrases
+  values: [Inclusive]
+- name: cmenergies
+  values: [2760.0]
+location: Data from F 4
+name: Table 2
+table_doi: 10.17182/hepdata.68753.v1/t2
+---
+data_file: Table3.yaml
+description: |
+  $\rm dN_{ch}/d\eta$ per participant pair versus the number of participating nucleons in the collision for different eta ranges. Errors are systematic as statistical errors are negligible.
+keywords:
+- name: reactions
+  values: [PB PB --> CHARGED X]
+- name: observables
+  values: [DN/DETARAP]
+- name: phrases
+  values: [Inclusive, Single Differential Distribution]
+- name: cmenergies
+  values: [2760.0]
+location: Data from F 5
+name: Table 3
+table_doi: 10.17182/hepdata.68753.v1/t3
+---
+data_file: Table4.yaml
+description: |
+  $\rm dN_{ch}/dy$ versus y distribution derived from the $\rm dN_{ch}/d\eta$ distribution along with pt distributions and particle ratios measured in ALICE. Errors are systematic.
+keywords:
+- name: reactions
+  values: [PB PB --> CHARGED X]
+- name: observables
+  values: [DN/DYRAP]
+- name: phrases
+  values: [Inclusive, Single Differential Distribution, Rapidity Dependence]
+- name: cmenergies
+  values: [2760.0]
+location: Data from F 9
+name: Table 4
+table_doi: 10.17182/hepdata.68753.v1/t4
+---
+data_file: Table5.yaml
+description: |
+  The ratio of the standard deviation of the rapidity distribution of charged particles to that expected from Landau hydrodynamics versus versus $\sqrt{s}$/nucleon-pair. The standard deviation for data for all charged particles is derived from the $\rm dN_{ch}/d\eta$ distributions measured at various energies and converted to $\rm dN_{ch}/dy$ in a consistent manner. The data from the BRAHMS and PHOBOS experiments derived by the present authors from these experiments $dN/d\eta$ distributions.
+keywords:
+- name: reactions
+  values: [PB PB --> CHARGED X]
+- name: observables
+  values: [SIG/SIG]
+- name: phrases
+  values: [Inclusive, Integrated Cross Section, Cross Section]
+- name: cmenergies
+  values: [200.0-2760.0]
+location: Data from F 9 (Inset)
+name: Table 5
+table_doi: 10.17182/hepdata.68753.v1/t5

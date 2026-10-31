@@ -1,0 +1,41 @@
+dependent_variables:
+- header: {name: $P_\Xi$, units: PCT}
+  qualifiers:
+  - {name: CENTRALITY, units: PCT, value: 20.0 TO 80.0}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '200.0'}
+  - {name: PARTICLES, value: '$\Xi$+$\bar{\Xi}$'}
+  - {name: RAPIDITY, value: -1.0 TO 1.0}
+  - {name: PT, units: GEV/$c$, value: $>0.5$}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.19}
+    - {label: sys, symerror: 0.5}
+    value: -0.07
+- header: {name: $P_\Xi$ via daughter $\Lambda$ $P_\Lambda$, units: PCT}
+  qualifiers:
+  - {name: CENTRALITY, units: PCT, value: 20.0 TO 80.0}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '200.0'}
+  - {name: PARTICLES, value: '$\Xi$+$\bar{\Xi}$'}
+  - {name: RAPIDITY, value: -1.0 TO 1.0}
+  - {name: PT, units: GEV/$c$, value: $>0.5$}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.11}
+    - {label: sys, symerror: 0.26}
+    value: 0.63
+- header: {name: $P_\Omega$, units: PCT}
+  qualifiers:
+  - {name: CENTRALITY, units: PCT, value: 20.0 TO 80.0}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '200.0'}
+  - {name: PARTICLES, value: '$\Omega$+$\bar{\Omega}$'}
+  - {name: RAPIDITY, value: -1.0 TO 1.0}
+  - {name: PT, units: GEV/$c$, value: $>0.5$}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.87}
+    - {label: sys, symerror: 1.97}
+    value: 1.11
+independent_variables:
+- header: {name: SQRT(S)/NUCLEON, units: GEV}
+  values:
+  - {value: 200}

@@ -1,0 +1,46 @@
+dependent_variables:
+- header: {name: v8}
+  qualifiers:
+  - {name: RE, value: PB PB --> CHARGED X}
+  - {name: SQRT(S), units: GEV, value: 5020}
+  - {name: ABS(ETA), value: < 0.8 (LAB)}
+  - {name: PT, value: 0.2 - 0.5 GeV}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.000309}
+    - {label: sys, symerror: 0.000124}
+    value: 0.000609
+  - errors:
+    - {label: stat, symerror: 0.000263}
+    - {label: sys, symerror: 0.000128}
+    value: 0.000626
+  - errors:
+    - {label: stat, symerror: 0.000244}
+    - {label: sys, symerror: 0.000151}
+    value: 0.00074
+  - errors:
+    - {label: stat, symerror: 0.000163}
+    - {label: sys, symerror: 0.000355}
+    value: 0.001741
+  - errors:
+    - {label: stat, symerror: 0.000406}
+    - {label: sys, symerror: 0.000211}
+    value: 0.001037
+  - errors:
+    - {label: stat, symerror: 0.00039}
+    - {label: sys, symerror: 0.00028}
+    value: 0.001373
+  - errors:
+    - {label: stat, symerror: 0.000484}
+    - {label: sys, symerror: 0.000391}
+    value: 0.001918
+independent_variables:
+- header: {name: Centrality (%)}
+  values:
+  - {high: 5, low: 0}
+  - {high: 10, low: 5}
+  - {high: 20, low: 10}
+  - {high: 30, low: 20}
+  - {high: 40, low: 30}
+  - {high: 50, low: 40}
+  - {high: 60, low: 50}

@@ -1,0 +1,1847 @@
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1485701'
+version: 1
+hepdata_file: data1.yaml
+hepdata_table_label: Leading jet shape rho(dR) versus dR for pp data, normalized to unity over the range dR < 0.3.
+qualifiers:
+  jet azimuthal separation: abs(dPhi) > 5pi/6
+  jet pseudorapidity: abs(eta) < 1.6
+  leading jet pt: pT > 120 GeV
+  re: P P --> Charged X
+  sqrt(s): '2760.0'
+  subleading jet pt: pT > 50 GeV
+  track pseudorapidity: abs(eta) < 2.4
+  trkpt: pT > 8
+collision_system:
+  energy_gev: 2760.0
+  reaction: P P --> Charged X
+centrality:
+  classes:
+  - 0-0.05%
+  - 0.05-0.1%
+  - 0.1-0.15%
+  - 0.15-0.2%
+  - 0.2-0.25%
+  - 0.25-0.3%
+  - 0.3-0.35%
+  - 0.35-0.4%
+  - 0.4-0.45%
+  - 0.45-0.5%
+  - 0.5-0.6%
+  - 0.6-0.7%
+  - 0.7-0.8%
+  - 0.8-1%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1485701'
+version: 1
+hepdata_file: data10.yaml
+hepdata_table_label: Ratio rho_PbPb(dR)/rho_pp(dR) of subleading jet shape for central PbPb data (centrality 0-30%) to subleading
+  jet shape for pp data.
+qualifiers:
+  jet azimuthal separation: abs(dPhi) > 5pi/6
+  jet pseudorapidity: abs(eta) < 1.6
+  leading jet pt: pT > 120 GeV
+  pbpb centrality: 0 - 30%
+  re: P P --> Charged X
+  sqrt(s): '2760.0'
+  subleading jet pt: pT > 50 GeV
+  track pseudorapidity: abs(eta) < 2.4
+  trkpt: pT > 0.5
+collision_system:
+  energy_gev: 2760.0
+  reaction: P P --> Charged X
+centrality:
+  classes:
+  - 0-30%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1485701'
+version: 1
+hepdata_file: data11.yaml
+hepdata_table_label: Difference of the total track transverse momentum distributions between subleading and leading hemispheres
+  in pp data (denoted d, projected into relative azimuth, for balanced dijets with Aj < 0.22.
+qualifiers:
+  dijet asymmetry: Aj < 0.22
+  jet azimuthal separation: abs(dPhi) > 5pi/6
+  jet pseudorapidity: abs(eta) < 1.6
+  leading jet pt: pT > 120 GeV
+  re: P P --> Charged X
+  sqrt(s): '2760.0'
+  subleading jet pt: pT > 50 GeV
+  track pseudorapidity: abs(eta) < 2.4
+  trkpt: 4 < pT < 8
+collision_system:
+  energy_gev: 2760.0
+  reaction: P P --> Charged X
+centrality:
+  classes:
+  - MB
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1485701'
+version: 1
+hepdata_file: data12.yaml
+hepdata_table_label: Difference of the total track transverse momentum distributions (P = 1/N dSum(pT)/dPhi) between subleading
+  and leading hemispheres in peripheral PbPb data (centrality 50-100%), projected into relative azimuth, for balanced dijets
+  with Aj < 0.22. Hemisphere subleading-to-leading difference is denoted dP.
+qualifiers:
+  dijet asymmetry: Aj < 0.22
+  jet azimuthal separation: abs(dPhi) > 5pi/6
+  jet pseudorapidity: abs(eta) < 1.6
+  leading jet pt: pT > 120 GeV
+  pbpb centrality: 50 - 100%
+  re: Pb Pb --> Charged X
+  sqrt(s): '2760.0'
+  subleading jet pt: pT > 50 GeV
+  track pseudorapidity: abs(eta) < 2.4
+  trkpt: 4 < pT < 8
+collision_system:
+  energy_gev: 2760.0
+  reaction: Pb Pb --> Charged X
+centrality:
+  classes:
+  - 50-100%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1485701'
+version: 1
+hepdata_file: data13.yaml
+hepdata_table_label: Difference of the total track transverse momentum distributions (P = 1/N dSum(pT)/dPhi) between subleading
+  and leading hemispheres in central PbPb data (centrality 0-30%), projected into relative azimuth, for balanced dijets with
+  Aj < 0.22. Hemisphere subleading-to-leading difference is denoted dP.
+qualifiers:
+  dijet asymmetry: Aj < 0.22
+  jet azimuthal separation: abs(dPhi) > 5pi/6
+  jet pseudorapidity: abs(eta) < 1.6
+  leading jet pt: pT > 120 GeV
+  pbpb centrality: 0 - 30%
+  re: Pb Pb --> Charged X
+  sqrt(s): '2760.0'
+  subleading jet pt: pT > 50 GeV
+  track pseudorapidity: abs(eta) < 2.4
+  trkpt: 4 < pT < 8
+collision_system:
+  energy_gev: 2760.0
+  reaction: Pb Pb --> Charged X
+centrality:
+  classes:
+  - 0-30%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1485701'
+version: 1
+hepdata_file: data14.yaml
+hepdata_table_label: Double difference of transverse momentum distributions, subleading minus leading, peripheral PbPb minus
+  pp (dP_PbPb - dP_p), projected into relative azimuth, for balanced dijets with Aj < 0.22.
+qualifiers:
+  dijet asymmetry: Aj < 0.22
+  jet azimuthal separation: abs(dPhi) > 5pi/6
+  jet pseudorapidity: abs(eta) < 1.6
+  leading jet pt: pT > 120 GeV
+  pbpb centrality: 50 - 100%
+  re: P P --> Charged X
+  sqrt(s): '2760.0'
+  subleading jet pt: pT > 50 GeV
+  track pseudorapidity: abs(eta) < 2.4
+  trkpt: 4 < pT < 8
+collision_system:
+  energy_gev: 2760.0
+  reaction: P P --> Charged X
+centrality:
+  classes:
+  - 50-100%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1485701'
+version: 1
+hepdata_file: data15.yaml
+hepdata_table_label: Double difference of transverse momentum distributions, subleading minus leading, central PbPb minus
+  pp (dP_PbPb - dP_p), projected into relative azimuth, for balanced dijets with Aj < 0.22.
+qualifiers:
+  dijet asymmetry: Aj < 0.22
+  jet azimuthal separation: abs(dPhi) > 5pi/6
+  jet pseudorapidity: abs(eta) < 1.6
+  leading jet pt: pT > 120 GeV
+  pbpb centrality: 0 - 30%
+  re: P P --> Charged X
+  sqrt(s): '2760.0'
+  subleading jet pt: pT > 50 GeV
+  track pseudorapidity: abs(eta) < 2.4
+  trkpt: 4 < pT < 8
+collision_system:
+  energy_gev: 2760.0
+  reaction: P P --> Charged X
+centrality:
+  classes:
+  - 0-30%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1485701'
+version: 1
+hepdata_file: data16.yaml
+hepdata_table_label: Difference of the total track transverse momentum distributions (P = 1/N dSum(pT)/dPhi) between subleading
+  and leading hemispheres in pp data, projected into relative azimuth, for unbalanced dijets with Aj > 0.22. Hemisphere subleading-to-leading
+  difference is denoted dP.
+qualifiers:
+  dijet asymmetry: Aj > 0.22
+  jet azimuthal separation: abs(dPhi) > 5pi/6
+  jet pseudorapidity: abs(eta) < 1.6
+  leading jet pt: pT > 120 GeV
+  re: P P --> Charged X
+  sqrt(s): '2760.0'
+  subleading jet pt: pT > 50 GeV
+  track pseudorapidity: abs(eta) < 2.4
+  trkpt: 4 < pT < 8
+collision_system:
+  energy_gev: 2760.0
+  reaction: P P --> Charged X
+centrality:
+  classes:
+  - MB
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1485701'
+version: 1
+hepdata_file: data17.yaml
+hepdata_table_label: Difference of the total track transverse momentum distributions (P = 1/N dSum(pT)/dPhi) between subleading
+  and leading hemispheres in peripheral PbPb data (centrality 50-100%), projected into relative azimuth, for unbalanced dijets
+  with Aj > 0.22. Hemisphere subleading-to-leading difference is denoted dP.
+qualifiers:
+  dijet asymmetry: Aj > 0.22
+  jet azimuthal separation: abs(dPhi) > 5pi/6
+  jet pseudorapidity: abs(eta) < 1.6
+  leading jet pt: pT > 120 GeV
+  pbpb centrality: 50 - 100%
+  re: Pb Pb --> Charged X
+  sqrt(s): '2760.0'
+  subleading jet pt: pT > 50 GeV
+  track pseudorapidity: abs(eta) < 2.4
+  trkpt: 4 < pT < 8
+collision_system:
+  energy_gev: 2760.0
+  reaction: Pb Pb --> Charged X
+centrality:
+  classes:
+  - 50-100%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1485701'
+version: 1
+hepdata_file: data18.yaml
+hepdata_table_label: Difference of the total track transverse momentum distributions (P = 1/N dSum(pT)/dPhi) between subleading
+  and leading hemispheres in central PbPb data (centrality 0-30%), projected into relative azimuth, for unbalanced dijets
+  with Aj > 0.22. Hemisphere subleading-to-leading difference is denoted dP.
+qualifiers:
+  dijet asymmetry: Aj > 0.22
+  jet azimuthal separation: abs(dPhi) > 5pi/6
+  jet pseudorapidity: abs(eta) < 1.6
+  leading jet pt: pT > 120 GeV
+  pbpb centrality: 0 - 30%
+  re: Pb Pb --> Charged X
+  sqrt(s): '2760.0'
+  subleading jet pt: pT > 50 GeV
+  track pseudorapidity: abs(eta) < 2.4
+  trkpt: 4 < pT < 8
+collision_system:
+  energy_gev: 2760.0
+  reaction: Pb Pb --> Charged X
+centrality:
+  classes:
+  - 0-30%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1485701'
+version: 1
+hepdata_file: data19.yaml
+hepdata_table_label: Double difference of transverse momentum distributions, subleading minus leading, peripheral PbPb minus
+  pp (dP_PbPb - dP_p), projected into relative azimuth, for unbalanced dijets with Aj > 0.22.
+qualifiers:
+  dijet asymmetry: Aj > 0.22
+  jet azimuthal separation: abs(dPhi) > 5pi/6
+  jet pseudorapidity: abs(eta) < 1.6
+  leading jet pt: pT > 120 GeV
+  pbpb centrality: 50 - 100%
+  re: P P --> Charged X
+  sqrt(s): '2760.0'
+  subleading jet pt: pT > 50 GeV
+  track pseudorapidity: abs(eta) < 2.4
+  trkpt: 4 < pT < 8
+collision_system:
+  energy_gev: 2760.0
+  reaction: P P --> Charged X
+centrality:
+  classes:
+  - 50-100%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1485701'
+version: 1
+hepdata_file: data2.yaml
+hepdata_table_label: Leading jet shape rho(dR) versus dR for peripheral PbPb data (centrality 50-100%), normalized to unity
+  over the range dR < 0.3.
+qualifiers:
+  jet azimuthal separation: abs(dPhi) > 5pi/6
+  jet pseudorapidity: abs(eta) < 1.6
+  leading jet pt: pT > 120 GeV
+  pbpb centrality: 50 - 100%
+  re: Pb Pb --> Charged X
+  sqrt(s): '2760.0'
+  subleading jet pt: pT > 50 GeV
+  track pseudorapidity: abs(eta) < 2.4
+  trkpt: pT > 8
+collision_system:
+  energy_gev: 2760.0
+  reaction: Pb Pb --> Charged X
+centrality:
+  classes:
+  - 50-100%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1485701'
+version: 1
+hepdata_file: data20.yaml
+hepdata_table_label: Double difference of transverse momentum distributions, subleading minus leading, central PbPb minus
+  pp (dP_PbPb - dP_p), projected into relative azimuth, for unbalanced dijets with Aj > 0.22.
+qualifiers:
+  dijet asymmetry: Aj > 0.22
+  jet azimuthal separation: abs(dPhi) > 5pi/6
+  jet pseudorapidity: abs(eta) < 1.6
+  leading jet pt: pT > 120 GeV
+  pbpb centrality: 0 - 30%
+  re: P P --> Charged X
+  sqrt(s): '2760.0'
+  subleading jet pt: pT > 50 GeV
+  track pseudorapidity: abs(eta) < 2.4
+  trkpt: 4 < pT < 8
+collision_system:
+  energy_gev: 2760.0
+  reaction: P P --> Charged X
+centrality:
+  classes:
+  - 0-30%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1485701'
+version: 1
+hepdata_file: data3.yaml
+hepdata_table_label: Leading jet shape rho(dR) versus dR for central PbPb data (centrality 0-30%), normalized to unity over
+  the range dR < 0.3.
+qualifiers:
+  jet azimuthal separation: abs(dPhi) > 5pi/6
+  jet pseudorapidity: abs(eta) < 1.6
+  leading jet pt: pT > 120 GeV
+  pbpb centrality: 0 - 30%
+  re: Pb Pb --> Charged X
+  sqrt(s): '2760.0'
+  subleading jet pt: pT > 50 GeV
+  track pseudorapidity: abs(eta) < 2.4
+  trkpt: pT > 8
+collision_system:
+  energy_gev: 2760.0
+  reaction: Pb Pb --> Charged X
+centrality:
+  classes:
+  - 0-30%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1485701'
+version: 1
+hepdata_file: data31.yaml
+hepdata_table_label: Double difference, peripheral PbPb minus pp, subleading minus leading (dP_PbPb - dP_pp), in jet peak
+  transverse momentum distributions, projected into relative azimuth, for balanced dijets with Aj < 0.22.
+qualifiers:
+  dijet asymmetry: Aj < 0.22
+  jet azimuthal separation: abs(dPhi) > 5pi/6
+  jet pseudorapidity: abs(eta) < 1.6
+  jet-track separation: abs(dEta) < 1.5
+  leading jet pt: pT > 120 GeV
+  pbpb centrality: 50 - 100%
+  re: P P --> Charged X
+  sqrt(s): '2760.0'
+  subleading jet pt: pT > 50 GeV
+  track pseudorapidity: abs(eta) < 2.4
+  trkpt: 4 < pT < 8
+collision_system:
+  energy_gev: 2760.0
+  reaction: P P --> Charged X
+centrality:
+  classes:
+  - 50-100%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1485701'
+version: 1
+hepdata_file: data32.yaml
+hepdata_table_label: Double difference, central PbPb minus pp, subleading minus leading (dP_PbPb - dP_pp), in jet peak transverse
+  momentum distributions, projected into relative azimuth, for balanced dijets with Aj < 0.22.
+qualifiers:
+  dijet asymmetry: Aj < 0.22
+  jet azimuthal separation: abs(dPhi) > 5pi/6
+  jet pseudorapidity: abs(eta) < 1.6
+  jet-track separation: abs(dEta) < 1.5
+  leading jet pt: pT > 120 GeV
+  pbpb centrality: 0 - 30%
+  re: P P --> Charged X
+  sqrt(s): '2760.0'
+  subleading jet pt: pT > 50 GeV
+  track pseudorapidity: abs(eta) < 2.4
+  trkpt: 4 < pT < 8
+collision_system:
+  energy_gev: 2760.0
+  reaction: P P --> Charged X
+centrality:
+  classes:
+  - 0-30%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1485701'
+version: 1
+hepdata_file: data4.yaml
+hepdata_table_label: Ratio rho_PbPb(dR)/rho_pp(dR) of leading jet shape for peripheral PbPb data (centrality 50-100%) to leading
+  jet shape for pp data.
+qualifiers:
+  jet azimuthal separation: abs(dPhi) > 5pi/6
+  jet pseudorapidity: abs(eta) < 1.6
+  leading jet pt: pT > 120 GeV
+  pbpb centrality: 50 - 100%
+  re: P P --> Charged X
+  sqrt(s): '2760.0'
+  subleading jet pt: pT > 50 GeV
+  track pseudorapidity: abs(eta) < 2.4
+  trkpt: pT > 0.5
+collision_system:
+  energy_gev: 2760.0
+  reaction: P P --> Charged X
+centrality:
+  classes:
+  - 50-100%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1485701'
+version: 1
+hepdata_file: data43.yaml
+hepdata_table_label: Double difference, peripheral PbPb minus pp, subleading minus leading, in jet peak transverse momentum
+  distributions (dP_PbPb - dP_pp), projected into relative azimuth, for unbalanced dijets with Aj > 0.22.
+qualifiers:
+  dijet asymmetry: Aj > 0.22
+  jet azimuthal separation: abs(dPhi) > 5pi/6
+  jet pseudorapidity: abs(eta) < 1.6
+  jet-track separation: abs(dEta) < 1.5
+  leading jet pt: pT > 120 GeV
+  pbpb centrality: 50 - 100%
+  re: P P --> Charged X
+  sqrt(s): '2760.0'
+  subleading jet pt: pT > 50 GeV
+  track pseudorapidity: abs(eta) < 2.4
+  trkpt: 4 < pT < 8
+collision_system:
+  energy_gev: 2760.0
+  reaction: P P --> Charged X
+centrality:
+  classes:
+  - 50-100%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1485701'
+version: 1
+hepdata_file: data44.yaml
+hepdata_table_label: Double difference, peripheral PbPb minus pp, subleading minus leading (dP_PbPb - dP_pp), in jet peak
+  transverse momentum distributions, projected into relative azimuth, for unbalanced dijets with Aj > 0.22.
+qualifiers:
+  dijet asymmetry: Aj > 0.22
+  jet azimuthal separation: abs(dPhi) > 5pi/6
+  jet pseudorapidity: abs(eta) < 1.6
+  jet-track separation: abs(dEta) < 1.5
+  leading jet pt: pT > 120 GeV
+  pbpb centrality: 0 - 30%
+  re: P P --> Charged X
+  sqrt(s): '2760.0'
+  subleading jet pt: pT > 50 GeV
+  track pseudorapidity: abs(eta) < 2.4
+  trkpt: 4 < pT < 8
+collision_system:
+  energy_gev: 2760.0
+  reaction: P P --> Charged X
+centrality:
+  classes:
+  - 0-30%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1485701'
+version: 1
+hepdata_file: data45.yaml
+hepdata_table_label: Difference of the long range track transverse momentum distributions between subleading and leading hemispheres
+  in pp data (dP), projected into relative azimuth, for balanced dijets with Aj < 0.22.
+qualifiers:
+  dijet asymmetry: Aj < 0.22
+  jet azimuthal separation: abs(dPhi) > 5pi/6
+  jet pseudorapidity: abs(eta) < 1.6
+  jet-track separation: 1.5 < abs(dEta) < 2.5
+  leading jet pt: pT > 120 GeV
+  re: P P --> Charged X
+  sqrt(s): '2760.0'
+  subleading jet pt: pT > 50 GeV
+  track pseudorapidity: abs(eta) < 2.4
+  trkpt: 4 < pT < 8
+collision_system:
+  energy_gev: 2760.0
+  reaction: P P --> Charged X
+centrality:
+  classes:
+  - MB
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1485701'
+version: 1
+hepdata_file: data46.yaml
+hepdata_table_label: Difference of the long range track transverse momentum distributions between subleading and leading hemispheres
+  (dP) in peripheral PbPb data (centrality 50-100%), projected into relative azimuth, for balanced dijets with Aj < 0.22.
+qualifiers:
+  dijet asymmetry: Aj < 0.22
+  jet azimuthal separation: abs(dPhi) > 5pi/6
+  jet pseudorapidity: abs(eta) < 1.6
+  jet-track separation: 1.5 < abs(dEta) < 2.5
+  leading jet pt: pT > 120 GeV
+  pbpb centrality: 50 - 100%
+  re: Pb Pb --> Charged X
+  sqrt(s): '2760.0'
+  subleading jet pt: pT > 50 GeV
+  track pseudorapidity: abs(eta) < 2.4
+  trkpt: 4 < pT < 8
+collision_system:
+  energy_gev: 2760.0
+  reaction: Pb Pb --> Charged X
+centrality:
+  classes:
+  - 50-100%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1485701'
+version: 1
+hepdata_file: data47.yaml
+hepdata_table_label: Difference of the long range track transverse momentum distributions between subleading and leading hemispheres
+  (dP) in central PbPb data (centrality 0-30%), projected into relative azimuth, for balanced dijets with Aj < 0.22.
+qualifiers:
+  dijet asymmetry: Aj < 0.22
+  jet azimuthal separation: abs(dPhi) > 5pi/6
+  jet pseudorapidity: abs(eta) < 1.6
+  jet-track separation: 1.5 < abs(dEta) < 2.5
+  leading jet pt: pT > 120 GeV
+  pbpb centrality: 0 - 30%
+  re: Pb Pb --> Charged X
+  sqrt(s): '2760.0'
+  subleading jet pt: pT > 50 GeV
+  track pseudorapidity: abs(eta) < 2.4
+  trkpt: 4 < pT < 8
+collision_system:
+  energy_gev: 2760.0
+  reaction: Pb Pb --> Charged X
+centrality:
+  classes:
+  - 0-30%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1485701'
+version: 1
+hepdata_file: data48.yaml
+hepdata_table_label: Double difference of long range transverse momentum distributions, subleading minus leading, peripheral
+  PbPb minus pp (dP_PbPb - dP_pp), projected into relative azimuth, for balanced dijets with Aj < 0.22.
+qualifiers:
+  dijet asymmetry: Aj < 0.22
+  jet azimuthal separation: abs(dPhi) > 5pi/6
+  jet pseudorapidity: abs(eta) < 1.6
+  jet-track separation: 1.5 < abs(dEta) < 2.5
+  leading jet pt: pT > 120 GeV
+  pbpb centrality: 50 - 100%
+  re: P P --> Charged X
+  sqrt(s): '2760.0'
+  subleading jet pt: pT > 50 GeV
+  track pseudorapidity: abs(eta) < 2.4
+  trkpt: 4 < pT < 8
+collision_system:
+  energy_gev: 2760.0
+  reaction: P P --> Charged X
+centrality:
+  classes:
+  - 50-100%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1485701'
+version: 1
+hepdata_file: data49.yaml
+hepdata_table_label: Double difference of long range transverse momentum distributions, subleading minus leading, central
+  PbPb minus pp (dP_PbPb - dP_pp), projected into relative azimuth, for balanced dijets with Aj < 0.22.
+qualifiers:
+  dijet asymmetry: Aj < 0.22
+  jet azimuthal separation: abs(dPhi) > 5pi/6
+  jet pseudorapidity: abs(eta) < 1.6
+  jet-track separation: 1.5 < abs(dEta) < 2.5
+  leading jet pt: pT > 120 GeV
+  pbpb centrality: 0 - 30%
+  re: P P --> Charged X
+  sqrt(s): '2760.0'
+  subleading jet pt: pT > 50 GeV
+  track pseudorapidity: abs(eta) < 2.4
+  trkpt: 4 < pT < 8
+collision_system:
+  energy_gev: 2760.0
+  reaction: P P --> Charged X
+centrality:
+  classes:
+  - 0-30%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1485701'
+version: 1
+hepdata_file: data5.yaml
+hepdata_table_label: Ratio rho_PbPb(dR)/rho_pp(dR) of leading jet shape for central PbPb data (centrality 0-30%) to leading
+  jet shape for pp data.
+qualifiers:
+  jet azimuthal separation: abs(dPhi) > 5pi/6
+  jet pseudorapidity: abs(eta) < 1.6
+  leading jet pt: pT > 120 GeV
+  pbpb centrality: 0 - 30%
+  re: P P --> Charged X
+  sqrt(s): '2760.0'
+  subleading jet pt: pT > 50 GeV
+  track pseudorapidity: abs(eta) < 2.4
+  trkpt: pT > 0.5
+collision_system:
+  energy_gev: 2760.0
+  reaction: P P --> Charged X
+centrality:
+  classes:
+  - 0-30%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1485701'
+version: 1
+hepdata_file: data50.yaml
+hepdata_table_label: Difference of the long range track transverse momentum distributions between subleading and leading hemispheres
+  (dP) in pp data, projected into relative azimuth, for unbalanced dijets with Aj > 0.22.
+qualifiers:
+  dijet asymmetry: Aj > 0.22
+  jet azimuthal separation: abs(dPhi) > 5pi/6
+  jet pseudorapidity: abs(eta) < 1.6
+  jet-track separation: 1.5 < abs(dEta) < 2.5
+  leading jet pt: pT > 120 GeV
+  re: P P --> Charged X
+  sqrt(s): '2760.0'
+  subleading jet pt: pT > 50 GeV
+  track pseudorapidity: abs(eta) < 2.4
+  trkpt: 4 < pT < 8
+collision_system:
+  energy_gev: 2760.0
+  reaction: P P --> Charged X
+centrality:
+  classes:
+  - MB
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1485701'
+version: 1
+hepdata_file: data51.yaml
+hepdata_table_label: Difference of the long range track transverse momentum distributions between subleading and leading hemispheres
+  (dP) in peripheral PbPb data (centrality 50-100%), projected into relative azimuth, for unbalanced dijets with Aj > 0.22.
+qualifiers:
+  dijet asymmetry: Aj > 0.22
+  jet azimuthal separation: abs(dPhi) > 5pi/6
+  jet pseudorapidity: abs(eta) < 1.6
+  jet-track separation: 1.5 < abs(dEta) < 2.5
+  leading jet pt: pT > 120 GeV
+  pbpb centrality: 50 - 100%
+  re: Pb Pb --> Charged X
+  sqrt(s): '2760.0'
+  subleading jet pt: pT > 50 GeV
+  track pseudorapidity: abs(eta) < 2.4
+  trkpt: 4 < pT < 8
+collision_system:
+  energy_gev: 2760.0
+  reaction: Pb Pb --> Charged X
+centrality:
+  classes:
+  - 50-100%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1485701'
+version: 1
+hepdata_file: data52.yaml
+hepdata_table_label: Difference of the long range track transverse momentum distributions between subleading and leading hemispheres
+  (dP) in central PbPb data (centrality 0-30%), projected into relative azimuth, for unbalanced dijets with Aj > 0.22.
+qualifiers:
+  dijet asymmetry: Aj > 0.22
+  jet azimuthal separation: abs(dPhi) > 5pi/6
+  jet pseudorapidity: abs(eta) < 1.6
+  jet-track separation: 1.5 < abs(dEta) < 2.5
+  leading jet pt: pT > 120 GeV
+  pbpb centrality: 0 - 30%
+  re: Pb Pb --> Charged X
+  sqrt(s): '2760.0'
+  subleading jet pt: pT > 50 GeV
+  track pseudorapidity: abs(eta) < 2.4
+  trkpt: 4 < pT < 8
+collision_system:
+  energy_gev: 2760.0
+  reaction: Pb Pb --> Charged X
+centrality:
+  classes:
+  - 0-30%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1485701'
+version: 1
+hepdata_file: data53.yaml
+hepdata_table_label: Double difference of the long range transverse momentum distributions, subleading minus leading, peripheral
+  PbPb minus pp, projected into relative azimuth, for unbalanced dijets with Aj > 0.22.
+qualifiers:
+  dijet asymmetry: Aj > 0.22
+  jet azimuthal separation: abs(dPhi) > 5pi/6
+  jet pseudorapidity: abs(eta) < 1.6
+  jet-track separation: 1.5 < abs(dEta) < 2.5
+  leading jet pt: pT > 120 GeV
+  pbpb centrality: 50 - 100%
+  re: P P --> Charged X
+  sqrt(s): '2760.0'
+  subleading jet pt: pT > 50 GeV
+  track pseudorapidity: abs(eta) < 2.4
+  trkpt: 4 < pT < 8
+collision_system:
+  energy_gev: 2760.0
+  reaction: P P --> Charged X
+centrality:
+  classes:
+  - 50-100%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1485701'
+version: 1
+hepdata_file: data54.yaml
+hepdata_table_label: Double difference of the long range transverse momentum distributions, subleading minus leading, central
+  PbPb minus pp (dP_PbPb - dP_pp), projected into relative azimuth, for unbalanced dijets with Aj > 0.22.
+qualifiers:
+  dijet asymmetry: Aj > 0.22
+  jet azimuthal separation: abs(dPhi) > 5pi/6
+  jet pseudorapidity: abs(eta) < 1.6
+  jet-track separation: 1.5 < abs(dEta) < 2.5
+  leading jet pt: pT > 120 GeV
+  pbpb centrality: 0 - 30%
+  re: P P --> Charged X
+  sqrt(s): '2760.0'
+  subleading jet pt: pT > 50 GeV
+  track pseudorapidity: abs(eta) < 2.4
+  trkpt: 4 < pT < 8
+collision_system:
+  energy_gev: 2760.0
+  reaction: P P --> Charged X
+centrality:
+  classes:
+  - 0-30%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1485701'
+version: 1
+hepdata_file: data59.yaml
+hepdata_table_label: Integrated transverse momentum difference central PbPb minus pp of the total transverse momentum distributions
+  (subleading minus leading), as a function of track-pT, for balanced dijets with Aj < 0.22.
+qualifiers:
+  dijet asymmetry: Aj < 0.22
+  jet azimuthal separation: abs(dPhi) > 5pi/6
+  jet pseudorapidity: abs(dEta) < 1.6
+  leading jet pt: pT > 120 GeV
+  pbpb centrality: 0 - 30%
+  sqrt(s): '2760.0'
+  subleading jet pt: pT > 50 GeV
+  track pseudorapidity: abs(dEta) < 2.4
+  trkpt: pT > 0.5
+collision_system:
+  energy_gev: 2760.0
+  reaction: Pb Pb --> Charged X
+centrality:
+  classes:
+  - 0-30%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: K-
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1485701'
+version: 1
+hepdata_file: data6.yaml
+hepdata_table_label: Subleading jet shape rho(dR) versus dR for pp data, normalized to unity over the range dR < 0.3.
+qualifiers:
+  jet azimuthal separation: abs(dPhi) > 5pi/6
+  jet pseudorapidity: abs(eta) < 1.6
+  leading jet pt: pT > 120 GeV
+  re: P P --> Charged X
+  sqrt(s): '2760.0'
+  subleading jet pt: pT > 50 GeV
+  track pseudorapidity: abs(eta) < 2.4
+  trkpt: pT > 8
+collision_system:
+  energy_gev: 2760.0
+  reaction: P P --> Charged X
+centrality:
+  classes:
+  - 0-0.05%
+  - 0.05-0.1%
+  - 0.1-0.15%
+  - 0.15-0.2%
+  - 0.2-0.25%
+  - 0.25-0.3%
+  - 0.3-0.35%
+  - 0.35-0.4%
+  - 0.4-0.45%
+  - 0.45-0.5%
+  - 0.5-0.6%
+  - 0.6-0.7%
+  - 0.7-0.8%
+  - 0.8-1%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1485701'
+version: 1
+hepdata_file: data60.yaml
+hepdata_table_label: Integrated transverse momentum difference central PbPb minus pp of the total transverse momentum distributions
+  (subleading minus leading), as a function of track-pT, for unbalanced dijets with Aj > 0.22.
+qualifiers:
+  dijet asymmetry: Aj > 0.22
+  jet azimuthal separation: abs(dPhi) > 5pi/6
+  jet pseudorapidity: abs(dEta) < 1.6
+  leading jet pt: pT > 120 GeV
+  pbpb centrality: 50 - 100%
+  sqrt(s): '2760.0'
+  subleading jet pt: pT > 50 GeV
+  track pseudorapidity: abs(dEta) < 2.4
+  trkpt: pT > 0.5
+collision_system:
+  energy_gev: 2760.0
+  reaction: Pb Pb --> Charged X
+centrality:
+  classes:
+  - 50-100%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: K-
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1485701'
+version: 1
+hepdata_file: data63.yaml
+hepdata_table_label: Integrated transverse momentum difference peripheral PbPb minus pp of the total transverse momentum distributions
+  (subleading minus leading), as a function of track-pT, for balanced dijets with Aj < 0.22.
+qualifiers:
+  dijet asymmetry: Aj < 0.22
+  jet azimuthal separation: abs(dPhi) > 5pi/6
+  jet pseudorapidity: abs(dEta) < 1.6
+  leading jet pt: pT > 120 GeV
+  pbpb centrality: 50 - 100%
+  sqrt(s): '2760.0'
+  subleading jet pt: pT > 50 GeV
+  track pseudorapidity: abs(dEta) < 2.4
+  trkpt: pT > 0.5
+collision_system:
+  energy_gev: 2760.0
+  reaction: Pb Pb --> Charged X
+centrality:
+  classes:
+  - 50-100%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: K-
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1485701'
+version: 1
+hepdata_file: data64.yaml
+hepdata_table_label: Integrated transverse momentum difference peripheral PbPb minus pp of the total transverse momentum distributions
+  (subleading minus leading), as a function of track-pT, for unbalanced dijets with Aj > 0.22.
+qualifiers:
+  dijet asymmetry: Aj > 0.22
+  jet azimuthal separation: abs(dPhi) > 5pi/6
+  jet pseudorapidity: abs(dEta) < 1.6
+  leading jet pt: pT > 120 GeV
+  pbpb centrality: 50 - 100%
+  sqrt(s): '2760.0'
+  subleading jet pt: pT > 50 GeV
+  track pseudorapidity: abs(dEta) < 2.4
+  trkpt: pT > 0.5
+collision_system:
+  energy_gev: 2760.0
+  reaction: Pb Pb --> Charged X
+centrality:
+  classes:
+  - 50-100%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: K-
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1485701'
+version: 1
+hepdata_file: data7.yaml
+hepdata_table_label: Subleading jet shape rho(dR) versus dR for peripheral PbPb data (centrality 50-100%), normalized to unity
+  over the range dR < 0.3.
+qualifiers:
+  jet azimuthal separation: abs(dPhi) > 5pi/6
+  jet pseudorapidity: abs(eta) < 1.6
+  leading jet pt: pT > 120 GeV
+  pbpb centrality: 50 - 100%
+  re: Pb Pb --> Charged X
+  sqrt(s): '2760.0'
+  subleading jet pt: pT > 50 GeV
+  track pseudorapidity: abs(eta) < 2.4
+  trkpt: pT > 8
+collision_system:
+  energy_gev: 2760.0
+  reaction: Pb Pb --> Charged X
+centrality:
+  classes:
+  - 50-100%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1485701'
+version: 1
+hepdata_file: data8.yaml
+hepdata_table_label: Subleading jet shape rho(dR) versus dR for central PbPb data (centrality 0-30%), normalized to unity
+  over the range dR < 0.3.
+qualifiers:
+  jet azimuthal separation: abs(dPhi) > 5pi/6
+  jet pseudorapidity: abs(eta) < 1.6
+  leading jet pt: pT > 120 GeV
+  pbpb centrality: 0 - 30%
+  re: Pb Pb --> Charged X
+  sqrt(s): '2760.0'
+  subleading jet pt: pT > 50 GeV
+  track pseudorapidity: abs(eta) < 2.4
+  trkpt: pT > 8
+collision_system:
+  energy_gev: 2760.0
+  reaction: Pb Pb --> Charged X
+centrality:
+  classes:
+  - 0-30%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1485701'
+version: 1
+hepdata_file: data9.yaml
+hepdata_table_label: Ratio rho_PbPb(dR)/rho_pp(dR) of subleading jet shape for peripheral PbPb data (centrality 50-100%) to
+  subleading jet shape for pp data.
+qualifiers:
+  jet azimuthal separation: abs(dPhi) > 5pi/6
+  jet pseudorapidity: abs(eta) < 1.6
+  leading jet pt: pT > 120 GeV
+  pbpb centrality: 50 - 100%
+  re: P P --> Charged X
+  sqrt(s): '2760.0'
+  subleading jet pt: pT > 50 GeV
+  track pseudorapidity: abs(eta) < 2.4
+  trkpt: pT > 0.5
+collision_system:
+  energy_gev: 2760.0
+  reaction: P P --> Charged X
+centrality:
+  classes:
+  - 50-100%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all

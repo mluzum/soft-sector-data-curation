@@ -1,0 +1,56 @@
+dependent_variables:
+- header: {name: '$v_{3}$'}
+  qualifiers:
+  - {name: reaction, value: P P}
+  - {name: '$p_\mathrm{T,trig}$', units: GeV/c, value: 1-2}
+  - {name: '$p_\mathrm{T,assoc}$', units: GeV/c, value: 1-4}
+  - {name: stat, value: Statistical Uncertainty}
+  - {name: sys, value: Systematic Uncertainty}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.004367}
+    - {label: sys, symerror: 0.002064}
+    value: 0.026364
+  - errors:
+    - {label: stat, symerror: 0.0052}
+    - {label: sys, symerror: 0.001963}
+    value: 0.025073
+  - errors:
+    - {label: stat, symerror: 0.01002}
+    - {label: sys, symerror: 0.001856}
+    value: 0.023716
+  - errors:
+    - {label: stat, symerror: 0.024593}
+    - {label: sys, symerror: 0.002786}
+    value: 0.035598
+- header: {name: '$v_{3}$'}
+  qualifiers:
+  - {name: reaction, value: P P}
+  - {name: '$p_\mathrm{T,trig}$', units: GeV/c, value: 1-4}
+  - {name: '$p_\mathrm{T,assoc}$', units: GeV/c, value: 1-4}
+  - {name: stat, value: Statistical Uncertainty}
+  - {name: sys, value: Systematic Uncertainty}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.004194}
+    - {label: sys, symerror: 0.00104}
+    value: 0.03342
+  - errors:
+    - {label: stat, symerror: 0.005015}
+    - {label: sys, symerror: 0.000984}
+    value: 0.031608
+  - errors:
+    - {label: stat, symerror: 0.009178}
+    - {label: sys, symerror: 0.000765}
+    value: 0.024583
+  - errors:
+    - {label: stat, symerror: 0.01856}
+    - {label: sys, symerror: 0.000594}
+    value: 0.019092
+independent_variables:
+- header: {name: '$p_\mathrm{T,min}^\mathrm{LP}$', units: GeV/c}
+  values:
+  - {value: 0.0}
+  - {value: 3.0}
+  - {value: 5.0}
+  - {value: 7.0}

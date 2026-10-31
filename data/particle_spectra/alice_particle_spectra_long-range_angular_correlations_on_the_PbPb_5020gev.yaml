@@ -1,0 +1,90 @@
+---
+observable_type: particle_spectra
+inspire_id: '1206610'
+version: 1
+hepdata_file: Table3.yaml
+hepdata_table_label: 'The near-side ridge yields per unit pseudorapidiy difference between      the trigger and associated
+  particle in regions of differing PT_trig and PT_assoc bins     for different multiplicity classes.     Note that all multiplicity
+  classes have the values from the 60-100% multiplicity class subtracted.
+
+  '
+qualifiers:
+  multiplicity class: 40.0-60.0
+  re: P PB --> CHARGED CHARGED X
+  sqrt(s)/nucleon: '5020.0'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> CHARGED CHARGED X
+centrality:
+  classes:
+  - 60-100%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  pT:
+    min: 0.5
+    max: 4.0
+    bins:
+    - 0.5
+    - 1.0
+    - 2.0
+    - 4.0
+  eta:
+    min: -0.8
+    max: 0.8
+observable: dN_dpT_dy
+value_type: invariant_yield
+---
+observable_type: particle_spectra
+inspire_id: '1206610'
+version: 1
+hepdata_file: Table4.yaml
+hepdata_table_label: 'The away-side ridge yields per unit pseudorapidiy difference between      the trigger and associated
+  particle in regions of differing PT_trig and PT_assoc bins     for different multiplicity classes.     Note that all multiplicity
+  classes have the values from the 60-100% multiplicity class subtracted.
+
+  '
+qualifiers:
+  multiplicity class: 40.0-60.0
+  re: P PB --> CHARGED CHARGED X
+  sqrt(s)/nucleon: '5020.0'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> CHARGED CHARGED X
+centrality:
+  classes:
+  - 60-100%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  pT:
+    min: 0.5
+    max: 4.0
+    bins:
+    - 0.5
+    - 1.0
+    - 2.0
+    - 4.0
+  eta:
+    min: -0.8
+    max: 0.8
+observable: dN_dpT_dy
+value_type: invariant_yield

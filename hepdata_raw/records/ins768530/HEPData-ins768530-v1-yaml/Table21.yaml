@@ -1,0 +1,23 @@
+dependent_variables:
+- header: {name: SIG, units: MB}
+  qualifiers:
+  - {name: MODEL, value: EKS}
+  - {name: RE, value: DEUT AU --> J/PSI X}
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  values:
+  - errors:
+    - asymerror: {minus: -2.1, plus: 2.3}
+    value: 2.8
+- header: {name: SIG, units: MB}
+  qualifiers:
+  - {name: MODEL, value: NDSG}
+  - {name: RE, value: DEUT AU --> J/PSI X}
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  values:
+  - errors:
+    - asymerror: {minus: -2.6, plus: 2.2}
+    value: 2.6
+independent_variables:
+- header: {name: SQRT(S), units: GEV}
+  values:
+  - {value: 200.0}

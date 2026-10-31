@@ -1,0 +1,59 @@
+dependent_variables:
+- header: {name: Yield Ratio}
+  qualifiers:
+  - {name: ABS(DELTA ETA), value: 0.0-1.78}
+  - {name: ABS(DELTA PHI), value: 0.0-0.78}
+  - {name: ABS(ETA), value: 0.0-1.0}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '200.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0904}
+    - asymerror: {minus: -0.1084, plus: 0.0865}
+      label: sys,total
+    value: -0.021
+  - errors:
+    - {label: stat, symerror: 0.0924}
+    - asymerror: {minus: -0.2485, plus: 0.2048}
+      label: sys,total
+    value: 0.3628
+  - errors:
+    - {label: stat, symerror: 0.0945}
+    - asymerror: {minus: -0.5003, plus: 0.4237}
+      label: sys,total
+    value: 0.571
+  - errors:
+    - {label: stat, symerror: 0.0922}
+    - asymerror: {minus: -0.8335, plus: 0.7213}
+      label: sys,total
+    value: 0.9391
+  - errors:
+    - {label: stat, symerror: 0.1036}
+    - asymerror: {minus: -1.1994, plus: 1.0617}
+      label: sys,total
+    value: 1.66
+  - errors:
+    - {label: stat, symerror: 0.0999}
+    - asymerror: {minus: -1.3688, plus: 1.2254}
+      label: sys,total
+    value: 1.5853
+  - errors:
+    - {label: stat, symerror: 0.118}
+    - asymerror: {minus: -1.6072, plus: 1.4135}
+      label: sys,total
+    value: 2.1279
+  - errors:
+    - {label: stat, symerror: 0.0547}
+    - asymerror: {minus: -1.3522, plus: 1.0676}
+      label: sys,total
+    value: 2.2862
+independent_variables:
+- header: {name: '$N_{part}$'}
+  values:
+  - {value: 15.0}
+  - {value: 28.0}
+  - {value: 48.0}
+  - {value: 76.0}
+  - {value: 114.0}
+  - {value: 164.0}
+  - {value: 229.0}
+  - {value: 316.0}

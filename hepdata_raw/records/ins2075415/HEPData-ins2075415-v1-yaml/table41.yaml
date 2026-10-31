@@ -1,0 +1,51 @@
+dependent_variables:
+- header: {name: '$v_2\{4,Sub\}/v_2\{4\}$'}
+  qualifiers:
+  - {name: ABS(RAPIDITY_LAB), value: <1.0}
+  - {name: RE, value: P PB --> $\Lambda$ X}
+  - {name: SQRT(S_NN), units: GeV, value: '8160.0'}
+  - {name: '$N_{trk}^{offline}$', value: '$185 \le N_{trk}^{offline}<250$'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.07453}
+    - {label: sys, symerror: 0.02615}
+    value: 1.046
+  - errors:
+    - {label: stat, symerror: 0.04106}
+    - {label: sys, symerror: 0.02849}
+    value: 1.1395
+  - errors:
+    - {label: stat, symerror: 0.03899}
+    - {label: sys, symerror: 0.02544}
+    value: 1.0177
+  - errors:
+    - {label: stat, symerror: 0.02278}
+    - {label: sys, symerror: 0.02102}
+    value: 0.8409
+  - errors:
+    - {label: stat, symerror: 0.02806}
+    - {label: sys, symerror: 0.02406}
+    value: 0.96231
+  - errors:
+    - {label: stat, symerror: 0.03519}
+    - {label: sys, symerror: 0.02049}
+    value: 0.81951
+  - errors:
+    - {label: stat, symerror: 0.05027}
+    - {label: sys, symerror: 0.02213}
+    value: 0.88522
+  - errors:
+    - {label: stat, symerror: 0.03598}
+    - {label: sys, symerror: 0.02865}
+    value: 1.1458
+independent_variables:
+- header: {name: $p_T$, units: GeV}
+  values:
+  - {high: 1.4, low: 1.0}
+  - {high: 1.8, low: 1.4}
+  - {high: 2.2, low: 1.8}
+  - {high: 2.8, low: 2.2}
+  - {high: 3.6, low: 2.8}
+  - {high: 4.6, low: 3.6}
+  - {high: 6.0, low: 4.6}
+  - {high: 7.0, low: 6.0}

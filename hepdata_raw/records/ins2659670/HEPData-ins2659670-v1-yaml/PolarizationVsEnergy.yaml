@@ -1,0 +1,60 @@
+dependent_variables:
+- header: {name: ''}
+  qualifiers:
+  - {name: Detector, value: STAR}
+  - {name: Collision species, value: Au+Au}
+  - {name: Centrality, units: '%', value: '[20,50]'}
+  - {name: $y$, value: '[-1,1]'}
+  - {name: '$p_{\rm T}$', units: GeV/$c$, value: '>0.4'}
+  - {name: $\alpha_\Lambda$, value: '0.732'}
+  - {name: Measurement, units: (%), value: '$P_{\Lambda}$'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0503}
+    - {label: sys, symerror: 0.0172}
+    value: 0.9152
+  - errors:
+    - {label: stat, symerror: 0.0553}
+    - {label: sys, symerror: 0.0143}
+    value: 0.7168
+- header: {name: ''}
+  qualifiers:
+  - {name: Detector, value: STAR}
+  - {name: Collision species, value: Au+Au}
+  - {name: Centrality, units: '%', value: '[20,50]'}
+  - {name: $y$, value: '[-1,1]'}
+  - {name: '$p_{\rm T}$', units: GeV/$c$, value: '>0.4'}
+  - {name: $\alpha_\Lambda$, value: '0.732'}
+  - {name: Measurement, units: (%), value: '$P_{\bar{\Lambda}}$'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.117}
+    - {label: sys, symerror: 0.0171}
+    value: 0.8976
+  - errors:
+    - {label: stat, symerror: 0.1046}
+    - {label: sys, symerror: 0.0163}
+    value: 0.8257
+- header: {name: ''}
+  qualifiers:
+  - {name: Detector, value: STAR}
+  - {name: Collision species, value: Au+Au}
+  - {name: Centrality, units: '%', value: '[20,50]'}
+  - {name: $y$, value: '[-1,1]'}
+  - {name: '$p_{\rm T}$', units: GeV/$c$, value: '>0.4'}
+  - {name: $\alpha_\Lambda$, value: '0.732'}
+  - {name: Measurement, units: (%), value: '$P_{\bar{\Lambda}}$-$P_{\Lambda}$'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.127354}
+    - {label: sys, symerror: 0.0242539}
+    value: -0.0176
+  - errors:
+    - {label: stat, symerror: 0.118318}
+    - {label: sys, symerror: 0.0216836}
+    value: 0.1089
+independent_variables:
+- header: {name: '$\sqrt{s_{\rm NN}}$', units: '${\rm GeV}$'}
+  values:
+  - {high: 19.6, low: 19.6}
+  - {high: 27.0, low: 27.0}

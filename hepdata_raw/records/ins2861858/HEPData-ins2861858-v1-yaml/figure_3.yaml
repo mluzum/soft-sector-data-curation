@@ -1,0 +1,118 @@
+dependent_variables:
+- header: {name: Neutron category probability}
+  qualifiers:
+  - {name: $p_T^e$, units: GeV, value: $\gt 2$}
+  - {name: $|\eta^e|$, value: $\lt 2.2$}
+  - {name: '$m^{ee}$', units: GeV, value: $\gt 5$}
+  - {name: '$p_T^{ee}$', units: GeV, value: $\lt 1$}
+  - {name: '$A_{\phi}^{ee}$', units: GeV, value: $\lt 1$}
+  - {name: RE, value: $Pb~Pb~\rightarrow~Pb~Pb~e^+~e^-$}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: 5020}
+  values:
+  - errors:
+    - {label: Statistical uncertainty, symerror: 0.0074}
+    value: 0.7403
+  - errors:
+    - {label: Statistical uncertainty, symerror: 0.0048}
+    value: 0.1977
+  - errors:
+    - {label: Statistical uncertainty, symerror: 0.0018}
+    value: 0.0617
+  - errors:
+    - {label: Statistical uncertainty, symerror: 0.0022}
+    value: 0.0454
+  - errors:
+    - {label: Statistical uncertainty, symerror: 0.0014}
+    value: 0.0374
+  - errors:
+    - {label: Statistical uncertainty, symerror: 0.00039}
+    value: 0.00538
+- header: {name: gammaUPC 1.6}
+  qualifiers:
+  - {name: $p_T^e$, units: GeV, value: $\gt 2$}
+  - {name: $|\eta^e|$, value: $\lt 2.2$}
+  - {name: '$m^{ee}$', units: GeV, value: $\gt 5$}
+  - {name: '$p_T^{ee}$', units: GeV, value: $\lt 1$}
+  - {name: '$A_{\phi}^{ee}$', units: GeV, value: $\lt 1$}
+  - {name: RE, value: $Pb~Pb~\rightarrow~Pb~Pb~e^+~e^-$}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: 5020}
+  values:
+  - errors:
+    - {label: Statistical uncertainty, symerror: 0.025}
+    value: 0.749
+  - errors:
+    - {label: Statistical uncertainty, symerror: 0.014}
+    value: 0.195
+  - errors:
+    - {label: Statistical uncertainty, symerror: 0.012}
+    value: 0.056
+  - errors:
+    - {label: Statistical uncertainty, symerror: 0.0025}
+    value: 0.0583
+  - errors:
+    - {label: Statistical uncertainty, symerror: 0.0023}
+    value: 0.03
+  - errors:
+    - {label: Statistical uncertainty, symerror: 0.00033}
+    value: 0.00447
+- header: {name: SUPERCHIC 4.2}
+  qualifiers:
+  - {name: $p_T^e$, units: GeV, value: $\gt 2$}
+  - {name: $|\eta^e|$, value: $\lt 2.2$}
+  - {name: '$m^{ee}$', units: GeV, value: $\gt 5$}
+  - {name: '$p_T^{ee}$', units: GeV, value: $\lt 1$}
+  - {name: '$A_{\phi}^{ee}$', units: GeV, value: $\lt 1$}
+  - {name: RE, value: $Pb~Pb~\rightarrow~Pb~Pb~e^+~e^-$}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: 5020}
+  values:
+  - errors:
+    - {label: Statistical uncertainty, symerror: 0.0096}
+    value: 0.766
+  - errors:
+    - {label: Statistical uncertainty, symerror: 0.0022}
+    value: 0.186
+  - errors:
+    - {label: Statistical uncertainty, symerror: 0.00061}
+    value: 0.0485
+  - errors:
+    - {label: Statistical uncertainty, symerror: 0.00078}
+    value: 0.064
+  - errors:
+    - {label: Statistical uncertainty, symerror: 0.00036}
+    value: 0.0298
+  - errors:
+    - {label: Statistical uncertainty, symerror: 6.0e-05}
+    value: 0.0045
+- header: {name: STARLIGHT 3.13}
+  qualifiers:
+  - {name: $p_T^e$, units: GeV, value: $\gt 2$}
+  - {name: $|\eta^e|$, value: $\lt 2.2$}
+  - {name: '$m^{ee}$', units: GeV, value: $\gt 5$}
+  - {name: '$p_T^{ee}$', units: GeV, value: $\lt 1$}
+  - {name: '$A_{\phi}^{ee}$', units: GeV, value: $\lt 1$}
+  - {name: RE, value: $Pb~Pb~\rightarrow~Pb~Pb~e^+~e^-$}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: 5020}
+  values:
+  - errors:
+    - {label: Statistical uncertainty, symerror: 0.01}
+    value: 0.745
+  - errors:
+    - {label: Statistical uncertainty, symerror: 0.01}
+    value: 0.191
+  - errors:
+    - {label: Statistical uncertainty, symerror: 0.005}
+    value: 0.059
+  - {value: 0.0}
+  - {value: 0.0}
+  - errors:
+    - {label: Statistical uncertainty, symerror: 0.001}
+    value: 0.0037
+independent_variables:
+- header: {name: Neutron multiplicity category}
+  values:
+  - {value: 0n0n}
+  - {value: 0nXn + Xn0n}
+  - {value: XnXn}
+  - {value: 0n1n + 1n0n}
+  - {value: 1nXn + Xn1n}
+  - {value: 1n1n}

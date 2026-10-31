@@ -1,0 +1,21 @@
+dependent_variables:
+- header: {name: efficiency}
+  qualifiers:
+  - {name: ABS(ETA), value: 0.0-1.0}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '200.0'}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '200.0'}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '62.4'}
+  values:
+  - {value: '0.838*exp(-(0.070/$p_{T}$)^0.941)'}
+  - {value: '0.886*exp(-(0.000/$p_{T}$)^0.129)'}
+  - {value: 0.89}
+  - {value: '0.861*exp(-(0.197/$p_{T}$)^1.321)'}
+  - {value: '0.767*exp(-(0.150/$p_{T}$)^1.316)'}
+independent_variables:
+- header: {name: system}
+  values:
+  - {value: '0-10% central Cu+Cu collisions at $\sqrt{s_{NN}}$ =  62 GeV'}
+  - {value: '0-10% central Au+Au collisions at $\sqrt{s_{NN}}$ =  62 GeV'}
+  - {value: '0-95% central d+Au collisions at $\sqrt{s_{NN}}$ =  200 GeV'}
+  - {value: '50-60% central Cu+Cu collisions at $\sqrt{s_{NN}}$ =  200 GeV'}
+  - {value: '0-12% central Au+Au collisions at $\sqrt{s_{NN}}$ =  200 GeV'}

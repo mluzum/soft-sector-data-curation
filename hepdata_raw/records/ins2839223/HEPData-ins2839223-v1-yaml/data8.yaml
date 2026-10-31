@@ -1,0 +1,40 @@
+dependent_variables:
+- header: {name: Tuned parameter q, units: GEV}
+  qualifiers:
+  - {name: Pythia underlying-event tune, value: CP5}
+  - {name: Pythia intrinsic kT parameter, value: 'BeamRemnants:PrimordialkThard'}
+  - {name: Nucleon-nucleon center-of-mass energy, value: 38.8 GEV}
+  values:
+  - errors:
+    - {label: MC stat and data unc, symerror: 0.05}
+    - {label: tune range, symerror: 0.02}
+    - {label: interpolation, symerror: 0.01}
+    value: 0.99
+  - errors:
+    - {label: MC stat and data unc, symerror: 0.06}
+    - {label: tune range, symerror: 0.02}
+    - {label: interpolation, symerror: 0.025}
+    value: 1.03
+  - errors:
+    - {label: MC stat and data unc, symerror: 0.08}
+    - {label: tune range, symerror: 0.01}
+    - {label: interpolation, symerror: 0.2}
+    value: 1.07
+  - errors:
+    - {label: MC stat and data unc, symerror: 0.04}
+    - {label: tune range, symerror: 0.025}
+    - {label: interpolation, symerror: 0.005}
+    value: 0.92
+  - errors:
+    - {label: MC stat and data unc, symerror: 0.31}
+    - {label: tune range, symerror: 0.18}
+    - {label: interpolation, symerror: 0.16}
+    value: 0.87
+independent_variables:
+- header: {name: Dilepton center-of-mass energy, units: GEV}
+  values:
+  - {high: 5.2, low: 4.2}
+  - {high: 6.2, low: 5.2}
+  - {high: 7.2, low: 6.2}
+  - {high: 8.7, low: 7.2}
+  - {high: 12.85, low: 10.2}

@@ -1,0 +1,111 @@
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: AuAu -->D0 + X
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: Fig3_formatted.yaml
+hepdata_table_label: Azimuthal anisotropy $v_2$ as a function of $p_{\rm T}$ for $D^0$
+  in 10%–40% centrality Au+Au collisions.
+inspire_id: '1510298'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 1.01
+    - 1.49
+    - 1.98
+    - 2.475
+    - 2.97
+    - 3.475
+    - 4.065
+    - 5.205
+    - 6.8149999999999995
+    max: 6.8149999999999995
+    min: 1.01
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+value_type: v_2$ in 10-40% central Au+Au collisions
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: AuAu -->D0 + X
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: Fig4_formatted.yaml
+hepdata_table_label: Azimuthal anisotropy $v_2$ as a function of $p_{\rm T}$ for $D^0$
+  in 0%–80% centrality Au+Au collisions.
+inspire_id: '1510298'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 1.01
+    - 1.49
+    - 1.975
+    - 2.47
+    - 2.97
+    - 3.475
+    - 4.065
+    - 5.195
+    - 6.785
+    max: 6.785
+    min: 1.01
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+value_type: v_2$ in 0-80% central Au+Au collisions
+version: 1

@@ -1,0 +1,66 @@
+dependent_variables:
+- header: {name: 'p$^{\eta}_\textrm{dyn}/$p$^{\eta}_\textrm{mix}$/N'}
+  qualifiers:
+  - {name: $\delta\eta$, value: Central HIJING results (no quenching) 1.1 $\leq$ p$_t$
+      $\leq$ 1.5 GeV/c}
+  values:
+  - errors:
+    - {label: stat, symerror: 9.0e-06}
+    value: -5.4e-05
+  - errors:
+    - {label: stat, symerror: 1.6e-05}
+    value: -4.1e-05
+  - errors:
+    - {label: stat, symerror: 3.0e-05}
+    value: 0.00027
+  - errors:
+    - {label: stat, symerror: 6.0e-05}
+    value: 0.00082
+- header: {name: 'p$^{\eta}_\textrm{dyn}/$p$^{\eta}_\textrm{mix}$/N'}
+  qualifiers:
+  - {name: $\delta\eta$, value: Central HIJING results (with quenching) 1.1 $\leq$
+      p$_t$ $\leq$ 1.5 GeV/c}
+  values:
+  - errors:
+    - {label: stat, symerror: 1.2e-05}
+    value: -3.8e-05
+  - errors:
+    - {label: stat, symerror: 2.0e-05}
+    value: -1.4e-05
+  - errors:
+    - {label: stat, symerror: 4.0e-05}
+    value: 0.00013
+  - errors:
+    - {label: stat, symerror: 8.0e-05}
+    value: 0.0006
+- header: {name: 'p$^{\eta}_\textrm{dyn}/$p$^{\eta}_\textrm{mix}$/N'}
+  qualifiers:
+  - {name: $\delta\eta$, value: Central STAR data 1.1 $\leq$ p$_t$ $\leq$ 1.5 GeV/c}
+  values:
+  - errors:
+    - {label: stat, symerror: 5.0e-06}
+    - asymerror: {minus: 1.4e-05, plus: 1.6e-06}
+      label: syst
+    value: -4.7e-05
+  - errors:
+    - {label: stat, symerror: 9.0e-06}
+    - asymerror: {minus: 3.0e-06, plus: 1.8e-05}
+      label: syst
+    value: -7.6e-05
+  - errors:
+    - {label: stat, symerror: 1.7e-05}
+    - asymerror: {minus: 3.0e-06, plus: 8.0e-05}
+      label: syst
+    value: -7.6e-05
+  - errors:
+    - {label: stat, symerror: 3.0e-05}
+    - asymerror: {minus: 1.6e-06, plus: 6.0e-05}
+      label: syst
+    value: -5.0e-05
+independent_variables:
+- header: {name: $\delta\eta$}
+  values:
+  - {value: 0.125}
+  - {value: 0.25}
+  - {value: 0.5}
+  - {value: 1}

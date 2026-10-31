@@ -1,0 +1,92 @@
+dependent_variables:
+- header: {name: N(Q=CENTRAL)/N(Q=PERIPHERAL)}
+  qualifiers:
+  - {name: BKG SUBTRACTION, value: FLAT}
+  - {name: CENTRALITY(Q=CENTRAL), units: pct, value: 0.0-5.0}
+  - {name: CENTRALITY(Q=PERIPHERAL), units: pct, value: 60.0-90.0}
+  - {name: DELTA(PHI), value: -0.7-0.7}
+  - {name: ETARAP, value: -1.0-1.0}
+  - {name: PT(C=ASSOC), value: < PT(C=TRIG)}
+  - {name: PT(C=TRIG), units: GeV, value: 8.0-15.0}
+  - {name: RE(Q=PB-PB), value: PB PB --> CHARGED x}
+  - {name: sqrts/NUCLEON, units: GeV, value: '2.76'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.05}
+    - {label: sys, symerror: 0.1}
+    value: 1.38
+  - errors:
+    - {label: stat, symerror: 0.03}
+    - {label: sys, symerror: 0.08}
+    value: 1.17
+  - errors:
+    - {label: stat, symerror: 0.04}
+    - {label: sys, symerror: 0.08}
+    value: 1.16
+  - errors:
+    - {label: stat, symerror: 0.07}
+    - {label: sys, symerror: 0.09}
+    value: 1.3
+- header: {name: N(Q=CENTRAL)/N(Q=PERIPHERAL)}
+  qualifiers:
+  - {name: BKG SUBTRACTION, value: v2}
+  - {name: CENTRALITY(Q=CENTRAL), units: pct, value: 0.0-5.0}
+  - {name: CENTRALITY(Q=PERIPHERAL), units: pct, value: 60.0-90.0}
+  - {name: DELTA(PHI), value: -0.7-0.7}
+  - {name: ETARAP, value: -1.0-1.0}
+  - {name: PT(C=ASSOC), value: < PT(C=TRIG)}
+  - {name: PT(C=TRIG), units: GeV, value: 8.0-15.0}
+  - {name: RE(Q=PB-PB), value: PB PB --> CHARGED x}
+  - {name: sqrts/NUCLEON, units: GeV, value: '2.76'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.05}
+    - {label: sys, symerror: 0.1}
+    value: 1.37
+  - errors:
+    - {label: stat, symerror: 0.03}
+    - {label: sys, symerror: 0.09}
+    value: 1.18
+  - errors:
+    - {label: stat, symerror: 0.04}
+    - {label: sys, symerror: 0.08}
+    value: 1.16
+  - errors:
+    - {label: stat, symerror: 0.07}
+    - {label: sys, symerror: 0.09}
+    value: 1.3
+- header: {name: N(Q=CENTRAL)/N(Q=PERIPHERAL)}
+  qualifiers:
+  - {name: BKG SUBTRACTION, value: ETARAP-GAP}
+  - {name: CENTRALITY(Q=CENTRAL), units: pct, value: 0.0-5.0}
+  - {name: CENTRALITY(Q=PERIPHERAL), units: pct, value: 60.0-90.0}
+  - {name: DELTA(PHI), value: -0.7-0.7}
+  - {name: ETARAP, value: -1.0-1.0}
+  - {name: PT(C=ASSOC), value: < PT(C=TRIG)}
+  - {name: PT(C=TRIG), units: GeV, value: 8.0-15.0}
+  - {name: RE(Q=PB-PB), value: PB PB --> CHARGED x}
+  - {name: sqrts/NUCLEON, units: GeV, value: '2.76'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.07}
+    - {label: sys, symerror: 0.09}
+    value: 1.28
+  - errors:
+    - {label: stat, symerror: 0.04}
+    - {label: sys, symerror: 0.09}
+    value: 1.21
+  - errors:
+    - {label: stat, symerror: 0.04}
+    - {label: sys, symerror: 0.08}
+    value: 1.1
+  - errors:
+    - {label: stat, symerror: 0.07}
+    - {label: sys, symerror: 0.09}
+    value: 1.26
+independent_variables:
+- header: {name: PT(C=ASSOC), units: GEV}
+  values:
+  - {high: 4.0, low: 3.0}
+  - {high: 6.0, low: 4.0}
+  - {high: 8.0, low: 6.0}
+  - {high: 10.0, low: 8.0}

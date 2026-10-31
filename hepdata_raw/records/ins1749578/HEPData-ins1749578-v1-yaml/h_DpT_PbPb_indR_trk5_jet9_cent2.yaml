@@ -1,0 +1,79 @@
+dependent_variables:
+- header: {name: D(pT r) PbPb}
+  qualifiers:
+  - {name: RE, value: Charged particle distribution in PbPb}
+  - {name: pT(jet), units: GeV, value: 199.5 - 251.2}
+  - {name: pT(trk), units: GeV, value: 4.0 - 6.3}
+  - {name: Centrality, value: 20-30%}
+  - {name: abs. rapidity(jet), value: 0 - 1.7}
+  - {name: SQRT(S), units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - asymerror: {minus: -0.985165, plus: 0.980892}
+      label: sys
+    - {label: stat, symerror: 0.466295}
+    value: 19.7754
+  - errors:
+    - asymerror: {minus: -0.231035, plus: 0.231272}
+      label: sys
+    - {label: stat, symerror: 0.166636}
+    value: 8.27743
+  - errors:
+    - asymerror: {minus: -0.0346672, plus: 0.0353489}
+      label: sys
+    - {label: stat, symerror: 0.0821391}
+    value: 3.27472
+  - errors:
+    - asymerror: {minus: -0.0277985, plus: 0.0289624}
+      label: sys
+    - {label: stat, symerror: 0.0468042}
+    value: 1.42326
+  - errors:
+    - asymerror: {minus: -0.0253407, plus: 0.0244273}
+      label: sys
+    - {label: stat, symerror: 0.0288908}
+    value: 0.643279
+  - errors:
+    - asymerror: {minus: -0.0154227, plus: 0.0143067}
+      label: sys
+    - {label: stat, symerror: 0.0208799}
+    value: 0.361369
+  - errors:
+    - asymerror: {minus: -0.0110078, plus: 0.0110168}
+      label: sys
+    - {label: stat, symerror: 0.00917226}
+    value: 0.15765
+  - errors:
+    - asymerror: {minus: -0.004684, plus: 0.004684}
+      label: sys
+    - {label: stat, symerror: 0.00572476}
+    value: 0.0491151
+  - errors:
+    - asymerror: {minus: -0.00398987, plus: 0.00390502}
+      label: sys
+    - {label: stat, symerror: 0.00532105}
+    value: 0.0363312
+  - errors:
+    - asymerror: {minus: -0.00234358, plus: 0.00224881}
+      label: sys
+    - {label: stat, symerror: 0.00435276}
+    value: 0.0209958
+  - errors:
+    - asymerror: {minus: -0.00429894, plus: 0.00426907}
+      label: sys
+    - {label: stat, symerror: 0.00435341}
+    value: 0.0198234
+independent_variables:
+- header: {name: r}
+  values:
+  - {high: 0.05, low: 0}
+  - {high: 0.1, low: 0.05}
+  - {high: 0.15, low: 0.1}
+  - {high: 0.2, low: 0.15}
+  - {high: 0.25, low: 0.2}
+  - {high: 0.3, low: 0.25}
+  - {high: 0.4, low: 0.3}
+  - {high: 0.5, low: 0.4}
+  - {high: 0.6, low: 0.5}
+  - {high: 0.7, low: 0.6}
+  - {high: 0.8, low: 0.7}

@@ -1,0 +1,86 @@
+dependent_variables:
+- header: {name: 1/(2*PI*PT)*D2N/DPT/DYRAP, units: (GEV/C)**(-1)}
+  qualifiers:
+  - {name: PARTICLE, value: K+}
+  - {name: YRAP, value: 3.0}
+  - {name: CENTRALITY, units: PCT, value: 50 TO 70}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0082}
+    - {label: sys, symerror: 0.0054}
+    value: 0.076
+  - errors:
+    - {label: stat, symerror: 0.0052}
+    - {label: sys, symerror: 0.0027}
+    value: 0.0378
+  - errors:
+    - {label: stat, symerror: 0.0038}
+    - {label: sys, symerror: 0.002}
+    value: 0.0282
+  - errors:
+    - {label: stat, symerror: 0.0022}
+    - {label: sys, symerror: 0.0015}
+    value: 0.021
+  - errors:
+    - {label: stat, symerror: 0.00151}
+    - {label: sys, symerror: 0.00056}
+    value: 0.00796
+  - errors:
+    - {label: stat, symerror: 0.0006}
+    - {label: sys, symerror: 0.00025}
+    value: 0.00359
+  - errors:
+    - {label: stat, symerror: 0.0003}
+    - {label: sys, symerror: 0.00013}
+    value: 0.0019
+  - errors:
+    - {label: stat, symerror: 0.000165}
+    - {label: sys, symerror: 4.7e-05}
+    value: 0.00067
+  - errors:
+    - {label: stat, symerror: 6.2e-05}
+    - {label: sys, symerror: 2.9e-05}
+    value: 0.000299
+  - errors:
+    - {label: stat, symerror: 3.1e-05}
+    - {label: sys, symerror: 2.1e-05}
+    value: 9.8e-05
+- header: {name: MT-M, units: GEV/C**2}
+  qualifiers:
+  - {name: PARTICLE, value: K+}
+  - {name: YRAP, value: 3.0}
+  - {name: CENTRALITY, units: PCT, value: 50 TO 70}
+  values:
+  - errors: []
+    value: 0.9
+  - errors: []
+    value: 0.98
+  - errors: []
+    value: 1.1
+  - errors: []
+    value: 1.2
+  - errors: []
+    value: 1.4
+  - errors: []
+    value: 1.6
+  - errors: []
+    value: 1.8
+  - errors: []
+    value: 2.0
+  - errors: []
+    value: 2.3
+  - errors: []
+    value: 2.8
+independent_variables:
+- header: {name: PT, units: GEV/C}
+  values:
+  - {high: 0.8, low: 0.7}
+  - {high: 0.9, low: 0.8}
+  - {high: 1.0, low: 0.9}
+  - {high: 1.2, low: 1.0}
+  - {high: 1.4, low: 1.2}
+  - {high: 1.6, low: 1.4}
+  - {high: 1.8, low: 1.6}
+  - {high: 2.0, low: 1.8}
+  - {high: 2.5, low: 2.0}
+  - {high: 3.0, low: 2.5}

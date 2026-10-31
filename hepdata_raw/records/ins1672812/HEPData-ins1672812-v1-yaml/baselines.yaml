@@ -1,0 +1,43 @@
+dependent_variables:
+- header: {name: 'Baselines (ZYAM) in high-multiplicity collisions ($b_{\rm HM}$)'}
+  qualifiers:
+  - {name: RE, value: P PB --> (E+ + E-)/2 X}
+  - {name: SQRT(S), units: GEV, value: '5020.0'}
+  - {name: YRAP, value: -1.26 TO 0.34}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.008}
+    - {label: sys, symerror: 0.129}
+    value: 4.312
+  - errors:
+    - {label: stat, symerror: 0.007}
+    - {label: sys, symerror: 0.129}
+    value: 4.33
+  - errors:
+    - {label: stat, symerror: 0.02}
+    - {label: sys, symerror: 0.142}
+    value: 4.754
+- header: {name: 'Baselines (ZYAM) in low-multiplicity collisions ($b_{\rm LM}$)'}
+  qualifiers:
+  - {name: RE, value: P PB --> (E+ + E-)/2 X}
+  - {name: SQRT(S), units: GEV, value: '5020.0'}
+  - {name: YRAP, value: -1.26 TO 0.34}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.006}
+    - {label: sys, symerror: 0.037}
+    value: 1.235
+  - errors:
+    - {label: stat, symerror: 0.008}
+    - {label: sys, symerror: 0.038}
+    value: 1.294
+  - errors:
+    - {label: stat, symerror: 0.022}
+    - {label: sys, symerror: 0.043}
+    value: 1.433
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {high: 2, low: 1.5}
+  - {high: 4, low: 2}
+  - {high: 6, low: 4}

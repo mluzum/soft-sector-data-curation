@@ -1,0 +1,35 @@
+dependent_variables:
+- header: {name: SIG, units: MUB}
+  qualifiers:
+  - {name: COS(THETA), value: <0}
+  - {name: RE, value: GAMMA P --> F2(1270) P}
+  - {name: SQRT(S), units: GeV, value: 2.279-2.895}
+  - {name: SYS, value: 'RES-DEF(RES=DEL(1232P33),BACK=CORRECTED)//RES-DEF(RES=RHO,BACK=CORRECTED)//RES-DEF(RES=OMEGA,BACK=CORRECTED)//RES-DEF(RES=ETA,BACK=NONE)//RES-DEF(RES=ETAPRIME,BACK=CORRECTED)//RES-DEF(RES=A2(1310),BACK=CORRECTED)//RES-DEF(RES=B(1235),BACK=CORRECTED)'}
+  values:
+  - errors:
+    - {symerror: 0.37}
+    - {label: 'sys,DATA NORMALIZED (WITH THIS ENERGY INDEPENDENT ERROR) TO A SMOOTH
+        FIT TO PUBLISHED TOTAL CROSS SECTIONS', symerror: 5.0%}
+    value: 1.3
+  - errors:
+    - {symerror: 0.13}
+    - {label: 'sys,DATA NORMALIZED (WITH THIS ENERGY INDEPENDENT ERROR) TO A SMOOTH
+        FIT TO PUBLISHED TOTAL CROSS SECTIONS', symerror: 5.0%}
+    value: 0.39
+  - errors:
+    - {symerror: 0.06}
+    - {label: 'sys,DATA NORMALIZED (WITH THIS ENERGY INDEPENDENT ERROR) TO A SMOOTH
+        FIT TO PUBLISHED TOTAL CROSS SECTIONS', symerror: 5.0%}
+    value: 0.19
+  - errors:
+    - {symerror: 0.1}
+    - {label: 'sys,DATA NORMALIZED (WITH THIS ENERGY INDEPENDENT ERROR) TO A SMOOTH
+        FIT TO PUBLISHED TOTAL CROSS SECTIONS', symerror: 5.0%}
+    value: 0.1
+independent_variables:
+- header: {name: P, units: GEV}
+  values:
+  - {high: 2.6, low: 2.3}
+  - {high: 3.25, low: 2.6}
+  - {high: 4.0, low: 3.25}
+  - {high: 6.3, low: 4.0}

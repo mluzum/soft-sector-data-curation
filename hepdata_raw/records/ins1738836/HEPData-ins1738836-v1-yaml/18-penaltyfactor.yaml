@@ -1,0 +1,27 @@
+dependent_variables:
+- header: {name: d$N$/d$y$ / (2J+1)}
+  qualifiers:
+  - {name: RE, value: P PB--> P + X}
+  - {name: RE, value: P PB--> d + X}
+  - {name: RE, value: P PB--> 3He + X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020.0'}
+  - {name: YRAP(CM), value: -1 TO 0}
+  values:
+  - errors:
+    - {label: Statistical uncertainty, symerror: 0.0005}
+    - {label: Systematic uncertainty, symerror: 0.015}
+    value: 0.235
+  - errors:
+    - {label: Statistical uncertainty, symerror: 1.8214e-06}
+    - {label: Systematic uncertainty, symerror: 5.0784e-05}
+    value: 0.00035819
+  - errors:
+    - {label: Statistical uncertainty, symerror: 7.9106e-08}
+    - {label: Systematic uncertainty, symerror: 2.6213e-07}
+    value: 6.8159e-07
+independent_variables:
+- header: {name: A, units: GeV/c}
+  values:
+  - {value: 1.0}
+  - {value: 2.0}
+  - {value: 3.0}

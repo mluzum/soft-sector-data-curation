@@ -1,0 +1,170 @@
+---
+observable_type: heavy_flavor
+inspire_id: '1380193'
+version: 1
+hepdata_file: Table1.yaml
+hepdata_table_label: "Differential cross sections dsigma_JPsi/dydpt as function of pt at backward (-4.46<y_cms<-2.96) centre-of-mass\
+  \ rapidity. \nThe first uncertainty is statistical, the second and third ones are the systematic uncertainties. The third\
+  \ uncertainty is fully correlated over pT.\n"
+qualifiers:
+  centrality percentiles: 80-100%
+  re: P PB --> J/PSI < MU+ MU- > X
+  sqrt(s)/nucleon: '5020.0'
+  yrap(rf=cm): -4.46 - -2.96
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> J/PSI < MU+ MU- > X
+centrality:
+  classes:
+  - 80-100%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: Sigma
+  particle: ds
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.15
+    max: 50
+observable: ds_invariant_yield
+value_type: invariant_yield
+particle: ds
+---
+observable_type: heavy_flavor
+inspire_id: '1380193'
+version: 1
+hepdata_file: Table2.yaml
+hepdata_table_label: "Differential cross sections d^2sigma^cent_JPsi/dydpt as function of pt for six centrality classes at\
+  \ forward (2.03<y_cms<3.53) centre-of-mass rapidity. \nThe first uncertainty is statistical, the second and third ones are\
+  \ the systematic uncertainties. The third uncertainty is fully correlated over pT.\n"
+qualifiers:
+  centrality percentiles: 80-100%
+  re: P PB --> J/PSI < MU+ MU- > X
+  sqrt(s)/nucleon: '5020.0'
+  yrap(rf=cm): 2.03 - 3.53
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> J/PSI < MU+ MU- > X
+centrality:
+  classes:
+  - 80-100%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: Sigma
+  particle: ds
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.15
+    max: 50
+observable: ds_invariant_yield
+value_type: invariant_yield
+particle: ds
+---
+observable_type: heavy_flavor
+inspire_id: '1380193'
+version: 1
+hepdata_file: Table3.yaml
+hepdata_table_label: "Differential cross sections dsigma^cent_JPsi/dy for four centrality classes at mid-rapidity (-1.37<y_cms<0.43).\
+  \ \nThe first uncertainty is statistical, the second and third ones are the systematic uncertainties. The third uncertainty\
+  \ is fully correlated over centrality.\n"
+qualifiers:
+  re: P PB --> J/PSI < E+ E- > X
+  sqrt(s)/nucleon: '5020.0'
+  yrap(rf=cm): -1.37 - 0.43
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> J/PSI < E+ E- > X
+centrality:
+  classes:
+  - 0-20%
+  - 20-40%
+  - 40-60%
+  - 60-100%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: Sigma
+  particle: ds
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.15
+    max: 50
+observable: ds_invariant_yield
+value_type: invariant_yield
+particle: ds
+---
+observable_type: heavy_flavor
+inspire_id: '1380193'
+version: 1
+hepdata_file: Table4.yaml
+hepdata_table_label: "Differential cross sections dsigma^cent_JPsi/dy for six centrality classes at forward (2.03<y_cms<3.53)\
+  \ and backward (-4.46<y_cms<-2.96) centre-of-mass rapidity. \nThe first uncertainty is statistical, the second and third\
+  \ ones are the systematic uncertainties. The third uncertainty is fully correlated over centrality.\n"
+qualifiers:
+  re: P PB --> J/PSI < MU+ MU- > X
+  sqrt(s)/nucleon: 5020.0 GeV
+  yrap(rf=cm): 2.03 - 3.53
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> J/PSI < MU+ MU- > X
+centrality:
+  classes:
+  - 2-10%
+  - 10-20%
+  - 20-40%
+  - 40-60%
+  - 60-80%
+  - 80-100%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: Sigma
+  particle: ds
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.15
+    max: 50
+observable: ds_invariant_yield
+value_type: invariant_yield
+particle: ds

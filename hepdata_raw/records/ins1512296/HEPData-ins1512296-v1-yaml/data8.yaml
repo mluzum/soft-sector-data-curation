@@ -1,0 +1,47 @@
+dependent_variables:
+- header: {name: '$R_{\textrm{pPb}}$'}
+  qualifiers:
+  - {name: RE, value: P P --> J/PSI < MU+ MU- > X}
+  - {name: RE, value: P PB --> J/PSI < MU+ MU- > X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 5020}
+  - {name: GLOBAL UNCERTAINTY, value: 4.2 PCT}
+  - {name: '$p_{\textrm{T}}$', units: GEV, value: 6.5-10}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.032}
+    - {label: syst, symerror: 0.07}
+    value: 1.144
+  - errors:
+    - {label: stat, symerror: 0.027}
+    - {label: syst, symerror: 0.06}
+    value: 1.117
+  - errors:
+    - {label: stat, symerror: 0.033}
+    - {label: syst, symerror: 0.06}
+    value: 1.137
+  - errors:
+    - {label: stat, symerror: 0.034}
+    - {label: syst, symerror: 0.05}
+    value: 1.057
+  - errors:
+    - {label: stat, symerror: 0.028}
+    - {label: syst, symerror: 0.05}
+    value: 1.045
+  - errors:
+    - {label: stat, symerror: 0.021}
+    - {label: syst, symerror: 0.05}
+    value: 0.945
+  - errors:
+    - {label: stat, symerror: 0.026}
+    - {label: syst, symerror: 0.07}
+    value: 0.966
+independent_variables:
+- header: {name: '$y_{\textrm{CM}}$'}
+  values:
+  - {high: -1.93, low: -2.4}
+  - {high: -1.5, low: -1.93}
+  - {high: -0.9, low: -1.5}
+  - {high: 0, low: -0.9}
+  - {high: 0.9, low: 0}
+  - {high: 1.5, low: 0.9}
+  - {high: 1.93, low: 1.5}

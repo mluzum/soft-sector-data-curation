@@ -1,0 +1,74 @@
+dependent_variables:
+- header: {name: Tkin}
+  qualifiers:
+  - {name: RE, value: P P --> K0s (Lambda) X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '7000'}
+  - {name: YRAP(C=CM), value: -1.0 TO 1.0}
+  - {name: K0S PT RANGE, value: 0.1 TO 1.5 GEV}
+  - {name: LAMBDA + LAMBDABAR PT RANGE, value: 0.6 TO 3.0 GEV}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0015}
+    - {label: sys, symerror: 0.0104}
+    value: 0.18
+  - errors:
+    - {label: stat, symerror: 0.0021}
+    - {label: sys, symerror: 0.0107}
+    value: 0.184
+  - errors:
+    - {label: stat, symerror: 0.0066}
+    - {label: sys, symerror: 0.0107}
+    value: 0.185
+  - errors:
+    - {label: stat, symerror: 0.004}
+    - {label: sys, symerror: 0.0101}
+    value: 0.174
+  - errors:
+    - {label: stat, symerror: 0.0036}
+    - {label: sys, symerror: 0.0096}
+    value: 0.166
+  - errors:
+    - {label: stat, symerror: 0.0061}
+    - {label: sys, symerror: 0.0093}
+    value: 0.161
+- header: {name: <Beta_T>, units: GEV}
+  qualifiers:
+  - {name: RE, value: P P --> K0s (Lambda) X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '7000'}
+  - {name: YRAP(C=CM), value: -1.0 TO 1.0}
+  - {name: K0S PT RANGE, value: 0.1 TO 1.5 GEV}
+  - {name: LAMBDA + LAMBDABAR PT RANGE, value: 0.6 TO 3.0 GEV}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0047}
+    - {label: sys, symerror: 0.0054}
+    value: 0.302
+  - errors:
+    - {label: stat, symerror: 0.0041}
+    - {label: sys, symerror: 0.0081}
+    value: 0.45
+  - errors:
+    - {label: stat, symerror: 0.0107}
+    - {label: sys, symerror: 0.0092}
+    value: 0.51
+  - errors:
+    - {label: stat, symerror: 0.005}
+    - {label: sys, symerror: 0.0103}
+    value: 0.57
+  - errors:
+    - {label: stat, symerror: 0.004}
+    - {label: sys, symerror: 0.011}
+    value: 0.61
+  - errors:
+    - {label: stat, symerror: 0.0061}
+    - {label: sys, symerror: 0.0114}
+    value: 0.63
+independent_variables:
+- header: {name: EVENT CLASS, units: MULTIPLICIT}
+  values:
+  - {high: 35.0, low: 0.0}
+  - {high: 60.0, low: 35.0}
+  - {high: 90.0, low: 60.0}
+  - {high: 110.0, low: 90.0}
+  - {high: 130.0, low: 110.0}
+  - {high: 1000.0, low: 130.0}

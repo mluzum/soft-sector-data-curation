@@ -1,0 +1,54 @@
+dependent_variables:
+- header: {name: RAA}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 0.0-90.0}
+  - {name: RE, value: PB PB --> J/PSI X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  - {name: YRAP, value: 2.5-4.0}
+  - {name: '', value: mu+mu- decay mode}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.08}
+    - {label: sys, symerror: 0.11}
+    - {label: 'sys,global systematic uncertainty', symerror: 8.0%}
+    value: 0.78
+  - errors:
+    - {label: stat, symerror: 0.05}
+    - {label: sys, symerror: 0.08}
+    - {label: 'sys,global systematic uncertainty', symerror: 8.0%}
+    value: 0.68
+  - errors:
+    - {label: stat, symerror: 0.04}
+    - {label: sys, symerror: 0.06}
+    - {label: 'sys,global systematic uncertainty', symerror: 8.0%}
+    value: 0.52
+  - errors:
+    - {label: stat, symerror: 0.04}
+    - {label: sys, symerror: 0.05}
+    - {label: 'sys,global systematic uncertainty', symerror: 8.0%}
+    value: 0.43
+  - errors:
+    - {label: stat, symerror: 0.05}
+    - {label: sys, symerror: 0.05}
+    - {label: 'sys,global systematic uncertainty', symerror: 8.0%}
+    value: 0.41
+  - errors:
+    - {label: stat, symerror: 0.05}
+    - {label: sys, symerror: 0.04}
+    - {label: 'sys,global systematic uncertainty', symerror: 8.0%}
+    value: 0.32
+  - errors:
+    - {label: stat, symerror: 0.08}
+    - {label: sys, symerror: 0.04}
+    - {label: 'sys,global systematic uncertainty', symerror: 8.0%}
+    value: 0.36
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {high: 1.0, low: 0.0}
+  - {high: 2.0, low: 1.0}
+  - {high: 3.0, low: 2.0}
+  - {high: 4.0, low: 3.0}
+  - {high: 5.0, low: 4.0}
+  - {high: 6.0, low: 5.0}
+  - {high: 8.0, low: 6.0}

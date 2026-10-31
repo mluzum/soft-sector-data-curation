@@ -1,0 +1,115 @@
+---
+observable_type: charge_dependent_correlations
+inspire_id: '2829427'
+version: 1
+hepdata_file: HEPData_CrossSecsHSKin.yaml
+hepdata_table_label: Fully unfolded triple-differential cross-sections as a function of $H_\text{T}$, $x_\text{A}$, and $z_{\gamma}$.
+  Systematic uncertainties are decomposed into symmetrized nuisance parameters, where parameters labelled "Corr" are fully
+  correlated bin-to-bin, while parameters labelled "Uncorr" should be treated as un-correlated bin-to-bin. These cross-sections
+  are not corrected for the effects of additional nuclear break-up. Values for the total fiducial cross-section in each bin
+  are reported with full statistical and systematic uncertainties. Fractions of the total bin volume occupied by the fiducial
+  region, fractions of the total cross-section in that bin satisfying fiducial requirements, and mean bin values for each
+  axis variable are derived from Pythia 8 Monte Carlo and reported as well. For more details on these quantities, see Appendix
+  B.
+qualifiers:
+  abs(etajet): abs( y) < 4.4
+  jet pt: greater than 15
+  mjets over ht: 0.9 to 4.0
+  r(jets): '0.4'
+  re: GAMMA A to JET JET
+  sqrt(snn): '5020'
+collision_system:
+  energy_gev: 0.0
+  reaction: GAMMA A to JET JET
+centrality:
+  classes:
+  - 0.002-0.00347395%
+  - 0.00347395-0.00603418%
+  - 0.00603418-0.0104812%
+  - 0.0104812-0.0182056%
+  - 0.0182056-0.0316228%
+  - 0.0316228-0.054928%
+  - 0.054928-0.0954087%
+  - 0.0954087-0.165723%
+  - 0.165723-0.287856%
+  - 0.287856-0.5%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.1
+  - min: 3.1
+    max: 4.9
+particle_id:
+  species: K-
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+    bins:
+    - -2.5
+    - 2.5
+  pT:
+    min: 0.5
+    max: 20
+    bins:
+    - 0.5
+    - 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '2829427'
+version: 1
+hepdata_file: HEPData_CrossSecsJetKin.yaml
+hepdata_table_label: Fully unfolded triple-differential cross-sections as a function of $H_\text{T}$, $y_\text{jets}$, and
+  $m_\text{jets}$. Systematic uncertainties are decomposed into symmetrized nuisance parameters, where parameters labelled
+  "Corr" are fully correlated bin-to-bin, while parameters labelled "Uncorr" should be treated as un-correlated bin-to-bin.
+  These cross-sections are not corrected for the effects of additional nuclear break-up. Values for the total fiducial cross-section
+  in each bin are reported with full statistical and systematic uncertainties. Fractions of the total bin volume occupied
+  by the fiducial region, fractions of the total cross-section in that bin satisfying fiducial requirements, and mean bin
+  values for each axis variable are derived from Pythia 8 Monte Carlo and reported as well. For more details on these quantities,
+  see Appendix B.
+qualifiers:
+  abs(etajet): abs( y) < 4.4
+  jet pt: greater than 15
+  mjets over ht: 0.9 to 4.0
+  r(jets): '0.4'
+  re: GAMMA A to JET JET
+  sqrt(snn): '5020'
+collision_system:
+  energy_gev: 0.0
+  reaction: GAMMA A to JET JET
+centrality:
+  classes:
+  - MB
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.1
+  - min: 3.1
+    max: 4.9
+particle_id:
+  species: K-
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+    bins:
+    - -2.5
+    - 2.5
+  pT:
+    min: 0.5
+    max: 20
+    bins:
+    - 0.5
+    - 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all

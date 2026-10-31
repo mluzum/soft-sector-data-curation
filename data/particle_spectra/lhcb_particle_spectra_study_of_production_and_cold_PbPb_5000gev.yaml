@@ -1,0 +1,86 @@
+---
+observable_type: particle_spectra
+inspire_id: '1251899'
+version: 1
+hepdata_file: Table5.yaml
+hepdata_table_label: 'Double differential production cross sections of prompt J/PSI mesons  as a function of transverse momentum
+  and rapidity in the FORWARD region. The errors shown are statistical and the uncorrelated and correlated components of the
+  systematic uncertainties.
+
+  '
+qualifiers:
+  re: P PB --> J/PSI X
+  sqrt(s)/nucleon: '5000.0'
+  yrap: 3.5-4.0
+collision_system:
+  energy_gev: 5000.0
+  reaction: P PB --> J/PSI X
+centrality:
+  classes:
+  - MB
+  estimator:
+    name: VELO
+    observable: Nch
+    detector: VELO
+  eta:
+  - min: -2.5
+    max: 2.5
+particle_id:
+  species: J/psi
+kinematic_range:
+  eta:
+    min: 2.0
+    max: 5.0
+  pT:
+    min: 0.2
+    max: 20
+observable: dN_dpT_dy
+value_type: invariant_yield
+---
+observable_type: particle_spectra
+inspire_id: '1251899'
+version: 1
+hepdata_file: Table6.yaml
+hepdata_table_label: 'Double differential production cross sections of  J/PSI mesons from B decays  as a function of transverse
+  momentum and rapidity in the FORWARD region. The errors shown are statistical and the uncorrelated and correlated components
+  of the systematic uncertainties.
+
+  '
+qualifiers:
+  re: P PB --> J/PSI X
+  sqrt(s)/nucleon: '5000.0'
+  yrap: 3.5-4.0
+collision_system:
+  energy_gev: 5000.0
+  reaction: P PB --> J/PSI X
+centrality:
+  classes:
+  - MB
+  estimator:
+    name: VELO
+    observable: Nch
+    detector: VELO
+  eta:
+  - min: -2.5
+    max: 2.5
+particle_id:
+  species: J/psi
+kinematic_range:
+  pT:
+    min: 0.0
+    max: 14.0
+    bins:
+    - 0.0
+    - 1.0
+    - 2.0
+    - 3.0
+    - 4.0
+    - 5.0
+    - 6.0
+    - 7.0
+    - 14.0
+  eta:
+    min: 2.0
+    max: 5.0
+observable: dN_dpT_dy
+value_type: invariant_yield

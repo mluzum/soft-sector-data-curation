@@ -1,0 +1,42 @@
+dependent_variables:
+- header: {name: 'POWER(NAME=2*A,YN=SIG)'}
+  qualifiers:
+  - {name: RE, value: DEUT AU --> J/PSI < MU+ MU- > X}
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.011}
+    - asymerror: {minus: -0.015, plus: 0.014}
+      label: sys
+    - {label: sys, symerror: 0.02}
+    value: 0.921
+  - errors:
+    - {label: stat, symerror: 0.013}
+    - asymerror: {minus: -0.018, plus: 0.017}
+      label: sys
+    - {label: sys, symerror: 0.02}
+    value: 0.949
+  - errors:
+    - {label: stat, symerror: 0.058}
+    - {label: sys, symerror: 0.062}
+    - {label: sys, symerror: 0.02}
+    value: 1.069
+  - errors:
+    - {label: stat, symerror: 0.068}
+    - {label: sys, symerror: 0.07}
+    - {label: sys, symerror: 0.02}
+    value: 1.033
+  - errors:
+    - {label: stat, symerror: 0.139}
+    - asymerror: {minus: -0.141, plus: 0.14}
+      label: sys
+    - {label: sys, symerror: 0.02}
+    value: 1.028
+independent_variables:
+- header: {name: PT(P=3), units: GEV}
+  values:
+  - {high: 1.0, low: 0.0}
+  - {high: 2.0, low: 1.0}
+  - {high: 3.0, low: 2.0}
+  - {high: 4.0, low: 3.0}
+  - {high: 5.0, low: 4.0}

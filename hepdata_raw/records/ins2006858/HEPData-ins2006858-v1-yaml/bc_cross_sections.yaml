@@ -1,0 +1,88 @@
+dependent_variables:
+- header: {name: '$BF \times \frac{d\sigma_{pp}^{B_c}}{dp_T^{\mu\mu\mu} dy^{\mu\mu\mu}}$',
+    units: pb/GeV}
+  qualifiers:
+  - {name: RE, value: B/C+ --> (J/PSI(1S) --> MU+ MU-) MU+ NUMU}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: 5020}
+  - {name: CENTRALITY, value: --}
+  - {name: ABS(RAP), value: 1.3-2.3}
+  - {name: bin-to-bin correlation factor, value: 0.69}
+  values:
+  - errors:
+    - asymerror: {minus: -0.733, plus: 0.48}
+      label: total
+    - asymerror: {minus: -0.444, plus: 0.462}
+      label: from fit
+    - asymerror: {minus: -0.583, plus: 0.129}
+      label: not from fit
+    value: 5.006
+  - {value: --}
+  - {value: --}
+  - {value: --}
+- header: {name: '$BF \times \frac{d\sigma_{pp}^{B_c}}{dp_T^{\mu\mu\mu} dy^{\mu\mu\mu}}$',
+    units: pb/GeV}
+  qualifiers:
+  - {name: RE, value: B/C+ --> (J/PSI(1S) --> MU+ MU-) MU+ NUMU}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: 5020}
+  - {name: CENTRALITY, value: --}
+  - {name: ABS(RAP), value: 0-2.3}
+  - {name: bin-to-bin correlation factor, value: 0.69}
+  values:
+  - {value: --}
+  - errors:
+    - asymerror: {minus: -0.023, plus: 0.016}
+      label: total
+    - asymerror: {minus: -0.014, plus: 0.014}
+      label: from fit
+    - asymerror: {minus: -0.018, plus: 0.007}
+      label: not from fit
+    value: 0.275
+  - {value: --}
+  - {value: --}
+- header: {name: '$BF \times \frac{1}{N_{MB} T_{PbPb}} \frac{dN_{PbPb}^{B_c}}{dp_T^{\mu\mu\mu}
+      dy^{\mu\mu\mu}}$', units: pb/GeV}
+  qualifiers:
+  - {name: RE, value: B/C+ --> (J/PSI(1S) --> MU+ MU-) MU+ NUMU}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: 5020}
+  - {name: CENTRALITY, value: 0-90%}
+  - {name: ABS(RAP), value: 1.3-2.3}
+  - {name: bin-to-bin correlation factor, value: 0.45}
+  values:
+  - {value: --}
+  - {value: --}
+  - errors:
+    - asymerror: {minus: -2.925, plus: 3.903}
+      label: total
+    - asymerror: {minus: -2.459, plus: 2.679}
+      label: from fit
+    - asymerror: {minus: -1.583, plus: 2.838}
+      label: not from fit
+    value: 8.339
+  - {value: --}
+- header: {name: '$BF \times \frac{1}{N_{MB} T_{PbPb}} \frac{dN_{PbPb}^{B_c}}{dp_T^{\mu\mu\mu}
+      dy^{\mu\mu\mu}}$', units: pb/GeV}
+  qualifiers:
+  - {name: RE, value: B/C+ --> (J/PSI(1S) --> MU+ MU-) MU+ NUMU}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: 5020}
+  - {name: CENTRALITY, value: 0-90%}
+  - {name: ABS(RAP), value: 0-2.3}
+  - {name: bin-to-bin correlation factor, value: 0.45}
+  values:
+  - {value: --}
+  - {value: --}
+  - {value: --}
+  - errors:
+    - asymerror: {minus: -0.033, plus: 0.033}
+      label: total
+    - asymerror: {minus: -0.031, plus: 0.034}
+      label: from fit
+    - asymerror: {minus: -0.011, plus: 0.0}
+      label: not from fit
+    value: 0.192
+independent_variables:
+- header: {name: trimuon $p_T$, units: GeV}
+  values:
+  - {high: 11.0, low: 6.0, value: 8.146}
+  - {high: 35.0, low: 11.0, value: 17.658}
+  - {high: 11.0, low: 6.0, value: 7.972}
+  - {high: 35.0, low: 11.0, value: 16.672}

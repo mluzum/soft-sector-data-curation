@@ -1,0 +1,98 @@
+observable_type: mean_pT
+inspire_id: '656142'
+version: 1
+hepdata_file: ppg033fig3a1.yaml
+hepdata_table_label: $p_T$ spectra of the near side associated charged hadrons corrected
+  to the full jet yield for meson triggers at 2.5 < $p_T$ < 4.0 GeV/$c$ and $|\eta|$
+  < 0.35 for six centralities in Au+Au and $d$+Au collisions.
+qualifiers:
+  centrality: 0-5%
+collision_system:
+  energy_gev: 200.0
+  reaction: p p --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: charged
+observable: mean_pT
+value_type: mean_pT
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+---
+observable_type: mean_pT
+inspire_id: '656142'
+version: 1
+hepdata_file: ppg033fig3a2.yaml
+hepdata_table_label: $p_T$ spectra of the near side associated charged hadrons corrected
+  to the full jet yield for meson triggers at 2.5 < $p_T$ < 4.0 GeV/$c$ and $|\eta|$
+  < 0.35 for six centralities in Au+Au and $d$+Au collisions.
+qualifiers:
+  centrality: $d$+Au
+collision_system:
+  energy_gev: 200.0
+  reaction: p p --> CHARGED X
+centrality:
+  classes:
+  - MB
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: charged
+observable: mean_pT
+value_type: mean_pT
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+---
+observable_type: mean_pT
+inspire_id: '656142'
+version: 1
+hepdata_file: ppg033fig3b.yaml
+hepdata_table_label: $p_T$ spectra of the near side associated charged hadrons corrected
+  to the full jet yield for baryon triggers at 2.5 < $p_T$ < 4.0 GeV/$c$ and $|\eta|$
+  < 0.35 for six centralities in Au+Au, $d$+Au and $p$+$p$ collisions.
+qualifiers:
+  centrality: $p$+$p$
+collision_system:
+  energy_gev: 200.0
+  reaction: p p --> CHARGED X
+centrality:
+  classes:
+  - MB
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: charged
+observable: mean_pT
+value_type: mean_pT
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8

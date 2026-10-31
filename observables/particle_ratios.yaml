@@ -1,0 +1,45 @@
+observable_type: particle_ratios
+description: >
+  Ratios of identified particle yields (e.g. p/π, K/π, pbar/p, Λ/K_S^0)
+  as a function of pT or centrality.
+
+composes:
+  - _common#collision_system
+  - _common#kinematic_range
+
+optional_composes:
+  - centrality#centrality
+
+required_fields:
+  observable:
+    type: string
+    required: true
+    description: Short identifier.
+    example: "p_over_pi_ratio"
+  value_type:
+    type: string
+    required: true
+    description: "One of: 'p_over_pi', 'K_over_pi', 'pbar_over_p', 'Lambda_over_Ks', 'Xi_over_pi', 'Omega_over_pi'"
+    example: "p_over_pi"
+  numerator:
+    type: string
+    required: true
+    description: "Particle species in the numerator."
+    example: "p"
+  denominator:
+    type: string
+    required: true
+    description: "Particle species in the denominator."
+    example: "pi"
+
+optional_fields:
+  ratio_type:
+    type: string
+    required: false
+    description: "One of: 'yield_ratio', 'spectra_ratio', 'integrated_ratio'"
+    example: "spectra_ratio"
+  is_antiparticle_ratio:
+    type: boolean
+    required: false
+    description: "True for matter/antimatter ratios like pbar/p."
+    example: false

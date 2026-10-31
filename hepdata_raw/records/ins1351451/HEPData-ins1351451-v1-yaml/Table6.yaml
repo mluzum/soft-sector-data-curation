@@ -1,0 +1,45 @@
+dependent_variables:
+- header: {name: '1/N_dijet dN_dijet/d(abs(k_T,y))'}
+  qualifiers:
+  - {name: ALGO-JET, value: ANTIKT}
+  - {name: ETARAP-JET, value: -0.5-0.5}
+  - {name: ETARAP-PARTICLE, value: -0.9-0.9}
+  - {name: MULTIPLICITY CLASS, value: 0-40%}
+  - {name: PTCHARGED-JET in GeV/c, value: 15.0-25.0}
+  - {name: PTFULL-JET in GeV/c, value: 60.0-80.0}
+  - {name: RADIUS-JET, value: '0.4'}
+  - {name: SQRT(SNN), units: GeV, value: '5023.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.006}
+    - {label: sys, symerror: 0.0023}
+    value: 0.0251
+  - errors:
+    - {label: stat, symerror: 0.005}
+    - {label: sys, symerror: 0.0016}
+    value: 0.0202
+  - errors:
+    - {label: stat, symerror: 0.0051}
+    - {label: sys, symerror: 0.0014}
+    value: 0.0197
+  - errors:
+    - {label: stat, symerror: 0.0044}
+    - {label: sys, symerror: 0.0009}
+    value: 0.0154
+  - errors:
+    - {label: stat, symerror: 0.0029}
+    - {label: sys, symerror: 0.0007}
+    value: 0.0128
+  - errors:
+    - {label: stat, symerror: 0.0019}
+    - {label: sys, symerror: 0.0004}
+    value: 0.0069
+independent_variables:
+- header: {name: 'abs(k_T,y)'}
+  values:
+  - {value: '4 +4, -4'}
+  - {value: '12 +4, -4'}
+  - {value: '20 +4, -4'}
+  - {value: '28 +4, -4'}
+  - {value: '40 +8, -8'}
+  - {value: '59 +11, -11'}

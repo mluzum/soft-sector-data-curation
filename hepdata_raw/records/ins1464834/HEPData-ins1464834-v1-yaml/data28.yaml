@@ -1,0 +1,58 @@
+dependent_variables:
+- header: {name: MEAN(MULTIPLICITY)}
+  qualifiers:
+  - {name: RE, value: P P --> K0s X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '7000.0'}
+  - {name: YRAP(C=CM), value: -1 TO 1.0}
+  values:
+  - errors: []
+    value: 12.0
+  - errors: []
+    value: 42.8
+  - errors: []
+    value: 67.5
+  - errors: []
+    value: 96.7
+  - errors: []
+    value: 116.3
+  - errors: []
+    value: 136.6
+- header: {name: MEAN(KE_T), units: GEV}
+  qualifiers:
+  - {name: RE, value: P P --> K0s X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '7000.0'}
+  - {name: YRAP(C=CM), value: -1 TO 1.0}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0}
+    - {label: sys, symerror: 0.0041}
+    value: 0.43
+  - errors:
+    - {label: stat, symerror: 0.0}
+    - {label: sys, symerror: 0.0035}
+    value: 0.58
+  - errors:
+    - {label: stat, symerror: 0.0}
+    - {label: sys, symerror: 0.004}
+    value: 0.67
+  - errors:
+    - {label: stat, symerror: 0.0}
+    - {label: sys, symerror: 0.0042}
+    value: 0.74
+  - errors:
+    - {label: stat, symerror: 0.0}
+    - {label: sys, symerror: 0.0045}
+    value: 0.79
+  - errors:
+    - {label: stat, symerror: 0.0}
+    - {label: sys, symerror: 0.0047}
+    value: 0.83
+independent_variables:
+- header: {name: EVENT CLASS, units: MULTIPLICIT}
+  values:
+  - {high: 35.0, low: 0.0}
+  - {high: 60.0, low: 35.0}
+  - {high: 90.0, low: 60.0}
+  - {high: 110.0, low: 90.0}
+  - {high: 130.0, low: 110.0}
+  - {high: 1000.0, low: 130.0}

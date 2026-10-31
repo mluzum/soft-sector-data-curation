@@ -1,0 +1,30 @@
+dependent_variables:
+- header: {name: POL(NAME=PHOTON)}
+  qualifiers:
+  - {name: E, units: MeV, value: '900.0'}
+  - {name: RE, value: GAMMA P --> PI+ N}
+  - {name: SQRT(S), units: GeV, value: 1.603-1.688}
+  values:
+  - errors:
+    - {symerror: 0.075}
+    value: 0.64
+  - errors:
+    - {symerror: 0.1}
+    value: 0.52
+- header: {name: POL(NAME=PHOTON)}
+  qualifiers:
+  - {name: E, units: MeV, value: '1050.0'}
+  - {name: RE, value: GAMMA P --> PI+ N}
+  - {name: SQRT(S), units: GeV, value: 1.603-1.688}
+  values:
+  - errors:
+    - {symerror: 0.075}
+    value: 0.46
+  - errors:
+    - {symerror: 0.09}
+    value: 0.25
+independent_variables:
+- header: {name: THETA, units: DEG}
+  values:
+  - {value: 40.0}
+  - {value: 60.0}

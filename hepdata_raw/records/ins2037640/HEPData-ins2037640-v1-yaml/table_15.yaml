@@ -1,0 +1,22 @@
+dependent_variables:
+- header: {name: RpPb}
+  qualifiers:
+  - {name: RE, value: P Pb --> UPSILON(3S) < MU+ MU- > X}
+  - {name: RE, value: P P --> UPSILON(3S) < MU+ MU- > X}
+  - {name: '$|y^{Y}_{CM}|$', value: 0-1.93}
+  - {name: SQRT(S), units: GeV, value: 5020.0}
+  - {name: GLOBAL UNCERTAINTY, value: 4.2%}
+  values:
+  - errors:
+    - {label: stat, symerror: '0.093'}
+    - {label: syst, symerror: '0.052'}
+    value: 0.473
+  - errors:
+    - {label: stat, symerror: '0.063'}
+    - {label: syst, symerror: '0.031'}
+    value: 0.588
+independent_variables:
+- header: {name: PT, units: GeV/c}
+  values:
+  - {high: 6.0, low: 0.0}
+  - {high: 30.0, low: 6.0}

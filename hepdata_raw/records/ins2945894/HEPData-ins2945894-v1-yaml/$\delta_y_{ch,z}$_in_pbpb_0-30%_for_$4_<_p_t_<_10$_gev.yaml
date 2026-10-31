@@ -1,0 +1,64 @@
+dependent_variables:
+- header: {name: '$d<N_{ch}>/d(\Delta y_{ch,Z})$'}
+  qualifiers:
+  - {name: PTZ, value: '40 < $p_{T}^{Z}$ < 350 GeV'}
+  - {name: PTCH, value: '4 < $p_{T}^{ch}$ < 10 GeV'}
+  - {name: ABS(YZ), value: $|y_Z|$ < 2.4}
+  - {name: ABS(ETACH), value: '$|\eta^{ch}|$ < 2.4'}
+  - {name: SQRT(S)/NUCLEON, value: 5020 GeV}
+  - {name: RE, value: Pb Pb --> Z + X}
+  - {name: CENTRALITY, value: 0--30%}
+  values:
+  - errors:
+    - {label: Stat., symerror: '0.0093'}
+    - {label: Syst., symerror: '0.0253'}
+    value: '-0.0170'
+  - errors:
+    - {label: Stat., symerror: '0.0157'}
+    - {label: Syst., symerror: '0.0253'}
+    value: '-0.0449'
+  - errors:
+    - {label: Stat., symerror: '0.0202'}
+    - {label: Syst., symerror: '0.0270'}
+    value: '-0.0909'
+  - errors:
+    - {label: Stat., symerror: '0.0240'}
+    - {label: Syst., symerror: '0.0278'}
+    value: '-0.1003'
+  - errors:
+    - {label: Stat., symerror: '0.0271'}
+    - {label: Syst., symerror: '0.0312'}
+    value: '-0.0654'
+  - errors:
+    - {label: Stat., symerror: '0.0271'}
+    - {label: Syst., symerror: '0.0312'}
+    value: '-0.0654'
+  - errors:
+    - {label: Stat., symerror: '0.0240'}
+    - {label: Syst., symerror: '0.0278'}
+    value: '-0.1003'
+  - errors:
+    - {label: Stat., symerror: '0.0202'}
+    - {label: Syst., symerror: '0.0270'}
+    value: '-0.0909'
+  - errors:
+    - {label: Stat., symerror: '0.0157'}
+    - {label: Syst., symerror: '0.0253'}
+    value: '-0.0449'
+  - errors:
+    - {label: Stat., symerror: '0.0093'}
+    - {label: Syst., symerror: '0.0253'}
+    value: '-0.0170'
+independent_variables:
+- header: {name: '$\Delta y_{ch,Z}$'}
+  values:
+  - {high: -3.2, low: -4.0}
+  - {high: -2.4, low: -3.2}
+  - {high: -1.6, low: -2.4}
+  - {high: -0.8, low: -1.6}
+  - {high: 0.0, low: -0.8}
+  - {high: 0.8, low: 0.0}
+  - {high: 1.6, low: 0.8}
+  - {high: 2.4, low: 1.6}
+  - {high: 3.2, low: 2.4}
+  - {high: 4.0, low: 3.2}

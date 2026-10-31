@@ -1,0 +1,72 @@
+additional_resources:
+- {description: Webpage with all figures and tables, location: 'https://cms-results.web.cern.ch/cms-results/public-results/preliminary-results/HIN-20-004/index.html'}
+- {description: cds record, location: 'https://cds.cern.ch/record/2772382?ln=fr'}
+comment: ''
+data_license: {description: The content can be shared and adapted but you must             give
+    appropriate credit and cannot restrict access to others., name: cc-by-4.0, url: 'https://creativecommons.org/licenses/by/4.0/'}
+hepdata_doi: 10.17182/hepdata.111309.v1
+---
+data_file: bc_cross_sections.yaml
+description: The $B_c$ meson production (pp-equivalent) cross-section times branching
+  fraction of the $B_c\rightarrow (J/\psi \rightarrow \mu\mu) \mu \nu_{\mu}$ decay
+  in pp and PbPb collisions. The used kinematic variables correspond to those of the
+  trimuon final state. The two $p_T$ bins correspond to different rapidity ranges.
+  The total uncertainty is decomposed in an uncertainty from the fit and one representing
+  all other sources. The markers of the $p_T^{\mu\mu\mu}$ bins are placed according
+  to the Lafferty-Wyatt prescription.
+keywords:
+- name: observables
+  values: [D2SIG/DPT/DYRAP]
+- name: phrases
+  values: [Double Differential Cross Section, J/Psi, Beauty, B/C+, B/C+ Production,
+    Transverse Momentum Dependence]
+- name: cmenergies
+  values: [5020]
+- name: reactions
+  values: [P P --> B/C+ X, PB PB --> B/C+ X, B/C+ --> J/PSI(1S) MU+ NUMU, J/PSI(1S)
+      --> MU+ MU-]
+location: Data from Figure 3
+name: Bc cross sections
+table_doi: 10.17182/hepdata.111309.v1/t1
+---
+data_file: bc_raa_vs_pt.yaml
+description: The $B_c$ meson nuclear modification factor in PbPb collisions, in $p_T^{\mu\mu\mu}$
+  bins corresponding to different trimuon rapidity ranges. The total uncertainty is
+  decomposed in a bin-to-bin-uncorrelated uncertainty and one fully correlated along
+  the two bins. The markers of the $p_T^{\mu\mu\mu}$ bins are placed at the average
+  of the Lafferty-Wyatt prescriptions applied to the pp and PbPb spectra.
+keywords:
+- name: observables
+  values: [RAA]
+- name: phrases
+  values: [B/C+ Nuclear Modification Factor, J/Psi, Beauty, B/C+, B/C+ Production,
+    Transverse Momentum Dependence, R measurement]
+- name: cmenergies
+  values: [5020]
+- name: reactions
+  values: [P P --> B/C+ X, PB PB --> B/C+ X, B/C+ --> J/PSI(1S) MU+ NUMU, J/PSI(1S)
+      --> MU+ MU-]
+location: Data from Figure 4 left
+name: Bc RAA vs pT
+table_doi: 10.17182/hepdata.111309.v1/t2
+---
+data_file: bc_raa_vs_centrality.yaml
+description: The $B_c$ meson nuclear modification factor in PbPb collisions, in centrality
+  bins, integrated over the studied kinematic range. The cut on the trimuon rapidity
+  depends on the trimuon $p_T$. The total uncertainty is decomposed in a bin-to-bin-uncorrelated
+  uncertainty and one fully correlated along the two bins. The centrality bin markers
+  are placed at the minimum bias average number of participants $N_{part}$.
+keywords:
+- name: observables
+  values: [RAA]
+- name: phrases
+  values: [B/C+ Nuclear Modification Factor, J/Psi, Beauty, B/C+, B/C+ Production,
+    Centrality Dependence, NPART, R measurement]
+- name: cmenergies
+  values: [5020]
+- name: reactions
+  values: [P P --> B/C+ X, PB PB --> B/C+ X, B/C+ --> J/PSI(1S) MU+ NUMU, J/PSI(1S)
+      --> MU+ MU-]
+location: Data from Figure 4 right
+name: Bc RAA vs centrality
+table_doi: 10.17182/hepdata.111309.v1/t3

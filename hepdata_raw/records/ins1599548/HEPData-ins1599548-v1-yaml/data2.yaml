@@ -1,0 +1,37 @@
+dependent_variables:
+- header: {name: '$\frac{1}{T_{AA}}\frac{d \sigma}{dp_{T}}$ (Pb/(GeV/C))'}
+  qualifiers:
+  - {name: RE, value: PB PB --> B --> J/PSI (MU+ MU-) + K}
+  - {name: PT(B), units: GeV/C, value: 7.5 ~ 50.0}
+  - {name: '|RAPIDITY(B)|', value: < 2.4}
+  - {name: GLOBAL UNCERTAINTY, value: '+4.6, -5.0%'}
+  - {name: '$\rm{T_{AA}}$', value: '5.6'}
+  values:
+  - errors:
+    - {label: stat, symerror: 280000}
+    - {label: sys, symerror: 150000}
+    value: 900000
+  - errors:
+    - {label: stat, symerror: 54000}
+    - {label: sys, symerror: 51000}
+    value: 333000
+  - errors:
+    - {label: stat, symerror: 14000}
+    - {label: sys, symerror: 13000}
+    value: 87000
+  - errors:
+    - {label: stat, symerror: 4000}
+    - {label: sys, symerror: 4200}
+    value: 28600
+  - errors:
+    - {label: stat, symerror: 570}
+    - {label: sys, symerror: 270}
+    value: 1860
+independent_variables:
+- header: {name: PT (GeV)}
+  values:
+  - {value: 8.5}
+  - {value: 12.5}
+  - {value: 17.5}
+  - {value: 25}
+  - {value: 40}

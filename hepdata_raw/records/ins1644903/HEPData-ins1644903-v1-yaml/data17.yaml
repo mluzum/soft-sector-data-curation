@@ -1,0 +1,30 @@
+dependent_variables:
+- header: {name: '$ R_{AA} $ (95% CL interval, lower bound)'}
+  qualifiers:
+  - {name: PT, units: GeV, value: 6.5-30.0}
+  - {name: ABS(YRAP), value: 0.0-1.6}
+  - {name: RE, value: PB PB --> PSI(2S) < MU+ MU- > X}
+  - {name: RE, value: P P --> PSI(2S) < MU+ MU- > X}
+  - {name: GLOBAL UNCERT., value: 6.0 %}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  values:
+  - {value: 0.0}
+- header: {name: '$ R_{AA} $ (95% CL interval, upper bound)'}
+  qualifiers:
+  - {name: PT, units: GeV, value: 6.5-30.0}
+  - {name: ABS(YRAP), value: 0.0-1.6}
+  - {name: RE, value: PB PB --> PSI(2S) < MU+ MU- > X}
+  - {name: RE, value: P P --> PSI(2S) < MU+ MU- > X}
+  - {name: GLOBAL UNCERT., value: 6.0 %}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  values:
+  - {value: 0.138}
+- header: {name: NPART}
+  values:
+  - errors:
+    - asymerror: {minus: -2.6, plus: 2.4}
+    value: 358.8
+independent_variables:
+- header: {name: Centrality, units: PCT}
+  values:
+  - {high: 10.0, low: 0.0}

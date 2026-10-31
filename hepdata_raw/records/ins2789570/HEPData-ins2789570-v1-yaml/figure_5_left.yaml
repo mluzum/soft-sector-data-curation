@@ -1,0 +1,31 @@
+dependent_variables:
+- header: {name: '$\Xi_\mathrm{c}^0/\mathrm{D}^0$'}
+  qualifiers:
+  - {name: RAPIDITY, value: -0.96 < Y < 0.04}
+  values:
+  - errors:
+    - {label: Stat., symerror: 0.058}
+    - {label: Sys., symerror: 0.042}
+    value: 0.256
+  - errors:
+    - {label: Stat., symerror: 0.029}
+    - asymerror: {minus: -0.028, plus: 0.03}
+      label: Sys.
+    value: 0.211
+  - errors:
+    - {label: Stat., symerror: 0.028}
+    - asymerror: {minus: -0.021, plus: 0.025}
+      label: Sys.
+    value: 0.182
+  - errors:
+    - {label: Stat., symerror: 0.022}
+    - asymerror: {minus: -0.012, plus: 0.013}
+      label: Sys.
+    value: 0.159
+independent_variables:
+- header: {name: '$p_\mathrm{T}$', units: GeV/$c$}
+  values:
+  - {high: 4.0, low: 2.0}
+  - {high: 6.0, low: 4.0}
+  - {high: 8.0, low: 6.0}
+  - {high: 12.0, low: 8.0}

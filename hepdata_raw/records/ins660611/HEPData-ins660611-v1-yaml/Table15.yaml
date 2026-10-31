@@ -1,0 +1,35 @@
+dependent_variables:
+- header: {name: D(SIG(P=3))/DYRAP(P=3)/N(NAME=COLL), units: MUB}
+  qualifiers:
+  - {name: RE, value: AU AU --> CHARM < E+ X > CHARMBAR < E- X> X}
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  - {name: YRAP, value: '0.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 21.0}
+    - {label: sys, symerror: 35.0}
+    value: 137.0
+  - errors:
+    - {label: stat, symerror: 26.0}
+    - {label: sys, symerror: 35.0}
+    value: 137.0
+  - errors:
+    - {label: stat, symerror: 27.0}
+    - {label: sys, symerror: 45.0}
+    value: 168.0
+  - errors:
+    - {label: stat, symerror: 47.0}
+    - {label: sys, symerror: 52.0}
+    value: 193.0
+  - errors:
+    - {label: stat, symerror: 87.0}
+    - {label: sys, symerror: 43.0}
+    value: 116.0
+independent_variables:
+- header: {name: CENTRALITY, units: PCT}
+  values:
+  - {high: 10.0, low: 0.0}
+  - {high: 20.0, low: 10.0}
+  - {high: 40.0, low: 20.0}
+  - {high: 60.0, low: 40.0}
+  - {high: 92.0, low: 60.0}

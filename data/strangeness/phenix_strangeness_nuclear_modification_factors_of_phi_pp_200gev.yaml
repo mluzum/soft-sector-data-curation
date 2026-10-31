@@ -1,0 +1,128 @@
+---
+observable_type: strangeness
+inspire_id: '852260'
+version: 1
+hepdata_file: ppg096fig3.yaml
+hepdata_table_label: Invariant $p_T$ spectra of the $\phi$ meson for different centrality bins in Au+Au, Cu+Cu, $d$+Au, and
+  $p$+$p$ collisions at $\sqrt{s_{NN}}$ = 200 GeV.
+qualifiers:
+  centrality: ''
+  collision: $p$+$p$
+collision_system:
+  energy_gev: 200.0
+  reaction: p p --> CHARGED X
+centrality:
+  classes:
+  - MB
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: p
+kinematic_range:
+  pT:
+    min: 1.0
+    max: 7.7
+    bins:
+    - 1.0
+    - 1.2
+    - 1.7
+    - 2.2
+    - 2.7
+    - 3.2
+    - 3.7
+    - 4.2
+    - 4.7
+    - 6.3
+    - 7.7
+  eta:
+    min: -0.35
+    max: 0.35
+observable: p_spectra
+value_type: invariant_yield
+---
+observable_type: strangeness
+inspire_id: '852260'
+version: 1
+hepdata_file: ppg096fig6a.yaml
+hepdata_table_label: $R_{AA}$ for $\phi$ integrated at $p_T$ > 2.2 GeV/$c$ in Cu+Cu and Au+Au collisions vs. $N_{part}$. The
+  global uncertainty related to the $p$+$p$ reference normalization is shown as a box on the right in the figure from the
+  paper.
+qualifiers:
+  centrality (%): 0-10%
+  collision: Au+Au
+collision_system:
+  energy_gev: 200.0
+  reaction: p p --> CHARGED X
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: p
+kinematic_range:
+  eta:
+    min: -0.35
+    max: 0.35
+  pT:
+    min: 0.2
+    max: 20
+    bins:
+    - 0.2
+    - 20
+observable: p_spectra
+value_type: invariant_yield
+---
+observable_type: strangeness
+inspire_id: '852260'
+version: 1
+hepdata_file: ppg096fig6b.yaml
+hepdata_table_label: $R_{AA}$ for $\phi$ integrated at $p_T$ > 2.2 GeV/$c$ in Cu+Cu and Au+Au collisions vs. $N_{part}$. The
+  global uncertainty related to the $p$+$p$ reference normalization is shown as a box on the right in the figure from the
+  paper.
+qualifiers:
+  centrality (%): 0-10%
+  collision: Au+Au
+collision_system:
+  energy_gev: 200.0
+  reaction: p p --> CHARGED X
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: p
+kinematic_range:
+  eta:
+    min: -0.35
+    max: 0.35
+  pT:
+    min: 0.2
+    max: 20
+    bins:
+    - 0.2
+    - 20
+observable: p_spectra
+value_type: invariant_yield

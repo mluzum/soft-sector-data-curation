@@ -1,0 +1,72 @@
+dependent_variables:
+- header: {name: '$\mathrm{d}^{2}\sigma/\mathrm{d}p_\mathrm{T}\mathrm{d}\eta$', units: mb
+      $c$/GeV}
+  qualifiers:
+  - {name: RE, value: P P --> JET $X$}
+  - {name: 'pp $\sqrt{s}$', units: TeV, value: 5.02}
+  - {name: jet method, value: 'Anti-$k_{T}$'}
+  - {name: '$p_\mathrm{T}^{track}$', units: GeV/$c$, value: '> 0.15'}
+  - {name: '$|\eta^{track}|$', value: < 0.9}
+  - {name: '$|\eta^{jet}|$', value: < 0.5}
+  - {name: $R$, value: 0.4}
+  - {name: Method, value: SV}
+  values:
+  - errors:
+    - asymerror: {minus: -2.733068e-06, plus: 2.733068e-06}
+      label: stat
+    - asymerror: {minus: -2.504751e-05, plus: 3.540706e-05}
+      label: full syst.
+    value: 0.0001476458
+  - errors:
+    - asymerror: {minus: -5.565617e-07, plus: 5.565617e-07}
+      label: stat
+    - asymerror: {minus: -2.910785e-06, plus: 3.913789e-06}
+      label: full syst.
+    value: 1.890056e-05
+  - errors:
+    - asymerror: {minus: -1.525548e-07, plus: 1.525548e-07}
+      label: stat
+    - asymerror: {minus: -7.002047e-07, plus: 9.49778e-07}
+      label: full syst.
+    value: 4.028217e-06
+  - errors:
+    - asymerror: {minus: -6.353048e-08, plus: 6.353048e-08}
+      label: stat
+    - asymerror: {minus: -2.337892e-07, plus: 2.763133e-07}
+      label: full syst.
+    value: 1.214165e-06
+  - errors:
+    - asymerror: {minus: -3.225597e-08, plus: 3.225597e-08}
+      label: stat
+    - asymerror: {minus: -1.262906e-07, plus: 9.899267e-08}
+      label: full syst.
+    value: 4.493813e-07
+  - errors:
+    - asymerror: {minus: -1.946924e-08, plus: 1.946924e-08}
+      label: stat
+    - asymerror: {minus: -4.202921e-08, plus: 4.827023e-08}
+      label: full syst.
+    value: 1.887126e-07
+  - errors:
+    - asymerror: {minus: -1.271058e-08, plus: 1.271058e-08}
+      label: stat
+    - asymerror: {minus: -2.099978e-08, plus: 2.12349e-08}
+      label: full syst.
+    value: 8.760899e-08
+  - errors:
+    - asymerror: {minus: -6.103368e-09, plus: 6.103368e-09}
+      label: stat
+    - asymerror: {minus: -1.239897e-08, plus: 8.405349e-09}
+      label: full syst.
+    value: 3.311354e-08
+independent_variables:
+- header: {name: '$p_\mathrm{T,ch jet}$', units: GeV/$c$}
+  values:
+  - {high: 20, low: 10}
+  - {high: 30, low: 20}
+  - {high: 40, low: 30}
+  - {high: 50, low: 40}
+  - {high: 60, low: 50}
+  - {high: 70, low: 60}
+  - {high: 80, low: 70}
+  - {high: 100, low: 80}

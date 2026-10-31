@@ -1,0 +1,29 @@
+dependent_variables:
+- header: {name: D(N)/D(ct), units: CM**-1}
+  qualifiers:
+  - {name: RE, value: PB PB --> (3H + 3HBAR) X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 57.0}
+    - {label: sys, symerror: 27.3}
+    value: 151.6
+  - errors:
+    - {label: stat, symerror: 26.4}
+    - {label: sys, symerror: 13.1}
+    value: 72.7
+  - errors:
+    - {label: stat, symerror: 15.8}
+    - {label: sys, symerror: 7.2}
+    value: 40.2
+  - errors:
+    - {label: stat, symerror: 3.7}
+    - {label: sys, symerror: 1.86}
+    value: 10.35
+independent_variables:
+- header: {name: ct, units: CM}
+  values:
+  - {high: 4.0, low: 1.0}
+  - {high: 7.0, low: 4.0}
+  - {high: 10.0, low: 7.0}
+  - {high: 28.0, low: 10.0}

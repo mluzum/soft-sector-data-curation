@@ -1,0 +1,53 @@
+dependent_variables:
+- header: {name: 'Mass $[GeV/c^{2}]$'}
+  qualifiers:
+  - {name: CENTRALITY, units: $\%$, value: (0 - 20)}
+  - {name: RE, value: 'PB PB $\rightarrow$ $\rho^{0}$ + X'}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  - {name: YRAP(CM), value: -0.5 TO 0.5}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0081}
+    - asymerror: {minus: -0.015646, plus: 0.0149266}
+      label: sys (total)
+    value: 0.761
+  - errors:
+    - {label: stat, symerror: 0.0038}
+    - asymerror: {minus: -0.012522, plus: 0.0112}
+      label: sys (total)
+    value: 0.74366
+  - errors:
+    - {label: stat, symerror: 0.0031}
+    - asymerror: {minus: -0.0116791, plus: 0.0103558}
+      label: sys (total)
+    value: 0.75206
+  - errors:
+    - {label: stat, symerror: 0.0058}
+    - asymerror: {minus: -0.0135934, plus: 0.0110621}
+      label: sys (total)
+    value: 0.73886
+  - errors:
+    - {label: stat, symerror: 0.0069}
+    - asymerror: {minus: -0.00994447, plus: 0.00706346}
+      label: sys (total)
+    value: 0.75466
+  - errors:
+    - {label: stat, symerror: 0.0142}
+    - asymerror: {minus: -0.0122745, plus: 0.0100126}
+      label: sys (total)
+    value: 0.76196
+  - errors:
+    - {label: stat, symerror: 0.0164}
+    - asymerror: {minus: -0.037, plus: 0.037}
+      label: sys (total)
+    value: 0.72966
+independent_variables:
+- header: {name: '$p_{T}$', units: GeV/c}
+  values:
+  - {high: 1, low: 0.5, value: 0.75}
+  - {high: 2, low: 1, value: 1.5}
+  - {high: 3, low: 2, value: 2.5}
+  - {high: 5, low: 3, value: 4}
+  - {high: 7, low: 5, value: 6}
+  - {high: 9, low: 7, value: 8}
+  - {high: 11, low: 9, value: 10}

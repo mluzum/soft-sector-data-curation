@@ -1,0 +1,46 @@
+dependent_variables:
+- header: {name: 'V2 {EP}'}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 30.0-50.0}
+  - {name: RE, value: 'PB PB --> D0, D+  X + CC'}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  - {name: YRAP, value: -0.8-0.8}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.052}
+    - {label: sys, symerror: 0.019}
+    - asymerror: {minus: -0.016, plus: 0.007}
+      label: sys
+    value: 0.116
+  - errors:
+    - {label: stat, symerror: 0.037}
+    - {label: sys, symerror: 0.012}
+    - asymerror: {minus: -0.013, plus: 0.006}
+      label: sys
+    value: 0.137
+  - errors:
+    - {label: stat, symerror: 0.029}
+    - {label: sys, symerror: 0.01}
+    - asymerror: {minus: -0.012, plus: 0.005}
+      label: sys
+    value: 0.123
+  - errors:
+    - {label: stat, symerror: 0.035}
+    - {label: sys, symerror: 0.009}
+    - asymerror: {minus: -0.009, plus: 0.004}
+      label: sys
+    value: 0.09
+  - errors:
+    - {label: stat, symerror: 0.037}
+    - {label: sys, symerror: 0.009}
+    - asymerror: {minus: -0.006, plus: 0.003}
+      label: sys
+    value: 0.054
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {high: 3.0, low: 2.0, value: 2.491}
+  - {high: 4.0, low: 3.0, value: 3.51}
+  - {high: 6.0, low: 4.0, value: 4.883}
+  - {high: 8.0, low: 6.0, value: 6.888}
+  - {high: 12.0, low: 8.0, value: 9.537}

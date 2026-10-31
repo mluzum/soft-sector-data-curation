@@ -1,0 +1,22 @@
+dependent_variables:
+- header: {name: '$\frac{1}{N_{\mathrm{ev}}} \frac{\mathrm{d}^{2}N}{\mathrm{d}p_{\mathrm{T}}\mathrm{d}y}$',
+    units: $c$/GeV}
+  values:
+  - errors:
+    - {label: Statistical uncertainty, symerror: 1.048e-06}
+    - {label: Systematic uncertainty, symerror: 5.4209e-07}
+    value: 6.7103e-06
+  - errors:
+    - {label: Statistical uncertainty, symerror: 8.9973e-07}
+    - {label: Systematic uncertainty, symerror: 5.3678e-07}
+    value: 3.1942e-06
+  - errors:
+    - {label: Statistical uncertainty, symerror: 1.2074e-06}
+    - {label: Systematic uncertainty, symerror: 6.9562e-07}
+    value: 3.1682e-06
+independent_variables:
+- header: {name: '$p_{\mathrm{T}}$', units: GeV/$c$}
+  values:
+  - {high: 2.4, low: 2.0}
+  - {high: 2.8, low: 2.4}
+  - {high: 3.2, low: 2.8}

@@ -1,0 +1,168 @@
+---
+observable_type: electromagnetic_probes
+inspire_id: '1788620'
+version: 1
+hepdata_file: data1.yaml
+hepdata_table_label: Isolated photon spectra measured as a function of $E_{T}^{\gamma}$ for 0–10%, 10–30%, 30– 50%, 50–100%,
+  and 0–100% PbPb collisions (scaled by $T_{AA}$) at 5.02TeV.
+qualifiers:
+  \sqrt{s_{nn}}: '5020'
+  centrality: 50.0 - 100.0
+  re: Pb Pb --> GAMMA X
+  '|\eta^{\gamma}|': $<$ 1.44
+collision_system:
+  energy_gev: 5020.0
+  reaction: Pb Pb --> GAMMA X
+centrality:
+  classes:
+  - 50.0-100.0%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: photon
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: direct_photon_spectra
+value_type: direct_photon_yield
+probe: direct_photon
+---
+observable_type: electromagnetic_probes
+inspire_id: '1788620'
+version: 1
+hepdata_file: data2.yaml
+hepdata_table_label: Isolated photon cross section measured as a function of $E_{T}^{\gamma}$ in pp collisions at 5.02TeV.
+qualifiers:
+  \sqrt{s_{nn}}: '5020'
+  re: p p --> GAMMA X
+  '|\eta^{\gamma}|': $<$ 1.44
+collision_system:
+  energy_gev: 5020.0
+  reaction: p p --> GAMMA X
+centrality:
+  classes:
+  - MB
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: Sigma
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: direct_photon_spectra
+value_type: direct_photon_yield
+probe: direct_photon
+---
+observable_type: electromagnetic_probes
+inspire_id: '1788620'
+version: 1
+hepdata_file: data3.yaml
+hepdata_table_label: Nuclear modification factors $R_{AA}$ as a function of $E_{T}^{\gamma}$ measured in the 0–10%, 10–30%,
+  30–50%, and 50–100% centrality ranges in PbPb.
+qualifiers:
+  \sqrt{s_{nn}}: '5020'
+  centrality: 50.0 - 100.0
+  global uncertainty ($t_{aa}$): -7.3 +11.2
+  global uncertainty (pp luminosity): '2.3'
+  '|\eta^{\gamma}|': $<$ 1.44
+collision_system:
+  energy_gev: 5020.0
+  reaction: Pb Pb --> gamma X
+centrality:
+  classes:
+  - 50.0-100.0%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: photon
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: direct_photon_spectra
+value_type: direct_photon_yield
+probe: direct_photon
+---
+observable_type: electromagnetic_probes
+inspire_id: '1788620'
+version: 1
+hepdata_file: data4.yaml
+hepdata_table_label: Nuclear modification factors $R_{AA}$ as a function of $E_{T}^{\gamma}$ measured in the 0–100% centrality
+  ranges in PbPb.
+qualifiers:
+  \sqrt{s_{nn}}: '5020'
+  centrality: 0.0 - 100.0
+  global uncertainty ($t_{aa}$): -2.8 +3.4
+  global uncertainty (pp luminosity): '2.3'
+  '|\eta^{\gamma}|': $<$ 1.44
+collision_system:
+  energy_gev: 5020.0
+  reaction: Pb Pb --> gamma X
+centrality:
+  classes:
+  - 0.0-100.0%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: photon
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: direct_photon_spectra
+value_type: direct_photon_yield
+probe: direct_photon

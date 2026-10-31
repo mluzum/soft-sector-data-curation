@@ -1,0 +1,60 @@
+dependent_variables:
+- header: {name: '$R_{\rm AA}$'}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 30.0-50.0}
+  - {name: RE, value: 'PB PB --> ${\rm D}^{+}$ X'}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  - {name: YRAP, value: -0.5-0.5}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.313}
+    - asymerror: {minus: -0.476, plus: 0.409}
+      label: sys
+    - {label: 'sys,global normalization uncertainty', symerror: 6.2%}
+    value: 0.942
+  - errors:
+    - {label: stat, symerror: 0.163}
+    - asymerror: {minus: -0.318, plus: 0.291}
+      label: sys
+    - {label: 'sys,global normalization uncertainty', symerror: 6.2%}
+    value: 0.751
+  - errors:
+    - {label: stat, symerror: 0.109}
+    - asymerror: {minus: -0.17, plus: 0.156}
+      label: sys
+    - {label: 'sys,global normalization uncertainty', symerror: 6.2%}
+    value: 0.507
+  - errors:
+    - {label: stat, symerror: 0.122}
+    - asymerror: {minus: -0.167, plus: 0.157}
+      label: sys
+    - {label: 'sys,global normalization uncertainty', symerror: 6.2%}
+    value: 0.505
+  - errors:
+    - {label: stat, symerror: 0.076}
+    - asymerror: {minus: -0.102, plus: 0.097}
+      label: sys
+    - {label: 'sys,global normalization uncertainty', symerror: 6.2%}
+    value: 0.337
+  - errors:
+    - {label: stat, symerror: 0.056}
+    - asymerror: {minus: -0.089, plus: 0.088}
+      label: sys
+    - {label: 'sys,global normalization uncertainty', symerror: 6.2%}
+    value: 0.296
+  - errors:
+    - {label: stat, symerror: 0.191}
+    - asymerror: {minus: -0.141, plus: 0.143}
+      label: sys
+    - {label: 'sys,global normalization uncertainty', symerror: 6.2%}
+    value: 0.392
+independent_variables:
+- header: {name: PT, units: GEV/c}
+  values:
+  - {high: 3.0, low: 2.0}
+  - {high: 4.0, low: 3.0}
+  - {high: 5.0, low: 4.0}
+  - {high: 6.0, low: 5.0}
+  - {high: 8.0, low: 6.0}
+  - {high: 12.0, low: 8.0}
+  - {high: 16.0, low: 12.0}

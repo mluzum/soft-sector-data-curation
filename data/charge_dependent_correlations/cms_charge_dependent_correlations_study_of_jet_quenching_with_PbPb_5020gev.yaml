@@ -1,0 +1,44 @@
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1638996'
+version: 1
+hepdata_file: fig2.yaml
+hepdata_table_label: The azimuthal correlation of photons and jets in five $p_{\mathrm{T}}^{\gamma}$ intervals for 0-30% and
+  30-100% centrality PbPb collisions. The smeared pp data are included for comparison.
+qualifiers:
+  centrality: 30 - 100%
+  jets: ANTI-KT, R = 0.3, PT > 30 GEV/C, ABS(ETA) < 1.6
+  photon pt: PT > 100 GEV/C
+  photons: ABS(ETA) < 1.44
+  sqrt(s): '5020'
+  system: PP
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> X
+centrality:
+  classes:
+  - 30-100%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: photon
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all

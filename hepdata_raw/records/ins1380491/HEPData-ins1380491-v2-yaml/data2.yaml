@@ -1,0 +1,61 @@
+dependent_variables:
+- header: {name: '$^{3}\overline{He}$ / $^{3}He$ ratio'}
+  qualifiers:
+  - {name: YRAP, value: -0.5 TO 0.5}
+  - {name: RE, value: 'PB PB --> HE3 X, PB PB --> HE3BAR X'}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '2760.0'}
+  - {name: CENTRALITY, value: 0-20%}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.1253}
+    - {label: sys, symerror: 0.2336}
+    value: 0.7465
+  - errors:
+    - {label: stat, symerror: 0.1439}
+    - {label: sys, symerror: 0.2424}
+    value: 0.9166
+  - errors:
+    - {label: stat, symerror: 0.1773}
+    - {label: sys, symerror: 0.2253}
+    value: 0.9938
+  - errors:
+    - {label: stat, symerror: 0.1548}
+    - {label: sys, symerror: 0.1933}
+    value: 0.9778
+  - errors:
+    - {label: stat, symerror: 0.1575}
+    - {label: sys, symerror: 0.128}
+    value: 0.729
+  - errors:
+    - {label: stat, symerror: 0.2233}
+    - {label: sys, symerror: 0.1469}
+    value: 0.9251
+  - errors:
+    - {label: stat, symerror: 0.2092}
+    - {label: sys, symerror: 0.1096}
+    value: 0.7505
+  - errors:
+    - {label: stat, symerror: 0.3004}
+    - {label: sys, symerror: 0.1074}
+    value: 0.7865
+  - errors:
+    - {label: stat, symerror: 0.4903}
+    - {label: sys, symerror: 0.1344}
+    value: 1.0402
+  - errors:
+    - {label: stat, symerror: 0.5904}
+    - {label: sys, symerror: 0.0955}
+    value: 0.773
+independent_variables:
+- header: {name: '$p_{T}$/A', units: GeV/c}
+  values:
+  - {high: 0.82, low: 0.65}
+  - {high: 0.98, low: 0.82}
+  - {high: 1.15, low: 0.98}
+  - {high: 1.32, low: 1.15}
+  - {high: 1.48, low: 1.32}
+  - {high: 1.65, low: 1.48}
+  - {high: 1.82, low: 1.65}
+  - {high: 1.98, low: 1.82}
+  - {high: 2.15, low: 1.98}
+  - {high: 2.32, low: 2.15}

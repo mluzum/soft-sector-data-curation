@@ -1,0 +1,57 @@
+dependent_variables:
+- header: {name: 1/N(Z) * DN(TRKZ))/DXI_T_(TRKZ) PBPB}
+  qualifiers:
+  - {name: RE, value: PB PB --> Z JET}
+  - {name: SQRT(s)/NUCLEON, units: GEV, value: '5020'}
+  - {name: CENTRALITY, value: 70 - 90%}
+  - {name: PT(Z), units: GEV/C, value: '> 30'}
+  - {name: PT(TRK), units: GEV/C, value: '> 1'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.1149}
+    - {label: sys, symerror: 0.0075}
+    value: 0.1152
+  - errors:
+    - {label: stat, symerror: 0.279}
+    - {label: sys, symerror: 0.024}
+    value: 0.405
+  - errors:
+    - {label: stat, symerror: 0.263}
+    - {label: sys, symerror: 0.035}
+    value: 0.672
+  - errors:
+    - {label: stat, symerror: 0.517}
+    - {label: sys, symerror: 0.095}
+    value: 1.806
+  - errors:
+    - {label: stat, symerror: 0.36}
+    - {label: sys, symerror: 0.096}
+    value: 1.793
+  - errors:
+    - {label: stat, symerror: 0.99}
+    - {label: sys, symerror: 0.24}
+    value: 4.16
+  - errors:
+    - {label: stat, symerror: 0.77}
+    - {label: sys, symerror: 0.18}
+    value: 2.37
+  - errors:
+    - {label: stat, symerror: 0.4}
+    - {label: sys, symerror: 0.068}
+    value: 0.447
+  - errors:
+    - {label: stat, symerror: 0.0261}
+    - {label: sys, symerror: 0.0058}
+    value: -0.0278
+independent_variables:
+- header: {name: XI_T_(TRKZ)}
+  values:
+  - {high: 1.0, low: 0.5}
+  - {high: 1.5, low: 1.0}
+  - {high: 2.0, low: 1.5}
+  - {high: 2.5, low: 2.0}
+  - {high: 3.0, low: 2.5}
+  - {high: 3.5, low: 3.0}
+  - {high: 4.0, low: 3.5}
+  - {high: 4.5, low: 4.0}
+  - {high: 5.0, low: 4.5}

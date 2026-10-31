@@ -1,0 +1,17 @@
+dependent_variables:
+- header: {name: RAA}
+  qualifiers:
+  - {name: RE, value: PB PB --> J/PSI <E+ E-> X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020.0'}
+  - {name: PT, units: GEV/C, value: 0.0 TO 10.0}
+  - {name: CENTRALITY, value: 0 TO 90}
+  values:
+  - errors:
+    - {label: stat, symerror: '0.05'}
+    - {label: sys, symerror: '0.078'}
+    - {label: 'sys,Reference', symerror: '0.069'}
+    value: '0.97'
+independent_variables:
+- header: {name: YRAP}
+  values:
+  - {high: 0.9, low: -0.9}

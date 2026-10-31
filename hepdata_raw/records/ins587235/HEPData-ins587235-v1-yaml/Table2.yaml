@@ -1,0 +1,21 @@
+dependent_variables:
+- header: {name: SIG(Q=K*0)/SIG(Q=HAD-)}
+  qualifiers:
+  - {name: ETARAP, value: -0.5 TO 0.5}
+  - {name: RE(Q=HAD-), value: AU AU --> HADRON- X}
+  - {name: RE(Q=K*0), value: AU AU --> K*(892)0 X}
+  - {name: SQRT(S), units: GeV, value: '130.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.004}
+    - {label: sys, symerror: 0.01}
+    value: 0.042
+  - errors:
+    - {label: stat, symerror: 0.008}
+    - {label: sys, symerror: 0.019}
+    value: 0.059
+independent_variables:
+- header: {name: COLLISION TYPE}
+  values:
+  - {value: CENTRAL 14 PCT}
+  - {value: MINIMUM BIAS}

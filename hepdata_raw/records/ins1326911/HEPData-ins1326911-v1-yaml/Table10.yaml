@@ -1,0 +1,72 @@
+dependent_variables:
+- header: {name: (1/NEVT)*D2(NJET)/DPT/DYRAP, units: 1/GEV}
+  qualifiers:
+  - {name: ABS(YRAP), value: 0.0-2.1}
+  - {name: CENTRALITY, units: pct, value: 30.0-40.0}
+  - {name: R, value: '0.4'}
+  - {name: RE, value: PB PB --> JET(S) X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 1.5%}
+    - {label: 'sys,corr', symerror: 14.7%}
+    - {label: 'sys,uncorr', symerror: 4.8%}
+    value: 0.000152
+  - errors:
+    - {label: stat, symerror: 1.4%}
+    - {label: 'sys,corr', symerror: 16.7%}
+    - {label: 'sys,uncorr', symerror: 5.3%}
+    value: 5.42e-05
+  - errors:
+    - {label: stat, symerror: 1.4%}
+    - {label: 'sys,corr', symerror: 18.4%}
+    - {label: 'sys,uncorr', symerror: 4.6%}
+    value: 1.65e-05
+  - errors:
+    - {label: stat, symerror: 1.1%}
+    - {label: 'sys,corr', symerror: 17.1%}
+    - {label: 'sys,uncorr', symerror: 4.5%}
+    value: 4.62e-06
+  - errors:
+    - {label: stat, symerror: 1.2%}
+    - {label: 'sys,corr', symerror: 16.1%}
+    - {label: 'sys,uncorr', symerror: 4.6%}
+    value: 1.24e-06
+  - errors:
+    - {label: stat, symerror: 1.5%}
+    - {label: 'sys,corr', symerror: 16.0%}
+    - {label: 'sys,uncorr', symerror: 4.6%}
+    value: 3.22e-07
+  - errors:
+    - {label: stat, symerror: 2.3%}
+    - {label: 'sys,corr', symerror: 16.4%}
+    - {label: 'sys,uncorr', symerror: 4.8%}
+    value: 7.64e-08
+  - errors:
+    - {label: stat, symerror: 3.9%}
+    - {label: 'sys,corr', symerror: 16.7%}
+    - {label: 'sys,uncorr', symerror: 4.9%}
+    value: 1.6e-08
+  - errors:
+    - {label: stat, symerror: 5.8%}
+    - {label: 'sys,corr', symerror: 16.9%}
+    - {label: 'sys,uncorr', symerror: 4.9%}
+    value: 2.91e-09
+  - errors:
+    - {label: stat, symerror: 7.7%}
+    - {label: 'sys,corr', symerror: 17.1%}
+    - {label: 'sys,uncorr', symerror: 4.6%}
+    value: 4.65e-10
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {high: 50.0, low: 39.0}
+  - {high: 63.0, low: 50.0}
+  - {high: 79.0, low: 63.0}
+  - {high: 100.0, low: 79.0}
+  - {high: 125.0, low: 100.0}
+  - {high: 158.0, low: 125.0}
+  - {high: 199.0, low: 158.0}
+  - {high: 251.0, low: 199.0}
+  - {high: 316.0, low: 251.0}
+  - {high: 398.0, low: 316.0}

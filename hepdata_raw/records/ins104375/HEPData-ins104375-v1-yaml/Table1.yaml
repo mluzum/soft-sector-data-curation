@@ -1,0 +1,25 @@
+dependent_variables:
+- header: {name: SIG, units: MB}
+  qualifiers:
+  - {name: RE, value: PBAR P --> PBAR P PI+ PI-}
+  - {name: SQRT(S), units: GeV, value: '4.355'}
+  - {name: SYS, value: /EMPIRICAL BACKGROUND ESTIMATES 15 PCT CORRECTION FOR TAILS
+      OF ISOBARS}
+  values:
+  - errors:
+    - {symerror: 0.1}
+    value: 2.6
+- header: {name: SIG, units: MB}
+  qualifiers:
+  - {name: RE, value: PBAR P --> DELTABAR(1232P33)-- DELTA(1232P33)++}
+  - {name: SQRT(S), units: GeV, value: '4.355'}
+  - {name: SYS, value: /EMPIRICAL BACKGROUND ESTIMATES 15 PCT CORRECTION FOR TAILS
+      OF ISOBARS}
+  values:
+  - errors:
+    - {symerror: 0.1}
+    value: 0.9
+independent_variables:
+- header: {name: P, units: GEV}
+  values:
+  - {high: 9.15, low: 9.1}

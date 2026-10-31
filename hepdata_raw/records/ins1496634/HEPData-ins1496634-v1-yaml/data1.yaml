@@ -1,0 +1,23 @@
+dependent_variables:
+- header: {name: BR x DSIG/DYRAP, units: NB}
+  qualifiers:
+  - {name: M(MU+ MU-), units: GEV, value: 60.0-120.0}
+  - {name: PT(MU), units: GeV, value: '> 20.0'}
+  - {name: RE, value: P PB --> Z0 < MU+ MU- > X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020.0'}
+  values:
+  - errors:
+    - asymerror: {minus: -0.25, plus: 0.5}
+      label: stat
+    - {label: sys, symerror: 0.03}
+    value: 0.38
+  - errors:
+    - {label: stat, symerror: 0.79}
+    - {label: sys, symerror: 0.21}
+    value: 3.68
+independent_variables:
+- header: {name: YRAP(RF=CM)}
+  values:
+  - {high: -2.96, low: -4.46}
+  - {high: 3.53, low: 2.03}
+name: data1.yaml

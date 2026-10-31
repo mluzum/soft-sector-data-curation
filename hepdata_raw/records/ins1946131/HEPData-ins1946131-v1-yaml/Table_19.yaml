@@ -1,0 +1,21 @@
+dependent_variables:
+- header: {name: integrated RAA}
+  qualifiers:
+  - {name: CENTRALITY, value: 0-10% 30-50%}
+  - {name: SQRT(S), value: 5020.0 GeV}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.053928}
+    - asymerror: {minus: -0.106183, plus: 0.104013}
+      label: syst.
+    value: 0.689416
+  - errors:
+    - {label: stat., symerror: 0.069333}
+    - asymerror: {minus: -0.11979, plus: 0.116672}
+      label: syst.
+    value: 0.774596
+independent_variables:
+- header: {name: centrality, units: pct}
+  values:
+  - {high: 10, low: 0}
+  - {high: 50, low: 30}

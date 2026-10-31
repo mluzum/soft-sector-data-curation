@@ -1,0 +1,31 @@
+dependent_variables:
+- header: {name: '$\Xi_\mathrm{c}^0/\Lambda_c^+$'}
+  qualifiers:
+  - {name: RAPIDITY, value: -0.96 < Y < 0.04}
+  values:
+  - errors:
+    - {label: Stat., symerror: 0.11}
+    - {label: Sys., symerror: 0.083}
+    value: 0.46
+  - errors:
+    - {label: Stat., symerror: 0.057}
+    - asymerror: {minus: -0.06, plus: 0.063}
+      label: Sys.
+    value: 0.382
+  - errors:
+    - {label: Stat., symerror: 0.065}
+    - asymerror: {minus: -0.054, plus: 0.062}
+      label: Sys.
+    value: 0.387
+  - errors:
+    - {label: Stat., symerror: 0.093}
+    - asymerror: {minus: -0.059, plus: 0.061}
+      label: Sys.
+    value: 0.574
+independent_variables:
+- header: {name: '$p_\mathrm{T}$', units: GeV/$c$}
+  values:
+  - {high: 4.0, low: 2.0}
+  - {high: 6.0, low: 4.0}
+  - {high: 8.0, low: 6.0}
+  - {high: 12.0, low: 8.0}

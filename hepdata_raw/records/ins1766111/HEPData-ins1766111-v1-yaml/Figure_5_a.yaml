@@ -1,0 +1,31 @@
+dependent_variables:
+- header: {name: '$R_{AA}$'}
+  qualifiers:
+  - {name: SQRT(S), units: TeV, value: '5.02'}
+  - {name: ABS(RAP), value: < 1}
+  - {name: RE, value: P P --> DS+ --> PHI<K+K-> PI+}
+  - {name: RE, value: PB PB --> DS+ --> PHI<K+K-> PI+}
+  values:
+  - errors:
+    - {label: sys, symerror: 0.088}
+    - {label: stat, symerror: 0.034}
+    value: 0.373
+  - errors:
+    - {label: sys, symerror: 0.096}
+    - {label: stat, symerror: 0.029}
+    value: 0.381
+  - errors:
+    - {label: sys, symerror: 0.073}
+    - {label: stat, symerror: 0.019}
+    value: 0.321
+  - errors:
+    - {label: sys, symerror: 0.072}
+    - {label: stat, symerror: 0.057}
+    value: 0.347
+independent_variables:
+- header: {name: $p_T$}
+  values:
+  - {high: 8.0, low: 6.0}
+  - {high: 10.0, low: 8.0}
+  - {high: 20.0, low: 10.0}
+  - {high: 40.0, low: 20.0}

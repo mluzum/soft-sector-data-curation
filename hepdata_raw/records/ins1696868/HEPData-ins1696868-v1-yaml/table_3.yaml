@@ -1,0 +1,42 @@
+dependent_variables:
+- header: {name: '$v_2^{\mathrm{sub}}/n_{q}$'}
+  qualifiers:
+  - {name: $|\Delta \eta|$, value: '>1'}
+  - {name: Multiplicity Class, value: '$185 \leq N_{trk}^{offline}<250$'}
+  - {name: Rapidity, value: '$-2.86<y_{\mathrm{cm}}<-1.86$ or $0.94<y_{\mathrm{cm}}<1.94$'}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: 8160.0}
+  - {name: KET range, value: '$0.006 < KE_{\mathrm{T}} < 7.37$ GeV'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.018}
+    - {label: sys, symerror: 0.007}
+    value: 0.005
+  - errors:
+    - {label: stat, symerror: 0.017}
+    - {label: sys, symerror: 0.007}
+    value: 0.029
+  - errors:
+    - {label: stat, symerror: 0.012}
+    - {label: sys, symerror: 0.007}
+    value: 0.045
+  - errors:
+    - {label: stat, symerror: 0.011}
+    - {label: sys, symerror: 0.007}
+    value: 0.034
+  - errors:
+    - {label: stat, symerror: 0.012}
+    - {label: sys, symerror: 0.009}
+    value: 0.017
+  - errors:
+    - {label: stat, symerror: 0.017}
+    - {label: sys, symerror: 0.01}
+    value: -0.017
+independent_variables:
+- header: {name: '$KE_{\mathrm{T}}/n_{q}$', units: GeV}
+  values:
+  - {value: 0.106}
+  - {value: 0.4}
+  - {value: 0.842}
+  - {value: 1.446}
+  - {value: 2.187}
+  - {value: 3.143}

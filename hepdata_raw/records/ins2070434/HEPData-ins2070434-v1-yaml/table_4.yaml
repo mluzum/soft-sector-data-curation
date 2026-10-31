@@ -1,0 +1,61 @@
+dependent_variables:
+- header: {name: '$\frac{1}{\sigma_{\mathrm{jet}}} \frac{d\sigma}{dz_r}$'}
+  qualifiers:
+  - {name: RE, value: P P --> jet+X}
+  - {name: SQRT(S), units: TeV, value: 5.02}
+  - {name: ETARAP, value: '|0.9-R|'}
+  - {name: jet radius, value: 0.4}
+  - {name: jet method, value: 'Anti-$k_{T}$'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.021}
+    - {label: 'sys,unfolding', symerror: 2.5%}
+    - {label: 'sys,trkeff', symerror: 4.7%}
+    - {label: 'sys,generator', symerror: -1%}
+    value: 0.0906
+  - errors:
+    - {label: stat, symerror: 0.11}
+    - {label: 'sys,unfolding', symerror: 3.3%}
+    - {label: 'sys,trkeff', symerror: 11%}
+    - {label: 'sys,generator', symerror: 1.2%}
+    value: 0.509
+  - errors:
+    - {label: stat, symerror: 0.19}
+    - {label: 'sys,unfolding', symerror: 1.6%}
+    - {label: 'sys,trkeff', symerror: 4.9%}
+    - {label: 'sys,generator', symerror: -3.4%}
+    value: 1.1
+  - errors:
+    - {label: stat, symerror: 0.32}
+    - {label: 'sys,unfolding', symerror: 1.1%}
+    - {label: 'sys,trkeff', symerror: 3%}
+    - {label: 'sys,generator', symerror: -0.026%}
+    value: 1.96
+  - errors:
+    - {label: stat, symerror: 0.56}
+    - {label: 'sys,unfolding', symerror: 1.5%}
+    - {label: 'sys,trkeff', symerror: 0.8%}
+    - {label: 'sys,generator', symerror: 1.2%}
+    value: 3.83
+  - errors:
+    - {label: stat, symerror: 0.74}
+    - {label: 'sys,unfolding', symerror: 1%}
+    - {label: 'sys,trkeff', symerror: -0.11%}
+    - {label: 'sys,generator', symerror: 2.1%}
+    value: 7.39
+  - errors:
+    - {label: stat, symerror: 1.7}
+    - {label: 'sys,unfolding', symerror: 1.8%}
+    - {label: 'sys,trkeff', symerror: -5.8%}
+    - {label: 'sys,generator', symerror: -2.3%}
+    value: 14.6
+independent_variables:
+- header: {name: $z_r$}
+  values:
+  - {high: 0.7, low: 0.0}
+  - {high: 0.8, low: 0.7}
+  - {high: 0.86, low: 0.8}
+  - {high: 0.9, low: 0.86}
+  - {high: 0.94, low: 0.9}
+  - {high: 0.98, low: 0.94}
+  - {high: 1.0, low: 0.98}

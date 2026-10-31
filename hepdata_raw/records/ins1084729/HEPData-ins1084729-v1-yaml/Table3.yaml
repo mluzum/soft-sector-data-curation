@@ -1,0 +1,35 @@
+dependent_variables:
+- header: {name: D(N)/DET, units: PB/GEV}
+  qualifiers:
+  - {name: ABS(ETARAP), value: < 1.44}
+  - {name: RE, value: P P --> GAMMA X}
+  - {name: SQRT(S), units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 140.0}
+    - {label: sys, symerror: 400.0}
+    value: 2400.0
+  - errors:
+    - {label: stat, symerror: 74.0}
+    - {label: sys, symerror: 160.0}
+    value: 983.0
+  - errors:
+    - {label: stat, symerror: 30.0}
+    - {label: sys, symerror: 45.0}
+    value: 305.0
+  - errors:
+    - {label: stat, symerror: 12.0}
+    - {label: sys, symerror: 15.0}
+    value: 102.0
+  - errors:
+    - {label: stat, symerror: 2.6}
+    - {label: sys, symerror: 2.8}
+    value: 20.1
+independent_variables:
+- header: {name: ET(P=3), units: GEV}
+  values:
+  - {high: 25.0, low: 20.0, value: 22.3}
+  - {high: 30.0, low: 25.0, value: 27.3}
+  - {high: 40.0, low: 30.0, value: 34.4}
+  - {high: 50.0, low: 40.0, value: 44.5}
+  - {high: 80.0, low: 50.0, value: 61.7}

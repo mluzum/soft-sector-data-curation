@@ -1,0 +1,46 @@
+dependent_variables:
+- header: {name: RAA}
+  qualifiers:
+  - {name: PT, units: GeV, value: 6.0-10.0}
+  - {name: RE, value: PB PB --> (MU+ + MU-) X}
+  - {name: SQRT(S/NUCLEON), units: GeV, value: '2760.0'}
+  - {name: YRAP, value: 2.5-4.0}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.1335}
+    - {label: sys, symerror: 0.1004}
+    - asymerror: {minus: -0.0706, plus: 0.103}
+      label: sys
+    value: 0.7891
+  - errors:
+    - {label: stat, symerror: 0.0627}
+    - {label: sys, symerror: 0.0779}
+    - asymerror: {minus: -0.0768, plus: 0.0746}
+      label: sys
+    value: 0.69
+  - errors:
+    - {label: stat, symerror: 0.034}
+    - {label: sys, symerror: 0.0587}
+    - asymerror: {minus: -0.0513, plus: 0.0501}
+      label: sys
+    value: 0.5053
+  - errors:
+    - {label: stat, symerror: 0.027}
+    - {label: sys, symerror: 0.0518}
+    - asymerror: {minus: -0.0365, plus: 0.0356}
+      label: sys
+    value: 0.371
+  - errors:
+    - {label: stat, symerror: 0.0199}
+    - {label: sys, symerror: 0.0504}
+    - asymerror: {minus: -0.0285, plus: 0.0279}
+      label: sys
+    value: 0.2948
+independent_variables:
+- header: {name: NPART}
+  values:
+  - {high: 23.62, low: 21.52}
+  - {high: 71.16, low: 66.36}
+  - {high: 160.7, low: 153.9}
+  - {high: 264.9, low: 256.1}
+  - {high: 360.1, low: 352.9}

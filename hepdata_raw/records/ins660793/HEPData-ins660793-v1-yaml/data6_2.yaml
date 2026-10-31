@@ -1,0 +1,30 @@
+dependent_variables:
+- header: {name: v2(4), units: none}
+  qualifiers:
+  - {name: Channel, value: kaons}
+  - {name: System, value: AU AU}
+  - {name: SQRT(SNN), units: GEV, value: 200}
+  values:
+  - errors:
+    - {symerror: 0.0042}
+    value: 0.0113
+  - errors:
+    - {symerror: 0.004}
+    value: 0.0261
+  - errors:
+    - {symerror: 0.0091}
+    value: 0.0344
+  - errors:
+    - {symerror: 0.0086}
+    value: 0.0576
+  - errors:
+    - {symerror: 0.051}
+    value: 0.0784
+independent_variables:
+- header: {name: p_T, units: in GeV/c}
+  values:
+  - {high: 0.32, low: 0.16, value: 0.256}
+  - {high: 0.48, low: 0.32, value: 0.384}
+  - {high: 0.64, low: 0.478, value: 0.588}
+  - {high: 0.799, low: 0.64, value: 0.699}
+  - {high: 0.96, low: 0.8, value: 0.84}

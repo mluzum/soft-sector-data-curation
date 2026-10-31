@@ -1,0 +1,94 @@
+---
+observable_type: heavy_flavor
+inspire_id: '1862791'
+version: 1
+hepdata_file: dataFig4.yaml
+hepdata_table_label: Fraction of non-prompt J/$\psi$ in p--Pb collisions at $\sqrt{s_\mathrm{NN}}$ = 5.02 TeV for different
+  $p_\mathrm{T}$ ranges.
+qualifiers:
+  re: P PB --> JPSI < E+ E- > X
+  sqrt(s)/nucleon: '5020.0'
+  yrap: -1.37 TO 0.43
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> JPSI < E+ E- > X
+centrality:
+  classes:
+  - MB
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: p
+  particle: beauty
+kinematic_range:
+  pT:
+    min: 1.0
+    max: 14.0
+    bins:
+    - 1.0
+    - 3.0
+    - 5.0
+    - 7.0
+    - 10.0
+    - 14.0
+  eta:
+    min: -0.8
+    max: 0.8
+    bins:
+    - -0.8
+    - 0.8
+observable: beauty_invariant_yield
+value_type: invariant_yield
+particle: beauty
+---
+observable_type: heavy_flavor
+inspire_id: '1862791'
+version: 1
+hepdata_file: dataTab3.yaml
+hepdata_table_label: Fraction of non-prompt $\rm{J}/\psi$ in pp collisions at $\sqrt{s}$ = 5.02 TeV for different $p_\mathrm{T}$
+  ranges, as determined with a procedure of interpolation from measurments at other energies. It is not a direct measurment.
+qualifiers:
+  re: P P --> JPSI < E+ E- > X
+  sqrt(s): '5020.0'
+  yrap: -1.37 TO 0.43
+collision_system:
+  energy_gev: 5020.0
+  reaction: P P --> JPSI < E+ E- > X
+centrality:
+  classes:
+  - MB
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: p
+  particle: beauty
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+    bins:
+    - -0.8
+    - 0.8
+  pT:
+    min: 0.15
+    max: 50
+    bins:
+    - 0.15
+    - 50
+observable: beauty_invariant_yield
+value_type: invariant_yield
+particle: beauty

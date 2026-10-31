@@ -1,0 +1,44 @@
+dependent_variables:
+- header: {name: 'Delta_{recoil}(R=0.2)'}
+  qualifiers:
+  - {name: ABS(ETA), value: 0.0-0.5}
+  - {name: R, value: '0.2'}
+  - {name: RE, value: 'Raw Distribution of Delta_{recoil} in Pb-Pb at sqrt{s} = 2.76
+      TeV for R=0.2 in the signal region'}
+  - {name: SQRT(S), units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {symerror: 0.0006154}
+    value: 0.006011
+  - errors:
+    - {symerror: 0.0003055}
+    value: 0.002899
+  - errors:
+    - {symerror: 0.0001041}
+    value: 0.001718
+  - errors:
+    - {symerror: 5.208e-05}
+    value: 0.0006083
+  - errors:
+    - {symerror: 3.289e-05}
+    value: 0.0002489
+  - errors:
+    - {symerror: 2.425e-05}
+    value: 0.0001475
+  - errors:
+    - {symerror: 1.532e-05}
+    value: 5.374e-05
+  - errors:
+    - {symerror: 8.552e-06}
+    value: 3.189e-05
+independent_variables:
+- header: {name: 'p_{T,jet}^{reco,ch}(GeV/c)'}
+  values:
+  - {high: 16.0, low: 10.0}
+  - {high: 20.0, low: 16.0}
+  - {high: 30.0, low: 20.0}
+  - {high: 42.0, low: 30.0}
+  - {high: 54.0, low: 42.0}
+  - {high: 66.0, low: 54.0}
+  - {high: 78.0, low: 66.0}
+  - {high: 100.0, low: 78.0}

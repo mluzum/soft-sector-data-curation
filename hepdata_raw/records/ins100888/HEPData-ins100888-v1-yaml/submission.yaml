@@ -1,0 +1,43 @@
+comment: |
+  LAMPF. Inclusive cross sections for 180-degree production of high-energy protons, deuterons, and tritons in P-NUCLEUS collisions at 600 and 800 MeV.
+dateupdated: 24/10/1996 00:00:00
+hepdata_doi: 10.17182/hepdata.21102.v1
+modifications:
+- {action: Encoded, date: 24 OCT 1996, who: SRS}
+- {action: Modified, date: 24 OCT 1996, who: FMLD}
+record_ids:
+- {id: 100888, type: inspire}
+- {id: 7539, type: red}
+---
+data_file: Table1.yaml
+description: |
+  D3(SIG)/D3(P) is fitted by the equation: CONST*exp(-SLOPE*P**2/(2*M)). CONST is presented per nucleon.
+keywords:
+- name: reactions
+  values: [P BE --> DEUT X, P BE --> P X, P BE --> TRITIUM X, P C --> DEUT X, P C
+      --> P X, P C --> TRITIUM X, P CU --> DEUT X, P CU --> P X, P CU --> TRITIUM
+      X, P TA --> DEUT X, P TA --> P X, P TA --> TRITIUM X, P NUCLEUS --> P X, P NUCLEUS
+      --> DEUT X, P NUCLEUS --> TRITIUM X]
+- name: observables
+  values: [CONST, D3SIG/D3P, SLOPE]
+- name: phrases
+  values: [Inclusive, Triple Differential Cross Section]
+location: Data from T I
+name: Table 1
+table_doi: 10.17182/hepdata.21102.v1/t1
+---
+data_file: Table2.yaml
+description: |
+  D3(SIG)/D3(P) is fitted by the equation: CONST*exp(-SLOPE*P**2/(2*M)). CONST is presented per nucleon.
+keywords:
+- name: reactions
+  values: [P AG --> DEUT X, P AG --> P X, P AG --> TRITIUM X, P PB --> TRITIUM X,
+    P PT --> DEUT X, P PT --> P X, P TA --> DEUT X, P TA --> P X, P TA --> TRITIUM
+      X, P NUCLEUS --> P X, P NUCLEUS --> DEUT X, P NUCLEUS --> TRITIUM X]
+- name: observables
+  values: [CONST, SLOPE]
+- name: phrases
+  values: [Inclusive]
+location: Data from T I
+name: Table 2
+table_doi: 10.17182/hepdata.21102.v1/t2

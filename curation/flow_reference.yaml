@@ -1,0 +1,297 @@
+# Curated event-plane / flow references, read from the papers.
+#
+# Each entry is keyed by collaboration + inspire_id and quotes the paper's own
+# method section.  `scripts/apply_flow_reference.py` stamps it onto every
+# event_plane record of that paper.
+#
+# WHY PER PAPER AND NOT PER COLLABORATION
+# ---------------------------------------
+# The reference is NOT the centrality detector, and it is not even constant
+# within a collaboration.  PHENIX is the clearest counter-example: everyone
+# assumes the central arms supply the event plane because that is where the
+# POI sits, but in arXiv:1412.1043 Sec III.4.1 the event plane is explicitly
+# "the combined second-harmonic BBC event plane", built from "the charge seen
+# in the corresponding channel of the BBC" at 3.0 < |eta| < 3.9 -- i.e.
+# DISJOINT from the |eta| < 0.35 central-arm POI.  Assuming same-window would
+# have been wrong for the largest PHENIX paper (75 records).
+#
+# `provenance: paper` means the text was read and is quoted in `notes`.
+# `provenance: assumed_*` is reserved for inferences and is greppable.
+#
+# Fields follow observables/_common.yaml#flow_reference:
+#   detector  - subdetector as the collaboration names it
+#   eta       - list of windows; several entries are SUMMED
+#   mirror    - true when the reference is the eta-mirrored image of `eta`
+#   pT        - optional reference pT acceptance
+#   same_sample_as_poi - true when reference == POI (still needs the
+#                        POI/reference diagonal subtracted)
+
+phenix:
+
+  # PHENIX, Systematic Study of Azimuthal Anisotropy in Cu+Cu and Au+Au at
+  # 62.4 and 200 GeV, arXiv:1412.1043, PRC 92 034913.
+  # Sec III.4 "Azimuthal anisotropy: event plane method": "The measured v2 of
+  # hadrons in the central arms with respect to the combined second-harmonic
+  # BBC event plane will be denoted throughout this paper as v2."
+  # Sec III.4.1 "Event plane determination": "To determine each event plane we
+  # chose the weights at each azimuthal angle to be the charge seen in the
+  # corresponding channel of the BBC."
+  # Sec III.4.2 "Event plane resolution": "The event plane resolution for v2
+  # was evaluated by the two-subevent method", so the published v2 carries a
+  # resolution correction.
+  # NOTE: records are keyed by INSPIRE id, not arXiv id.  This paper is
+  # arXiv:1412.1043 = INSPIRE 1332240.  apply_flow_reference.py verifies the
+  # inspire -> arXiv mapping against hepdata_raw metadata and refuses to stamp
+  # a paper whose arXiv id does not match, precisely because conflating the
+  # two silently stamps nothing (or the wrong paper).
+  '1332240':
+    detector: BBC
+    eta:
+      - {min: 3.0, max: 3.9}
+      - {min: -3.9, max: -3.0}
+    provenance: paper
+    reference: "arXiv:1412.1043 (INSPIRE 1332240) Sec III.4.1"
+    notes: >-
+      Event plane = combined second-harmonic BBC event plane: BBC charge per
+      azimuthal channel, both BBCs summed, 3.0 < |eta| < 3.9 (paper: "the
+      weights at each azimuthal angle to be the charge seen in the
+      corresponding channel of the BBC"; "the combined second-harmonic BBC
+      event plane"). The POI is the central arms |eta| < 0.35, so the
+      reference shares no particles with it and no POI/reference diagonal
+      correction is needed. Resolution from the two-subevent method
+      (Sec III.4.2), so the published v2 is resolution-corrected and the
+      scalar-product estimator -- which is resolution-corrected by
+      construction -- is the matching one.
+
+  # PHENIX, Systematic Studies of Elliptic Flow Measurements in Au+Au at
+  # sqrt(sNN)=200 GeV, arXiv:0905.1070, INSPIRE 819672.
+  # Sec III: "In PHENIX the event plane was determined at forward and backward
+  # pseudorapidities (|eta| = 3.1-3.9) with the assumption that correlations
+  # induced by elliptic flow dominate over all other non-flow correlations."
+  # Sec III.1: "an event plane found using tracks in the central arm.  The
+  # event plane at the central arms (CNT) is only used to estimate the
+  # resolution of BBC and ZDC-SMD event planes by using three subevents
+  # combination of the ZDC-SMD, BBC and CNT."
+  #   -> the central-arm plane is NOT the reference; it only calibrates it.
+  # Sec III.1.2: resolution "evaluated by both the two-subevents and
+  # three-subevents methods".
+  '819672':
+    detector: BBC
+    eta:
+      - {min: 3.1, max: 3.9}
+      - {min: -3.9, max: -3.1}
+    provenance: paper
+    reference: "arXiv:0905.1070 (INSPIRE 819672) Sec III / III.1"
+    notes: >-
+      Event plane at forward and backward pseudorapidities, |eta| = 3.1-3.9,
+      BBC (paper: "the event plane was determined at forward and backward
+      pseudorapidities (|eta| = 3.1-3.9)"). Both BBCs are summed. The
+      central-arm track event plane (CNT) is explicitly NOT the reference --
+      it is used only to estimate the BBC resolution via a three-subevent
+      combination. POI is |eta| < 0.35, so the reference shares no particles
+      with it. Resolution by the two- and three-subevent methods
+      (Sec III.1.2), so the published v2 is resolution-corrected.
+
+  # PHENIX, Measurements of directed, elliptic and triangular flow in Cu+Au at
+  # 200 GeV, arXiv:1509.07784, INSPIRE 1394897.
+  # Sec: "The second (Psi_2) and third (Psi_3) order event planes are measured
+  # by the combination of BBCS and BBCN."
+  # Sec: "The BBC event-plane resolution is obtained from two sub-events and
+  # BBCS, BBCN, CNT from three sub-events as a function of centrality."
+  '1394897':
+    detector: BBC
+    eta:
+      - {min: 3.1, max: 3.9}
+      - {min: -3.9, max: -3.1}
+    provenance: paper
+    reference: "arXiv:1509.07784 (INSPIRE 1394897) event-plane section"
+    notes: >-
+      v_2 and v_3 event planes "measured by the combination of BBCS and
+      BBCN" (both beam-beam counters summed). Resolution from two sub-events
+      (BBC) and three sub-events (BBCS, BBCN, CNT), so the published values
+      are resolution-corrected. Psi_1 uses the spectator plane from the SMDs,
+      not the BBC -- v_1 records from this paper must NOT be given this
+      reference. eta window 3.1-3.9 taken from the PHENIX BBC acceptance as
+      used in the companion papers; cross-checked against this record's own
+      centrality.eta.
+
+  # PHENIX, Measurement of higher-order anisotropic flow coefficients, v3 v4
+  # v5, arXiv:1412.1038, INSPIRE 1332239.
+  # Abstract: v_n coefficients "obtained relative to the event planes Psi_m at
+  # forward rapidities".
+  # Sec: "Collision centrality is determined with the beam-beam counters."
+  # Sec: resolution "estimated for each centrality by the standard sub-event
+  # method".
+  # NOTE weaker evidence than the entries above: this paper states the
+  # reference GEOMETRY ("forward rapidities", i.e. the BBC) and the resolution
+  # method, but the quoted window is the PHENIX BBC acceptance rather than a
+  # literal statement of it in this paper.  Re-check against the method
+  # section if this paper's numbers are ever load-bearing.
+  '1332239':
+    detector: BBC
+    eta:
+      - {min: 3.1, max: 3.9}
+      - {min: -3.9, max: -3.1}
+    provenance: paper
+    reference: "arXiv:1412.1038 (INSPIRE 1332239) abstract + data-taking section"
+    notes: >-
+      Event planes at forward rapidities, i.e. the BBC (paper abstract:
+      "obtained relative to the event planes Psi_m at forward rapidities";
+      centrality "determined with the beam-beam counters"). POI is
+      |eta| < 0.35 charged hadrons from the DC/PC, so the reference shares no
+      particles with it. Resolution by the standard sub-event method, so the
+      published v_n are resolution-corrected. EVIDENCE WEAKER than the other
+      entries: the window 3.1-3.9 is the PHENIX BBC acceptance as used in the
+      companion papers, not a literal quoted window in this one.
+
+  # ---- PHENIX: combined two-arm BBC event plane, 3 < |eta| < 3.9 ----
+  # These three quote the geometry explicitly and identically, so they are
+  # grouped; each still carries its own quote and INSPIRE id.
+
+  # arXiv:nucl-ex/0411040, INSPIRE 664944.  "the event plane Phi_2, determined
+  # via hits in the North and South BBC's located at |eta| ~ 3-3.9".
+  '664944':
+    detector: BBC
+    eta: [{min: 3.0, max: 3.9}, {min: -3.9, max: -3.0}]
+    provenance: paper
+    reference: "arXiv:nucl-ex/0411040 (INSPIRE 664944) event-plane section"
+    notes: >-
+      Second-order event plane determined via hits in the North and South
+      BBCs, |eta| ~ 3-3.9, both arms summed. POI is the central arms
+      |eta| < 0.35, so the reference shares no particles with it.
+
+  # arXiv:nucl-ex/0608033, INSPIRE 723948.  "the event plane Phi_2, determined
+  # via hits in the two BBCs positioned symmetrically along the beam line,
+  # covering the pseudo-rapidity range 3 < |eta| < 3.9".
+  '723948':
+    detector: BBC
+    eta: [{min: 3.0, max: 3.9}, {min: -3.9, max: -3.0}]
+    provenance: paper
+    reference: "arXiv:nucl-ex/0608033 (INSPIRE 723948) event-plane section"
+    notes: >-
+      Second-order event plane from the two BBCs positioned symmetrically
+      along the beam line, 3 < |eta| < 3.9, both arms summed. POI is the
+      central arms |eta| < 0.35, so no POI/reference particle overlap.
+
+  # arXiv:nucl-ex/0703024, INSPIRE 746499.  "the event plane Phi_2, determined
+  # via hits in the two BBCs covering the pseudo-rapidity range
+  # 3 < |eta| < 3.9".
+  '746499':
+    detector: BBC
+    eta: [{min: 3.0, max: 3.9}, {min: -3.9, max: -3.0}]
+    provenance: paper
+    reference: "arXiv:nucl-ex/0703024 (INSPIRE 746499) event-plane section"
+    notes: >-
+      Second-order event plane from the two BBCs, 3 < |eta| < 3.9, both arms
+      summed. POI is the central arms |eta| < 0.35, so no particle overlap
+      with the reference. (phi meson and deuteron v2.)
+
+  # arXiv:0903.4886, INSPIRE 816486, "High-pT pi0 Production with Respect to
+  # the Reaction Plane in Au+Au at 200 GeV".
+  # The title suggests a reaction-plane-correlated quantity, but the abstract
+  # states: "Azimuthal angle distributions of pi0s detected in the PHENIX
+  # electromagnetic calorimeters are measured relative to the reaction plane
+  # determined event-by-event using the forward AND BACKWARD beam-beam
+  # counters.  Amplitudes of the second Fourier component (v2) of the angular
+  # distributions are presented as a function of pi0 transverse momentum pT
+  # for different bins in collision centrality."
+  #   -> genuinely an event-plane measurement, two-arm BBC reference.  Checked
+  #      specifically because the title invited the opposite conclusion.
+  '816486':
+    detector: BBC
+    eta: [{min: 3.0, max: 3.9}, {min: -3.9, max: -3.0}]
+    provenance: paper
+    reference: "arXiv:0903.4886 (INSPIRE 816486) abstract"
+    notes: >-
+      v2 from the second Fourier component of the pi0 azimuthal distribution
+      "measured relative to the reaction plane determined event-by-event using
+      the forward and backward beam-beam counters" -- i.e. a two-arm BBC event
+      plane, summed. POI is the EMCal |eta| < 0.35. The reaction-plane-
+      dependent pi0 suppression (R_AA(Delta phi, pT)) in the same paper is a
+      DIFFERENT observable and is not what these records hold.
+
+  # ---- PHENIX: SINGLE-ARM BBC (the "going" side only) ----
+  # A distinct geometry from the combined two-arm BBC above, and easy to get
+  # wrong: the reference is ONE arm, not the sum.
+
+  # arXiv:1805.02973, INSPIRE 1672133, p+Au / d+Au / 3He+Au, v2 and v3.
+  # Event Plane Determination: "The third-order symmetry plane angle, psi_3 is
+  # measured using the south BBC via the standard method".
+  # Systematic section: "The pseudorapidity gap between the particle
+  # measurements and the event plane determination excludes auto-correlations
+  # and reduces short-range correlations".
+  '1672133':
+    detector: BBC
+    eta: [{min: -3.9, max: -3.1}]
+    provenance: paper
+    reference: "arXiv:1805.02973 (INSPIRE 1672133) Event Plane Determination"
+    notes: >-
+      Event plane from the SOUTH BBC only (single arm), covering
+      -3.9 < eta < -3.1; the paper notes the pseudorapidity gap "excludes
+      auto-correlations and reduces short-range correlations". Event
+      centrality is likewise set by the south BBC charge. This is a
+      single-arm reference, NOT the two-arm sum. POI is central-arm tracks,
+      so the reference still shares no particles with it. Resolution is low in
+      these small collision systems and is included in the systematic
+      uncertainty. NOTE: psi_3 is stated explicitly in the paper; v_2 is
+      taken to use the same plane (same section, same analysis), which is
+      flagged here rather than asserted.
+
+  # arXiv:1807.11928, INSPIRE 1684475.
+  # "we have followed the same procedure for measuring elliptic flow v_2 using
+  # the event plane method, where the event plane is defined by the Al- or
+  # Au-going BBC covering -3.9 < eta < -3.1."
+  # Centrality: "The multiplicity class is selected by the total charge in the
+  # BBC covering negative pseudorapidity, i.e. in the Al- or Au-going
+  # direction."
+  '1684475':
+    detector: BBC
+    eta: [{min: -3.9, max: -3.1}]
+    provenance: paper
+    reference: "arXiv:1807.11928 (INSPIRE 1684475) pseudorapidity-dependence section"
+    notes: >-
+      v_2 from the event plane method with "the event plane defined by the Al-
+      or Au-going BBC covering -3.9 < eta < -3.1" -- a SINGLE arm (the
+      "going" side, at negative eta for these beam configurations), not the
+      two-arm sum. Multiplicity is likewise selected from the same negative-
+      eta BBC. v_2 is corrected with AMPT + GEANT-3 to correspond to hadrons
+      integrated over all pT within each pseudorapidity bin, so a simulated
+      v_2 restricted to the record's pT acceptance is NOT directly
+      comparable to the published value without that correction.
+
+atlas:
+
+  # ATLAS uses the FCal (forward) as the flow reference for its standard
+  # event-plane-method measurements, with the resolution obtained from the
+  # north/south subevent split.  The POI is the inner detector at |eta| < 2.5,
+  # so the reference is disjoint.
+  #
+  # arXiv:1203.3087, INSPIRE 1093733, "Measurement of the azimuthal anisotropy
+  # for charged particles ... Pb+Pb at 2.76 TeV". Sec IV.1 "Event plane
+  # method": "In the 2SE method, the signal of a detector used to measure the
+  # event plane is divided into two 'subevents' covering equal pseudorapidity
+  # ranges in opposite hemispheres, such that the two subevents nominally have
+  # the same resolution. The FCal detectors located at positive and negative
+  # eta, FCal_P and FCal_N, provide such a division."
+  #   -> the event plane is built from the FCal; FCal_P / FCal_N separately
+  #      are the two SUBEVENTS used for the resolution, not two references.
+  # FCal acceptance, quoted in the same paper for the centrality SumET:
+  # "total transverse energy deposited in the FCal over the pseudorapidity
+  # range 3.2 < |eta| < 4.9".
+  # NOTE only the tables that are NOT labelled "v_n extracted from 2PC method"
+  # are event-plane results in this paper; the 2PC tables were reclassified to
+  # cumulant order 2 during curation.
+  '1093733':
+    detector: FCal
+    eta: [{min: 3.2, max: 4.9}, {min: -4.9, max: -3.2}]
+    provenance: paper
+    reference: "arXiv:1203.3087 (INSPIRE 1093733) Sec IV.1 Event plane method"
+    notes: >-
+      Event plane measured with the forward calorimeter: "The FCal detectors
+      located at positive and negative eta, FCal_P and FCal_N, provide such a
+      division" into two subevents for the 2SE resolution. The POI is
+      inner-detector tracks at |eta| < 2.5, so the reference shares no
+      particles with it. FCal window 3.2 < |eta| < 4.9 as quoted in this
+      paper. CAVEAT: ATLAS weights the FCal signal by deposited E_T, whereas
+      the grid pipeline accumulates a particle count in the same window, so
+      the weighting differs even though the acceptance matches.

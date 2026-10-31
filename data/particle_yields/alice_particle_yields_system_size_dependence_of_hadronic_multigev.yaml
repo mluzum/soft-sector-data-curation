@@ -1,0 +1,86 @@
+---
+observable_type: particle_yields
+inspire_id: '2691823'
+version: 1
+hepdata_file: Table3.yaml
+hepdata_table_label: $p_{\rm T}$-integrated yield d$N$/d$y$ of K$^{*}$ (average of particle and anti-particle) meson measured
+  in Xe-Xe collisions at $\sqrt{s_{NN}}$ = 5.44 TeV.
+qualifiers:
+  re: XeXe $\rightarrow$ K$^{*0}$ X, XeXe $\rightarrow$ $\bar{\rm K}^{*0}$ X
+  sqrt(s)/nucleon: '5440.0'
+  yrap: -0.5 - 0.5
+collision_system:
+  energy_gev: 5440.0
+  reaction: XeXe \rightarrow K^{*0} X, XeXe \rightarrow \bar{\rm K}^{*0} X
+centrality:
+  classes: []
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+    bins:
+    - -0.8
+    - 0.8
+  pT:
+    min: 0.15
+    max: 50
+    bins:
+    - 0.15
+    - 50
+observable: dN_dy
+value_type: dN_dy
+---
+observable_type: particle_yields
+inspire_id: '2691823'
+version: 1
+hepdata_file: Table5.yaml
+hepdata_table_label: $p_{\rm T}$-integrated yield d$N$/d$y$ of K$^{*}$ (average of particle and anti-particle) meson measured
+  in pp collisions at $\sqrt{s}$ = 5.02 TeV.
+qualifiers:
+  re: pp $\rightarrow$ K$^{*0}$ X, pp $\rightarrow$ $\bar{\rm K}^{*0}$ X
+  sqrt(s): '5020.0'
+  yrap: -0.5 - 0.5
+collision_system:
+  energy_gev: 5020.0
+  reaction: pp \rightarrow K^{*0} X, pp \rightarrow \bar{\rm K}^{*0} X
+centrality:
+  classes:
+  - MB
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+    bins:
+    - -0.8
+    - 0.8
+  pT:
+    min: 0.15
+    max: 50
+    bins:
+    - 0.15
+    - 50
+observable: dN_dy
+value_type: dN_dy

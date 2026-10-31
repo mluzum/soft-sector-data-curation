@@ -1,0 +1,105 @@
+dependent_variables:
+- header: {name: Leading Jet PbPb - pp SumTrkPt, units: GeV}
+  qualifiers:
+  - {name: SQRT(S), units: GeV, value: 2760.0}
+  - {name: Leading jet pT, value: pT > 120 GeV}
+  - {name: Subleading jet pT, value: pT > 50 GeV}
+  - {name: Jet azimuthal separation, value: abs(dPhi) > 5pi/6}
+  - {name: Jet pseudorapidity, value: abs(dEta) < 1.6}
+  - {name: Track pseudorapidity, value: abs(dEta) < 2.4}
+  - {name: TrkPt, units: GeV, value: pT > 0.5}
+  - {name: Dijet Asymmetry, value: Aj < 0.22}
+  - {name: PbPb Centrality, value: 0 - 30%}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.33}
+    - {label: syst, symerror: 1.189}
+    value: 3.453
+  - errors:
+    - {label: stat, symerror: 0.391}
+    - {label: syst, symerror: 1.347}
+    value: 5.776
+  - errors:
+    - {label: stat, symerror: 0.253}
+    - {label: syst, symerror: 1.242}
+    value: 1.973
+  - errors:
+    - {label: stat, symerror: 0.142}
+    - {label: syst, symerror: 1.207}
+    value: 0.527
+  - errors:
+    - {label: stat, symerror: 0.153}
+    - {label: syst, symerror: 1.72}
+    value: -1.345
+- header: {name: Subleading Jet PbPb - pp SumTrkPt, units: GeV}
+  qualifiers:
+  - {name: SQRT(S), units: GeV, value: 2760.0}
+  - {name: Leading jet pT, value: pT > 120 GeV}
+  - {name: Subleading jet pT, value: pT > 50 GeV}
+  - {name: Jet azimuthal separation, value: abs(dPhi) > 5pi/6}
+  - {name: Jet pseudorapidity, value: abs(dEta) < 1.6}
+  - {name: Track pseudorapidity, value: abs(dEta) < 2.4}
+  - {name: TrkPt, units: GeV, value: pT > 0.5}
+  - {name: Dijet Asymmetry, value: Aj < 0.22}
+  - {name: PbPb Centrality, value: 0 - 30%}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.33}
+    - {label: syst, symerror: 1.171}
+    value: -3.014
+  - errors:
+    - {label: stat, symerror: 0.389}
+    - {label: syst, symerror: 1.263}
+    value: -4.446
+  - errors:
+    - {label: stat, symerror: 0.251}
+    - {label: syst, symerror: 1.199}
+    value: -1.461
+  - errors:
+    - {label: stat, symerror: 0.14}
+    - {label: syst, symerror: 1.185}
+    value: -0.491
+  - errors:
+    - {label: stat, symerror: 0.146}
+    - {label: syst, symerror: 1.605}
+    value: 1.046
+- header: {name: Jet Peak PbPb - pp Delta_SumTrkPt, units: GeV}
+  qualifiers:
+  - {name: SQRT(S), units: GeV, value: 2760.0}
+  - {name: Leading jet pT, value: pT > 120 GeV}
+  - {name: Subleading jet pT, value: pT > 50 GeV}
+  - {name: Jet azimuthal separation, value: abs(dPhi) > 5pi/6}
+  - {name: Jet pseudorapidity, value: abs(dEta) < 1.6}
+  - {name: Track pseudorapidity, value: abs(dEta) < 2.4}
+  - {name: TrkPt, units: GeV, value: pT > 0.5}
+  - {name: Dijet Asymmetry, value: Aj < 0.22}
+  - {name: PbPb Centrality, value: 0 - 30%}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.467}
+    - {label: syst, symerror: 1.669}
+    value: 0.439
+  - errors:
+    - {label: stat, symerror: 0.552}
+    - {label: syst, symerror: 1.846}
+    value: 1.33
+  - errors:
+    - {label: stat, symerror: 0.357}
+    - {label: syst, symerror: 1.726}
+    value: 0.512
+  - errors:
+    - {label: stat, symerror: 0.2}
+    - {label: syst, symerror: 1.691}
+    value: 0.036
+  - errors:
+    - {label: stat, symerror: 0.211}
+    - {label: syst, symerror: 2.353}
+    value: -0.299
+independent_variables:
+- header: {name: Track Transverse Momentum, units: GeV}
+  values:
+  - {high: 1, low: 0.5}
+  - {high: 2, low: 1}
+  - {high: 3, low: 2}
+  - {high: 4, low: 3}
+  - {high: 8, low: 4}

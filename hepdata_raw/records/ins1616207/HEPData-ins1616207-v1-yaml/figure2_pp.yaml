@@ -1,0 +1,81 @@
+dependent_variables:
+- header: {name: '$\frac{\mathrm{d}\sigma}{\mathrm{d}p_{T}}$', units: '$\frac{\mathrm{pb}}{\mathrm{GeV}/\mathrm{c}}$'}
+  qualifiers:
+  - {name: RE, value: P P --> D0 --> K + PI}
+  - {name: SQRT(S), units: GEV, value: 5020}
+  - {name: $|$RAPIDITY(D)$|$, value: $<$ 1}
+  - {name: GLOBAL UNCERTAINTY (LUMI and BR), units: $\%$, value: 2.5}
+  values:
+  - errors:
+    - {label: stat, symerror: 12000000}
+    - {label: sys, symerror: 30000000}
+    value: 187000000
+  - errors:
+    - {label: stat, symerror: 3800000}
+    - {label: sys, symerror: 13100000}
+    value: 84200000
+  - errors:
+    - {label: stat, symerror: 1300000}
+    - {label: sys, symerror: 5200000}
+    value: 37000000
+  - errors:
+    - {label: stat, symerror: 700000}
+    - {label: sys, symerror: 2500000}
+    value: 17700000
+  - errors:
+    - {label: stat, symerror: 210000}
+    - {label: sys, symerror: 930000}
+    value: 6730000
+  - errors:
+    - {label: stat, symerror: 70000}
+    - {label: sys, symerror: 300000}
+    value: 2170000
+  - errors:
+    - {label: stat, symerror: 32000}
+    - {label: sys, symerror: 111000}
+    value: 811000
+  - errors:
+    - {label: stat, symerror: 18000}
+    - {label: sys, symerror: 44000}
+    value: 322000
+  - errors:
+    - {label: stat, symerror: 7000}
+    - {label: sys, symerror: 16000}
+    value: 111000
+  - errors:
+    - {label: stat, symerror: 1000}
+    - {label: sys, symerror: 3900}
+    value: 29200
+  - errors:
+    - {label: stat, symerror: 380}
+    - {label: sys, symerror: 1310}
+    value: 9950
+  - errors:
+    - {label: stat, symerror: 150}
+    - {label: sys, symerror: 430}
+    value: 3250
+  - errors:
+    - {label: stat, symerror: 16}
+    - {label: sys, symerror: 66}
+    value: 494
+  - errors:
+    - {label: stat, symerror: 1.5}
+    - {label: sys, symerror: 5.5}
+    value: 39.2
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {high: 3.0, low: 2.0}
+  - {high: 4.0, low: 3.0}
+  - {high: 5.0, low: 4.0}
+  - {high: 6.0, low: 5.0}
+  - {high: 8.0, low: 6.0}
+  - {high: 10.0, low: 8.0}
+  - {high: 12.5, low: 10.0}
+  - {high: 15.0, low: 12.5}
+  - {high: 20.0, low: 15.0}
+  - {high: 25.0, low: 20.0}
+  - {high: 30.0, low: 25.0}
+  - {high: 40.0, low: 30.0}
+  - {high: 60.0, low: 40.0}
+  - {high: 100.0, low: 60.0}

@@ -1,0 +1,28 @@
+dependent_variables:
+- header: {name: RAA}
+  qualifiers:
+  - {name: PT, units: GEV, value: '> 0.0'}
+  - {name: RE, value: PB PB --> UPSI(1S) X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  - {name: YRAP, value: 2.5-4.0}
+  - {name: mu+mu- decay mode, value: ''}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.05}
+    - {label: sys, symerror: 0.02}
+    - {label: 'sys,global systematic uncertainty', symerror: 12.0%}
+    value: 0.22
+  - errors:
+    - {label: stat, symerror: 0.09}
+    - {label: sys, symerror: 0.03}
+    - {label: 'sys,global systematic uncertainty', symerror: 12.0%}
+    value: 0.44
+independent_variables:
+- header: {name: ''}
+  values:
+  - {high: 364.0, low: 252.0}
+  - {high: 134.0, low: 10.0}
+- header: {name: ''}
+  values:
+  - {high: 20.0, low: 0.0}
+  - {high: 90.0, low: 20.0}

@@ -1,0 +1,64 @@
+additional_resources:
+- {description: Created with hepdata_lib 0.7.0, location: 'https://zenodo.org/record/4946277'}
+comment: The study of nuclei and antinuclei production has proven to be a powerful
+  tool to investigate the formation mechanism of loosely bound states in high-energy
+  hadronic collisions. The first measurement of the production of $^{3}_{\Lambda}\text{H}$
+  in p-Pb collisions at $\sqrt{s_{\mathrm{NN}}}$ = 5.02 TeV is presented in this Letter.
+  Its production yield measured in the rapidity interval $-1 < y < 0$ for the 40%
+  highest multiplicity p-Pb collisions is $\mathrm{d} N /\mathrm{d} y =[\mathrm{6.3
+  \pm 1.8 (stat.) \pm 1.0 (syst.) ] \times 10^{-7}}$.The measurement is compared with
+  the expectations of statistical hadronisation and coalescence models, which describe
+  the nucleosynthesis in hadronic collisions. These two models predict very different
+  yields of the hypertriton in small collision systems such as p-Pb and therefore
+  the measurement of $\mathrm{d} N /\mathrm{d} y$ is crucial to distinguish between
+  them.The precision of this measurement leads to the exclusion with a significance
+  larger than 6$\sigma$ of some configurations of the statistical hadronisation, thus
+  constraining the production mechanism of loosely bound states.
+data_license: {description: The content can be shared and adapted but you must             give
+    appropriate credit and cannot restrict access to others., name: cc-by-4.0, url: 'https://creativecommons.org/licenses/by/4.0/'}
+hepdata_doi: 10.17182/hepdata.130967.v1
+---
+data_file: hypertriton_production_yield.yaml
+description: Integrated yield of hypertriton produced in 0-40% p-Pb collisions
+keywords:
+- name: observables
+  values: [DN/DY]
+- name: cmenergies
+  values: ['5020']
+- name: reactions
+  values: [P PB--> P + 3HL]
+location: Data from the text of the paper
+name: Hypertriton production yield
+table_doi: 10.17182/hepdata.130967.v1/t1
+---
+additional_resources:
+- {description: Image file, location: hl_ratio.png}
+- {description: Thumbnail image file, location: thumb_hl_ratio.png}
+data_file: hypertriton_over_$\lambda$_ratio.yaml
+description: Hypertriton over $\Lambda$ ratio in 0-40% p-Pb collisions
+keywords:
+- name: observables
+  values: [3HL/L]
+- name: cmenergies
+  values: ['5020']
+- name: reactions
+  values: [P PB--> P + 3HL, P PB--> \Lambda + X]
+location: Data from Figure 2 (left panel) of the paper
+name: Hypertriton over $\Lambda$ ratio
+table_doi: 10.17182/hepdata.130967.v1/t2
+---
+additional_resources:
+- {description: Image file, location: s3.png}
+- {description: Thumbnail image file, location: thumb_s3.png}
+data_file: $s_3$.yaml
+description: $S_3$ in the 40% largest multiplicity p-Pb collisions
+keywords:
+- name: observables
+  values: [S3]
+- name: cmenergies
+  values: ['5020']
+- name: reactions
+  values: [P PB--> P + 3HL, P PB--> \Lambda + X, P PB--> 3HE + X, P PB--> P + X]
+location: Data from Figure 2 (right panel) of the paper
+name: $S_3$
+table_doi: 10.17182/hepdata.130967.v1/t3

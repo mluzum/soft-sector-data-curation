@@ -1,0 +1,75 @@
+observable_type: jet_correlations
+description: >
+  Jet-related correlation measurements that combine jet identification with
+  correlation techniques.  Includes:
+    - Direct-photon–hadron correlations
+    - Jet-hadron correlations (including event-plane dependent)
+    - Dihadron correlations used to extract jet properties
+      (〈jT²〉, 〈sin²(φjj)〉, dN/dxE, jet fragmentation pT)
+    - Jet peak shapes from two-particle angular correlations
+
+composes:
+  - _common#collision_system
+  - centrality#centrality
+  - _common#kinematic_range
+
+required_fields:
+  observable:
+    type: string
+    required: true
+    description: Short identifier.
+    example: "jet_hadron_correlation"
+  value_type:
+    type: string
+    required: true
+    description: >
+      One of: 'per_trigger_yield', 'I_AA', 'dN/dxE',
+      '‹jT²›', '‹sin²(φjj)›', 'jet_peak_shape',
+      'fragmentation_pT', 'dihadron_dphi'
+    example: "per_trigger_yield"
+  correlation_type:
+    type: string
+    required: true
+    allowed:
+      - direct_photon_hadron
+      - jet_hadron
+      - dihadron_jet_properties
+      - jet_peak_shape
+    description: "Sub-type of the jet correlation measurement."
+    example: "jet_hadron"
+
+optional_fields:
+  trigger_type:
+    type: string
+    required: false
+    description: "Trigger object type (e.g. 'direct_photon', 'jet', 'high_pT_hadron')."
+    example: "jet"
+  trigger_pT:
+    type: object
+    required: false
+    description: "Trigger pT range [GeV/c]."
+    fields:
+      min: {type: float, required: true, example: 20.0}
+      max: {type: float, required: true, example: 40.0}
+  associated_pT:
+    type: object
+    required: false
+    description: "Associated particle pT range [GeV/c]."
+    fields:
+      min: {type: float, required: true, example: 1.0}
+      max: {type: float, required: true, example: 2.0}
+  jet_algorithm:
+    type: string
+    required: false
+    description: "Jet clustering algorithm if jets are used."
+    example: "anti-kt"
+  jet_R:
+    type: float
+    required: false
+    description: "Jet resolution parameter."
+    example: 0.4
+  event_plane_dependent:
+    type: boolean
+    required: false
+    description: "Whether correlations are measured relative to event plane."
+    example: false

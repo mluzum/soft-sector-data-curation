@@ -1,0 +1,54 @@
+dependent_variables:
+- header: {name: (1/Nev)*D2(N)/DPT/DYRAP, units: GEV**-1}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 50 - 80}
+  - {name: REACTION, value: PB PB --> LAMBDA(1520) X + PB PB --> LAMBDA_BAR(1520)
+      X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 2760}
+  - {name: YRAP, value: -0.5 - 0.5}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0222}
+    - {label: 'syst,total', symerror: 0.0168}
+    - {label: 'syst,uncorrelated', symerror: 0.0104}
+    value: 0.1074
+  - errors:
+    - {label: stat, symerror: 0.01407}
+    - {label: 'syst,total', symerror: 0.01346}
+    - {label: 'syst,uncorrelated', symerror: 0.00837}
+    value: 0.08923
+  - errors:
+    - {label: stat, symerror: 0.00994}
+    - {label: 'syst,total', symerror: 0.01257}
+    - {label: 'syst,uncorrelated', symerror: 0.0076}
+    value: 0.081
+  - errors:
+    - {label: stat, symerror: 0.0065}
+    - {label: 'syst,total', symerror: 0.00846}
+    - {label: 'syst,uncorrelated', symerror: 0.00497}
+    value: 0.05293
+  - errors:
+    - {label: stat, symerror: 0.00409}
+    - {label: 'syst,total', symerror: 0.00555}
+    - {label: 'syst,uncorrelated', symerror: 0.00323}
+    value: 0.03439
+  - errors:
+    - {label: stat, symerror: 0.001453}
+    - {label: 'syst,total', symerror: 0.001701}
+    - {label: 'syst,uncorrelated', symerror: 0.000963}
+    value: 0.01026
+  - errors:
+    - {label: stat, symerror: 0.000351}
+    - {label: 'syst,total', symerror: 0.000194}
+    - {label: 'syst,uncorrelated', symerror: 0.00011}
+    value: 0.001176
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {high: 1.0, low: 0.5}
+  - {high: 1.5, low: 1.0}
+  - {high: 2.0, low: 1.5}
+  - {high: 2.5, low: 2.0}
+  - {high: 3.0, low: 2.5}
+  - {high: 4.0, low: 3.0}
+  - {high: 6.0, low: 4.0}

@@ -1,0 +1,37 @@
+dependent_variables:
+- header: {name: '$(1/N_{\rm{ev}})(\rm{d}N/\rm{d}cos\theta^{*}$)'}
+  qualifiers:
+  - {name: '$p_{\rm T}$ range', units: GeV/$c$, value: 0.5-0.8}
+  - {name: RE, value: pp $\rightarrow$ $\phi$ X}
+  - {name: SQRT(S), units: GeV, value: '13000.0'}
+  - {name: Plane, value: Production Plane}
+  - {name: YRAP, value: -0.5-0.5}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.000640824}
+    - {label: syst., symerror: 0.00153103}
+    value: 0.0109359
+  - errors:
+    - {label: stat., symerror: 0.000577312}
+    - {label: syst., symerror: 0.00149553}
+    value: 0.0106823
+  - errors:
+    - {label: stat., symerror: 0.00052818}
+    - {label: syst., symerror: 0.00150345}
+    value: 0.0107389
+  - errors:
+    - {label: stat., symerror: 0.000387576}
+    - {label: syst., symerror: 0.00129412}
+    value: 0.0092437
+  - errors:
+    - {label: stat., symerror: 0.000324253}
+    - {label: syst., symerror: 0.00145455}
+    value: 0.0103896
+independent_variables:
+- header: {name: 'cos\theta^{*}'}
+  values:
+  - {high: 0.2, low: 0.0}
+  - {high: 0.4, low: 0.2}
+  - {high: 0.6, low: 0.4}
+  - {high: 0.8, low: 0.6}
+  - {high: 1.0, low: 0.8}

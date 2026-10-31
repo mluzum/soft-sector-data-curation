@@ -1,0 +1,38 @@
+dependent_variables:
+- header: {name: '$(\Xi^{-} + \Xi^{+}) / 2{\rm K}_{\rm S}^{0}$'}
+  qualifiers:
+  - {name: RE, value: 'P PB --> JET KS X, P PB --> JET XI X'}
+  - {name: SQRT(S), units: GeV, value: '5020'}
+  - {name: CENTRALITY, value: $0$-$10\%$}
+  - {name: YRAP, value: '$-0.75 < \eta_{\rm particle} < 0.75$, $-0.35 < \eta_{\rm
+      jet} < 0.35$'}
+  - {name: SELECTION, value: Perp. cone}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.00233}
+    - {label: sys, symerror: 0.0024}
+    value: 0.0396
+  - errors:
+    - {label: stat, symerror: 0.00436}
+    - {label: sys, symerror: 0.00393}
+    value: 0.0827
+  - errors:
+    - {label: stat, symerror: 0.00702}
+    - {label: sys, symerror: 0.00473}
+    value: 0.127
+  - errors:
+    - {label: stat, symerror: 0.0101}
+    - {label: sys, symerror: 0.00485}
+    value: 0.154
+  - errors:
+    - {label: stat, symerror: 0.0145}
+    - {label: sys, symerror: 0.00661}
+    value: 0.143
+independent_variables:
+- header: {name: '$p_{\rm T}$', units: GeV/$c$}
+  values:
+  - {high: 1.6, low: 0.6}
+  - {high: 2.2, low: 1.6}
+  - {high: 2.8, low: 2.2}
+  - {high: 3.7, low: 2.8}
+  - {high: 5.0, low: 3.7}

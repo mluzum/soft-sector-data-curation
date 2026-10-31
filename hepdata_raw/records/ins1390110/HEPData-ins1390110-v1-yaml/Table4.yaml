@@ -1,0 +1,46 @@
+dependent_variables:
+- header: {name: '$R_{p+A}^{\rm{FONLL}}$'}
+  qualifiers:
+  - {name: ABS(YRAP), value: < 2.4}
+  - {name: LUMINOSITY, value: '34.6 nb$^{-1}$'}
+  - {name: RE, value: P PB --> B+ X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.08}
+    - {label: 'sys,data', symerror: 0.17}
+    - asymerror: {minus: -0.29, plus: 0.33}
+      label: sys,FONLL
+    value: 1.11
+  - errors:
+    - {label: stat, symerror: 0.1}
+    - {label: 'sys,data', symerror: 0.17}
+    - asymerror: {minus: -0.28, plus: 0.31}
+      label: sys,FONLL
+    value: 1.19
+  - errors:
+    - {label: stat, symerror: 0.12}
+    - {label: 'sys,data', symerror: 0.13}
+    - asymerror: {minus: -0.19, plus: 0.21}
+      label: sys,FONLL
+    value: 0.91
+  - errors:
+    - {label: stat, symerror: 0.18}
+    - {label: 'sys,data', symerror: 0.12}
+    - asymerror: {minus: -0.16, plus: 0.18}
+      label: sys,FONLL
+    value: 0.86
+  - errors:
+    - {label: stat, symerror: 0.19}
+    - {label: 'sys,data', symerror: 0.17}
+    - asymerror: {minus: -0.18, plus: 0.21}
+      label: sys,FONLL
+    value: 1.14
+independent_variables:
+- header: {name: PT, units: GEV/C}
+  values:
+  - {high: 15.0, low: 10.0}
+  - {high: 20.0, low: 15.0}
+  - {high: 25.0, low: 20.0}
+  - {high: 30.0, low: 25.0}
+  - {high: 60.0, low: 30.0}

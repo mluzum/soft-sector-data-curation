@@ -1,0 +1,33 @@
+dependent_variables:
+- header: {name: 'd$^{2}\sigma$/(d$p_\mathrm{T}$d$y$)', units: '$\mu$b GeV$^{-1}$
+      $c$'}
+  qualifiers:
+  - {name: RAPIDITY, value: -0.96 < Y < 0.04}
+  values:
+  - errors:
+    - {label: Stat., symerror: 790.0}
+    - asymerror: {minus: -610.0, plus: 600.0}
+      label: Sys.
+    value: 3470.0
+  - errors:
+    - {label: Stat., symerror: 89.0}
+    - asymerror: {minus: -110.0, plus: 90.0}
+      label: Sys.
+    value: 641.0
+  - errors:
+    - {label: Stat., symerror: 21.0}
+    - asymerror: {minus: -24.0, plus: 19.0}
+      label: Sys.
+    value: 133.0
+  - errors:
+    - {label: Stat., symerror: 3.8}
+    - asymerror: {minus: -3.3, plus: 2.7}
+      label: Sys.
+    value: 27.9
+independent_variables:
+- header: {name: '$p_\mathrm{T}$', units: GeV/$c$}
+  values:
+  - {high: 4.0, low: 2.0}
+  - {high: 6.0, low: 4.0}
+  - {high: 8.0, low: 6.0}
+  - {high: 12.0, low: 8.0}

@@ -1,0 +1,33 @@
+dependent_variables:
+- header: {name: '$\sqrt{\delta_2}$', units: PCT}
+  qualifiers:
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  - {name: v2, value: ''}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0}
+    - asymerror: {minus: -0.5, plus: 0.2}
+      label: sys
+    value: 0.7
+  - errors:
+    - {label: stat, symerror: 0.0}
+    - asymerror: {minus: -0.4, plus: 0.5}
+      label: sys
+    value: 1.1
+  - errors:
+    - {label: stat, symerror: 0.0}
+    - asymerror: {minus: -0.4, plus: 0.3}
+      label: sys
+    value: 1.8
+  - errors:
+    - {label: stat, symerror: 0.0}
+    - asymerror: {minus: -0.4, plus: 0.6}
+      label: sys
+    value: 2.4
+independent_variables:
+- header: {name: CENTRALITY, units: PCT}
+  values:
+  - {high: 20.0, low: 0.0}
+  - {high: 30.0, low: 20.0}
+  - {high: 40.0, low: 30.0}
+  - {high: 50.0, low: 40.0}

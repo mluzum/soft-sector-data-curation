@@ -1,0 +1,29 @@
+dependent_variables:
+- header: {name: 'I_{AA}'}
+  qualifiers:
+  - {name: Process, value: $\pi^0$+jet}
+  - {name: Jet radius, value: R = 0.2}
+  - {name: Jet pT, value: "10\u201315 GeV/c"}
+  - {name: Observable, value: '$I_{AA}(\Delta \phi)$'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.133175}
+    - asymerror: {minus: 0.124113, plus: 0.133175}
+      label: sys
+    value: 0.436861
+  - errors:
+    - {label: stat, symerror: 0.09456}
+    - asymerror: {minus: 0.0947786, plus: 0.09456}
+      label: sys
+    value: 0.49292
+  - errors:
+    - {label: stat, symerror: 0.096343}
+    - asymerror: {minus: 0.096343, plus: 0.096343}
+      label: sys
+    value: 0.462821
+independent_variables:
+- header: {name: $\Delta \phi$, units: rad}
+  values:
+  - {value: 2.60052}
+  - {value: 2.91918}
+  - {value: 3.08451}

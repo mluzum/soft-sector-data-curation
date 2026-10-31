@@ -1,0 +1,58 @@
+dependent_variables:
+- header: {name: DN/DLIGHT-JET-MASS, units: C2/GEV}
+  qualifiers:
+  - {name: ABS(ETAJET), value: 0.0-0.5}
+  - {name: MINTRPT, units: GeV/c, value: '0.15'}
+  - {name: ALGO-JET, value: anti-kt}
+  - {name: R, value: '0.4'}
+  - {name: PTCHARGED-JET, units: GeV/c, value: 60.0-80.0}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.000955081}
+    - {label: sys, symerror: 0.00119194}
+    value: 0.00246042
+  - errors:
+    - {label: stat, symerror: 0.00407592}
+    - {label: sys, symerror: 0.00817203}
+    value: 0.0270482
+  - errors:
+    - {label: stat, symerror: 0.00650608}
+    - {label: sys, symerror: 0.0129042}
+    value: 0.0804577
+  - errors:
+    - {label: stat, symerror: 0.00731884}
+    - {label: sys, symerror: 0.0132766}
+    value: 0.119924
+  - errors:
+    - {label: stat, symerror: 0.00624818}
+    - {label: sys, symerror: 0.00907568}
+    value: 0.113764
+  - errors:
+    - {label: stat, symerror: 0.0050601}
+    - {label: sys, symerror: 0.00695301}
+    value: 0.0825157
+  - errors:
+    - {label: stat, symerror: 0.00326625}
+    - {label: sys, symerror: 0.00411564}
+    value: 0.0453217
+  - errors:
+    - {label: stat, symerror: 0.00145041}
+    - {label: sys, symerror: 0.00174255}
+    value: 0.0195514
+  - errors:
+    - {label: stat, symerror: 0.00047423}
+    - {label: sys, symerror: 0.000814475}
+    value: 0.0067854
+independent_variables:
+- header: {name: LIGHT-JET-MASS, units: GEV/C2}
+  values:
+  - {value: 1}
+  - {value: 3}
+  - {value: 5}
+  - {value: 7}
+  - {value: 9}
+  - {value: 11}
+  - {value: 13}
+  - {value: 15}
+  - {value: 17}
+name: JetMassALICE_MasspPb_Pt60_80.yaml

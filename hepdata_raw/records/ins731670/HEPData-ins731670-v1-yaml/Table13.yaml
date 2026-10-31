@@ -1,0 +1,57 @@
+dependent_variables:
+- header: {name: R(NAME=AA_FORWARD)/R(NAME=AA_MID)}
+  qualifiers:
+  - {name: RE, value: AU AU --> J/PSI X}
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  - {name: YRAP, value: -2.2-2.2}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.21}
+    - asymerror: {minus: -0.08, plus: 0.11}
+      label: sys
+    value: 0.52
+  - errors:
+    - {label: stat, symerror: 0.12}
+    - {label: sys, symerror: 0.09}
+    value: 0.61
+  - errors:
+    - {label: stat, symerror: 0.09}
+    - asymerror: {minus: -0.08, plus: 0.06}
+      label: sys
+    value: 0.52
+  - errors:
+    - {label: stat, symerror: 0.12}
+    - asymerror: {minus: -0.09, plus: 0.07}
+      label: sys
+    value: 0.65
+  - errors:
+    - {label: stat, symerror: 0.11}
+    - asymerror: {minus: -0.11, plus: 0.1}
+      label: sys
+    value: 0.92
+  - errors:
+    - {label: stat, symerror: 0.18}
+    - asymerror: {minus: -0.13, plus: 0.11}
+      label: sys
+    value: 1.02
+- header: {name: R(NAME=AA_FORWARD)/R(NAME=AA_MID)}
+  qualifiers:
+  - {name: RE, value: AU AU --> J/PSI X}
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  - {name: YRAP, value: -2.2-2.2}
+  values:
+  - {value: 0.0}
+  - {value: 0.0}
+  - {value: 0.0}
+  - {value: 0.0}
+  - {value: 0.0}
+  - {value: 0.0}
+independent_variables:
+- header: {name: CENTRALITY, units: PCT}
+  values:
+  - {value: 5  BIN =  0 TO 10)}
+  - {high: 20.0, low: 10.0}
+  - {high: 30.0, low: 20.0}
+  - {high: 40.0, low: 30.0}
+  - {high: 60.0, low: 40.0}
+  - {high: 92.0, low: 60.0}

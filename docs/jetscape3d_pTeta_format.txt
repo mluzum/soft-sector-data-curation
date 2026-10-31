@@ -1,0 +1,89 @@
+Format of particle_9999_pTeta_distribution.dat
+================================================
+
+Source: hadronic_afterburner_toolkit (external C++ package)
+  - Written by: outputRapidityPTDistribution()
+  - File: hadronic_afterburner_toolkit_code/src/single_particleSpectra.cpp
+          line 2521
+
+This file is a 2D histogram of particle production as a function of
+rapidity (pseudorapidity) and transverse momentum. It is stored as a
+flat whitespace-delimited text file.
+
+Grid structure
+--------------
+  - 71 rapidity bins x 20 pT bins = 1420 rows total
+  - rapidity range: [-7, 7]   (uniform spacing, 71 values)
+  - pT range: [0.1, 3.9] GeV  (uniform spacing, 20 values)
+  - File name uses "eta" for pseudorapidity, "y" for rapidity in the
+    header line, but the actual variable depends on the rap_type
+    parameter. For charged hadrons (pid 9999), pseudorapidity is used.
+
+Header lines (2 comment lines, not part of data)
+-------------------------------------------------
+  Line 1: # y  pT  N  E_T  Qn_real  Qn_imag (n = 1 - <order_max-1>)
+  Line 2: # Nev = <n_events> d<rap> = <drap> dpT = <dpT> GeV
+
+Column layout (0-indexed, whitespace-delimited)
+-----------------------------------------------
+  Col 0  Rapidity (y) or pseudorapidity (eta) of the bin mid-point
+  Col 1  pT value at (rapidity, pT) bin mid-point
+  Col 2  dN/dy  (differential particle yield, dN/dy/dpT divided by drap)
+  Col 3  dET  (transverse energy density in the bin, divided by total events)
+  Col 4  Q1_real (cosine component, n=1)
+  Col 5  Q1_imag (sine component, n=1)
+  Col 6  Q2_real
+  Col 7  Q2_imag
+  Col 8  Q3_real
+  Col 9  Q3_imag
+  ...    ... (pairs continue through n=9)
+  Col 20 Q9_real
+  Col 21 Q9_imag
+
+In general for harmonic n (1 <= n <= order_max-1):
+  Col 2*n + 2     = Qn_real (cosine component)
+  Col 2*n + 3     = Qn_imag (sine component)
+
+Where Qn = <cos(n*phi)> + i<sin(n*phi)> (unnormalized flow harmonics)
+
+Accessing a specific (rapidity, pT) bin
+---------------------------------------
+Each column is reshaped to (71, 20) in the analysis code:
+
+  dN_event = data[:, 2].reshape(71, 20)  # yield
+  Q2_real  = data[:, 6].reshape(71, 20)  # v2 cosine
+  Qn_real  = data[:, 2*n + 2].reshape(71, 20)
+  Qn_imag  = data[:, 2*n + 3].reshape(71, 20)
+
+Row index within reshaped array = rapidity bin index (0..70)
+Column index within reshaped array = pT bin index (0..19)
+
+Notes
+-----
+- The analysis code in fetch_Qnch_from_hdf5.py does NOT use columns 0 or 3;
+  it reconstructs the grid a priori from the known ranges.
+- Column 0 (rapidity) and column 3 (ET) are not referenced by analysis
+  functions in this repo.
+- For pid 9999 (all charged hadrons), rap_type is forced to use
+  pseudorapidity (single_particleSpectra.cpp line 81-82).
+
+File naming variant
+-------------------
+The file may appear with or without a _weakFD suffix:
+  - particle_9999_pTeta_distribution.dat
+  - particle_9999_pTeta_distribution_weakFD.dat
+
+The suffix is controlled by the bWeakFeedDown_ variable in the toolkit,
+which adds weak decay feed-down corrections when enabled.
+
+References
+----------
+Toolkit source:
+  hadronic_afterburner_toolkit_code/src/single_particleSpectra.cpp
+    outputRapidityPTDistribution()   line 2521
+    (rap_type = 0 forces pseudorapidity for pid 9999)  line 81
+
+Analysis code:
+  analysisKit/fetch_Qnch_from_hdf5.py
+    calcualte_inte_Vn_pTeta()         line 190
+    calcualte_inte_Vneta_pTeta()      line 244

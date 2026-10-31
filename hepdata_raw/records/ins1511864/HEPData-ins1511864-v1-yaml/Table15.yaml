@@ -1,0 +1,67 @@
+dependent_variables:
+- header: {name: '$\frac{1}{N_{EV}}\frac{d^{2}N}{2\pi p_{T} dy dp_{T}} (GeV/c)^{-2}$'}
+  qualifiers:
+  - {name: CENTRALITY, units: $\%$, value: (60 - 80)}
+  - {name: RE, value: PB PB $\rightarrow$ $\phi$ + X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '2760.0'}
+  - {name: YRAP(CM), value: -0.5 TO 0.5}
+  - {name: SYST NORMALIZATION, units: $\%$, value: 5.85}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.003474}
+    - {label: sys (total), symerror: 0.011814}
+    value: 0.082752
+  - errors:
+    - {label: stat, symerror: 0.0019697}
+    - {label: sys (total), symerror: 0.0070238}
+    value: 0.057677
+  - errors:
+    - {label: stat, symerror: 0.00085872}
+    - {label: sys (total), symerror: 0.004153}
+    value: 0.030576
+  - errors:
+    - {label: stat, symerror: 0.00063835}
+    - {label: sys (total), symerror: 0.0020026}
+    value: 0.012551
+  - errors:
+    - {label: stat, symerror: 0.00027494}
+    - {label: sys (total), symerror: 0.00062298}
+    value: 0.0045104
+  - errors:
+    - {label: stat, symerror: 0.00010825}
+    - {label: sys (total), symerror: 0.00025884}
+    value: 0.0017438
+  - errors:
+    - {label: stat, symerror: 9.225e-05}
+    - {label: sys (total), symerror: 8.9044e-05}
+    value: 0.00061593
+  - errors:
+    - {label: stat, symerror: 5.5371e-05}
+    - {label: sys (total), symerror: 3.9346e-05}
+    value: 0.00027216
+  - errors:
+    - {label: stat, symerror: 2.6369e-05}
+    - {label: sys (total), symerror: 1.6588e-05}
+    value: 0.00011474
+  - errors:
+    - {label: stat, symerror: 1.5744e-05}
+    - {label: sys (total), symerror: 1.0834e-05}
+    value: 7.4942e-05
+  - errors:
+    - {label: stat, symerror: 5.8564e-06}
+    - {label: sys (total), symerror: 4.0216e-06}
+    value: 2.7818e-05
+independent_variables:
+- header: {name: '$p_{T}$', units: GeV/$c$}
+  values:
+  - {high: 0.8, low: 0.5, value: 0.65}
+  - {high: 1, low: 0.8, value: 0.9}
+  - {high: 1.5, low: 1, value: 1.25}
+  - {high: 2, low: 1.5, value: 1.75}
+  - {high: 2.5, low: 2, value: 2.25}
+  - {high: 3, low: 2.5, value: 2.75}
+  - {high: 3.5, low: 3, value: 3.25}
+  - {high: 4, low: 3.5, value: 3.75}
+  - {high: 4.5, low: 4, value: 4.25}
+  - {high: 5, low: 4.5, value: 4.75}
+  - {high: 6, low: 5, value: 5.5}

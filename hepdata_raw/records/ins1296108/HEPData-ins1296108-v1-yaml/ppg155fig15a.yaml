@@ -1,0 +1,68 @@
+dependent_variables:
+- header: {name: '$N_{coll}$'}
+  qualifiers:
+  - {name: '$p_T$ range [GeV]', value: ''}
+  values:
+  - errors:
+    - {symerror: 78.89}
+    value: 689.9
+  - errors:
+    - {symerror: 27.46}
+    value: 270.5
+  - errors:
+    - {symerror: 9.064}
+    value: 85.71
+- header: {name: '$(\frac{1}{N_{coll}})\frac{Ed^{3}N}{d^{3}p}$ [GeV$^{-2}c^{3}$]'}
+  qualifiers:
+  - {name: '$p_T$ range [GeV]', value: '1.5 < $p_{T}$ < 2.5'}
+  values:
+  - errors:
+    - {label: stat., symerror: 3.2e-09}
+    - {label: syst., symerror: 1.9e-08}
+    value: 1.06e-07
+  - errors:
+    - {label: stat., symerror: 4.4e-09}
+    - {label: syst., symerror: 1.9e-08}
+    value: 1.33e-07
+  - errors:
+    - {label: stat., symerror: 5.5e-09}
+    - {label: syst., symerror: 2.05e-08}
+    value: 6.32e-08
+- header: {name: '$(\frac{1}{N_{coll}})\frac{Ed^{3}N}{d^{3}p}$ [GeV$^{-2}c^{3}$]'}
+  qualifiers:
+  - {name: '$p_T$ range [GeV]', value: '2.5 < $p_{T}$ < 3.5'}
+  values:
+  - errors:
+    - {label: stat., symerror: 4.01e-10}
+    - {label: syst., symerror: 5.0e-10}
+    value: 4.69e-09
+  - errors:
+    - {label: stat., symerror: 5.6e-10}
+    - {label: syst., symerror: 5.0e-10}
+    value: 4.89e-09
+  - errors:
+    - {label: stat., symerror: 7.8e-10}
+    - {label: syst., symerror: 5.7e-10}
+    value: 4.17e-09
+- header: {name: '$(\frac{1}{N_{coll}})\frac{Ed^{3}N}{d^{3}p}$ [GeV$^{-2}c^{3}$]'}
+  qualifiers:
+  - {name: '$p_T$ range [GeV]', value: '3.5 < $p_{T}$ < 5.0'}
+  values:
+  - errors:
+    - {label: stat., symerror: 9.4e-11}
+    - {label: syst., symerror: 3.3e-11}
+    value: 3.77e-10
+  - errors:
+    - {label: stat., symerror: 1.37e-10}
+    - {label: syst., symerror: 3.3e-11}
+    value: 5.39e-10
+  - errors:
+    - {label: stat., symerror: 1.99e-10}
+    - {label: syst., symerror: 5.3e-11}
+    value: 6.01e-10
+independent_variables:
+- header: {name: Centrality (%)}
+  values:
+  - {high: 20, low: 0}
+  - {high: 40, low: 20}
+  - {high: 60, low: 40}

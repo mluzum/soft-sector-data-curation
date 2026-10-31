@@ -1,0 +1,35 @@
+dependent_variables:
+- header: {name: D(SIG)/DT, units: MUB/GEV**2}
+  qualifiers:
+  - {name: P, units: GeV, value: '10.1'}
+  - {name: RE, value: K- P --> PI- SIGMA(1385P13)+}
+  - {name: SQRT(S), units: GeV, value: '4.483'}
+  - {name: SYS, value: 'RES-DEF(RES=SIG(1385P13)+,BACK=CORRECTED)'}
+  values:
+  - errors:
+    - {symerror: 9.1}
+    value: 20.3
+  - errors:
+    - {symerror: 6.7}
+    value: 43.5
+  - errors:
+    - {symerror: 8.2}
+    value: 58.4
+  - errors:
+    - {symerror: 10.5}
+    value: 73.3
+  - errors:
+    - {symerror: 11.0}
+    value: 57.1
+  - errors:
+    - {symerror: 8.1}
+    value: 52.8
+independent_variables:
+- header: {name: -TP, units: GEV**2}
+  values:
+  - {high: 0.02, low: 0.0}
+  - {high: 0.06, low: 0.02}
+  - {high: 0.1, low: 0.06}
+  - {high: 0.15, low: 0.1}
+  - {high: 0.2, low: 0.15}
+  - {high: 0.3, low: 0.2}

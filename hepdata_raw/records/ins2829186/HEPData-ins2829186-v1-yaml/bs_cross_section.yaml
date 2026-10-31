@@ -1,0 +1,40 @@
+dependent_variables:
+- header: {name: $d\sigma/dp_T$, units: pb/GeV}
+  qualifiers:
+  - {name: RE, value: Bs0 --> J/Psi(mu+mu-) phi(K+K-)}
+  - {name: SQRT(S), units: GeV, value: 5020}
+  - {name: '|y|', value: 1.5<|y|<2.4}
+  values:
+  - errors:
+    - {label: Stat, symerror: 16000.0}
+    - {label: Syst, symerror: 11000.0}
+    value: 147000.0
+  - {value: --}
+  - {value: --}
+  - {value: --}
+- header: {name: $d\sigma/dp_T$, units: pb/GeV}
+  qualifiers:
+  - {name: RE, value: Bs0 --> J/Psi(mu+mu-) phi(K+K-)}
+  - {name: SQRT(S), units: GeV, value: 5020}
+  - {name: '|y|', units: '|y|<2.4', value: ''}
+  values:
+  - {value: --}
+  - errors:
+    - {label: Stat, symerror: 8100.0}
+    - {label: Syst, symerror: 10600.0}
+    value: 176200.0
+  - errors:
+    - {label: Stat, symerror: 2200.0}
+    - {label: Syst, symerror: 2700.0}
+    value: 41000.0
+  - errors:
+    - {label: Stat, symerror: 240.0}
+    - {label: Syst, symerror: 230.0}
+    value: 3900.0
+independent_variables:
+- header: {name: $p_T$, units: GeV}
+  values:
+  - {high: 10.0, low: 7.0}
+  - {high: 15.0, low: 10.0}
+  - {high: 20.0, low: 15.0}
+  - {high: 50.0, low: 20.0}

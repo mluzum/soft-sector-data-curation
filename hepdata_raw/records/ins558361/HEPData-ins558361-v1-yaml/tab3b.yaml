@@ -1,0 +1,19 @@
+dependent_variables:
+- header: {name: PI-/PI+}
+  qualifiers:
+  - {name: PARTICLE, value: PI- PI+}
+  - {name: CENTRALITY, units: PCT, value: 0 TO 40}
+  values:
+  - errors: []
+    value: 0.99
+  - errors: []
+    value: 1.0
+  - errors:
+    - {label: stat, symerror: 0.1}
+    value: 1.1
+independent_variables:
+- header: {name: YRAP}
+  values:
+  - {high: 0.2355, low: -0.2355}
+  - {high: 1.2034, low: 0.6981}
+  - {high: 2.801, low: 2.801}

@@ -1,0 +1,66 @@
+dependent_variables:
+- header: {name: (10**7/Nev)*(1/PT)*DN/DPT, units: GEV**-2}
+  qualifiers:
+  - {name: ABS(YRAP), value: < 2.5}
+  - {name: CENTRALITY, units: pct, value: 10.0-20.0}
+  - {name: RE, value: PB PB --> Z0 < LEPTON+ LEPTON- > X}
+  - {name: SQRT(S), units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.322472}
+    - {label: sys, symerror: 0.176279}
+    value: 1.85307
+  - errors:
+    - {label: stat, symerror: 0.152708}
+    - {label: sys, symerror: 0.0359951}
+    value: 0.986117
+  - errors:
+    - {label: stat, symerror: 0.0753544}
+    - {label: sys, symerror: 0.0233318}
+    value: 0.587283
+  - errors:
+    - {label: stat, symerror: 0.0541077}
+    - {label: sys, symerror: 0.0176922}
+    value: 0.434862
+  - errors:
+    - {label: stat, symerror: 0.0336272}
+    - {label: sys, symerror: 0.00847842}
+    value: 0.211614
+  - errors:
+    - {label: stat, symerror: 0.0270499}
+    - {label: sys, symerror: 0.00640352}
+    value: 0.156304
+  - errors:
+    - {label: stat, symerror: 0.0174827}
+    - {label: sys, symerror: 0.00477336}
+    value: 0.119301
+  - errors:
+    - {label: stat, symerror: 0.00773118}
+    - {label: sys, symerror: 0.00198316}
+    value: 0.0549193
+  - errors:
+    - {label: stat, symerror: 0.00278557}
+    - {label: sys, symerror: 0.000543589}
+    value: 0.0143012
+  - errors:
+    - {label: stat, symerror: 0.000701458}
+    - {label: sys, symerror: 0.000153373}
+    value: 0.00411194
+  - errors:
+    - {label: stat, symerror: 0.000104899}
+    - {label: sys, symerror: 1.6521e-05}
+    value: 0.000473474
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {high: 2.0, low: 0.0}
+  - {high: 4.0, low: 2.0}
+  - {high: 6.0, low: 4.0}
+  - {high: 8.0, low: 6.0}
+  - {high: 10.0, low: 8.0}
+  - {high: 12.0, low: 10.0}
+  - {high: 15.0, low: 12.0}
+  - {high: 20.0, low: 15.0}
+  - {high: 30.0, low: 20.0}
+  - {high: 50.0, low: 30.0}
+  - {high: 100.0, low: 50.0}

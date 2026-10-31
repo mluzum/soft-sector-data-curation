@@ -1,0 +1,144 @@
+---
+observable_type: strangeness
+inspire_id: '2861858'
+version: 1
+hepdata_file: figure_3.yaml
+hepdata_table_label: Probability for different neutron multiplicity classes (0n, 1n, and Xn with X $\ge$1) measured on each
+  ZDC side for the exclusive $e^{+}e^{-}$ events passing the fiducial phase space of Table 1. The measured ratios are compared
+  with SUPERCHIC 4.2, STARLIGHT 3.13, and gamma-UPC 1.6 predictions.
+qualifiers:
+  a_{\phi}^{ee}: $\lt 1$
+  m^{ee}: $\gt 5$
+  p_t^e: $\gt 2$
+  p_t^{ee}: $\lt 1$
+  re: $Pb~Pb~\rightarrow~Pb~Pb~e^+~e^-$
+  sqrt(s)/nucleon: '5020'
+  '|\eta^e|': $\lt 2.2$
+collision_system:
+  energy_gev: 5020.0
+  reaction: Pb~Pb~\rightarrow~Pb~Pb~e^+~e^-
+centrality:
+  classes:
+  - MB
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: charged_spectra
+value_type: invariant_yield
+---
+observable_type: strangeness
+inspire_id: '2861858'
+version: 1
+hepdata_file: figure_8_(right).yaml
+hepdata_table_label: Observed and expected 95% CL limits on the production cross section $\sigma(\gamma\gamma \rightarrow
+  a \rightarrow \gamma\gamma)$ as a function of the ALP mass $m_{a}$. The uncertainties indicate regions containing 68 and
+  95% of the distribution of limits expected under the background-only hypothesis. The additional datasets indicate the expected
+  ALP cross sections as a function of $m_{a}$ for decreasing photon couplings ($g_{a\gamma} = 0.3, 0.1, 0.05 TeV^{-1}$).
+qualifiers:
+  a_{\phi}^{\gamma\gamma}: $\lt 1$
+  m^{\gamma\gamma}: $\gt 5$
+  p_t^\gamma: $\gt 2$
+  p_t^{\gamma\gamma}: $\lt 1$
+  re: $Pb~Pb~\rightarrow~Pb~Pb~\gamma~\gamma$
+  sqrt(s)/nucleon: '5020'
+  '|\eta^\gamma|': $\lt 2.2$
+collision_system:
+  energy_gev: 5020.0
+  reaction: Pb~Pb~\rightarrow~Pb~Pb~\gamma~\gamma
+centrality:
+  classes:
+  - MB
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: Sigma
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: Sigma_spectra
+value_type: invariant_yield
+---
+observable_type: strangeness
+inspire_id: '2861858'
+version: 1
+hepdata_file: figure_9.yaml
+hepdata_table_label: Exclusion limits at 95% CL in the axion-photon coupling $g_{a\gamma}$ versus axion mass $m_a$ plane,
+  for the operator $\frac{1}{4\Lambda}aF\widetilde{F}$ (assuming ALPs coupled only to photons) extracted in this analysis.
+qualifiers:
+  a_{\phi}^{\gamma\gamma}: $\lt 1$
+  m^{\gamma\gamma}: $\gt 5$
+  p_t^\gamma: $\gt 2$
+  p_t^{\gamma\gamma}: $\lt 1$
+  re: $Pb~Pb~\rightarrow~Pb~Pb~\gamma~\gamma$
+  sqrt(s)/nucleon: '5020'
+  '|\eta^\gamma|': $\lt 2.2$
+collision_system:
+  energy_gev: 5020.0
+  reaction: Pb~Pb~\rightarrow~Pb~Pb~\gamma~\gamma
+centrality:
+  classes:
+  - 5-5.5%
+  - 5.5-7.5%
+  - 7.5-10%
+  - 10-12.5%
+  - 12.5-15%
+  - 15-19%
+  - 19-26%
+  - 26-60%
+  - 60-95%
+  - 95-100%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: Lambda
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: Lambda_spectra
+value_type: invariant_yield

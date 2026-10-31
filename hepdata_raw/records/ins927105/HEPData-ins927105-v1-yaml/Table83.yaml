@@ -1,0 +1,26 @@
+dependent_variables:
+- header: {name: 'v_1{GF}'}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 0.0-20.0}
+  - {name: PT(C=FIT RANGE), units: GeV, value: 5.0-15.0}
+  - {name: RE, value: PB PB --> CHARGED CHARGED X}
+  - {name: sqrts/NUCLEON, units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0115}
+    - {label: sys, symerror: 0.00764}
+    value: 0.129
+  - errors:
+    - {label: stat, symerror: 0.0158}
+    - {label: sys, symerror: 0.0165}
+    value: 0.255
+  - errors:
+    - {label: stat, symerror: 0.0238}
+    - {label: sys, symerror: 0.0357}
+    value: 0.473
+independent_variables:
+- header: {name: PT(C=TRIG), units: GEV}
+  values:
+  - {value: 5.41}
+  - {value: 6.76}
+  - {value: 9.88}

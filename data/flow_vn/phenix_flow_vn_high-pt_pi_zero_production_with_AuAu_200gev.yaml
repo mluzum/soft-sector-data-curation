@@ -1,0 +1,129 @@
+centrality:
+  classes:
+  - 50.0-60.0%
+  estimator:
+    detector: BBC
+    name: BBC
+    observable: amplitude
+  eta:
+  - max: -3.0
+    min: -3.9
+  - max: 3.9
+    min: 3.0
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> NEUTRAL X
+dimensionality: differential_pT
+flow_reference:
+  detector: BBC
+  eta:
+  - max: 3.9
+    min: 3.0
+  - max: -3.0
+    min: -3.9
+  notes: v2 from the second Fourier component of the pi0 azimuthal distribution "measured
+    relative to the reaction plane determined event-by-event using the forward and
+    backward beam-beam counters" -- i.e. a two-arm BBC event plane, summed. POI is
+    the EMCal |eta| < 0.35. The reaction-plane- dependent pi0 suppression (R_AA(Delta
+    phi, pT)) in the same paper is a DIFFERENT observable and is not what these records
+    hold.
+  provenance: paper
+  reference: arXiv:0903.4886 (INSPIRE 816486) abstract
+harmonic: 2
+hepdata_file: fig4.yaml
+hepdata_table_label: $\pi^0 v_2$ as function of centrality.  All errors are absolute.
+inspire_id: '816486'
+kinematic_range:
+  eta:
+    max: 0.35
+    min: -0.35
+  pT:
+    bins:
+    - 1.0
+    - 1.5
+    - 2.0
+    - 2.5
+    - 3.0
+    - 3.5
+    - 4.0
+    - 5.0
+    - 6.0
+    - 7.0
+    - 8.0
+    - 9.0
+    - 10.0
+    max: 10.0
+    min: 1.0
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  p_t: $50-60\%$ centrality
+value_type: v_2
+version: 1
+---
+centrality:
+  classes:
+  - 0.0-92.0%
+  estimator:
+    detector: BBC
+    name: BBC
+    observable: amplitude
+  eta:
+  - max: -3.0
+    min: -3.9
+  - max: 3.9
+    min: 3.0
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> NEUTRAL X
+dimensionality: differential_pT
+flow_reference:
+  detector: BBC
+  eta:
+  - max: 3.9
+    min: 3.0
+  - max: -3.0
+    min: -3.9
+  notes: v2 from the second Fourier component of the pi0 azimuthal distribution "measured
+    relative to the reaction plane determined event-by-event using the forward and
+    backward beam-beam counters" -- i.e. a two-arm BBC event plane, summed. POI is
+    the EMCal |eta| < 0.35. The reaction-plane- dependent pi0 suppression (R_AA(Delta
+    phi, pT)) in the same paper is a DIFFERENT observable and is not what these records
+    hold.
+  provenance: paper
+  reference: arXiv:0903.4886 (INSPIRE 816486) abstract
+harmonic: 2
+hepdata_file: fig5.yaml
+hepdata_table_label: $\pi^0 v_2$ as function of centrality.  All errors are absolute.
+inspire_id: '816486'
+kinematic_range:
+  eta:
+    max: 0.35
+    min: -0.35
+  pT:
+    bins:
+    - 1.0
+    - 1.5
+    - 2.0
+    - 2.5
+    - 3.0
+    - 3.5
+    - 4.0
+    - 5.0
+    - 6.0
+    - 7.0
+    - 8.0
+    - 9.0
+    - 10.0
+    max: 10.0
+    min: 1.0
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  p_t: $0-92\%$ centrality
+value_type: v_2
+version: 1

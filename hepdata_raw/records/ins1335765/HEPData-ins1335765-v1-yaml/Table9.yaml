@@ -1,0 +1,38 @@
+dependent_variables:
+- header: {name: Yield}
+  qualifiers:
+  - {name: RE, value: DEUT AU --> CHGD-HADRONS X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '200.0'}
+  - {name: '', value: FTPC event activity}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.001244}
+    - {label: sys, symerror: 0.001}
+    value: 0.04216
+  - errors:
+    - {label: stat, symerror: 0.001754}
+    - {label: sys, symerror: 0.001}
+    value: 0.049688
+  - errors:
+    - {label: stat, symerror: 0.001538}
+    - asymerror: {minus: -0.001445, plus: 0.001}
+      label: sys
+    value: 0.054646
+  - errors:
+    - {label: stat, symerror: 0.002582}
+    - asymerror: {minus: -0.001466, plus: 0.003632}
+      label: sys
+    value: 0.05567
+  - errors:
+    - {label: stat, symerror: 0.002455}
+    - asymerror: {minus: -0.001466, plus: 0.001}
+      label: sys
+    value: 0.061197
+independent_variables:
+- header: {name: dN/d$\eta$}
+  values:
+  - {value: 4.5}
+  - {value: 8.58}
+  - {value: 12.07}
+  - {value: 15.27}
+  - {value: 18.75}

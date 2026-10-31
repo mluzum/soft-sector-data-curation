@@ -1,0 +1,49 @@
+dependent_variables:
+- header: {name: SIG(Q=HAD), units: NB}
+  qualifiers:
+  - {name: RE(Q=HAD), value: E+ E- --> HADRONS}
+  - {name: RE(Q=MU), value: E+ E- --> MU+ MU-}
+  - {name: SQRT(S), units: GeV, value: 1.91-2.97}
+  values:
+  - errors:
+    - {symerror: 9.0}
+    - {label: 'sys,ABSOLUTE MONITORING UNCERTAINTY', symerror: 10.0%}
+    - {label: 'sys,DETECTION EFFICIENCY CALCULATION UNCERTAINTY', symerror: 15.0%}
+    value: 29.0
+  - errors:
+    - {symerror: 9.0}
+    - {label: 'sys,ABSOLUTE MONITORING UNCERTAINTY', symerror: 10.0%}
+    - {label: 'sys,DETECTION EFFICIENCY CALCULATION UNCERTAINTY', symerror: 15.0%}
+    value: 30.0
+  - errors:
+    - {symerror: 8.0}
+    - {label: 'sys,ABSOLUTE MONITORING UNCERTAINTY', symerror: 10.0%}
+    - {label: 'sys,DETECTION EFFICIENCY CALCULATION UNCERTAINTY', symerror: 15.0%}
+    value: 25.0
+- header: {name: SIG(Q=HAD)/SIG(Q=MU)}
+  qualifiers:
+  - {name: RE(Q=HAD), value: E+ E- --> HADRONS}
+  - {name: RE(Q=MU), value: E+ E- --> MU+ MU-}
+  - {name: SQRT(S), units: GeV, value: 1.91-2.97}
+  values:
+  - errors:
+    - {symerror: 0.4}
+    - {label: 'sys,ABSOLUTE MONITORING UNCERTAINTY', symerror: 10.0%}
+    - {label: 'sys,DETECTION EFFICIENCY CALCULATION UNCERTAINTY', symerror: 15.0%}
+    value: 1.4
+  - errors:
+    - {symerror: 0.6}
+    - {label: 'sys,ABSOLUTE MONITORING UNCERTAINTY', symerror: 10.0%}
+    - {label: 'sys,DETECTION EFFICIENCY CALCULATION UNCERTAINTY', symerror: 15.0%}
+    value: 1.9
+  - errors:
+    - {symerror: 0.8}
+    - {label: 'sys,ABSOLUTE MONITORING UNCERTAINTY', symerror: 10.0%}
+    - {label: 'sys,DETECTION EFFICIENCY CALCULATION UNCERTAINTY', symerror: 15.0%}
+    value: 2.6
+independent_variables:
+- header: {name: SQRT(S), units: GEV}
+  values:
+  - {high: 2.2, low: 1.91}
+  - {high: 2.545, low: 2.2}
+  - {high: 3.09, low: 2.97}

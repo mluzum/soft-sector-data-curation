@@ -1,0 +1,30 @@
+dependent_variables:
+- header: {name: '$B_{4}$', units: 'GeV$^{6}$/$c^{9}$'}
+  values:
+  - errors:
+    - asymerror: {minus: -1.6185e-11, plus: 2.86087e-11}
+      label: Statistical uncertainty
+    - {label: Systematic uncertainty, symerror: 4.28482e-12}
+    value: 3.72667e-11
+  - errors:
+    - asymerror: {minus: -2.49866e-11, plus: 3.44863e-11}
+      label: Statistical uncertainty
+    - {label: Systematic uncertainty, symerror: 8.45151e-12}
+    value: 8.48862e-11
+  - errors:
+    - asymerror: {minus: -5.41251e-11, plus: 7.03367e-11}
+      label: Statistical uncertainty
+    - {label: Systematic uncertainty, symerror: 2.18071e-11}
+    value: 2.27268e-10
+  - errors:
+    - asymerror: {minus: -7.39244e-11, plus: 1.05024e-10}
+      label: Statistical uncertainty
+    - {label: Systematic uncertainty, symerror: 2.38117e-11}
+    value: 2.17341e-10
+independent_variables:
+- header: {name: '$p_{\mathrm{T}}/\it{A}$', units: GeV/$c$}
+  values:
+  - {high: 0.75, low: 0.5}
+  - {high: 1.0, low: 0.75}
+  - {high: 1.25, low: 1.0}
+  - {high: 1.5, low: 1.25}

@@ -1,0 +1,32 @@
+dependent_variables:
+- header: {name: gammaSame}
+  qualifiers:
+  - {name: RE, value: Xe Xe --> CHARGED X}
+  - {name: SQRT(S), units: GEV, value: 5440}
+  - {name: ABS(ETA), value: < 0.8 (LAB)}
+  - {name: PT, value: 0.2 - 5.0 GEV}
+  - {name: Centrality, value: 20-30%}
+  values:
+  - errors:
+    - {label: stat, symerror: 1.8836e-05}
+    - {label: sys, symerror: 2.2506e-05}
+    value: -0.00024717
+  - errors:
+    - {label: stat, symerror: 2.2344e-05}
+    - {label: sys, symerror: 2.2506e-05}
+    value: -0.00014198
+  - errors:
+    - {label: stat, symerror: 2.878e-05}
+    - {label: sys, symerror: 2.2506e-05}
+    value: -8.5385e-05
+  - errors:
+    - {label: stat, symerror: 5.0281e-05}
+    - {label: sys, symerror: 2.2506e-05}
+    value: -0.00012496
+independent_variables:
+- header: {name: '|$eta_{alpha} - eta_{beta}$|'}
+  values:
+  - {high: 0.4, low: 0}
+  - {high: 0.8, low: 0.4}
+  - {high: 1.2, low: 0.8}
+  - {high: 1.6, low: 1.2}

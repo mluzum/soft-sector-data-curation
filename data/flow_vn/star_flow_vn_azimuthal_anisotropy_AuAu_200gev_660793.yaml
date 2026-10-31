@@ -1,0 +1,4444 @@
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (Lambda) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: data10.yaml
+hepdata_table_label: v2 for Lambda+Lambdabar for min. bias [PRL/92/052302/2004]. The
+  PHENIX data are from [PRL/91/182301/2003]. The hydro calculations are from [P. Huovinen/private
+  communication].
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.44000000000000006
+    - 0.62
+    - 0.81
+    - 1.0050000000000001
+    - 1.2000000000000002
+    - 1.4
+    - 1.6
+    - 1.7999999999999998
+    - 2.0
+    - 2.1950000000000003
+    - 2.4299999999999997
+    - 2.775
+    - 3.175
+    - 3.63
+    - 4.29
+    - 5.165
+    - 6.114999999999999
+    max: 6.114999999999999
+    min: 0.44000000000000006
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: Lambda
+qualifiers:
+  channel: Lambda+Lambdabar
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v2
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (pi+ + pi-) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: data11_1.yaml
+hepdata_table_label: v2 for charged pions for min. bias. kaon data points are from
+  Figure 9.
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.203
+    - 0.22499999999999998
+    - 0.2475
+    - 0.27
+    - 0.2925
+    - 0.315
+    - 0.3375
+    - 0.36
+    - 0.3825
+    - 0.405
+    - 0.4275
+    - 0.45
+    - 0.47250000000000003
+    - 0.495
+    - 0.5175000000000001
+    - 0.54
+    - 0.5625
+    - 0.585
+    - 0.6074999999999999
+    - 0.63
+    - 0.6525000000000001
+    - 0.675
+    - 0.6975
+    - 0.72
+    - 0.7424999999999999
+    - 0.765
+    - 0.7875000000000001
+    - 0.81
+    - 0.8325
+    - 0.855
+    - 0.8775
+    - 0.9005000000000001
+    max: 0.9005000000000001
+    min: 0.203
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: pi+ + pi-
+qualifiers:
+  channel: pions
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v2
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (pbar) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: data11_2.yaml
+hepdata_table_label: v2 for anti-protons for min. bias. kaon data points are from
+  Figure 9.
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.30000000000000004
+    - 0.32999999999999996
+    - 0.36
+    - 0.39
+    - 0.42000000000000004
+    - 0.45
+    - 0.48
+    - 0.51
+    - 0.54
+    - 0.5700000000000001
+    - 0.6
+    - 0.63
+    - 0.66
+    - 0.69
+    - 0.72
+    - 0.75
+    - 0.78
+    - 0.81
+    - 0.84
+    - 0.87
+    - 0.9
+    - 0.9299999999999999
+    - 0.96
+    - 0.9875
+    - 1.02
+    - 1.0550000000000002
+    - 1.085
+    - 1.11
+    - 1.1300000000000001
+    max: 1.1300000000000001
+    min: 0.30000000000000004
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  pdg_id: -2212
+  species: pbar
+qualifiers:
+  channel: anti-protons
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v2
+version: 1
+---
+centrality:
+  classes: []
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: Single pT series; centrality not specified in HEPData (value_type mentions
+    top 5%, unverified against Fig.ppdAuAu which shows several centralities).
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: data12_1.yaml
+hepdata_table_label: Azimuthal correlations (\sum_i cos(2(\phi_pT -\phi_i))) in Au+Au
+  collisions as a function of p_T along with results from p+p collisions.
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.0
+    - 0.2
+    - 0.4
+    - 0.59
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+    - 2.0
+    - 2.4
+    - 2.8
+    - 3.2
+    - 3.6
+    - 4.5
+    - 6.5
+    - 9.5
+    - 12.0
+    max: 12.0
+    min: 0.0
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: charged hadrons
+  sqrt(snn): '200'
+  system: pp
+value_type: uQ for Au+Au top 5%
+version: 1
+---
+centrality:
+  classes: []
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: d+Au minimum bias (raw System); percent centrality N/A.
+collision_system:
+  energy_gev: 200.0
+  reaction: D AU --> CHARGED X
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: data12_2.yaml
+hepdata_table_label: Azimuthal correlations (\sum_i cos(2(\phi_pT -\phi_i))) from
+  d+Au as a function of p_T for min bias collisions.
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.0
+    - 0.2
+    - 0.4
+    - 0.6
+    - 0.602
+    - 0.8
+    - 0.801
+    - 0.998
+    - 1.001
+    - 1.198
+    - 1.2
+    - 1.398
+    - 1.4
+    - 1.598
+    - 1.6
+    - 1.798
+    - 1.8
+    - 2.0
+    - 2.4
+    - 2.8
+    - 3.2
+    - 3.6
+    - 4.5
+    - 6.48
+    - 6.5
+    - 9.46
+    - 9.54
+    - 12.0
+    max: 12.0
+    min: 0.0
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: charged hadrons
+  sqrt(snn): '200'
+  system: d AU
+value_type: uQ for minimum bias collisions
+version: 1
+---
+centrality:
+  classes:
+  - 0-20%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: data13.yaml
+hepdata_table_label: Azimuthal correlations (\sum_i cos(2(\phi_pT -\phi_i))) from
+  d+Au as a function of p_T for three centralities.
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.0
+    - 0.2
+    - 0.4
+    - 0.6
+    - 0.602
+    - 0.8
+    - 0.801
+    - 0.998
+    - 1.002
+    - 1.198
+    - 1.2
+    - 1.398
+    - 1.4
+    - 1.598
+    - 1.6
+    - 1.798
+    - 1.8
+    - 2.0
+    - 2.4
+    - 2.8
+    - 3.2
+    - 3.6
+    - 4.5
+    - 6.47
+    - 6.5
+    - 9.48
+    - 9.53
+    - 12.0
+    max: 12.0
+    min: 0.0
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: charged hadrons
+  sqrt(snn): '200'
+  system: d AU
+value_type: uQ for 0 - 20%
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: differential_eta
+harmonic: 2
+hepdata_file: data15_27_1.yaml
+hepdata_table_label: Charged hadron v2 and v4{EP_2} as a function of pseudorapidity
+  for minimum bias.
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -3.96
+    - -3.7800000000000002
+    - -3.5999999999999996
+    - -3.42
+    - -3.24
+    - -3.06
+    - -2.88
+    - -2.7
+    - -1.89
+    - -1.08
+    - -0.9
+    - -0.72
+    - -0.54
+    - -0.36
+    - -0.18
+    - 0.0
+    - 0.18
+    - 0.36
+    - 0.54
+    - 0.72
+    - 0.9
+    - 1.08
+    - 1.89
+    - 2.7
+    - 2.88
+    - 3.06
+    - 3.24
+    - 3.42
+    - 3.5999999999999996
+    - 3.7800000000000002
+    - 3.96
+    max: 3.96
+    min: -3.96
+  pT:
+    bins:
+    - 0.15
+    - 10
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: charged hadrons
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v2
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: differential_eta
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: false
+harmonic: 4
+hepdata_file: data15_27_2.yaml
+hepdata_table_label: Charged hadron v4{EP_2} as a function of pseudorapidity for minimum
+  bias (TPC only).
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.1
+    - -0.9
+    - -0.7
+    - -0.5
+    - -0.30000000000000004
+    - -0.1
+    - 0.1
+    - 0.30000000000000004
+    - 0.5
+    - 0.7
+    - 0.9
+    - 1.1
+    max: 1.1
+    min: -1.1
+  pT:
+    bins:
+    - 0.15
+    - 10
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: charged hadrons
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v4
+version: 1
+---
+centrality:
+  classes:
+  - 20-70%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+cumulant_order: 2
+dimensionality: differential_eta
+eta_gap: 2.0
+harmonic: 2
+hepdata_file: data16_1.yaml
+hepdata_table_label: v2(2) and v2(4) vs. pseudorapidity
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -3.8999999999999995
+    - -3.7
+    - -3.5
+    - -3.3
+    - -3.1
+    - -2.9
+    - -1.7999999999999998
+    - -0.7
+    - -0.5
+    - -0.30000000000000004
+    - -0.1
+    - 0.1
+    - 0.30000000000000004
+    - 0.5
+    - 0.7
+    - 1.7999999999999998
+    - 2.9
+    - 3.1
+    - 3.3
+    - 3.5
+    - 3.7
+    - 3.8999999999999995
+    max: 3.8999999999999995
+    min: -3.8999999999999995
+  pT:
+    bins:
+    - 0.15
+    - 2.0
+    max: 2.0
+    min: 0.15
+method: cumulant
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: charged hadrons
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v2(2)
+version: 1
+---
+centrality:
+  classes:
+  - 20-70%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+cumulant_order: 2
+dimensionality: differential_eta
+eta_gap: 2.0
+harmonic: 2
+hepdata_file: data16_2.yaml
+hepdata_table_label: v2(2) and v2(4) vs. pseudorapidity,FTPC only
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -3.8999999999999995
+    - -3.7
+    - -3.5
+    - -3.3
+    - -3.1
+    - -2.9
+    - 0.0
+    - 2.9
+    - 3.1
+    - 3.3
+    - 3.5
+    - 3.7
+    - 3.8999999999999995
+    max: 3.8999999999999995
+    min: -3.8999999999999995
+  pT:
+    bins:
+    - 0.15
+    - 2.0
+    max: 2.0
+    min: 0.15
+method: cumulant
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: charged hadrons
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v2(2)
+version: 1
+---
+centrality:
+  classes:
+  - 20-70%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+cumulant_order: 4
+dimensionality: differential_pT
+harmonic: 2
+hepdata_file: data17_1.yaml
+hepdata_table_label: v2(4) 20-70% in TPC+FTPC and v2(2) 20-70% in FTPC.
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.0
+    - 0.15
+    - 0.3
+    - 0.45
+    - 0.6
+    - 0.75
+    - 0.9
+    - 1.045
+    - 1.05
+    - 1.195
+    - 1.345
+    - 1.355
+    - 1.495
+    - 1.505
+    - 1.645
+    - 1.655
+    - 1.805
+    - 1.955
+    max: 1.955
+    min: 0.0
+method: cumulant
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: charged hadrons
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v2(4) in TPC+FTPC
+version: 1
+---
+centrality:
+  classes: []
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers Monte Carlo v2
+    with FTPC momentum resolution (not data).
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: data17_2.yaml
+hepdata_table_label: MC v2 with FTPC momentum resolution.
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.09999999999999999
+    - 0.2
+    - 0.3
+    - 0.4
+    - 0.5
+    - 0.6000000000000001
+    - 0.7
+    - 0.8
+    - 0.8999999999999999
+    - 1.0
+    - 1.1
+    - 1.2
+    - 1.3
+    - 1.4
+    - 1.5
+    - 1.6
+    - 1.7
+    - 1.8
+    - 1.9
+    - 2.0
+    max: 2.0
+    min: 0.09999999999999999
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: charged hadrons
+  sqrt(snn): '200'
+  system: AU AU
+value_type: MC v2
+version: 1
+---
+centrality:
+  classes:
+  - 0-5%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: data18_1.yaml
+hepdata_table_label: Charged hadron v2 for the centrality bin 0-5% in standard and
+  modified event plane methods.
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.0
+    - 0.1996
+    - 0.2
+    - 0.3998
+    - 0.4001
+    - 0.6
+    - 0.8
+    - 0.8004
+    - 0.9975
+    - 1.0
+    - 1.197
+    - 1.1976
+    - 1.3977
+    - 1.398
+    - 1.5978
+    - 1.598
+    - 1.7979
+    - 1.798
+    - 1.998
+    - 2.003
+    - 2.402
+    - 2.403
+    - 2.802
+    - 3.2
+    - 3.202
+    - 3.6
+    - 4.5
+    - 4.502
+    - 6.498
+    - 6.5
+    - 9.5
+    max: 9.5
+    min: 0.0
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: charged hadrons
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v2 in standard method
+version: 1
+---
+centrality:
+  classes:
+  - 5-10%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: data18_2.yaml
+hepdata_table_label: Charged hadron v2 for the centrality bin 5-10% in standard and
+  modified event plane methods.
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.0
+    - 0.2
+    - 0.4
+    - 0.4003
+    - 0.6
+    - 0.6001
+    - 0.8
+    - 0.8004
+    - 0.9975
+    - 1.0
+    - 1.1976
+    - 1.198
+    - 1.3977
+    - 1.398
+    - 1.5977
+    - 1.598
+    - 1.7978
+    - 1.798
+    - 1.998
+    - 2.002
+    - 2.402
+    - 2.801
+    - 2.802
+    - 3.2
+    - 3.201
+    - 3.598
+    - 3.6
+    - 4.498
+    - 4.501
+    - 6.5
+    - 6.504
+    - 9.5
+    max: 9.5
+    min: 0.0
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: charged hadrons
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v2 in standard method
+version: 1
+---
+centrality:
+  classes:
+  - 10-20%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: data18_3.yaml
+hepdata_table_label: Charged hadron v2 for the centrality bin 10-20% in standard and
+  modified event plane methods.
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.0
+    - 0.2
+    - 0.2004
+    - 0.3998
+    - 0.4002
+    - 0.6
+    - 0.6003
+    - 0.8
+    - 0.8005
+    - 0.9976
+    - 1.0
+    - 1.1976
+    - 1.198
+    - 1.3976
+    - 1.398
+    - 1.5977
+    - 1.598
+    - 1.7978
+    - 1.798
+    - 1.998
+    - 2.002
+    - 2.402
+    - 2.801
+    - 2.802
+    - 3.199
+    - 3.201
+    - 3.596
+    - 3.599
+    - 4.496
+    - 4.503
+    - 6.5
+    - 6.502
+    - 9.5
+    max: 9.5
+    min: 0.0
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: charged hadrons
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v2 in standard method
+version: 1
+---
+centrality:
+  classes:
+  - 20-30%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: data18_4.yaml
+hepdata_table_label: Charged hadron v2 for the centrality bin 20-30% in standard and
+  modified event plane methods.
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.0
+    - 0.1998
+    - 0.2
+    - 0.3996
+    - 0.5995
+    - 0.6
+    - 0.7996
+    - 0.8
+    - 0.9976
+    - 1.0
+    - 1.1976
+    - 1.198
+    - 1.3978
+    - 1.398
+    - 1.5977
+    - 1.598
+    - 1.7978
+    - 1.798
+    - 1.998
+    - 2.002
+    - 2.401
+    - 2.402
+    - 2.8
+    - 2.801
+    - 3.198
+    - 3.2
+    - 3.598
+    - 3.602
+    - 4.502
+    - 4.503
+    - 6.5
+    - 6.501
+    - 9.5
+    max: 9.5
+    min: 0.0
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: charged hadrons
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v2 in standard method
+version: 1
+---
+centrality:
+  classes:
+  - 30-40%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: data18_5.yaml
+hepdata_table_label: Charged hadron v2 for the centrality bin 30-40% in standard and
+  modified event plane methods.
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.0
+    - 0.2001
+    - 0.2002
+    - 0.4
+    - 0.4001
+    - 0.5998
+    - 0.6
+    - 0.7998
+    - 0.8
+    - 0.9978
+    - 1.0
+    - 1.1977
+    - 1.198
+    - 1.3977
+    - 1.398
+    - 1.5978
+    - 1.598
+    - 1.7978
+    - 1.798
+    - 1.998
+    - 2.002
+    - 2.401
+    - 2.402
+    - 2.799
+    - 2.801
+    - 3.197
+    - 3.199
+    - 3.597
+    - 3.604
+    - 4.501
+    - 4.504
+    - 6.5
+    - 9.5
+    max: 9.5
+    min: 0.0
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: charged hadrons
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v2 in standard method
+version: 1
+---
+centrality:
+  classes:
+  - 40-60%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: data18_6.yaml
+hepdata_table_label: Charged hadron v2 for the centrality bin 40-60% in standard and
+  modified event plane methods.
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.0
+    - 0.2002
+    - 0.2003
+    - 0.3998
+    - 0.4
+    - 0.6
+    - 0.6003
+    - 0.8
+    - 0.8001
+    - 0.9981
+    - 1.0
+    - 1.198
+    - 1.398
+    - 1.5977
+    - 1.598
+    - 1.7977
+    - 1.798
+    - 1.998
+    - 2.001
+    - 2.4
+    - 2.401
+    - 2.798
+    - 2.8
+    - 3.197
+    - 3.198
+    - 3.597
+    - 3.599
+    - 4.496
+    - 4.499
+    - 6.5
+    - 6.501
+    - 9.5
+    max: 9.5
+    min: 0.0
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: charged hadrons
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v2 in standard method
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 4
+hepdata_file: data21.yaml
+hepdata_table_label: v4(EP2) for charged hadrons min. bias
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.15000000000000002
+    - 0.3
+    - 0.45
+    - 0.6000000000000001
+    - 0.75
+    - 0.8999999999999999
+    - 1.0475
+    - 1.195
+    - 1.345
+    - 1.5
+    - 1.655
+    - 1.805
+    - 1.9549999999999998
+    - 2.0999999999999996
+    - 2.25
+    - 2.4000000000000004
+    - 2.545
+    - 2.7
+    - 2.885
+    - 3.14
+    - 3.44
+    - 3.74
+    - 4.14
+    - 4.85
+    - 5.77
+    max: 5.77
+    min: 0.15000000000000002
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: charged hadrons
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v4(EP2)
+version: 1
+---
+centrality:
+  classes:
+  - 0-5%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 4
+hepdata_file: data24.yaml
+hepdata_table_label: v4(EP2) vs. centrality for charged hadrons
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.15000000000000002
+    - 0.3
+    - 0.45
+    - 0.6000000000000001
+    - 0.75
+    - 0.8999999999999999
+    - 1.0475
+    - 1.195
+    - 1.345
+    - 1.5
+    - 1.655
+    - 1.805
+    - 1.9549999999999998
+    max: 1.9549999999999998
+    min: 0.15000000000000002
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: charged hadrons
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v4(EP2) in 0 - 5%
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (pi+ + pi-) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 4
+hepdata_file: data25_a.yaml
+hepdata_table_label: v4(EP2) for pions in min. bias
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.18050000000000002
+    - 0.2255
+    - 0.27
+    - 0.3145
+    - 0.35950000000000004
+    - 0.40449999999999997
+    - 0.4495
+    - 0.4945
+    - 0.5395000000000001
+    - 0.5845
+    - 0.6295
+    - 0.6745
+    - 0.7195
+    - 0.7645
+    - 0.8095
+    - 0.8545
+    - 0.8995
+    max: 0.8995
+    min: 0.18050000000000002
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: pi+ + pi-
+qualifiers:
+  channel: pions
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v4
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (p) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi and
+    is subtracted. INFERRED from the charged rows of the same table, not quoted from
+    the paper.
+  provenance: assumed_tpc
+harmonic: 4
+hepdata_file: data25_b.yaml
+hepdata_table_label: v4(EP2) for protons in min. bias
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.27549999999999997
+    - 0.4345
+    - 0.5995
+    - 0.776
+    - 0.9535
+    - 1.105
+    - 1.2349999999999999
+    max: 1.2349999999999999
+    min: 0.27549999999999997
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: p
+qualifiers:
+  channel: protons
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v4
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (K+ + K-) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 4
+hepdata_file: data25_c.yaml
+hepdata_table_label: v4(EP2) for kaons in min. bias
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 2.7755575615628914e-17
+    - 0.4
+    - 0.8
+    - 1.2
+    - 1.6
+    - 2.0
+    - 2.45
+    - 2.95
+    max: 2.95
+    min: 2.7755575615628914e-17
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: K+ + K-
+qualifiers:
+  channel: kaons
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v4
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (Lambda) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 4
+hepdata_file: data25_d.yaml
+hepdata_table_label: v4(EP2) for Lambda in min. bias
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.39999999999999997
+    - 0.8
+    - 1.2
+    - 1.6
+    - 2.0
+    - 2.45
+    - 3.0
+    - 3.5999999999999996
+    max: 3.5999999999999996
+    min: 0.39999999999999997
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: Lambda
+qualifiers:
+  channel: Lambda
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v4
+version: 1
+---
+centrality:
+  classes:
+  - 3.0-6.0%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+cumulant_order: 3
+dimensionality: integrated
+harmonic: 4
+hepdata_file: data28.yaml
+hepdata_table_label: charged hadrons high p_T (3 - 6 GeV/c) v4(3)
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: cumulant
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: charged hadrons
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v4(3)
+version: 1
+---
+centrality:
+  classes:
+  - 70-80%
+  - 60-70%
+  - 50-60%
+  - 40-50%
+  - 30-40%
+  - 20-30%
+  - 10-20%
+  - 5-10%
+  - 0-5%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: data29a.yaml
+hepdata_table_label: charged hadron integrated v2 as a function of centrality for
+  the different methods
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 2.0
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: Charged hadrons
+  sqrt(snn): '200'
+  system: Au AU
+value_type: v2 from Standard method
+version: 1
+---
+centrality:
+  classes:
+  - 10-70%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: differential_eta
+harmonic: 1
+hepdata_file: data2_1.yaml
+hepdata_table_label: Directed flow of charged hadrons v1{3} as a function of pseudorapidity
+  for 10–70% centrality.
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -4.05
+    - -3.82
+    - -3.6
+    - -3.37
+    - -3.15
+    - -2.93
+    - -2.71
+    - -2.7
+    - -2.48
+    - -1.12
+    - -0.9
+    - -0.68
+    - -0.67
+    - -0.45
+    - -0.23
+    - -0.22
+    - 0.0
+    - 0.22
+    - 0.23
+    - 0.45
+    - 0.67
+    - 0.68
+    - 0.9
+    - 1.12
+    - 2.48
+    - 2.7
+    - 2.92
+    - 2.93
+    - 3.15
+    - 3.37
+    - 3.6
+    - 3.82
+    - 3.83
+    - 4.05
+    max: 4.05
+    min: -4.05
+  pT:
+    bins:
+    - 0.15
+    - 10
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: charged hadrons
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v1
+version: 1
+---
+centrality:
+  classes:
+  - 20-60%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: differential_eta
+harmonic: 1
+hepdata_file: data2_2.yaml
+hepdata_table_label: Directed flow of charged hadrons v1 {EP1,EP2} as a function of
+  pseudorapidity for 20–60% centrality.
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -3.96
+    - -3.7800000000000002
+    - -3.5999999999999996
+    - -3.42
+    - -3.24
+    - -3.06
+    - -2.88
+    - -1.8900000000000001
+    - -0.9
+    - -0.72
+    - -0.54
+    - -0.36
+    - -0.18
+    - 0.0
+    - 0.18
+    - 0.36
+    - 0.54
+    - 0.72
+    - 0.9
+    - 1.8900000000000001
+    - 2.88
+    - 3.06
+    - 3.24
+    - 3.42
+    - 3.5999999999999996
+    - 3.7800000000000002
+    - 3.96
+    max: 3.96
+    min: -3.96
+  pT:
+    bins:
+    - 0.15
+    - 10
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: charged hadrons
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v1
+version: 1
+---
+centrality:
+  classes:
+  - 60-70%
+  - 50-60%
+  - 40-50%
+  - 30-40%
+  - 20-30%
+  - 10-20%
+  - 5-10%
+  - 0-5%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+cumulant_order: 6
+dimensionality: integrated
+harmonic: 2
+hepdata_file: data30.yaml
+hepdata_table_label: charged hadron v2(6) vs. centrality bin. v2(2) and v2(4) are
+  from Figure 29(a).
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: cumulant
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: Charged hadrons
+  sqrt(snn): '200'
+  system: Au AU
+value_type: v2(6)
+version: 1
+---
+centrality:
+  classes:
+  - 0.5-1.5%
+  - 1.5-2.5%
+  - 2.5-3.5%
+  - 3.5-4.5%
+  - 4.5-5.5%
+  - 5.5-6.5%
+  - 6.5-7.5%
+  - 7.5-8.5%
+  - 8.5-9.5%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: data31_1.yaml
+hepdata_table_label: g2 as a function of centrality from 200 GeV, 130 GeV,NA49 and
+  q-dist methods. The solid points are from the cumulant method, while open circles
+  are from the q distribution method. Please note that centrality percentage differs
+  from different method. For 200 GeV-cumulant (0, 64.1, 53.9,44.7,35.2,25.4,15.1,7.7,0),
+  for 200 GeV-q-dist (73.8,64.1,53.9,44.7,35.2,25.4,15.1,7.7,2.3), for 130 GeV (65,47,36,27.5,20,13,7.5,2.5,0)
+  and for 17 GeV (0,0,0,61.2,38.2,29.1,18.2,8.5,3.8).
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: Charged hadron
+  sqrt(snn): '200'
+  system: Au AU
+value_type: g2 from 200 GeV
+version: 1
+---
+centrality:
+  classes:
+  - 0.5-1.5%
+  - 1.5-2.5%
+  - 2.5-3.5%
+  - 3.5-4.5%
+  - 4.5-5.5%
+  - 5.5-6.5%
+  - 6.5-7.5%
+  - 7.5-8.5%
+  - 8.5-9.5%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: data31_2.yaml
+hepdata_table_label: wounded nucleons as a function of centrality from 200 GeV, 130
+  GeV,NA49 and q-dist methods.Please note that centrality percentage differs from
+  different method. For 200 GeV-cumulant (0, 64.1, 53.9,44.7,35.2,25.4,15.1,7.7,0),
+  for 200 GeV-q-dist (73.8,64.1,53.9,44.7,35.2,25.4,15.1,7.7,2.3), for 130 GeV (65,47,36,27.5,20,13,7.5,2.5,0)
+  and for 17 GeV (0,0,0,61.2,38.2,29.1,18.2,8.5,3.8).
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: Charged hadron
+  sqrt(snn): '200'
+  system: Au AU
+value_type: wounded nucleons from 200 GeV
+version: 1
+---
+centrality:
+  classes:
+  - 0-5%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (pi+ + pi-) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: data34_1.yaml
+hepdata_table_label: v2/n for pions for three centrality bins
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.0337
+    - 0.0675
+    - 0.1012
+    - 0.135
+    - 0.169
+    - 0.2025
+    - 0.236
+    - 0.27
+    - 0.304
+    - 0.3375
+    - 0.371
+    - 0.405
+    - 0.439
+    max: 0.439
+    min: 0.0337
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (data34_1.yaml), which tabulates
+    12 pT centres; converted to edges by midpoint (outer edges extrapolated). The
+    import had collapsed them to a single [min, max] bin, so the v2(pT) shape was
+    not being reproduced.
+observable_type: flow_vn
+particle_id:
+  species: pi+ + pi-
+qualifiers:
+  channel: pions
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v2/n in 0 - 5%
+version: 1
+---
+centrality:
+  classes:
+  - 0-5%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (p) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi and
+    is subtracted. INFERRED from the charged rows of the same table, not quoted from
+    the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: data34_2.yaml
+hepdata_table_label: v2/n for protons for three centrality bins
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.06
+    - 0.09
+    - 0.12
+    - 0.15
+    - 0.18
+    - 0.21
+    - 0.24
+    - 0.27
+    - 0.3
+    - 0.33
+    - 0.36
+    - 0.39
+    max: 0.39
+    min: 0.06
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (data34_2.yaml), which tabulates
+    11 pT centres; converted to edges by midpoint (outer edges extrapolated). The
+    import had collapsed them to a single [min, max] bin, so the v2(pT) shape was
+    not being reproduced.
+observable_type: flow_vn
+particle_id:
+  species: p
+qualifiers:
+  channel: protons
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v2/n in 0 - 5%
+version: 1
+---
+centrality:
+  classes:
+  - 0-5%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (K0_S) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: data34_3.yaml
+hepdata_table_label: v2/n for Kshort for three centrality bins
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.1205
+    - 0.2115
+    - 0.3045
+    - 0.4005
+    - 0.4985
+    - 0.5975
+    - 0.6965
+    - 0.796
+    - 0.895
+    - 1.017
+    - 1.205
+    - 1.47
+    - 1.79
+    - 2.175
+    - 2.605
+    max: 2.605
+    min: 0.1205
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (data34_3.yaml), which tabulates
+    14 pT centres; converted to edges by midpoint (outer edges extrapolated). The
+    import had collapsed them to a single [min, max] bin, so the v2(pT) shape was
+    not being reproduced.
+observable_type: flow_vn
+particle_id:
+  pdg_id: 310
+  species: K0_S
+qualifiers:
+  channel: Kshort
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v2/n in 0 - 5%
+version: 1
+---
+centrality:
+  classes:
+  - 0-5%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (Lambda) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: data34_4.yaml
+hepdata_table_label: v2/n for  Lambda + Lambda bar for three centrality bins
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.148
+    - 0.208
+    - 0.27
+    - 0.3345
+    - 0.4
+    - 0.466
+    - 0.532
+    - 0.598
+    - 0.6645
+    - 0.731
+    - 0.8075
+    - 0.9155
+    - 1.05
+    - 1.2
+    - 1.43
+    - 1.73
+    max: 1.73
+    min: 0.148
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (data34_4.yaml), which tabulates
+    15 pT centres; converted to edges by midpoint (outer edges extrapolated). The
+    import had collapsed them to a single [min, max] bin, so the v2(pT) shape was
+    not being reproduced.
+observable_type: flow_vn
+particle_id:
+  species: Lambda
+qualifiers:
+  channel: Lambda + Lambda bar
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v2/n in 0 - 5%
+version: 1
+---
+centrality:
+  classes: []
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+cumulant_order: 2
+dimensionality: integrated
+harmonic: 2
+hepdata_file: data38_1.yaml
+hepdata_table_label: Blast Wave parameters rho_2 from pion v2(2),pion v2 and hadron
+  v2
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: cumulant
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: charged hadron
+  sqrt(snn): '200'
+  system: Au AU
+value_type: rho_2 from pion v2(2)
+version: 1
+---
+centrality:
+  classes: []
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: data38_2.yaml
+hepdata_table_label: Blast Wave parameters rho_4 from hadron v2
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: charged hadron
+  sqrt(snn): '200'
+  system: Au AU
+value_type: rho_4 from hadron v2
+version: 1
+---
+centrality:
+  classes: []
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+cumulant_order: 2
+dimensionality: integrated
+harmonic: 2
+hepdata_file: data38_3.yaml
+hepdata_table_label: Blast Wave parameters epsilon from pion v2(2),pion v2, hadron
+  v2 and initial
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: cumulant
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: charged hadron
+  sqrt(snn): '200'
+  system: Au AU
+value_type: epsilon from pion v2(2)
+version: 1
+---
+centrality:
+  classes: []
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+cumulant_order: 2
+dimensionality: integrated
+harmonic: 2
+hepdata_file: data38_4.yaml
+hepdata_table_label: Blast Wave parameters rho_0 from pion v2(2),pion v2 and hadron
+  v2
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: cumulant
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: charged hadron
+  sqrt(snn): '200'
+  system: Au AU
+value_type: rho_0 from pion v2(2)
+version: 1
+---
+centrality:
+  classes: []
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+cumulant_order: 2
+dimensionality: integrated
+harmonic: 2
+hepdata_file: data38_5.yaml
+hepdata_table_label: Blast Wave parameters T from pion v2(2),pion v2 and hadron v2
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: cumulant
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: charged hadron
+  sqrt(snn): '200'
+  system: Au AU
+value_type: Blast Wave parameters T from pion v2(2)
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: differential_pT
+dv_index: 0
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: data4.yaml
+hepdata_table_label: Charged hadron v2 for the centrality bins 5 to 10% and in steps
+  of 10% starting at 10, 20, 30, 40, 50, 60, and 70 up to 80% along with min. bias
+  as a function of p_T.
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.15000000000000002
+    - 0.3
+    - 0.45
+    - 0.6000000000000001
+    - 0.75
+    - 0.8999999999999999
+    - 1.0475
+    - 1.195
+    - 1.345
+    - 1.5
+    - 1.655
+    - 1.805
+    - 1.9549999999999998
+    max: 1.9549999999999998
+    min: 0.15000000000000002
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: charged hadrons
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v2 min. bias
+version: 1
+---
+centrality:
+  classes:
+  - 70-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: differential_pT
+dv_index: 1
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: data4.yaml
+hepdata_table_label: Charged hadron v2 for the centrality bins 5 to 10% and in steps
+  of 10% starting at 10, 20, 30, 40, 50, 60, and 70 up to 80% along with min. bias
+  as a function of p_T.
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.15000000000000002
+    - 0.3
+    - 0.45
+    - 0.6000000000000001
+    - 0.75
+    - 0.8999999999999999
+    - 1.0475
+    - 1.195
+    - 1.345
+    - 1.5
+    - 1.655
+    - 1.805
+    - 1.9549999999999998
+    max: 1.9549999999999998
+    min: 0.15000000000000002
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: charged hadrons
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v2 70-80%
+version: 1
+---
+centrality:
+  classes:
+  - 60-70%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: differential_pT
+dv_index: 2
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: data4.yaml
+hepdata_table_label: Charged hadron v2 for the centrality bins 5 to 10% and in steps
+  of 10% starting at 10, 20, 30, 40, 50, 60, and 70 up to 80% along with min. bias
+  as a function of p_T.
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.15000000000000002
+    - 0.3
+    - 0.45
+    - 0.6000000000000001
+    - 0.75
+    - 0.8999999999999999
+    - 1.0475
+    - 1.195
+    - 1.345
+    - 1.5
+    - 1.655
+    - 1.805
+    - 1.9549999999999998
+    max: 1.9549999999999998
+    min: 0.15000000000000002
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: charged hadrons
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v2 60-70%
+version: 1
+---
+centrality:
+  classes:
+  - 50-60%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: differential_pT
+dv_index: 3
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: data4.yaml
+hepdata_table_label: Charged hadron v2 for the centrality bins 5 to 10% and in steps
+  of 10% starting at 10, 20, 30, 40, 50, 60, and 70 up to 80% along with min. bias
+  as a function of p_T.
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.15000000000000002
+    - 0.3
+    - 0.45
+    - 0.6000000000000001
+    - 0.75
+    - 0.8999999999999999
+    - 1.0475
+    - 1.195
+    - 1.345
+    - 1.5
+    - 1.655
+    - 1.805
+    - 1.9549999999999998
+    max: 1.9549999999999998
+    min: 0.15000000000000002
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: charged hadrons
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v2 50-60%
+version: 1
+---
+centrality:
+  classes:
+  - 40-50%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: differential_pT
+dv_index: 4
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: data4.yaml
+hepdata_table_label: Charged hadron v2 for the centrality bins 5 to 10% and in steps
+  of 10% starting at 10, 20, 30, 40, 50, 60, and 70 up to 80% along with min. bias
+  as a function of p_T.
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.15000000000000002
+    - 0.3
+    - 0.45
+    - 0.6000000000000001
+    - 0.75
+    - 0.8999999999999999
+    - 1.0475
+    - 1.195
+    - 1.345
+    - 1.5
+    - 1.655
+    - 1.805
+    - 1.9549999999999998
+    max: 1.9549999999999998
+    min: 0.15000000000000002
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: charged hadrons
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v2 40-50%
+version: 1
+---
+centrality:
+  classes:
+  - 30-40%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: differential_pT
+dv_index: 5
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: data4.yaml
+hepdata_table_label: Charged hadron v2 for the centrality bins 5 to 10% and in steps
+  of 10% starting at 10, 20, 30, 40, 50, 60, and 70 up to 80% along with min. bias
+  as a function of p_T.
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.15000000000000002
+    - 0.3
+    - 0.45
+    - 0.6000000000000001
+    - 0.75
+    - 0.8999999999999999
+    - 1.0475
+    - 1.195
+    - 1.345
+    - 1.5
+    - 1.655
+    - 1.805
+    - 1.9549999999999998
+    max: 1.9549999999999998
+    min: 0.15000000000000002
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: charged hadrons
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v2 30-40%
+version: 1
+---
+centrality:
+  classes:
+  - 20-30%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: differential_pT
+dv_index: 6
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: data4.yaml
+hepdata_table_label: Charged hadron v2 for the centrality bins 5 to 10% and in steps
+  of 10% starting at 10, 20, 30, 40, 50, 60, and 70 up to 80% along with min. bias
+  as a function of p_T.
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.15000000000000002
+    - 0.3
+    - 0.45
+    - 0.6000000000000001
+    - 0.75
+    - 0.8999999999999999
+    - 1.0475
+    - 1.195
+    - 1.345
+    - 1.5
+    - 1.655
+    - 1.805
+    - 1.9549999999999998
+    max: 1.9549999999999998
+    min: 0.15000000000000002
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: charged hadrons
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v2 20-30%
+version: 1
+---
+centrality:
+  classes:
+  - 10-20%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: differential_pT
+dv_index: 7
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: data4.yaml
+hepdata_table_label: Charged hadron v2 for the centrality bins 5 to 10% and in steps
+  of 10% starting at 10, 20, 30, 40, 50, 60, and 70 up to 80% along with min. bias
+  as a function of p_T.
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.15000000000000002
+    - 0.3
+    - 0.45
+    - 0.6000000000000001
+    - 0.75
+    - 0.8999999999999999
+    - 1.0475
+    - 1.195
+    - 1.345
+    - 1.5
+    - 1.655
+    - 1.805
+    - 1.9549999999999998
+    max: 1.9549999999999998
+    min: 0.15000000000000002
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: charged hadrons
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v2 10-20%
+version: 1
+---
+centrality:
+  classes:
+  - 5-10%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: differential_pT
+dv_index: 8
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: data4.yaml
+hepdata_table_label: Charged hadron v2 for the centrality bins 5 to 10% and in steps
+  of 10% starting at 10, 20, 30, 40, 50, 60, and 70 up to 80% along with min. bias
+  as a function of p_T.
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.15000000000000002
+    - 0.3
+    - 0.45
+    - 0.6000000000000001
+    - 0.75
+    - 0.8999999999999999
+    - 1.0475
+    - 1.195
+    - 1.345
+    - 1.5
+    - 1.655
+    - 1.805
+    - 1.9549999999999998
+    max: 1.9549999999999998
+    min: 0.15000000000000002
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: charged hadrons
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v2 5-10%
+version: 1
+---
+centrality:
+  classes:
+  - 0-5%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: differential_pT
+dv_index: 9
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: data4.yaml
+hepdata_table_label: Charged hadron v2 for the centrality bins 5 to 10% and in steps
+  of 10% starting at 10, 20, 30, 40, 50, 60, and 70 up to 80% along with min. bias
+  as a function of p_T.
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.15000000000000002
+    - 0.3
+    - 0.45
+    - 0.6000000000000001
+    - 0.75
+    - 0.8999999999999999
+    - 1.0475
+    - 1.195
+    - 1.345
+    - 1.5
+    - 1.655
+    - 1.805
+    - 1.9549999999999998
+    max: 1.9549999999999998
+    min: 0.15000000000000002
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: charged hadrons
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v2 0-5%
+version: 1
+---
+centrality:
+  classes:
+  - 0-50%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: data5.yaml
+hepdata_table_label: Charged hadron v2 for the centrality bin 0-50%.
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.15
+    - 0.2
+    - 0.25
+    - 0.3
+    - 0.35
+    - 0.4
+    - 0.45
+    - 0.5
+    - 0.55
+    - 0.6
+    - 0.65
+    - 0.7
+    - 0.75
+    - 0.8
+    - 0.85
+    - 0.9
+    - 0.95
+    - 0.995
+    - 1.0
+    - 1.045
+    - 1.055
+    - 1.095
+    - 1.105
+    - 1.145
+    - 1.195
+    - 1.205
+    - 1.245
+    - 1.255
+    - 1.295
+    - 1.305
+    - 1.355
+    - 1.395
+    - 1.405
+    - 1.445
+    - 1.455
+    - 1.502
+    - 1.505
+    - 1.598
+    - 1.602
+    - 1.698
+    - 1.702
+    - 1.798
+    - 1.799
+    - 1.941
+    - 1.949
+    - 2.091
+    - 2.099
+    - 2.241
+    - 2.249
+    - 2.391
+    - 2.399
+    - 2.541
+    - 2.55
+    - 2.77
+    - 2.8
+    - 3.1
+    - 3.15
+    - 3.49
+    max: 3.49
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: charged hadrons
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v2
+version: 1
+---
+centrality:
+  classes:
+  - 20-60%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+cumulant_order: 4
+dimensionality: differential_pT
+harmonic: 2
+hepdata_file: data6_1.yaml
+hepdata_table_label: v2(4) vs. p_T for pions for 20 - 60% centrality
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.16
+    - 0.24
+    - 0.32
+    - 0.4
+    - 0.48
+    - 0.56
+    - 0.64
+    - 0.72
+    - 0.8
+    - 0.88
+    - 0.96
+    max: 0.96
+    min: 0.16
+method: cumulant
+observable_type: flow_vn
+particle_id:
+  species: pi+ + pi-
+qualifiers:
+  channel: pions
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v2(4)
+version: 1
+---
+centrality:
+  classes:
+  - 20-60%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+cumulant_order: 4
+dimensionality: differential_pT
+harmonic: 2
+hepdata_file: data6_2.yaml
+hepdata_table_label: v2(4) vs. p_T for kaons for 20 - 60% centrality
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.16
+    - 0.32
+    - 0.478
+    - 0.48
+    - 0.64
+    - 0.799
+    - 0.8
+    - 0.96
+    max: 0.96
+    min: 0.16
+method: cumulant
+observable_type: flow_vn
+particle_id:
+  species: K+ + K-
+qualifiers:
+  channel: kaons
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v2(4)
+version: 1
+---
+centrality:
+  classes:
+  - 20-60%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+cumulant_order: 4
+dimensionality: differential_pT
+harmonic: 2
+hepdata_file: data6_3.yaml
+hepdata_table_label: v2(4) vs. p_T for anti-protons for 20 - 60% centrality
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.4
+    - 0.48
+    - 0.56
+    - 0.64
+    - 0.72
+    - 0.8
+    - 0.88
+    - 0.96
+    - 1.04
+    - 1.12
+    max: 1.12
+    min: 0.4
+method: cumulant
+observable_type: flow_vn
+particle_id:
+  pdg_id: -2212
+  species: pbar
+qualifiers:
+  channel: anti-protons
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v2(4)
+version: 1
+---
+centrality:
+  classes:
+  - 0-5%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+cumulant_order: 2
+dimensionality: differential_pT
+harmonic: 2
+hepdata_file: data7a.yaml
+hepdata_table_label: v2(2) vs. centrality for pions
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.16
+    - 0.24000000000000002
+    - 0.32
+    - 0.4
+    - 0.48
+    - 0.56
+    - 0.64
+    - 0.72
+    - 0.8
+    - 0.88
+    - 0.96
+    - 1.04
+    max: 1.04
+    min: 0.16
+method: cumulant
+observable_type: flow_vn
+particle_id:
+  species: pi+ + pi-
+qualifiers:
+  channel: pions
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v2(2) in 0 - 5%
+version: 1
+---
+centrality:
+  classes:
+  - 0-5%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+cumulant_order: 2
+dimensionality: differential_pT
+harmonic: 2
+hepdata_file: data7b.yaml
+hepdata_table_label: v2(2) vs. centrality for kaons
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.16
+    - 0.24000000000000002
+    - 0.32
+    - 0.4
+    - 0.48
+    - 0.56
+    - 0.64
+    - 0.7200000000000001
+    max: 0.7200000000000001
+    min: 0.16
+method: cumulant
+observable_type: flow_vn
+particle_id:
+  species: K+ + K-
+qualifiers:
+  channel: kaons
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v2(2) in 0 - 5%
+version: 1
+---
+centrality:
+  classes:
+  - 0-5%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+cumulant_order: 2
+dimensionality: differential_pT
+harmonic: 2
+hepdata_file: data7c.yaml
+hepdata_table_label: v2(2) vs. centrality for anti-protons
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.16
+    - 0.24000000000000002
+    - 0.32
+    - 0.4
+    - 0.48
+    - 0.56
+    - 0.64
+    - 0.72
+    - 0.8
+    - 0.88
+    - 0.96
+    - 1.04
+    - 1.12
+    - 1.2
+    - 1.28
+    - 1.36
+    max: 1.36
+    min: 0.16
+method: cumulant
+observable_type: flow_vn
+particle_id:
+  pdg_id: -2212
+  species: pbar
+qualifiers:
+  channel: anti-protons
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v2(2) in 0 - 5%
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: data8.yaml
+hepdata_table_label: v2 vs. p_T for particles identified in the RICH (min. bias) for
+  pions+kaons and protons/antiprotons
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 1.08
+    - 1.2999999999999998
+    - 1.535
+    - 1.805
+    - 2.15
+    - 2.625
+    - 3.175
+    max: 3.175
+    min: 1.08
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: charged hadrons
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v2 for pions+kaons
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (K0_S) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: data9_1.yaml
+hepdata_table_label: v2 for Kshort for min. bias
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.23500000000000001
+    - 0.42500000000000004
+    - 0.615
+    - 0.8049999999999999
+    - 1.0
+    - 1.2000000000000002
+    - 1.4
+    - 1.6
+    - 1.7999999999999998
+    - 2.05
+    - 2.35
+    - 2.7
+    - 3.15
+    - 3.65
+    - 4.3
+    - 5.15
+    - 6.049999999999999
+    max: 6.049999999999999
+    min: 0.23500000000000001
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  pdg_id: 310
+  species: K0_S
+qualifiers:
+  channel: Kshort
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v2
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (K+ + K-) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: data9_2.yaml
+hepdata_table_label: v2 for kaons from kinks for min. bias
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.19999999999999998
+    - 0.4
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2000000000000002
+    - 1.4
+    - 1.6
+    - 1.7999999999999998
+    - 2.05
+    - 2.5
+    - 3.15
+    - 3.85
+    max: 3.85
+    min: 0.19999999999999998
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: K+ + K-
+qualifiers:
+  channel: kaons
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v2
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (K+ + K-) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: data9_3.yaml
+hepdata_table_label: v2 for kaons from dE/dx for min. bias
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.16
+    - 0.24000000000000002
+    - 0.32
+    - 0.4
+    - 0.48
+    - 0.56
+    - 0.64
+    - 0.72
+    - 0.8
+    max: 0.8
+    min: 0.16
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: K+ + K-
+qualifiers:
+  channel: kaons
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v2
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: differential_eta
+dv_index: 1
+harmonic: 4
+hepdata_file: data15_27_1.yaml
+hepdata_table_label: Charged hadron v2 and v4{EP_2} as a function of pseudorapidity
+  for minimum bias.
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -3.96
+    - -3.7800000000000002
+    - -3.5999999999999996
+    - -3.42
+    - -3.24
+    - -3.06
+    - -2.88
+    - -2.7
+    - -1.89
+    - -1.08
+    - -0.9
+    - -0.72
+    - -0.54
+    - -0.36
+    - -0.18
+    - 0.0
+    - 0.18
+    - 0.36
+    - 0.54
+    - 0.72
+    - 0.9
+    - 1.08
+    - 1.89
+    - 2.7
+    - 2.88
+    - 3.06
+    - 3.24
+    - 3.42
+    - 3.5999999999999996
+    - 3.7800000000000002
+    - 3.96
+    max: 3.96
+    min: -3.96
+  pT:
+    bins:
+    - 0.15
+    - 10
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: charged hadrons
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v4(EP2)
+version: 1
+---
+centrality:
+  classes:
+  - 20-70%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+cumulant_order: 4
+dimensionality: differential_eta
+dv_index: 1
+eta_gap: 2.0
+harmonic: 2
+hepdata_file: data16_1.yaml
+hepdata_table_label: v2(2) and v2(4) vs. pseudorapidity
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -3.8999999999999995
+    - -3.7
+    - -3.5
+    - -3.3
+    - -3.1
+    - -2.9
+    - -1.7999999999999998
+    - -0.7
+    - -0.5
+    - -0.30000000000000004
+    - -0.1
+    - 0.1
+    - 0.30000000000000004
+    - 0.5
+    - 0.7
+    - 1.7999999999999998
+    - 2.9
+    - 3.1
+    - 3.3
+    - 3.5
+    - 3.7
+    - 3.8999999999999995
+    max: 3.8999999999999995
+    min: -3.8999999999999995
+  pT:
+    bins:
+    - 0.15
+    - 2.0
+    max: 2.0
+    min: 0.15
+method: cumulant
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: charged hadrons
+  sqrt(snn): '200'
+  system: AU AU
+value_type: v2{4}
+version: 1
+---
+centrality:
+  classes:
+  - 70-80%
+  - 60-70%
+  - 50-60%
+  - 40-50%
+  - 30-40%
+  - 20-30%
+  - 10-20%
+  - 5-10%
+  - 0-5%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: integrated
+dv_index: 1
+harmonic: 2
+hepdata_file: data29a.yaml
+hepdata_table_label: charged hadron integrated v2 as a function of centrality for
+  the different methods
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 2.0
+    min: 0.15
+method: scalar_product
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: Charged hadrons
+  sqrt(snn): '200'
+  system: Au AU
+value_type: v_2${SP}
+version: 1
+---
+centrality:
+  classes:
+  - 70-80%
+  - 60-70%
+  - 50-60%
+  - 40-50%
+  - 30-40%
+  - 20-30%
+  - 10-20%
+  - 5-10%
+  - 0-5%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: integrated
+dv_index: 2
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: data29a.yaml
+hepdata_table_label: charged hadron integrated v2 as a function of centrality for
+  the different methods
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 2.0
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: Charged hadrons
+  sqrt(snn): '200'
+  system: Au AU
+value_type: v2 from EtaSubs method
+version: 1
+---
+centrality:
+  classes:
+  - 70-80%
+  - 60-70%
+  - 50-60%
+  - 40-50%
+  - 30-40%
+  - 20-30%
+  - 10-20%
+  - 5-10%
+  - 0-5%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: integrated
+dv_index: 3
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: data29a.yaml
+hepdata_table_label: charged hadron integrated v2 as a function of centrality for
+  the different methods
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 2.0
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: Charged hadrons
+  sqrt(snn): '200'
+  system: Au AU
+value_type: v2 from RandomSubs method
+version: 1
+---
+centrality:
+  classes:
+  - 70-80%
+  - 60-70%
+  - 50-60%
+  - 40-50%
+  - 30-40%
+  - 20-30%
+  - 10-20%
+  - 5-10%
+  - 0-5%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+cumulant_order: 2
+dimensionality: integrated
+dv_index: 4
+harmonic: 2
+hepdata_file: data29a.yaml
+hepdata_table_label: charged hadron integrated v2 as a function of centrality for
+  the different methods
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 2.0
+    min: 0.15
+method: cumulant
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: Charged hadrons
+  sqrt(snn): '200'
+  system: Au AU
+value_type: v2{2}
+version: 1
+---
+centrality:
+  classes:
+  - 70-80%
+  - 60-70%
+  - 50-60%
+  - 40-50%
+  - 30-40%
+  - 20-30%
+  - 10-20%
+  - 5-10%
+  - 0-5%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+cumulant_order: 4
+dimensionality: integrated
+dv_index: 5
+harmonic: 2
+hepdata_file: data29a.yaml
+hepdata_table_label: charged hadron integrated v2 as a function of centrality for
+  the different methods
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 2.0
+    min: 0.15
+method: cumulant
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: Charged hadrons
+  sqrt(snn): '200'
+  system: Au AU
+value_type: v2{4}
+version: 1
+---
+centrality:
+  classes:
+  - 70-80%
+  - 60-70%
+  - 50-60%
+  - 40-50%
+  - 30-40%
+  - 20-30%
+  - 10-20%
+  - 5-10%
+  - 0-5%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 200.0
+  reaction: Au AU
+dimensionality: integrated
+dv_index: 6
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: data29a.yaml
+hepdata_table_label: charged hadron integrated v2 as a function of centrality for
+  the different methods
+inspire_id: '660793'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 2.0
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  channel: Charged hadrons
+  sqrt(snn): '200'
+  system: Au AU
+value_type: v2 from qDist method
+version: 1

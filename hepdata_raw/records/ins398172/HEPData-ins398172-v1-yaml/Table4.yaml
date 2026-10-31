@@ -1,0 +1,40 @@
+dependent_variables:
+- header: {name: MULT}
+  qualifiers:
+  - {name: RE, value: P C --> CHARGED- X}
+  values:
+  - errors:
+    - {symerror: 0.01}
+    value: 0.15
+  - errors:
+    - {symerror: 0.02}
+    value: 0.33
+  - errors:
+    - {symerror: 0.03}
+    value: 0.52
+  - errors:
+    - {symerror: 0.05}
+    value: 0.93
+- header: {name: MULT}
+  qualifiers:
+  - {name: RE, value: P TA --> CHARGED- X}
+  values:
+  - errors:
+    - {symerror: 0.01}
+    value: 0.14
+  - errors:
+    - {symerror: 0.02}
+    value: 0.45
+  - errors:
+    - {symerror: 0.04}
+    value: 0.65
+  - errors:
+    - {symerror: 0.06}
+    value: 1.17
+independent_variables:
+- header: {name: P, units: GEV}
+  values:
+  - {value: 2.3}
+  - {value: 4.2}
+  - {value: 5.4}
+  - {value: 9.9}

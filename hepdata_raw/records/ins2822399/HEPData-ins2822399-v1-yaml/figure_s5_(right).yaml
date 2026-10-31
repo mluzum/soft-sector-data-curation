@@ -1,0 +1,39 @@
+dependent_variables:
+- header: {name: '$\langle B \rangle/\langle N_{part}\rangle$', units: GeV/c}
+  qualifiers:
+  - {name: SQRT(S), units: TeV, value: 0.2}
+  - {name: Reaction, value: Isobar}
+  values:
+  - errors:
+    - {label: Stat., symerror: 2.2e-05}
+    - {label: Sys. (Excluding feeddown), symerror: 0.001531}
+    - {label: Sys. from feeddown, symerror: 0.004163}
+    value: 0.047904
+  - errors:
+    - {label: Stat., symerror: 3.2e-05}
+    - {label: Sys. (Excluding feeddown), symerror: 0.001255}
+    - {label: Sys. from feeddown, symerror: 0.003838}
+    value: 0.045104
+  - errors:
+    - {label: Stat., symerror: 2.6e-05}
+    - {label: Sys. (Excluding feeddown), symerror: 0.002079}
+    - {label: Sys. from feeddown, symerror: 0.003173}
+    value: 0.041702
+  - errors:
+    - {label: Stat., symerror: 4.0e-05}
+    - {label: Sys. (Excluding feeddown), symerror: 0.00179}
+    - {label: Sys. from feeddown, symerror: 0.00302}
+    value: 0.03799
+  - errors:
+    - {label: Stat., symerror: 7.0e-05}
+    - {label: Sys. (Excluding feeddown), symerror: 0.00338}
+    - {label: Sys. from feeddown, symerror: 0.00277}
+    value: 0.03531
+independent_variables:
+- header: {name: Centrality}
+  values:
+  - {value: 0-10%}
+  - {value: 10-20%}
+  - {value: 20-40%}
+  - {value: 40-60%}
+  - {value: 60-80%}

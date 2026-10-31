@@ -1,0 +1,81 @@
+dependent_variables:
+- header: {name: 'D2(SIG)/DPT/DYRAP [NB/GEV]'}
+  qualifiers:
+  - {name: ABS(YRAP), value: 2.1 < |y| < 2.8}
+  - {name: R(JETS), value: '0.4'}
+  - {name: RE, value: P P --> JET(S) X}
+  - {name: SQRT(S), units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - asymerror: {minus: -13.91, plus: 14.72}
+      label: sys
+    - {label: stat, symerror: 0.33}
+    - {label: sys luminosity uncertainty, symerror: 1.46}
+    value: 77.6
+  - errors:
+    - asymerror: {minus: -3.16, plus: 3.35}
+      label: sys
+    - {label: stat, symerror: 0.09}
+    - {label: sys luminosity uncertainty, symerror: 0.44}
+    value: 23.22
+  - errors:
+    - asymerror: {minus: -0.871, plus: 0.889}
+      label: sys
+    - {label: stat, symerror: 0.028}
+    - {label: sys luminosity uncertainty, symerror: 0.129}
+    value: 6.857
+  - errors:
+    - asymerror: {minus: -0.221, plus: 0.222}
+      label: sys
+    - {label: stat, symerror: 0.007}
+    - {label: sys luminosity uncertainty, symerror: 0.033}
+    value: 1.778
+  - errors:
+    - asymerror: {minus: -0.0489, plus: 0.0521}
+      label: sys
+    - {label: stat, symerror: 0.0017}
+    - {label: sys luminosity uncertainty, symerror: 0.0079}
+    value: 0.4218
+  - errors:
+    - asymerror: {minus: -0.014, plus: 0.015}
+      label: sys
+    - {label: stat, symerror: 0.0005}
+    - {label: sys luminosity uncertainty, symerror: 0.0017}
+    value: 0.0891
+  - errors:
+    - asymerror: {minus: -0.0018, plus: 0.00184}
+      label: sys
+    - {label: stat, symerror: 0.00013}
+    - {label: sys luminosity uncertainty, symerror: 0.00029}
+    value: 0.01541
+  - errors:
+    - asymerror: {minus: -0.00027, plus: 0.00028}
+      label: sys
+    - {label: stat, symerror: 4.0e-05}
+    - {label: sys luminosity uncertainty, symerror: 4.0e-05}
+    value: 0.002
+  - errors:
+    - asymerror: {minus: -2.8e-05, plus: 2.8e-05}
+      label: sys
+    - {label: stat, symerror: 9.0e-06}
+    - {label: sys luminosity uncertainty, symerror: 3.0e-06}
+    value: 0.00018
+  - errors:
+    - asymerror: {minus: -1.6e-06, plus: 1.6e-06}
+      label: sys
+    - {label: stat, symerror: 1.4e-06}
+    - {label: sys luminosity uncertainty, symerror: 1.0e-07}
+    value: 5.7e-06
+independent_variables:
+- header: {name: 'PT [GEV]', units: GeV}
+  values:
+  - {high: 50, low: 40}
+  - {high: 63, low: 50}
+  - {high: 79, low: 63}
+  - {high: 100, low: 79}
+  - {high: 126, low: 100}
+  - {high: 158, low: 126}
+  - {high: 200, low: 158}
+  - {high: 251, low: 200}
+  - {high: 316, low: 251}
+  - {high: 398, low: 316}

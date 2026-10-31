@@ -1,0 +1,35 @@
+dependent_variables:
+- header: {name: 'Y^{0 TO 20}/Y^{40 TO 100}'}
+  qualifiers:
+  - {name: RE, value: DEUT AU --> CHGD-HADRONS X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '200.0'}
+  - {name: '', value: pT^(t) dependence}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.153364}
+    - {label: sys, symerror: 0.103807}
+    value: 1.7402
+  - errors:
+    - {label: stat, symerror: 0.0762548}
+    - {label: sys, symerror: 0.0268747}
+    value: 1.47554
+  - errors:
+    - {label: stat, symerror: 0.0934652}
+    - {label: sys, symerror: 0.0695543}
+    value: 1.35294
+  - errors:
+    - {label: stat, symerror: 0.129806}
+    - {label: sys, symerror: 0.145219}
+    value: 1.27614
+  - errors:
+    - {label: stat, symerror: 0.14864}
+    - {label: sys, symerror: 0.0533708}
+    value: 1.20455
+independent_variables:
+- header: {name: pT^(t)}
+  values:
+  - {value: 0.425}
+  - {value: 0.75}
+  - {value: 1.25}
+  - {value: 1.75}
+  - {value: 2.5}

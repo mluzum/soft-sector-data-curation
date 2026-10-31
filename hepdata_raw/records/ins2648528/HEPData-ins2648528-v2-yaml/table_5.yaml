@@ -1,0 +1,56 @@
+dependent_variables:
+- header: {name: '$1/\left<T_{AA}\right> d^2N^{\Upsilon}/dptdy$', units: pb/GeV/c}
+  qualifiers:
+  - {name: RE, value: Pb Pb --> $\Upsilon(1S)$ < $\mu$$^+$ $\mu$$^-$ > X}
+  - {name: SQRT(S)/NUCLEON, value: 5020 GeV}
+  - {name: $|y|$, value: $ < 2.4$}
+  - {name: '$p_{T}$', units: GeV/c, value: 0 -- 30}
+  values:
+  - errors:
+    - {label: stat, symerror: 6.21}
+    - {label: sys, symerror: 6.68}
+    value: 37.69
+  - errors:
+    - {label: stat, symerror: 4.17}
+    - {label: sys, symerror: 6.04}
+    value: 43.89
+  - errors:
+    - {label: stat, symerror: 2.51}
+    - {label: sys, symerror: 3.1}
+    value: 28.96
+  - errors:
+    - {label: stat, symerror: 1.7}
+    - {label: sys, symerror: 2.18}
+    value: 24.95
+  - errors:
+    - {label: stat, symerror: 1.29}
+    - {label: sys, symerror: 1.68}
+    value: 23.06
+  - errors:
+    - {label: stat, symerror: 1.86}
+    - {label: sys, symerror: 1.22}
+    value: 19.12
+  - errors:
+    - {label: stat, symerror: 0.82}
+    - {label: sys, symerror: 0.94}
+    value: 15.4
+  - errors:
+    - {label: stat, symerror: 1.01}
+    - {label: sys, symerror: 0.89}
+    value: 15.28
+  - errors:
+    - {label: stat, symerror: 0.89}
+    - {label: sys, symerror: 0.88}
+    value: 15.2
+independent_variables:
+- header: {name: Centrality, units: PCT}
+  values:
+  - {high: 100, low: 70}
+  - {high: 70, low: 60}
+  - {high: 60, low: 50}
+  - {high: 50, low: 40}
+  - {high: 40, low: 30}
+  - {high: 30, low: 20}
+  - {high: 20, low: 10}
+  - {high: 10, low: 5}
+  - {high: 5, low: 0}

@@ -1,0 +1,58 @@
+dependent_variables:
+- header: {name: '$\langle p_{T, trig} \rangle$ (GeV/$c$)'}
+  values:
+  - {value: 5.44}
+  - {value: 6.31}
+  - {value: 7.27}
+  - {value: 8.6}
+  - {value: 10.6}
+  - {value: 13.2}
+- header: {name: '$\sigma_{near}$ (rad)'}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.008}
+    value: 0.176
+  - errors:
+    - {label: stat., symerror: 0.007}
+    value: 0.165
+  - errors:
+    - {label: stat., symerror: 0.007}
+    value: 0.162
+  - errors:
+    - {label: stat., symerror: 0.008}
+    value: 0.157
+  - errors:
+    - {label: stat., symerror: 0.02}
+    value: 0.149
+  - errors:
+    - {label: stat., symerror: 0.019}
+    value: 0.177
+- header: {name: '$\sigma_{far}$ (rad)'}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.03}
+    value: 0.393
+  - errors:
+    - {label: stat., symerror: 0.02}
+    value: 0.342
+  - errors:
+    - {label: stat., symerror: 0.022}
+    value: 0.322
+  - errors:
+    - {label: stat., symerror: 0.019}
+    value: 0.301
+  - errors:
+    - {label: stat., symerror: 0.04}
+    value: 0.23
+  - errors:
+    - {label: stat., symerror: 0.04}
+    value: 0.33
+independent_variables:
+- header: {name: '$p^{trig}_T$ (GeV/$c$)'}
+  values:
+  - {high: 6, low: 5}
+  - {high: 7, low: 6}
+  - {high: 8, low: 7}
+  - {high: 10, low: 8}
+  - {high: 12, low: 10}
+  - {high: 14, low: 12}

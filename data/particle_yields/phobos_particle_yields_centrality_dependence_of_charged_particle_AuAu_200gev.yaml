@@ -1,0 +1,42 @@
+---
+observable_type: particle_yields
+inspire_id: '556861'
+version: 1
+hepdata_file: Table.yaml
+hepdata_table_label: For each measured centrality bin, based on percentile of the total cross-section, we show $dNch/d\eta|_{|\eta|<1}$,  the
+  midrapidity charged particle density per unit of pseudorapidity, $\langle N_{part}\rangle$ , the average number of nucleons
+  participating in the collision in the given centrality range, and the final result for $dNch/d\eta|_{|\eta|<1}/( \frac{1}{2}\langle
+  N_{part}\rangle )$, including the full error estimation.
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> MULT(CHARGED) X
+centrality:
+  classes:
+  - 0-3%
+  - 3-6%
+  - 6-10%
+  - 10-15%
+  - 15-20%
+  - 20-25%
+  - 25-30%
+  - 30-35%
+  - 35-40%
+  - 40-45%
+  estimator:
+    name: Octagon
+    observable: Nch
+    detector: Octagon
+  eta:
+  - min: -3.2
+    max: 3.2
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.2
+    max: 3.2
+  pT:
+    min: 0.1
+    max: 10
+observable: dN_dy
+value_type: dN_dy

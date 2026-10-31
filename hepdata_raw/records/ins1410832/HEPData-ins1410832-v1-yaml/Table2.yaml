@@ -1,0 +1,36 @@
+dependent_variables:
+- header: {name: AFB}
+  qualifiers:
+  - {name: LEPTON ABS(ETARAP), value: < 2.4}
+  - {name: LEPTON PT, units: GEV, value: '> 20'}
+  - {name: M, units: GeV, value: 60.0-120.0}
+  - {name: SQRT(SNN), units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.073}
+    - {label: sys, symerror: 0.04}
+    value: 1.035
+  - errors:
+    - {label: stat, symerror: 0.0646}
+    - {label: sys, symerror: 0.03}
+    value: 0.9222
+  - errors:
+    - {label: stat, symerror: 0.061}
+    - {label: sys, symerror: 0.0308}
+    value: 0.7786
+  - errors:
+    - {label: stat, symerror: 0.0436}
+    - {label: sys, symerror: 0.0146}
+    value: 0.4628
+  - errors:
+    - {label: stat, symerror: 0.0195}
+    - {label: sys, symerror: 0.0033}
+    value: 0.1016
+independent_variables:
+- header: {name: ABS(YRAP)}
+  values:
+  - {high: 0.4, low: 0.0}
+  - {high: 0.8, low: 0.4}
+  - {high: 1.2, low: 0.8}
+  - {high: 1.6, low: 1.2}
+  - {high: 2.0, low: 1.6}

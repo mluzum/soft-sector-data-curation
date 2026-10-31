@@ -1,0 +1,84 @@
+dependent_variables:
+- header: {name: '$\langle N_{coll} \rangle$'}
+  qualifiers:
+  - {name: Rapidity, value: 1.2 < $|y|$ < 2.2}
+  values:
+  - errors:
+    - {label: C sys., symerror: 1.0}
+    value: 15.1
+  - errors:
+    - {label: C sys., symerror: 0.7}
+    value: 10.2
+  - errors:
+    - {label: C sys., symerror: 0.4}
+    value: 6.6
+  - errors:
+    - {label: C sys., symerror: 0.2}
+    value: 3.2
+- header: {name: '$R_{dAu}$'}
+  qualifiers:
+  - {name: Rapidity, value: -2.2 < $y$ < -1.2}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.21}
+    - {label: B sys., symerror: 0.21}
+    value: 1.26
+  - errors:
+    - {label: stat., symerror: 0.2}
+    - {label: B sys., symerror: 0.2}
+    value: 1.25
+  - errors:
+    - {label: stat., symerror: 0.2}
+    - {label: B sys., symerror: 0.19}
+    value: 1.18
+  - errors:
+    - {label: stat., symerror: 0.22}
+    - {label: B sys., symerror: 0.2}
+    value: 1.24
+- header: {name: '$R_{dAu}$'}
+  qualifiers:
+  - {name: Rapidity, value: 1.2 < $y$ < 2.2}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.12}
+    - {label: B sys., symerror: 0.12}
+    value: 0.73
+  - errors:
+    - {label: stat., symerror: 0.1}
+    - {label: B sys., symerror: 0.11}
+    value: 0.65
+  - errors:
+    - {label: stat., symerror: 0.11}
+    - {label: B sys., symerror: 0.13}
+    value: 0.8
+  - errors:
+    - {label: stat., symerror: 0.17}
+    - {label: B sys., symerror: 0.16}
+    value: 0.95
+- header: {name: '$R_{dAu}$'}
+  qualifiers:
+  - {name: Rapidity, value: $|y|$ < 0.35}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.11}
+    - {label: B sys., symerror: 0.09}
+    value: 1.03
+  - errors:
+    - {label: stat., symerror: 0.1}
+    - {label: B sys., symerror: 0.09}
+    value: 1.0
+  - errors:
+    - {label: stat., symerror: 0.09}
+    - {label: B sys., symerror: 0.08}
+    value: 0.86
+  - errors:
+    - {label: stat., symerror: 0.11}
+    - {label: B sys., symerror: 0.09}
+    value: 1.04
+independent_variables:
+- header: {name: Centrality (%)}
+  values:
+  - {high: 20, low: 0}
+  - {high: 40, low: 20}
+  - {high: 60, low: 40}
+  - {high: 88, low: 60}

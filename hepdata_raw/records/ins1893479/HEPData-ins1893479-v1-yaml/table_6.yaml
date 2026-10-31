@@ -1,0 +1,49 @@
+dependent_variables:
+- header: {name: Pb-Pb/pp}
+  qualifiers:
+  - {name: RE, value: 'P P --> jet+X, Pb Pb --> jet+X'}
+  - {name: CENTRALITY, value: '[30, 50]'}
+  - {name: SQRT(S), units: TeV, value: 5.02}
+  - {name: ETARAP, value: '|0.9-R|'}
+  - {name: jet radius, value: 0.4}
+  - {name: jet method, value: 'Anti-$k_{T}$'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.11}
+    - asymerror: {minus: -0.23, plus: 0.2}
+      label: sys
+    value: 0.991
+  - errors:
+    - {label: stat, symerror: 0.08}
+    - asymerror: {minus: -0.08, plus: 0.09}
+      label: sys
+    value: 1.04
+  - errors:
+    - {label: stat, symerror: 0.069}
+    - asymerror: {minus: -0.077, plus: 0.062}
+      label: sys
+    value: 0.916
+  - errors:
+    - {label: stat, symerror: 0.09}
+    - asymerror: {minus: -0.05, plus: 0.09}
+      label: sys
+    value: 1.08
+  - errors:
+    - {label: stat, symerror: 0.083}
+    - asymerror: {minus: -0.12, plus: 0.13}
+      label: sys
+    value: 0.974
+  - errors:
+    - {label: stat, symerror: 0.07}
+    - asymerror: {minus: -0.08, plus: 0.09}
+      label: sys
+    value: 1.01
+independent_variables:
+- header: {name: '$z_{{\mathrm{g}}}$'}
+  values:
+  - {high: 0.2, low: 0.0}
+  - {high: 0.25, low: 0.2}
+  - {high: 0.3, low: 0.25}
+  - {high: 0.35, low: 0.3}
+  - {high: 0.4, low: 0.35}
+  - {high: 0.5, low: 0.4}

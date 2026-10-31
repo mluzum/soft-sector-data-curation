@@ -1,0 +1,64 @@
+dependent_variables:
+- header: {name: $|y| < 0.35$ (global err. 16%)}
+  qualifiers:
+  - {name: '', value: '$\frac{dN^{AB}/dp_{T}}{\langle N_{part} \rangle dN^{pp}/dp_{T}}$,
+      0-20% Centrality'}
+  values:
+  - errors:
+    - asymerror: {minus: 0.057, plus: 0.057}
+      label: stat
+    - {label: sys, symerror: 0.082}
+    value: 0.5501
+  - errors:
+    - asymerror: {minus: 0.048, plus: 0.048}
+      label: stat
+    - {label: sys, symerror: 0.0686}
+    value: 0.4876
+  - errors:
+    - asymerror: {minus: 0.0653, plus: 0.0653}
+      label: stat
+    - {label: sys, symerror: 0.067}
+    value: 0.4843
+  - errors:
+    - asymerror: {minus: 0.1351, plus: 0.1351}
+      label: stat
+    - {label: sys, symerror: 0.0797}
+    value: 0.5835
+  - errors:
+    - asymerror: {minus: 0.3611, plus: 0.3589}
+      label: stat
+    - {label: sys, symerror: 0.1094}
+    value: 0.8111
+- header: {name: $1.2 < |y| < 2.2$ (global err. 12%)}
+  qualifiers:
+  - {name: '', value: '$\frac{dN^{AB}/dp_{T}}{\langle N_{part} \rangle dN^{pp}/dp_{T}}$,
+      0-20% Centrality'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0386}
+    - {label: sys, symerror: 0.0454}
+    value: 0.4761
+  - errors:
+    - {label: stat, symerror: 0.0341}
+    - {label: sys, symerror: 0.0453}
+    value: 0.4742
+  - errors:
+    - {label: stat, symerror: 0.0638}
+    - {label: sys, symerror: 0.0594}
+    value: 0.6206
+  - errors:
+    - {label: stat, symerror: 0.0769}
+    - {label: sys, symerror: 0.0519}
+    value: 0.5364
+  - errors:
+    - {label: stat, symerror: 0.1666}
+    - {label: sys, symerror: 0.0542}
+    value: 0.5316
+independent_variables:
+- header: {name: '$p_{T}[GeV/c]$'}
+  values:
+  - {high: 1.0, low: 0.0}
+  - {high: 2.0, low: 1.0}
+  - {high: 3.0, low: 2.0}
+  - {high: 4.0, low: 3.0}
+  - {high: 5.0, low: 4.0}

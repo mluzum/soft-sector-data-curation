@@ -1,0 +1,36 @@
+dependent_variables:
+- header: {name: (10**9/Ncoll)*(N/Nev)}
+  qualifiers:
+  - {name: ABS(YRAP), value: < 2.5}
+  - {name: PT, units: GEV, value: '> 0'}
+  - {name: RE, value: PB PB --> Z0 < LEPTON+ LEPTON- > X}
+  - {name: SQRT(S), units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.428}
+    - {label: sys, symerror: 0.448571064604038}
+    value: 4.76
+  - errors:
+    - {label: stat, symerror: 0.25}
+    - {label: sys, symerror: 0.408584140661382}
+    value: 4.99
+  - errors:
+    - {label: stat, symerror: 0.251}
+    - {label: sys, symerror: 0.440508796733959}
+    value: 5.01
+  - errors:
+    - {label: stat, symerror: 0.292}
+    - {label: sys, symerror: 0.42785511566417}
+    value: 4.86
+  - errors:
+    - {label: stat, symerror: 0.22}
+    - {label: sys, symerror: 0.484380016103059}
+    value: 4.39
+independent_variables:
+- header: {name: Npart}
+  values:
+  - {value: 46 +- 3}
+  - {value: 158 +- 4}
+  - {value: 261 +- 4}
+  - {value: 330 +- 3}
+  - {value: 382 +- 2}

@@ -1,0 +1,27 @@
+dependent_variables:
+- header: {name: DN/D(YRAP-YRAP(BEAM))/(NPART/2)}
+  qualifiers:
+  - {name: CENTRALITY, units: PCT, value: 0-10}
+  - {name: YRAP(BEAM), value: 4.2}
+  - {name: SQRT(S)/NUCLEON, value: 62.4}
+  - {name: CORRECTED, value: TARGET NET-BARYONS}
+  values:
+  - errors:
+    - {symerror: 0.0}
+    value: 0.07
+  - errors:
+    - {symerror: 0.0066}
+    value: 0.0412
+  - errors:
+    - {symerror: 0.0072}
+    value: 0.0138
+  - errors:
+    - {symerror: 0.0057}
+    value: 0.009
+independent_variables:
+- header: {name: YRAP - YRAP(BEAM)}
+  values:
+  - {high: -4.091, low: -4.291}
+  - {high: -3.291, low: -3.791}
+  - {high: -1.691, low: -2.091}
+  - {high: -1.111, low: -1.271}

@@ -1,0 +1,35 @@
+dependent_variables:
+- header: {name: Double Ratio}
+  qualifiers:
+  - {name: RE, value: prompt psi(2S) to prompt J/psi}
+  - {name: SQRT(S_NN), units: GeV, value: '5020.0'}
+  - {name: PT, value: 8-40}
+  - {name: YSTAR, value: -2.0-1.5}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.131}
+    - {label: syst local, symerror: 0.118}
+    - {label: syst global, symerror: 0.068}
+    value: 0.959
+  - errors:
+    - {label: stat, symerror: 0.125}
+    - {label: syst local, symerror: 0.14}
+    - {label: syst global, symerror: 0.056}
+    value: 0.794
+  - errors:
+    - {label: stat, symerror: 0.122}
+    - {label: syst local, symerror: 0.107}
+    - {label: syst global, symerror: 0.047}
+    value: 0.661
+  - errors:
+    - {label: stat, symerror: 0.202}
+    - {label: syst local, symerror: 0.098}
+    - {label: syst global, symerror: 0.054}
+    value: 0.768
+independent_variables:
+- header: {name: Centrality, units: '%'}
+  values:
+  - {high: 90, low: 40}
+  - {high: 40, low: 20}
+  - {high: 20, low: 5}
+  - {high: 5, low: 0}

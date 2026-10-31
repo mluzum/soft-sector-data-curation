@@ -1,0 +1,35 @@
+dependent_variables:
+- header: {name: (SIGMA_PSI(2S)/SIGMA_JPSI)_pA/(SIGMA_PSI(2S)/SIGMA_JPSI)_pp}
+  qualifiers:
+  - {name: RE, value: P PB --> J/PSI PSI(2S) < MU+ MU- > X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 8160.0}
+  - {name: YRAP, value: 2.03 TO 3.53}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.15}
+    - {label: 'sys, uncorrel', symerror: 0.14}
+    value: 0.8
+  - errors:
+    - {label: stat, symerror: 0.15}
+    - {label: 'sys, uncorrel', symerror: 0.11}
+    value: 0.69
+  - errors:
+    - {label: stat, symerror: 0.12}
+    - {label: 'sys, uncorrel', symerror: 0.12}
+    value: 1.05
+  - errors:
+    - {label: stat, symerror: 0.12}
+    - {label: 'sys, uncorrel', symerror: 0.11}
+    value: 0.9
+  - errors:
+    - {label: stat, symerror: 0.17}
+    - {label: 'sys, uncorrel', symerror: 0.16}
+    value: 0.67
+independent_variables:
+- header: {name: PT, units: GEV/C}
+  values:
+  - {high: 2.0, low: 0.0}
+  - {high: 3.0, low: 2.0}
+  - {high: 5.0, low: 3.0}
+  - {high: 8.0, low: 5.0}
+  - {high: 12.0, low: 8.0}

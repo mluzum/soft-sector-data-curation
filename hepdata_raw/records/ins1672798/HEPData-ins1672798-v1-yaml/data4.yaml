@@ -1,0 +1,45 @@
+dependent_variables:
+- header: {name: RAA}
+  qualifiers:
+  - {name: CENTRALITY, units: '%', value: 0 TO 90}
+  - {name: PT, units: GEV/c, value: 0 TO 15}
+  - {name: RE, value: Pb Pb --> UPSI(1S) < MU+ MU- > X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020'}
+  values:
+  - errors:
+    - {label: stat, symerror: '0.03'}
+    - {label: sys, symerror: '0.06'}
+    value: '0.43'
+  - errors:
+    - {label: stat, symerror: '0.03'}
+    - {label: sys, symerror: '0.04'}
+    value: '0.38'
+  - errors:
+    - {label: stat, symerror: '0.04'}
+    - {label: sys, symerror: '0.04'}
+    value: '0.35'
+- header: {name: 10**6 * D2(Y)/DPT/DYRAP, units: (GeV/c)**-1}
+  qualifiers:
+  - {name: CENTRALITY, units: '%', value: 0 TO 90}
+  - {name: PT, units: GEV/c, value: 0 TO 15}
+  - {name: RE, value: Pb Pb --> UPSI(1S) < MU+ MU- > X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020'}
+  values:
+  - errors:
+    - {label: stat, symerror: '0.584'}
+    - {label: sys, symerror: '0.505'}
+    value: '7.266'
+  - errors:
+    - {label: stat, symerror: '0.352'}
+    - {label: sys, symerror: '0.348'}
+    value: '5.281'
+  - errors:
+    - {label: stat, symerror: '0.384'}
+    - {label: sys, symerror: '0.263'}
+    value: '3.369'
+independent_variables:
+- header: {name: YRAP}
+  values:
+  - {high: 3.0, low: 2.5}
+  - {high: 3.5, low: 3.0}
+  - {high: 4.0, low: 3.5}

@@ -1,0 +1,49 @@
+dependent_variables:
+- header: {name: Pb+Pb CENTRALITY, units: PERCENT}
+  qualifiers:
+  - {name: SYSTEM, value: Pb+Pb}
+  - {name: SQRT(S), units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 5}
+    value: 15
+  - errors:
+    - {label: stat, symerror: 10}
+    value: 30
+  - errors:
+    - {label: stat, symerror: 10}
+    value: 50
+- header: {name: <TAA>, units: 1/(mb)}
+  qualifiers:
+  - {name: SYSTEM, value: Xe+Xe}
+  - {name: SQRT(S), units: GeV, value: '5440.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.08}
+    value: 13.05
+  - errors:
+    - {label: stat, symerror: 0.09}
+    value: 6.45
+  - errors:
+    - {label: stat, symerror: 0.07}
+    value: 1.81
+- header: {name: SUM ET FCAL, units: TEV}
+  qualifiers:
+  - {name: SYSTEM, value: Xe+Xe}
+  - {name: SQRT(S), units: GeV, value: '5440.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.47}
+    value: 2.53
+  - errors:
+    - {label: stat, symerror: 0.585}
+    value: 1.475
+  - errors:
+    - {label: stat, symerror: 0.295}
+    value: 0.595
+independent_variables:
+- header: {name: Xe+Xe CENTRALITY, units: PERCENT}
+  values:
+  - {high: 7.7, low: 0.0}
+  - {high: 29.9, low: 7.7}
+  - {high: 53.2, low: 29.9}

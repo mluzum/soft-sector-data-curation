@@ -1,0 +1,25 @@
+dependent_variables:
+- header: {name: '$\rm{R_{AA}}$'}
+  qualifiers:
+  - {name: RE, value: PB PB --> Bs0 --> J/PSI (MU+ MU-) + PHI (K+ K-)}
+  - {name: RE, value: P P --> Bs0 --> J/PSI (MU+ MU-) + PHI (K+ K-)}
+  - {name: SQRT(s)/NUCLEON, units: GeV, value: '5020.0'}
+  - {name: '$p_{T}$', units: GeV/C, value: 7.0 ~ 50.0}
+  - {name: ABS(YRAP), value: 0 - 2.4}
+  - {name: Centrality, value: 0-100 %}
+  - {name: '$\rm{T_{AA}}$', value: '5.6'}
+  - {name: Global uncertainty, value: '+4.1, -4.6%'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.61}
+    - {label: sys, symerror: 0.5}
+    value: 1.51
+  - errors:
+    - {label: stat, symerror: 0.3}
+    - {label: sys, symerror: 0.17}
+    value: 0.87
+independent_variables:
+- header: {name: PT (GeV)}
+  values:
+  - {value: 11.0}
+  - {value: 32.5}

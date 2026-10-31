@@ -1,0 +1,82 @@
+dependent_variables:
+- header: {name: '$(\rm{K}^{*\pm} + \rm{K}^{*\mp}) / (\rm{K}^{+}+\rm{K}^{-})$', units: '-'}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 0-10}
+  - {name: RE, value: 'Pb Pb $\rightarrow$ K$^{*\pm}$ X, Pb Pb $\rightarrow$ {K}$^{*\mp}$
+      X'}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  - {name: YRAP, value: -0.5 - 0.5}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0200823}
+    - {label: sys, symerror: 0.0101598}
+    value: 0.0793557
+  - errors:
+    - {label: stat, symerror: 0.0203544}
+    - {label: sys, symerror: 0.0145113}
+    value: 0.12835
+  - errors:
+    - {label: stat, symerror: 0.018041}
+    - {label: sys, symerror: 0.0216364}
+    value: 0.203689
+  - errors:
+    - {label: stat, symerror: 0.0193239}
+    - {label: sys, symerror: 0.0399049}
+    value: 0.377955
+  - errors:
+    - {label: stat, symerror: 0.0228713}
+    - {label: sys, symerror: 0.0641098}
+    value: 0.561672
+  - errors:
+    - {label: stat, symerror: 0.0331355}
+    - {label: sys, symerror: 0.0883349}
+    value: 0.738895
+  - errors:
+    - {label: stat, symerror: 0.0456002}
+    - {label: sys, symerror: 0.107914}
+    value: 0.89509
+  - errors:
+    - {label: stat, symerror: 0.0635883}
+    - {label: sys, symerror: 0.126987}
+    value: 1.05709
+  - errors:
+    - {label: stat, symerror: 0.0675568}
+    - {label: sys, symerror: 0.124158}
+    value: 1.01799
+  - errors:
+    - {label: stat, symerror: 0.0941847}
+    - {label: sys, symerror: 0.0858227}
+    value: 0.712825
+  - errors:
+    - {label: stat, symerror: 0.0790763}
+    - {label: sys, symerror: 0.120176}
+    value: 0.955193
+  - errors:
+    - {label: stat, symerror: 0.0940855}
+    - {label: sys, symerror: 0.101912}
+    value: 0.798709
+  - errors:
+    - {label: stat, symerror: 0.112704}
+    - {label: sys, symerror: 0.109061}
+    value: 0.875346
+  - errors:
+    - {label: stat, symerror: 0.124286}
+    - {label: sys, symerror: 0.111998}
+    value: 0.880874
+independent_variables:
+- header: {name: '$p_{ \rm {T}}$', units: 'GeV/$\it{c}$'}
+  values:
+  - {high: 0.8, low: 0.4}
+  - {high: 1.2, low: 0.8}
+  - {high: 1.6, low: 1.2}
+  - {high: 2, low: 1.6}
+  - {high: 2.5, low: 2}
+  - {high: 3, low: 2.5}
+  - {high: 3.5, low: 3}
+  - {high: 4, low: 3.5}
+  - {high: 5, low: 4}
+  - {high: 6, low: 5}
+  - {high: 8, low: 6}
+  - {high: 10, low: 8}
+  - {high: 12, low: 10}
+  - {high: 16, low: 12}

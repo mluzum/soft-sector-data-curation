@@ -1,0 +1,62 @@
+dependent_variables:
+- header: {name: RAA}
+  qualifiers:
+  - {name: PT, units: GEV, value: '> 0'}
+  - {name: RE, value: PB PB --> J/PSI X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  - {name: YRAP, value: 2.4-4.0}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.059}
+    - {label: sys, symerror: 0.06}
+    - {label: 'sys,global systematic error', symerror: 12.2%}
+    value: 0.556
+  - errors:
+    - {label: stat, symerror: 0.063}
+    - {label: sys, symerror: 0.041}
+    - {label: 'sys,global systematic error', symerror: 12.2%}
+    value: 0.517
+  - errors:
+    - {label: stat, symerror: 0.07}
+    - {label: sys, symerror: 0.076}
+    - {label: 'sys,global systematic error', symerror: 12.2%}
+    value: 0.594
+  - errors:
+    - {label: stat, symerror: 0.061}
+    - {label: sys, symerror: 0.043}
+    - {label: 'sys,global systematic error', symerror: 12.2%}
+    value: 0.496
+  - errors:
+    - {label: stat, symerror: 0.087}
+    - {label: sys, symerror: 0.057}
+    - {label: 'sys,global systematic error', symerror: 12.2%}
+    value: 0.681
+independent_variables:
+- header: {name: CENTRALITY, units: PCT}
+  values:
+  - {high: 10.0, low: 0.0}
+  - {high: 20.0, low: 10.0}
+  - {high: 30.0, low: 20.0}
+  - {high: 50.0, low: 30.0}
+  - {high: 80.0, low: 50.0}
+- header: {name: Mean(Npart)}
+  values:
+  - {high: 358.0, low: 354.0, value: 356 +- 4}
+  - {high: 262.0, low: 258.0, value: 260 +- 4}
+  - {high: 188.0, low: 184.0, value: 186 +- 4}
+  - {high: 108.5, low: 105.5, value: 107 +- 3}
+  - {high: 33.0, low: 31.0, value: 32 +- 2}
+- header: {name: Mean(NPpart(w))}
+  values:
+  - {high: 363.0, low: 359.0, value: 361 +- 4}
+  - {high: 266.0, low: 262.0, value: 264 +- 4}
+  - {high: 191.0, low: 187.0, value: 189 +- 4}
+  - {high: 118.5, low: 115.5, value: 117 +- 3}
+  - {high: 48.0, low: 46.0, value: 47 +- 2}
+- header: {name: 'D(N(ch,w)/DETARAP(0)'}
+  values:
+  - {high: 1493.0, low: 1433.0, value: 1463 +- 60}
+  - {high: 997.5, low: 960.5, value: 979 +- 37}
+  - {high: 669.5, low: 646.5, value: 658 +- 23}
+  - {high: 375.5, low: 362.5, value: 369 +- 13}
+  - {high: 112.5, low: 107.5, value: 110 +- 5}

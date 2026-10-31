@@ -1,0 +1,67 @@
+dependent_variables:
+- header: {name: (1/Nev)*D2(N)/DPT/DYRAP, units: GEV**-1}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 20.0-40.0}
+  - {name: RE, value: PB PB --> (K*(892)0 < PI- K+ > + AK*(892)0 < PI+ K- >)/2 X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  - {name: YRAP, value: -0.5-0.5}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.403}
+    - {label: 'sys,uncorrelated', symerror: 0.733}
+    - {label: 'sys,normalization', symerror: 1.5%}
+    - {label: 'sys,other pT-correlated systematic uncertainties', symerror: 10.05%}
+    value: 4.51
+  - errors:
+    - {label: stat, symerror: 0.519}
+    - {label: 'sys,uncorrelated', symerror: 0.691}
+    - {label: 'sys,normalization', symerror: 1.5%}
+    - {label: 'sys,other pT-correlated systematic uncertainties', symerror: 10.05%}
+    value: 5.244
+  - errors:
+    - {label: stat, symerror: 0.309}
+    - {label: 'sys,uncorrelated', symerror: 0.491}
+    - {label: 'sys,normalization', symerror: 1.5%}
+    - {label: 'sys,other pT-correlated systematic uncertainties', symerror: 10.05%}
+    value: 3.822
+  - errors:
+    - {label: stat, symerror: 0.131}
+    - {label: 'sys,uncorrelated', symerror: 0.553}
+    - {label: 'sys,normalization', symerror: 1.5%}
+    - {label: 'sys,other pT-correlated systematic uncertainties', symerror: 10.05%}
+    value: 3.011
+  - errors:
+    - {label: stat, symerror: 0.067}
+    - {label: 'sys,uncorrelated', symerror: 0.335}
+    - {label: 'sys,normalization', symerror: 1.5%}
+    - {label: 'sys,other pT-correlated systematic uncertainties', symerror: 10.05%}
+    value: 1.65
+  - errors:
+    - {label: stat, symerror: 0.0503}
+    - {label: 'sys,uncorrelated', symerror: 0.0849}
+    - {label: 'sys,normalization', symerror: 1.5%}
+    - {label: 'sys,other pT-correlated systematic uncertainties', symerror: 10.05%}
+    value: 0.6633
+  - errors:
+    - {label: stat, symerror: 0.011}
+    - {label: 'sys,uncorrelated', symerror: 0.0293}
+    - {label: 'sys,normalization', symerror: 1.5%}
+    - {label: 'sys,other pT-correlated systematic uncertainties', symerror: 10.05%}
+    value: 0.2338
+  - errors:
+    - {label: stat, symerror: 0.00371}
+    - {label: 'sys,uncorrelated', symerror: 0.00416}
+    - {label: 'sys,normalization', symerror: 1.5%}
+    - {label: 'sys,other pT-correlated systematic uncertainties', symerror: 10.05%}
+    value: 0.04319
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {high: 0.8, low: 0.3}
+  - {high: 1.2, low: 0.8}
+  - {high: 1.6, low: 1.2}
+  - {high: 2.0, low: 1.6}
+  - {high: 2.5, low: 2.0}
+  - {high: 3.0, low: 2.5}
+  - {high: 4.0, low: 3.0}
+  - {high: 5.0, low: 4.0}

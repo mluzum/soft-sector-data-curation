@@ -1,0 +1,40 @@
+dependent_variables:
+- header: {name: pt_v3_max_CH_PIONS}
+  qualifiers:
+  - {name: RE, value: Pb Pb --> CH_PIONS}
+  - {name: SQRT(S), units: GEV, value: 5020}
+  - {name: ABS(Y), value: < 0.5 (LAB)}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0356048}
+    - {label: sys, symerror: 0.0578614}
+    value: 1.61637
+  - errors:
+    - {label: stat, symerror: 0.0229115}
+    - {label: sys, symerror: 0.0661378}
+    value: 1.57313
+  - errors:
+    - {label: stat, symerror: 0.0199229}
+    - {label: sys, symerror: 0.0602748}
+    value: 1.57352
+  - errors:
+    - {label: stat, symerror: 0.0215557}
+    - {label: sys, symerror: 0.0769924}
+    value: 1.4704
+  - errors:
+    - {label: stat, symerror: 0.028413}
+    - {label: sys, symerror: 0.0864611}
+    value: 1.42314
+  - errors:
+    - {label: stat, symerror: 0.0376101}
+    - {label: sys, symerror: 0.0553107}
+    value: 1.29026
+independent_variables:
+- header: {name: Centrality}
+  values:
+  - {high: 5, low: 0}
+  - {high: 10, low: 5}
+  - {high: 20, low: 10}
+  - {high: 30, low: 20}
+  - {high: 40, low: 30}
+  - {high: 50, low: 40}

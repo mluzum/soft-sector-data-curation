@@ -1,0 +1,52 @@
+dependent_variables:
+- header: {name: '$\Lambda_{\rm c}^{+}$/${\rm D}^{0}$ baryon-to-meson ratio'}
+  qualifiers:
+  - {name: RE, value: P P --> Lc X}
+  - {name: SQRT(S), units: GEV, value: '5020.0'}
+  - {name: YRAP, value: -0.5 TO 0.5}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.077}
+    - asymerror: {minus: -0.061, plus: 0.061}
+      label: sys
+    value: 0.533
+  - errors:
+    - {label: stat, symerror: 0.052}
+    - asymerror: {minus: -0.057, plus: 0.058}
+      label: sys
+    value: 0.504
+  - errors:
+    - {label: stat, symerror: 0.04}
+    - asymerror: {minus: -0.046, plus: 0.046}
+      label: sys
+    value: 0.459
+  - errors:
+    - {label: stat, symerror: 0.041}
+    - asymerror: {minus: -0.04, plus: 0.04}
+      label: sys
+    value: 0.387
+  - errors:
+    - {label: stat, symerror: 0.037}
+    - asymerror: {minus: -0.029, plus: 0.03}
+      label: sys
+    value: 0.293
+  - errors:
+    - {label: stat, symerror: 0.032}
+    - asymerror: {minus: -0.029, plus: 0.03}
+      label: sys
+    value: 0.283
+  - errors:
+    - {label: stat, symerror: 0.035}
+    - asymerror: {minus: -0.021, plus: 0.021}
+      label: sys
+    value: 0.219
+independent_variables:
+- header: {name: PT, units: GEV/C}
+  values:
+  - {high: 2.0, low: 1.0, value: 1.5}
+  - {high: 3.0, low: 2.0, value: 2.5}
+  - {high: 4.0, low: 3.0, value: 3.5}
+  - {high: 5.0, low: 4.0, value: 4.5}
+  - {high: 6.0, low: 5.0, value: 5.5}
+  - {high: 8.0, low: 6.0, value: 7.0}
+  - {high: 12.0, low: 8.0, value: 10.0}

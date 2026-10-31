@@ -1,0 +1,36 @@
+dependent_variables:
+- header: {name: 'nMHC(v_2^2,v_3^6)'}
+  qualifiers:
+  - {name: RE, value: Pb Pb --> CHARGED $X$}
+  - {name: SQRT(S), value: 5020.0 GEV}
+  - {name: ABS(ETA), value: < 0.8}
+  - {name: PT, value: 0.2 - 5.0 GeV}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.01232189}
+    - {label: sys, symerror: 1.127386e-05}
+    value: 0.0001464138
+  - errors:
+    - {label: stat, symerror: 0.005374605}
+    - {label: sys, symerror: 3.031892e-05}
+    value: 0.0003937522
+  - errors:
+    - {label: stat, symerror: 0.002692469}
+    - {label: sys, symerror: 0.0002228042}
+    value: -0.002893561
+  - errors:
+    - {label: stat, symerror: 0.003863621}
+    - {label: sys, symerror: 0.0007829637}
+    value: -0.01016836
+  - errors:
+    - {label: stat, symerror: 0.005685737}
+    - {label: sys, symerror: 0.0009298114}
+    value: -0.01207547
+independent_variables:
+- header: {name: Centrality percentile}
+  values:
+  - {high: 5.0, low: 0.0}
+  - {high: 10.0, low: 5.0}
+  - {high: 20.0, low: 10.0}
+  - {high: 30.0, low: 20.0}
+  - {high: 40.0, low: 30.0}

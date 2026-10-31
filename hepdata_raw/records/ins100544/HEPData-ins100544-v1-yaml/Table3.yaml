@@ -1,0 +1,28 @@
+dependent_variables:
+- header: {name: MULT(P=3)}
+  qualifiers:
+  - {name: RE, value: PI- P --> MULT(K0) X}
+  - {name: SQRT(S), units: GeV, value: '8.714'}
+  values:
+  - errors:
+    - {symerror: 0.04}
+    value: 0.23
+- header: {name: MULT(P=3)}
+  qualifiers:
+  - {name: RE, value: PI- N --> MULT(K0) X}
+  - {name: SQRT(S), units: GeV, value: '8.705'}
+  values:
+  - errors:
+    - {symerror: 0.03}
+    value: 0.18
+- header: {name: MULT(P=3)}
+  qualifiers:
+  - {name: RE, value: PI- C --> MULT(K0) X}
+  values:
+  - errors:
+    - {symerror: 0.04}
+    value: 0.28
+independent_variables:
+- header: {name: P, units: GEV}
+  values:
+  - {value: 40.0}

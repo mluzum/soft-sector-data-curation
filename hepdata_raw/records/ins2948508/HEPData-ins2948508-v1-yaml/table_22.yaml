@@ -1,0 +1,40 @@
+dependent_variables:
+- header: {name: '$R_\mathrm{{pPb}}$'}
+  qualifiers:
+  - {name: REACTION, value: p Pb --> Sigmabar- + X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 5020.0}
+  - {name: YRAP(CMS), value: -0.5 TO 0.5}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.045872}
+    - {label: sys, symerror: 0.11475}
+    value: 0.29531
+  - errors:
+    - {label: stat, symerror: 0.042764}
+    - {label: sys, symerror: 0.15912}
+    value: 0.4235
+  - errors:
+    - {label: stat, symerror: 0.047539}
+    - {label: sys, symerror: 0.18207}
+    value: 0.51147
+  - errors:
+    - {label: stat, symerror: 0.059918}
+    - {label: sys, symerror: 0.18591}
+    value: 0.53033
+  - errors:
+    - {label: stat, symerror: 0.097944}
+    - {label: sys, symerror: 0.29981}
+    value: 0.966
+  - errors:
+    - {label: stat, symerror: 0.1224}
+    - {label: sys, symerror: 0.42358}
+    value: 1.0267
+independent_variables:
+- header: {name: '$p_\mathrm{{T}}$', units: '$\mathrm{GeV}/c$'}
+  values:
+  - {high: 0.75, low: 0.5}
+  - {high: 1.0, low: 0.75}
+  - {high: 1.25, low: 1.0}
+  - {high: 1.5, low: 1.25}
+  - {high: 2.0, low: 1.5}
+  - {high: 3.0, low: 2.0}

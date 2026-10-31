@@ -1,0 +1,47 @@
+dependent_variables:
+- header: {name: 1/N dN/dz}
+  qualifiers:
+  - {name: RE, value: PP --> J/$\psi$ -->$\mu^+\mu^-$}
+  - {name: SQRT(s)/NUCLEON, units: GeV, value: 5020}
+  - {name: '$p_{\rm T, J/\psi}$', units: GeV, value: '> 6.5'}
+  - {name: '$p_{\rm T, jet}$', units: GeV, value: 30 - 40}
+  - {name: 'ABS($\eta_{jet}$)', value: < 2}
+  values:
+  - errors:
+    - asymerror: {minus: -0.039, plus: 0.039}
+      label: stat
+    - asymerror: {minus: -0.343, plus: 0.36}
+      label: syst
+    value: 0.97
+  - errors:
+    - asymerror: {minus: -0.014, plus: 0.014}
+      label: stat
+    - asymerror: {minus: -0.247, plus: 0.281}
+      label: syst
+    value: 1.805
+  - errors:
+    - asymerror: {minus: -0.015, plus: 0.015}
+      label: stat
+    - asymerror: {minus: -0.21, plus: 0.214}
+      label: syst
+    value: 1.895
+  - errors:
+    - asymerror: {minus: -0.015, plus: 0.015}
+      label: stat
+    - asymerror: {minus: -0.058, plus: 0.057}
+      label: syst
+    value: 1.088
+  - errors:
+    - asymerror: {minus: -0.014, plus: 0.014}
+      label: stat
+    - asymerror: {minus: -0.027, plus: 0.028}
+      label: syst
+    value: 0.562
+independent_variables:
+- header: {name: $z$}
+  values:
+  - {high: 0.376, low: 0.22}
+  - {high: 0.532, low: 0.376}
+  - {high: 0.688, low: 0.532}
+  - {high: 0.844, low: 0.688}
+  - {high: 1, low: 0.844}

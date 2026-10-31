@@ -1,0 +1,38 @@
+dependent_variables:
+- header: {name: '$(\Xi^{-} + \Xi^{+}) / (\Lambda + \overline{\Lambda})$'}
+  qualifiers:
+  - {name: RE, value: 'P PB --> LAMBDA X, P PB --> LAMBDABAR X, P PB --> XI X'}
+  - {name: SQRT(S), units: GeV, value: '5020'}
+  - {name: CENTRALITY, value: $0$-$10\%$}
+  - {name: YRAP, value: '$-0.75 < \eta_{\rm particle} < 0.75$, $-0.35 < \eta_{\rm
+      jet} < 0.35$'}
+  - {name: SELECTION, value: Perp. cone}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.00958}
+    - {label: sys, symerror: 0.00989}
+    value: 0.159
+  - errors:
+    - {label: stat, symerror: 0.00868}
+    - {label: sys, symerror: 0.00643}
+    value: 0.161
+  - errors:
+    - {label: stat, symerror: 0.0117}
+    - {label: sys, symerror: 0.0061}
+    value: 0.204
+  - errors:
+    - {label: stat, symerror: 0.0152}
+    - {label: sys, symerror: 0.00602}
+    value: 0.224
+  - errors:
+    - {label: stat, symerror: 0.029}
+    - {label: sys, symerror: 0.0124}
+    value: 0.272
+independent_variables:
+- header: {name: '$p_{\rm T}$', units: GeV/$c$}
+  values:
+  - {high: 1.6, low: 0.6}
+  - {high: 2.2, low: 1.6}
+  - {high: 2.8, low: 2.2}
+  - {high: 3.7, low: 2.8}
+  - {high: 5.0, low: 3.7}

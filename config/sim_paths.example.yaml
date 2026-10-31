@@ -1,0 +1,35 @@
+# Simulation data paths for the built-in JETSCAPE-format readers
+# (run_pipeline.py --sim 2d / --sim 3d), keyed by collision system.
+#
+# Copy to config/sim_paths.yaml (not tracked) and fill in your paths; or pass
+# --sim-path / --sim-3d-path on the command line.  Simulations distributed
+# as simulation packages (run_pipeline.py --sim-package <dir>) need nothing
+# here: see docs/sim_interface.md.
+#
+# The pipeline groups curated records by collision system, looks up the
+# matching sim data, loads it once, then dispatches all records in the group.
+
+2d:                        # directories holding Qns_<design point>.npy + Nsamples_<dp>.npy
+  "Au Au":                 # reaction as normalized by run_pipeline._normalize_reaction
+    "200": "/path/to/QnsAu/"
+  "Pb Pb":
+    "2760": "/path/to/Qns/"
+  "Xe Xe":
+    "5440": "/path/to/QnsXe/"
+
+3d:                        # JETSCAPE3D HDF5 files (spvn_results groups)
+  "Au Au":
+    "200": "/path/to/AuAu200_Param_0/AuAu200_Param_0.h5"
+  "Pb Pb":
+    "5020": "/path/to/design_wave2/"
+
+# Optional per-collision-system centrality anchors (reference cross section).
+# Key format: "<Reaction> <energy>".  Values are anything resolve_anchor accepts:
+#   coverage fraction f (0<f<=1), reference total event count N_ref (>1),
+#   or {b_max: X, sigma_tot: Y}  (f = pi*b_max^2/sigma_tot),
+#   or {sigma_eff: X, sigma_tot: Y}  (f = sigma_eff/sigma_tot).
+# CLI --cent-anchor overrides these.  Absent => full sim set (f=1).
+# sigma_tot is in AREA units (fm^2, the geometric pi*b_full^2), not mb.
+# cent_anchors:
+#   "Au Au 200": {b_max: 12.0, sigma_tot: 530.0}
+#   "Pb Pb 2760": 0.85

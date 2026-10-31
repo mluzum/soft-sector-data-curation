@@ -1,0 +1,61 @@
+dependent_variables:
+- header: {name: 'V(2PC,SUB)'}
+  qualifiers:
+  - {name: ABS(ETARAP(RF=LAB)), value: < 0.8}
+  - {name: Muliplicity Class, units: pct, value: 0 TO 20 - 60 TO 100}
+  - {name: RE, value: P PB --> ( PI+ + PI- ) X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.004738}
+    - {label: sys, symerror: 0.002566}
+    value: 0.025153
+  - errors:
+    - {label: stat, symerror: 0.0018}
+    - {label: sys, symerror: 0.004093}
+    value: 0.040124
+  - errors:
+    - {label: stat, symerror: 0.001913}
+    - {label: sys, symerror: 0.005392}
+    value: 0.052862
+  - errors:
+    - {label: stat, symerror: 0.002534}
+    - {label: sys, symerror: 0.007214}
+    value: 0.070728
+  - errors:
+    - {label: stat, symerror: 0.003407}
+    - {label: sys, symerror: 0.008637}
+    value: 0.084676
+  - errors:
+    - {label: stat, symerror: 0.00456}
+    - {label: sys, symerror: 0.009891}
+    value: 0.096966
+  - errors:
+    - {label: stat, symerror: 0.00383}
+    - {label: sys, symerror: 0.011178}
+    value: 0.109589
+  - errors:
+    - {label: stat, symerror: 0.008009}
+    - {label: sys, symerror: 0.004444}
+    value: 0.123439
+  - errors:
+    - {label: stat, symerror: 0.020113}
+    - {label: sys, symerror: 0.002572}
+    value: 0.071451
+  - errors:
+    - {label: stat, symerror: 0.030845}
+    - {label: sys, symerror: 0.002789}
+    value: 0.077476
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {high: 0.3, low: 0.2, value: 0.249312}
+  - {high: 0.5, low: 0.3, value: 0.392723}
+  - {high: 0.75, low: 0.5, value: 0.612297}
+  - {high: 1.0, low: 0.75, value: 0.863263}
+  - {high: 1.25, low: 1.0, value: 1.114204}
+  - {high: 1.5, low: 1.25, value: 1.36484}
+  - {high: 2.0, low: 1.5, value: 1.711995}
+  - {high: 2.5, low: 2.0, value: 2.213687}
+  - {high: 3.0, low: 2.5, value: 2.714636}
+  - {high: 4.0, low: 3.0, value: 3.366099}

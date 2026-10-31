@@ -1,0 +1,39 @@
+dependent_variables:
+- header: {name: D(SIG)/D|T|, units: MUB * GEV**-2}
+  qualifiers:
+  - {name: RE, value: PB PB --> PB PB J/PSI(1S) < MU+ MU- >}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: experimental stat., symerror: 2.1}
+    - {label: experimental uncorrelated syst., symerror: 0.3}
+    - {label: experimental correlated syst., symerror: 2.1}
+    value: 21.8
+  - errors:
+    - {label: experimental stat., symerror: 1.9}
+    - {label: experimental uncorrelated syst., symerror: 0.3}
+    - {label: experimental correlated syst., symerror: 1.5}
+    value: 19.1
+  - errors:
+    - {label: experimental stat., symerror: 1.6}
+    - {label: experimental uncorrelated syst., symerror: 0.4}
+    - {label: experimental correlated syst., symerror: 0.9}
+    value: 13.1
+  - errors:
+    - {label: experimental stat., symerror: 1.1}
+    - {label: experimental uncorrelated syst., symerror: 0.1}
+    - {label: experimental correlated syst., symerror: 0.6}
+    value: 8.1
+  - errors:
+    - {label: experimental stat., symerror: 0.6}
+    - {label: experimental uncorrelated syst., symerror: 0.1}
+    - {label: experimental correlated syst., symerror: 0.3}
+    value: 4.6
+independent_variables:
+- header: {name: '|T| (bin in PT**2)', units: GEV**2}
+  values:
+  - {high: 0.0801, low: 0.04, value: 0.06}
+  - {high: 0.1521, low: 0.0801, value: 0.1161}
+  - {high: 0.2581, low: 0.1521, value: 0.2051}
+  - {high: 0.4775, low: 0.2581, value: 0.3678}
+  - {high: 1.0, low: 0.4775, value: 0.7387}

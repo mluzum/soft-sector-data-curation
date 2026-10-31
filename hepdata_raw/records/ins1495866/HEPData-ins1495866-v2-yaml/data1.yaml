@@ -1,0 +1,36 @@
+dependent_variables:
+- header: {name: '$\frac{d^2 \sigma}{dy dp_{T}}$ (nb / GeV/c)'}
+  qualifiers:
+  - {name: RE, value: P P --> UPSILON(1S) < MU+ MU- > X}
+  - {name: ABS(RAP), value: 0-2.4}
+  - {name: SQRT(S), units: GeV, value: '2760.0'}
+  - {name: GLOBAL UNCERTAINTY, value: 3.7%}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.002}
+    - {label: syst, symerror: 0.006}
+    value: 0.071
+  - errors:
+    - {label: stat, symerror: 0.002}
+    - {label: syst, symerror: 0.006}
+    value: 0.103
+  - errors:
+    - {label: stat, symerror: 0.002}
+    - {label: syst, symerror: 0.003}
+    value: 0.061
+  - errors:
+    - {label: stat, symerror: 0.0009}
+    - {label: syst, symerror: 0.0008}
+    value: 0.02
+  - errors:
+    - {label: stat, symerror: 0.0002}
+    - {label: syst, symerror: 0.0001}
+    value: 0.004
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {high: 0.0, low: 2.5}
+  - {high: 2.5, low: 5.0}
+  - {high: 5.0, low: 8.0}
+  - {high: 8.0, low: 12.0}
+  - {high: 12.0, low: 20.0}

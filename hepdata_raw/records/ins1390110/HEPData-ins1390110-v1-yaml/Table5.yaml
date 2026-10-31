@@ -1,0 +1,32 @@
+dependent_variables:
+- header: {name: '$R_{p+A}^{\rm{FONLL}}$'}
+  qualifiers:
+  - {name: ABS(YRAP), value: < 2.4}
+  - {name: LUMINOSITY, value: '34.6 nb$^{-1}$'}
+  - {name: RE, value: P PB --> B0 X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.15}
+    - {label: 'sys,data', symerror: 0.18}
+    - asymerror: {minus: -0.26, plus: 0.3}
+      label: sys,FONLL
+    value: 0.99
+  - errors:
+    - {label: stat, symerror: 0.15}
+    - {label: 'sys,data', symerror: 0.15}
+    - asymerror: {minus: -0.19, plus: 0.22}
+      label: sys,FONLL
+    value: 0.83
+  - errors:
+    - {label: stat, symerror: 0.14}
+    - {label: 'sys,data', symerror: 0.19}
+    - asymerror: {minus: -0.2, plus: 0.22}
+      label: sys,FONLL
+    value: 1.03
+independent_variables:
+- header: {name: PT, units: GEV/C}
+  values:
+  - {high: 15.0, low: 10.0}
+  - {high: 20.0, low: 15.0}
+  - {high: 60.0, low: 20.0}

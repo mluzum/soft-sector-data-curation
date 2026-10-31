@@ -1,0 +1,37 @@
+observable_type: particle_yields
+inspire_id: '778396'
+version: 2
+hepdata_file: fig9_.yaml
+hepdata_table_label: Per-trigger yield $\Delta\phi$ distribution and corresponding fits for 2-3 $\otimes$ 2-3 GeV/c in 0-5%
+  Au+Au collisions.
+qualifiers:
+  \delta\phi: 23x23GeV/c
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.35
+    max: 0.35
+  pT:
+    min: 0.2
+    max: 20
+    bins:
+    - 0.2
+    - 20
+observable: dN_dy
+value_type: dN_dy

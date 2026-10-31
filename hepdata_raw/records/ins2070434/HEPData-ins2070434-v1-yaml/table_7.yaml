@@ -1,0 +1,43 @@
+dependent_variables:
+- header: {name: PbPb/pp}
+  qualifiers:
+  - {name: RE, value: 'P P --> jet+X, Pb Pb --> jet+X'}
+  - {name: CENTRALITY, value: '[0, 10]'}
+  - {name: SQRT(S), units: TeV, value: 5.02}
+  - {name: ETARAP, value: '|0.9-R|'}
+  - {name: jet radius, value: 0.4}
+  - {name: jet method, value: 'Anti-$k_{T}$'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.11}
+    - {label: sys, symerror: 0.24}
+    value: 0.723
+  - errors:
+    - {label: stat, symerror: 0.14}
+    - {label: sys, symerror: 0.24}
+    value: 0.869
+  - errors:
+    - {label: stat, symerror: 0.15}
+    - {label: sys, symerror: 0.11}
+    value: 1.02
+  - errors:
+    - {label: stat, symerror: 0.13}
+    - {label: sys, symerror: 0.14}
+    value: 1.13
+  - errors:
+    - {label: stat, symerror: 0.16}
+    - {label: sys, symerror: 0.19}
+    value: 1.25
+  - errors:
+    - {label: stat, symerror: 0.095}
+    - {label: sys, symerror: 0.15}
+    value: 0.849
+independent_variables:
+- header: {name: $z_r$}
+  values:
+  - {high: 0.7, low: 0.6}
+  - {high: 0.77, low: 0.7}
+  - {high: 0.83, low: 0.77}
+  - {high: 0.89, low: 0.83}
+  - {high: 0.95, low: 0.89}
+  - {high: 1.0, low: 0.95}

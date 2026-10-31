@@ -1,0 +1,75 @@
+dependent_variables:
+- header: {name: N(D+)/N(D0)}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 60.0-80.0}
+  - {name: RE, value: P PB --> D+ X}
+  - {name: RE, value: P PB --> D0 X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  - {name: YRAP, value: -0.5-0.5}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.058}
+    - {label: sys, symerror: 0.054}
+    - {label: 'sys,uncertainty on branching ratio', symerror: 2.7%}
+    value: 0.416
+  - errors:
+    - {label: stat, symerror: 0.046}
+    - asymerror: {minus: -0.053, plus: 0.054}
+      label: sys
+    - {label: 'sys,uncertainty on branching ratio', symerror: 2.7%}
+    value: 0.484
+  - errors:
+    - {label: stat, symerror: 0.054}
+    - {label: sys, symerror: 0.054}
+    - {label: 'sys,uncertainty on branching ratio', symerror: 2.7%}
+    value: 0.498
+  - errors:
+    - {label: stat, symerror: 0.058}
+    - {label: sys, symerror: 0.049}
+    - {label: 'sys,uncertainty on branching ratio', symerror: 2.7%}
+    value: 0.464
+  - errors:
+    - {label: stat, symerror: 0.049}
+    - {label: sys, symerror: 0.042}
+    - {label: 'sys,uncertainty on branching ratio', symerror: 2.7%}
+    value: 0.4
+  - errors:
+    - {label: stat, symerror: 0.079}
+    - asymerror: {minus: -0.053, plus: 0.054}
+      label: sys
+    - {label: 'sys,uncertainty on branching ratio', symerror: 2.7%}
+    value: 0.502
+  - errors:
+    - {label: stat, symerror: 0.093}
+    - {label: sys, symerror: 0.067}
+    - {label: 'sys,uncertainty on branching ratio', symerror: 2.7%}
+    value: 0.633
+  - errors:
+    - {label: stat, symerror: 0.103}
+    - asymerror: {minus: -0.052, plus: 0.053}
+      label: sys
+    - {label: 'sys,uncertainty on branching ratio', symerror: 2.7%}
+    value: 0.498
+  - errors:
+    - {label: stat, symerror: 0.122}
+    - {label: sys, symerror: 0.055}
+    - {label: 'sys,uncertainty on branching ratio', symerror: 2.7%}
+    value: 0.534
+  - errors:
+    - {label: stat, symerror: 0.303}
+    - {label: sys, symerror: 0.131}
+    - {label: 'sys,uncertainty on branching ratio', symerror: 2.7%}
+    value: 0.905
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {high: 3.0, low: 2.0}
+  - {high: 4.0, low: 3.0}
+  - {high: 5.0, low: 4.0}
+  - {high: 6.0, low: 5.0}
+  - {high: 7.0, low: 6.0}
+  - {high: 8.0, low: 7.0}
+  - {high: 10.0, low: 8.0}
+  - {high: 12.0, low: 10.0}
+  - {high: 16.0, low: 12.0}
+  - {high: 24.0, low: 16.0}

@@ -1,0 +1,24 @@
+dependent_variables:
+- header: {name: '$\frac{1}{T_{AA}}\frac{d \sigma}{dp_{T}}$ (pb/(GeV/c))'}
+  qualifiers:
+  - {name: RE, value: PB PB --> Bs0 --> J/PSI (MU+ MU-) + PHI (K+ K-)}
+  - {name: SQRT(s)/NUCLEON, units: GeV, value: '5020.0'}
+  - {name: '$p_{T}$', units: GeV/C, value: 7.0 ~ 50.0}
+  - {name: ABS(YRAP), value: 0 - 2.4}
+  - {name: Centrality, value: 0-100 %}
+  - {name: '$\rm{T_{AA}}$', value: '5.6'}
+  - {name: Global uncertainty, value: '+8.3, -8.5%'}
+  values:
+  - errors:
+    - {label: stat, symerror: 183000}
+    - {label: syst, symerror: 126000}
+    value: 477000
+  - errors:
+    - {label: stat, symerror: 2350}
+    - {label: syst, symerror: 1190}
+    value: 7270
+independent_variables:
+- header: {name: PT (GeV)}
+  values:
+  - {value: 11.0}
+  - {value: 32.5}

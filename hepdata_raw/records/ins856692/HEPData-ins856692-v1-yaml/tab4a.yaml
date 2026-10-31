@@ -1,0 +1,26 @@
+dependent_variables:
+- header: {name: B2, units: GEV8**2/C**3}
+  qualifiers:
+  - {name: PARTICLE, value: P}
+  - {name: CENTRALITY, units: PCT, value: 0-20}
+  - {name: YRAP, value: '0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 6.7e-05}
+    value: 0.000787
+  - errors:
+    - {label: stat, symerror: 7.5e-05}
+    value: 0.000812
+  - errors:
+    - {label: stat, symerror: 0.00011}
+    value: 0.00089
+  - errors:
+    - {label: stat, symerror: 0.00023}
+    value: 0.00138
+independent_variables:
+- header: {name: PT/A, units: GEV/C}
+  values:
+  - {high: 0.9, low: 0.6}
+  - {high: 1.2, low: 0.9}
+  - {high: 1.5, low: 1.2}
+  - {high: 1.8, low: 1.5}

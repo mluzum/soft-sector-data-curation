@@ -1,0 +1,53 @@
+dependent_variables:
+- header: {name: Yield Ratio}
+  qualifiers:
+  - {name: System, value: pp}
+  - {name: Process, value: '$\pi^{0}$+jet'}
+  - {name: Jet radius, value: R = 0.2/0.5}
+  - {name: '$E_T^{trig}$', value: "9\u201311 GeV"}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0353355}
+    - asymerror: {minus: -0.0700953, plus: 0.0700953}
+      label: sys
+    value: 0.789095
+  - errors:
+    - {label: stat, symerror: 0.0373271}
+    - asymerror: {minus: -0.0587256, plus: 0.0587256}
+      label: sys
+    value: 0.65868
+  - errors:
+    - {label: stat, symerror: 0.0350199}
+    - asymerror: {minus: -0.0571444, plus: 0.0571444}
+      label: sys
+    value: 0.592735
+  - errors:
+    - {label: stat, symerror: 0.0360661}
+    - asymerror: {minus: -0.0656357, plus: 0.0656357}
+      label: sys
+    value: 0.493381
+  - errors:
+    - {label: stat, symerror: 0.0577878}
+    - asymerror: {minus: -0.100486, plus: 0.100486}
+      label: sys
+    value: 0.520648
+  - errors:
+    - {label: stat, symerror: 0.101838}
+    - asymerror: {minus: -0.188314, plus: 0.188314}
+      label: sys
+    value: 0.550294
+  - errors:
+    - {label: stat, symerror: 0.105702}
+    - asymerror: {minus: -0.181664, plus: 0.181664}
+      label: sys
+    value: 0.297853
+independent_variables:
+- header: {name: Jet $p_T$, units: GeV/c}
+  values:
+  - {value: 4.9}
+  - {value: 6.9}
+  - {value: 9.4}
+  - {value: 12.8}
+  - {value: 17.1}
+  - {value: 22.1}
+  - {value: 27.1}

@@ -1,0 +1,101 @@
+dependent_variables:
+- header: {name: '$\Delta_{\mathrm{recoil}}$', units: '$(\mathrm{GeV}/c \times \mathrm{rad})^{-1}$'}
+  qualifiers:
+  - {name: Collision system, value: pp}
+  - {name: '$\sqrt{s}$', units: TeV, value: 13}
+  - {name: Jet algorithm, value: 'anti-$k_{\mathrm{T}}$'}
+  - {name: Jet $R$, value: 0.4}
+  - {name: '$|\eta_{\mathrm{jet}}|$', value: < 0.5}
+  - {name: '$p_{\mathrm{T, jet}}^{\mathrm{ch}}$', value: '$\in (40, 60)$ GeV/$c$'}
+  - {name: Corrected data, value: Minimum Bias}
+  values:
+  - errors:
+    - {label: stat, symerror: 2.2e-05}
+    - asymerror: {minus: -1.1e-05, plus: 1.0e-05}
+      label: sys
+    value: 7.7e-05
+  - errors:
+    - {label: stat, symerror: 2.8e-05}
+    - asymerror: {minus: -1.5e-05, plus: 1.3e-05}
+      label: sys
+    value: 0.000142
+  - errors:
+    - {label: stat, symerror: 3.5e-05}
+    - asymerror: {minus: -1.6e-05, plus: 1.3e-05}
+      label: sys
+    value: 0.000226
+  - errors:
+    - {label: stat, symerror: 7.4e-05}
+    - asymerror: {minus: -3.5e-05, plus: 3.1e-05}
+      label: sys
+    value: 0.000516
+  - errors:
+    - {label: stat, symerror: 9.7e-05}
+    - asymerror: {minus: -6.6e-05, plus: 5.8e-05}
+      label: sys
+    value: 0.000896
+  - errors:
+    - {label: stat, symerror: 0.00012}
+    - asymerror: {minus: -9.0e-05, plus: 8.0e-05}
+      label: sys
+    value: 0.0014
+  - errors:
+    - {label: stat, symerror: 0.00015}
+    - asymerror: {minus: -0.00014, plus: 0.00013}
+      label: sys
+    value: 0.0023
+- header: {name: '$\Delta_{\mathrm{recoil}}$', units: '$(\mathrm{GeV}/c \times \mathrm{rad})^{-1}$'}
+  qualifiers:
+  - {name: Collision system, value: pp}
+  - {name: '$\sqrt{s}$', units: TeV, value: 13}
+  - {name: Jet algorithm, value: 'anti-$k_{\mathrm{T}}$'}
+  - {name: Jet $R$, value: 0.4}
+  - {name: '$|\eta_{\mathrm{jet}}|$', value: < 0.5}
+  - {name: '$p_{\mathrm{T, jet}}^{\mathrm{ch}}$', value: '$\in (40, 60)$ GeV/$c$'}
+  - {name: Corrected data, value: High Multiplicity}
+  values:
+  - errors:
+    - {label: stat, symerror: 1.3e-05}
+    - asymerror: {minus: -8.0e-06, plus: 6.0e-06}
+      label: sys
+    value: 9.6e-05
+  - errors:
+    - {label: stat, symerror: 1.5e-05}
+    - asymerror: {minus: -1.0e-05, plus: 9.0e-06}
+      label: sys
+    value: 0.000114
+  - errors:
+    - {label: stat, symerror: 2.3e-05}
+    - asymerror: {minus: -2.4e-05, plus: 2.0e-05}
+      label: sys
+    value: 0.000319
+  - errors:
+    - {label: stat, symerror: 4.0e-05}
+    - asymerror: {minus: -3.4e-05, plus: 2.8e-05}
+      label: sys
+    value: 0.00046
+  - errors:
+    - {label: stat, symerror: 4.9e-05}
+    - asymerror: {minus: -3.6e-05, plus: 2.6e-05}
+      label: sys
+    value: 0.000704
+  - errors:
+    - {label: stat, symerror: 6.2e-05}
+    - asymerror: {minus: -7.3e-05, plus: 6.0e-05}
+      label: sys
+    value: 0.001135
+  - errors:
+    - {label: stat, symerror: 8.0e-05}
+    - asymerror: {minus: -0.00011, plus: 0.0001}
+      label: sys
+    value: 0.00179
+independent_variables:
+- header: {name: $\Delta\phi$, units: rad}
+  values:
+  - {high: 1.885, low: 1.571}
+  - {high: 2.199, low: 1.885}
+  - {high: 2.513, low: 2.199}
+  - {high: 2.67, low: 2.513}
+  - {high: 2.827, low: 2.67}
+  - {high: 2.985, low: 2.827}
+  - {high: 3.142, low: 2.985}

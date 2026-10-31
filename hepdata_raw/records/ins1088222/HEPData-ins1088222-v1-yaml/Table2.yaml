@@ -1,0 +1,40 @@
+dependent_variables:
+- header: {name: RAA}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 0.0-80.0}
+  - {name: PT, units: GEV, value: '> 0'}
+  - {name: RE, value: PB PB --> J/PSI X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.044}
+    - {label: sys, symerror: 0.097}
+    - {label: 'sys,global systematic error', symerror: 5.2%}
+    value: 0.557
+  - errors:
+    - {label: stat, symerror: 0.047}
+    - {label: sys, symerror: 0.079}
+    - {label: 'sys,global systematic error', symerror: 5.2%}
+    value: 0.517
+- header: {name: RAA}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 0.0-80.0}
+  - {name: PT, units: GEV, value: '> 3'}
+  - {name: RE, value: PB PB --> J/PSI X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.058}
+    - {label: sys, symerror: 0.085}
+    - {label: 'sys,global systematic error', symerror: 5.2%}
+    value: 0.491
+  - errors:
+    - {label: stat, symerror: 0.061}
+    - {label: sys, symerror: 0.078}
+    - {label: 'sys,global systematic error', symerror: 5.2%}
+    value: 0.289
+independent_variables:
+- header: {name: YRAP}
+  values:
+  - {high: 3.25, low: 2.5}
+  - {high: 4.0, low: 3.25}

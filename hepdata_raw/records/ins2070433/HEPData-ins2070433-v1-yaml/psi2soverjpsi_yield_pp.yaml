@@ -1,0 +1,59 @@
+dependent_variables:
+- header: {name: '$\text{d}N(PSI(2S))/\text{d}y / \text{d}N(J/PSI(1S))/\text{d}y /
+      \left< \text{d}N(PSI(2S))/\text{d}y / \text{d}N(J/PSI(1S))/\text{d}y\right>$'}
+  qualifiers:
+  - {name: RE, value: P P --> J/PSI(1S) X}
+  - {name: RE, value: P P --> PSI(2S) X}
+  - {name: SQRT(S), units: GEV, value: '13000.0'}
+  - {name: ETARAP, value: -1.0 TO 1.0}
+  - {name: YRAP(J/PSI), value: 2.5 TO 4.0}
+  values:
+  - errors:
+    - {label: stat, symerror: '0.028'}
+    - {label: sys, symerror: '0.054'}
+    value: '1.118'
+  - errors:
+    - {label: stat, symerror: '0.030'}
+    - {label: sys, symerror: '0.046'}
+    value: '1.054'
+  - errors:
+    - {label: stat, symerror: '0.032'}
+    - {label: sys, symerror: '0.044'}
+    value: '1.058'
+  - errors:
+    - {label: stat, symerror: '0.037'}
+    - {label: sys, symerror: '0.044'}
+    value: '0.853'
+  - errors:
+    - {label: stat, symerror: '0.037'}
+    - {label: sys, symerror: '0.048'}
+    value: '0.956'
+  - errors:
+    - {label: stat, symerror: '0.048'}
+    - {label: sys, symerror: '0.057'}
+    value: '0.974'
+  - errors:
+    - {label: stat, symerror: '0.065'}
+    - {label: sys, symerror: '0.057'}
+    value: '0.903'
+  - errors:
+    - {label: stat, symerror: '0.098'}
+    - {label: sys, symerror: '0.047'}
+    value: '0.886'
+  - errors:
+    - {label: stat, symerror: '0.149'}
+    - {label: sys, symerror: '0.056'}
+    value: '1.060'
+independent_variables:
+- header: {name: '$\text{d}N_{\text{ch}}/\text{d}\eta / \left< \text{d}N_{\text{ch}}/\text{d}\eta  \right>
+      $'}
+  values:
+  - {high: 0.406, low: 0.364}
+  - {high: 0.975, low: 0.94}
+  - {high: 1.493, low: 1.442}
+  - {high: 1.967, low: 1.903}
+  - {high: 2.49, low: 2.41}
+  - {high: 3.158, low: 3.046}
+  - {high: 3.857, low: 3.696}
+  - {high: 4.639, low: 4.406}
+  - {high: 5.763, low: 5.399}

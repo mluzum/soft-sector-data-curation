@@ -1,0 +1,125 @@
+---
+observable_type: particle_yields
+inspire_id: '750816'
+version: 1
+hepdata_file: Table1.yaml
+hepdata_table_label: Midrapidity E(i) as a function of $<N_{part}>$ for $\Lambda$, $\bar{\Lambda}$ ($|y| < 1.0$), $\Xi^{-}$,
+  $\bar{\Xi}^{+}$ ($|y| < 0.75$). Error bars on the data points represent those from the heavy ions. Stat. and syst. errors
+  added in quadrature. Grand Canonical Model arrows(values in brackets), for $\Lambda$ E(2.6) and T(165 MeV) for  $\bar{\Lambda}$
+  E(2.2) and T(170 MeV), for $\Xi$ E(10.7) and T(165 MeV), for anti-$\Xi$ E(7.5) and T(170 MeV).
+qualifiers:
+  re: Au Au $\rightarrow$ $\bar{\Xi}^{+}$ X, p p $\rightarrow$ $\bar{\Xi}^{+}$ X
+  sqrt(snn): '200.0'
+  yrap: -0.75-0.75
+collision_system:
+  energy_gev: 200.0
+  reaction: Au Au \rightarrow \bar{\Xi}^{+} X, p p \rightarrow \bar{\Xi}^{+} X
+centrality:
+  classes: []
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: Lambda
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+    bins:
+    - -1.0
+    - 1.0
+  pT:
+    min: 0.15
+    max: 10
+    bins:
+    - 0.15
+    - 10
+observable: dN_dy
+value_type: dN_dy
+---
+observable_type: particle_yields
+inspire_id: '750816'
+version: 1
+hepdata_file: Table2.yaml
+hepdata_table_label: Midrapidity E(i) as a function of $<N_{part}>$ for  $\Omega^{-}+\bar{\Omega}^{+}$ ($|y| < 0.75$). Error
+  bars on the data points represent those from the heavy ions. Stat. and syst. errors added in quadrature.
+qualifiers:
+  re: Au Au $\rightarrow$  $\Omega^{-}$ $\bar{\Omega}^{+}$ X, p p $\rightarrow$ $\Omega^{-}$ $\bar{\Omega}^{+}$ X
+  sqrt(snn): '200.0'
+  yrap: -0.75-0.75
+collision_system:
+  energy_gev: 200.0
+  reaction: Au Au \rightarrow \Omega^{-} \bar{\Omega}^{+} X, p p \rightarrow \Omega^{-} \bar{\Omega}^{+} X
+centrality:
+  classes: []
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: p
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+    bins:
+    - -1.0
+    - 1.0
+  pT:
+    min: 0.15
+    max: 10
+    bins:
+    - 0.15
+    - 10
+observable: dN_dy
+value_type: dN_dy
+---
+observable_type: particle_yields
+inspire_id: '750816'
+version: 1
+hepdata_file: Table3.yaml
+hepdata_table_label: Midrapidity E(i) as a function of $<N_{part}>$ for  inclusive $p$ ($|y| < 0.5$). Error bars on the data
+  points represent those from the heavy ions. Stat. and syst. errors added in quadrature.
+qualifiers:
+  re: Au Au $\rightarrow$ p X, p p $\rightarrow$ p X
+  sqrt(snn): '200.0'
+  yrap: -0.5-0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: Au Au \rightarrow p X, p p \rightarrow p X
+centrality:
+  classes: []
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: p
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+    bins:
+    - -1.0
+    - 1.0
+  pT:
+    min: 0.15
+    max: 10
+    bins:
+    - 0.15
+    - 10
+observable: dN_dy
+value_type: dN_dy

@@ -1,0 +1,29 @@
+dependent_variables:
+- header: {name: '$R_{CP}$'}
+  qualifiers:
+  - {name: '$\sqrt{s}$ (GeV)', value: '62.4'}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.05}
+    - {label: Type A, symerror: 0.005}
+    - {label: Type B, symerror: 0.036}
+    - {label: Type C, symerror: 0.031}
+    value: 0.266
+  - errors:
+    - {label: stat., symerror: 0.064}
+    - {label: Type A, symerror: 0.008}
+    - {label: Type B, symerror: 0.045}
+    - {label: Type C, symerror: 0.041}
+    value: 0.353
+  - errors:
+    - {label: stat., symerror: 0.089}
+    - {label: Type A, symerror: 0.013}
+    - {label: Type B, symerror: 0.06}
+    - {label: Type C, symerror: 0.055}
+    value: 0.471
+independent_variables:
+- header: {name: Centrality (%)}
+  values:
+  - {high: 20, low: 0}
+  - {high: 40, low: 20}
+  - {high: 60, low: 40}

@@ -1,0 +1,29 @@
+dependent_variables:
+- header: {name: '$v_{2}(\Upsilon(\mathrm{1S}))$'}
+  qualifiers:
+  - {name: $\lvert y \rvert$, value: 0.0-2.4}
+  - {name: '$p_{\rm{T}}$', units: GeV, value: 0.0-50.0}
+  - {name: RE, value: PB PB --> $\Upsilon(1S)$ < $\mu$$^+$ $\mu$$^-$ > X}
+  - {name: RE, value: PB PB --> $\Upsilon(2S)$ < $\mu$$^+$ $\mu$$^-$ > X}
+  - {name: '$\sqrt s_{NN}$', units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.011}
+    - {label: sys, symerror: 0.005}
+    value: 0.007
+- header: {name: '$v_{2}(\Upsilon(\mathrm{2S}))$'}
+  qualifiers:
+  - {name: $\lvert y \rvert$, value: 0.0-2.4}
+  - {name: '$p_{\rm{T}}$', units: GeV, value: 0.0-50.0}
+  - {name: RE, value: PB PB --> $\Upsilon(1S)$ < $\mu$$^+$ $\mu$$^-$ > X}
+  - {name: RE, value: PB PB --> $\Upsilon(2S)$ < $\mu$$^+$ $\mu$$^-$ > X}
+  - {name: '$\sqrt s_{NN}$', units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.085}
+    - {label: sys, symerror: 0.037}
+    value: -0.063
+independent_variables:
+- header: {name: Centrality, units: PCT}
+  values:
+  - {high: 90, low: 10}

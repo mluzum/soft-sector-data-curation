@@ -1,0 +1,44 @@
+dependent_variables:
+- header: {name: 'Delta_{recoil} (GeV/c)^{-1}'}
+  qualifiers:
+  - {name: ABS(ETA), value: 0.0-0.4}
+  - {name: R, value: '0.5'}
+  - {name: RE, value: P P -->H JET X}
+  - {name: SQRT(S), units: GeV, value: '7000.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0002332}
+    - {label: sys, symerror: 0.0001948}
+    value: 0.003483
+  - errors:
+    - {label: stat, symerror: 0.0001928}
+    - {label: sys, symerror: 0.000161}
+    value: 0.002962
+  - errors:
+    - {label: stat, symerror: 0.0001456}
+    - {label: sys, symerror: 0.0001476}
+    value: 0.002144
+  - errors:
+    - {label: stat, symerror: 0.0001087}
+    - asymerror: {minus: -0.0001095, plus: 0.0001096}
+      label: sys
+    value: 0.001446
+  - errors:
+    - {label: stat, symerror: 7.827e-05}
+    - asymerror: {minus: -8.192e-05, plus: 8.194e-05}
+      label: sys
+    value: 0.0008999
+  - errors:
+    - {label: stat, symerror: 5.3e-05}
+    - asymerror: {minus: -5.157e-05, plus: 5.16e-05}
+      label: sys
+    value: 0.000531
+independent_variables:
+- header: {name: 'p_{T,jet}^{ch} (GeV/ic)'}
+  values:
+  - {high: 24.0, low: 20.0}
+  - {high: 30.0, low: 24.0}
+  - {high: 36.0, low: 30.0}
+  - {high: 44.0, low: 36.0}
+  - {high: 52.0, low: 44.0}
+  - {high: 62.0, low: 52.0}

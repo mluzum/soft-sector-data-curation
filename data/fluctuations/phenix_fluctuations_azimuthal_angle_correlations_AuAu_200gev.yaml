@@ -1,0 +1,82 @@
+---
+observable_type: fluctuations
+inspire_id: '712584'
+version: 1
+hepdata_file: ppg058f4a.yaml
+hepdata_table_label: The ratio of correlation peak widths between $d + Au$ and $p + p$ collisions. Only statistic errors are
+  shown.
+qualifiers:
+  \eta^{trig}: -2.0 < $\eta$ < -1.4
+  centrality: 40 - 80%
+  p_t^{trig}: 2.0 < $p_T$ < 5.0 GeV/$c$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU + AU --> CHARGED X0
+centrality:
+  classes:
+  - 40-80%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: Sigma
+kinematic_range:
+  eta:
+    min: -0.35
+    max: 0.35
+  pT:
+    min: 0.2
+    max: 20
+    bins:
+    - 0.2
+    - 20
+observable: cumulant_C2
+value_type: cumulant_C2
+charge_type: net_charge
+---
+observable_type: fluctuations
+inspire_id: '712584'
+version: 1
+hepdata_file: ppg058f4b.yaml
+hepdata_table_label: The ratio of correlation peak widths between $d + Au$ and $p + p$ collisions. Only statistic errors are
+  shown.
+qualifiers:
+  \eta^{trig}: 1.4 < $\eta$ < 2.0
+  centrality: 40 - 80%
+  p_t^{trig}: 2.0 < $p_T$ < 5.0 GeV/$c$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU + AU --> CHARGED X0
+centrality:
+  classes:
+  - 40-80%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: Sigma
+kinematic_range:
+  eta:
+    min: -0.35
+    max: 0.35
+  pT:
+    min: 0.2
+    max: 20
+    bins:
+    - 0.2
+    - 20
+observable: cumulant_C2
+value_type: cumulant_C2
+charge_type: net_charge

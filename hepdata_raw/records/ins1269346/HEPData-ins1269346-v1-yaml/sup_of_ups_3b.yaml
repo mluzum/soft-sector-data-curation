@@ -1,0 +1,45 @@
+dependent_variables:
+- header: {name: $\alpha$}
+  qualifiers:
+  - {name: '$x_{F}$', value: 'STAR 1S+2S+3S (dAu), $\sqrt{s_{NN}}$ = 200 GeV'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.09}
+    - asymerror: {minus: -0.02, plus: 0.02}
+      label: sys
+    value: 0.97
+  - errors:
+    - {label: stat, symerror: 0.05}
+    - asymerror: {minus: -0.02, plus: 0.02}
+      label: sys
+    value: 0.88
+  - errors:
+    - {label: stat, symerror: 0.05}
+    - asymerror: {minus: -0.02, plus: 0.02}
+      label: sys
+    value: 1.06
+- header: {name: $\alpha$}
+  qualifiers:
+  - {name: '$x_{F}$', value: 'STAR 1S (dAu), $\sqrt{s_{NN}}$ = 200 GeV'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.08}
+    - asymerror: {minus: -0.02, plus: 0.02}
+      label: sys
+    value: 0.95
+  - errors:
+    - {label: stat, symerror: 0.05}
+    - asymerror: {minus: -0.02, plus: 0.02}
+      label: sys
+    value: 0.92
+  - errors:
+    - {label: stat, symerror: 0.05}
+    - asymerror: {minus: -0.03, plus: 0.02}
+      label: sys
+    value: 1.05
+independent_variables:
+- header: {name: '$x_{F}$'}
+  values:
+  - {high: -0.05, low: -0.11}
+  - {high: 0.05, low: -0.05}
+  - {high: 0.11, low: 0.05}

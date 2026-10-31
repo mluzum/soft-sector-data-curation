@@ -1,0 +1,40 @@
+dependent_variables:
+- header: {name: '${}^3_{\Lambda}\mathrm{H} / {}^3\mathrm{He}$'}
+  qualifiers:
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020.0'}
+  - {name: RE, value: PB PB --> 3HL + X}
+  - {name: RE, value: PB PB --> He3 + X}
+  values:
+  - errors:
+    - {label: Statistic uncertainty, symerror: 0.03017}
+    - {label: Systematic uncertainty, symerror: 0.037008}
+    value: 0.21377
+  - errors:
+    - {label: Statistic uncertainty, symerror: 0.027377}
+    - {label: Systematic uncertainty, symerror: 0.040098}
+    value: 0.21986
+  - errors:
+    - {label: Statistic uncertainty, symerror: 0.02508}
+    - {label: Systematic uncertainty, symerror: 0.039437}
+    value: 0.21949
+  - errors:
+    - {label: Statistic uncertainty, symerror: 0.025931}
+    - {label: Systematic uncertainty, symerror: 0.028116}
+    value: 0.19223
+  - errors:
+    - {label: Statistic uncertainty, symerror: 0.02885}
+    - {label: Systematic uncertainty, symerror: 0.041817}
+    value: 0.21831
+  - errors:
+    - {label: Statistic uncertainty, symerror: 0.028855}
+    - {label: Systematic uncertainty, symerror: 0.047508}
+    value: 0.26223
+independent_variables:
+- header: {name: '$p_\mathrm{T}$', units: GeV/c}
+  values:
+  - {high: 3.0, low: 2.0}
+  - {high: 3.5, low: 3.0}
+  - {high: 4.0, low: 3.5}
+  - {high: 4.5, low: 4.0}
+  - {high: 5.0, low: 4.5}
+  - {high: 6.0, low: 5.0}

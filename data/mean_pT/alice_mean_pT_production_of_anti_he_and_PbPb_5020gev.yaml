@@ -1,0 +1,34 @@
+observable_type: mean_pT
+inspire_id: '1762356'
+version: 1
+hepdata_file: figure_6a.yaml
+hepdata_table_label: Mean transverse momentum obtained from the average of $^3\mathrm{He}$
+  and $^3\overline{\mathrm{He}}$ as a function of the mean charged-particle multiplicity
+  density in p--Pb collisions at $\sqrt{s_\mathrm{NN}} = 5.02$ TeV
+qualifiers:
+  particle: $(^3\mathrm{He} +\,^3\overline{\mathrm{He}}) / 2$
+  sqrt(s)/nucleon: 5020.0 GeV
+  yrap: $-1.0 - 0.0$
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> ANTIHE3 X
+centrality:
+  classes:
+  - MB
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+observable: mean_pT
+value_type: mean_pT
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8

@@ -1,0 +1,29 @@
+dependent_variables:
+- header: {name: '$\rho_{00}$ ($2^{nd}$-order EP)'}
+  qualifiers:
+  - {name: Detector, value: STAR}
+  - {name: Collision species, value: Au+Au}
+  - {name: '$\sqrt{s_{NN}}$', units: GeV, value: 39.0-200.0}
+  - {name: Centrality, units: '%', value: '[0,20]'}
+  - {name: Particle species, value: '$K^{*0}$'}
+  - {name: '$p_{T}$', units: GeV/c, value: '[1.0,5.0]'}
+  - {name: y, value: '[-1.0,1.0]'}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.009}
+    - {label: syst., symerror: 0.009}
+    value: 0.296
+  - errors:
+    - {label: stat., symerror: 0.004}
+    - {label: syst., symerror: 0.005}
+    value: 0.324
+  - errors:
+    - {label: stat., symerror: 0.004}
+    - {label: syst., symerror: 0.011}
+    value: 0.32
+independent_variables:
+- header: {name: '$\sqrt{s_{NN}}$', units: GeV}
+  values:
+  - {value: 39}
+  - {value: 54.4}
+  - {value: 200}

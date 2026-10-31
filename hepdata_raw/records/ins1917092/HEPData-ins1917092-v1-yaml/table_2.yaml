@@ -1,0 +1,47 @@
+dependent_variables:
+- header: {name: '$\frac{1}{T_{AA}} \frac{d N}{dp_{T}}$ (pb/(GeV/c))'}
+  qualifiers:
+  - {name: RE, value: Pb Pb --> B+ --> J/PSI (MU+ MU-) + K+}
+  - {name: SQRT(s)/NUCLEON, units: GeV, value: 5020}
+  - {name: '$p_{T}$', units: GeV/c, value: 7.0 - 50.0}
+  - {name: ABS(YRAP), value: 0 - 2.4}
+  - {name: Centrality, value: 0 - 90.0%}
+  - {name: Global uncertainty, value: 3.85%}
+  values:
+  - errors:
+    - asymerror: {minus: -45192, plus: 49555}
+      label: stat
+    - asymerror: {minus: -42342, plus: 43758}
+      label: syst
+    value: 311668
+  - errors:
+    - asymerror: {minus: -21478, plus: 11077}
+      label: stat
+    - asymerror: {minus: -46073, plus: 46313}
+      label: syst
+    value: 270167
+  - errors:
+    - asymerror: {minus: -4185, plus: 4211}
+      label: stat
+    - asymerror: {minus: -4899, plus: 4991}
+      label: syst
+    value: 64384
+  - errors:
+    - asymerror: {minus: -405, plus: 532}
+      label: stat
+    - asymerror: {minus: -538, plus: 551}
+      label: syst
+    value: 7704
+independent_variables:
+- header: {name: '$p_{T}$ (GeV/c)'}
+  values:
+  - {value: 8.73}
+  - {value: 12.4}
+  - {value: 17.2}
+  - {value: 27.3}
+- header: {name: $|y|$}
+  values:
+  - {value: 1.5 - 2.4}
+  - {value: 0 - 2.4}
+  - {value: 0 - 2.4}
+  - {value: 0 - 2.4}

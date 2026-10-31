@@ -1,0 +1,25 @@
+dependent_variables:
+- header: {name: '$V_{2\Delta}$ PYTHIA'}
+  qualifiers:
+  - {name: RE, value: $p Pb \to X$}
+  - {name: SQRT(S), units: GeV, value: 8160}
+  - {name: 'Track p$_\mathrm{T}$', value: '0.3 < p$_\mathrm{T}$ < 3.0 GeV'}
+  - {name: Separation in $\eta$ between track pairs, value: $|\Delta\eta|$ > 2.0}
+  - {name: '$\Delta\eta_{\rm{F}}$ cut for diffraction enhanced events', value: '$\Delta\eta_{\rm{F}}
+      \geq 2.5$'}
+  values:
+  - errors:
+    - {label: Statistical uncertainty, symerror: 0.0025}
+    value: 0.0106
+  - errors:
+    - {label: Statistical uncertainty, symerror: 0.003}
+    value: 0.0152
+  - errors:
+    - {label: Statistical uncertainty, symerror: 0.0027}
+    value: 0.022
+independent_variables:
+- header: {name: '$N_{\mathrm{ch}}^{|\eta |<2.4,\,\mathrm{Pt}>0.3\,\mathrm{GeV}}$'}
+  values:
+  - {value: 2.77}
+  - {value: 5.37}
+  - {value: 8.69}

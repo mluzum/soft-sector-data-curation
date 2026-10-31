@@ -1,0 +1,56 @@
+dependent_variables:
+- header: {name: '$v_{2}$'}
+  qualifiers:
+  - {name: reaction, value: P P}
+  - {name: '$p_\mathrm{T,trig}$', units: GeV/c, value: 1-2}
+  - {name: '$p_\mathrm{T,assoc}$', units: GeV/c, value: 1-4}
+  - {name: stat, value: Statistical Uncertainty}
+  - {name: sys, value: Systematic Uncertainty}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.001946}
+    - {label: sys, symerror: 0.000884}
+    value: 0.072376
+  - errors:
+    - {label: stat, symerror: 0.006893}
+    - {label: sys, symerror: 0.000774}
+    value: 0.063334
+  - errors:
+    - {label: stat, symerror: 0.009051}
+    - {label: sys, symerror: 0.000692}
+    value: 0.056646
+  - errors:
+    - {label: stat, symerror: 0.025653}
+    - {label: sys, symerror: 0.000348}
+    value: 0.028486
+- header: {name: '$v_{2}$'}
+  qualifiers:
+  - {name: reaction, value: P P}
+  - {name: '$p_\mathrm{T,trig}$', units: GeV/c, value: 1-4}
+  - {name: '$p_\mathrm{T,assoc}$', units: GeV/c, value: 1-4}
+  - {name: stat, value: Statistical Uncertainty}
+  - {name: sys, value: Systematic Uncertainty}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.000819}
+    - {label: sys, symerror: 0.002441}
+    value: 0.078955
+  - errors:
+    - {label: stat, symerror: 0.002819}
+    - {label: sys, symerror: 0.002205}
+    value: 0.071323
+  - errors:
+    - {label: stat, symerror: 0.003751}
+    - {label: sys, symerror: 0.001835}
+    value: 0.059362
+  - errors:
+    - {label: stat, symerror: 0.011282}
+    - {label: sys, symerror: 0.001252}
+    value: 0.040518
+independent_variables:
+- header: {name: '$N_\mathrm{ch}(|\eta|)<$ 0.5'}
+  values:
+  - {value: 31.33}
+  - {value: 20.02}
+  - {value: 13.99}
+  - {value: 7.2}

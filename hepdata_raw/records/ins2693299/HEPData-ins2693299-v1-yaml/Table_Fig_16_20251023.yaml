@@ -1,0 +1,29 @@
+dependent_variables:
+- header: {name: 1/2PI/PT d2N/DPTDY, units: 1/(GEV/C)**2}
+  qualifiers:
+  - {name: CENTRALITY, units: \%, value: 0.0-10.0}
+  - {name: RE, value: PB PB --> GAMMA X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020.0'}
+  - {name: YRAP, value: -0.8 TO 0.8}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.10419399}
+    - asymerror: {minus: -0.15191481, plus: 0.15191481}
+      label: syst
+    value: 0.19300105
+  - errors:
+    - {label: stat, symerror: 0.01039171}
+    - asymerror: {minus: -0.01774194, plus: 0.01774194}
+      label: syst
+    value: 0.02336149
+  - errors:
+    - {label: stat, symerror: 0.00114917}
+    - asymerror: {minus: -0.00117577, plus: 0.00117577}
+      label: syst
+    value: 0.00193631
+independent_variables:
+- header: {name: PT, units: GEV/C}
+  values:
+  - {high: 2.0, low: 1.0, value: 1.393}
+  - {high: 3.2, low: 2.0, value: 2.417}
+  - {high: 5.0, low: 3.2, value: 3.689}

@@ -1,0 +1,32 @@
+dependent_variables:
+- header: {name: b_norm}
+  qualifiers:
+  - {name: RE, value: P PB ---> H X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '8160'}
+  - {name: ETA, value: -2.4 TO 2.4}
+  - {name: Averaged over |DeltaEta|, value: 0 to 1.6}
+  - {name: Pt, value: 0.3 to 3.0 GEV}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.019}
+    - {label: sys, symerror: 0.0048}
+    value: 0.048
+  - errors:
+    - {label: stat, symerror: 0.016}
+    - {label: sys, symerror: 0.0033}
+    value: 0.047
+  - errors:
+    - {label: stat, symerror: 0.0046}
+    - {label: sys, symerror: 0.0031}
+    value: -0.00097
+  - errors:
+    - {label: stat, symerror: 0.011}
+    - {label: sys, symerror: 0.0062}
+    value: -0.015
+independent_variables:
+- header: {name: Multiplicity}
+  values:
+  - {high: 150.0, low: 120.0}
+  - {high: 185.0, low: 150.0}
+  - {high: 250.0, low: 185.0}
+  - {high: 300.0, low: 250.0}

@@ -1,0 +1,81 @@
+dependent_variables:
+- header: {name: '$\frac{d\sigma_{\phi}}{d|y|}$', units: mb}
+  qualifiers:
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5360'}
+  - {name: RE, value: PB PB -> PHI <K+ K-> PB PB}
+  - {name: ABS(Y), value: 0.3 - 1.0}
+  - {name: KAON ABS(ETA), value: 0.0 - 2.4}
+  values:
+  - errors:
+    - {label: stat, symerror: '1.8'}
+    - {label: syst, symerror: '3.4'}
+    value: '43.0'
+  - errors:
+    - {label: stat, symerror: '1.5'}
+    - {label: syst, symerror: '3.2'}
+    value: '44.6'
+  - errors:
+    - {label: stat, symerror: '1.2'}
+    - {label: syst, symerror: '3.2'}
+    value: '45.6'
+  - errors:
+    - {label: stat, symerror: '1.1'}
+    - {label: syst, symerror: '2.9'}
+    value: '45.3'
+  - errors:
+    - {label: stat, symerror: '1.1'}
+    - {label: syst, symerror: '3.1'}
+    value: '43.7'
+  - errors:
+    - {label: stat, symerror: '1.2'}
+    - {label: syst, symerror: '3.5'}
+    value: '44.3'
+  - errors:
+    - {label: stat, symerror: '1.7'}
+    - {label: syst, symerror: '4.0'}
+    value: '42.2'
+- header: {name: '$\rm{S}_{\phi}$'}
+  qualifiers:
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5360'}
+  - {name: RE, value: PB PB -> PHI <K+ K-> PB PB}
+  - {name: ABS(Y), value: 0.3 - 1.0}
+  - {name: KAON ABS(ETA), value: 0.0 - 2.4}
+  values:
+  - errors:
+    - {label: stat, symerror: '0.0077'}
+    - {label: syst, symerror: '0.0148'}
+    value: '0.1851'
+  - errors:
+    - {label: stat, symerror: '0.0064'}
+    - {label: syst, symerror: '0.0136'}
+    value: '0.1925'
+  - errors:
+    - {label: stat, symerror: '0.0051'}
+    - {label: syst, symerror: '0.0139'}
+    value: '0.1971'
+  - errors:
+    - {label: stat, symerror: '0.0047'}
+    - {label: syst, symerror: '0.0128'}
+    value: '0.1965'
+  - errors:
+    - {label: stat, symerror: '0.0046'}
+    - {label: syst, symerror: '0.0136'}
+    value: '0.1901'
+  - errors:
+    - {label: stat, symerror: '0.0050'}
+    - {label: syst, symerror: '0.0155'}
+    value: '0.1932'
+  - errors:
+    - {label: stat, symerror: '0.0076'}
+    - {label: syst, symerror: '0.0174'}
+    value: '0.1847'
+independent_variables:
+- header: {name: '|$y$|'}
+  values:
+  - {high: 0.4, low: 0.3}
+  - {high: 0.5, low: 0.4}
+  - {high: 0.6, low: 0.5}
+  - {high: 0.7, low: 0.6}
+  - {high: 0.8, low: 0.7}
+  - {high: 0.9, low: 0.8}
+  - {high: 1.0, low: 0.9}

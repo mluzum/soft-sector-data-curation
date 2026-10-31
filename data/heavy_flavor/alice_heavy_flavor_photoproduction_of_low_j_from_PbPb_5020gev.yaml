@@ -1,0 +1,47 @@
+---
+observable_type: heavy_flavor
+inspire_id: '2071183'
+version: 1
+hepdata_file: data4.yaml
+hepdata_table_label: J/$\psi$ coherent photoproduction cross section as a function of $\langle N_{\rm part}\rangle$ at forward
+  rapidity in Pb–Pb collisions at $\sqrt{s_{\rm NN}}$ = 5.02 TeV. The centrality correlated uncertainty of 6.5% is not included.
+  The uncertainty on the most central value corresponds to a 95% confidence interval.
+qualifiers:
+  pt: 0 to 0.3
+  re: PB PB --> J/PSI(1S) X
+  sqrt(s)/nucleon: '5020'
+  yrap: 2.5 to 4
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> J/PSI(1S) X
+centrality:
+  classes: []
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: J/psi
+  particle: ds
+kinematic_range:
+  pT:
+    min: 0.0
+    max: 0.3
+    bins:
+    - 0.15
+    - 50
+  eta:
+    min: -0.8
+    max: 0.8
+    bins:
+    - -0.8
+    - 0.8
+observable: ds_invariant_yield
+value_type: invariant_yield
+particle: ds

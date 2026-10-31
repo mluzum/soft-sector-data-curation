@@ -1,0 +1,63 @@
+dependent_variables:
+- header: {name: PbPb $(r=0.1)$ / PbPb $(r=0.2)$}
+  qualifiers:
+  - {name: RE, value: 'P P --> jet+X, Pb Pb --> jet+X'}
+  - {name: CENTRALITY, value: '[0, 10]'}
+  - {name: SQRT(S), units: TeV, value: 5.02}
+  - {name: ETARAP, value: '|0.9-R|'}
+  - {name: jet radius, value: 0.4}
+  - {name: jet method, value: 'Anti-$k_{T}$'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.22}
+    - {label: sys, symerror: 0.43}
+    value: 3.22
+  - errors:
+    - {label: stat, symerror: 0.2}
+    - {label: sys, symerror: 0.42}
+    value: 3.23
+  - errors:
+    - {label: stat, symerror: 0.17}
+    - {label: sys, symerror: 0.62}
+    value: 3.12
+  - errors:
+    - {label: stat, symerror: 0.15}
+    - {label: sys, symerror: 0.77}
+    value: 2.85
+  - errors:
+    - {label: stat, symerror: 0.11}
+    - {label: sys, symerror: 0.69}
+    value: 2.51
+  - errors:
+    - {label: stat, symerror: 0.086}
+    - {label: sys, symerror: 0.27}
+    value: 2.16
+  - errors:
+    - {label: stat, symerror: 0.06}
+    - {label: sys, symerror: 0.26}
+    value: 1.62
+  - errors:
+    - {label: stat, symerror: 0.037}
+    - {label: sys, symerror: 0.22}
+    value: 1.04
+  - errors:
+    - {label: stat, symerror: 0.024}
+    - {label: sys, symerror: 0.06}
+    value: 0.581
+  - errors:
+    - {label: stat, symerror: 0.017}
+    - {label: sys, symerror: 0.04}
+    value: 0.329
+independent_variables:
+- header: {name: $z_r$}
+  values:
+  - {high: 0.75, low: 0.7}
+  - {high: 0.77, low: 0.75}
+  - {high: 0.8, low: 0.77}
+  - {high: 0.83, low: 0.8}
+  - {high: 0.86, low: 0.83}
+  - {high: 0.89, low: 0.86}
+  - {high: 0.92, low: 0.89}
+  - {high: 0.95, low: 0.92}
+  - {high: 0.98, low: 0.95}
+  - {high: 1.0, low: 0.98}

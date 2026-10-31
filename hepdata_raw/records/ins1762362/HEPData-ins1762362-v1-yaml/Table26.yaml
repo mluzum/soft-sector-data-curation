@@ -1,0 +1,33 @@
+dependent_variables:
+- header: {name: '$\rho_{00}$'}
+  qualifiers:
+  - {name: '$p_{\rm T}$ range', units: GeV/$c$, value: 3.0-5.0}
+  - {name: RE, value: 'Pb-Pb $\rightarrow$ K$^{*0}$ X, Pb-Pb $\rightarrow$ $\bar{\rm{K}}^{*0}$
+      X'}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  - {name: Plane, value: Event Plane}
+  - {name: YRAP, value: -0.5-0.5}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.0780291}
+    - {label: syst., symerror: 0.0521659}
+    value: 0.225394
+  - errors:
+    - {label: stat., symerror: 0.0398272}
+    - {label: syst., symerror: 0.0491803}
+    value: 0.326688
+  - errors:
+    - {label: stat., symerror: 0.0373329}
+    - {label: syst., symerror: 0.0508046}
+    value: 0.298986
+  - errors:
+    - {label: stat., symerror: 0.051494}
+    - {label: syst., symerror: 0.0713455}
+    value: 0.326324
+independent_variables:
+- header: {name: '$\langle N_{part} \rangle$'}
+  values:
+  - {high: 359.6, low: 352.4}
+  - {high: 226.4, low: 219.4}
+  - {high: 109.2, low: 103.8}
+  - {high: 33.5, low: 31.5}

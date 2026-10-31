@@ -1,0 +1,40 @@
+dependent_variables:
+- header: {name: '$(N_{\psi\mathrm{(2S)}} / N_{J/\psi})_{\mathrm{PbPb}} / (N_{\psi\mathrm{(2S)}}
+      / N_{J/\psi})_{pp}$'}
+  qualifiers:
+  - {name: ABS(YRAP), value: 0.0-1.6}
+  - {name: Centrality, value: 0-100 %}
+  - {name: RE, value: P P --> J/PSI < MU+ MU- > X}
+  - {name: RE, value: P P --> PSI(2S) < MU+ MU- > X}
+  - {name: RE, value: PB PB --> J/PSI < MU+ MU- > X}
+  - {name: RE, value: PB PB --> PSI(2S) < MU+ MU- > X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.16}
+    - {label: sys, symerror: 0.04}
+    value: 0.31
+  - errors:
+    - {label: stat, symerror: 0.1}
+    - {label: sys, symerror: 0.03}
+    value: 0.38
+  - errors:
+    - {label: stat, symerror: 0.13}
+    - {label: sys, symerror: 0.04}
+    value: 0.47
+  - errors:
+    - {label: stat, symerror: 0.17}
+    - {label: sys, symerror: 0.05}
+    value: 0.4
+  - errors:
+    - {label: stat, symerror: 0.23}
+    - {label: sys, symerror: 0.07}
+    value: 0.26
+independent_variables:
+- header: {name: PT, units: GeV}
+  values:
+  - {high: 9.0, low: 6.5}
+  - {high: 12.0, low: 9.0}
+  - {high: 15.0, low: 12.0}
+  - {high: 20.0, low: 15.0}
+  - {high: 30.0, low: 20.0}

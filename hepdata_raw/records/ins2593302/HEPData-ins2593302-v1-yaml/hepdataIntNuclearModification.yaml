@@ -1,0 +1,27 @@
+dependent_variables:
+- header: {name: 'Integrated $\Lambda_\mathrm{c}^{+}$ nuclear modification factor'}
+  qualifiers:
+  - {name: SQRT(S), units: GEV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.09}
+    - {label: syst., symerror: 0.11}
+    value: 0.85
+  - errors:
+    - {label: stat., symerror: 0.1}
+    - {label: syst., symerror: 0.1}
+    - asymerror: {minus: -0.06, plus: 0.1}
+      label: extr.
+    value: 0.68
+  - errors:
+    - {label: stat., symerror: 0.13}
+    - {label: syst., symerror: 0.13}
+    - asymerror: {minus: -0.06, plus: 0.09}
+      label: extr.
+    value: 0.86
+independent_variables:
+- header: {name: CENTRALITY, units: PERCENTILE}
+  values:
+  - {value: 'p-Pb, -0.96 < Y < 0.04, 0-100%'}
+  - {value: 'Pb-Pb, -0.5 < Y < 0.5, 0-10%'}
+  - {value: 'Pb-Pb, -0.5 < Y < 0.5, 30-50%'}

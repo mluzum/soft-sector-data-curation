@@ -1,0 +1,42 @@
+dependent_variables:
+- header: {name: $v_2$}
+  qualifiers:
+  - {name: CENTRALITY, value: MB}
+  - {name: PARTICLES, value: '$h^-$, $K_s^0$, $\Lambda+\bar{\Lambda}$'}
+  - {name: RAPIDITY, value: -1.0 TO 1.0}
+  - {name: PSEUDORAPIDITY, value: -1.0 TO 1.0}
+  - {name: PT, units: GeV/$c$, value: $<$2.0}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 130}
+  values:
+  - errors:
+    - {label: $stat$, symerror: 0.0002}
+    value: 0.0417
+  - errors:
+    - {label: $stat$, symerror: 0.0063}
+    value: 0.0448
+  - errors:
+    - {label: $stat$, symerror: 0.011}
+    value: 0.067
+- header: {name: $v_2$ from hydrodynamic calculation}
+  qualifiers:
+  - {name: PARTICLES, value: '$h^-$, $K_s^0$, $\Lambda+\bar{\Lambda}$'}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 130}
+  values:
+  - errors:
+    - {label: $stat$, symerror: 0.004}
+    - {label: $syst$, symerror: 0.005}
+    value: 0.042
+  - errors:
+    - {label: $stat$, symerror: 0.008}
+    - {label: $syst$, symerror: 0.003}
+    value: 0.053
+  - errors:
+    - {label: $stat$, symerror: 0.005}
+    - {label: $syst$, symerror: 0.008}
+    value: 0.062
+independent_variables:
+- header: {name: Mass, units: GeV/$c^2$}
+  values:
+  - {value: 0.14}
+  - {value: 0.495}
+  - {value: 1.11568}

@@ -1,0 +1,49 @@
+dependent_variables:
+- header: {name: '$\frac{{\rm d}\sigma_{\rm PbPb}}{{\rm d}y} (mb)$'}
+  qualifiers:
+  - {name: RE, value: PB PB}
+  - {name: SQRT(S), units: TeV, value: '5.02'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.09}
+    - {label: uncorr sys, symerror: 0.047}
+    - {label: corr sys, symerror: 0.164}
+    - asymerror: {minus: 0.122, plus: -0.122}
+      label: migr
+    value: 3.13
+  - errors:
+    - {label: stat, symerror: 0.07}
+    - {label: uncorr sys, symerror: 0.044}
+    - {label: corr sys, symerror: 0.152}
+    - asymerror: {minus: 0.104, plus: -0.104}
+      label: migr
+    value: 2.9
+  - errors:
+    - {label: stat, symerror: 0.076}
+    - {label: uncorr sys, symerror: 0.011}
+    - {label: corr sys, symerror: 0.199}
+    - asymerror: {minus: 0.009, plus: -0.009}
+      label: migr
+    value: 2.668
+  - errors:
+    - {label: stat, symerror: 0.033}
+    - {label: uncorr sys, symerror: 0.01}
+    - {label: corr sys, symerror: 0.173}
+    - asymerror: {minus: 0.005, plus: -0.005}
+      label: migr
+    value: 2.322
+  - errors:
+    - {label: stat, symerror: 0.049}
+    - {label: uncorr sys, symerror: 0.01}
+    - {label: corr sys, symerror: 0.119}
+    - asymerror: {minus: 0.003, plus: -0.003}
+      label: migr
+    value: 1.59
+independent_variables:
+- header: {name: $y$}
+  values:
+  - {high: 0.2, low: -0.2, value: 0.0}
+  - {high: 0.8, low: 0.2, value: 0.5}
+  - {high: 3.0, low: 2.5, value: 2.75}
+  - {high: 3.5, low: 3.0, value: 3.25}
+  - {high: 4.0, low: 3.5, value: 3.75}

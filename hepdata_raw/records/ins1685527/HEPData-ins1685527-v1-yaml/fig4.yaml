@@ -1,0 +1,43 @@
+dependent_variables:
+- header: {name: Ratio=CF(40-80)/CF(0-40)}
+  qualifiers:
+  - {name: '$k^{*}$ (GeV/c)', value: Ratio=CF(40-80)/CF(0-40)}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.3514}
+    - {label: syst, symerror: 0.08266}
+    value: 0.2817
+  - errors:
+    - {label: stat, symerror: 0.2193}
+    - {label: syst, symerror: 0.2384}
+    value: 0.8126
+  - errors:
+    - {label: stat, symerror: 0.1719}
+    - {label: syst, symerror: 0.1598}
+    value: 1.1525
+  - errors:
+    - {label: stat, symerror: 0.1152}
+    - {label: syst, symerror: 0.1079}
+    value: 0.9276
+  - errors:
+    - {label: stat, symerror: 0.1038}
+    - {label: syst, symerror: 0.1164}
+    value: 1.1458
+  - errors:
+    - {label: stat, symerror: 0.0736}
+    - {label: syst, symerror: 0.0888}
+    value: 0.8757
+  - errors:
+    - {label: stat, symerror: 0.0626}
+    - {label: syst, symerror: 0.0768}
+    value: 0.9585
+independent_variables:
+- header: {name: '$k^{*}$ (GeV/c)'}
+  values:
+  - {high: 0.04, low: 0}
+  - {high: 0.08, low: 0.04}
+  - {high: 0.12, low: 0.08}
+  - {high: 0.16, low: 0.12}
+  - {high: 0.2, low: 0.16}
+  - {high: 0.24, low: 0.2}
+  - {high: 0.28, low: 0.24}

@@ -1,0 +1,45 @@
+dependent_variables:
+- header: {name: '$R_{AA}$'}
+  qualifiers:
+  - {name: SQRT(S), units: GeV, value: '2760.0'}
+  - {name: YRAP, value: -0.6-0.6}
+  - {name: common systematic uncertainty +- 47%, value: ''}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.085}
+    - {label: 'sys,syst_err,-0.087', symerror: 0.088}
+    value: 0.589
+  - errors:
+    - {label: stat, symerror: 0.11}
+    - {label: 'sys,syst_err,-0.20', symerror: 0.12}
+    value: 0.63
+  - errors:
+    - {label: stat, symerror: 0.13}
+    - {label: 'sys,syst_err,-0.17', symerror: 0.17}
+    value: 0.74
+  - errors:
+    - {label: stat, symerror: 0.14}
+    - {label: 'sys,syst_err,-0.13', symerror: 0.13}
+    value: 0.61
+  - errors:
+    - {label: stat, symerror: 0.15}
+    - {label: 'sys,syst_err,-0.15', symerror: 0.15}
+    value: 0.61
+  - errors:
+    - {label: stat, symerror: 0.11}
+    - {label: 'sys,syst_err,-0.14', symerror: 0.14}
+    value: 0.59
+  - errors:
+    - {label: stat, symerror: 0.19}
+    - {label: 'sys,syst_err,-0.22', symerror: 0.22}
+    value: 0.8
+independent_variables:
+- header: {name: 'electron $\it{p}_{T} (GeV/\it{c})$'}
+  values:
+  - {high: 4.0, low: 3.0}
+  - {high: 5.0, low: 4.0}
+  - {high: 6.0, low: 5.0}
+  - {high: 7.0, low: 6.0}
+  - {high: 8.0, low: 7.0}
+  - {high: 10.0, low: 8.0}
+  - {high: 12.0, low: 10.0}

@@ -1,0 +1,37 @@
+dependent_variables:
+- header: {name: EVTS/ACO, units: NONE}
+  qualifiers:
+  - {name: RE, value: Pb Pb --> Pb(*) Pb(*) GAMMA GAMMA}
+  - {name: '$\sqrt{s_{NN}}$ in GeV', value: 5020}
+  values:
+  - errors:
+    - {label: stat, symerror: 3}
+    value: 9
+  - errors:
+    - {label: stat, symerror: 2}
+    value: 4
+  - errors:
+    - {label: stat, symerror: 1.41}
+    value: 2
+  - errors:
+    - {label: stat, symerror: 1}
+    value: 1
+  - errors:
+    - {label: stat, symerror: 1.41}
+    value: 2
+  - errors:
+    - {label: stat, symerror: 1}
+    value: 1
+  - errors:
+    - {label: stat, symerror: 1}
+    value: 1
+independent_variables:
+- header: {name: Diphoton acoplanarity, units: NONE}
+  values:
+  - {high: 0.005, low: 0}
+  - {high: 0.01, low: 0.005}
+  - {high: 0.015, low: 0.01}
+  - {high: 0.02, low: 0.015}
+  - {high: 0.025, low: 0.02}
+  - {high: 0.04, low: 0.035}
+  - {high: 0.045, low: 0.04}

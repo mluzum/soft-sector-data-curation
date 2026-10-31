@@ -1,0 +1,119 @@
+dependent_variables:
+- header: {name: Normalized yield}
+  qualifiers:
+  - {name: '$p_{T}^{\gamma}$', value: '> 100 GeV'}
+  - {name: '$|\eta_{\gamma}|$', value: < 1.44}
+  - {name: '$|\eta_{jet}|$', value: < 2}
+  - {name: '$\Delta \phi_{\gamma,jet}$', value: $> 2\pi/3$}
+  - {name: SQRT(S_NN), value: 5020 GeV}
+  - {name: RE, value: Pb Pb --> Photon + Jet}
+  - {name: CENTRALITY, value: 0--30}
+  values:
+  - errors:
+    - {label: Statistical, symerror: '0.1459'}
+    - {label: Response Matrix stats, symerror: '0.0769'}
+    - asymerror: {minus: 0.0017, plus: -0.0017}
+      label: $\gamma$ Purity (sym)
+    - asymerror: {minus: 0.024, plus: -0.0301}
+      label: JEC
+    - asymerror: {minus: -0.0312, plus: -0.0098}
+      label: JER
+    - asymerror: {minus: -0.0067, plus: -0.0186}
+      label: E/$\gamma$ PF scale
+    - asymerror: {minus: -0.0292, plus: -0.0034}
+      label: Charged Hadron PF scale
+    - asymerror: {minus: -0.0259, plus: -0.0576}
+      label: Neutral Hadron PF scale
+    - asymerror: {minus: 0.005, plus: -0.0001}
+      label: Centrality
+    - asymerror: {minus: -0.0143, plus: 0.0143}
+      label: Fragmentation Model (sym)
+    value: '1.6599'
+  - errors:
+    - {label: Statistical, symerror: '0.3295'}
+    - {label: Response Matrix stats, symerror: '0.1303'}
+    - asymerror: {minus: -0.0001, plus: 0.0001}
+      label: $\gamma$ Purity (sym)
+    - asymerror: {minus: -0.1284, plus: 0.1453}
+      label: JEC
+    - asymerror: {minus: 0.0314, plus: 0.068}
+      label: JER
+    - asymerror: {minus: 0.0197, plus: 0.0179}
+      label: E/$\gamma$ PF scale
+    - asymerror: {minus: 0.003, plus: -0.0292}
+      label: Charged Hadron PF scale
+    - asymerror: {minus: -0.0589, plus: 0.0434}
+      label: Neutral Hadron PF scale
+    - asymerror: {minus: 0.0593, plus: 0.0292}
+      label: Centrality
+    - asymerror: {minus: -0.2402, plus: 0.2402}
+      label: Fragmentation Model (sym)
+    value: '9.0379'
+  - errors:
+    - {label: Statistical, symerror: '0.3040'}
+    - {label: Response Matrix stats, symerror: '0.1359'}
+    - asymerror: {minus: -0.0008, plus: 0.0008}
+      label: $\gamma$ Purity (sym)
+    - asymerror: {minus: -0.0197, plus: 0.0654}
+      label: JEC
+    - asymerror: {minus: 0.0622, plus: 0.0146}
+      label: JER
+    - asymerror: {minus: -0.0081, plus: 0.0442}
+      label: E/$\gamma$ PF scale
+    - asymerror: {minus: 0.0476, plus: -0.0178}
+      label: Charged Hadron PF scale
+    - asymerror: {minus: 0.0444, plus: 0.0769}
+      label: Neutral Hadron PF scale
+    - asymerror: {minus: 0.0005, plus: -0.0994}
+      label: Centrality
+    - asymerror: {minus: -0.0602, plus: 0.0602}
+      label: Fragmentation Model (sym)
+    value: '6.4000'
+  - errors:
+    - {label: Statistical, symerror: '0.2154'}
+    - {label: Response Matrix stats, symerror: '0.1117'}
+    - asymerror: {minus: 0.0008, plus: -0.0008}
+      label: $\gamma$ Purity (sym)
+    - asymerror: {minus: 0.0315, plus: -0.0394}
+      label: JEC
+    - asymerror: {minus: 0.006, plus: 0.0047}
+      label: JER
+    - asymerror: {minus: 0.0232, plus: 0.0824}
+      label: E/$\gamma$ PF scale
+    - asymerror: {minus: 0.0507, plus: 0.0354}
+      label: Charged Hadron PF scale
+    - asymerror: {minus: 0.0804, plus: 0.0094}
+      label: Neutral Hadron PF scale
+    - asymerror: {minus: -0.0044, plus: -0.03}
+      label: Centrality
+    - asymerror: {minus: 0.1007, plus: -0.1007}
+      label: Fragmentation Model (sym)
+    value: '3.3777'
+  - errors:
+    - {label: Statistical, symerror: '0.1185'}
+    - {label: Response Matrix stats, symerror: '0.0721'}
+    - asymerror: {minus: -0.001, plus: 0.001}
+      label: $\gamma$ Purity (sym)
+    - asymerror: {minus: 0.0429, plus: -0.066}
+      label: JEC
+    - asymerror: {minus: -0.0296, plus: -0.0367}
+      label: JER
+    - asymerror: {minus: -0.0126, plus: -0.0584}
+      label: E/$\gamma$ PF scale
+    - asymerror: {minus: -0.0313, plus: 0.0087}
+      label: Charged Hadron PF scale
+    - asymerror: {minus: -0.0207, plus: -0.0276}
+      label: Neutral Hadron PF scale
+    - asymerror: {minus: -0.0293, plus: 0.0486}
+      label: Centrality
+    - asymerror: {minus: 0.1093, plus: -0.1093}
+      label: Fragmentation Model (sym)
+    value: '2.0164'
+independent_variables:
+- header: {name: Groomed jet radius $R_g$}
+  values:
+  - {high: 0.0, low: -0.05}
+  - {high: 0.04, low: 0.0}
+  - {high: 0.08, low: 0.04}
+  - {high: 0.12, low: 0.08}
+  - {high: 0.2, low: 0.12}

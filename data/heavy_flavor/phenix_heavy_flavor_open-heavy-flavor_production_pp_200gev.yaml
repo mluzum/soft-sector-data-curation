@@ -1,0 +1,223 @@
+---
+observable_type: heavy_flavor
+inspire_id: '1102910'
+version: 1
+hepdata_file: ppg117fig10.yaml
+hepdata_table_label: Production cross section of negative muons from heavy-flavor mesons decay as a function of $p_T$ in $p$+$p$
+  collisions at $\sqrt{s}=200$ GeV.
+collision_system:
+  energy_gev: 200.0
+  reaction: p p --> \mu^- X
+centrality:
+  classes:
+  - MB
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: Sigma
+  particle: D0
+kinematic_range:
+  pT:
+    min: 1.0
+    max: 7.0
+    bins:
+    - 1.0
+    - 1.25
+    - 1.5
+    - 1.75
+    - 2.0
+    - 2.25
+    - 2.5
+    - 2.75
+    - 3.0
+    - 3.5
+    - 4.0
+    - 4.5
+    - 7.0
+  eta:
+    min: -0.35
+    max: 0.35
+observable: d0_invariant_yield
+value_type: invariant_yield
+particle: D0
+---
+observable_type: heavy_flavor
+inspire_id: '1102910'
+version: 1
+hepdata_file: ppg117fig12.yaml
+hepdata_table_label: c$\bar{c}$ production cross section as a function of rapidity in $p$+$p$ collisions, measured using semileptonic
+  decay to electrons (closed square) and to muons (closed circle).
+collision_system:
+  energy_gev: 200.0
+  reaction: p p --> \mu^- X
+centrality:
+  classes:
+  - MB
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: Sigma
+  particle: D0
+kinematic_range:
+  y:
+    min: -1.9
+    max: 1.9
+    bins:
+    - -1.9
+    - -1.4
+    - -0.35
+    - 0.35
+    - 1.4
+    - 1.9
+  eta:
+    min: -0.35
+    max: 0.35
+  pT:
+    min: 0.2
+    max: 20
+observable: d0_invariant_yield
+value_type: invariant_yield
+particle: D0
+---
+observable_type: heavy_flavor
+inspire_id: '1102910'
+version: 1
+hepdata_file: ppg117fig13.yaml
+hepdata_table_label: 'Transverse momentum distribution of $R_{AA}$ for negative muons from heavy-flavor mesons decay in Cu+Cu
+  collisions in the following centrality classes: 40-94% (top panel), 20-40% (middle panel) and 0-20% (bottom panel). Also
+  shown in the bottom panel is a theoretical calculation from [39,40], discussed in Section V.'
+qualifiers:
+  centrality (%): 40-94
+collision_system:
+  energy_gev: 200.0
+  reaction: p p --> \mu^- X
+centrality:
+  classes:
+  - 40.0-94.0%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: mu-
+  particle: D0
+kinematic_range:
+  pT:
+    min: 1.0
+    max: 4.0
+    bins:
+    - 1.0
+    - 1.25
+    - 1.5
+    - 1.75
+    - 2.0
+    - 2.5
+    - 3.0
+    - 4.0
+  eta:
+    min: -0.35
+    max: 0.35
+observable: d0_invariant_yield
+value_type: invariant_yield
+particle: D0
+---
+observable_type: heavy_flavor
+inspire_id: '1102910'
+version: 1
+hepdata_file: ppg117fig14a.yaml
+hepdata_table_label: Comparison of $R_{AA}$ as a function of $N_{part}$ between heavy-flavor muons reconstructed at forward
+  rapidity ($1.4<y<1.9$) and $p_T >$ 2 GeV in Cu+Cu collisions (red squares) and nonphotonic electrons reconstructed at midrapidity
+  and $p_T>$ 3 GeV in Au+Au collisions (blue circles).
+qualifiers:
+  '|$y$|': '0'
+collision_system:
+  energy_gev: 200.0
+  reaction: p p --> \mu^- X
+centrality:
+  classes:
+  - 0-10%
+  - 10-20%
+  - 20-40%
+  - 40-60%
+  - 60-92%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: e-
+  particle: D0
+kinematic_range:
+  eta:
+    min: -0.35
+    max: 0.35
+  pT:
+    min: 0.2
+    max: 20
+observable: d0_invariant_yield
+value_type: invariant_yield
+particle: D0
+---
+observable_type: heavy_flavor
+inspire_id: '1102910'
+version: 1
+hepdata_file: ppg117fig14b.yaml
+hepdata_table_label: Comparison of $R_{AA}$ as a function of $N_{part}$ between heavy-flavor muons reconstructed at forward
+  rapidity ($1.4<y<1.9$) and $p_T >$ 2 GeV in Cu+Cu collisions (red squares) and nonphotonic electrons reconstructed at midrapidity
+  and $p_T>$ 3 GeV in Au+Au collisions (blue circles).
+qualifiers:
+  '|$y$|': '1.65'
+collision_system:
+  energy_gev: 200.0
+  reaction: p p --> \mu^- X
+centrality:
+  classes:
+  - 0-20%
+  - 20-40%
+  - 40-94%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: e-
+  particle: D0
+kinematic_range:
+  eta:
+    min: -0.35
+    max: 0.35
+  pT:
+    min: 0.2
+    max: 20
+observable: d0_invariant_yield
+value_type: invariant_yield
+particle: D0

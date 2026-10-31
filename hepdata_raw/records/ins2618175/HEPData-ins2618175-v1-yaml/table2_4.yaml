@@ -1,0 +1,36 @@
+dependent_variables:
+- header: {name: '$v_{2}$'}
+  qualifiers:
+  - {name: RE, value: PB PB --> CHARGED X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: 5020.0}
+  - {name: YRAP, value: -0.8 < $y$(lab) < 0.8}
+  - {name: CENTRALITY, value: 'V0M: 20$-$60%'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.016666}
+    - {label: sys, symerror: 0.0091367}
+    value: 0.0909
+  - errors:
+    - {label: stat, symerror: 0.0053535}
+    - {label: sys, symerror: 0.005977}
+    value: 0.091013
+  - errors:
+    - {label: stat, symerror: 0.0094839}
+    - {label: sys, symerror: 0.0053161}
+    value: 0.10208
+  - errors:
+    - {label: stat, symerror: 0.0065148}
+    - {label: sys, symerror: 0.0071089}
+    value: 0.070918
+  - errors:
+    - {label: stat, symerror: 0.011486}
+    - {label: sys, symerror: 0.0040105}
+    value: 0.056381
+independent_variables:
+- header: {name: '$p_{\mathrm{T}}$', units: GeV/c}
+  values:
+  - {value: 5.5}
+  - {value: 7.0}
+  - {value: 9.0}
+  - {value: 12.0}
+  - {value: 17.0}

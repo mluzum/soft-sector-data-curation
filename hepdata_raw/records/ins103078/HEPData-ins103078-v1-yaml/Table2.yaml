@@ -1,0 +1,35 @@
+dependent_variables:
+- header: {name: 'RHO(MM=00,XYZ=TH)'}
+  qualifiers:
+  - {name: P, units: GeV, value: '6.0'}
+  - {name: RE, value: PI- P --> A2(1320)- P}
+  - {name: SQRT(S), units: GeV, value: '3.487'}
+  values:
+  - errors:
+    - {label: total, symerror: 0.04}
+    - {label: stat, symerror: 0.03}
+    value: 0.09
+- header: {name: 'RHO(MM=11,XYZ=TH)'}
+  qualifiers:
+  - {name: P, units: GeV, value: '6.0'}
+  - {name: RE, value: PI- P --> A2(1320)- P}
+  - {name: SQRT(S), units: GeV, value: '3.487'}
+  values:
+  - errors:
+    - {label: total, symerror: 0.02}
+    - {label: stat, symerror: 0.02}
+    value: 0.45
+- header: {name: 'RHO(MM=11,XYZ=TH) - RHO(MM=1-1,XYZ=TH)'}
+  qualifiers:
+  - {name: P, units: GeV, value: '6.0'}
+  - {name: RE, value: PI- P --> A2(1320)- P}
+  - {name: SQRT(S), units: GeV, value: '3.487'}
+  values:
+  - errors:
+    - {label: total, symerror: 0.03}
+    - {label: stat, symerror: 0.02}
+    value: 0.0
+independent_variables:
+- header: {name: -T, units: GEV}
+  values:
+  - {high: 0.42, low: 0.27}

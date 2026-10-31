@@ -1,0 +1,27 @@
+dependent_variables:
+- header: {name: 'Sigma(Delta varphi_{thresh})'}
+  qualifiers:
+  - {name: ABS(ETA), value: 0.0-0.5}
+  - {name: R, value: '0.4'}
+  - {name: RE, value: PB PB --> H JET X}
+  - {name: SQRT(S), units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {symerror: 0.001059}
+    value: 0.005385
+  - errors:
+    - {symerror: 0.001078}
+    value: 0.005584
+  - errors:
+    - {symerror: 0.0007613}
+    value: 0.005681
+  - errors:
+    - {symerror: 0.0003243}
+    value: 0.003055
+independent_variables:
+- header: {name: 'Delta varphi_{thresh}'}
+  values:
+  - {value: 0.1}
+  - {value: 0.2}
+  - {value: 0.4}
+  - {value: 0.7}

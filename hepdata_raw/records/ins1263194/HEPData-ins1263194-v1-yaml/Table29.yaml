@@ -1,0 +1,70 @@
+dependent_variables:
+- header: {name: RCP}
+  qualifiers:
+  - {name: CENTRALITY(peripheral), units: pct, value: 50.0-80.0}
+  - {name: ETARAP(jet), value: -0.5-0.5}
+  - {name: PT(jet), units: GeV, value: 60.0-70.0}
+  - {name: PT(leading track), units: GEV, value: '> 10'}
+  - {name: PT(track), units: GEV, value: '> 0.15'}
+  - {name: RE, value: PB PB --> CHARGED X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  - {name: '', value: Anti-kT R = 0.2}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.179}
+    - asymerror: {minus: -0.0388, plus: 0.1001}
+      label: sys
+    - {label: sys, symerror: 0.0686}
+    value: 0.9157
+  - errors:
+    - {label: stat, symerror: 0.1223}
+    - asymerror: {minus: -0.069, plus: 0.0538}
+      label: sys
+    - asymerror: {minus: -0.0613, plus: 0.0544}
+      label: sys
+    value: 0.6459
+  - errors:
+    - {label: stat, symerror: 0.1248}
+    - asymerror: {minus: -0.058, plus: 0.0455}
+      label: sys
+    - asymerror: {minus: -0.055, plus: 0.0495}
+      label: sys
+    value: 0.5505
+- header: {name: RCP}
+  qualifiers:
+  - {name: CENTRALITY(peripheral), units: pct, value: 50.0-80.0}
+  - {name: ETARAP(jet), value: -0.5-0.5}
+  - {name: PT(jet), units: GeV, value: 60.0-70.0}
+  - {name: PT(leading track), units: GEV, value: '> 10'}
+  - {name: PT(track), units: GEV, value: '> 0.15'}
+  - {name: RE, value: PB PB --> CHARGED X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  - {name: '', value: Anti-kT R = 0.3}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.1868}
+    - asymerror: {minus: -0.1528, plus: 0.1765}
+      label: sys
+    - asymerror: {minus: -0.0461, plus: 0.0027}
+      label: sys
+    value: 0.9499
+  - errors:
+    - {label: stat, symerror: 0.1288}
+    - asymerror: {minus: -0.122, plus: 0.0901}
+      label: sys
+    - asymerror: {minus: -0.0358, plus: 0.0343}
+      label: sys
+    value: 0.6928
+  - errors:
+    - {label: stat, symerror: 0.096}
+    - asymerror: {minus: -0.0747, plus: 0.0656}
+      label: sys
+    - asymerror: {minus: -0.0244, plus: 0.026}
+      label: sys
+    value: 0.4852
+independent_variables:
+- header: {name: MEAN(Npart)}
+  values:
+  - {high: 121.0, low: 93.0}
+  - {high: 245.0, low: 201.0}
+  - {high: 372.0, low: 340.0}

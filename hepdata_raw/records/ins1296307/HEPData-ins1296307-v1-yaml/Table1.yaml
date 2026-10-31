@@ -1,0 +1,20 @@
+dependent_variables:
+- header: {name: BR_SIGMA_PSI(2S)/BR_SIGMA_JPSI}
+  qualifiers:
+  - {name: RE, value: P PB --> J/PSI < MU+ MU- > X}
+  - {name: RE, value: P PB --> PSI(2S) < MU+ MU- > X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0018}
+    - {label: sys, symerror: 0.0011}
+    value: 0.0116
+  - errors:
+    - {label: stat, symerror: 0.0019}
+    - {label: sys, symerror: 0.0015}
+    value: 0.0154
+independent_variables:
+- header: {name: Y_CMS}
+  values:
+  - {high: -2.96, low: -4.46}
+  - {high: 3.53, low: 2.03}

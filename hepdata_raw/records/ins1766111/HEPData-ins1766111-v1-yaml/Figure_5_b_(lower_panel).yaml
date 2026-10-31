@@ -1,0 +1,31 @@
+dependent_variables:
+- header: {name: '$\frac{D^+_S/D^0\text{ (PbPb)}}{D^+_S/D^0\text{ (pp)}}$ Ratio'}
+  qualifiers:
+  - {name: SQRT(S), units: TeV, value: '5.02'}
+  - {name: ABS(RAP), value: < 1}
+  - {name: RE, value: P P --> DS+ --> PHI<K+K-> PI+}
+  - {name: RE, value: PB PB --> DS+ --> PHI<K+K-> PI+}
+  values:
+  - errors:
+    - {label: sys, symerror: 0.26}
+    - {label: stat, symerror: 0.14}
+    value: 1.29
+  - errors:
+    - {label: sys, symerror: 0.31}
+    - {label: stat, symerror: 0.15}
+    value: 1.41
+  - errors:
+    - {label: sys, symerror: 0.2}
+    - {label: stat, symerror: 0.08}
+    value: 1.03
+  - errors:
+    - {label: sys, symerror: 0.15}
+    - {label: stat, symerror: 0.14}
+    value: 0.79
+independent_variables:
+- header: {name: $p_T$}
+  values:
+  - {high: 8.0, low: 6.0}
+  - {high: 10.0, low: 8.0}
+  - {high: 20.0, low: 10.0}
+  - {high: 40.0, low: 20.0}

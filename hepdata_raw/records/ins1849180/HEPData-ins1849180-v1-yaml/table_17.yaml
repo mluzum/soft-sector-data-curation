@@ -1,0 +1,31 @@
+dependent_variables:
+- header: {name: Cross section, units: nb}
+  qualifiers:
+  - {name: M, units: GeV, value: '> 15'}
+  - {name: M, units: GeV, value: < 60}
+  - {name: RE, value: 'P PB --> Z0 <MU+ MU-> X, P PB --> GAMMA* <MU+ MU-> X'}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: 8160}
+  values:
+  - errors:
+    - {label: Total, symerror: 0.12}
+    value: 1.04
+  - errors:
+    - {label: Total, symerror: 0.11}
+    value: 0.96
+  - errors:
+    - {label: Total, symerror: 0.11}
+    value: 0.86
+  - errors:
+    - {label: Total, symerror: 0.12}
+    value: 1.03
+  - errors:
+    - {label: Total, symerror: 0.23}
+    value: 1.07
+independent_variables:
+- header: {name: absolute rapidity, units: GeV}
+  values:
+  - {high: 0.4, low: 0.0}
+  - {high: 0.8, low: 0.4}
+  - {high: 1.2, low: 0.8}
+  - {high: 1.6, low: 1.2}
+  - {high: 1.93, low: 1.6}

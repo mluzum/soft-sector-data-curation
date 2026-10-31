@@ -1,0 +1,51 @@
+dependent_variables:
+- header: {name: deltaDif}
+  qualifiers:
+  - {name: RE, value: Xe Xe --> CHARGED X}
+  - {name: SQRT(S), units: GEV, value: 5440}
+  - {name: ABS(ETA), value: < 0.8 (LAB)}
+  - {name: PT, value: 0.2 - 5.0 GEV}
+  values:
+  - errors:
+    - {label: stat, symerror: 3.3502e-06}
+    - {label: sys, symerror: 3.9499e-05}
+    value: 0.00044162
+  - errors:
+    - {label: stat, symerror: 4.1961e-06}
+    - {label: sys, symerror: 4.4482e-05}
+    value: 0.00052245
+  - errors:
+    - {label: stat, symerror: 5.6218e-06}
+    - {label: sys, symerror: 5.5249e-05}
+    value: 0.000656
+  - errors:
+    - {label: stat, symerror: 4.5339e-06}
+    - {label: sys, symerror: 7.5603e-05}
+    value: 0.00089355
+  - errors:
+    - {label: stat, symerror: 8.154e-06}
+    - {label: sys, symerror: 0.00010295}
+    value: 0.0012237
+  - errors:
+    - {label: stat, symerror: 1.1382e-05}
+    - {label: sys, symerror: 0.00014625}
+    value: 0.0017876
+  - errors:
+    - {label: stat, symerror: 1.8939e-05}
+    - {label: sys, symerror: 0.00017346}
+    value: 0.0025607
+  - errors:
+    - {label: stat, symerror: 4.8262e-05}
+    - {label: sys, symerror: 0.00018271}
+    value: 0.0038228
+independent_variables:
+- header: {name: Centrality}
+  values:
+  - {high: 5, low: 0}
+  - {high: 10, low: 5}
+  - {high: 20, low: 10}
+  - {high: 30, low: 20}
+  - {high: 40, low: 30}
+  - {high: 50, low: 40}
+  - {high: 60, low: 50}
+  - {high: 70, low: 60}

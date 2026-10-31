@@ -1,0 +1,43 @@
+dependent_variables:
+- header: {name: dN/dy}
+  qualifiers:
+  - {name: Source, value: '$\overline{\Lambda}$'}
+  - {name: y, value: 2.75}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.001}
+    - asymerror: {minus: -0.008, plus: 0.01}
+      label: syst
+    value: 0.025
+  - errors:
+    - {label: stat, symerror: 0.002}
+    - asymerror: {minus: -0.007, plus: 0.009}
+      label: syst
+    value: 0.047
+  - errors:
+    - {label: stat, symerror: 0.002}
+    - {label: syst, symerror: 0.004}
+    value: 0.054
+- header: {name: dN/dy}
+  qualifiers:
+  - {name: Source, value: Net $\Lambda$}
+  - {name: y, value: 2.75}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.002}
+    - {label: syst, symerror: 0.003}
+    value: 0.02
+  - errors:
+    - {label: stat, symerror: 0.004}
+    - {label: syst, symerror: 0.006}
+    value: 0.047
+  - errors:
+    - {label: stat, symerror: 0.004}
+    - {label: syst, symerror: 0.007}
+    value: 0.052
+independent_variables:
+- header: {name: '$<n_{coll}>/<n_{part,d}>$'}
+  values:
+  - {value: 3.0}
+  - {value: 5.6}
+  - {value: 7.5}

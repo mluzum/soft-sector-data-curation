@@ -1,0 +1,26 @@
+dependent_variables:
+- header: {name: v_2}
+  qualifiers:
+  - {name: RE, value: PB PB --> UPSILON(1S) < MU+ MU- > X}
+  - {name: SQRT(S), units: GEV, value: 5020.0}
+  - {name: YRAP, value: 2.50 TO 4.00}
+  - {name: PT, units: GEV/C, value: 2.0 TO 15.0}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.03}
+    - {label: sys, symerror: 0.006}
+    value: -0.003
+  - errors:
+    - {label: stat, symerror: 0.044}
+    - {label: sys, symerror: 0.011}
+    value: 0.017
+  - errors:
+    - {label: stat, symerror: 0.04}
+    - {label: sys, symerror: 0.005}
+    value: -0.03
+independent_variables:
+- header: {name: CENTRALITY, units: pct}
+  values:
+  - {high: 60.0, low: 5.0}
+  - {high: 20.0, low: 5.0}
+  - {high: 60.0, low: 20.0}

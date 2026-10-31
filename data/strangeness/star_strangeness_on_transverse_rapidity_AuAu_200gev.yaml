@@ -1,0 +1,36 @@
+---
+observable_type: strangeness
+inspire_id: '2071694'
+version: 1
+hepdata_file: Fig6_panel_a.yaml
+hepdata_table_label: Fit results for the amplitudes of the measured and predicted correlation peak near (yT 1, yT 2) ≈ (3,3)
+  as a function of centrality
+qualifiers:
+  sqrt(s)/nucleon: '200.0'
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes: []
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+    bins:
+    - -1.0
+    - 1.0
+  pT:
+    min: 0.15
+    max: 10
+observable: charged_spectra
+value_type: invariant_yield

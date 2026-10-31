@@ -1,0 +1,76 @@
+dependent_variables:
+- header: {name: '$\frac{d\sigma}{dp_T}$', units: '(pb(GeV/c)$^{-1})$'}
+  qualifiers:
+  - {name: SQRT(S), units: TeV, value: '5.02'}
+  - {name: ABS(RAP), value: < 1}
+  - {name: RE, value: P P --> DS+ --> PHI<K+K-> PI+}
+  values:
+  - errors:
+    - {label: sys, symerror: 6000000.0}
+    - {label: stat, symerror: 3900000.0}
+    value: 36500000.0
+  - errors:
+    - {label: sys, symerror: 2900000.0}
+    - {label: stat, symerror: 1000000.0}
+    value: 20100000.0
+  - errors:
+    - {label: sys, symerror: 1300000.0}
+    - {label: stat, symerror: 400000.0}
+    value: 8000000.0
+  - errors:
+    - {label: sys, symerror: 640000.0}
+    - {label: stat, symerror: 200000.0}
+    value: 3970000.0
+  - errors:
+    - {label: sys, symerror: 220000.0}
+    - {label: stat, symerror: 70000.0}
+    value: 1570000.0
+  - errors:
+    - {label: sys, symerror: 83000.0}
+    - {label: stat, symerror: 34000.0}
+    value: 593000.0
+  - errors:
+    - {label: sys, symerror: 12000.0}
+    - {label: stat, symerror: 5000.0}
+    value: 86000.0
+  - errors:
+    - {label: sys, symerror: 510.0}
+    - {label: stat, symerror: 570.0}
+    value: 3620.0
+- header: {name: '$\frac{1}{T_{AA}}\frac{dN}{dp_T}$', units: '(pb(GeV/c)$^{-1})$'}
+  qualifiers:
+  - {name: SQRT(S), units: TeV, value: '5.02'}
+  - {name: ABS(RAP), value: < 1}
+  - {name: RE, value: PB PB --> DS+ --> PHI<K+K-> PI+}
+  values:
+  - {value: ''}
+  - {value: ''}
+  - {value: ''}
+  - {value: ''}
+  - errors:
+    - {label: sys, symerror: 130000.0}
+    - {label: stat, symerror: 50000.0}
+    value: 590000.0
+  - errors:
+    - {label: sys, symerror: 53000.0}
+    - {label: stat, symerror: 11000.0}
+    value: 226000.0
+  - errors:
+    - {label: sys, symerror: 5600.0}
+    - {label: stat, symerror: 700.0}
+    value: 27500.0
+  - errors:
+    - {label: sys, symerror: 230.0}
+    - {label: stat, symerror: 70.0}
+    value: 1260.0
+independent_variables:
+- header: {name: $p_T$}
+  values:
+  - {high: 3.0, low: 2.0}
+  - {high: 4.0, low: 3.0}
+  - {high: 5.0, low: 4.0}
+  - {high: 6.0, low: 5.0}
+  - {high: 8.0, low: 6.0}
+  - {high: 10.0, low: 8.0}
+  - {high: 20.0, low: 10.0}
+  - {high: 40.0, low: 20.0}

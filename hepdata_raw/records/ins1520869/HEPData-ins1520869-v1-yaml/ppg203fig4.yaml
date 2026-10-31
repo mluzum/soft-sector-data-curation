@@ -1,0 +1,77 @@
+dependent_variables:
+- header: {name: Collision}
+  qualifiers:
+  - {name: '', value: ''}
+  values:
+  - {value: $p$+$p$}
+  - {value: $p$+Al}
+  - {value: $p$+Au}
+- header: {name: $A_N$}
+  qualifiers:
+  - {name: '', value: ZDC Inclusive}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.001}
+    - {label: sys., symerror: 0.012}
+    - {label: scale, symerror: 0.002}
+    value: -0.054
+  - errors:
+    - {label: stat., symerror: 0.002}
+    - asymerror: {minus: -0.004, plus: 0.004}
+      label: sys.
+    - {label: scale, symerror: 0.0004}
+    value: -0.013
+  - errors:
+    - {label: stat., symerror: 0.002}
+    - asymerror: {minus: -0.014, plus: 0.02}
+      label: sys.
+    - {label: scale, symerror: 0.005}
+    value: 0.157
+- header: {name: $A_N$}
+  qualifiers:
+  - {name: '', value: ZDC $\otimes$ BBC-tag}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.002}
+    - {label: sys., symerror: 0.011}
+    - {label: scale, symerror: 0.002}
+    value: -0.064
+  - errors:
+    - {label: stat., symerror: 0.003}
+    - asymerror: {minus: -0.012, plus: 0.007}
+      label: sys.
+    - {label: scale, symerror: 0.002}
+    value: -0.057
+  - errors:
+    - {label: stat., symerror: 0.005}
+    - asymerror: {minus: -0.01, plus: 0.009}
+      label: sys.
+    - {label: scale, symerror: 0.0005}
+    value: -0.015
+- header: {name: $A_N$}
+  qualifiers:
+  - {name: '', value: ZDC $\otimes$ BBC-veto}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.004}
+    - {label: sys., symerror: 0.021}
+    - {label: scale, symerror: 0.0009}
+    value: -0.031
+  - errors:
+    - {label: stat., symerror: 0.003}
+    - asymerror: {minus: -0.008, plus: 0.009}
+      label: sys.
+    - {label: scale, symerror: 0.002}
+    value: 0.073
+  - errors:
+    - {label: stat., symerror: 0.002}
+    - asymerror: {minus: -0.022, plus: 0.025}
+      label: sys.
+    - {label: scale, symerror: 0.007}
+    value: 0.234
+independent_variables:
+- header: {name: $A$ (atomic mass number)}
+  values:
+  - {value: 1}
+  - {value: 27}
+  - {value: 197}

@@ -1,0 +1,25 @@
+dependent_variables:
+- header: {name: '$v_{2}^{\mu}\{\rm{2PC,sub}\}$'}
+  qualifiers:
+  - {name: ETARAP, value: -4.0--2.5}
+  - {name: RE, value: P PB --> CHARGED X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0042}
+    - {label: sys, symerror: 0.0035}
+    value: 0.048
+  - errors:
+    - {label: stat, symerror: 0.0063}
+    - {label: sys, symerror: 0.0044}
+    value: 0.0573
+  - errors:
+    - {label: stat, symerror: 0.0149}
+    - {label: sys, symerror: 0.0055}
+    value: 0.0496
+independent_variables:
+- header: {name: '$p_{T}$', units: GeV/c}
+  values:
+  - {high: 1.0, low: 0.5, value: 0.7158}
+  - {high: 2.0, low: 1.0, value: 1.3295}
+  - {high: 4.0, low: 2.0, value: 2.5696}

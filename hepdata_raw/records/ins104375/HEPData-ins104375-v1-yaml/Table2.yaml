@@ -1,0 +1,21 @@
+dependent_variables:
+- header: {name: SLOPE, units: GEV**-2}
+  qualifiers:
+  - {name: P, units: GEV, value: 9.125 +- 0.025}
+  - {name: RE, value: PBAR P --> DELTABAR(1232P33)-- DELTA(1232P33)++}
+  - {name: SQRT(S), units: GeV, value: 4.361-4.35}
+  - {name: SYS, value: /ADEL-DEL EVENTS DEFINED BY MASS CUTS M(P PI) < 1.35 GEV**2}
+  - {name: SYS, value: /EMPIRICAL BACKGROUND ESTIMATES 15 PCT CORRECTION FOR TAILS
+      OF ISOBARS}
+  values:
+  - errors:
+    - {symerror: 0.5}
+    value: 6.5
+  - errors:
+    - {symerror: 1.7}
+    value: 15.5
+independent_variables:
+- header: {name: -TP, units: GEV**2}
+  values:
+  - {high: 0.5, low: 0.1}
+  - {high: 0.1, low: 0.0}

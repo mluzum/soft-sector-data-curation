@@ -1,0 +1,54 @@
+dependent_variables:
+- header: {name: POL.POL(NAME=DNN)}
+  qualifiers:
+  - {name: P, units: GeV, value: '6.0'}
+  - {name: RE, value: P P --> P P}
+  - {name: SQRT(S), units: GeV, value: '3.627'}
+  values:
+  - errors:
+    - {symerror: 0.113}
+    - {label: sys, symerror: 10.0%}
+    value: 0.91
+  - errors:
+    - {symerror: 0.082}
+    - {label: sys, symerror: 10.0%}
+    value: 1.04
+  - errors:
+    - {symerror: 0.047}
+    - {label: sys, symerror: 10.0%}
+    value: 1.003
+  - errors:
+    - {symerror: 0.17}
+    - {label: sys, symerror: 10.0%}
+    value: 0.739
+  - errors:
+    - {symerror: 0.148}
+    - {label: sys, symerror: 10.0%}
+    value: 0.874
+  - errors:
+    - {symerror: 0.291}
+    - {label: sys, symerror: 10.0%}
+    value: 0.533
+  - errors:
+    - {symerror: 0.184}
+    - {label: sys, symerror: 10.0%}
+    value: 0.404
+independent_variables:
+- header: {name: THETA, units: DEG}
+  values:
+  - {value: 20.0}
+  - {value: 25.0}
+  - {value: 30.0}
+  - {value: 35.0}
+  - {value: 40.0}
+  - {value: 45.0}
+  - {value: 50.0}
+- header: {name: -T, units: GEV**2}
+  values:
+  - {value: 0.291}
+  - {value: 0.451}
+  - {value: 0.645}
+  - {value: 0.871}
+  - {value: 1.127}
+  - {value: 1.411}
+  - {value: 1.721}

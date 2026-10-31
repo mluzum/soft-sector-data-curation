@@ -1,0 +1,35 @@
+dependent_variables:
+- header: {name: '$N^+_{\ell}(+\eta_{\textrm{lab}})/ N^+_{\ell}(-\eta_{\textrm{lab}})$'}
+  qualifiers:
+  - {name: PT(LEPTON+), units: GEV, value: '> 25.0'}
+  - {name: RE, value: P PB --> W+ <LEPTON+ NU> X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.03}
+    - {label: sys, symerror: 0.04}
+    value: 1.06
+  - errors:
+    - {label: stat, symerror: 0.03}
+    - {label: sys, symerror: 0.03}
+    value: 1.03
+  - errors:
+    - {label: stat, symerror: 0.04}
+    - {label: sys, symerror: 0.05}
+    value: 1.16
+  - errors:
+    - {label: stat, symerror: 0.06}
+    - {label: sys, symerror: 0.09}
+    value: 1.63
+  - errors:
+    - {label: stat, symerror: 0.11}
+    - {label: sys, symerror: 0.19}
+    value: 2.42
+independent_variables:
+- header: {name: '$\eta_{\textrm{lab}}$'}
+  values:
+  - {high: 0.5, low: 0.0}
+  - {high: 1.0, low: 0.5}
+  - {high: 1.5, low: 1.0}
+  - {high: 2.0, low: 1.5}
+  - {high: 2.4, low: 2.0}

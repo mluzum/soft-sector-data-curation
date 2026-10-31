@@ -1,0 +1,48 @@
+dependent_variables:
+- header: {name: DN/DYRAP/TAA, units: PB}
+  qualifiers:
+  - {name: ABS(YRAP), value: '1.44'}
+  - {name: RE, value: PB PB --> Z0 < E+ E- >}
+  - {name: SQRT(SNN), units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 7.36}
+    - {label: sys, symerror: 7.11}
+    value: 77.7
+  - errors:
+    - {label: stat, symerror: 7.9}
+    - {label: sys, symerror: 6.8}
+    value: 71.0
+  - errors:
+    - {label: stat, symerror: 11.4}
+    - {label: sys, symerror: 8.23}
+    value: 78.7
+  - errors:
+    - {label: stat, symerror: 11.8}
+    - {label: sys, symerror: 6.85}
+    value: 58.5
+  - errors:
+    - {label: stat, symerror: 17.7}
+    - {label: sys, symerror: 8.18}
+    value: 60.4
+  - errors:
+    - {label: stat, symerror: 19.5}
+    - {label: sys, symerror: 9.41}
+    value: 55.3
+independent_variables:
+- header: {name: CENTRALITY, units: PCT}
+  values:
+  - {high: 10.0, low: 0.0}
+  - {high: 20.0, low: 10.0}
+  - {high: 30.0, low: 20.0}
+  - {high: 40.0, low: 30.0}
+  - {high: 50.0, low: 40.0}
+  - {high: 100.0, low: 50.0}
+- header: {name: NPART}
+  values:
+  - {value: 355.0}
+  - {value: 261.0}
+  - {value: 187.0}
+  - {value: 130.0}
+  - {value: 86.3}
+  - {value: 22.1}

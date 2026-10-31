@@ -1,0 +1,64 @@
+# Schema for single-particle invariant yield measurements.
+#
+#   E d³N / d³p  =  1/(2π pT)  d²N / (dpT dy)   (common normalisation)
+#
+# Each curated record corresponds to a *table* (HEPData YAML file) and
+# references the raw HEPData path via `hepdata_file`.
+
+observable_type: particle_spectra
+description: >
+  Invariant transverse-momentum spectra of hadrons
+  (charged or identified) in heavy-ion collisions.
+
+composes:
+  - _common#collision_system
+  - _common#particle_id
+  - _common#kinematic_range
+
+optional_composes:
+  - centrality#centrality
+
+required_fields:
+  observable:
+    type: string
+    required: true
+    description: Short identifier for the observable.
+    example: "dN_dpT_dy"
+  value_type:
+    type: string
+    required: true
+    description: "Physical quantity. One of: 'invariant_yield', 'dN_dpT_dy', 'd2N_dpT_dy'"
+    example: "invariant_yield"
+  hepdata_file:
+    type: string
+    required: true
+    description: "Path to the HEPData YAML file, relative to the record directory."
+    example: "pion_AuAu.yaml"
+  hepdata_table_label:
+    type: string
+    required: false
+    description: Human-readable table label from submission.yaml.
+    example: "fig4: pion AuAu"
+
+optional_fields:
+  normalisation:
+    type: string
+    required: false
+    description: "Normalisation applied. One of: 'invariant', '1/N_ev', '1/N_part', 'none'"
+    example: "invariant"
+  units:
+    type: string
+    required: false
+    description: Units of the reported values.
+    example: "GeV^{-2} c^{3}"
+  scaling_factor:
+    type: float
+    required: false
+    description: "Multiplicative factor applied to raw values (e.g. 1/(2π))."
+    example: 0.1591549
+
+validation:
+  rules:
+    - "pt_bins_must_be_monotonic"
+    - "errors_must_be_positive"
+    - "stat_and_sys_errors_required"

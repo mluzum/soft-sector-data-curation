@@ -1,0 +1,37 @@
+dependent_variables:
+- header: {name: PBPB / PP}
+  qualifiers:
+  - {name: RE, value: P P --> Z JET PB PB --> Z JET}
+  - {name: SQRT(s)/NUCLEON, units: GEV, value: '5020'}
+  - {name: CENTRALITY, value: 70 - 90%}
+  - {name: PT(Z), units: GEV/C, value: '> 30'}
+  - {name: PT(TRK), units: GEV/C, value: '> 1'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.269}
+    - {label: sys, symerror: 0.083}
+    value: 1.194
+  - errors:
+    - {label: stat, symerror: 0.297}
+    - {label: sys, symerror: 0.081}
+    value: 1.266
+  - errors:
+    - {label: stat, symerror: 0.304}
+    - {label: sys, symerror: 0.097}
+    value: 0.944
+  - errors:
+    - {label: stat, symerror: 0.495}
+    - {label: sys, symerror: 0.094}
+    value: 1.253
+  - errors:
+    - {label: stat, symerror: 0.63}
+    - {label: sys, symerror: 0.28}
+    value: 0.65
+independent_variables:
+- header: {name: PT(TRK)}
+  values:
+  - {high: 3.0, low: 1.0}
+  - {high: 5.0, low: 3.0}
+  - {high: 10.0, low: 5.0}
+  - {high: 18.0, low: 10.0}
+  - {high: 30.0, low: 18.0}

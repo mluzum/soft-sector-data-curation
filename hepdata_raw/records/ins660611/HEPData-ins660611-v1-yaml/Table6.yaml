@@ -1,0 +1,66 @@
+dependent_variables:
+- header: {name: (1/(2*PI*PT(P=3)))*D2(N(P=3))/DYRAP(P=3)/DPT(P=3), units: GEV-2}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 20.0-40.0}
+  - {name: RE, value: AU AU --> BOTTOM < E- X > BOTTOMBAR < E- X > X}
+  - {name: RE, value: AU AU --> CHARM < E+ X > CHARMBAR < E- X> X}
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  - {name: YRAP, value: -0.35-0.35}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.024537}
+    - asymerror: {minus: -0.020903, plus: 0.010266}
+      label: sys
+    value: 0.020903
+  - errors:
+    - {label: stat, symerror: 0.014409}
+    - asymerror: {minus: -0.01969, plus: 0.018657}
+      label: sys
+    value: 0.049819
+  - errors:
+    - {label: stat, symerror: 0.0082808}
+    - asymerror: {minus: -0.0091101, plus: 0.0086318}
+      label: sys
+    value: 0.022979
+  - errors:
+    - {label: stat, symerror: 0.003262}
+    - asymerror: {minus: -0.0049579, plus: 0.0047454}
+      label: sys
+    value: 0.020266
+  - errors:
+    - {label: stat, symerror: 0.001608}
+    - asymerror: {minus: -0.001709, plus: 0.0016408}
+      label: sys
+    value: 0.007599
+  - errors:
+    - {label: stat, symerror: 0.00083206}
+    - asymerror: {minus: -0.00041403, plus: 0.00039825}
+      label: sys
+    value: 0.001921
+  - errors:
+    - {label: stat, symerror: 0.0005068}
+    - asymerror: {minus: -0.00022435, plus: 0.0002156}
+      label: sys
+    value: 0.0010073
+  - errors:
+    - {label: stat, symerror: 0.00012126}
+    - asymerror: {minus: -6.5655e-05, plus: 6.3957e-05}
+      label: sys
+    value: 0.00039285
+  - errors:
+    - {label: stat, symerror: 2.2482e-05}
+    - asymerror: {minus: -1.7569e-05, plus: 2.9252e-06}
+      label: sys
+    value: 1.7569e-05
+independent_variables:
+- header: {name: PT(P=3), units: GEV}
+  values:
+  - {value: 0.347}
+  - {value: 0.446}
+  - {value: 0.546}
+  - {value: 0.684}
+  - {value: 0.885}
+  - {value: 1.086}
+  - {value: 1.288}
+  - {value: 1.611}
+  - {value: 2.32}

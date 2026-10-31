@@ -1,0 +1,82 @@
+dependent_variables:
+- header: {name: 'RHO(MM=00,XYZ=TH) - RHO(MM=11,XYZ=TH)'}
+  qualifiers:
+  - {name: P, units: GeV, value: '11.7'}
+  - {name: RE, value: PI+ N --> P PI+ PI-}
+  - {name: SQRT(S), units: GeV, value: '4.775'}
+  values:
+  - errors:
+    - {symerror: 0.08}
+    value: 0.71
+  - errors:
+    - {symerror: 0.13}
+    value: 0.57
+  - errors:
+    - {symerror: 0.11}
+    value: 0.35
+- header: {name: 'RHO(MM=1-1,XYZ=TH)'}
+  qualifiers:
+  - {name: P, units: GeV, value: '11.7'}
+  - {name: RE, value: PI+ N --> P PI+ PI-}
+  - {name: SQRT(S), units: GeV, value: '4.775'}
+  values:
+  - errors:
+    - {symerror: 0.04}
+    value: -0.05
+  - errors:
+    - {symerror: 0.06}
+    value: 0.08
+  - errors:
+    - {symerror: 0.06}
+    value: -0.01
+- header: {name: 'RE(RHO(MM=10,XYZ=TH))'}
+  qualifiers:
+  - {name: P, units: GeV, value: '11.7'}
+  - {name: RE, value: PI+ N --> P PI+ PI-}
+  - {name: SQRT(S), units: GeV, value: '4.775'}
+  values:
+  - errors:
+    - {symerror: 0.04}
+    value: -0.21
+  - errors:
+    - {symerror: 0.04}
+    value: -0.23
+  - errors:
+    - {symerror: 0.04}
+    value: -0.15
+- header: {name: 'RE(RHO(JJ=10,MM=00,XYZ=TH))'}
+  qualifiers:
+  - {name: P, units: GeV, value: '11.7'}
+  - {name: RE, value: PI+ N --> P PI+ PI-}
+  - {name: SQRT(S), units: GeV, value: '4.775'}
+  values:
+  - errors:
+    - {symerror: 0.04}
+    value: 0.36
+  - errors:
+    - {symerror: 0.06}
+    value: 0.31
+  - errors:
+    - {symerror: 0.05}
+    value: 0.21
+- header: {name: 'RE(RHO(JJ=10,MM=10,XYZ=TH))'}
+  qualifiers:
+  - {name: P, units: GeV, value: '11.7'}
+  - {name: RE, value: PI+ N --> P PI+ PI-}
+  - {name: SQRT(S), units: GeV, value: '4.775'}
+  values:
+  - errors:
+    - {symerror: 0.02}
+    value: -0.09
+  - errors:
+    - {symerror: 0.03}
+    value: -0.12
+  - errors:
+    - {symerror: 0.03}
+    value: -0.06
+independent_variables:
+- header: {name: -TP, units: GEV**2}
+  values:
+  - {high: 0.05, low: 0.0}
+  - {high: 0.1, low: 0.05}
+  - {high: 0.3, low: 0.1}

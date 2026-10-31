@@ -1,0 +1,101 @@
+dependent_variables:
+- header: {name: '$\langle \Delta p_{t,i} \Delta p_{t,j}\rangle [(MeV/c)^{2}]$'}
+  qualifiers:
+  - {name: Cu+Cu 62.4 GeV, value: Correlation}
+  values:
+  - errors:
+    - {label: stat error, symerror: 61.1587}
+    value: 197.286
+  - errors:
+    - {label: stat error, symerror: 68.4183}
+    value: 253.401
+  - errors:
+    - {label: stat error, symerror: 56.2055}
+    value: 312.253
+  - errors:
+    - {label: stat error, symerror: 73.9104}
+    value: 389.002
+  - errors:
+    - {label: stat error, symerror: 91.6697}
+    value: 482.472
+  - errors:
+    - {label: stat error, symerror: 132.466}
+    value: 662.329
+- header: {name: '$\frac{\langle N_{part}\rangle}{2}\langle \Delta p_{t,i}\Delta p_{t,j}\rangle
+      [(MeV/c)^{2}]$'}
+  qualifiers:
+  - {name: Cu+Cu 62.4 GeV, value: 0.5*Npart*correlation}
+  values:
+  - errors:
+    - {label: stat error, symerror: 2958.99}
+    value: 9509.19
+  - errors:
+    - {label: stat error, symerror: 2479.3}
+    value: 9141.44
+  - errors:
+    - {label: stat error, symerror: 1466.89}
+    value: 8082.67
+  - errors:
+    - {label: stat error, symerror: 1345.4}
+    value: 7037.05
+  - errors:
+    - {label: stat error, symerror: 1149.97}
+    value: 6004.36
+  - errors:
+    - {label: stat error, symerror: 1087.78}
+    value: 5407.92
+- header: {name: '$\frac{\sqrt{\langle \Delta p_{t,i} \Delta p_{t,j}\rangle}}{\langle\langle
+      p_{t}\rangle\rangle} (\%)$'}
+  qualifiers:
+  - {name: Cu+Cu 62.4 GeV, value: sqrt(correlation)}
+  values:
+  - errors:
+    - {label: stat error, symerror: 0.782345}
+    value: 2.50685
+  - errors:
+    - {label: stat error, symerror: 0.780287}
+    value: 2.8646
+  - errors:
+    - {label: stat error, symerror: 0.589659}
+    value: 3.21227
+  - errors:
+    - {label: stat error, symerror: 0.701503}
+    value: 3.62758
+  - errors:
+    - {label: stat error, symerror: 0.791438}
+    value: 4.09265
+  - errors:
+    - {label: stat error, symerror: 0.987701}
+    value: 4.86039
+- header: {name: '$\frac{\sqrt{\langle N_{part}/2\rangle\langle \Delta p_{t,i}\Delta
+      p_{t,j}\rangle}}{\langle\langle p_{t}\rangle\rangle} (\%)$'}
+  qualifiers:
+  - {name: Cu+Cu 62.4 GeV, value: sqrt(0.5*Npart*corr)}
+  values:
+  - errors:
+    - {label: stat error, symerror: 5.45177}
+    value: 17.4041
+  - errors:
+    - {label: stat error, symerror: 4.70731}
+    value: 17.2055
+  - errors:
+    - {label: stat error, symerror: 3.02385}
+    value: 16.3432
+  - errors:
+    - {label: stat error, symerror: 3.00167}
+    value: 15.4289
+  - errors:
+    - {label: stat error, symerror: 2.8136}
+    value: 14.4378
+  - errors:
+    - {label: stat error, symerror: 2.83796}
+    value: 13.8883
+independent_variables:
+- header: {name: '$\langle N_{part}\rangle (GeV/c)$'}
+  values:
+  - {high: 99.0, low: 93.8, value: 96.4}
+  - {high: 74.0, low: 70.3, value: 72.15}
+  - {high: 52.97, low: 50.57, value: 51.77}
+  - {high: 36.95, low: 35.41, value: 36.18}
+  - {high: 25.49, low: 24.29, value: 24.89}
+  - {high: 16.68, low: 15.98, value: 16.33}

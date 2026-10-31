@@ -1,0 +1,40 @@
+dependent_variables:
+- header: {name: '$R_{\mathrm long,2}^2/R_{\mathrm long,0}^2$'}
+  qualifiers:
+  - {name: '$\sqrt{s_{\mathrm NN}}$', units: TeV, value: '2.76'}
+  - {name: '$k_{\mathrm T}$', units: 0.5-0.7 GeV/c, value: ''}
+  values:
+  - errors:
+    - asymerror: {minus: 0.001109, plus: -0.001109}
+      label: stat
+    - {label: sys, symerror: 0.000157}
+    value: -0.000591
+  - errors:
+    - {label: stat, symerror: 0.00124}
+    - {label: sys, symerror: 0.004549}
+    value: 0.006382
+  - errors:
+    - {label: stat, symerror: 0.001891}
+    - {label: sys, symerror: 0.00526}
+    value: 0.009068
+  - errors:
+    - {label: stat, symerror: 0.002801}
+    - {label: sys, symerror: 0.009453}
+    value: 0.01337
+  - errors:
+    - {label: stat, symerror: 0.003699}
+    - {label: sys, symerror: 0.006024}
+    value: 0.01193
+  - errors:
+    - {label: stat, symerror: 0.005262}
+    - {label: sys, symerror: 0.007212}
+    value: 0.007253
+independent_variables:
+- header: {name: Centrality %}
+  values:
+  - {value: 2.5}
+  - {value: 7.5}
+  - {value: 15.0}
+  - {value: 25.0}
+  - {value: 35.0}
+  - {value: 45.0}

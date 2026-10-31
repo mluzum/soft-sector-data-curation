@@ -1,0 +1,46 @@
+dependent_variables:
+- header: {name: fCME}
+  qualifiers:
+  - {name: SQRT(S)/(NUCLEON PAIR), value: 5020.0 GeV}
+  - {name: PT, value: 0.2 < PT < 5.0 GeV/c}
+  - {name: $\eta$, value: '|eta| < 0.8'}
+  - {name: COLLISION SYSTEM, value: Pb-Pb}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.141696}
+    - {label: syst, symerror: 0.0694237}
+    value: 0.182792
+  - errors:
+    - {label: stat, symerror: 0.0802992}
+    - {label: syst, symerror: 0.0694237}
+    value: -0.0489743
+  - errors:
+    - {label: stat, symerror: 0.0461552}
+    - {label: syst, symerror: 0.0694237}
+    value: 0.0511686
+  - errors:
+    - {label: stat, symerror: 0.0541248}
+    - {label: syst, symerror: 0.0694237}
+    value: -0.0517441
+  - errors:
+    - {label: stat, symerror: 0.0694271}
+    - {label: syst, symerror: 0.0694237}
+    value: -0.0190206
+  - errors:
+    - {label: stat, symerror: 0.0836121}
+    - {label: syst, symerror: 0.0694237}
+    value: -0.192158
+  - errors:
+    - {label: stat, symerror: 0.130141}
+    - {label: syst, symerror: 0.0694237}
+    value: -0.413701
+independent_variables:
+- header: {name: CENTRALITY (%)}
+  values:
+  - {high: 5, low: 0}
+  - {high: 10, low: 5}
+  - {high: 20, low: 10}
+  - {high: 30, low: 20}
+  - {high: 40, low: 30}
+  - {high: 50, low: 40}
+  - {high: 60, low: 50}

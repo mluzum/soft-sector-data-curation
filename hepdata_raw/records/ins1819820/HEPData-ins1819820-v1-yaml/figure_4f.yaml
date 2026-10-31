@@ -1,0 +1,25 @@
+dependent_variables:
+- header: {name: $v_3$}
+  qualifiers:
+  - {name: $p_T$ range, value: $2.0<p_T<8.0~GeV/c$}
+  - {name: Centrality range, value: 20-70%}
+  - {name: SQRT(S)/NUCLEON, value: $5020.0~GeV$}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.003}
+    - {label: sys, symerror: 0.004}
+    value: 0.065
+  - errors:
+    - {label: stat, symerror: 0.004}
+    - {label: sys, symerror: 0.006}
+    value: 0.053
+  - errors:
+    - {label: stat, symerror: 0.006}
+    - {label: sys, symerror: 0.011}
+    value: 0.048
+independent_variables:
+- header: {name: $|y|$}
+  values:
+  - {value: 0.3}
+  - {value: 0.9}
+  - {value: 1.6}

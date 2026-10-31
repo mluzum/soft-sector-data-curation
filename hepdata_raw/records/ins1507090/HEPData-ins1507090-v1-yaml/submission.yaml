@@ -1,0 +1,78 @@
+comment: |
+  CERN-LHC. We present the charged-particle pseudorapidity density in Pb-Pb collisions at $\sqrt{s_{_{\mathrm{NN}}}}=5.02\,\mathrm{TeV}$ in centrality classes measured by ALICE.  The measurement covers a wide pseudorapidity range from $-3.5$ to $5$, which is sufficient for reliable estimates of the total number of charged particles produced in the collisions.  For the most central collisions we find $21\,400\pm 1\,300$ while for the most peripheral we find $230\pm 38$. This corresponds to an increase of $(27\pm4)\%$ over the results at $\sqrt{s_{_{\mathrm{NN}}}}=2.76\,\mathrm{TeV}$ previously reported by ALICE.  The energy dependence of the total number of charged particles produced in heavy-ion collisions is found to obey a modified power-law like behaviour.  The charged-particle
+  pseudorapidity density of the most central collisions is compared to model calculations - none of which fully describes the measured distribution. We also present an estimate of the rapidity density of charged particles. The width of that distribution is found to exhibit a remarkable proportionality to the beam rapidity, independent of the collision energy from the top SPS to LHC energies.
+hepdata_doi: 10.17182/hepdata.78365.v1
+record_ids:
+- {id: 1507090, type: inspire}
+- {id: 2239845, type: cds}
+- {id: 9999, type: red}
+---
+data_file: Table1.yaml
+description: |
+  Charged-particle pseudorapidity density for ten centrality classes over a broad $\eta$ range in Pb-Pb collisions at $\sqrt{s_{_{\mathrm{NN}}}}=5.02\,\mathrm{TeV}$. Boxes around the points reflect the total uncorrelated systematic uncertainties, while the filled squares on the right reflect the correlated systematic uncertainty (evaluated at $\eta=0$). Statistical errors are generally insignificant and smaller than the markers.  Also shown is the reflection of the $3.5<\eta<5$ values around $\eta=0$ (open circles).  The line corresponds to fits of the difference between two Gaussians centred at $\eta=0$ ($f_{\text{GG}}$) [PLB754.373] to the data.
+keywords:
+- name: reactions
+  values: [PB PB --> CHARGED X]
+- name: observables
+  values: [DN/DETARAP]
+- name: cmenergies
+  values: [5023.0]
+location: Data from Figure 1
+name: DN/DETARAP
+table_doi: 10.17182/hepdata.78365.v1/t1
+---
+data_file: Table2.yaml
+description: |
+  Charged-particle pseudorapidity density at midrapidity in most perihperhal (80-90%) Pb-Pb collisions at $\sqrt{s_{\scriptscriptstyle\mathrm{NN}}}=5.02\,\mathrm{TeV}$.
+keywords:
+- name: reactions
+  values: [PB PB --> Charged X]
+- name: observables
+  values: [DN/DETARAP]
+- name: cmenergies
+  values: [5023.0]
+location: Data from Figure 1
+name: DN/DETARAP(ETARAP=0)
+table_doi: 10.17182/hepdata.78365.v1/t2
+---
+data_file: Table3.yaml
+description: |
+  Total number of charged particles as a function of the mean number of participating nucleons [PRC88.044909]. The total charged-particle multiplicity is given as the integral over $\mathrm{d}N_{\mathrm{ch}}/\mathrm{d}\eta$ over the measured region ($-3.5<\eta<5$) and extrapolations from fitted functions in the unmeasured regions. The contribution from unmeasured $\eta$ regions amounts to $\approx30\%$ of the total number of charged particles. The uncertainty on the extrapolation to the unmeasured pseudorapidity region is smaller than the size of the markers.  The contribution to the systematic uncertainties from the centrality determination and electromagnetic processes are vanishing compared to the contribution from the largest differences between the fitted functions.  A function inspired by factorisation [PRC83.024913] is fitted to the data, and the best fit yields $a=51.5\pm7.3$, $b=0.16\pm0.05$.
+keywords:
+- name: reactions
+  values: [PB PB --> CHARGED X]
+- name: observables
+  values: [MULT]
+- name: cmenergies
+  values: [5023.0]
+location: Data from Figure 2
+name: MULT
+table_doi: 10.17182/hepdata.78365.v1/t3
+---
+data_file: Table4.yaml
+description: |
+  Estimation of $\mathrm{d}N_{\mathrm{ch}}/\mathrm{d}y$ for in the most central Pb-Pb collisions at $\sqrt{s_{_{\mathrm{NN}}}}=5.02\,\mathrm{TeV}$.  Also shown is a fit of Gaussian distribution to the data.
+keywords:
+- name: reactions
+  values: [PB PB --> CHARGED X]
+- name: observables
+  values: [DN/DYRAP]
+- name: cmenergies
+  values: [5023.0]
+location: Data from Figure 5
+name: DN/DYRAP
+table_doi: 10.17182/hepdata.78365.v1/t4
+---
+data_file: Table5.yaml
+description: |
+  Scaling behaviour as a function $\sqrt{s_{_{\mathrm{NN}}}}$ of the width of the charged-particle or -pion rapidity-density distribution with respect to the Landau-Carruthers width (top) and rapidity range (bottom).  Charged-pion points from AGS and SPS are adapted from the literature [PRL94.162301], while the PHOBOS (filled crosses) [PRL91,052303] and BRAHMS (open crosses) [PRL88.202301] charged-hadron points are translated from the corresponding $\mathrm{d}N_{\mathrm{ch}}/\mathrm{d}\eta$ results.
+keywords:
+- name: reactions
+  values: [A A --> CHARGED X]
+- name: observables
+  values: [SIGMA DN/DYRAP]
+- name: cmenergies
+  values: [5023.0]
+location: Data from Figure 6
+name: SIGMA DN/DYRAP
+table_doi: 10.17182/hepdata.78365.v1/t5

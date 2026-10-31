@@ -1,0 +1,59 @@
+dependent_variables:
+- header: {name: Yield/MEAN(Npart) relative to pp}
+  qualifiers:
+  - {name: RE, value: PB PB --> LAMBDA < PI- P > X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  - {name: YRAP, value: -0.5-0.5}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.061}
+    - {label: 'sys,PbPb', symerror: 0.23}
+    - {label: 'sys,Npart', symerror: 0.017}
+    - {label: 'sys,from extrapolated pp yield', symerror: 19.43%}
+    value: 2.174
+  - errors:
+    - {label: stat, symerror: 0.061}
+    - {label: 'sys,PbPb', symerror: 0.218}
+    - {label: 'sys,Npart', symerror: 0.028}
+    - {label: 'sys,from extrapolated pp yield', symerror: 19.43%}
+    value: 2.129
+  - errors:
+    - {label: stat, symerror: 0.062}
+    - {label: 'sys,PbPb', symerror: 0.229}
+    - {label: 'sys,Npart', symerror: 0.031}
+    - {label: 'sys,from extrapolated pp yield', symerror: 19.43%}
+    value: 2.11
+  - errors:
+    - {label: stat, symerror: 0.066}
+    - {label: 'sys,PbPb', symerror: 0.218}
+    - {label: 'sys,Npart', symerror: 0.04}
+    - {label: 'sys,from extrapolated pp yield', symerror: 19.43%}
+    value: 2.023
+  - errors:
+    - {label: stat, symerror: 0.062}
+    - {label: 'sys,PbPb', symerror: 0.194}
+    - {label: 'sys,Npart', symerror: 0.052}
+    - {label: 'sys,from extrapolated pp yield', symerror: 19.43%}
+    value: 1.796
+  - errors:
+    - {label: stat, symerror: 0.05}
+    - {label: 'sys,PbPb', symerror: 0.135}
+    - {label: 'sys,Npart', symerror: 0.049}
+    - {label: 'sys,from extrapolated pp yield', symerror: 19.43%}
+    value: 1.428
+  - errors:
+    - {label: stat, symerror: 0.1085}
+    - {label: 'sys,PbPb', symerror: 0.072}
+    - {label: 'sys,Npart', symerror: 0.0279}
+    - {label: 'sys,from extrapolated pp yield', symerror: 19.43%}
+    value: 0.9289
+independent_variables:
+- header: {name: CENTRALITY, units: PCT}
+  values:
+  - {high: 5.0, low: 0.0}
+  - {high: 10.0, low: 5.0}
+  - {high: 20.0, low: 10.0}
+  - {high: 40.0, low: 20.0}
+  - {high: 60.0, low: 40.0}
+  - {high: 80.0, low: 60.0}
+  - {high: 90.0, low: 80.0}

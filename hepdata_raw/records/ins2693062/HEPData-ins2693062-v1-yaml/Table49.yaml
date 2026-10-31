@@ -1,0 +1,40 @@
+dependent_variables:
+- header: {name: Corrected Yield}
+  qualifiers:
+  - {name: Process, value: $\gamma$+jet}
+  - {name: Jet radius, value: R = 0.5}
+  - {name: '$E_T^{trig}$', value: "11\u201315 GeV"}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.00884571}
+    - asymerror: {minus: -0.0300625, plus: 0.0300625}
+      label: sys
+    value: 0.120012
+  - errors:
+    - {label: stat, symerror: 0.00671286}
+    - asymerror: {minus: -0.00857556, plus: 0.00857556}
+      label: sys
+    value: 0.0777596
+  - errors:
+    - {label: stat, symerror: 0.00541563}
+    - asymerror: {minus: -0.00321081, plus: 0.00321081}
+      label: sys
+    value: 0.0340419
+  - errors:
+    - {label: stat, symerror: 0.00358574}
+    - asymerror: {minus: -0.00224268, plus: 0.00224268}
+      label: sys
+    value: 0.0202921
+  - errors:
+    - {label: stat, symerror: 0.00264614}
+    - asymerror: {minus: -0.00238011, plus: 0.00238011}
+      label: sys
+    value: 0.00969293
+independent_variables:
+- header: {name: Jet $p_T$, units: GeV/c}
+  values:
+  - {value: 2.68649}
+  - {value: 4.86387}
+  - {value: 6.86387}
+  - {value: 9.34273}
+  - {value: 12.7218}

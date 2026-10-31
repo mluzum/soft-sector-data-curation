@@ -1,0 +1,50 @@
+dependent_variables:
+- header: {name: '$R_{AA}$'}
+  qualifiers:
+  - {name: centrality, value: 10%}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.023}
+    - {label: 'sys,tot', symerror: 0.09}
+    - asymerror: {minus: 0.07, plus: 0.11}
+      label: systematic uncertainty from the upper(lower) estimate of the pp reference
+    value: 0.341
+  - errors:
+    - {label: stat, symerror: 0.028}
+    - {label: 'sys,tot', symerror: 0.15}
+    - asymerror: {minus: 0.12, plus: 0.18}
+      label: systematic uncertainty from the upper(lower) estimate of the pp reference
+    value: 0.543
+  - errors:
+    - {label: stat, symerror: 0.04}
+    - {label: 'sys,tot', symerror: 0.11}
+    - asymerror: {minus: 0.11, plus: 0.15}
+      label: systematic uncertainty from the upper(lower) estimate of the pp reference
+    value: 0.43
+  - errors:
+    - {label: stat, symerror: 0.035}
+    - {label: 'sys,tot', symerror: 0.08}
+    - asymerror: {minus: 0.07, plus: 0.1}
+      label: systematic uncertainty from the upper(lower) estimate of the pp reference
+    value: 0.257
+  - errors:
+    - {label: stat, symerror: 0.06}
+    - {label: 'sys,tot', symerror: 0.11}
+    - asymerror: {minus: 0.09, plus: 0.15}
+      label: systematic uncertainty from the upper(lower) estimate of the pp reference
+    value: 0.34
+  - errors:
+    - {label: stat, symerror: 0.07}
+    - {label: 'sys,tot', symerror: 0.12}
+    - asymerror: {minus: 0.1, plus: 0.17}
+      label: systematic uncertainty from the upper(lower) estimate of the pp reference
+    value: 0.34
+independent_variables:
+- header: {name: $p_T$}
+  values:
+  - {high: 1.5, low: 1.0}
+  - {high: 2.0, low: 1.5}
+  - {high: 2.5, low: 2.0}
+  - {high: 3.0, low: 2.5}
+  - {high: 3.5, low: 3.0}
+  - {high: 4.0, low: 3.5}

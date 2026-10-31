@@ -1,0 +1,86 @@
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1611301'
+version: 1
+hepdata_file: hepdataFig5.yaml
+hepdata_table_label: v2 of anti-deuterons and deuterons vs  $p_{\mathrm T}$ for different centrality intervals
+qualifiers:
+  centrality: 40 TO 50%
+  pt: 0.8 TO 5.0
+  sqrt(s)/nucleon: '2760.0'
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> DEUTERON X
+centrality:
+  classes:
+  - 40-50%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  pT:
+    min: 0.8
+    max: 5.0
+    bins:
+    - 0.15
+    - 50
+  eta:
+    min: -0.8
+    max: 0.8
+    bins:
+    - -0.8
+    - 0.8
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1611301'
+version: 1
+hepdata_file: hepdataFig7.yaml
+hepdata_table_label: v2 of anti-deuterons and deuterons vs  $p_{\mathrm T}$ for different centrality intervals
+qualifiers:
+  centrality: 20 TO 40%
+  pt: 0.8 TO 5.0
+  sqrt(s)/nucleon: '2760.0'
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> DEUTERON X
+centrality:
+  classes:
+  - 20-40%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  pT:
+    min: 0.8
+    max: 5.0
+    bins:
+    - 0.15
+    - 50
+  eta:
+    min: -0.8
+    max: 0.8
+    bins:
+    - -0.8
+    - 0.8
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all

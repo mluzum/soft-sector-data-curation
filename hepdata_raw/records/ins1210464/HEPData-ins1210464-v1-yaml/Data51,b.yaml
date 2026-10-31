@@ -1,0 +1,45 @@
+dependent_variables:
+- header: {name: '$\Delta{v_2}$'}
+  qualifiers:
+  - {name: SQRT(S), units: GEV, value: 19.6}
+  - {name: Au+Au, value: '${\Xi}{^-} - \bar{\Xi}{^+}$'}
+  - {name: Centrality, units: percentage, value: 0-80}
+  values:
+  - errors:
+    - asymerror: {minus: -0.003352, plus: 0.002476}
+      label: sys
+    - {label: stat, symerror: 0.007777}
+    - {label: glob, symerror: 0.00135}
+    value: 0.015359
+  - errors:
+    - asymerror: {minus: -0.002381, plus: 0.002142}
+      label: sys
+    - {label: stat, symerror: 0.005229}
+    - {label: glob, symerror: 0.00135}
+    value: 0.018212
+  - errors:
+    - asymerror: {minus: -0.003109, plus: 0.003897}
+      label: sys
+    - {label: stat, symerror: 0.007486}
+    - {label: glob, symerror: 0.00135}
+    value: 0.02441
+  - errors:
+    - asymerror: {minus: -0.002657, plus: 0.004595}
+      label: sys
+    - {label: stat, symerror: 0.00886}
+    - {label: glob, symerror: 0.00135}
+    value: 0.026116
+  - errors:
+    - asymerror: {minus: -0.008993, plus: 0.013814}
+      label: sys
+    - {label: stat, symerror: 0.019338}
+    - {label: glob, symerror: 0.00135}
+    value: 0.027648
+independent_variables:
+- header: {name: '${p_T}$'}
+  values:
+  - {value: 0.8295}
+  - {value: 1.2025}
+  - {value: 1.5045}
+  - {value: 2.0466}
+  - {value: 2.8455}

@@ -1,0 +1,28 @@
+dependent_variables:
+- header: {name: D(SIG)/DYRAP, units: MB}
+  qualifiers:
+  - {name: RE, value: PB PB --> Pb Pb J/PSI(1S)}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  - {name: LUMINOSITY, units: MUB, value: '233'}
+  values:
+  - errors:
+    - {label: experimental stat., symerror: 0.08}
+    - {label: experimental uncorrelated syst., symerror: 0.05}
+    - {label: experimental correlated syst., symerror: 0.22}
+    value: 4.12
+  - errors:
+    - {label: experimental stat., symerror: 0.13}
+    - {label: experimental uncorrelated syst., symerror: 0.1}
+    - {label: experimental correlated syst., symerror: 0.23}
+    value: 4.05
+  - errors:
+    - {label: experimental stat., symerror: 0.51}
+    - {label: experimental uncorrelated syst., symerror: 0.2}
+    - {label: experimental correlated syst., symerror: 0.21}
+    value: 3.73
+independent_variables:
+- header: {name: DECAY CHANNEL}
+  values:
+  - {high: 1.0, low: 0.0, value: J/PSI(1S) --> MU+ MU-}
+  - {high: 2.0, low: 1.0, value: J/PSI(1S) --> E+ E-}
+  - {high: 3.0, low: 2.0, value: J/PSI(1S) --> P+ P-}

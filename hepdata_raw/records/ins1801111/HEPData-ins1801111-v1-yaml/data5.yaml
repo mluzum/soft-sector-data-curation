@@ -1,0 +1,26 @@
+dependent_variables:
+- header: {name: v2}
+  qualifiers:
+  - {name: $\lvert y \rvert$, value: 0.0-2.4}
+  - {name: CENTRALITY, units: PCT, value: 5-60}
+  - {name: RE, value: Pb Pb --> $\Upsilon(1S)$ < $\mu$$^+$ $\mu$$^-$ > X}
+  - {name: '$\sqrt s_{NN}$', units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.02}
+    - {label: syst, symerror: 0.017}
+    value: 0.012
+  - errors:
+    - {label: stat, symerror: 0.02}
+    - {label: syst, symerror: 0.01}
+    value: -0.013
+  - errors:
+    - {label: stat, symerror: 0.018}
+    - {label: syst, symerror: 0.006}
+    value: 0.032
+independent_variables:
+- header: {name: '$p_{\mathrm{T}}$', units: GeV}
+  values:
+  - {high: 3.0, low: 0.0}
+  - {high: 6.0, low: 3.0}
+  - {high: 15.0, low: 6.0}

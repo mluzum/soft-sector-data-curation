@@ -1,0 +1,29 @@
+dependent_variables:
+- header: {name: $BdN/dy$}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.9}
+    - {label: syst., symerror: 0.4}
+    value: 2.7
+  - errors:
+    - asymerror: {minus: 1.2, plus: 1.1}
+      label: stat.
+    - {label: syst., symerror: 0.9}
+    value: 4.1
+  - errors:
+    - asymerror: {minus: 3.1, plus: 2.9}
+      label: stat.
+    - {label: syst., symerror: 1.8}
+    value: 8.7
+  - errors:
+    - asymerror: {minus: 0.9, plus: 0.8}
+      label: stat.
+    - {label: syst., symerror: 0.3}
+    value: 1.6
+independent_variables:
+- header: {name: Centrality (%)}
+  values:
+  - {value: $p + p$ ($\times 10^9$)}
+  - {value: 0-92 ($\times 10^7$)}
+  - {value: 0-30 ($\times 10^7$)}
+  - {value: 30-92 ($\times 10^7$)}

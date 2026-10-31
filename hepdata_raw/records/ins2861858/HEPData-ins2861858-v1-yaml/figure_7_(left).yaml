@@ -1,0 +1,58 @@
+dependent_variables:
+- header: {name: 'd$\sigma^{\gamma\gamma}/dy^{\gamma\gamma}$ (nb)'}
+  qualifiers:
+  - {name: $p_T^\gamma$, units: GeV, value: $\gt 2$}
+  - {name: $|\eta^\gamma|$, value: $\lt 2.2$}
+  - {name: '$m^{\gamma\gamma}$', units: GeV, value: $\gt 5$}
+  - {name: '$p_T^{\gamma\gamma}$', units: GeV, value: $\lt 1$}
+  - {name: '$A_{\phi}^{\gamma\gamma}$', units: GeV, value: $\lt 1$}
+  - {name: RE, value: $Pb~Pb~\rightarrow~Pb~Pb~\gamma~\gamma$}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: 5020}
+  values:
+  - errors:
+    - {label: Systematic uncertainty, symerror: 5.8}
+    - asymerror: {minus: -12.8, plus: 20.4}
+      label: Statistical uncertainty
+    value: 24.3
+  - errors:
+    - {label: Systematic uncertainty, symerror: 7.0}
+    - asymerror: {minus: -10.0, plus: 13.4}
+      label: Statistical uncertainty
+    value: 29.1
+  - errors:
+    - {label: Systematic uncertainty, symerror: 4.7}
+    - asymerror: {minus: -11.4, plus: 18.7}
+      label: Statistical uncertainty
+    value: 19.5
+- header: {name: SUPERCHIC 3.03}
+  qualifiers:
+  - {name: $p_T^\gamma$, units: GeV, value: $\gt 2$}
+  - {name: $|\eta^\gamma|$, value: $\lt 2.2$}
+  - {name: '$m^{\gamma\gamma}$', units: GeV, value: $\gt 5$}
+  - {name: '$p_T^{\gamma\gamma}$', units: GeV, value: $\lt 1$}
+  - {name: '$A_{\phi}^{\gamma\gamma}$', units: GeV, value: $\lt 1$}
+  - {name: RE, value: $Pb~Pb~\rightarrow~Pb~Pb~\gamma~\gamma$}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: 5020}
+  values:
+  - {value: 15.9}
+  - {value: 32.5}
+  - {value: 15.1}
+- header: {name: gamma-UPC@NLO}
+  qualifiers:
+  - {name: $p_T^\gamma$, units: GeV, value: $\gt 2$}
+  - {name: $|\eta^\gamma|$, value: $\lt 2.2$}
+  - {name: '$m^{\gamma\gamma}$', units: GeV, value: $\gt 5$}
+  - {name: '$p_T^{\gamma\gamma}$', units: GeV, value: $\lt 1$}
+  - {name: '$A_{\phi}^{\gamma\gamma}$', units: GeV, value: $\lt 1$}
+  - {name: RE, value: $Pb~Pb~\rightarrow~Pb~Pb~\gamma~\gamma$}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: 5020}
+  values:
+  - {value: 14.6}
+  - {value: 35.9}
+  - {value: 14.6}
+independent_variables:
+- header: {name: '$y^{\gamma\gamma}$'}
+  values:
+  - {high: -0.73333, low: -2.2}
+  - {high: 0.73333, low: -0.73333}
+  - {high: 2.2, low: 0.73333}

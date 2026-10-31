@@ -1,0 +1,35 @@
+dependent_variables:
+- header: {name: '$\mathrm{d}N/\mathrm{d}y$'}
+  qualifiers:
+  - {name: Particle, value: '$(^3\mathrm{He} +\,^3\overline{\mathrm{He}}) / 2$'}
+  - {name: YRAP, value: $-1.0 - 0.0$}
+  - {name: SQRT(S)/NUCLEON, value: 5020.0 GeV}
+  values:
+  - errors:
+    - {label: stat, symerror: 5.0e-08}
+    - {label: syst, symerror: 1.1e-07}
+    value: 1.04e-06
+  - errors:
+    - {label: stat, symerror: 2.56e-07}
+    - {label: syst, symerror: 3.15e-07}
+    value: 3.65e-06
+  - errors:
+    - {label: stat, symerror: 2.37e-07}
+    - {label: syst, symerror: 2.3e-07}
+    value: 2.23e-06
+  - errors:
+    - {label: stat, symerror: 1.18e-07}
+    - {label: syst, symerror: 1.18e-07}
+    value: 1.19e-06
+  - errors:
+    - {label: stat, symerror: 5.38e-08}
+    - {label: syst, symerror: 5.57e-08}
+    value: 3.77e-07
+independent_variables:
+- header: {name: EventClass}
+  values:
+  - {value: '$\mathrm{INEL} > 0$'}
+  - {value: $0-10\%$}
+  - {value: $10-20\%$}
+  - {value: $20-40\%$}
+  - {value: $40-100\%$}

@@ -1,0 +1,22 @@
+dependent_variables:
+- header: {name: '$\frac{1}{T_{AA}}\frac{dN}{dy} (nb)$'}
+  qualifiers:
+  - {name: RE, value: PB PB --> UPSILON(2S) < MU+ MU- > X}
+  - {name: CENTRALITY, value: 0-100%}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 2760}
+  - {name: GLOBAL UNCERTAINTY, value: 6.5%}
+  - {name: '$T_{AA}$', units: 1/MB, value: 5.67 +/- 0.32}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.008}
+    - {label: syst, symerror: 0.008}
+    value: 0.027
+  - errors:
+    - {label: stat, symerror: 0.009}
+    - {label: syst, symerror: 0.015}
+    value: 0.028
+independent_variables:
+- header: {name: ABS(RAP)}
+  values:
+  - {high: 1.2, low: 0.0}
+  - {high: 2.4, low: 1.2}

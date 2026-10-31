@@ -1,0 +1,28 @@
+dependent_variables:
+- header: {name: Tuned parameter q, units: GEV}
+  qualifiers:
+  - {name: Herwig underlying-event tune, value: CH2}
+  - {name: Herwig intrinsic kT parameter, value: 'ShowerHandler:IntrinsicPtGaussian'}
+  - {name: Nucleon-nucleon center-of-mass energy, value: 8000 GEV}
+  values:
+  - errors:
+    - {label: MC stat and data unc, symerror: 0.27}
+    - {label: tune range, symerror: 0.03}
+    - {label: interpolation, symerror: 0.07}
+    value: 2.15
+  - errors:
+    - {label: MC stat and data unc, symerror: 0.05}
+    - {label: tune range, symerror: 0.04}
+    - {label: interpolation, symerror: 0.011}
+    value: 1.95
+  - errors:
+    - {label: MC stat and data unc, symerror: 0.4}
+    - {label: tune range, symerror: 0.0005}
+    - {label: interpolation, symerror: 0.006}
+    value: 2.1
+independent_variables:
+- header: {name: Dilepton center-of-mass energy, units: GEV}
+  values:
+  - {high: 66, low: 46}
+  - {high: 116, low: 66}
+  - {high: 150, low: 116}

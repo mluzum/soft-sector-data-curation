@@ -1,0 +1,32 @@
+dependent_variables:
+- header: {name: gammaOpp}
+  qualifiers:
+  - {name: RE, value: Xe Xe --> CHARGED X}
+  - {name: SQRT(S), units: GEV, value: 5440}
+  - {name: ABS(ETA), value: < 0.8 (LAB)}
+  - {name: PT, value: 0.2 - 5.0 GEV}
+  - {name: Centrality, value: 20-30%}
+  values:
+  - errors:
+    - {label: stat, symerror: 1.7088e-05}
+    - {label: sys, symerror: 4.7648e-05}
+    value: -7.2457e-05
+  - errors:
+    - {label: stat, symerror: 2.0719e-05}
+    - {label: sys, symerror: 4.7648e-05}
+    value: -1.772e-05
+  - errors:
+    - {label: stat, symerror: 4.4375e-05}
+    - {label: sys, symerror: 4.7648e-05}
+    value: 1.6334e-05
+  - errors:
+    - {label: stat, symerror: 8.9429e-05}
+    - {label: sys, symerror: 4.7648e-05}
+    value: 0.00014872
+independent_variables:
+- header: {name: '|$p_{T_{alpha}} - p_{T_{beta}}$|', units: GEV}
+  values:
+  - {high: 0.4, low: 0}
+  - {high: 1.2, low: 0.4}
+  - {high: 2.0, low: 1.2}
+  - {high: 2.8, low: 2.0}

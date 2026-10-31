@@ -1,0 +1,134 @@
+dependent_variables:
+- header: {name: (1/(2*PI*PT(P=3)))*D2(N(P=3))/DPT(P=3)/DYRAP(P=3), units: GEV**-2}
+  qualifiers:
+  - {name: Q, value: INCLUSIVE}
+  - {name: RE(Q=INCLUSIVE), value: AU AU -->  E+ E- X}
+  - {name: RE(Q=NON-PHOTONIC), value: AU AU --> BOTTOM < E- X > BOTTOMBAR < E= X >
+      X}
+  - {name: RE(Q=NON-PHOTONIC), value: AU AU --> CHARM < E+ X > CHARMBAR < E- X > X}
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  - {name: YRAP, value: -0.35-0.35}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0008845}
+    - {label: sys, symerror: 0.04575}
+    value: 0.2769
+  - errors:
+    - {label: stat, symerror: 0.0004894}
+    - {label: sys, symerror: 0.02333}
+    value: 0.1412
+  - errors:
+    - {label: stat, symerror: 0.0001743}
+    - {label: sys, symerror: 0.008671}
+    value: 0.05247
+  - errors:
+    - {label: stat, symerror: 8.119e-05}
+    - {label: sys, symerror: 0.002712}
+    value: 0.01641
+  - errors:
+    - {label: stat, symerror: 4.405e-05}
+    - {label: sys, symerror: 0.001009}
+    value: 0.006106
+  - errors:
+    - {label: stat, symerror: 2.551e-05}
+    - {label: sys, symerror: 0.0003988}
+    value: 0.002413
+  - errors:
+    - {label: stat, symerror: 1.559e-05}
+    - {label: sys, symerror: 0.0001751}
+    value: 0.00106
+  - errors:
+    - {label: stat, symerror: 5.848e-06}
+    - {label: sys, symerror: 5.892e-05}
+    value: 0.0003566
+  - errors:
+    - {label: stat, symerror: 2.227e-06}
+    - {label: sys, symerror: 1.378e-05}
+    value: 8.338e-05
+  - errors:
+    - {label: stat, symerror: 9.522e-07}
+    - {label: sys, symerror: 3.176e-06}
+    value: 1.922e-05
+  - errors:
+    - {label: stat, symerror: 2.593e-07}
+    - {label: sys, symerror: 5.956e-07}
+    value: 3.604e-06
+  - errors:
+    - asymerror: {minus: -8.563e-08, plus: 1.017e-07}
+      label: stat
+    - {label: sys, symerror: 8.295e-08}
+    value: 5.02e-07
+- header: {name: (1/(2*PI*PT(P=3)))*D2(N(P=3))/DPT(P=3)/DYRAP(P=3), units: GEV**-2}
+  qualifiers:
+  - {name: Q, value: NON-PHOTONIC}
+  - {name: RE(Q=INCLUSIVE), value: AU AU -->  E+ E- X}
+  - {name: RE(Q=NON-PHOTONIC), value: AU AU --> BOTTOM < E- X > BOTTOMBAR < E= X >
+      X}
+  - {name: RE(Q=NON-PHOTONIC), value: AU AU --> CHARM < E+ X > CHARMBAR < E- X > X}
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  - {name: YRAP, value: -0.35-0.35}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.001153}
+    - {label: sys, symerror: 0.05644}
+    value: 0.04446
+  - errors:
+    - {label: stat, symerror: 0.0006158}
+    - {label: sys, symerror: 0.02779}
+    value: 0.03428
+  - errors:
+    - {label: stat, symerror: 0.0002016}
+    - {label: sys, symerror: 0.01005}
+    value: 0.01145
+  - errors:
+    - {label: stat, symerror: 8.73e-05}
+    - {label: sys, symerror: 0.003122}
+    value: 0.004444
+  - errors:
+    - {label: stat, symerror: 4.495e-05}
+    - {label: sys, symerror: 0.001133}
+    value: 0.002066
+  - errors:
+    - {label: stat, symerror: 2.54e-05}
+    - {label: sys, symerror: 0.0004429}
+    value: 0.0009008
+  - errors:
+    - {label: stat, symerror: 1.546e-05}
+    - {label: sys, symerror: 0.0001924}
+    value: 0.0004545
+  - errors:
+    - {label: stat, symerror: 5.448e-06}
+    - {label: sys, symerror: 6.052e-05}
+    value: 0.0001557
+  - errors:
+    - {label: stat, symerror: 2.051e-06}
+    - {label: sys, symerror: 1.371e-05}
+    value: 4.183e-05
+  - errors:
+    - {label: stat, symerror: 8.857e-07}
+    - {label: sys, symerror: 3.158e-06}
+    value: 1.041e-05
+  - errors:
+    - {label: stat, symerror: 2.156e-07}
+    - {label: sys, symerror: 5.251e-07}
+    value: 1.832e-06
+  - errors:
+    - asymerror: {minus: -7.483e-08, plus: 8.889e-08}
+      label: stat
+    - {label: sys, symerror: 7.63e-08}
+    value: 2.798e-07
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {high: 0.5, low: 0.4}
+  - {high: 0.6, low: 0.5}
+  - {high: 0.8, low: 0.6}
+  - {high: 1.0, low: 0.8}
+  - {high: 1.2, low: 1.0}
+  - {high: 1.4, low: 1.2}
+  - {high: 1.6, low: 1.4}
+  - {high: 2.0, low: 1.6}
+  - {high: 2.5, low: 2.0}
+  - {high: 3.0, low: 2.5}
+  - {high: 4.0, low: 3.0}
+  - {high: 5.0, low: 4.0}

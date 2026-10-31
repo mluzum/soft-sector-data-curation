@@ -1,0 +1,816 @@
+centrality:
+  classes:
+  - 40.0-100.0%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: DEUT AU --> CHGD-HADRONS X
+dimensionality: differential_eta
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: Table10.yaml
+hepdata_table_label: 'The $\Delta\eta$ dependence of the second harmonic Fourier coefficient,
+  V2, in low ZDC-Au activity d+Au collisions.
+
+  '
+inspire_id: '1346551'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.15
+    - 10
+    max: 3.0
+    min: 1.0
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  centrality: 40.0-100.0
+  p_t: 1.0-3.0
+  re: DEUT AU --> CHGD-HADRONS X
+  sqrt(s)/nucleon: '200.0'
+value_type: V2
+version: 1
+---
+centrality:
+  classes:
+  - 0.0-20.0%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: DEUT AU --> CHGD-HADRONS X
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: Table11.yaml
+hepdata_table_label: 'The $\Delta\eta$ dependence of the second harmonic Fourier coefficient,
+  V2, in high ZDC-Au activity d+Au collisions.
+
+  '
+inspire_id: '1346551'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 3.0
+    min: 1.0
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  centrality: 0.0-20.0
+  p_t: 1.0-3.0
+  re: DEUT AU --> CHGD-HADRONS X
+  sqrt(s)/nucleon: '200.0'
+value_type: V2
+version: 1
+---
+centrality:
+  classes:
+  - MB
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: DEUT AU --> CHGD-HADRONS X
+dimensionality: differential_eta
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 1
+hepdata_file: Table12.yaml
+hepdata_table_label: 'Fourier coefficient V1 versus the measured mid-rapidity charged
+  particle $dN_{ch}/d\eta$. Event activity selection is by FTPC-Au. Trigger particles
+  are from TPC, and associated particles from TPC. Systematic uncertainties are estimated
+  to be 10% on V1. Errors shown are the quadratic sum of statistical and systematic
+  errors.
+
+  '
+inspire_id: '1346551'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.15
+    - 10
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  associated particles: TPC(1.2<|Delta eta|<1.8)
+  re: DEUT AU --> CHGD-HADRONS X
+  selection: FTPC event activity
+  sqrt(s)/nucleon: '200.0'
+value_type: V1
+version: 1
+---
+centrality:
+  classes:
+  - MB
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: DEUT AU --> CHGD-HADRONS X
+dimensionality: differential_eta
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 1
+hepdata_file: Table13.yaml
+hepdata_table_label: 'Fourier coefficient V1 versus the measured mid-rapidity charged
+  particle $dN_{ch}/d\eta$. Event activity selection is by ZDC. Trigger particles
+  are from TPC, and associated particles from FTPC-Au. Systematic uncertainties are
+  estimated to be 10% on V1. Errors shown are the quadratic sum of statistical and
+  systematic errors.
+
+  '
+inspire_id: '1346551'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.15
+    - 10
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  associated particles: FTPC-Au(-4.5<|Delta eta|<-2)
+  re: DEUT AU --> CHGD-HADRONS X
+  selection: ZDC event activity
+  sqrt(s)/nucleon: '200.0'
+value_type: V1
+version: 1
+---
+centrality:
+  classes:
+  - MB
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: DEUT AU --> CHGD-HADRONS X
+dimensionality: differential_eta
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 1
+hepdata_file: Table14.yaml
+hepdata_table_label: 'Fourier coefficient V1 versus the measured mid-rapidity charged
+  particle $dN_{ch}/d\eta$. Event activity selection is by ZDC. Trigger particles
+  are from TPC, and associated particles from FTPC-d. Systematic uncertainties are
+  estimated to be 10% on V1. Errors shown are the quadratic sum of statistical and
+  systematic errors.
+
+  '
+inspire_id: '1346551'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.15
+    - 10
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  associated particles: FTPC-d(2<|Delta eta|<4.5)
+  re: DEUT AU --> CHGD-HADRONS X
+  selection: ZDC event activity
+  sqrt(s)/nucleon: '200.0'
+value_type: V1
+version: 1
+---
+centrality:
+  classes:
+  - MB
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: DEUT AU --> CHGD-HADRONS X
+dimensionality: differential_eta
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 1
+hepdata_file: Table15.yaml
+hepdata_table_label: 'Fourier coefficient V1 versus the measured mid-rapidity charged
+  particle $dN_{ch}/d\eta$. Event activity selection is by ZDC-Au. Trigger particles
+  are from TPC, and associated particles from TPC. Systematic uncertainties are estimated
+  to be 10% on V1. Errors shown are the quadratic sum of statistical and systematic
+  errors.
+
+  '
+inspire_id: '1346551'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.15
+    - 10
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  associated particles: TPC(1.2<|Delta eta|<1.8)
+  re: DEUT AU --> CHGD-HADRONS X
+  selection: ZDC event activity
+  sqrt(s)/nucleon: '200.0'
+value_type: V1
+version: 1
+---
+centrality:
+  classes:
+  - MB
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: DEUT AU --> CHGD-HADRONS X
+dimensionality: differential_eta
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: Table16.yaml
+hepdata_table_label: 'Fourier coefficient V2 versus the measured mid-rapidity charged
+  particle $dN_{ch}/d\eta$. Event activity selection is by FTPC-Au. Trigger particles
+  are from TPC, and associated particles from TPC. Systematic uncertainties are estimated
+  to be 10% on V2. Errors shown are the quadratic sum of statistical and systematic
+  errors.
+
+  '
+inspire_id: '1346551'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.15
+    - 10
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  associated particles: TPC(1.2<|Delta eta|<1.8)
+  re: DEUT AU --> CHGD-HADRONS X
+  selection: FTPC event activity
+  sqrt(s)/nucleon: '200.0'
+value_type: V2
+version: 1
+---
+centrality:
+  classes:
+  - MB
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: DEUT AU --> CHGD-HADRONS X
+dimensionality: differential_eta
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: Table17.yaml
+hepdata_table_label: 'Fourier coefficient V2 versus the measured mid-rapidity charged
+  particle $dN_{ch}/d\eta$. Event activity selection is by ZDC-Au. Trigger particles
+  are from TPC, and associated particles from FTPC-Au. Systematic uncertainties are
+  estimated to be 10% on V2. Errors shown are the quadratic sum of statistical and
+  systematic errors.
+
+  '
+inspire_id: '1346551'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.15
+    - 10
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  associated particles: FTPC-Au(-4.5<|Delta eta|<-2)
+  re: DEUT AU --> CHGD-HADRONS X
+  selection: ZDC event activity
+  sqrt(s)/nucleon: '200.0'
+value_type: V2
+version: 1
+---
+centrality:
+  classes:
+  - MB
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: DEUT AU --> CHGD-HADRONS X
+dimensionality: differential_eta
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: Table18.yaml
+hepdata_table_label: 'Fourier coefficient V2 versus the measured mid-rapidity charged
+  particle $dN_{ch}/d\eta$. Event activity selection is by ZDC-Au. Trigger particles
+  are from TPC, and associated particles from FTPC-d. Systematic uncertainties are
+  estimated to be 10% on V2. Errors shown are the quadratic sum of statistical and
+  systematic errors.
+
+  '
+inspire_id: '1346551'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.15
+    - 10
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  associated particles: FTPC-d(2<|Delta eta|<4.5)
+  re: DEUT AU --> CHGD-HADRONS X
+  selection: ZDC event activity
+  sqrt(s)/nucleon: '200.0'
+value_type: V2
+version: 1
+---
+centrality:
+  classes:
+  - MB
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: DEUT AU --> CHGD-HADRONS X
+dimensionality: differential_eta
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: Table19.yaml
+hepdata_table_label: 'Fourier coefficient V2 versus the measured mid-rapidity charged
+  particle $dN_{ch}/d\eta$. Event activity selection is by ZDC-Au. Trigger particles
+  are from TPC, and associated particles from TPC. Systematic uncertainties are estimated
+  to be 10% on V2. Errors shown are the quadratic sum of statistical and systematic
+  errors.
+
+  '
+inspire_id: '1346551'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.15
+    - 10
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  associated particles: TPC(1.2<|Delta eta|<1.8)
+  re: DEUT AU --> CHGD-HADRONS X
+  selection: ZDC event activity
+  sqrt(s)/nucleon: '200.0'
+value_type: V2
+version: 1
+---
+centrality:
+  classes:
+  - MB
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: DEUT AU --> CHGD-HADRONS X
+dimensionality: differential_eta
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 3
+hepdata_file: Table20.yaml
+hepdata_table_label: 'Fourier coefficient V3 versus the measured mid-rapidity charged
+  particle $dN_{ch}/d\eta$. Event activity selections is by FTPC-Au. Trigger particles
+  are from TPC, and associated particles from TPC. Systematic uncertainties are estimated
+  to be smaller than statistical errors for V3. Errors shown are the quadratic sum
+  of statistical and systematic errors.
+
+  '
+inspire_id: '1346551'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.15
+    - 10
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  associated particles: TPC(1.2<|Delta eta|<1.8)
+  re: DEUT AU --> CHGD-HADRONS X
+  selection: FTPC event activity
+  sqrt(s)/nucleon: '200.0'
+value_type: V3
+version: 1
+---
+centrality:
+  classes:
+  - MB
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: DEUT AU --> CHGD-HADRONS X
+dimensionality: differential_eta
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 3
+hepdata_file: Table21.yaml
+hepdata_table_label: 'Fourier coefficient V3 versus the measured mid-rapidity charged
+  particle $dN_{ch}/d\eta$. Event activity selection is by ZDC-Au. Trigger particles
+  are from TPC, and associated particles from FTPC-Au. Systematic uncertainties are
+  estimated to be smaller than statistical errors for V3. Errors shown are the quadratic
+  sum of statistical and systematic errors.
+
+  '
+inspire_id: '1346551'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.15
+    - 10
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  associated particles: FTPC-Au(-4.5<|Delta eta|<-2)
+  re: DEUT AU --> CHGD-HADRONS X
+  selection: ZDC event activity
+  sqrt(s)/nucleon: '200.0'
+value_type: V3
+version: 1
+---
+centrality:
+  classes:
+  - MB
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: DEUT AU --> CHGD-HADRONS X
+dimensionality: differential_eta
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 3
+hepdata_file: Table22.yaml
+hepdata_table_label: 'Fourier coefficient V3 versus the measured mid-rapidity charged
+  particle $dN_{ch}/d\eta$. Event activity selection is by ZDC-Au. Trigger particles
+  are from TPC, and associated particles from FTPC-d. Systematic uncertainties are
+  estimated to be smaller than statistical errors for V3. Errors shown are the quadratic
+  sum of statistical and systematic errors.
+
+  '
+inspire_id: '1346551'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.15
+    - 10
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  associated particles: FTPC-d(2<|Delta eta|<4.5)
+  re: DEUT AU --> CHGD-HADRONS X
+  selection: ZDC event activity
+  sqrt(s)/nucleon: '200.0'
+value_type: V3
+version: 1
+---
+centrality:
+  classes:
+  - MB
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 200.0
+  reaction: DEUT AU --> CHGD-HADRONS X
+dimensionality: differential_eta
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 3
+hepdata_file: Table23.yaml
+hepdata_table_label: 'Fourier coefficient V3 versus the measured mid-rapidity charged
+  particle $dN_{ch}/d\eta$. Event activity selection is by ZDC-Au. Trigger particles
+  are from TPC, and associated particles from TPC. Systematic uncertainties are estimated
+  to be smaller than statistical errors for V3. Errors shown are the quadratic sum
+  of statistical and systematic errors.
+
+  '
+inspire_id: '1346551'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.15
+    - 10
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  associated particles: TPC(1.2<|Delta eta|<1.8)
+  re: DEUT AU --> CHGD-HADRONS X
+  selection: ZDC event activity
+  sqrt(s)/nucleon: '200.0'
+value_type: V3
+version: 1

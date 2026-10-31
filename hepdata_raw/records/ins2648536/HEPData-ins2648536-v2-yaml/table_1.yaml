@@ -1,0 +1,87 @@
+dependent_variables:
+- header: {name: '$\frac{d\sigma_{\mathrm{J}/\psi}^{\mathrm{AnAn}}}{dy}$', units: mb}
+  qualifiers:
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020'}
+  - {name: RE, value: PB PB -> J/PSI <MU+ MU-> PB PB}
+  - {name: ABS(YRAP), value: 1.6 - 2.4}
+  - {name: MUON ABS(ETA), value: 0.0 - 2.4}
+  - {name: NEUTRON MULT, value: AnAn}
+  values:
+  - errors:
+    - {label: stat, symerror: '0.065'}
+    - {label: syst, symerror: '0.294'}
+    value: '4.256'
+  - errors:
+    - {label: stat, symerror: '0.040'}
+    - {label: syst, symerror: '0.242'}
+    value: '4.054'
+  - errors:
+    - {label: stat, symerror: '0.041'}
+    - {label: syst, symerror: '0.202'}
+    value: '3.843'
+- header: {name: '$\frac{d\sigma_{\mathrm{J}/\psi}^{\mathrm{0n0n}}}{dy}$', units: mb}
+  qualifiers:
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020'}
+  - {name: RE, value: PB PB -> J/PSI <MU+ MU-> PB PB}
+  - {name: ABS(YRAP), value: 1.6 - 2.4}
+  - {name: MUON ABS(ETA), value: 0.0 - 2.4}
+  - {name: NEUTRON MULT, value: 0n0n}
+  values:
+  - errors:
+    - {label: stat, symerror: '0.059'}
+    - {label: syst, symerror: '0.239'}
+    value: '3.133'
+  - errors:
+    - {label: stat, symerror: '0.040'}
+    - {label: syst, symerror: '0.184'}
+    value: '3.142'
+  - errors:
+    - {label: stat, symerror: '0.040'}
+    - {label: syst, symerror: '0.165'}
+    value: '2.942'
+- header: {name: '$\frac{d\sigma_{\mathrm{J}/\psi}^{\mathrm{0nXn}}}{dy}$', units: mb}
+  qualifiers:
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020'}
+  - {name: RE, value: PB PB -> J/PSI <MU+ MU-> PB PB}
+  - {name: ABS(YRAP), value: 1.6 - 2.4}
+  - {name: MUON ABS(ETA), value: 0.0 - 2.4}
+  - {name: NEUTRON MULT, value: 0nXn}
+  values:
+  - errors:
+    - {label: stat, symerror: '0.035'}
+    - {label: syst, symerror: '0.085'}
+    value: '0.939'
+  - errors:
+    - {label: stat, symerror: '0.018'}
+    - {label: syst, symerror: '0.057'}
+    value: '0.762'
+  - errors:
+    - {label: stat, symerror: '0.020'}
+    - {label: syst, symerror: '0.051'}
+    value: '0.721'
+- header: {name: '$\frac{d\sigma_{\mathrm{J}/\psi}^{\mathrm{XnXn}}}{dy}$', units: mb}
+  qualifiers:
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020'}
+  - {name: RE, value: PB PB -> J/PSI <MU+ MU-> PB PB}
+  - {name: ABS(YRAP), value: 1.6 - 2.4}
+  - {name: MUON ABS(ETA), value: 0.0 - 2.4}
+  - {name: NEUTRON MULT, value: XnXn}
+  values:
+  - errors:
+    - {label: stat, symerror: '0.016'}
+    - {label: syst, symerror: '0.019'}
+    value: '0.228'
+  - errors:
+    - {label: stat, symerror: '0.0091'}
+    - {label: syst, symerror: '0.0161'}
+    value: '0.2295'
+  - errors:
+    - {label: stat, symerror: '0.0094'}
+    - {label: syst, symerror: '0.0146'}
+    value: '0.2077'
+independent_variables:
+- header: {name: '|$y$|'}
+  values:
+  - {high: 1.9, low: 1.6}
+  - {high: 2.1, low: 1.9}
+  - {high: 2.4, low: 2.1}

@@ -1,0 +1,38 @@
+dependent_variables:
+- header: {name: '$I_{AA}$'}
+  qualifiers:
+  - {name: '$p_{T}^{\gamma}$', value: '$7 < p_{T}^{\gamma} < 9 GeV/c$'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.18}
+    - {label: sys, symerror: 0.13}
+    value: 0.29
+  - errors:
+    - {label: stat, symerror: 0.12}
+    - {label: sys, symerror: 0.11}
+    value: 0.11
+  - errors:
+    - {label: stat, symerror: 0.22}
+    - {label: sys, symerror: 0.12}
+    value: 0.72
+  - errors:
+    - {label: stat, symerror: 0.17}
+    - {label: sys, symerror: 0.1}
+    value: 0.74
+  - errors:
+    - {label: stat, symerror: 0.15}
+    - {label: sys, symerror: 0.14}
+    value: 1.13
+  - errors:
+    - {label: stat, symerror: 0.14}
+    - {label: sys, symerror: 0.3}
+    value: 0.81
+independent_variables:
+- header: {name: $\xi$}
+  values:
+  - {high: 0.3, low: 0}
+  - {high: 0.7, low: 0.3}
+  - {high: 1.1, low: 0.7}
+  - {high: 1.5, low: 1.1}
+  - {high: 1.9, low: 1.5}
+  - {high: 2.3, low: 1.9}

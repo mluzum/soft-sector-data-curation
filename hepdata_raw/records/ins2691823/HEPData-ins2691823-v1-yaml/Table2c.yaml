@@ -1,0 +1,62 @@
+dependent_variables:
+- header: {name: '$ 1/N_{\rm{evt}}$ d$^{2}N$/d$y$d$p_{\rm{T}}$', units: '$(\rm{GeV}/\it{c})^{-1}$'}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 50-70}
+  - {name: RE, value: 'XeXe $\rightarrow$ K$^{*0}$ X, XeXe $\rightarrow$ $\bar{\rm
+      K}^{*0}$ X'}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5440.0'}
+  - {name: YRAP, value: -0.5 - 0.5}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.274516}
+    - {label: sys, symerror: 0.180307}
+    value: 1.03193
+  - errors:
+    - {label: stat, symerror: 0.160133}
+    - {label: sys, symerror: 0.164783}
+    value: 1.08288
+  - errors:
+    - {label: stat, symerror: 0.0970751}
+    - {label: sys, symerror: 0.107466}
+    value: 0.727803
+  - errors:
+    - {label: stat, symerror: 0.0566946}
+    - {label: sys, symerror: 0.074973}
+    value: 0.47983
+  - errors:
+    - {label: stat, symerror: 0.0292881}
+    - {label: sys, symerror: 0.0306279}
+    value: 0.189129
+  - errors:
+    - {label: stat, symerror: 0.0164227}
+    - {label: sys, symerror: 0.0184024}
+    value: 0.116678
+  - errors:
+    - {label: stat, symerror: 0.00526586}
+    - {label: sys, symerror: 0.00597125}
+    value: 0.0394288
+  - errors:
+    - {label: stat, symerror: 0.0012068}
+    - {label: sys, symerror: 0.00144942}
+    value: 0.00929197
+  - errors:
+    - {label: stat, symerror: 0.00033789}
+    - {label: sys, symerror: 0.000239382}
+    value: 0.00142769
+  - errors:
+    - {label: stat, symerror: 7.88293e-05}
+    - {label: sys, symerror: 4.05699e-05}
+    value: 0.000224553
+independent_variables:
+- header: {name: '$p_{\rm{T}}$', units: 'GeV/$\it{c}$'}
+  values:
+  - {high: 0.8, low: 0.4}
+  - {high: 1.2, low: 0.8}
+  - {high: 1.6, low: 1.2}
+  - {high: 2, low: 1.6}
+  - {high: 2.5, low: 2}
+  - {high: 3, low: 2.5}
+  - {high: 4, low: 3}
+  - {high: 6, low: 4}
+  - {high: 8, low: 6}
+  - {high: 12, low: 8}

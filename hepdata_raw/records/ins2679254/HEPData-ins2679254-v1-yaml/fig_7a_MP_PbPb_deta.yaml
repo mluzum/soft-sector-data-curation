@@ -1,0 +1,53 @@
+dependent_variables:
+- header: {name: $<|\Delta\eta|>$}
+  qualifiers:
+  - {name: ABS(ETARAP), value: $<2.4$}
+  - {name: '$p_{T,asso}$', units: GeV, value: 2.0 -- 3.0}
+  - {name: '$p_{T,trig}$', units: GeV, value: 3.0 -- 4.0}
+  - {name: SQRT(S_NN), units: GeV, value: 5020}
+  - {name: RE, value: PB PB -->  CHARGED X}
+  - {name: $|\Delta\phi|$, value: $<\pi/2$}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.027}
+    - {label: syst, symerror: 0.005}
+    value: 0.213
+  - errors:
+    - {label: stat, symerror: 0.027}
+    - {label: syst, symerror: 0.003}
+    value: 0.213
+  - errors:
+    - {label: stat, symerror: 0.016}
+    - {label: syst, symerror: 0.005}
+    value: 0.212
+  - errors:
+    - {label: stat, symerror: 0.016}
+    - {label: syst, symerror: 0.014}
+    value: 0.232
+  - errors:
+    - {label: stat, symerror: 0.016}
+    - {label: syst, symerror: 0.007}
+    value: 0.239
+  - errors:
+    - {label: stat, symerror: 0.014}
+    - {label: syst, symerror: 0.01}
+    value: 0.245
+  - errors:
+    - {label: stat, symerror: 0.012}
+    - {label: syst, symerror: 0.005}
+    value: 0.261
+  - errors:
+    - {label: stat, symerror: 0.014}
+    - {label: syst, symerror: 0.016}
+    value: 0.266
+independent_variables:
+- header: {name: '$N_{ch}$'}
+  values:
+  - {value: 65}
+  - {value: 160}
+  - {value: 328}
+  - {value: 620}
+  - {value: 1057}
+  - {value: 1678}
+  - {value: 2540}
+  - {value: 3770}

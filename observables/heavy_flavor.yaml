@@ -1,0 +1,47 @@
+observable_type: heavy_flavor
+description: >
+  Open heavy-flavor hadrons (D mesons, B mesons, charm baryons) and
+  quarkonium (J/ψ, ψ(2S), Υ) production in heavy-ion collisions.
+
+composes:
+  - _common#collision_system
+  - centrality#centrality
+  - _common#kinematic_range
+
+required_fields:
+  observable:
+    type: string
+    required: true
+    description: Short identifier.
+    example: "jpsi_raa"
+  value_type:
+    type: string
+    required: true
+    description: >
+      One of: 'invariant_yield', 'R_AA', 'R_CP', 'v2', 'dN_dy',
+      'cross_section', 'psi_prime_over_jpsi'
+    example: "R_AA"
+  particle:
+    type: string
+    required: true
+    description: "Heavy-flavour particle. Examples: 'D0', 'D+', 'Ds', 'J/psi', 'psi(2S)', 'Upsilon(1S)', 'Lambda_c'"
+    example: "J/psi"
+
+optional_fields:
+  decay_channel:
+    type: string
+    required: false
+    description: "Reconstructed decay channel (e.g. 'Kpi', 'mumu', 'ee')."
+    example: "mumu"
+  rapidity_range:
+    type: object
+    required: false
+    description: Rapidity range.
+    fields:
+      min: {type: float, required: true, example: -4.0}
+      max: {type: float, required: true, example: -2.5}
+  centrality_dependence:
+    type: boolean
+    required: false
+    description: "Whether the observable is reported per centrality bin."
+    example: true

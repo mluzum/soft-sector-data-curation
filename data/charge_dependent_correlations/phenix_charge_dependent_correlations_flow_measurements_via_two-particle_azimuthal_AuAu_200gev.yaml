@@ -1,0 +1,40 @@
+---
+observable_type: charge_dependent_correlations
+inspire_id: '585347'
+version: 1
+hepdata_file: ppg004fig1.yaml
+hepdata_table_label: Azimuthal correlation functions for charged hadrons as a function of centrality and $p_T$ selection.
+  The solid curves represent Fourier fits following Eq. (2). Error bars are statistical only.
+qualifiers:
+  centrality: 40-45%
+  p_t: 0.5 - 2.5 (GeV/$c$)
+collision_system:
+  energy_gev: 200.0
+  reaction: Au Au --> CHARGED X
+centrality:
+  classes:
+  - 40-45%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: charged
+kinematic_range:
+  pT:
+    min: 0.5
+    max: 2.5
+    bins:
+    - 0.2
+    - 20
+  eta:
+    min: -0.35
+    max: 0.35
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all

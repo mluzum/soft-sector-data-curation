@@ -1,0 +1,36 @@
+dependent_variables:
+- header: {name: 'dN/dp_{T} (ESE) / dN/dp_{T} (unbiased)'}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 30.0-50.0}
+  - {name: RE, value: PB PB --> D+  X + CC}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  - {name: YRAP, value: -0.8-0.8}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.041}
+    - {label: sys, symerror: 0.03}
+    value: 0.999
+  - errors:
+    - {label: stat, symerror: 0.026}
+    - {label: sys, symerror: 0.018}
+    value: 0.915
+  - errors:
+    - {label: stat, symerror: 0.031}
+    - {label: sys, symerror: 0.019}
+    value: 0.962
+  - errors:
+    - {label: stat, symerror: 0.03}
+    - {label: sys, symerror: 0.02}
+    value: 0.983
+  - errors:
+    - {label: stat, symerror: 0.045}
+    - {label: sys, symerror: 0.021}
+    value: 1.056
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {high: 4.0, low: 3.0}
+  - {high: 6.0, low: 4.0}
+  - {high: 8.0, low: 6.0}
+  - {high: 12.0, low: 8.0}
+  - {high: 16.0, low: 12.0}

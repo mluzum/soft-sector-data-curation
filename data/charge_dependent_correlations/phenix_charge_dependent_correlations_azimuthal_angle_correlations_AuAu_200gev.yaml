@@ -1,0 +1,42 @@
+---
+observable_type: charge_dependent_correlations
+inspire_id: '712584'
+version: 1
+hepdata_file: ppg058f1.yaml
+hepdata_table_label: Azimuthal angle correlation functions. Note that the y-axis is zero-suppressed on the middle and bottom
+  panels. In the additonal resource, the Gaussian widths from the fits and the signal to background ration integrated over
+  $\pi$ - 1 < $\Delta\phi$ < $\pi$ + 1 are shown.
+qualifiers:
+  associated particle pseudo-rapidity: -0.35 < $\eta$ < 0.35
+  p_t^{trig}: $p + p$
+  trigger particle pseudo-rapidity: -2.0 < $\eta$ < -1.4 and 1.4 < $\eta$ < 2.0
+collision_system:
+  energy_gev: 200.0
+  reaction: AU + AU --> CHARGED X0
+centrality:
+  classes: []
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: p
+kinematic_range:
+  eta:
+    min: -0.35
+    max: 0.35
+  pT:
+    min: 0.2
+    max: 20
+    bins:
+    - 0.2
+    - 20
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all

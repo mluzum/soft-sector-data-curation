@@ -1,0 +1,43 @@
+---
+observable_type: strangeness
+inspire_id: '2789555'
+version: 1
+hepdata_file: figure_3.yaml
+hepdata_table_label: Amplitudes of the $\cos(2\phi)$ modulation of the $ρ^0$ yield in ultra-peripheral Pb--Pb collisions at
+  $\sqrt{s_{NN}}$ = 5.02 TeV in all neutron classes.
+qualifiers:
+  m_{\pi\pi}: 0.6 < $m_{\pi\pi}$ < 0.95
+  pt: 0 TO 0.1
+  yrap: -0.8 TO 0.8
+collision_system:
+  energy_gev: 5020.0
+  reaction: Pb Pb --> Pb Pb Rho0
+centrality:
+  classes: []
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  pT:
+    min: 0.0
+    max: 0.1
+    bins:
+    - 0.15
+    - 50
+  eta:
+    min: -0.8
+    max: 0.8
+    bins:
+    - -0.8
+    - 0.8
+observable: charged_spectra
+value_type: invariant_yield

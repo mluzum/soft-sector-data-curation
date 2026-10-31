@@ -1,0 +1,37 @@
+dependent_variables:
+- header: {name: V2}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 30-40}
+  - {name: PT, units: GeV, value: 0.8-1}
+  - {name: RE, value: PB PB --> CHARGED X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.00163}
+    - {label: sys, symerror: 0.000808}
+    value: 0.12151
+  - errors:
+    - {label: stat, symerror: 0.00144}
+    - {label: sys, symerror: 0.000794}
+    value: 0.12025
+  - errors:
+    - {label: stat, symerror: 0.00153}
+    - {label: sys, symerror: 0.000796}
+    value: 0.1194
+  - errors:
+    - {label: stat, symerror: 0.00158}
+    - {label: sys, symerror: 0.000834}
+    value: 0.11884
+  - errors:
+    - {label: stat, symerror: 0.00127}
+    - {label: sys, symerror: 0.000829}
+    value: 0.11805
+independent_variables:
+- header: {name: ETARAP}
+  values:
+  - {high: 0.5, low: 0}
+  - {high: 1, low: 0.5}
+  - {high: 1.5, low: 1}
+  - {high: 2, low: 1.5}
+  - {high: 2.5, low: 2}
+name: Table154.yaml

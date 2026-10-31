@@ -1,0 +1,73 @@
+dependent_variables:
+- header: {name: '$(\rm{p} + \bar{\rm p}) / (\rm{K}^{*0} + \bar{\rm{K}}^{*0})$'}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 0.0-10.0}
+  - {name: RE, value: 'P P $\rightarrow$ K$^{*0}$ X, P P $\rightarrow$ $\bar{\rm{K}}^{*0}$
+      X'}
+  - {name: RE, value: 'P P $\rightarrow$ p X, P P $\rightarrow$ $\bar{\rm p}$ X'}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  - {name: YRAP, value: -0.5-0.5}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.0234373}
+    - {label: syst., symerror: 0.131379}
+    value: 1.50132
+  - errors:
+    - {label: stat., symerror: 0.0179201}
+    - {label: syst., symerror: 0.116374}
+    value: 1.27063
+  - errors:
+    - {label: stat., symerror: 0.0197063}
+    - {label: syst., symerror: 0.0964421}
+    value: 1.18382
+  - errors:
+    - {label: stat., symerror: 0.0192279}
+    - {label: syst., symerror: 0.0953206}
+    value: 1.07174
+  - errors:
+    - {label: stat., symerror: 0.018153}
+    - {label: syst., symerror: 0.0748805}
+    value: 0.912721
+  - errors:
+    - {label: stat., symerror: 0.0159533}
+    - {label: syst., symerror: 0.0645551}
+    value: 0.770395
+  - errors:
+    - {label: stat., symerror: 0.0211707}
+    - {label: syst., symerror: 0.0597392}
+    value: 0.72032
+  - errors:
+    - {label: stat., symerror: 0.0256601}
+    - {label: syst., symerror: 0.0708125}
+    value: 0.681151
+  - errors:
+    - {label: stat., symerror: 0.0249814}
+    - {label: syst., symerror: 0.0621773}
+    value: 0.561534
+  - errors:
+    - {label: stat., symerror: 0.0308405}
+    - {label: syst., symerror: 0.0560757}
+    value: 0.484595
+  - errors:
+    - {label: stat., symerror: 0.0224639}
+    - {label: syst., symerror: 0.0530029}
+    value: 0.39177
+  - errors:
+    - {label: stat., symerror: 0.0332186}
+    - {label: syst., symerror: 0.0468512}
+    value: 0.332004
+independent_variables:
+- header: {name: '$p_{\rm T}$', units: GeV/$c$}
+  values:
+  - {high: 0.8, low: 0.4}
+  - {high: 1.2, low: 0.8}
+  - {high: 1.6, low: 1.2}
+  - {high: 2.0, low: 1.6}
+  - {high: 2.5, low: 2.0}
+  - {high: 3.0, low: 2.5}
+  - {high: 3.5, low: 3.0}
+  - {high: 4.0, low: 3.5}
+  - {high: 5.0, low: 4.0}
+  - {high: 6.0, low: 5.0}
+  - {high: 8.0, low: 6.0}
+  - {high: 10.0, low: 8.0}

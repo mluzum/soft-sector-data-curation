@@ -1,0 +1,91 @@
+dependent_variables:
+- header: {name: '$I_{AA}$'}
+  qualifiers:
+  - {name: Trigger Selection, value: 5.0 < $p_T^A$ < 10.0 GeV/$c$}
+  - {name: Region, value: Head+Shoulder}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.154}
+    - asymerror: {minus: -0.272, plus: 0.281}
+      label: sys
+    value: 2.25
+  - errors:
+    - {label: stat., symerror: 0.165}
+    - asymerror: {minus: -0.292, plus: 0.5}
+      label: sys
+    value: 1.74
+  - errors:
+    - {label: stat., symerror: 0.167}
+    - asymerror: {minus: -0.317, plus: 0.316}
+      label: sys
+    value: 1.03
+  - errors:
+    - {label: stat., symerror: 0.156}
+    - asymerror: {minus: -0.281, plus: 0.28}
+      label: sys
+    value: 0.733
+  - errors:
+    - {label: stat., symerror: 0.138}
+    - asymerror: {minus: -0.236, plus: 0.235}
+      label: sys
+    value: 0.64
+  - errors:
+    - {label: stat., symerror: 0.103}
+    - asymerror: {minus: -0.184, plus: 0.184}
+      label: sys
+    value: 0.445
+  - errors:
+    - {label: stat., symerror: 0.102}
+    - asymerror: {minus: -0.155, plus: 0.155}
+      label: sys
+    value: 0.537
+- header: {name: '$I_{AA}$'}
+  qualifiers:
+  - {name: Trigger Selection, value: 5.0 < $p_T^A$ < 10.0 GeV/$c$}
+  - {name: Region, value: Head Only}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.117}
+    - asymerror: {minus: -0.213, plus: 0.207}
+      label: sys
+    value: 1.49
+  - errors:
+    - {label: stat., symerror: 0.107}
+    - asymerror: {minus: -0.184, plus: 0.275}
+      label: sys
+    value: 0.829
+  - errors:
+    - {label: stat., symerror: 0.0997}
+    - asymerror: {minus: -0.182, plus: 0.178}
+      label: sys
+    value: 0.353
+  - errors:
+    - {label: stat., symerror: 0.0912}
+    - asymerror: {minus: -0.142, plus: 0.14}
+      label: sys
+    value: 0.246
+  - errors:
+    - {label: stat., symerror: 0.079}
+    - asymerror: {minus: -0.11, plus: 0.11}
+      label: sys
+    value: 0.206
+  - errors:
+    - {label: stat., symerror: 0.0589}
+    - asymerror: {minus: -0.0797, plus: 0.0795}
+      label: sys
+    value: 0.316
+  - errors:
+    - {label: stat., symerror: 0.058}
+    - asymerror: {minus: -0.0629, plus: 0.0629}
+      label: sys
+    value: 0.363
+independent_variables:
+- header: {name: $p_T^B$ (GeV/$c$)}
+  values:
+  - {high: 0.95, low: 0.31}
+  - {high: 1.45, low: 0.95}
+  - {high: 1.95, low: 1.45}
+  - {high: 2.45, low: 1.95}
+  - {high: 2.95, low: 2.45}
+  - {high: 3.75, low: 2.95}
+  - {high: 5.05, low: 3.75}

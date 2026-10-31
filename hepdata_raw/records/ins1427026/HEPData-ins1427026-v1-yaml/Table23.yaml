@@ -1,0 +1,43 @@
+dependent_variables:
+- header: {name: '$Q_{\rm pPb}$'}
+  qualifiers:
+  - {name: ALGO-JET, value: 'anti-$k_{\rm T}$'}
+  - {name: ETARAP-JET, value: -0.5-0.5}
+  - {name: ETARAP-PARTICLE, value: -0.9-0.9}
+  - {name: PT-PARTICLE, value: '> 0.15 GeV/c'}
+  - {name: RADIUS-JET, value: '0.4'}
+  - {name: SQRT(SNN), units: GeV, value: '5023.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.012}
+    - {label: sys, symerror: 0.1}
+    - {label: 'sys,Normalization uncertainty', symerror: 12.0%}
+    value: 1.056
+  - errors:
+    - {label: stat, symerror: 0.014}
+    - {label: sys, symerror: 0.086}
+    - {label: 'sys,Normalization uncertainty', symerror: 12.0%}
+    value: 1.093
+  - errors:
+    - {label: stat, symerror: 0.015}
+    - {label: sys, symerror: 0.074}
+    - {label: 'sys,Normalization uncertainty', symerror: 12.0%}
+    value: 1.077
+  - errors:
+    - {label: stat, symerror: 0.014}
+    - {label: sys, symerror: 0.085}
+    - {label: 'sys,Normalization uncertainty', symerror: 12.0%}
+    value: 1.048
+  - errors:
+    - {label: stat, symerror: 0.023}
+    - {label: sys, symerror: 0.12}
+    - {label: 'sys,Normalization uncertainty', symerror: 12.0%}
+    value: 1.044
+independent_variables:
+- header: {name: Centrality (ZNA)}
+  values:
+  - {high: 20.0, low: 0.0}
+  - {high: 40.0, low: 20.0}
+  - {high: 60.0, low: 40.0}
+  - {high: 80.0, low: 60.0}
+  - {high: 100.0, low: 80.0}

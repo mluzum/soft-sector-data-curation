@@ -1,0 +1,31 @@
+dependent_variables:
+- header: {name: MULT(Q=+)-MULT(Q=-)-MULT(Q=FB)-MULT(Q=FT)}
+  qualifiers:
+  - {name: 'P(P=3,RF=LAB,Q=FB)', units: GEV, value: '>3.'}
+  - {name: 'Q(P=3,Q=FB)', value: '>0'}
+  - {name: RE(Q=+), value: C C --> CHARGED+ X}
+  - {name: RE(Q=-), value: C C --> CHARGED- X}
+  - {name: RE(Q=FB), value: C C --> FRAGB X}
+  - {name: RE(Q=FT), value: C C --> FRAGT X}
+  - {name: 'THETA(P=3,RF=LAB,Q=FB)', units: DEG, value: <4}
+  values:
+  - errors:
+    - {symerror: 0.07}
+    value: 4.32
+- header: {name: MULT2(Q=+)-MULT2(Q=-)-MULT2(Q=FB)-MULT2(Q=FT)}
+  qualifiers:
+  - {name: 'P(P=3,RF=LAB,Q=FB)', units: GEV, value: '>3.'}
+  - {name: 'Q(P=3,Q=FB)', value: '>0'}
+  - {name: RE(Q=+), value: C C --> CHARGED+ X}
+  - {name: RE(Q=-), value: C C --> CHARGED- X}
+  - {name: RE(Q=FB), value: C C --> FRAGB X}
+  - {name: RE(Q=FT), value: C C --> FRAGT X}
+  - {name: 'THETA(P=3,RF=LAB,Q=FB)', units: DEG, value: <4}
+  values:
+  - errors:
+    - {symerror: 0.04}
+    value: 2.88
+independent_variables:
+- header: {name: P, units: GEV}
+  values:
+  - {value: 50.4}

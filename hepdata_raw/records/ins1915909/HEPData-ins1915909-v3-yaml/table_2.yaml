@@ -1,0 +1,66 @@
+dependent_variables:
+- header: {name: '$\frac{d\sigma_{Z}}{d|y_{Z}|} (\mu b)$'}
+  qualifiers:
+  - {name: RE, value: Pb Pb --> Z --> l+l-}
+  - {name: SQRT(s)/NUCLEON, units: GeV, value: 5020}
+  - {name: '$m_{ll}$', units: GeV, value: 60.0 - 120.0}
+  - {name: Centrality, value: 0 - 100.0%}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.08}
+    - {label: syst, symerror: 0.16}
+    value: 5.18
+  - errors:
+    - {label: stat, symerror: 0.08}
+    - {label: syst, symerror: 0.17}
+    value: 5.36
+  - errors:
+    - {label: stat, symerror: 0.08}
+    - {label: syst, symerror: 0.16}
+    value: 5.12
+  - errors:
+    - {label: stat, symerror: 0.08}
+    - {label: syst, symerror: 0.16}
+    value: 5.01
+  - errors:
+    - {label: stat, symerror: 0.08}
+    - {label: syst, symerror: 0.16}
+    value: 4.74
+  - errors:
+    - {label: stat, symerror: 0.09}
+    - {label: syst, symerror: 0.16}
+    value: 4.44
+  - errors:
+    - {label: stat, symerror: 0.12}
+    - {label: syst, symerror: 0.18}
+    value: 4.39
+  - {value: --}
+- header: {name: '$\frac{d\sigma_{Z}}{d|y_{Z}|} (\mu b)$'}
+  qualifiers:
+  - {name: RE, value: Pb Pb --> Z --> mu+mu-}
+  - {name: SQRT(s)/NUCLEON, units: GeV, value: 5020}
+  - {name: '$m_{ll}$', units: GeV, value: 60.0 - 120.0}
+  - {name: Centrality, value: 0 - 100.0%}
+  values:
+  - {value: --}
+  - {value: --}
+  - {value: --}
+  - {value: --}
+  - {value: --}
+  - {value: --}
+  - {value: --}
+  - errors:
+    - {label: stat, symerror: 0.19}
+    - {label: syst, symerror: 0.21}
+    value: 3.6
+independent_variables:
+- header: {name: '$|y_{Z}|$'}
+  values:
+  - {high: 0.3, low: 0.0}
+  - {high: 0.6, low: 0.3}
+  - {high: 0.9, low: 0.6}
+  - {high: 1.2, low: 0.9}
+  - {high: 1.5, low: 1.2}
+  - {high: 1.8, low: 1.5}
+  - {high: 2.1, low: 1.8}
+  - {high: 2.4, low: 2.1}

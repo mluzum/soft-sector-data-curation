@@ -1,0 +1,84 @@
+dependent_variables:
+- header: {name: '$\mathrm{\Lambda_c^+ / D^0}$'}
+  qualifiers:
+  - {name: CENTRALITY, value: 0.0-10.0 pct}
+  - {name: REACTION, value: 'PBPB --> $\mathrm{\Lambda_c^+ / D^0}$ + X'}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 5020.0}
+  - {name: YRAP, value: -0.5 TO 0.5}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.12993}
+    - asymerror: {minus: -0.090408, plus: 0.095035}
+      label: sys
+    value: 0.44386
+  - errors:
+    - {label: stat, symerror: 0.095391}
+    - asymerror: {minus: -0.090766, plus: 0.093079}
+      label: sys
+    value: 0.49823
+  - errors:
+    - {label: stat, symerror: 0.18665}
+    - asymerror: {minus: -0.17325, plus: 0.18862}
+      label: sys
+    value: 1.1227
+  - errors:
+    - {label: stat, symerror: 0.18709}
+    - asymerror: {minus: -0.12598, plus: 0.13354}
+      label: sys
+    value: 0.87665
+  - errors:
+    - {label: stat, symerror: 0.11297}
+    - asymerror: {minus: -0.067145, plus: 0.068947}
+      label: sys
+    value: 0.44291
+  - errors:
+    - {label: stat, symerror: 0.073172}
+    - asymerror: {minus: -0.040993, plus: 0.04064}
+      label: sys
+    value: 0.20111
+- header: {name: '$\mathrm{\Lambda_c^+ / D^0}$'}
+  qualifiers:
+  - {name: CENTRALITY, value: 30.0-50.0 pct}
+  - {name: REACTION, value: 'PBPB --> $\mathrm{\Lambda_c^+ / D^0}$ + X'}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 5020.0}
+  - {name: YRAP, value: -0.5 TO 0.5}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.17226}
+    - asymerror: {minus: -0.12782, plus: 0.14298}
+      label: sys
+    value: 0.58802
+  - errors:
+    - {label: stat, symerror: 0.11825}
+    - asymerror: {minus: -0.095579, plus: 0.099013}
+      label: sys
+    value: 0.63502
+  - errors:
+    - {label: stat, symerror: 0.13512}
+    - asymerror: {minus: -0.081404, plus: 0.086561}
+      label: sys
+    value: 0.58036
+  - errors:
+    - {label: stat, symerror: 0.13187}
+    - asymerror: {minus: -0.078507, plus: 0.080915}
+      label: sys
+    value: 0.50316
+  - errors:
+    - {label: stat, symerror: 0.096621}
+    - asymerror: {minus: -0.030136, plus: 0.03115}
+      label: sys
+    value: 0.23838
+  - errors:
+    - {label: stat, symerror: 0.071528}
+    - asymerror: {minus: -0.043922, plus: 0.043192}
+      label: sys
+    value: 0.23361
+independent_variables:
+- header: {name: '$p_\mathrm{T}$', units: '$\mathrm{GeV}/c$'}
+  values:
+  - {high: 2.0, low: 1.0}
+  - {high: 4.0, low: 2.0}
+  - {high: 6.0, low: 4.0}
+  - {high: 8.0, low: 6.0}
+  - {high: 12.0, low: 8.0}
+  - {high: 24.0, low: 12.0}

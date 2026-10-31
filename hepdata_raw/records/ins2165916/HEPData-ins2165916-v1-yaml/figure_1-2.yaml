@@ -1,0 +1,79 @@
+dependent_variables:
+- header: {name: 'Dijet $v_{2}$'}
+  qualifiers:
+  - {name: SQRT(S)/NUCLEON, value: 5.02 TeV}
+  - {name: RE, value: PB PB --> DIJET CHARGED X}
+  - {name: Centrality, value: 30-50%}
+  - {name: Jet algorithm, value: 'Anti-k$_{\mathrm{T}}$ R = 0.4'}
+  - {name: 'Leading jet $p_{\mathrm{T}}$', value: '> 120 GeV'}
+  - {name: 'Subleading jet $p_{\mathrm{T}}$', value: '> 50 GeV'}
+  - {name: '$|\eta^{\mathrm{jet}}|$', value: < 1.3}
+  - {name: '$\Delta\varphi_{\mathrm{subleading}}^{\mathrm{leading}}$', value: $> 5\pi/6$}
+  - {name: '$|\eta^{\mathrm{ch}}|$', value: < 2.4}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0025}
+    - {label: sys, symerror: 0.0074}
+    value: 0.0426
+  - errors:
+    - {label: stat, symerror: 0.0015}
+    - {label: sys, symerror: 0.0074}
+    value: 0.0419
+  - errors:
+    - {label: stat, symerror: 0.0027}
+    - {label: sys, symerror: 0.0074}
+    value: 0.0496
+- header: {name: 'Dijet $v_{3}$'}
+  qualifiers:
+  - {name: SQRT(S)/NUCLEON, value: 5.02 TeV}
+  - {name: RE, value: PB PB --> DIJET CHARGED X}
+  - {name: Centrality, value: 30-50%}
+  - {name: Jet algorithm, value: 'Anti-k$_{\mathrm{T}}$ R = 0.4'}
+  - {name: 'Leading jet $p_{\mathrm{T}}$', value: '> 120 GeV'}
+  - {name: 'Subleading jet $p_{\mathrm{T}}$', value: '> 50 GeV'}
+  - {name: '$|\eta^{\mathrm{jet}}|$', value: < 1.3}
+  - {name: '$\Delta\varphi_{\mathrm{subleading}}^{\mathrm{leading}}$', value: $> 5\pi/6$}
+  - {name: '$|\eta^{\mathrm{ch}}|$', value: < 2.4}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0079}
+    - {label: sys, symerror: 0.0173}
+    value: 0.0048
+  - errors:
+    - {label: stat, symerror: 0.004}
+    - {label: sys, symerror: 0.0173}
+    value: -0.0083
+  - errors:
+    - {label: stat, symerror: 0.0068}
+    - {label: sys, symerror: 0.0173}
+    value: -0.0179
+- header: {name: 'Dijet $v_{4}$'}
+  qualifiers:
+  - {name: SQRT(S)/NUCLEON, value: 5.02 TeV}
+  - {name: RE, value: PB PB --> DIJET CHARGED X}
+  - {name: Centrality, value: 30-50%}
+  - {name: Jet algorithm, value: 'Anti-k$_{\mathrm{T}}$ R = 0.4'}
+  - {name: 'Leading jet $p_{\mathrm{T}}$', value: '> 120 GeV'}
+  - {name: 'Subleading jet $p_{\mathrm{T}}$', value: '> 50 GeV'}
+  - {name: '$|\eta^{\mathrm{jet}}|$', value: < 1.3}
+  - {name: '$\Delta\varphi_{\mathrm{subleading}}^{\mathrm{leading}}$', value: $> 5\pi/6$}
+  - {name: '$|\eta^{\mathrm{ch}}|$', value: < 2.4}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0157}
+    - {label: sys, symerror: 0.0263}
+    value: -0.0061
+  - errors:
+    - {label: stat, symerror: 0.0067}
+    - {label: sys, symerror: 0.0263}
+    value: -0.0151
+  - errors:
+    - {label: stat, symerror: 0.0088}
+    - {label: sys, symerror: 0.0263}
+    value: -0.0085
+independent_variables:
+- header: {name: 'Hadron $p_{\mathrm{T}}$', units: GeV}
+  values:
+  - {high: 1, low: 0.7}
+  - {high: 2, low: 1}
+  - {high: 3, low: 2}

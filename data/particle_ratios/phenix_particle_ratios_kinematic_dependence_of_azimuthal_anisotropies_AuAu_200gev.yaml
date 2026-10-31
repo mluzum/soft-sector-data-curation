@@ -1,0 +1,50 @@
+---
+observable_type: particle_ratios
+inspire_id: '2026169'
+version: 1
+hepdata_file: fig6.yaml
+hepdata_table_label: $v_2$ ratio vs $p_T$, p/d/3He+Au at 200 GeV, 0-5% central
+collision_system:
+  energy_gev: 200.0
+  reaction: d Au --> X
+centrality:
+  classes:
+  - 0-5%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: p
+kinematic_range:
+  pT:
+    min: 0.2
+    max: 3.0
+    bins:
+    - 0.2
+    - 0.4
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+    - 2.0
+    - 2.2
+    - 2.4
+    - 2.6
+    - 2.8
+    - 3.0
+  eta:
+    min: -0.35
+    max: 0.35
+observable: unknown_over_unknown_ratio
+value_type: unknown_over_unknown
+numerator: unknown
+denominator: unknown

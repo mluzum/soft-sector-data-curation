@@ -1,0 +1,38 @@
+dependent_variables:
+- header: {name: '$(N_{\psi\mathrm{(2S)}} / N_{J/\psi})_{\mathrm{PbPb}} / (N_{\psi\mathrm{(2S)}}
+      / N_{J/\psi})_{pp}$'}
+  qualifiers:
+  - {name: ABS(YRAP), value: 1.6-2.4}
+  - {name: PT, units: GeV, value: 3.0-30.0}
+  - {name: RE, value: P P --> J/PSI < MU+ MU- > X}
+  - {name: RE, value: P P --> PSI(2S) < MU+ MU- > X}
+  - {name: RE, value: PB PB --> J/PSI < MU+ MU- > X}
+  - {name: RE, value: PB PB --> PSI(2S) < MU+ MU- > X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.53}
+    - {label: sys, symerror: 0.37}
+    - {label: 'sys,global pp uncertainty', symerror: 6.6%}
+    value: 2.31
+  - errors:
+    - {label: stat, symerror: 0.47}
+    - {label: sys, symerror: 0.27}
+    - {label: 'sys,global pp uncertainty', symerror: 6.6%}
+    value: 0.93
+  - errors:
+    - {label: stat, symerror: 0.39}
+    - {label: sys, symerror: 0.17}
+    - {label: 'sys,global pp uncertainty', symerror: 6.6%}
+    value: 0.89
+independent_variables:
+- header: {name: Centrality, units: PCT}
+  values:
+  - {high: 20.0, low: 0.0}
+  - {high: 40.0, low: 20.0}
+  - {high: 100.0, low: 40.0}
+- header: {name: NPART}
+  values:
+  - {value: 308.4}
+  - {value: 158.6}
+  - {value: 32.8}

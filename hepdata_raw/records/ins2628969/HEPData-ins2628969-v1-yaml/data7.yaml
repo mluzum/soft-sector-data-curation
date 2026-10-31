@@ -1,0 +1,36 @@
+dependent_variables:
+- header: {name: '$\langle \cos[8\Psi_{2}-3\Psi_{3}-5\Psi_{5}]\rangle_{\mathrm{GE}}$'}
+  qualifiers:
+  - {name: ETARAP, value: -0.8 TO 0.8}
+  - {name: PT, units: GEV/c, value: 0.2 TO 5.0}
+  - {name: RE, value: PB PB --> CHARGED X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 2760}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.06475907}
+    - {label: sys, symerror: 0.006127139}
+    value: 0.009170251
+  - errors:
+    - {label: stat, symerror: 0.00453599}
+    - {label: sys, symerror: 0.004782725}
+    value: 0.0001454884
+  - errors:
+    - {label: stat, symerror: 0.004845488}
+    - {label: sys, symerror: 0.003886916}
+    value: 0.005309749
+  - errors:
+    - {label: stat, symerror: 0.005731884}
+    - {label: sys, symerror: 0.005123639}
+    value: 0.002776436
+  - errors:
+    - {label: stat, symerror: 0.01041642}
+    - {label: sys, symerror: 0.006475788}
+    value: 0.01589485
+independent_variables:
+- header: {name: CENTRALITY, units: PCT}
+  values:
+  - {high: 10.0, low: 5.0}
+  - {high: 20.0, low: 10.0}
+  - {high: 30.0, low: 20.0}
+  - {high: 40.0, low: 30.0}
+  - {high: 50.0, low: 40.0}

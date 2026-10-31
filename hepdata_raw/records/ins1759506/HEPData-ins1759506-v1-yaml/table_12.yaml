@@ -1,0 +1,23 @@
+dependent_variables:
+- header: {name: '$N_{Ch}$'}
+  values:
+  - errors:
+    - asymerror: {minus: -0.11, plus: 0.32}
+      label: syst.
+    value: 4.3
+- header: {name: '$(K^{+}+K^{-})/(\pi^{+}+\pi^{-})$'}
+  qualifiers:
+  - {name: RE(K+ + K-), value: 'P P --> K+ X, P P --> K- X'}
+  - {name: RE(PI+ + PI-), value: 'P P --> PI+ X, P P --> PI- X'}
+  - {name: RE, value: P P --> CHARGED X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  - {name: YRAP, value: -0.5-0.5}
+  values:
+  - errors:
+    - {label: stat., symerror: 8.0796e-05}
+    - {label: syst., symerror: 0.0092215}
+    value: 0.13212
+independent_variables:
+- header: {name: Trigger}
+  values:
+  - {value: MB}

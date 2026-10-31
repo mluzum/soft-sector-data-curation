@@ -1,0 +1,19 @@
+dependent_variables:
+- header: {name: dN/dy}
+  qualifiers:
+  - {name: Source, value: '$\overline{\Lambda}$'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.002}
+    - {label: syst, symerror: 0.022}
+    value: 0.072
+  - errors:
+    - {label: stat, symerror: 0.001}
+    - asymerror: {minus: -0.005, plus: 0.006}
+      label: syst
+    value: 0.035
+independent_variables:
+- header: {name: y}
+  values:
+  - {value: -2.75}
+  - {value: 2.75}

@@ -1,0 +1,112 @@
+dependent_variables:
+- header: {name: Yield values}
+  qualifiers:
+  - {name: 'SQRT(s)/NUCLEON [GEV]', value: 5020.0}
+  - {name: Collision system, value: Pb--Pb 0-10%}
+  - {name: Distribution Peak, value: Near-side peak}
+  - {name: pTe, value: 4 to 12 GeV/c}
+  - {name: pT condition, value: '$p_\mathrm{T}^\mathrm{e}>p_\mathrm{T}^\mathrm{assoc}$'}
+  - {name: electron ETA, value: -0.6 to 0.6}
+  - {name: DELTA ETA, value: -1 to 1}
+  - {name: RE, value: 'Pb--Pb --> (c,b)->e + X'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.13976}
+    - {label: yield sys, symerror: 0.089374}
+    - {label: yield baseline sys, symerror: 0.15432}
+    value: 0.95273
+  - errors:
+    - {label: stat, symerror: 0.043997}
+    - {label: yield sys, symerror: 0.038694}
+    - {label: yield baseline sys, symerror: 0.039057}
+    value: 0.41248
+  - errors:
+    - {label: stat, symerror: 0.017886}
+    - {label: yield sys, symerror: 0.012532}
+    - {label: yield baseline sys, symerror: 0.016444}
+    value: 0.13359
+  - errors:
+    - {label: stat, symerror: 0.0060889}
+    - {label: yield sys, symerror: 0.0039361}
+    - {label: yield baseline sys, symerror: 0.0037672}
+    value: 0.041959
+  - errors:
+    - {label: stat, symerror: 0.002852}
+    - {label: yield sys, symerror: 0.0025278}
+    - {label: yield baseline sys, symerror: 0.0019378}
+    value: 0.026946
+- header: {name: Yield values}
+  qualifiers:
+  - {name: 'SQRT(s)/NUCLEON [GEV]', value: 5020.0}
+  - {name: Collision system, value: Pb--Pb 30-50%}
+  - {name: Distribution Peak, value: Near-side peak}
+  - {name: pTe, value: 4 to 12 GeV/c}
+  - {name: pT condition, value: '$p_\mathrm{T}^\mathrm{e}>p_\mathrm{T}^\mathrm{assoc}$'}
+  - {name: electron ETA, value: -0.6 to 0.6}
+  - {name: DELTA ETA, value: -1 to 1}
+  - {name: RE, value: 'Pb--Pb --> (c,b)->e + X'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.084545}
+    - {label: yield sys, symerror: 0.043423}
+    - {label: yield baseline sys, symerror: 0.087011}
+    value: 0.60805
+  - errors:
+    - {label: stat, symerror: 0.027842}
+    - {label: yield sys, symerror: 0.019805}
+    - {label: yield baseline sys, symerror: 0.021917}
+    value: 0.27733
+  - errors:
+    - {label: stat, symerror: 0.012497}
+    - {label: yield sys, symerror: 0.0082776}
+    - {label: yield baseline sys, symerror: 0.0091701}
+    value: 0.11591
+  - errors:
+    - {label: stat, symerror: 0.0049683}
+    - {label: yield sys, symerror: 0.0029691}
+    - {label: yield baseline sys, symerror: 0.0030877}
+    value: 0.041575
+  - errors:
+    - {label: stat, symerror: 0.0032032}
+    - {label: yield sys, symerror: 0.0019408}
+    - {label: yield baseline sys, symerror: 0.0016488}
+    value: 0.027177
+- header: {name: Yield values}
+  qualifiers:
+  - {name: 'SQRT(s)/NUCLEON [GEV]', value: 5020.0}
+  - {name: Collision system, value: Proton-Proton}
+  - {name: Distribution Peak, value: Near-side peak}
+  - {name: pTe, value: 4 to 12 GeV/c}
+  - {name: pT condition, value: '$p_\mathrm{T}^\mathrm{e}>p_\mathrm{T}^\mathrm{assoc}$'}
+  - {name: electron ETA, value: -0.6 to 0.6}
+  - {name: DELTA ETA, value: -1 to 1}
+  - {name: RE, value: 'pp --> (c,b)->e + X'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.040959}
+    - {label: yield sys, symerror: 0.038896}
+    value: 0.67709
+  - errors:
+    - {label: stat, symerror: 0.019765}
+    - {label: yield sys, symerror: 0.015022}
+    value: 0.27896
+  - errors:
+    - {label: stat, symerror: 0.012712}
+    - {label: yield sys, symerror: 0.0079891}
+    value: 0.1296
+  - errors:
+    - {label: stat, symerror: 0.0075575}
+    - {label: yield sys, symerror: 0.0044012}
+    value: 0.063526
+  - errors:
+    - {label: stat, symerror: 0.0050325}
+    - {label: yield sys, symerror: 0.0024613}
+    value: 0.026388
+independent_variables:
+- header: {name: pT, units: GeV/c}
+  values:
+  - {high: 2.0, low: 1.0}
+  - {high: 3.0, low: 2.0}
+  - {high: 4.0, low: 3.0}
+  - {high: 5.0, low: 4.0}
+  - {high: 7.0, low: 5.0}

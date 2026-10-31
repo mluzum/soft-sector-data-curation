@@ -1,0 +1,56 @@
+dependent_variables:
+- header: {name: Measured ($\gamma\gamma \rightarrow \gamma\gamma$), units: '$d\sigma/d((p_{T}^{\gamma1}
+      + p_{T}^{\gamma2}) / 2) [nb/GeV]$'}
+  qualifiers:
+  - {name: 'Pb+Pb $\sqrt{s_{NN}}$', units: GeV, value: 5020}
+  - {name: LUMINOSITY, units: 'nb$^{-1}$', value: 2.2}
+  values:
+  - errors:
+    - {label: total, symerror: 23.3855}
+    - {label: stat, symerror: 15.52208}
+    value: 70.98514
+  - errors:
+    - {label: total, symerror: 6.826121}
+    - {label: stat, symerror: 5.570012}
+    value: 29.40573
+  - errors:
+    - {label: total, symerror: 2.726429}
+    - {label: stat, symerror: 2.516185}
+    value: 11.21402
+  - errors:
+    - {label: total, symerror: 1.156311}
+    - {label: stat, symerror: 1.013326}
+    value: 2.349018
+  - errors:
+    - {label: total, symerror: 0.06720641}
+    - {label: stat, symerror: 0.05964658}
+    value: 0.07711625
+- header: {name: Predicted Superchic 3.0($\gamma\gamma \rightarrow \gamma\gamma$),
+    units: '$d\sigma/d((p_{T}^{\gamma1} + p_{T}^{\gamma2}) / 2) [nb/GeV]$'}
+  qualifiers:
+  - {name: 'Pb+Pb $\sqrt{s_{NN}}$', units: GeV, value: 5020}
+  - {name: LUMINOSITY, units: 'nb$^{-1}$', value: 2.2}
+  values:
+  - errors:
+    - {symerror: 4.422225}
+    value: 44.22225
+  - errors:
+    - {symerror: 1.704803}
+    value: 17.04803
+  - errors:
+    - {symerror: 0.6310867}
+    value: 6.310867
+  - errors:
+    - {symerror: 0.2055551}
+    value: 2.055551
+  - errors:
+    - {symerror: 0.01103285}
+    value: 0.1213882
+independent_variables:
+- header: {name: '$(p_{T}^{\gamma1} + p_{T}^{\gamma2}) / 2 [GeV]$', units: ''}
+  values:
+  - {high: 3.5, low: 2.5}
+  - {high: 4.5, low: 3.5}
+  - {high: 6.0, low: 4.5}
+  - {high: 8.0, low: 6.0}
+  - {high: 30.0, low: 8.0}

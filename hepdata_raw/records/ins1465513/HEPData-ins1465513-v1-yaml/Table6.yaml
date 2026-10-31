@@ -1,0 +1,48 @@
+dependent_variables:
+- header: {name: D(SIG)/DY, units: MUB}
+  qualifiers:
+  - {name: RE, value: P PB --> CHARM CHARMBAR X}
+  - {name: RE, value: P PB --> D0 X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  - {name: YRAP(RF=CM), value: -0.96 - 0.04}
+  values:
+  - errors:
+    - {label: stat, symerror: 7.3}
+    - asymerror: {minus: -13.4, plus: 7.1}
+      label: sys
+    - {label: sys, symerror: 2.9}
+    - {label: sys, symerror: 1.0}
+    value: 79.0
+  - errors:
+    - {label: stat, symerror: 7.9}
+    - {label: sys, symerror: 7.2}
+    - {label: sys, symerror: 3.1}
+    - {label: sys, symerror: 1.1}
+    value: 83.0
+  - errors:
+    - {label: stat, symerror: 14.0}
+    - asymerror: {minus: -26.0, plus: 13.0}
+      label: sys
+    - {label: sys, symerror: 6.0}
+    - {label: sys, symerror: 7.0}
+    - {label: sys, symerror: 5.0}
+    value: 151.0
+- header: {name: <PT>, units: GEV/C}
+  qualifiers:
+  - {name: RE, value: P PB --> CHARM CHARMBAR X}
+  - {name: RE, value: P PB --> D0 X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  - {name: YRAP(RF=CM), value: -0.96 - 0.04}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.05}
+    - {label: sys, symerror: 0.1}
+    value: 2.13
+  - {value: '-'}
+  - {value: '-'}
+independent_variables:
+- header: {name: RE}
+  values:
+  - {value: P PB --> D0 (Q=PROMPT) X}
+  - {value: P PB --> D0 (Q=INCLUSIVE) X}
+  - {value: P PB --> CHARM CHARMBAR X}

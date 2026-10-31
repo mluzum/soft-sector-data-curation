@@ -1,0 +1,40 @@
+dependent_variables:
+- header: {name: '$\frac{d\sigma}{dy} (nb)$'}
+  qualifiers:
+  - {name: RE, value: P P --> UPSILON(2S) < MU+ MU- > X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 2760}
+  - {name: GLOBAL UNCERTAINTY, value: 3.7%}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.019}
+    - {label: syst, symerror: 0.013}
+    value: 0.241
+  - errors:
+    - {label: stat, symerror: 0.019}
+    - {label: syst, symerror: 0.014}
+    value: 0.237
+  - errors:
+    - {label: stat, symerror: 0.019}
+    - {label: syst, symerror: 0.02}
+    value: 0.22
+  - errors:
+    - {label: stat, symerror: 0.022}
+    - {label: syst, symerror: 0.021}
+    value: 0.228
+  - errors:
+    - {label: stat, symerror: 0.024}
+    - {label: syst, symerror: 0.033}
+    value: 0.224
+  - errors:
+    - {label: stat, symerror: 0.037}
+    - {label: syst, symerror: 0.009}
+    value: 0.145
+independent_variables:
+- header: {name: ABS(RAP)}
+  values:
+  - {high: 0.4, low: 0.0}
+  - {high: 0.8, low: 0.4}
+  - {high: 1.2, low: 0.8}
+  - {high: 1.6, low: 1.2}
+  - {high: 2.0, low: 1.6}
+  - {high: 2.4, low: 2.0}

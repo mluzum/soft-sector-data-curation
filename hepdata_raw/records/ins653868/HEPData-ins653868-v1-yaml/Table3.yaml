@@ -1,0 +1,26 @@
+dependent_variables:
+- header: {name: (1/(2*PI*PT(P=3)))*D2(N(P=3))/DYRAP(P=3)/DPT(P=3), units: GEV**-2}
+  qualifiers:
+  - {name: RE, value: DEUT AU --> D0 < K- PI+ > DBAR0 < K+ PI- > X}
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  - {name: YRAP, value: -1.0-1.0}
+  values:
+  - errors:
+    - {symerror: 0.00193}
+    value: 0.00678
+  - errors:
+    - {symerror: 0.00102}
+    value: 0.00329
+  - errors:
+    - {symerror: 0.00055}
+    value: 0.00216
+  - errors:
+    - {symerror: 9.4e-05}
+    value: 0.000217
+independent_variables:
+- header: {name: PT(P=3), units: GEV}
+  values:
+  - {high: 0.5, low: 0.1}
+  - {high: 1.0, low: 0.5}
+  - {high: 1.5, low: 1.0}
+  - {high: 3.0, low: 1.5}

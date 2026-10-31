@@ -1,0 +1,67 @@
+dependent_variables:
+- header: {name: '$d^{2}\mathrm{\sigma_{\gamma}}^{iso} / d{p}_{\mathrm{T}}^{\gamma}dy$',
+    units: 'nb/GeV/$\mathrm{c}$'}
+  qualifiers:
+  - {name: REACTION, value: P P --> ISO GAMMA X}
+  - {name: ABS(YRAP), value: <0.7}
+  - {name: SQRT(S), units: GEV, value: 8000.0}
+  - {name: Isolation cut, value: 'R = 0.4, $p_{\mathrm{T}}^{iso,ch}$ < 1.5 GeV/$\mathrm{c}$,
+      charged particle only'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.163952}
+    - {label: sys, symerror: 2.29622}
+    - {label: norm, symerror: 0.661757}
+    value: '18.3119'
+  - errors:
+    - {label: stat, symerror: 0.138511}
+    - {label: sys, symerror: 1.17495}
+    - {label: norm, symerror: 0.382782}
+    value: '10.5922'
+  - errors:
+    - {label: stat, symerror: 0.116736}
+    - {label: sys, symerror: 0.700813}
+    - {label: norm, symerror: 0.232002}
+    value: '6.4199'
+  - errors:
+    - {label: stat, symerror: 0.0977525}
+    - {label: sys, symerror: 0.442652}
+    - {label: norm, symerror: 0.146379}
+    value: '4.05056'
+  - errors:
+    - {label: stat, symerror: 0.0485459}
+    - {label: sys, symerror: 0.249151}
+    - {label: norm, symerror: 0.0816887}
+    value: '2.26047'
+  - errors:
+    - {label: stat, symerror: 0.0331118}
+    - {label: sys, symerror: 0.110199}
+    - {label: norm, symerror: 0.0355857}
+    value: '0.984717'
+  - errors:
+    - {label: stat, symerror: 0.0152129}
+    - {label: sys, symerror: 0.0464209}
+    - {label: norm, symerror: 0.0145951}
+    value: '0.403872'
+  - errors:
+    - {label: stat, symerror: 0.00509074}
+    - {label: sys, symerror: 0.0105891}
+    - {label: norm, symerror: 0.00312193}
+    value: '0.0863891'
+  - errors:
+    - {label: stat, symerror: 0.00204918}
+    - {label: sys, symerror: 0.00179908}
+    - {label: norm, symerror: 0.000479917}
+    value: '0.0132801'
+independent_variables:
+- header: {name: PT, units: GEV/c}
+  values:
+  - {high: 14, low: 12}
+  - {high: 16, low: 14}
+  - {high: 18, low: 16}
+  - {high: 20, low: 18}
+  - {high: 25, low: 20}
+  - {high: 30, low: 25}
+  - {high: 40, low: 30}
+  - {high: 60, low: 40}
+  - {high: 80, low: 60}

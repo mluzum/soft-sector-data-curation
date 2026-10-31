@@ -1,0 +1,35 @@
+dependent_variables:
+- header: {name: $v_2$}
+  qualifiers:
+  - {name: CENTRALITY, units: PCT, value: 0.0 TO 11}
+  - {name: PARTICLES, value: $K_s^0$}
+  - {name: RAPIDITY, value: -1.0 TO 1.0}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 130}
+  values:
+  - errors:
+    - {label: $stat$, symerror: 0.006}
+    value: 0.029
+  - errors:
+    - {label: $stat$, symerror: 0.005}
+    value: 0.013
+  - errors:
+    - {label: $stat$, symerror: 0.007}
+    value: 0.046
+  - errors:
+    - {label: $stat$, symerror: 0.01}
+    value: 0.058
+  - errors:
+    - {label: $stat$, symerror: 0.016}
+    value: 0.055
+  - errors:
+    - {label: $stat$, symerror: 0.025}
+    value: 0.098
+independent_variables:
+- header: {name: $p_T$, units: GeV/$c$}
+  values:
+  - {value: 0.654}
+  - {value: 1.02}
+  - {value: 1.41}
+  - {value: 1.81}
+  - {value: 2.203}
+  - {value: 2.604}

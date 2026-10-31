@@ -1,0 +1,49 @@
+dependent_variables:
+- header: {name: D(SIG)/DT, units: NB/GEV**2}
+  qualifiers:
+  - {name: P, units: GeV, value: '4.0'}
+  - {name: RE, value: GAMMA P --> (RHO0 + OMEGA) P}
+  - {name: SQRT(S), units: GeV, value: '2.895'}
+  - {name: SYS, value: BACKGROUND SUBTRACTION GIVEN 25 PCT UNCERTAINTY}
+  values:
+  - errors:
+    - {symerror: 52.0}
+    - {label: sys, symerror: 7.0%}
+    value: 555.0
+  - errors:
+    - {symerror: 5.7}
+    - {label: sys, symerror: 7.0%}
+    value: 56.8
+  - errors:
+    - {symerror: 2.3}
+    - {label: sys, symerror: 7.0%}
+    value: 26.5
+  - errors:
+    - {symerror: 1.9}
+    - {label: sys, symerror: 7.0%}
+    value: 14.5
+  - errors:
+    - {symerror: 2.0}
+    - {label: sys, symerror: 7.0%}
+    value: 31.4
+  - errors:
+    - {symerror: 5.6}
+    - {label: sys, symerror: 7.0%}
+    value: 53.3
+independent_variables:
+- header: {name: -T, units: GEV**2}
+  values:
+  - {value: 1.25}
+  - {value: 1.88}
+  - {value: 2.66}
+  - {value: 3.56}
+  - {value: 4.52}
+  - {value: 5.39}
+- header: {name: COS(THETA)}
+  values:
+  - {value: 0.589}
+  - {value: 0.381}
+  - {value: 0.125}
+  - {value: -0.172}
+  - {value: -0.489}
+  - {value: -0.777}

@@ -1,0 +1,67 @@
+dependent_variables:
+- header: {name: P_ANTI-LAMBDA (%)}
+  qualifiers:
+  - {name: RE, value: Pb Pb --> ANTI-LAMBDA X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 5020}
+  - {name: Particle, value: ANTI-LAMBDA}
+  - {name: ABS(RAPIDITY), value: < 0.5}
+  - {name: CENTRALITY, value: 5-15%}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.96}
+    - {label: sys, symerror: 0.24}
+    value: -0.18
+  - errors:
+    - {label: stat, symerror: 0.52}
+    - {label: sys, symerror: 0.2}
+    value: -0.8
+  - errors:
+    - {label: stat, symerror: 0.43}
+    - {label: sys, symerror: 0.18}
+    value: -0.39
+  - errors:
+    - {label: stat, symerror: 0.41}
+    - {label: sys, symerror: 0.17}
+    value: 0.34
+  - errors:
+    - {label: stat, symerror: 0.42}
+    - {label: sys, symerror: 0.17}
+    value: 0.61
+  - errors:
+    - {label: stat, symerror: 0.45}
+    - {label: sys, symerror: 0.17}
+    value: -0.37
+  - errors:
+    - {label: stat, symerror: 0.52}
+    - {label: sys, symerror: 0.18}
+    value: 0.35
+  - errors:
+    - {label: stat, symerror: 0.57}
+    - {label: sys, symerror: 0.19}
+    value: 0.17
+  - errors:
+    - {label: stat, symerror: 0.71}
+    - {label: sys, symerror: 0.21}
+    value: 0.88
+  - errors:
+    - {label: stat, symerror: 1.09}
+    - {label: sys, symerror: 0.25}
+    value: 0.24
+  - errors:
+    - {label: stat, symerror: 1.47}
+    - {label: sys, symerror: 0.36}
+    value: -2.09
+independent_variables:
+- header: {name: PT, units: GEV/C}
+  values:
+  - {high: 0.8, low: 0.5}
+  - {high: 1.1, low: 0.8}
+  - {high: 1.4, low: 1.1}
+  - {high: 1.7, low: 1.4}
+  - {high: 2, low: 1.7}
+  - {high: 2.3, low: 2}
+  - {high: 2.6, low: 2.3}
+  - {high: 3, low: 2.6}
+  - {high: 3.5, low: 3}
+  - {high: 4, low: 3.5}
+  - {high: 5, low: 4}

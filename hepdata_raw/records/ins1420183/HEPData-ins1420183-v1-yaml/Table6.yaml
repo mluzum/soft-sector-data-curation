@@ -1,0 +1,28 @@
+dependent_variables:
+- header: {name: $Bd^2N/(2\pi*p_T*dydp_T), units: '[nb/(GeV/c)^-2]'}
+  qualifiers:
+  - {name: PT, units: GeV c^-1, value: 0.0-3.0}
+  - {name: RE, value: AU AU --> (J/PSI + X)}
+  - {name: SCALING FACTOR, value: '1.0E-7'}
+  values:
+  - errors:
+    - {label: stat, symerror: 1.8}
+    - asymerror: {minus: -2.64, plus: 2.17}
+      label: sys
+    value: 7.87
+  - errors:
+    - {label: stat, symerror: 0.96}
+    - asymerror: {minus: -1.43, plus: 1.29}
+      label: sys
+    value: 4.69
+  - errors:
+    - {label: stat, symerror: 0.33}
+    - asymerror: {minus: -0.25, plus: 0.16}
+      label: sys
+    value: 0.62
+independent_variables:
+- header: {name: $p_T$, units: GEV/C}
+  values:
+  - {value: 0.63}
+  - {value: 1.45}
+  - {value: 2.4}

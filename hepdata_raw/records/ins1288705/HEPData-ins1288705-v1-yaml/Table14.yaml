@@ -1,0 +1,155 @@
+dependent_variables:
+- header: {name: Rinv}
+  qualifiers:
+  - {name: KT3, value: 0.16 TO 0.3 GeV/c}
+  - {name: RE, value: P P --> (PI+ + PI-) X}
+  - {name: SQRT(S), units: GeV, value: '7000.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0104}
+    - asymerror: {minus: -0.0616, plus: 0.122}
+      label: sys
+    value: 1.01
+  - errors:
+    - {label: stat, symerror: 0.00566}
+    - asymerror: {minus: -0.0726, plus: 0.144}
+      label: sys
+    value: 1.19
+  - errors:
+    - {label: stat, symerror: 0.00694}
+    - asymerror: {minus: -0.0836, plus: 0.166}
+      label: sys
+    value: 1.37
+  - errors:
+    - {label: stat, symerror: 0.0102}
+    - asymerror: {minus: -0.0928, plus: 0.184}
+      label: sys
+    value: 1.52
+  - errors:
+    - {label: stat, symerror: 0.0145}
+    - asymerror: {minus: -0.0999, plus: 0.198}
+      label: sys
+    value: 1.64
+  - errors:
+    - {label: stat, symerror: 0.0312}
+    - asymerror: {minus: -0.109, plus: 0.216}
+      label: sys
+    value: 1.8
+  - errors:
+    - {label: stat, symerror: 0.144}
+    - asymerror: {minus: -0.124, plus: 0.245}
+      label: sys
+    value: 2.03
+- header: {name: lambda}
+  qualifiers:
+  - {name: KT3, value: 0.16 TO 0.3 GeV/c}
+  - {name: RE, value: P P --> (PI+ + PI-) X}
+  - {name: SQRT(S), units: GeV, value: '7000.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.00608}
+    - asymerror: {minus: -0.0539, plus: 0.0555}
+      label: sys
+    value: 0.755
+  - errors:
+    - {label: stat, symerror: 0.00323}
+    - asymerror: {minus: -0.0546, plus: 0.0562}
+      label: sys
+    value: 0.765
+  - errors:
+    - {label: stat, symerror: 0.0037}
+    - asymerror: {minus: -0.0549, plus: 0.0565}
+      label: sys
+    value: 0.768
+  - errors:
+    - {label: stat, symerror: 0.00518}
+    - asymerror: {minus: -0.0548, plus: 0.0564}
+      label: sys
+    value: 0.768
+  - errors:
+    - {label: stat, symerror: 0.00707}
+    - asymerror: {minus: -0.0552, plus: 0.0568}
+      label: sys
+    value: 0.773
+  - errors:
+    - {label: stat, symerror: 0.0139}
+    - asymerror: {minus: -0.0529, plus: 0.0545}
+      label: sys
+    value: 0.741
+  - errors:
+    - {label: stat, symerror: 0.0659}
+    - asymerror: {minus: -0.0589, plus: 0.0606}
+      label: sys
+    value: 0.825
+- header: {name: 'Rinv,3'}
+  qualifiers:
+  - {name: KT3, value: 0.16 TO 0.3 GeV/c}
+  - {name: RE, value: P P --> (PI+ + PI-) X}
+  - {name: SQRT(S), units: GeV, value: '7000.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0405}
+    - {label: sys, symerror: 0.0592}
+    value: 1.16
+  - errors:
+    - {label: stat, symerror: 0.0181}
+    - {label: sys, symerror: 0.064}
+    value: 1.26
+  - errors:
+    - {label: stat, symerror: 0.0162}
+    - {label: sys, symerror: 0.072}
+    value: 1.41
+  - errors:
+    - {label: stat, symerror: 0.0225}
+    - {label: sys, symerror: 0.0778}
+    value: 1.52
+  - errors:
+    - {label: stat, symerror: 0.0299}
+    - {label: sys, symerror: 0.0845}
+    value: 1.66
+  - errors:
+    - {label: stat, symerror: 0.0657}
+    - {label: sys, symerror: 0.0941}
+    value: 1.85
+  - {value: '-'}
+- header: {name: 'lambda,3'}
+  qualifiers:
+  - {name: KT3, value: 0.16 TO 0.3 GeV/c}
+  - {name: RE, value: P P --> (PI+ + PI-) X}
+  - {name: SQRT(S), units: GeV, value: '7000.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.16}
+    - {label: sys, symerror: 0.404}
+    value: 2.13
+  - errors:
+    - {label: stat, symerror: 0.0484}
+    - {label: sys, symerror: 0.273}
+    value: 2.26
+  - errors:
+    - {label: stat, symerror: 0.0433}
+    - {label: sys, symerror: 0.264}
+    value: 2.28
+  - errors:
+    - {label: stat, symerror: 0.0532}
+    - {label: sys, symerror: 0.255}
+    value: 2.06
+  - errors:
+    - {label: stat, symerror: 0.0667}
+    - {label: sys, symerror: 0.24}
+    value: 1.97
+  - errors:
+    - {label: stat, symerror: 0.129}
+    - {label: sys, symerror: 0.251}
+    value: 1.81
+  - {value: '-'}
+independent_variables:
+- header: {name: Nch}
+  values:
+  - {high: 4.81, low: 4.35}
+  - {high: 9.03, low: 8.17}
+  - {high: 15.4, low: 13.9}
+  - {high: 21.3, low: 19.3}
+  - {high: 27.9, low: 25.2}
+  - {high: 38.9, low: 35.2}
+  - {high: 49.5, low: 44.8}

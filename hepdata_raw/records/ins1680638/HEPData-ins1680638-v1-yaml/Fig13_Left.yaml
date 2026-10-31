@@ -1,0 +1,52 @@
+dependent_variables:
+- header: {name: DN/DM, units: 1/(GEV/C**2)}
+  qualifiers:
+  - {name: RE, value: PB PB --> E+ E- X}
+  - {name: SQRT(S), units: GEV, value: '2760.0'}
+  - {name: ETARAP, value: -0.8 TO 0.8}
+  - {name: PTMIN, units: GEV/C, value: '0.4'}
+  - {name: PTEE, units: GEV/C, value: 1.0 TO 2.0}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.08669}
+    - {label: sys, symerror: 0.42895}
+    value: 6.00579
+  - errors:
+    - {label: stat, symerror: 0.03744}
+    - {label: sys, symerror: 0.08204}
+    value: 1.14871
+  - errors:
+    - {label: stat, symerror: 0.03042}
+    - {label: sys, symerror: 0.04173}
+    value: 0.58432
+  - errors:
+    - {label: stat, symerror: 0.02428}
+    - {label: sys, symerror: 0.01917}
+    value: 0.26835
+  - errors:
+    - {label: stat, symerror: 0.02088}
+    - {label: sys, symerror: 0.01067}
+    value: 0.14937
+  - errors:
+    - {label: stat, symerror: 0.01412}
+    - {label: sys, symerror: 0.00365}
+    value: 0.05108
+  - errors:
+    - {label: stat, symerror: 0.0164}
+    - {label: sys, symerror: 0.00355}
+    value: 0.04967
+  - errors:
+    - {label: stat, symerror: 0.01424}
+    - {label: sys, symerror: 0.00299}
+    value: 0.04186
+independent_variables:
+- header: {name: M, units: GEV/C**2}
+  values:
+  - {high: 0.02, low: 0.0, value: 0.01}
+  - {high: 0.04, low: 0.02, value: 0.03}
+  - {high: 0.06, low: 0.04, value: 0.05}
+  - {high: 0.08, low: 0.06, value: 0.07}
+  - {high: 0.1, low: 0.08, value: 0.09}
+  - {high: 0.15, low: 0.1, value: 0.125}
+  - {high: 0.2, low: 0.15, value: 0.175}
+  - {high: 0.3, low: 0.2, value: 0.25}

@@ -1,0 +1,392 @@
+observable_type: heavy_flavor
+inspire_id: '1829413'
+version: 1
+hepdata_file: integratedPpCrossSections.yaml
+hepdata_table_label: "Interpolated production cross sections and cross-section ratio\
+  \ for $\\Upsilon(1\\mathrm{S}) \\rightarrow \\mu^{+}\\mu^{-}$ and $\\Upsilon(2\\\
+  mathrm{S}) \\rightarrow \\mu^{+}\\mu^{-}$ in proton\u2013proton collisions, integrated\
+  \ over the rapidity interval 2.5\u20134.0 and $p_{\\mathrm{T}} <$ 15 GeV/$c$. Results\
+  \ used for the determination of the integrated nuclear modification factors and\
+  \ of the nuclear modification factors as a function of centrality (Figures 4 and\
+  \ 5 (right))."
+qualifiers:
+  \sqrt{s}: '5.02'
+  p_{\mathrm{t}}$ range: $p_{\mathrm{T}} <$ 15 GeV/$c$
+  rapidity interval: "2.5\u20134.0"
+  reaction: p + p --> Upsilon(nS) (--> Mu+ Mu-) + X
+collision_system:
+  energy_gev: 5020.0
+  reaction: Pb Pb --> UPSI(2S) < MU+ MU- > X
+centrality:
+  classes:
+  - 2.5-4.0%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: p
+  particle: upsilon
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+    bins:
+    - -0.8
+    - 0.8
+  pT:
+    min: 0.15
+    max: 50
+    bins:
+    - 0.15
+    - 50
+observable: upsilon_invariant_yield
+value_type: invariant_yield
+particle: upsilon
+---
+observable_type: heavy_flavor
+inspire_id: '1829413'
+version: 1
+hepdata_file: npartDoubleRatio.yaml
+hepdata_table_label: "Relative nuclear modification factor or double yield ratio between\
+  \ $\\Upsilon(2\\mathrm{S})$ and $\\Upsilon(1\\mathrm{S})$ as a function of the average\
+  \ number of participants $\\langle N_{\\mathrm{part}} \\rangle$ or as a function\
+  \ of the collision centrality. The global uncertainty corresponds to the systematic\
+  \ uncertainty on the cross-section ratio in proton\u2013proton collisions."
+qualifiers:
+  \sqrt{s_{\mathrm{nn}}}: '5.02'
+  global uncertainty: 2.5%
+  rapidity interval: "2.5\u20134.0"
+  reaction: Pb + Pb --> Upsilon(2S) (--> Mu+ Mu-) + X
+collision_system:
+  energy_gev: 5020.0
+  reaction: Pb Pb --> UPSI(2S) < MU+ MU- > X
+centrality:
+  classes:
+  - 30-90%
+  - 0-30%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: p
+  particle: upsilon
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+    bins:
+    - -0.8
+    - 0.8
+  pT:
+    min: 0.15
+    max: 50
+    bins:
+    - 0.15
+    - 50
+observable: upsilon_invariant_yield
+value_type: invariant_yield
+particle: upsilon
+---
+observable_type: heavy_flavor
+inspire_id: '1829413'
+version: 1
+hepdata_file: npartRaa1S.yaml
+hepdata_table_label: Nuclear modification factor of $\Upsilon(1\mathrm{S})$ as a function
+  of the average number of participants $\langle N_{\mathrm{part}} \rangle$ or as
+  a function of the collision centrality.
+qualifiers:
+  \sqrt{s_{\mathrm{nn}}}: '5.02'
+  global uncertainty: 6.9%
+  rapidity interval: "2.5\u20134.0"
+  reaction: Pb + Pb --> Upsilon(1S) (--> Mu+ Mu-) + X
+collision_system:
+  energy_gev: 5020.0
+  reaction: Pb Pb --> UPSI(2S) < MU+ MU- > X
+centrality:
+  classes:
+  - 70-90%
+  - 50-70%
+  - 40-50%
+  - 30-40%
+  - 20-30%
+  - 15-20%
+  - 10-15%
+  - 5-10%
+  - 0-5%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+  particle: D0
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+    bins:
+    - -0.8
+    - 0.8
+  pT:
+    min: 0.15
+    max: 50
+    bins:
+    - 0.15
+    - 50
+observable: d0_invariant_yield
+value_type: invariant_yield
+particle: D0
+---
+observable_type: heavy_flavor
+inspire_id: '1829413'
+version: 1
+hepdata_file: npartRaa2S.yaml
+hepdata_table_label: Nuclear modification factor of $\Upsilon(2\mathrm{S})$ as a function
+  of the average number of participants $\langle N_{\mathrm{part}} \rangle$ or as
+  a function of the collision centrality.
+qualifiers:
+  \sqrt{s_{\mathrm{nn}}}: '5.02'
+  global uncertainty: 8.7%
+  rapidity interval: "2.5\u20134.0"
+  reaction: Pb + Pb --> Upsilon(2S) (--> Mu+ Mu-) + X
+collision_system:
+  energy_gev: 5020.0
+  reaction: Pb Pb --> UPSI(2S) < MU+ MU- > X
+centrality:
+  classes:
+  - 30-90%
+  - 0-30%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+  particle: D0
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+    bins:
+    - -0.8
+    - 0.8
+  pT:
+    min: 0.15
+    max: 50
+    bins:
+    - 0.15
+    - 50
+observable: d0_invariant_yield
+value_type: invariant_yield
+particle: D0
+---
+observable_type: heavy_flavor
+inspire_id: '1829413'
+version: 1
+hepdata_file: npartYieldRatio.yaml
+hepdata_table_label: Ratio of $\Upsilon(2\mathrm{S})$ and $\Upsilon(1\mathrm{S})$
+  yields (cf. equation 2 in the article for the definition) as a function of the average
+  number of participants $\langle N_{\mathrm{part}} \rangle$ or as a function of the
+  collision centrality. The global uncertainty is the quadratic sum of the branching
+  ratio uncertainties.
+qualifiers:
+  \sqrt{s_{\mathrm{nn}}}: '5.02'
+  global uncertainty: 9.0%
+  rapidity interval: "2.5\u20134.0"
+  reaction: Pb + Pb --> Upsilon(2S) (--> Mu+ Mu-) + X
+collision_system:
+  energy_gev: 5020.0
+  reaction: Pb Pb --> UPSI(2S) < MU+ MU- > X
+centrality:
+  classes:
+  - 30-90%
+  - 0-30%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+  particle: upsilon
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+    bins:
+    - -0.8
+    - 0.8
+  pT:
+    min: 0.15
+    max: 50
+    bins:
+    - 0.15
+    - 50
+observable: upsilon_invariant_yield
+value_type: invariant_yield
+particle: upsilon
+---
+observable_type: heavy_flavor
+inspire_id: '1829413'
+version: 1
+hepdata_file: ptRaa1S.yaml
+hepdata_table_label: "Nuclear modification factor of $\\Upsilon(1\\mathrm{S})$ as\
+  \ a function of transverse momentum for the 0\u201390% centrality interval."
+qualifiers:
+  \sqrt{s_{\mathrm{nn}}}: '5.02'
+  centrality interval: "0\u201390%"
+  global uncertainty: 1.5%
+  rapidity interval: "2.5\u20134.0"
+  reaction: Pb + Pb --> Upsilon(1S) (--> Mu+ Mu-) + X
+collision_system:
+  energy_gev: 5020.0
+  reaction: Pb Pb --> UPSI(2S) < MU+ MU- > X
+centrality:
+  classes:
+  - 0-90%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+  particle: D0
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+    bins:
+    - -0.8
+    - 0.8
+  pT:
+    min: 0.15
+    max: 50
+    bins:
+    - 0.15
+    - 50
+observable: d0_invariant_yield
+value_type: invariant_yield
+particle: D0
+---
+observable_type: heavy_flavor
+inspire_id: '1829413'
+version: 1
+hepdata_file: rapidityRaa1S.yaml
+hepdata_table_label: "Nuclear modification factor of $\\Upsilon(1\\mathrm{S})$ as\
+  \ a function of rapidity for the 0\u201390% centrality interval."
+qualifiers:
+  \sqrt{s_{\mathrm{nn}}}: '5.02'
+  centrality interval: "0\u201390%"
+  global uncertainty: 1.5%
+  reaction: Pb + Pb --> Upsilon(1S) (--> Mu+ Mu-) + X
+collision_system:
+  energy_gev: 5020.0
+  reaction: Pb Pb --> UPSI(2S) < MU+ MU- > X
+centrality:
+  classes:
+  - 0-90%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+  particle: D0
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+    bins:
+    - -0.8
+    - 0.8
+  pT:
+    min: 0.15
+    max: 50
+    bins:
+    - 0.15
+    - 50
+observable: d0_invariant_yield
+value_type: invariant_yield
+particle: D0
+---
+observable_type: heavy_flavor
+inspire_id: '1829413'
+version: 1
+hepdata_file: rapidityRaa2S.yaml
+hepdata_table_label: "Nuclear modification factor of $\\Upsilon(2\\mathrm{S})$ as\
+  \ a function of rapidity for the 0\u201390% centrality interval."
+qualifiers:
+  \sqrt{s_{\mathrm{nn}}}: '5.02'
+  centrality interval: "0\u201390%"
+  global uncertainty: 1.5%
+  reaction: Pb + Pb --> Upsilon(2S) (--> Mu+ Mu-) + X
+collision_system:
+  energy_gev: 5020.0
+  reaction: Pb Pb --> UPSI(2S) < MU+ MU- > X
+centrality:
+  classes:
+  - 0-90%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+  particle: D0
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+    bins:
+    - -0.8
+    - 0.8
+  pT:
+    min: 0.15
+    max: 50
+    bins:
+    - 0.15
+    - 50
+observable: d0_invariant_yield
+value_type: invariant_yield
+particle: D0

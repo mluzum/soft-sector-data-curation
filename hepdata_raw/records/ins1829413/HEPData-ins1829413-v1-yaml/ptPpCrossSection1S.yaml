@@ -1,0 +1,31 @@
+dependent_variables:
+- header: {name: '$\frac{\mathrm{d}^{2} \sigma^{\mathrm{pp}}_{\Upsilon(1\mathrm{S})
+      \rightarrow \mu^{+} \mu^{-}}}{\mathrm{d}y \mathrm{d}p_{\mathrm{T}}}$', units: pb/(GeV/$c$)}
+  qualifiers:
+  - {name: Reaction, value: p + p --> Upsilon(1S) (--> Mu+ Mu-) + X}
+  - {name: '$\sqrt{s}$', units: TeV, value: '5.02'}
+  - {name: Rapidity interval, value: "2.5\u20134.0"}
+  values:
+  - errors:
+    - {symerror: 4.7}
+    value: 74.0
+  - errors:
+    - {symerror: 7.7}
+    value: 121.9
+  - errors:
+    - {symerror: 5.6}
+    value: 97.4
+  - errors:
+    - {symerror: 4.3}
+    value: 49.1
+  - errors:
+    - {symerror: 2.0}
+    value: 12.5
+independent_variables:
+- header: {name: '$p_{\mathrm{T}}$ interval', units: GeV/$c$}
+  values:
+  - {high: 2, low: 0}
+  - {high: 4, low: 2}
+  - {high: 6, low: 4}
+  - {high: 9, low: 6}
+  - {high: 15, low: 9}

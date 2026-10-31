@@ -1,0 +1,29 @@
+dependent_variables:
+- header: {name: '$P_{\Xi^{-}+\bar\Xi^{+}}$ [%]'}
+  qualifiers:
+  - {name: '20-50 Centrality [%]', value: Polarization transfer method}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.21}
+    - {label: sys, symerror: 0.04}
+    value: 0.61
+- header: {name: '$P_{\Xi^{-}+\bar\Xi^{+}}$ [%]'}
+  qualifiers:
+  - {name: '20-50 Centrality [%]', value: Direct measurement method}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.4}
+    - {label: sys, symerror: 0.08}
+    value: -0.32
+- header: {name: '$P_{\Lambda+\bar\Lambda}$ [%]'}
+  qualifiers:
+  - {name: '20-50 Centrality [%]', value: Inclusive $\Lambda+\bar\Lambda$}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.035}
+    - {label: sys, symerror: 0.04}
+    value: 0.292
+independent_variables:
+- header: {name: '20-50 Centrality [%]'}
+  values:
+  - {high: 50, low: 20}

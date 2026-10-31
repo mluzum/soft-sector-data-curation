@@ -1,0 +1,84 @@
+dependent_variables:
+- header: {name: '$(\Omega^{-} + \Omega^{+}) / 2{\rm K}_{\rm S}^{0}$'}
+  qualifiers:
+  - {name: RE, value: 'P PB --> JET KS X, P PB --> JET OMEGA X'}
+  - {name: SQRT(S), units: GeV, value: '5020'}
+  - {name: CENTRALITY, value: MB}
+  - {name: YRAP, value: '$-0.75 < \eta_{\rm particle} < 0.75$, $-0.35 < \eta_{\rm
+      jet} < 0.35$'}
+  - {name: SELECTION, value: Production in jets}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.00431}
+    - {label: sys, symerror: 0.000626}
+    value: 0.0059
+  - errors:
+    - {label: stat, symerror: 0.00991}
+    - {label: sys, symerror: 0.00267}
+    value: 0.0177
+  - errors:
+    - {label: stat, symerror: 0.00363}
+    - {label: sys, symerror: 0.00128}
+    value: 0.0099
+  - errors:
+    - {label: stat, symerror: 0.00328}
+    - {label: sys, symerror: 0.000872}
+    value: 0.0117
+- header: {name: '$(\Omega^{-} + \Omega^{+}) / (\Lambda + \overline{\Lambda})$'}
+  qualifiers:
+  - {name: RE, value: 'P PB --> JET LAMBDA X, P PB --> JET LAMBDABAR X, P PB --> JET
+      OMEGA X'}
+  - {name: SQRT(S), units: GeV, value: '5020'}
+  - {name: CENTRALITY, value: MB}
+  - {name: YRAP, value: '$-0.75 < \eta_{\rm particle} < 0.75$, $-0.35 < \eta_{\rm
+      jet} < 0.35$'}
+  - {name: SELECTION, value: Production in jets}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0277}
+    - {label: sys, symerror: 0.0039}
+    value: 0.0379
+  - errors:
+    - {label: stat, symerror: 0.0316}
+    - {label: sys, symerror: 0.00885}
+    value: 0.0562
+  - errors:
+    - {label: stat, symerror: 0.0114}
+    - {label: sys, symerror: 0.00393}
+    value: 0.0308
+  - errors:
+    - {label: stat, symerror: 0.0103}
+    - {label: sys, symerror: 0.00294}
+    value: 0.0365
+- header: {name: '$(\Omega^{-} + \Omega^{+}) / (\Xi^{-} + \Xi^{+})$'}
+  qualifiers:
+  - {name: RE, value: 'P PB --> JET XI X, P PB --> JET OMEGA X'}
+  - {name: SQRT(S), units: GeV, value: '5020'}
+  - {name: CENTRALITY, value: MB}
+  - {name: YRAP, value: '$-0.75 < \eta_{\rm particle} < 0.75$, $-0.35 < \eta_{\rm
+      jet} < 0.35$'}
+  - {name: SELECTION, value: Production in jets}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.382}
+    - {label: sys, symerror: 0.0714}
+    value: 0.48
+  - errors:
+    - {label: stat, symerror: 0.374}
+    - {label: sys, symerror: 0.0992}
+    value: 0.64
+  - errors:
+    - {label: stat, symerror: 0.114}
+    - {label: sys, symerror: 0.0403}
+    value: 0.295
+  - errors:
+    - {label: stat, symerror: 0.104}
+    - {label: sys, symerror: 0.0298}
+    value: 0.341
+independent_variables:
+- header: {name: '$p_{\rm T}$', units: GeV/$c$}
+  values:
+  - {high: 2.2, low: 0.9}
+  - {high: 2.8, low: 2.2}
+  - {high: 3.7, low: 2.8}
+  - {high: 5.0, low: 3.7}

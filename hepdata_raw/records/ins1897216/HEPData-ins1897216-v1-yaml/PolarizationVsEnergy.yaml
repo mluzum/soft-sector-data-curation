@@ -1,0 +1,18 @@
+dependent_variables:
+- header: {name: '$\overline{P}_\Lambda$', units: '%'}
+  qualifiers:
+  - {name: Detector, value: STAR}
+  - {name: Collision species, value: Au+Au}
+  - {name: Centrality, units: '%', value: '[20,50]'}
+  - {name: '$p_{\rm T}$', units: GeV/$c$, value: '>0.7'}
+  - {name: $y$, value: '[-0.2,1]'}
+  - {name: $\alpha_\Lambda$, value: '0.732'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.81389}
+    - {label: sys, symerror: 0.15485}
+    value: 4.90823
+independent_variables:
+- header: {name: '$\sqrt{s_{\rm NN}}$', units: $\rm GeV$}
+  values:
+  - {high: 3.0, low: 3.0}

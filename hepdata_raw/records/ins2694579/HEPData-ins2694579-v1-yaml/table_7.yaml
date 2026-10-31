@@ -1,0 +1,55 @@
+dependent_variables:
+- header: {name: HM/MB}
+  qualifiers:
+  - {name: Collision system, value: pp}
+  - {name: '$\sqrt{s}$', units: TeV, value: 13}
+  - {name: Jet algorithm, value: 'anti-$k_{\mathrm{T}}$'}
+  - {name: Jet $R$, value: 0.4}
+  - {name: '$|\eta_{\mathrm{jet}}|$', value: < 0.5}
+  - {name: '$p_{\mathrm{T, jet}}^{\mathrm{ch}}$', value: '$\in (40, 60)$ GeV/$c$'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.39}
+    - asymerror: {minus: -0.04, plus: 0.03}
+      label: sys
+    value: 1.24
+  - errors:
+    - {label: stat, symerror: 0.19}
+    - asymerror: {minus: -0.03, plus: 0.03}
+      label: sys
+    value: 0.81
+  - errors:
+    - {label: stat, symerror: 0.24}
+    - asymerror: {minus: -0.03, plus: 0.03}
+      label: sys
+    value: 1.41
+  - errors:
+    - {label: stat, symerror: 0.15}
+    - asymerror: {minus: -0.03, plus: 0.02}
+      label: sys
+    value: 0.89
+  - errors:
+    - {label: stat, symerror: 0.1}
+    - asymerror: {minus: -0.02, plus: 0.02}
+      label: sys
+    value: 0.79
+  - errors:
+    - {label: stat, symerror: 0.083}
+    - asymerror: {minus: -0.019, plus: 0.017}
+      label: sys
+    value: 0.813
+  - errors:
+    - {label: stat, symerror: 0.062}
+    - asymerror: {minus: -0.008, plus: 0.005}
+      label: sys
+    value: 0.778
+independent_variables:
+- header: {name: $\Delta\phi$, units: rad}
+  values:
+  - {high: 1.885, low: 1.571}
+  - {high: 2.199, low: 1.885}
+  - {high: 2.513, low: 2.199}
+  - {high: 2.67, low: 2.513}
+  - {high: 2.827, low: 2.67}
+  - {high: 2.985, low: 2.827}
+  - {high: 3.142, low: 2.985}

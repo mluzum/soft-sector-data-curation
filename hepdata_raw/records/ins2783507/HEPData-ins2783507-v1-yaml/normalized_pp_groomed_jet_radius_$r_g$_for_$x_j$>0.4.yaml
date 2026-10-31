@@ -1,0 +1,108 @@
+dependent_variables:
+- header: {name: Normalized yield}
+  qualifiers:
+  - {name: '$p_{T}^{\gamma}$', value: '> 100 GeV'}
+  - {name: '$|\eta_{\gamma}|$', value: < 1.44}
+  - {name: '$|\eta_{jet}|$', value: < 2}
+  - {name: '$\Delta \phi_{\gamma,jet}$', value: $> 2\pi/3$}
+  - {name: SQRT(S_NN), value: 5020 GeV}
+  - {name: RE, value: P P --> Photon + Jet}
+  values:
+  - errors:
+    - {label: Statistical, symerror: '0.0405'}
+    - {label: Response Matrix stats, symerror: '0.0291'}
+    - asymerror: {minus: -0.0006, plus: 0.0006}
+      label: $\gamma$ Purity (sym)
+    - asymerror: {minus: 0.0025, plus: 0.0069}
+      label: JEC
+    - asymerror: {minus: -0.0038, plus: 0.0062}
+      label: JER
+    - asymerror: {minus: 0.0079, plus: 0.0037}
+      label: E/$\gamma$ PF scale
+    - asymerror: {minus: -0.0002, plus: -0.0003}
+      label: Charged Hadron PF scale
+    - asymerror: {minus: -0.01, plus: 0.0043}
+      label: Neutral Hadron PF scale
+    - asymerror: {minus: 0.2215, plus: -0.2215}
+      label: Fragmentation Model (sym)
+    value: '0.9237'
+  - errors:
+    - {label: Statistical, symerror: '0.1288'}
+    - {label: Response Matrix stats, symerror: '0.0828'}
+    - asymerror: {minus: -0.0167, plus: 0.0167}
+      label: $\gamma$ Purity (sym)
+    - asymerror: {minus: -0.0893, plus: 0.0616}
+      label: JEC
+    - asymerror: {minus: 0.0006, plus: 0.0118}
+      label: JER
+    - asymerror: {minus: -0.0149, plus: 0.023}
+      label: E/$\gamma$ PF scale
+    - asymerror: {minus: 0.0377, plus: -0.0109}
+      label: Charged Hadron PF scale
+    - asymerror: {minus: -0.0185, plus: -0.0082}
+      label: Neutral Hadron PF scale
+    - asymerror: {minus: -0.392, plus: 0.392}
+      label: Fragmentation Model (sym)
+    value: '8.9472'
+  - errors:
+    - {label: Statistical, symerror: '0.1221'}
+    - {label: Response Matrix stats, symerror: '0.0929'}
+    - asymerror: {minus: 0.002, plus: -0.002}
+      label: $\gamma$ Purity (sym)
+    - asymerror: {minus: -0.0191, plus: 0.0076}
+      label: JEC
+    - asymerror: {minus: -0.0003, plus: -0.0183}
+      label: JER
+    - asymerror: {minus: 0.0207, plus: -0.0133}
+      label: E/$\gamma$ PF scale
+    - asymerror: {minus: -0.0344, plus: -0.0054}
+      label: Charged Hadron PF scale
+    - asymerror: {minus: 0.026, plus: 0.0112}
+      label: Neutral Hadron PF scale
+    - asymerror: {minus: -0.0129, plus: 0.0129}
+      label: Fragmentation Model (sym)
+    value: '7.3501'
+  - errors:
+    - {label: Statistical, symerror: '0.0869'}
+    - {label: Response Matrix stats, symerror: '0.0733'}
+    - asymerror: {minus: 0.0066, plus: -0.0066}
+      label: $\gamma$ Purity (sym)
+    - asymerror: {minus: 0.0444, plus: -0.0318}
+      label: JEC
+    - asymerror: {minus: 0.0011, plus: 0.0021}
+      label: JER
+    - asymerror: {minus: 0.0072, plus: -0.0066}
+      label: E/$\gamma$ PF scale
+    - asymerror: {minus: 0.0148, plus: 0.0173}
+      label: Charged Hadron PF scale
+    - asymerror: {minus: 0.0185, plus: 0.0028}
+      label: Neutral Hadron PF scale
+    - asymerror: {minus: -0.0604, plus: 0.0604}
+      label: Fragmentation Model (sym)
+    value: '3.4974'
+  - errors:
+    - {label: Statistical, symerror: '0.0483'}
+    - {label: Response Matrix stats, symerror: '0.0447'}
+    - asymerror: {minus: 0.0044, plus: -0.0044}
+      label: $\gamma$ Purity (sym)
+    - asymerror: {minus: 0.0302, plus: -0.0227}
+      label: JEC
+    - asymerror: {minus: 0.0017, plus: -0.0015}
+      label: JER
+    - asymerror: {minus: -0.0111, plus: -0.0036}
+      label: E/$\gamma$ PF scale
+    - asymerror: {minus: -0.0087, plus: -0.0001}
+      label: Charged Hadron PF scale
+    - asymerror: {minus: -0.0065, plus: -0.0059}
+      label: Neutral Hadron PF scale
+    - asymerror: {minus: 0.1064, plus: -0.1064}
+      label: Fragmentation Model (sym)
+    value: '1.9971'
+independent_variables:
+- header: {name: Groomed jet radius $R_g$}
+  values:
+  - {high: 0.0, low: -0.05}
+  - {high: 0.04, low: 0.0}
+  - {high: 0.08, low: 0.04}
+  - {high: 0.12, low: 0.08}
+  - {high: 0.2, low: 0.12}

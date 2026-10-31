@@ -1,0 +1,61 @@
+dependent_variables:
+- header: {name: '$1/N_{ev} d^2N/(dy dp_{\rm T}) (\mathrm{GeV}/c)^{-1}$'}
+  qualifiers:
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '2760.0'}
+  - {name: PT, units: GEV, value: 4.4 TO 8.0}
+  - {name: CENTRALITY, value: 0 TO 10%}
+  values:
+  - errors:
+    - {label: stat, symerror: 8.89e-05}
+    - {label: sys, symerror: 0.0003585}
+    value: 0.003131
+  - errors:
+    - {label: stat, symerror: 2.558e-05}
+    - {label: sys, symerror: 8.089e-05}
+    value: 0.0009094
+  - errors:
+    - {label: stat, symerror: 2.13e-05}
+    - {label: sys, symerror: 1.544e-05}
+    value: 7.839e-05
+- header: {name: '$1/N_{ev} d^2N/(dy dp_{\rm T}) (\mathrm{GeV}/c)^{-1}$'}
+  qualifiers:
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '2760.0'}
+  - {name: PT, units: GEV, value: 4.4 TO 8.0}
+  - {name: CENTRALITY, value: 10 TO 20%}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0001347}
+    - {label: sys, symerror: 0.00021553}
+    value: 0.001882
+  - errors:
+    - {label: stat, symerror: 0.0001894}
+    - {label: sys, symerror: 8.632e-05}
+    value: 0.0007538
+  - errors:
+    - {label: stat, symerror: '-'}
+    - {label: sys, symerror: '-'}
+    value: '-'
+- header: {name: '$1/N_{ev} d^2N/(dy dp_{\rm T}) (\mathrm{GeV}/c)^{-1}$'}
+  qualifiers:
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '2760.0'}
+  - {name: PT, units: GEV, value: 4.4 TO 8.0}
+  - {name: CENTRALITY, value: 20 TO 40%}
+  values:
+  - errors:
+    - {label: stat, symerror: 5.185e-05}
+    - {label: sys, symerror: 9.3917e-05}
+    value: 0.0008202
+  - errors:
+    - {label: stat, symerror: 0.0001374}
+    - {label: sys, symerror: 4.0526e-05}
+    value: 0.0003539
+  - errors:
+    - {label: stat, symerror: '-'}
+    - {label: sys, symerror: '-'}
+    value: '-'
+independent_variables:
+- header: {name: '$p_{\rm{T}} ({\rm{GeV}/}c)$'}
+  values:
+  - {high: 5.0, low: 4.4}
+  - {high: 6.0, low: 5.0}
+  - {high: 8.0, low: 6.0}

@@ -1,0 +1,35 @@
+dependent_variables:
+- header: {name: 'Invariant yields of $\overline{d}$', units: 'GeV$^{-2}c^3$'}
+  qualifiers:
+  - {name: PARTICLES, value: '$\overline{d}$'}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 130}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.00026}
+    value: 0.00247
+  - errors:
+    - {label: stat, symerror: 0.00019}
+    value: 0.00187
+  - errors:
+    - {label: stat, symerror: 0.0002}
+    value: 0.00193
+- header: {name: 'Invariant yields of $\overline{p}$', units: 'GeV$^{-2}c^3$'}
+  qualifiers:
+  - {name: PARTICLES, value: '$\overline{p}$'}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 130}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.12}
+    value: 4.2
+  - errors:
+    - {label: stat, symerror: 0.1}
+    value: 4.0
+  - errors:
+    - {label: stat, symerror: 0.09}
+    value: 3.82
+independent_variables:
+- header: {name: $p_T$, units: GeV/$c$}
+  values:
+  - {value: 0.55}
+  - {value: 0.65}
+  - {value: 0.75}

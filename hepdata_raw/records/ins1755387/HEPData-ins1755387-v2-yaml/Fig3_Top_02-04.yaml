@@ -1,0 +1,59 @@
+dependent_variables:
+- header: {name: '$\sigma^{R=0.2}/\sigma^{R=0.4}$'}
+  qualifiers:
+  - {name: RE, value: P P --> jet + X}
+  - {name: SQRT(S), units: GEV, value: 5020}
+  - {name: YRAP Numerator, value: -0.5 TO 0.5}
+  - {name: YRAP Denominator, value: -0.3 TO 0.3}
+  - {name: jet radius Numerator, value: '0.2'}
+  - {name: jet radius Denominator, value: '0.4'}
+  - {name: jet method, value: 'Anti-$k_{T}$'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.003067903}
+    - {label: sys, symerror: 0.01020323}
+    value: 0.3748465
+  - errors:
+    - {label: stat, symerror: 0.006192544}
+    - {label: sys, symerror: 0.008128253}
+    value: 0.462193
+  - errors:
+    - {label: stat, symerror: 0.009911522}
+    - {label: sys, symerror: 0.00735461}
+    value: 0.5191932
+  - errors:
+    - {label: stat, symerror: 0.01476988}
+    - {label: sys, symerror: 0.007758506}
+    value: 0.5534785
+  - errors:
+    - {label: stat, symerror: 0.0198384}
+    - {label: sys, symerror: 0.009921819}
+    value: 0.5713687
+  - errors:
+    - {label: stat, symerror: 0.02648903}
+    - {label: sys, symerror: 0.01296713}
+    value: 0.5942799
+  - errors:
+    - {label: stat, symerror: 0.03719335}
+    - {label: sys, symerror: 0.02381679}
+    value: 0.620259
+  - errors:
+    - {label: stat, symerror: 0.05354869}
+    - {label: sys, symerror: 0.04412515}
+    value: 0.6505967
+  - errors:
+    - {label: stat, symerror: 0.07344715}
+    - {label: sys, symerror: 0.06176277}
+    value: 0.6712674
+independent_variables:
+- header: {name: PTjet, units: GEV}
+  values:
+  - {high: 30, low: 20}
+  - {high: 40, low: 30}
+  - {high: 50, low: 40}
+  - {high: 60, low: 50}
+  - {high: 70, low: 60}
+  - {high: 80, low: 70}
+  - {high: 100, low: 80}
+  - {high: 120, low: 100}
+  - {high: 140, low: 120}

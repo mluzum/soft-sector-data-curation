@@ -1,0 +1,39 @@
+dependent_variables:
+- header: {name: Ratio of Data to PYTHIA embedded}
+  qualifiers:
+  - {name: SQRT(S), units: GEV, value: '2760.0'}
+  - {name: YRAP, value: -0.5 TO 0.5}
+  values:
+  - errors:
+    - {label: stat, symerror: '0.065'}
+    - asymerror: {minus: '-0.060', plus: '0.052'}
+      label: sys
+    value: '0.976'
+  - errors:
+    - {label: stat, symerror: '0.110'}
+    - asymerror: {minus: '-0.122', plus: '0.128'}
+      label: sys
+    value: '0.863'
+  - errors:
+    - {label: stat, symerror: '0.155'}
+    - asymerror: {minus: '-0.107', plus: '0.033'}
+      label: sys
+    value: '0.843'
+  - errors:
+    - {label: stat, symerror: '0.165'}
+    - asymerror: {minus: '-0.142', plus: '0.090'}
+      label: sys
+    value: '0.690'
+  - errors:
+    - {label: stat, symerror: '0.126'}
+    - asymerror: {minus: '-0.060', plus: '0.060'}
+      label: sys
+    value: '0.393'
+independent_variables:
+- header: {name: '$z_{\rm g}$'}
+  values:
+  - {high: 0.175, low: 0.1}
+  - {high: 0.25, low: 0.175}
+  - {high: 0.325, low: 0.25}
+  - {high: 0.4, low: 0.325}
+  - {high: 0.5, low: 0.4}

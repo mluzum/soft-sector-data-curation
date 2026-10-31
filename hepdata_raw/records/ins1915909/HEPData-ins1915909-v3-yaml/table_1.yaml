@@ -1,0 +1,36 @@
+dependent_variables:
+- header: {name: '$v_{2}$'}
+  qualifiers:
+  - {name: RE, value: Pb Pb --> Z --> l+l-}
+  - {name: SQRT(s)/NUCLEON, units: GeV, value: 5020}
+  - {name: '$m_{ll}$', units: GeV, value: 60.0 - 120.0}
+  - {name: Rapidity, value: -2.1 - 2.1}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0091}
+    - {label: syst, symerror: 0.0002}
+    value: -0.0147
+  - errors:
+    - {label: stat, symerror: 0.0074}
+    - {label: syst, symerror: 0.0005}
+    value: -0.0009
+  - errors:
+    - {label: stat, symerror: 0.0124}
+    - {label: syst, symerror: 0.0029}
+    value: 0.0024
+  - errors:
+    - {label: stat, symerror: 0.0257}
+    - {label: syst, symerror: 0.006}
+    value: -0.0139
+  - errors:
+    - {label: stat, symerror: 0.0053}
+    - {label: syst, symerror: 0.0001}
+    value: -0.006
+independent_variables:
+- header: {name: Centrality (%)}
+  values:
+  - {high: 10, low: 0}
+  - {high: 30, low: 10}
+  - {high: 50, low: 30}
+  - {high: 90, low: 50}
+  - {high: 90, low: 0}

@@ -1,0 +1,30 @@
+dependent_variables:
+- header: {name: '$N_{part}$'}
+  qualifiers:
+  - {name: '|$y$|', value: ''}
+  values:
+  - {value: 85.9}
+  - {value: 45.2}
+  - {value: 11.7}
+- header: {name: '$R_{AA}$'}
+  qualifiers:
+  - {name: '|$y$|', value: '1.65'}
+  values:
+  - errors:
+    - {label: Stat. Error, symerror: 0.06}
+    - {label: Sys. Error, symerror: 0.13}
+    value: 0.44
+  - errors:
+    - {label: Stat. Error, symerror: 0.08}
+    - {label: Sys. Error, symerror: 0.29}
+    value: 1.05
+  - errors:
+    - {label: Stat. Error, symerror: 0.11}
+    - {label: Sys. Error, symerror: 0.25}
+    value: 0.83
+independent_variables:
+- header: {name: Centrality (%)}
+  values:
+  - {high: 20, low: 0.0}
+  - {high: 40, low: 20}
+  - {high: 94, low: 40}

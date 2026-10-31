@@ -1,0 +1,96 @@
+---
+observable_type: mean_pT_fluctuations
+inspire_id: '2829186'
+version: 1
+hepdata_file: b+_cross_section.yaml
+hepdata_table_label: The B+ meson $p_{\rm{T}}$-dependent production cross section in pp collisions. The measurment was carried
+  out inside a fiducial region respecting ($p_{\rm{T}}$<10 & 1.5<|y|<2.4) and ($p_{\rm{T}}$>10 & |y|<2.4). The luminosity
+  is 302.3 pb^{-1}.
+qualifiers:
+  re: B+ --> J/Psi(mu+mu-) K+
+  sqrt(s): '5020'
+  '|y|': ''
+collision_system:
+  energy_gev: 5020.0
+  reaction: B+ --> J/Psi(mu+mu-) K+
+centrality:
+  classes:
+  - MB
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: K+
+kinematic_range:
+  pT:
+    min: 5.0
+    max: 60.0
+    bins:
+    - 5.0
+    - 7.0
+    - 10.0
+    - 15.0
+    - 20.0
+    - 30.0
+    - 50.0
+    - 60.0
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+observable: sigma_mean_pT
+value_type: Sigma
+---
+observable_type: mean_pT_fluctuations
+inspire_id: '2829186'
+version: 1
+hepdata_file: bs_cross_section.yaml
+hepdata_table_label: The Bs meson $p_{\rm{T}}$-dependent production cross section in pp collisions. The measurment was carried
+  out inside a fiducial region respecting (pT<10 & 1.5<|y|<2.4) and ($p_{\rm{T}}$>10 & |y|<2.4). The luminosity is 302.3 pb^{-1}.
+qualifiers:
+  re: Bs0 --> J/Psi(mu+mu-) phi(K+K-)
+  sqrt(s): '5020'
+  '|y|': ''
+collision_system:
+  energy_gev: 5020.0
+  reaction: Bs0 --> J/Psi(mu+mu-) phi(K+K-)
+centrality:
+  classes:
+  - MB
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: K+
+kinematic_range:
+  pT:
+    min: 7.0
+    max: 50.0
+    bins:
+    - 7.0
+    - 10.0
+    - 15.0
+    - 20.0
+    - 50.0
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+observable: sigma_mean_pT
+value_type: Sigma

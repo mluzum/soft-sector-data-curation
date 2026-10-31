@@ -1,0 +1,39 @@
+dependent_variables:
+- header: {name: '$\sqrt{<v_2^2>}$', units: PCT}
+  qualifiers:
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  - {name: v2, value: ''}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0017}
+    - asymerror: {minus: -0.07, plus: 0.03}
+      label: sys
+    value: 4.0406
+  - errors:
+    - {label: stat, symerror: 0.002}
+    - asymerror: {minus: -0.07, plus: 0.08}
+      label: sys
+    value: 6.27
+  - errors:
+    - {label: stat, symerror: 0.003}
+    - asymerror: {minus: -0.1, plus: 0.09}
+      label: sys
+    value: 7.018
+  - errors:
+    - {label: stat, symerror: 0.005}
+    - asymerror: {minus: -0.09, plus: 0.19}
+      label: sys
+    value: 7.305
+  - errors:
+    - {label: stat, symerror: 0.0012}
+    - asymerror: {minus: -0.13, plus: 0.4}
+      label: sys
+    value: 6.39
+independent_variables:
+- header: {name: CENTRALITY, units: PCT}
+  values:
+  - {high: 20.0, low: 0.0}
+  - {high: 30.0, low: 20.0}
+  - {high: 40.0, low: 30.0}
+  - {high: 50.0, low: 40.0}
+  - {high: 80.0, low: 50.0}

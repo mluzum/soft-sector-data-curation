@@ -1,0 +1,60 @@
+dependent_variables:
+- header: {name: '$(N_{\ell}^+ - N_{\ell}^-)/(N_{\ell}^+ + N_{\ell}^-)$'}
+  qualifiers:
+  - {name: PT(LEPTON), units: GEV, value: '> 25.0'}
+  - {name: RE, value: P PB --> W <LEPTON NU> X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.02}
+    - {label: sys, symerror: 0.03}
+    value: -0.23
+  - errors:
+    - {label: stat, symerror: 0.02}
+    - {label: sys, symerror: 0.02}
+    value: -0.11
+  - errors:
+    - {label: stat, symerror: 0.02}
+    - {label: sys, symerror: 0.02}
+    value: 0.01
+  - errors:
+    - {label: stat, symerror: 0.01}
+    - {label: sys, symerror: 0.02}
+    value: 0.1
+  - errors:
+    - {label: stat, symerror: 0.02}
+    - {label: sys, symerror: 0.02}
+    value: 0.11
+  - errors:
+    - {label: stat, symerror: 0.01}
+    - {label: sys, symerror: 0.02}
+    value: 0.16
+  - errors:
+    - {label: stat, symerror: 0.01}
+    - {label: sys, symerror: 0.02}
+    value: 0.14
+  - errors:
+    - {label: stat, symerror: 0.02}
+    - {label: sys, symerror: 0.02}
+    value: 0.17
+  - errors:
+    - {label: stat, symerror: 0.02}
+    - {label: sys, symerror: 0.02}
+    value: 0.27
+  - errors:
+    - {label: stat, symerror: 0.02}
+    - {label: sys, symerror: 0.03}
+    value: 0.26
+independent_variables:
+- header: {name: '$\eta_{\textrm{lab}}$'}
+  values:
+  - {high: -2.0, low: -2.4}
+  - {high: -1.5, low: -2.0}
+  - {high: -1.0, low: -1.5}
+  - {high: -0.5, low: -1.0}
+  - {high: 0.0, low: -0.5}
+  - {high: 0.5, low: 0.0}
+  - {high: 1.0, low: 0.5}
+  - {high: 1.5, low: 1.0}
+  - {high: 2.0, low: 1.5}
+  - {high: 2.4, low: 2.0}

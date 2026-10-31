@@ -1,0 +1,38 @@
+dependent_variables:
+- header: {name: R(pPb)}
+  qualifiers:
+  - {name: RE, value: P PB --> D/S+ X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  - {name: YRAP(RF=CM), value: -0.96-0.04}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.457}
+    - asymerror: {minus: 0.446, plus: -0.459}
+      label: sys
+    - {label: 'sys,global normalization uncertainty', symerror: 5.09%}
+    value: 1.203
+  - errors:
+    - {label: stat, symerror: 0.193}
+    - asymerror: {minus: 0.256, plus: -0.26}
+      label: sys
+    - {label: 'sys,global normalization uncertainty', symerror: 5.09%}
+    value: 0.777
+  - errors:
+    - {label: stat, symerror: 0.345}
+    - asymerror: {minus: 0.351, plus: -0.362}
+      label: sys
+    - {label: 'sys,global normalization uncertainty', symerror: 5.09%}
+    value: 1.082
+  - errors:
+    - {label: stat, symerror: 0.289}
+    - asymerror: {minus: 0.387, plus: -0.394}
+      label: sys
+    - {label: 'sys,global normalization uncertainty', symerror: 5.09%}
+    value: 1.087
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {high: 4.0, low: 2.0}
+  - {high: 6.0, low: 4.0}
+  - {high: 8.0, low: 6.0}
+  - {high: 12.0, low: 8.0}

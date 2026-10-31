@@ -1,0 +1,64 @@
+dependent_variables:
+- header: {name: 'Delta_gamma_1,n-1,n/v_n*Delta_delta'}
+  qualifiers:
+  - {name: RE, value: PB PB ---> H X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020'}
+  - {name: ETA, value: -2.4 TO 2.4}
+  - {name: Averaged over |DeltaEta|, value: 0 to 1.6}
+  - {name: Pt, value: 0.3 to 3.0 GEV}
+  - {name: class, units: Harmonic order, value: n=2}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0072}
+    - {label: sys, symerror: 0.1}
+    value: 1.7
+  - errors:
+    - {label: stat, symerror: 0.0063}
+    - {label: sys, symerror: 0.1}
+    value: 1.7
+  - errors:
+    - {label: stat, symerror: 0.0059}
+    - {label: sys, symerror: 0.1}
+    value: 1.7
+  - errors:
+    - {label: stat, symerror: 0.006}
+    - {label: sys, symerror: 0.1}
+    value: 1.6
+- header: {name: 'Delta_gamma_1,n-1,n/v_n*Delta_delta'}
+  qualifiers:
+  - {name: RE, value: PB PB ---> H X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020'}
+  - {name: ETA, value: -2.4 TO 2.4}
+  - {name: Averaged over |DeltaEta|, value: 0 to 1.6}
+  - {name: Pt, value: 0.3 to 3.0 GEV}
+  - {name: class, units: Harmonic order, value: n=3}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.07}
+    - {label: sys, symerror: 0.1}
+    value: 1.9
+  - errors:
+    - {label: stat, symerror: 0.056}
+    - {label: sys, symerror: 0.1}
+    value: 1.9
+  - errors:
+    - {label: stat, symerror: 0.047}
+    - {label: sys, symerror: 0.1}
+    value: 1.9
+  - errors:
+    - {label: stat, symerror: 0.043}
+    - {label: sys, symerror: 0.1}
+    value: 1.8
+independent_variables:
+- header: {name: Centrality}
+  values:
+  - {high: 50.0, low: 45.0}
+  - {high: 45.0, low: 40.0}
+  - {high: 40.0, low: 35.0}
+  - {high: 35.0, low: 30.0}
+- header: {name: Average multiplicity}
+  values:
+  - {value: 624.8}
+  - {value: 810.5}
+  - {value: 1025.0}
+  - {value: 1256.0}

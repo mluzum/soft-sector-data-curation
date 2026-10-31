@@ -1,0 +1,30 @@
+dependent_variables:
+- header: {name: 'Baseline (rad$^{-1}$)'}
+  qualifiers:
+  - {name: SQRT(S), units: GEV, value: '7000.0'}
+  - {name: YRAP, value: '-0.5 TO 0.5 (D0, D+, D*+)'}
+  - {name: ABS(DETA), value: <1}
+  - {name: PT(CHARGED), units: GEV, value: '>1.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.04}
+    - asymerror: {minus: -0.0981, plus: 0.1162}
+      label: sys,uncorr
+    value: 0.7512
+  - errors:
+    - {label: stat, symerror: 0.0362}
+    - asymerror: {minus: -0.0922, plus: 0.1081}
+      label: sys,uncorr
+    value: 0.8155
+  - errors:
+    - {label: stat, symerror: 0.0497}
+    - asymerror: {minus: -0.0922, plus: 0.1053}
+      label: sys,uncorr
+    value: 0.7056
+independent_variables:
+- header: {name: 'D-meson $p_{\rm T}$ (GeV/$c$)'}
+  values:
+  - {high: 5.0, low: 3.0}
+  - {high: 8.0, low: 5.0}
+  - {high: 16.0, low: 8.0}
+name: data35.yaml

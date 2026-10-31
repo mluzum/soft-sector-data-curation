@@ -1,0 +1,77 @@
+observable_type: mean_pT
+inspire_id: '2088201'
+version: 1
+hepdata_file: Table10.yaml
+hepdata_table_label: 'Mean $p_{\rm T}$ of ($\Sigma^{*-}+\overline{\Sigma}^{*+}$) in
+  Pb-Pb collisions with centre-of-mass energy/nucleon=5.02 TeV for each V0A multiplicity
+  event class.
+
+  '
+qualifiers:
+  reaction: PBPB --> Sigma*BAR+ + X
+  sqrt(s)/nucleon: '5020.0'
+collision_system:
+  energy_gev: 5020.0
+  reaction: unknown
+centrality:
+  classes:
+  - 0-10%
+  - 10-30%
+  - 30-50%
+  - 50-90%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: Sigma
+observable: mean_pT
+value_type: mean_pT
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+---
+observable_type: mean_pT
+inspire_id: '2088201'
+version: 1
+hepdata_file: Table9.yaml
+hepdata_table_label: 'Mean $p_{\rm T}$ of ($\Sigma^{*+}+\overline{\Sigma}^{*-}$) in
+  Pb-Pb collisions with centre-of-mass energy/nucleon=5.02 TeV for each V0A multiplicity
+  event class.
+
+  '
+qualifiers:
+  reaction: PBPB --> Sigma*BAR- + X
+  sqrt(s)/nucleon: '5020.0'
+collision_system:
+  energy_gev: 5020.0
+  reaction: unknown
+centrality:
+  classes:
+  - 0-10%
+  - 10-30%
+  - 30-50%
+  - 50-90%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: Sigma
+observable: mean_pT
+value_type: mean_pT
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8

@@ -1,0 +1,37 @@
+dependent_variables:
+- header: {name: jet v2}
+  qualifiers:
+  - {name: RE, value: PB PB --> JET(S) X}
+  - {name: SQRT(S), units: GEV, value: 2760.0}
+  - {name: R, value: 0.2}
+  - {name: ABS(YRAP), value: 0.0 TO 2.1}
+  - {name: CENTRALITY, value: 30.0 TO 40.0}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0057}
+    - {label: sys, symerror: 0.0078}
+    value: 0.0458
+  - errors:
+    - {label: stat, symerror: 0.0024}
+    - {label: sys, symerror: 0.0043}
+    value: 0.045
+  - errors:
+    - {label: stat, symerror: 0.0044}
+    - {label: sys, symerror: 0.0032}
+    value: 0.0356
+  - errors:
+    - {label: stat, symerror: 0.0091}
+    - {label: sys, symerror: 0.0017}
+    value: 0.0243
+  - errors:
+    - {label: stat, symerror: 0.0255}
+    - {label: sys, symerror: 0.0015}
+    value: 0.0388
+independent_variables:
+- header: {name: pT, units: GEV}
+  values:
+  - {high: 60.0, low: 45.0}
+  - {high: 80.0, low: 60.0}
+  - {high: 110.0, low: 80.0}
+  - {high: 160.0, low: 110.0}
+  - {high: 210.0, low: 160.0}

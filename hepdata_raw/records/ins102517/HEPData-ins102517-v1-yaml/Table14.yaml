@@ -1,0 +1,35 @@
+dependent_variables:
+- header: {name: (1./PI/(SIG))*D(SIG)/X4(P=4)}
+  qualifiers:
+  - {name: RE, value: MU+ P --> MU+ CHARGED- X}
+  - {name: S(P=4 5), units: GEV**2, value: 100.0 TO 300.0}
+  - {name: SQRT(S), units: GeV, value: '0.0'}
+  - {name: 'T(P=3,P=1)', units: GEV**2, value: -3.0 TO -0.5}
+  values:
+  - errors:
+    - {symerror: 0.01}
+    value: 0.207
+  - errors:
+    - {symerror: 0.008}
+    value: 0.136
+  - errors:
+    - {symerror: 0.009}
+    value: 0.101
+  - errors:
+    - {symerror: 0.008}
+    value: 0.064
+  - errors:
+    - {symerror: 0.007}
+    value: 0.04
+  - errors:
+    - {symerror: 0.006}
+    value: 0.0211
+independent_variables:
+- header: {name: X4(P=4)}
+  values:
+  - {value: 0.12}
+  - {value: 0.26}
+  - {value: 0.42}
+  - {value: 0.58}
+  - {value: 0.74}
+  - {value: 0.9}

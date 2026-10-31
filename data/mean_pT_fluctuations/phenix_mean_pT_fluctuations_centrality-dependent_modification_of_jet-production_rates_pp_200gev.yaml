@@ -1,0 +1,45 @@
+---
+observable_type: mean_pT_fluctuations
+inspire_id: '1393528'
+version: 1
+hepdata_file: Figure1.yaml
+hepdata_table_label: Measured anti-$k_T$, $R$ = 0.3 jet yields in $d$+Au collisions, and the measured and calculated jet cross
+  section in $p$+$p$ collisions.
+qualifiers:
+  centrality: $0-88\%$
+  collision: d+Au
+collision_system:
+  energy_gev: 200.0
+  reaction: p p --> CHARGED X
+centrality:
+  classes:
+  - 0.0-88.0%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: Sigma
+kinematic_range:
+  pT:
+    min: 11.665
+    max: 40.61
+    bins:
+    - 11.665
+    - 14.355
+    - 17.22
+    - 20.409999999999997
+    - 24.17
+    - 28.725
+    - 34.33
+    - 40.61
+  eta:
+    min: -0.35
+    max: 0.35
+observable: sigma_mean_pT
+value_type: Sigma

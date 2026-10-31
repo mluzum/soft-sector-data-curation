@@ -1,0 +1,48 @@
+dependent_variables:
+- header: {name: '$d^{2}\sigma/dp_{T}d\eta$', units: mb $c$/GeV}
+  qualifiers:
+  - {name: RE, value: P P --> jet + X}
+  - {name: SQRT(S), units: GEV, value: 5020}
+  - {name: YRAP, value: -0.3 TO 0.3}
+  - {name: jet radius, value: 0.4}
+  - {name: jet method, value: 'Anti-$k_{T}$'}
+  - {name: '$p_{T}^{lead,track}$', units: GeV/$c$, value: '> 7'}
+  values:
+  - errors:
+    - {label: stat, symerror: 5.819184e-07}
+    - {label: 'sys,correlated', symerror: 2.311773e-06}
+    - {label: 'sys,shape', symerror: 3.800868e-07}
+    - {label: 'sys,lumi', symerror: 2.1%}
+    value: 2.28478e-05
+  - errors:
+    - {label: stat, symerror: 3.91855e-07}
+    - {label: 'sys,correlated', symerror: 1.236055e-06}
+    - {label: 'sys,shape', symerror: 2.200165e-07}
+    - {label: 'sys,lumi', symerror: 2.1%}
+    value: 1.152483e-05
+  - errors:
+    - {label: stat, symerror: 2.189635e-07}
+    - {label: 'sys,correlated', symerror: 5.573759e-07}
+    - {label: 'sys,shape', symerror: 1.144172e-07}
+    - {label: 'sys,lumi', symerror: 2.1%}
+    value: 4.875247e-06
+  - errors:
+    - {label: stat, symerror: 9.769647e-08}
+    - {label: 'sys,correlated', symerror: 2.092437e-07}
+    - {label: 'sys,shape', symerror: 5.271033e-08}
+    - {label: 'sys,lumi', symerror: 2.1%}
+    value: 1.705439e-06
+  - errors:
+    - {label: stat, symerror: 4.84332e-08}
+    - {label: 'sys,correlated', symerror: 8.965157e-08}
+    - {label: 'sys,shape', symerror: 2.816716e-08}
+    - {label: 'sys,lumi', symerror: 2.1%}
+    value: 6.920198e-07
+independent_variables:
+- header: {name: PTjet, units: GEV}
+  values:
+  - {high: 70, low: 60}
+  - {high: 80, low: 70}
+  - {high: 100, low: 80}
+  - {high: 120, low: 100}
+  - {high: 140, low: 120}

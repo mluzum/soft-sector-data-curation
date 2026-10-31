@@ -1,0 +1,53 @@
+---
+observable_type: particle_ratios
+inspire_id: '3150962'
+version: 1
+hepdata_file: figure_4.yaml
+hepdata_table_label: Ratio of the average $<R_{p_T}>$ distributions measured in data over simulation as a function of the
+  collision centrality.
+qualifiers:
+  acopl(ll): $1-|\Delta\phi(\ell^+\ell^-)|/\pi > 0.01$
+  centrality_bin: $cen \in [0,90]$
+  charge(ll): '0'
+  deltar(l,j): $\Delta R(\ell,jet)>0.4$
+  dphi(z,j): $|\Delta\phi(Z,jet)|>2\pi/3$
+  eta(j): $|\eta(jet)|<2.4$
+  eta(l): $|\eta(\mu)|<2.4~\wedge~|\eta(e)|\in[0,1.444]\cup[1.566,2.5]$
+  ll: $\ell\ell \in [ee,\mu\mu]$
+  m(ll): $|m(\ell^+\ell^-)-91|<15 GeV$
+  pt(j): $p_{T}(jet)>30 GeV$
+  pt(l): $p_{T}(\ell)>20 GeV$
+  pt(z): $p_{T}(\ell\ell)>30 GeV$
+  re: Pb Pb --> T Tbar
+  sqrt(s_nn): '5360'
+collision_system:
+  energy_gev: 5020.0
+  reaction: Pb Pb --> T Tbar
+centrality:
+  classes:
+  - 0-90%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: $1-|\delta\phi(\ell^+\ell^-)|_over_\pi > 0.01$_ratio
+value_type: $1-|\delta\phi(\ell^+\ell^-)|_over_\pi > 0.01$
+numerator: $1-|\delta\phi(\ell^+\ell^-)|
+denominator: \pi > 0.01$

@@ -1,0 +1,42 @@
+---
+observable_type: heavy_flavor
+inspire_id: '1487575'
+version: 1
+hepdata_file: Figure3.yaml
+hepdata_table_label: The ratio of $\psi(2S)$ to  $J/\psi(1S)$ cross sections, as measured in the  dimuon decay channel in
+  pp collisions at 200 GeV over the rapidity interval $1.2<|y|<2.2$, as a function of transverse momentum $p_{T}$.
+collision_system:
+  energy_gev: 2760.0
+  reaction: p + Pb --> CHARGED X
+centrality:
+  classes:
+  - 0-1%
+  - 1-2%
+  - 2-3%
+  - 3-4%
+  - 4-6%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: Sigma
+  particle: psi(2s)
+kinematic_range:
+  eta:
+    min: -0.35
+    max: 0.35
+  pT:
+    min: 0.2
+    max: 20
+    bins:
+    - 0.2
+    - 20
+observable: psi(2s)_invariant_yield
+value_type: invariant_yield
+particle: psi(2s)

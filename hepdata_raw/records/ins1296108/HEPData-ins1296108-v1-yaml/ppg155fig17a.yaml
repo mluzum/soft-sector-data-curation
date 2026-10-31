@@ -1,0 +1,32 @@
+dependent_variables:
+- header: {name: '$N_{coll}$'}
+  values:
+  - errors:
+    - {symerror: 78.89}
+    value: 689.9
+  - errors:
+    - {symerror: 27.46}
+    value: 270.5
+  - errors:
+    - {symerror: 9.064}
+    value: 85.71
+- header: {name: '$<R_{AA}>_{1 < p_T < 3 (\textnormal{GeV}/c)}$'}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.267}
+    - {label: syst., symerror: 0.745}
+    value: 1.946
+  - errors:
+    - {label: stat., symerror: 0.333}
+    - {label: syst., symerror: 0.755}
+    value: 1.95
+  - errors:
+    - {label: stat., symerror: 0.49}
+    - {label: syst., symerror: 0.636}
+    value: 1.316
+independent_variables:
+- header: {name: ' Centrality (%)'}
+  values:
+  - {high: 20, low: 0}
+  - {high: 40, low: 20}
+  - {high: 60, low: 40}

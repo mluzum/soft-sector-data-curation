@@ -1,0 +1,55 @@
+dependent_variables:
+- header: {name: DeltaD(pT r)}
+  qualifiers:
+  - {name: RE, value: Difference of charged particle distributions}
+  - {name: pT(jet), units: GeV, value: 158.5 - 199.5}
+  - {name: pT(trk), units: GeV, value: 10.0 - 25.1}
+  - {name: Centrality, value: 0-10%}
+  - {name: abs. rapidity(jet), value: 0 - 1.7}
+  - {name: SQRT(S), units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - asymerror: {minus: -0.321905, plus: 0.324628}
+      label: sys
+    - {label: stat, symerror: 0.0539287}
+    value: 0.269697
+  - errors:
+    - asymerror: {minus: -0.0840435, plus: 0.083852}
+      label: sys
+    - {label: stat, symerror: 0.00927901}
+    value: -0.493317
+  - errors:
+    - asymerror: {minus: -0.0200509, plus: 0.0201437}
+      label: sys
+    - {label: stat, symerror: 0.00354813}
+    value: -0.14451
+  - errors:
+    - asymerror: {minus: -0.00466201, plus: 0.00472282}
+      label: sys
+    - {label: stat, symerror: 0.00165946}
+    value: -0.055273
+  - errors:
+    - asymerror: {minus: -0.00215437, plus: 0.00228441}
+      label: sys
+    - {label: stat, symerror: 0.000942454}
+    value: -0.0239866
+  - errors:
+    - asymerror: {minus: -0.00095293, plus: 0.000987435}
+      label: sys
+    - {label: stat, symerror: 0.000545631}
+    value: -0.0104764
+  - errors:
+    - asymerror: {minus: -0.00024966, plus: 0.000269435}
+      label: sys
+    - {label: stat, symerror: 0.000141473}
+    value: -0.00238064
+independent_variables:
+- header: {name: r}
+  values:
+  - {high: 0.05, low: 0}
+  - {high: 0.1, low: 0.05}
+  - {high: 0.15, low: 0.1}
+  - {high: 0.2, low: 0.15}
+  - {high: 0.25, low: 0.2}
+  - {high: 0.3, low: 0.25}
+  - {high: 0.4, low: 0.3}

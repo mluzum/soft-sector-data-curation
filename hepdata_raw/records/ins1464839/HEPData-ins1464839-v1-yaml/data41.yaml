@@ -1,0 +1,24 @@
+dependent_variables:
+- header: {name: '$\sigma_{\rm Fit,NS}$'}
+  qualifiers:
+  - {name: PT(CHARGED), units: GEV, value: '>1'}
+  - {name: ABS(DETA), value: <1}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020'}
+  - {name: YRAP(RF=CMS), value: '-0.96 TO 0.04 (D0, D+, D*+)'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0303}
+    - asymerror: {minus: -0.0199, plus: 0.0199}
+      label: sys,uncorr
+    value: 0.2462
+  - errors:
+    - {label: stat, symerror: 0.0219}
+    - asymerror: {minus: -0.0046, plus: 0.0046}
+      label: sys,uncorr
+    value: 0.2383
+independent_variables:
+- header: {name: 'D-meson $p_{\rm T}$ (GeV/$c$)'}
+  values:
+  - {high: 8.0, low: 5.0}
+  - {high: 16.0, low: 8.0}
+name: data41.yaml

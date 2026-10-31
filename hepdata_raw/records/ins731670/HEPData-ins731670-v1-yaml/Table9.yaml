@@ -1,0 +1,49 @@
+dependent_variables:
+- header: {name: R(NAME=AA)}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 0.0-20.0}
+  - {name: RE, value: AU AU --> J/PSI < E+ E- > X}
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  - {name: YRAP, value: -0.35-0.35}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.04}
+    - {label: sys, symerror: 0.06}
+    value: 0.37
+- header: {name: R(NAME=AA)}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 20.0-40.0}
+  - {name: RE, value: AU AU --> J/PSI < E+ E- > X}
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  - {name: YRAP, value: -0.35-0.35}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.06}
+    - {label: sys, symerror: 0.08}
+    value: 0.57
+- header: {name: R(NAME=AA)}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 40.0-60.0}
+  - {name: RE, value: AU AU --> J/PSI < E+ E- > X}
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  - {name: YRAP, value: -0.35-0.35}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.07}
+    - {label: sys, symerror: 0.1}
+    value: 0.66
+- header: {name: R(NAME=AA)}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 60.0-92.0}
+  - {name: RE, value: AU AU --> J/PSI < E+ E- > X}
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  - {name: YRAP, value: -0.35-0.35}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.12}
+    - {label: sys, symerror: 0.11}
+    value: 0.74
+independent_variables:
+- header: {name: 'YRAP '}
+  values:
+  - {high: 0.35, low: -0.35}

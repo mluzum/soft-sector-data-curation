@@ -1,0 +1,20 @@
+dependent_variables:
+- header: {name: '$(dN_{ch}/d\eta)/(N_{qp}/2)$'}
+  qualifiers:
+  - {name: system, value: $p$+$p$ (PHENIX)}
+  values:
+  - errors:
+    - {label: syst., symerror: 0.11}
+    value: 1.59
+- header: {name: '$(dN_{ch}/d\eta)/(N_{qp}/2)$'}
+  qualifiers:
+  - {name: system, value: $p$+$p$ (PHOBOS)}
+  values:
+  - errors:
+    - asymerror: {minus: 0.35, plus: 0.17}
+      label: syst.
+    value: 1.51
+independent_variables:
+- header: {name: '$N_{qp}$'}
+  values:
+  - {value: 2.99}

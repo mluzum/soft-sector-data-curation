@@ -1,0 +1,17 @@
+dependent_variables:
+- header: {name: MULT}
+  qualifiers:
+  - {name: P/A, units: GeV, value: '200.0'}
+  - {name: RE, value: S32 S --> P MULT(CHARGED) X}
+  values:
+  - errors:
+    - {symerror: 3.0}
+    value: 12.0
+  - errors:
+    - {symerror: 6.0}
+    value: 42.0
+independent_variables:
+- header: {name: NUMBER(P=4)}
+  values:
+  - {high: 100.0, low: 10.0}
+  - {value: '> 100.0'}

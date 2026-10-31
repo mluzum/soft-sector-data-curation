@@ -1,0 +1,46 @@
+dependent_variables:
+- header: {name: ratio}
+  qualifiers:
+  - {name: REACTION, value: 'p Pb --> Sigmabar+ + X, p Pb --> p + X, p Pb --> pbar
+      + X'}
+  - {name: SQRT(S), units: GEV, value: 5020.0}
+  - {name: YRAP(CMS), value: -0.5 TO 0.5}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0054834}
+    - {label: sys, symerror: 0.017739}
+    value: 0.094661
+  - errors:
+    - {label: stat, symerror: 0.0071504}
+    - {label: sys, symerror: 0.023959}
+    value: 0.13199
+  - errors:
+    - {label: stat, symerror: 0.0086435}
+    - {label: sys, symerror: 0.029962}
+    value: 0.16308
+  - errors:
+    - {label: stat, symerror: 0.0084031}
+    - {label: sys, symerror: 0.03147}
+    value: 0.16147
+  - errors:
+    - {label: stat, symerror: 0.012309}
+    - {label: sys, symerror: 0.039033}
+    value: 0.2054
+  - errors:
+    - {label: stat, symerror: 0.016855}
+    - {label: sys, symerror: 0.045437}
+    value: 0.23362
+  - errors:
+    - {label: stat, symerror: 0.017712}
+    - {label: sys, symerror: 0.075107}
+    value: 0.33927
+independent_variables:
+- header: {name: '$p_\mathrm{{T}}$', units: '$\mathrm{GeV}/c$'}
+  values:
+  - {high: 0.75, low: 0.5}
+  - {high: 1.0, low: 0.75}
+  - {high: 1.25, low: 1.0}
+  - {high: 1.5, low: 1.25}
+  - {high: 1.75, low: 1.5}
+  - {high: 2.0, low: 1.75}
+  - {high: 3.0, low: 2.0}

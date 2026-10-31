@@ -1,0 +1,45 @@
+dependent_variables:
+- header: {name: (1/(2*PI*PT))*D2(SIG)/DPT/DYRAP, units: NB/GEV**2}
+  qualifiers:
+  - {name: RE, value: P P --> J/PS < E+ E- >I X}
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  values:
+  - errors:
+    - asymerror: {minus: -0.002, plus: 0.004}
+      label: stat
+    - {label: sys, symerror: 0.001}
+    value: 0.01
+  - errors:
+    - asymerror: {minus: -0.0003, plus: 0.0005}
+      label: stat
+    - {label: sys, symerror: 0.0001}
+    value: 0.0012
+  - errors:
+    - asymerror: {minus: -0.0004, plus: 0.0007}
+      label: stat
+    - {label: sys, symerror: 0.0002}
+    value: 0.0017
+  - errors:
+    - asymerror: {minus: -5.0e-05, plus: 8.0e-05}
+      label: stat
+    - {label: sys, symerror: 3.0e-05}
+    value: 0.00027
+  - errors:
+    - asymerror: {minus: -2.0e-05, plus: 3.0e-05}
+      label: stat
+    - {label: sys, symerror: 1.0e-05}
+    value: 0.0001
+  - errors:
+    - asymerror: {minus: -5.0e-06, plus: 1.1e-05}
+      label: stat
+    - {label: sys, symerror: 2.0e-06}
+    value: 1.8e-05
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {high: 6.0, low: 5.0}
+  - {high: 8.0, low: 6.0}
+  - {high: 7.0, low: 5.0, value: 6.25}
+  - {high: 9.0, low: 7.0, value: 7.785}
+  - {high: 11.0, low: 9.0, value: 9.75}
+  - {high: 14.0, low: 11.0, value: 12.75}

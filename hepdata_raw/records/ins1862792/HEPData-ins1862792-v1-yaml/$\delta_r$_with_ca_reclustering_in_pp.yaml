@@ -1,0 +1,31 @@
+dependent_variables:
+- header: {name: '$\ 1 / N^{jets} dN/d\Delta R$'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.03}
+    - {label: sys, symerror: 0.02}
+    value: 0.09
+  - errors:
+    - {label: stat, symerror: 0.09}
+    - {label: sys, symerror: 0.11}
+    value: 0.81
+  - errors:
+    - {label: stat, symerror: 0.15}
+    - {label: sys, symerror: 0.05}
+    value: 2.5
+  - errors:
+    - {label: stat, symerror: 0.23}
+    - {label: sys, symerror: 0.14}
+    value: 5.88
+  - errors:
+    - {label: stat, symerror: 0.07}
+    - {label: sys, symerror: 0.07}
+    value: 0.72
+independent_variables:
+- header: {name: $\Delta R$}
+  values:
+  - {high: 0.1, low: 0.0}
+  - {high: 0.2, low: 0.1}
+  - {high: 0.3, low: 0.2}
+  - {high: 0.4, low: 0.3}
+  - {high: 0.5, low: 0.4}

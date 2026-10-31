@@ -1,0 +1,80 @@
+dependent_variables:
+- header: {name: MULT(P=4)}
+  qualifiers:
+  - {name: P, units: GeV, value: '205.0'}
+  - {name: RE, value: P P --> P MULT(CHARGED) (NEUTRALS)}
+  - {name: SQRT(S), units: GeV, value: '19.656'}
+  values:
+  - errors:
+    - {symerror: 0.09}
+    value: 2.74
+  - errors:
+    - {symerror: 0.13}
+    value: 4.85
+  - errors:
+    - {symerror: 0.14}
+    value: 5.55
+  - errors:
+    - {symerror: 0.15}
+    value: 6.03
+- header: {name: 'MOM(N=MULT(P=4),ORDER=2)/MULT(P=4)**2'}
+  qualifiers:
+  - {name: P, units: GeV, value: '205.0'}
+  - {name: RE, value: P P --> P MULT(CHARGED) (NEUTRALS)}
+  - {name: SQRT(S), units: GeV, value: '19.656'}
+  values:
+  - errors:
+    - {symerror: 0.03}
+    value: 1.41
+  - errors:
+    - {symerror: 0.02}
+    value: 1.22
+  - errors:
+    - {symerror: 0.02}
+    value: 1.23
+  - errors:
+    - {symerror: 0.02}
+    value: 1.23
+- header: {name: 'MOM(N=MULT(P=4),ORDER=3)/MULT(P=4)**3'}
+  qualifiers:
+  - {name: P, units: GeV, value: '205.0'}
+  - {name: RE, value: P P --> P MULT(CHARGED) (NEUTRALS)}
+  - {name: SQRT(S), units: GeV, value: '19.656'}
+  values:
+  - errors:
+    - {symerror: 0.17}
+    value: 2.54
+  - errors:
+    - {symerror: 0.06}
+    value: 1.71
+  - errors:
+    - {symerror: 0.07}
+    value: 1.77
+  - errors:
+    - {symerror: 0.06}
+    value: 1.73
+- header: {name: 'MOM(N=MULT(P=4),ORDER=4)/MULT(P=4)**4'}
+  qualifiers:
+  - {name: P, units: GeV, value: '205.0'}
+  - {name: RE, value: P P --> P MULT(CHARGED) (NEUTRALS)}
+  - {name: SQRT(S), units: GeV, value: '19.656'}
+  values:
+  - errors:
+    - {symerror: 0.69}
+    value: 5.54
+  - errors:
+    - {symerror: 0.18}
+    value: 2.66
+  - errors:
+    - {symerror: 0.2}
+    value: 2.87
+  - errors:
+    - {symerror: 0.18}
+    value: 2.7
+independent_variables:
+- header: {name: M(P=4 5)**2, units: GEV**2}
+  values:
+  - {high: 30.0, low: 0.0}
+  - {high: 70.0, low: 30.0}
+  - {high: 110.0, low: 70.0}
+  - {high: 150.0, low: 110.0}

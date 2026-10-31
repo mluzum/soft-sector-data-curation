@@ -1,0 +1,25 @@
+dependent_variables:
+- header: {name: Events, units: arbitary}
+  qualifiers:
+  - {name: RE, value: Pb Pb --> Pb(*) Pb(*) GAMMA GAMMA}
+  - {name: '$\sqrt{s_{NN}}$ in GeV', value: 5020}
+  values:
+  - errors:
+    - {label: stat, symerror: 1.73}
+    value: 3
+  - errors:
+    - {label: stat, symerror: 2.45}
+    value: 6
+  - errors:
+    - {label: stat, symerror: 1.41}
+    value: 2
+  - errors:
+    - {label: stat, symerror: 1.73}
+    value: 3
+independent_variables:
+- header: {name: Diphoton rapidity}
+  values:
+  - {high: -0.8, low: -1.6}
+  - {high: 0, low: -0.8}
+  - {high: 0.8, low: 0}
+  - {high: 1.6, low: 0.8}

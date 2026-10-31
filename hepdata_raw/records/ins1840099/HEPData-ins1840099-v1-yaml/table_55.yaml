@@ -1,0 +1,52 @@
+dependent_variables:
+- header: {name: '$phi/(\pi^{+}+\pi^{-})$'}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 70.0-90.0}
+  - {name: RE(PHI), value: XE XE --> PHI X}
+  - {name: RE(P + PBAR), value: 'XE XE --> P X, XE XE --> PBAR X'}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5440.0'}
+  - {name: YRAP, value: -0.5-0.5}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.64661}
+    - {label: syst., symerror: 0.59136}
+    value: 7.3436
+  - errors:
+    - {label: stat., symerror: 0.50214}
+    - {label: syst., symerror: 0.49731}
+    value: 6.3969
+  - errors:
+    - {label: stat., symerror: 0.48644}
+    - {label: syst., symerror: 0.46435}
+    value: 5.9657
+  - errors:
+    - {label: stat., symerror: 0.92352}
+    - {label: syst., symerror: 0.62547}
+    value: 7.8445
+  - errors:
+    - {label: stat., symerror: 0.46705}
+    - {label: syst., symerror: 0.64187}
+    value: 5.2109
+  - errors:
+    - {label: stat., symerror: 0.4814}
+    - {label: syst., symerror: 0.62703}
+    value: 5.122
+  - errors:
+    - {label: stat., symerror: 0.39012}
+    - {label: syst., symerror: 0.47953}
+    value: 3.2104
+  - errors:
+    - {label: stat., symerror: 0.49324}
+    - {label: syst., symerror: 0.42602}
+    value: 2.5369
+independent_variables:
+- header: {name: '$p_{T}$', units: $GeV/c$}
+  values:
+  - {high: 0.9, low: 0.7}
+  - {high: 1.1, low: 0.9}
+  - {high: 1.3, low: 1.1}
+  - {high: 1.5, low: 1.3}
+  - {high: 2.0, low: 1.5}
+  - {high: 3.0, low: 2.0}
+  - {high: 4.0, low: 3.0}
+  - {high: 5.0, low: 4.0}

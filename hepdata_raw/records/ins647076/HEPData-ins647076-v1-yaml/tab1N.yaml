@@ -1,0 +1,42 @@
+dependent_variables:
+- header: {name: 1/(2*PI*PT)*D2N/DPT/DYRAP, units: (GEV/C)**(-1)}
+  qualifiers:
+  - {name: PARTICLE, value: PI+}
+  - {name: CENTRALITY, units: PCT, value: 0-5}
+  - {name: YRAP, value: 3.4-3.66}
+  values:
+  - errors:
+    - {label: stat, symerror: 2.0}
+    value: 65.8
+  - errors:
+    - {label: stat, symerror: 0.86}
+    value: 35.55
+  - errors:
+    - {label: stat, symerror: 0.57}
+    value: 24.17
+  - errors:
+    - {label: stat, symerror: 0.4}
+    value: 14.06
+  - errors:
+    - {label: stat, symerror: 0.34}
+    value: 8.84
+  - errors:
+    - {label: stat, symerror: 0.33}
+    value: 5.54
+  - errors:
+    - {label: stat, symerror: 0.36}
+    value: 3.2
+  - errors:
+    - {label: stat, symerror: 0.1}
+    value: 2.03
+independent_variables:
+- header: {name: PT, units: GEV/C}
+  values:
+  - {high: 0.4, low: 0.3}
+  - {high: 0.5, low: 0.4}
+  - {high: 0.6, low: 0.5}
+  - {high: 0.7, low: 0.6}
+  - {high: 0.8, low: 0.7}
+  - {high: 0.9, low: 0.8}
+  - {high: 1.0, low: 0.9}
+  - {high: 1.1, low: 1.0}

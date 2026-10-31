@@ -1,0 +1,45 @@
+---
+observable_type: heavy_flavor
+inspire_id: '900651'
+version: 1
+hepdata_file: Table6.yaml
+hepdata_table_label: 'v3{QC5} (black filled diamonds).
+
+  '
+qualifiers:
+  pt: 0.2-5.0
+  re: PB PB --> CHARGED X
+  sqrt(s)/nucleon: '2760.0'
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-4.5%
+  - 4.5-10.75%
+  - 10.75-19.5%
+  - 19.5-29.5%
+  - 29.5-39.5%
+  - 39.5-49.5%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+  particle: ds
+kinematic_range:
+  pT:
+    min: 0.2
+    max: 5.0
+  eta:
+    min: -0.8
+    max: 0.8
+observable: ds_invariant_yield
+value_type: invariant_yield
+particle: ds

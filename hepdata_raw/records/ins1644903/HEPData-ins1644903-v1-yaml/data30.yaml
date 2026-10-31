@@ -1,0 +1,108 @@
+dependent_variables:
+- header: {name: '$ R_{AA} $'}
+  qualifiers:
+  - {name: PT, units: GeV, value: 6.5-50.0}
+  - {name: ABS(YRAP), value: 0.0-0.6}
+  - {name: RE, value: PB PB --> NONPROMPT_J/PSI < MU+ MU- > X}
+  - {name: RE, value: P P --> NONPROMPT_J/PSI < MU+ MU- > X}
+  - {name: GLOBAL UNCERT., value: 4.9 %}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.011}
+    - asymerror: {minus: -0.022, plus: 0.02}
+      label: sys
+    value: 0.356
+  - errors:
+    - {label: stat, symerror: 0.016}
+    - asymerror: {minus: -0.027, plus: 0.025}
+      label: sys
+    value: 0.456
+  - errors:
+    - {label: stat, symerror: 0.021}
+    - asymerror: {minus: -0.037, plus: 0.036}
+      label: sys
+    value: 0.531
+  - errors:
+    - {label: stat, symerror: 0.025}
+    - asymerror: {minus: -0.038, plus: 0.038}
+      label: sys
+    value: 0.538
+  - errors:
+    - {label: stat, symerror: 0.036}
+    - asymerror: {minus: -0.051, plus: 0.052}
+      label: sys
+    value: 0.621
+  - errors:
+    - {label: stat, symerror: 0.042}
+    - asymerror: {minus: -0.064, plus: 0.088}
+      label: sys
+    value: 0.705
+- header: {name: '$ R_{AA} $'}
+  qualifiers:
+  - {name: PT, units: GeV, value: 6.5-50.0}
+  - {name: ABS(YRAP), value: 1.8-2.4}
+  - {name: RE, value: PB PB --> NONPROMPT_J/PSI < MU+ MU- > X}
+  - {name: RE, value: P P --> NONPROMPT_J/PSI < MU+ MU- > X}
+  - {name: GLOBAL UNCERT., value: 5.2 %}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.019}
+    - asymerror: {minus: -0.03, plus: 0.029}
+      label: sys
+    value: 0.358
+  - errors:
+    - {label: stat, symerror: 0.023}
+    - asymerror: {minus: -0.035, plus: 0.034}
+      label: sys
+    value: 0.424
+  - errors:
+    - {label: stat, symerror: 0.028}
+    - asymerror: {minus: -0.04, plus: 0.039}
+      label: sys
+    value: 0.49
+  - errors:
+    - {label: stat, symerror: 0.035}
+    - asymerror: {minus: -0.049, plus: 0.049}
+      label: sys
+    value: 0.6
+  - errors:
+    - {label: stat, symerror: 0.048}
+    - asymerror: {minus: -0.073, plus: 0.073}
+      label: sys
+    value: 0.637
+  - errors:
+    - {label: stat, symerror: 0.055}
+    - asymerror: {minus: -0.07, plus: 0.094}
+      label: sys
+    value: 0.737
+- header: {name: NPART}
+  values:
+  - errors:
+    - asymerror: {minus: -2.6, plus: 2.4}
+    value: 358.8
+  - errors:
+    - asymerror: {minus: -3.8, plus: 3.6}
+    value: 264.2
+  - errors:
+    - asymerror: {minus: -4.1, plus: 4.0}
+    value: 189.2
+  - errors:
+    - asymerror: {minus: -4.0, plus: 4.0}
+    value: 131.4
+  - errors:
+    - asymerror: {minus: -3.7, plus: 3.7}
+    value: 86.9
+  - errors:
+    - asymerror: {minus: -1.0, plus: 1.8}
+    value: 21.9
+independent_variables:
+- header: {name: Centrality, units: PCT}
+  values:
+  - {high: 10.0, low: 0.0}
+  - {high: 20.0, low: 10.0}
+  - {high: 30.0, low: 20.0}
+  - {high: 40.0, low: 30.0}
+  - {high: 50.0, low: 40.0}
+  - {high: 100.0, low: 50.0}

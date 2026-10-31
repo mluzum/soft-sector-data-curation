@@ -1,0 +1,46 @@
+---
+observable_type: charge_dependent_correlations
+inspire_id: '1811102'
+version: 1
+hepdata_file: Fig3.yaml
+hepdata_table_label: The values of $\Delta \langle p^{2}_{\rm T}\rangle$ as a function of centrality at backward ($-4.46 <
+  y_{\rm cms} < -2.96$) and forward ($2.03 < y_{\rm cms} < 3.53$) centre-of-mass rapidity. The first uncertainty is statistical,
+  the second and third ones are the systematic uncertainties. The third is related to the uncertainty on the $\langle p^{2}_{\rm
+  T} \rangle$ in pp collisions and is correlated over centrality.
+qualifiers:
+  re: P PB --> J/PSI < MU+ MU- > X
+  sqrt(s)/nucleon: 8160.0 GeV
+  yrap(rf=cm): 2.03 - 3.53
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> J/PSI < MU+ MU- > X
+centrality:
+  classes:
+  - MB
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: J/psi
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+    bins:
+    - -0.8
+    - 0.8
+  pT:
+    min: 0.15
+    max: 50
+    bins:
+    - 0.15
+    - 50
+observable: gamma_ss
+value_type: gamma_ss
+charge_combo: all

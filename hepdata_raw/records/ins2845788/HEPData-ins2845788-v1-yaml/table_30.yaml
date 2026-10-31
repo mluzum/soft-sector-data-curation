@@ -1,0 +1,112 @@
+dependent_variables:
+- header: {name: '$\frac{1}{\sigma_{inc}} \frac{d\sigma}{d\lambda_{\alpha,g}}$'}
+  qualifiers:
+  - {name: RE, value: Pb Pb --> jet+X}
+  - {name: SQRT(S), units: TeV, value: 5.02}
+  - {name: ETARAP, value: '|0.9-R|'}
+  - {name: jet radius, value: 0.2}
+  - {name: jet method, value: 'Anti-$k_{T}$'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.051}
+    - {label: 'sys,unfolding', symerror: 0.0735}
+    - {label: 'sys,generator', symerror: 0.0225}
+    - {label: 'sys,trkeff', symerror: -0.806}
+    - {label: 'sys,random_mass', symerror: 0.047}
+    - {label: 'sys,subtraction1', symerror: 0.0823}
+    - {label: 'sys,thermal_closure', symerror: 0.0806}
+    value: 0.997
+  - errors:
+    - {label: stat, symerror: 0.766}
+    - {label: 'sys,unfolding', symerror: 1.11}
+    - {label: 'sys,generator', symerror: 0.33}
+    - {label: 'sys,trkeff', symerror: -0.224}
+    - {label: 'sys,random_mass', symerror: 0.0488}
+    - {label: 'sys,subtraction1', symerror: 1.05}
+    - {label: 'sys,thermal_closure', symerror: 0.96}
+    value: 15.5
+  - errors:
+    - {label: stat, symerror: 1.6}
+    - {label: 'sys,unfolding', symerror: 0.806}
+    - {label: 'sys,generator', symerror: 0.663}
+    - {label: 'sys,trkeff', symerror: 0.692}
+    - {label: 'sys,random_mass', symerror: 0.157}
+    - {label: 'sys,subtraction1', symerror: 1.11}
+    - {label: 'sys,thermal_closure', symerror: 1.05}
+    value: 31.3
+  - errors:
+    - {label: stat, symerror: 1.13}
+    - {label: 'sys,unfolding', symerror: 0.504}
+    - {label: 'sys,generator', symerror: 0.522}
+    - {label: 'sys,trkeff', symerror: 0.78}
+    - {label: 'sys,random_mass', symerror: 0.0126}
+    - {label: 'sys,subtraction1', symerror: 0.953}
+    - {label: 'sys,thermal_closure', symerror: 0.996}
+    value: 27.1
+  - errors:
+    - {label: stat, symerror: 0.946}
+    - {label: 'sys,unfolding', symerror: 0.559}
+    - {label: 'sys,generator', symerror: 0.57}
+    - {label: 'sys,trkeff', symerror: 1.14}
+    - {label: 'sys,random_mass', symerror: 0.425}
+    - {label: 'sys,subtraction1', symerror: 0.563}
+    - {label: 'sys,thermal_closure', symerror: 0.135}
+    value: 20.4
+  - errors:
+    - {label: stat, symerror: 0.403}
+    - {label: 'sys,unfolding', symerror: 0.132}
+    - {label: 'sys,generator', symerror: 0.147}
+    - {label: 'sys,trkeff', symerror: 0.582}
+    - {label: 'sys,random_mass', symerror: 0.0357}
+    - {label: 'sys,subtraction1', symerror: 0.0913}
+    - {label: 'sys,thermal_closure', symerror: 0.435}
+    value: 11.2
+  - errors:
+    - {label: stat, symerror: 0.135}
+    - {label: 'sys,unfolding', symerror: 0.117}
+    - {label: 'sys,generator', symerror: 0.0931}
+    - {label: 'sys,trkeff', symerror: 0.271}
+    - {label: 'sys,random_mass', symerror: 0.00505}
+    - {label: 'sys,subtraction1', symerror: 0.0643}
+    - {label: 'sys,thermal_closure', symerror: 0.0983}
+    value: 3.52
+  - errors:
+    - {label: stat, symerror: 0.104}
+    - {label: 'sys,unfolding', symerror: 0.113}
+    - {label: 'sys,generator', symerror: 0.0596}
+    - {label: 'sys,trkeff', symerror: 0.148}
+    - {label: 'sys,random_mass', symerror: 0.0656}
+    - {label: 'sys,subtraction1', symerror: 0.194}
+    - {label: 'sys,thermal_closure', symerror: 0.0628}
+    value: 1.71
+  - errors:
+    - {label: stat, symerror: 0.0284}
+    - {label: 'sys,unfolding', symerror: 0.0133}
+    - {label: 'sys,generator', symerror: 0.0376}
+    - {label: 'sys,trkeff', symerror: 0.0485}
+    - {label: 'sys,random_mass', symerror: 0.00185}
+    - {label: 'sys,subtraction1', symerror: 0.0146}
+    - {label: 'sys,thermal_closure', symerror: 0.0285}
+    value: 0.523
+  - errors:
+    - {label: stat, symerror: 0.0134}
+    - {label: 'sys,unfolding', symerror: 0.00414}
+    - {label: 'sys,generator', symerror: 0.0124}
+    - {label: 'sys,trkeff', symerror: 0.0121}
+    - {label: 'sys,random_mass', symerror: 0.00516}
+    - {label: 'sys,subtraction1', symerror: 0.0147}
+    - {label: 'sys,thermal_closure', symerror: 0.00747}
+    value: 0.126
+independent_variables:
+- header: {name: '$\lambda_{\alpha,g}$'}
+  values:
+  - {high: 0.0, low: -0.1}
+  - {high: 0.007, low: 0.0}
+  - {high: 0.01, low: 0.007}
+  - {high: 0.015, low: 0.01}
+  - {high: 0.02, low: 0.015}
+  - {high: 0.04, low: 0.02}
+  - {high: 0.07, low: 0.04}
+  - {high: 0.1, low: 0.07}
+  - {high: 0.25, low: 0.1}
+  - {high: 0.45, low: 0.25}

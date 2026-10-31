@@ -1,0 +1,40 @@
+dependent_variables:
+- header: {name: v2(phi)/v2(proton)}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 30.0-80.0}
+  - {name: RE, value: AU AU --> (P + PBAR) X}
+  - {name: RE, value: AU AU --> PHI X}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.104316}
+    - asymerror: {minus: -0.043052, plus: 0.0477511}
+      label: sys
+    value: 1.12103
+  - errors:
+    - {label: stat, symerror: 0.0312131}
+    - asymerror: {minus: -0.02189, plus: 0.0192785}
+      label: sys
+    value: 0.964861
+  - errors:
+    - {label: stat, symerror: 0.0162999}
+    - asymerror: {minus: -0.01119, plus: 0.0124829}
+      label: sys
+    value: 0.857963
+  - errors:
+    - {label: stat, symerror: 0.0118806}
+    - asymerror: {minus: -0.0069563, plus: 0.00859084}
+      label: sys
+    value: 0.832306
+  - errors:
+    - {label: stat, symerror: 0.008702}
+    - asymerror: {minus: -0.00626885, plus: 0.0059507}
+      label: sys
+    value: 0.819682
+independent_variables:
+- header: {name: <pt> (GeV/c)}
+  values:
+  - {value: 0.52124}
+  - {value: 0.710022}
+  - {value: 0.900931}
+  - {value: 1.09792}
+  - {value: 1.34581}

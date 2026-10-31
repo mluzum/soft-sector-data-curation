@@ -1,0 +1,35 @@
+dependent_variables:
+- header: {name: Baseline height (pp)}
+  qualifiers:
+  - {name: SQRT(S) (PP), units: GEV, value: '5020'}
+  - {name: YRAP (PP), value: '-0.5 TO 0.5 (D0, D+, D*+)'}
+  - {name: ABS(DETA), value: <1}
+  - {name: PT(CHARGED), units: GEV, value: 0.3 TO 1.0}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.01933944}
+    - asymerror: {minus: -0.07488115, plus: 0.07488115}
+      label: sys,uncorr
+    value: 1.808517
+  - errors:
+    - {label: stat, symerror: 0.02033361}
+    - asymerror: {minus: -0.08342084, plus: 0.08342084}
+      label: sys,uncorr
+    value: 1.839532
+  - errors:
+    - {label: stat, symerror: 0.02813951}
+    - asymerror: {minus: -0.07780164, plus: 0.07780164}
+      label: sys,uncorr
+    value: 1.813364
+  - errors:
+    - {label: stat, symerror: 0.1057086}
+    - asymerror: {minus: -0.1309488, plus: 0.1309488}
+      label: sys,uncorr
+    value: 1.932176
+independent_variables:
+- header: {name: 'D-meson $p_{\rm T}$ (GeV/$c$)'}
+  values:
+  - {high: 5.0, low: 3.0}
+  - {high: 8.0, low: 5.0}
+  - {high: 16.0, low: 8.0}
+  - {high: 24.0, low: 16.0}

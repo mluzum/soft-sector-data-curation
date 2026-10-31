@@ -1,0 +1,61 @@
+dependent_variables:
+- header: {name: '$d^{2}\mathrm{\sigma_{\gamma}}^{iso} / d{p}_{\mathrm{T}}^{\gamma}dy$',
+    units: 'nb/GeV/$\mathrm{c}$'}
+  qualifiers:
+  - {name: REACTION, value: P Pb --> ISO GAMMA X}
+  - {name: ABS(YRAP), value: <0.7}
+  - {name: SQRT(S), units: GEV, value: 5020.0}
+  - {name: Isolation cut, value: 'R = 0.4, $p_{\mathrm{T}}^{iso,ch}$ < 1.5 GeV/$\mathrm{c}$,
+      charged particle only'}
+  values:
+  - errors:
+    - {label: stat, symerror: 24.705}
+    - {label: sys, symerror: 208.63}
+    - {label: norm, symerror: 123.571}
+    value: 1930.79
+  - errors:
+    - {label: stat, symerror: 19.3012}
+    - {label: sys, symerror: 116.048}
+    - {label: norm, symerror: 78.4459}
+    value: 1225.72
+  - errors:
+    - {label: stat, symerror: 15.8471}
+    - {label: sys, symerror: 68.0667}
+    - {label: norm, symerror: 51.0235}
+    value: 797.242
+  - errors:
+    - {label: stat, symerror: 13.3404}
+    - {label: sys, symerror: 41.6618}
+    - {label: norm, symerror: 33.5275}
+    value: 523.867
+  - errors:
+    - {label: stat, symerror: 6.41839}
+    - {label: sys, symerror: 21.7582}
+    - {label: norm, symerror: 18.2496}
+    value: 285.15
+  - errors:
+    - {label: stat, symerror: 4.49301}
+    - {label: sys, symerror: 9.99934}
+    - {label: norm, symerror: 8.57887}
+    value: 134.045
+  - errors:
+    - {label: stat, symerror: 1.90558}
+    - {label: sys, symerror: 3.43867}
+    - {label: norm, symerror: 3.21776}
+    value: 50.2776
+  - errors:
+    - {label: stat, symerror: 0.578441}
+    - {label: sys, symerror: 1.12783}
+    - {label: norm, symerror: 0.595354}
+    value: 9.30241
+independent_variables:
+- header: {name: PT, units: GEV/c}
+  values:
+  - {high: 14, low: 12}
+  - {high: 16, low: 14}
+  - {high: 18, low: 16}
+  - {high: 20, low: 18}
+  - {high: 25, low: 20}
+  - {high: 30, low: 25}
+  - {high: 40, low: 30}
+  - {high: 60, low: 40}

@@ -1,0 +1,27 @@
+dependent_variables:
+- header: {name: Coalescence parameter $B_2$, units: GeV$^2/c^3$}
+  qualifiers:
+  - {name: CENTRALITY, units: PCT, value: 0.0 TO 18.0}
+  - {name: PT, units: GeV/c, value: 0.5 TO 0.7}
+  - {name: RAPIDITY, value: -0.3 TO 0.3}
+  - {name: PARTICLES, value: '$\overline{d}$'}
+  values:
+  - errors:
+    - {label: stat, symerror: 3.0e-05}
+    - {label: sys, symerror: 0.0001}
+    value: 0.00045
+- header: {name: Coalescence parameter $B_3$, units: GeV$^4/c^6$}
+  qualifiers:
+  - {name: CENTRALITY, units: PCT, value: 0.0 TO 18.0}
+  - {name: PT, units: GeV/c, value: 1.0 TO 5.0}
+  - {name: RAPIDITY, value: -0.8 TO 0.8}
+  - {name: PARTICLES, value: '$^3\overline{\mathrm{He}}$'}
+  values:
+  - errors:
+    - {label: stat, symerror: 6.0e-08}
+    - {label: sys, symerror: 6.0e-08}
+    value: 2.1e-07
+independent_variables:
+- header: {name: SQRT(S)/NUCLEON, units: GEV}
+  values:
+  - {value: 130}

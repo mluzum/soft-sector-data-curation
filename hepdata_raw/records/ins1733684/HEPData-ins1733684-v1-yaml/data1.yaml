@@ -1,0 +1,39 @@
+dependent_variables:
+- header: {name: '$1/N^{\rm{jets}}{\rm d} N^{\rm{jets}}/{\rm d} z_{\rm g}$'}
+  qualifiers:
+  - {name: SQRT(S), units: GEV, value: '7000.0'}
+  - {name: YRAP, value: -0.5 TO 0.5}
+  values:
+  - errors:
+    - {label: stat, symerror: '0.25'}
+    - asymerror: {minus: '-0.15', plus: '0.22'}
+      label: sys
+    value: '5.00'
+  - errors:
+    - {label: stat, symerror: '0.179'}
+    - asymerror: {minus: '-0.068', plus: '0.055'}
+      label: sys
+    value: '2.866'
+  - errors:
+    - {label: stat, symerror: '0.166'}
+    - asymerror: {minus: '-0.158', plus: '0.057'}
+      label: sys
+    value: '1.924'
+  - errors:
+    - {label: stat, symerror: '0.120'}
+    - asymerror: {minus: '-0.191', plus: '0.054'}
+      label: sys
+    value: '1.356'
+  - errors:
+    - {label: stat, symerror: '0.107'}
+    - asymerror: {minus: '-0.033', plus: '0.124'}
+      label: sys
+    value: '1.297'
+independent_variables:
+- header: {name: '$z_{\rm g}$'}
+  values:
+  - {high: 0.175, low: 0.1}
+  - {high: 0.25, low: 0.175}
+  - {high: 0.325, low: 0.25}
+  - {high: 0.4, low: 0.325}
+  - {high: 0.5, low: 0.4}

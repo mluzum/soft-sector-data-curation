@@ -1,0 +1,100 @@
+---
+observable_type: mean_pT_fluctuations
+inspire_id: '588142'
+version: 1
+hepdata_file: fig3b.yaml
+hepdata_table_label: Differential cross section $d\sigma(\gamma Au \rightarrow \rho Au)/dt$ of $\rho^0$ candidates
+qualifiers:
+  particles: $\rho^0$
+collision_system:
+  energy_gev: 200
+  reaction: AU AU --> Au Au \rho^0
+centrality:
+  classes:
+  - 0-0.001%
+  - 0.001-0.002%
+  - 0.002-0.003%
+  - 0.003-0.004%
+  - 0.004-0.005%
+  - 0.005-0.006%
+  - 0.006-0.007%
+  - 0.007-0.008%
+  - 0.008-0.009%
+  - 0.009-0.01%
+  - 0.01-0.011%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: Sigma
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+    bins:
+    - -1.0
+    - 1.0
+  pT:
+    min: 0.15
+    max: 10
+    bins:
+    - 0.15
+    - 10
+observable: sigma_mean_pT
+value_type: Sigma
+---
+observable_type: mean_pT_fluctuations
+inspire_id: '588142'
+version: 1
+hepdata_file: fig4.0.yaml
+hepdata_table_label: Differential cross section $d\sigma/dM_{\pi\pi}$ for two-track (xn,xn) events with pair $p_T<150$ MeV/$c$
+qualifiers:
+  particles: $\rho^0$
+collision_system:
+  energy_gev: 200
+  reaction: AU AU --> Au Au \rho^0
+centrality:
+  classes:
+  - 0.45-0.49%
+  - 0.49-0.535%
+  - 0.535-0.58%
+  - 0.58-0.625%
+  - 0.625-0.67%
+  - 0.67-0.715%
+  - 0.715-0.76%
+  - 0.76-0.805%
+  - 0.805-0.85%
+  - 0.85-0.895%
+  - 0.895-0.94%
+  - 0.94-0.985%
+  - 0.985-1.03%
+  - 1.03-1.075%
+  - 1.075-1.125%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: Sigma
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+    bins:
+    - -1.0
+    - 1.0
+  pT:
+    min: 0.15
+    max: 10
+    bins:
+    - 0.15
+    - 10
+observable: sigma_mean_pT
+value_type: Sigma

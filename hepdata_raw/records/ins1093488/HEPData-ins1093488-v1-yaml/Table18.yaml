@@ -1,0 +1,60 @@
+dependent_variables:
+- header: {name: RAA}
+  qualifiers:
+  - {name: ABS(YRAP), value: < 0.5}
+  - {name: CENTRALITY, units: pct, value: 40.0-80.0}
+  - {name: RE, value: PB PB --> (D0 + D0BAR + D+ + D- + D*+ + D*-) X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.13}
+    - asymerror: {minus: -0.32, plus: 0.23}
+      label: sys
+    - {label: 'sys,normalization', symerror: 7.5%}
+    value: 0.75
+  - errors:
+    - {label: stat, symerror: 0.09}
+    - asymerror: {minus: -0.21, plus: 0.15}
+      label: sys
+    - {label: 'sys,normalization', symerror: 7.5%}
+    value: 0.59
+  - errors:
+    - {label: stat, symerror: 0.07}
+    - asymerror: {minus: -0.18, plus: 0.14}
+      label: sys
+    - {label: 'sys,normalization', symerror: 7.5%}
+    value: 0.55
+  - errors:
+    - {label: stat, symerror: 0.08}
+    - asymerror: {minus: -0.17, plus: 0.13}
+      label: sys
+    - {label: 'sys,normalization', symerror: 7.5%}
+    value: 0.54
+  - errors:
+    - {label: stat, symerror: 0.08}
+    - asymerror: {minus: -0.18, plus: 0.14}
+      label: sys
+    - {label: 'sys,normalization', symerror: 7.5%}
+    value: 0.6
+  - errors:
+    - {label: stat, symerror: 0.08}
+    - asymerror: {minus: -0.2, plus: 0.16}
+      label: sys
+    - {label: 'sys,normalization', symerror: 7.5%}
+    value: 0.66
+  - errors:
+    - {label: stat, symerror: 0.16}
+    - asymerror: {minus: -0.18, plus: 0.16}
+      label: sys
+    - {label: 'sys,normalization', symerror: 7.5%}
+    value: 0.64
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {high: 3.0, low: 2.0}
+  - {high: 4.0, low: 3.0}
+  - {high: 5.0, low: 4.0}
+  - {high: 6.0, low: 5.0}
+  - {high: 8.0, low: 6.0}
+  - {high: 12.0, low: 8.0}
+  - {high: 16.0, low: 12.0}

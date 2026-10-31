@@ -1,0 +1,30 @@
+dependent_variables:
+- header: {name: Fraction of J/$\psi$ from Beauty hadron decays $f_B$}
+  qualifiers:
+  - {name: RE, value: P PB --> JPSI < E+ E- > X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '8160.0'}
+  - {name: YRAP, value: -1.37 TO 0.43}
+  values:
+  - errors:
+    - {label: err, symerror: 0.046}
+    value: 0.119
+  - errors:
+    - {label: err, symerror: 0.043}
+    value: 0.213
+  - errors:
+    - {label: err, symerror: 0.053}
+    value: 0.274
+  - errors:
+    - {label: err, symerror: 0.087}
+    value: 0.326
+  - errors:
+    - {label: err, symerror: 0.106}
+    value: 0.33
+independent_variables:
+- header: {name: PT, units: GEV/C}
+  values:
+  - {high: 4.0, low: 2.0}
+  - {high: 6.0, low: 4.0}
+  - {high: 8.0, low: 6.0}
+  - {high: 10.0, low: 8.0}
+  - {high: 14.0, low: 10.0}

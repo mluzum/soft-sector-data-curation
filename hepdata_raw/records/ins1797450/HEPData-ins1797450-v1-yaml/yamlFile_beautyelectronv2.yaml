@@ -1,0 +1,40 @@
+dependent_variables:
+- header: {name: $v_2$}
+  qualifiers:
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 5020}
+  - {name: CENTRALITY, units: '%', value: 30-50}
+  - {name: YRAP, value: -0.8 TO 0.8}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0550182}
+    - {label: sys, symerror: 0.0138332}
+    value: 0.0590912
+  - errors:
+    - {label: stat, symerror: 0.0311316}
+    - {label: sys, symerror: 0.00808742}
+    value: 0.0631139
+  - errors:
+    - {label: stat, symerror: 0.0262039}
+    - {label: sys, symerror: 0.00807512}
+    value: 0.0446807
+  - errors:
+    - {label: stat, symerror: 0.0260955}
+    - {label: sys, symerror: 0.00809894}
+    value: 0.0764728
+  - errors:
+    - {label: stat, symerror: 0.030711}
+    - {label: sys, symerror: 0.00929057}
+    value: 0.0553889
+  - errors:
+    - {label: stat, symerror: 0.0383679}
+    - {label: sys, symerror: 0.016929}
+    value: 0.0763247
+independent_variables:
+- header: {name: '$p_{\rm T}$', units: GeV/$c$}
+  values:
+  - {high: 1.5, low: 1.3}
+  - {high: 2, low: 1.5}
+  - {high: 2.5, low: 2}
+  - {high: 3, low: 2.5}
+  - {high: 4, low: 3}
+  - {high: 6, low: 4}

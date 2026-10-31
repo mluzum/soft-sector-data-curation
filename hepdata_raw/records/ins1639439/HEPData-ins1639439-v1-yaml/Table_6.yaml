@@ -1,0 +1,24 @@
+dependent_variables:
+- header: {name: RAA}
+  qualifiers:
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020.0'}
+  - {name: RE, value: PB PB --> Z0 < MU+ MU- > X}
+  - {name: YRAP, value: 2.5 TO 4.0}
+  - {name: M(MU+ MU-), units: GEV/C^2, value: 60.0 TO 120.0}
+  - {name: PT(MU), units: GEV/C, value: '> 20.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.19}
+    - {label: 'sys, uncorrel', symerror: 0.04}
+    - {label: 'sys, correl', symerror: 0.06}
+    value: 0.96
+  - errors:
+    - {label: stat, symerror: 0.11}
+    - {label: 'sys, uncorrel', symerror: 0.03}
+    - {label: 'sys, correl', symerror: 0.04}
+    value: 0.67
+independent_variables:
+- header: {name: MEAN(NPART)(weighted by MEAN(NCOLL))}
+  values:
+  - {value: 140.73}
+  - {value: 322.56}

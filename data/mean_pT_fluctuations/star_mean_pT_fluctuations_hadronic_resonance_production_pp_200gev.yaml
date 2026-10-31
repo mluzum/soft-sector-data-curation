@@ -1,0 +1,46 @@
+---
+observable_type: mean_pT_fluctuations
+inspire_id: '776722'
+version: 1
+hepdata_file: table34.yaml
+hepdata_table_label: Sigma* mass as a function of pT at |y| < 0.75 for minimum bias d+Au collisions.
+qualifiers:
+  sqrt(s): '200'
+collision_system:
+  energy_gev: 200.0
+  reaction: p p
+centrality:
+  classes:
+  - MB
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: Sigma
+kinematic_range:
+  pT:
+    min: 0.375
+    max: 3.0
+    bins:
+    - 0.375
+    - 0.875
+    - 1.225
+    - 1.475
+    - 1.75
+    - 2.0
+    - 2.225
+    - 2.475
+    - 2.75
+    - 3.0
+  eta:
+    min: -1.0
+    max: 1.0
+    bins:
+    - -1.0
+    - 1.0
+observable: sigma_mean_pT
+value_type: Sigma

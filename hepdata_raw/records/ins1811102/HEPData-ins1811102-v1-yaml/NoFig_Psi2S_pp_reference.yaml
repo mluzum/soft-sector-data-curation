@@ -1,0 +1,20 @@
+dependent_variables:
+- header: {name: D(SIGMA)/DY)_PSI(2S)}
+  qualifiers:
+  - {name: RE, value: P P --> PSI(2S) < MU+ MU- > X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 8160.0}
+  - {name: PT, units: GEV/C, value: 0.00 TO 20.00}
+  values:
+  - errors:
+    - {label: 'sys, uncorrel', symerror: 0.012}
+    - {label: 'sys, correl', symerror: 0.062}
+    value: 0.666
+  - errors:
+    - {label: 'sys, uncorrel', symerror: 0.013}
+    - {label: 'sys, correl', symerror: 0.081}
+    value: 0.864
+independent_variables:
+- header: {name: NCOLL}
+  values:
+  - {high: -2.96, low: -4.46}
+  - {high: 3.53, low: 2.03}

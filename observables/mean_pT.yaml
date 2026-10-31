@@ -1,0 +1,60 @@
+observable_type: mean_pT
+description: >
+  Mean transverse momentum ⟨pT⟩ of charged particles (or identified hadrons),
+  typically reported as a function of centrality, multiplicity, or (rarely) pT.
+
+composes:
+  - _common#collision_system
+  - _common#particle_id
+
+optional_composes:
+  - centrality#centrality
+
+required_fields:
+  observable:
+    type: string
+    required: true
+    description: Short identifier.
+    example: "mean_pT"
+  value_type:
+    type: string
+    required: true
+    description: >
+      One of: 'mean_pT', 'truncated_mean_pT', 'mean_pT_vs_centrality',
+      'mean_pT_vs_multiplicity', 'mean_pT_vs_pT'
+    example: "mean_pT"
+
+optional_fields:
+  pT_integration_range:
+    type: object
+    required: false
+    description: "The pT range over which the mean is computed."
+    fields:
+      min: {type: float, required: true, example: 0.15}
+      max: {type: float, required: true, example: 2.0}
+  dv_index:
+    type: integer
+    required: false
+    description: >
+      Index into the HEPData table's dependent_variables list when one
+      table holds several measured series. Default 0.
+    example: 2
+  dv_average:
+    type: list
+    required: false
+    description: >
+      Average several dependent_variables element-wise (e.g. particle +
+      antiparticle series). Mutually exclusive with dv_index.
+    example: [2, 3]
+  is_truncated:
+    type: boolean
+    required: false
+    description: "True if a truncated mean (pT window) was used instead of full acceptance."
+    example: false
+  multiplicity_range:
+    type: object
+    required: false
+    description: "Multiplicity range if ⟨pT⟩ is reported vs multiplicity."
+    fields:
+      min: {type: float, required: false, example: 0}
+      max: {type: float, required: false, example: 100}

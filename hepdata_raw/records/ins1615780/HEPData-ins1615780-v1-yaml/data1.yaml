@@ -1,0 +1,65 @@
+dependent_variables:
+- header: {name: v2}
+  qualifiers:
+  - {name: RE, value: Pb Pb --> D0 X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020'}
+  - {name: RAPIDITY |Y|, value: <1.}
+  - {name: PbPb CENTRALITY, units: PERCENTILE, value: 0-10}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.023}
+    - {label: 'sys,other', symerror: 0.015}
+    - {label: 'sys,nonprompt', symerror: 0.02}
+    value: 0.073
+  - errors:
+    - {label: stat, symerror: 0.014}
+    - {label: 'sys,other', symerror: 0.015}
+    - {label: 'sys,nonprompt', symerror: 0.02}
+    value: 0.083
+  - errors:
+    - {label: stat, symerror: 0.015}
+    - {label: 'sys,other', symerror: 0.015}
+    - {label: 'sys,nonprompt', symerror: 0.02}
+    value: 0.093
+  - errors:
+    - {label: stat, symerror: 0.017}
+    - {label: 'sys,other', symerror: 0.015}
+    - {label: 'sys,nonprompt', symerror: 0.02}
+    value: 0.036
+  - errors:
+    - {label: stat, symerror: 0.016}
+    - {label: 'sys,other', symerror: 0.015}
+    - {label: 'sys,nonprompt', symerror: 0.02}
+    value: 0.066
+  - errors:
+    - {label: stat, symerror: 0.019}
+    - {label: 'sys,other', symerror: 0.021}
+    - {label: 'sys,nonprompt', symerror: 0.01}
+    value: 0.033
+  - errors:
+    - {label: stat, symerror: 0.018}
+    - {label: 'sys,other', symerror: 0.021}
+    - {label: 'sys,nonprompt', symerror: 0.01}
+    value: 0.05
+  - errors:
+    - {label: stat, symerror: 0.029}
+    - {label: 'sys,other', symerror: 0.021}
+    - {label: 'sys,nonprompt', symerror: 0.01}
+    value: 0.027
+  - errors:
+    - {label: stat, symerror: 0.035}
+    - {label: 'sys,other', symerror: 0.029}
+    - {label: 'sys,nonprompt', symerror: 0.01}
+    value: -0.012
+independent_variables:
+- header: {name: PT (GEV)}
+  values:
+  - {high: 3.0, low: 2.0}
+  - {high: 4.0, low: 3.0}
+  - {high: 5.0, low: 4.0}
+  - {high: 6.0, low: 5.0}
+  - {high: 8.0, low: 6.0}
+  - {high: 10.0, low: 8.0}
+  - {high: 15.0, low: 10.0}
+  - {high: 20.0, low: 15.0}
+  - {high: 40.0, low: 20.0}

@@ -1,0 +1,82 @@
+dependent_variables:
+- header: {name: $<m_T>$}
+  values:
+  - {value: 0.72}
+  - {value: 0.92}
+  - {value: 1.15}
+- header: {name: $\lambda$}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.037}
+    - {label: sys., symerror: 0.148}
+    value: 0.563
+  - errors:
+    - {label: stat., symerror: 0.028}
+    - {label: sys., symerror: 0.128}
+    value: 0.542
+  - errors:
+    - {label: stat., symerror: 0.029}
+    - {label: sys., symerror: 0.073}
+    value: 0.446
+- header: {name: '$R_{side}$'}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.11}
+    - {label: sys., symerror: 0.19}
+    value: 3.62
+  - errors:
+    - {label: stat., symerror: 0.08}
+    - {label: sys., symerror: 0.16}
+    value: 3.24
+  - errors:
+    - {label: stat., symerror: 0.09}
+    - {label: sys., symerror: 0.14}
+    value: 2.58
+- header: {name: '$R_{out}$'}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.1}
+    - {label: sys., symerror: 0.07}
+    value: 3.6
+  - errors:
+    - {label: stat., symerror: 0.08}
+    - {label: sys., symerror: 0.17}
+    value: 3.48
+  - errors:
+    - {label: stat., symerror: 0.1}
+    - {label: sys., symerror: 0.07}
+    value: 2.96
+- header: {name: '$R_{long}$'}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.12}
+    - {label: sys., symerror: 0.31}
+    value: 3.69
+  - errors:
+    - {label: stat., symerror: 0.08}
+    - {label: sys., symerror: 0.24}
+    value: 2.81
+  - errors:
+    - {label: stat., symerror: 0.08}
+    - {label: sys., symerror: 0.12}
+    value: 2.25
+- header: {name: '$R_{out}$/$R_{side}$'}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.04}
+    - {label: sys., symerror: 0.06}
+    value: 0.99
+  - errors:
+    - {label: stat., symerror: 0.04}
+    - {label: sys., symerror: 0.08}
+    value: 1.08
+  - errors:
+    - {label: stat., symerror: 0.06}
+    - {label: sys., symerror: 0.09}
+    value: 1.15
+independent_variables:
+- header: {name: $k_T$ Range}
+  values:
+  - {high: 0.65, low: 0.3}
+  - {high: 0.9, low: 0.65}
+  - {high: 1.5, low: 0.9}

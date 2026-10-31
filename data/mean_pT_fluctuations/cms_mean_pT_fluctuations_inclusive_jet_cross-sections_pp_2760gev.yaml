@@ -1,0 +1,42 @@
+---
+observable_type: mean_pT_fluctuations
+inspire_id: '1487278'
+version: 1
+hepdata_file: data_fig4.yaml
+hepdata_table_label: Inclusive jet cross section in pp collisions, for anti-k$_T$ jets with a distance parameter $R=0.2, 0.3,
+  0.4$, reconstructed in $|\eta|<0.2$. The '3.7%' luminosity uncertainty is a fully correlated uncertainty, and not included
+  in the point-to-point uncertainty.
+qualifiers:
+  anti-k$_t$ r: '0.4'
+  jet $|\eta|: < 2.0
+  re: p p --> Jet X
+  sqrt(s): '2760'
+collision_system:
+  energy_gev: 2760.0
+  reaction: p p --> Jet X
+centrality:
+  classes:
+  - MB
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: Sigma
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: sigma_mean_pT
+value_type: Sigma

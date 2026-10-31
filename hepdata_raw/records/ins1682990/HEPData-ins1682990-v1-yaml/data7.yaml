@@ -1,0 +1,39 @@
+dependent_variables:
+- header: {name: '$1/N^{\rm{jets}}{\rm d} N^{\rm{jets}}/{\rm d} LeSub$', units: (GEV/c)**-1}
+  qualifiers:
+  - {name: SQRT(S), units: GEV, value: '7000.0'}
+  - {name: YRAP, value: -0.7 TO 0.7}
+  values:
+  - errors:
+    - {label: stat, symerror: '0.0046'}
+    - asymerror: {minus: '-0.0026', plus: '0.0027'}
+      label: sys
+    value: '0.0854'
+  - errors:
+    - {label: stat, symerror: '0.0034'}
+    - asymerror: {minus: '-0.0012', plus: '0.0012'}
+      label: sys
+    value: '0.0441'
+  - errors:
+    - {label: stat, symerror: '0.0028'}
+    - asymerror: {minus: '-0.0006', plus: '0.0006'}
+      label: sys
+    value: '0.0286'
+  - errors:
+    - {label: stat, symerror: '0.0021'}
+    - asymerror: {minus: '-0.0012', plus: '0.0012'}
+      label: sys
+    value: '0.0179'
+  - errors:
+    - {label: stat, symerror: '0.0010'}
+    - asymerror: {minus: '-0.0006', plus: '0.0006'}
+      label: sys
+    value: '0.0091'
+independent_variables:
+- header: {name: $LeSub$, units: GEV/c}
+  values:
+  - {high: 5.0, low: 0.0}
+  - {high: 10.0, low: 5.0}
+  - {high: 15.0, low: 10.0}
+  - {high: 20.0, low: 15.0}
+  - {high: 30.0, low: 20.0}

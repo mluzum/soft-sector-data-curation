@@ -1,0 +1,40 @@
+dependent_variables:
+- header: {name: D2N/DPT/DYRAP, units: GEV}
+  qualifiers:
+  - {name: ABS(YRAP), value: 2.5-4.0}
+  - {name: RE, value: PB PB --> PHI < MU+ MU- >}
+  - {name: SQRT(S), value: 2760.0 GEV}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.18511}
+    - {label: 'sys,bin-to-bin uncorrelated', symerror: 0.10547}
+    - {label: 'sys,bin-to-bin correlated', symerror: 0.03112}
+    value: 0.84109
+  - errors:
+    - {label: stat, symerror: 0.05909}
+    - {label: 'sys,bin-to-bin uncorrelated', symerror: 0.04317}
+    - {label: 'sys,bin-to-bin correlated', symerror: 0.01228}
+    value: 0.3318
+  - errors:
+    - {label: stat, symerror: 0.016031}
+    - {label: 'sys,bin-to-bin uncorrelated', symerror: 0.013898}
+    - {label: 'sys,bin-to-bin correlated', symerror: 0.003494}
+    value: 0.093227
+  - errors:
+    - {label: stat, symerror: 0.007279}
+    - {label: 'sys,bin-to-bin uncorrelated', symerror: 0.005324}
+    - {label: 'sys,bin-to-bin correlated', symerror: 0.001368}
+    value: 0.03697
+  - errors:
+    - {label: stat, symerror: 0.00297}
+    - {label: 'sys,bin-to-bin uncorrelated', symerror: 0.001791}
+    - {label: 'sys,bin-to-bin correlated', symerror: 0.000386}
+    value: 0.010439
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {high: 2.5, low: 2.0}
+  - {high: 3.0, low: 2.5}
+  - {high: 3.6, low: 3.0}
+  - {high: 4.2, low: 3.6}
+  - {high: 5.0, low: 4.2}

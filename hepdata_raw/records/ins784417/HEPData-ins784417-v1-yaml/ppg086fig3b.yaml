@@ -1,0 +1,48 @@
+dependent_variables:
+- header: {name: $p_T$ (GeV/$c$)}
+  qualifiers:
+  - {name: Collision, value: Au+Au (Min. Bias)}
+  values:
+  - {value: 1.176}
+  - {value: 1.685}
+  - {value: 2.191}
+  - {value: 2.698}
+  - {value: 3.338}
+  - {value: 4.37}
+- header: {name: $r$ = direct $\gamma$/inclusive $\gamma$}
+  qualifiers:
+  - {name: Collision, value: Au+Au (Min. Bias)}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.019}
+    - {label: sys., symerror: 0.026}
+    value: 0.173
+  - errors:
+    - {label: stat., symerror: 0.02}
+    - {label: sys., symerror: 0.021}
+    value: 0.158
+  - errors:
+    - {label: stat., symerror: 0.026}
+    - {label: sys., symerror: 0.026}
+    value: 0.131
+  - errors:
+    - {label: stat., symerror: 0.037}
+    - {label: sys., symerror: 0.033}
+    value: 0.14
+  - errors:
+    - {label: stat., symerror: 0.045}
+    - {label: sys., symerror: 0.037}
+    value: 0.202
+  - errors:
+    - {label: stat., symerror: 0.088}
+    - {label: sys., symerror: 0.029}
+    value: 0.217
+independent_variables:
+- header: {name: $p_T$ (GeV/$c$) Bins}
+  values:
+  - {high: 1.431, low: 0.922}
+  - {high: 1.939, low: 1.431}
+  - {high: 2.443, low: 1.939}
+  - {high: 2.953, low: 2.443}
+  - {high: 3.723, low: 2.953}
+  - {high: 5.017, low: 3.723}

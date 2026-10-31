@@ -1,0 +1,67 @@
+dependent_variables:
+- header: {name: P_LAMBDA (%)}
+  qualifiers:
+  - {name: RE, value: Pb Pb --> LAMBDA X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 5020}
+  - {name: Particle, value: LAMBDA}
+  - {name: ABS(RAPIDITY), value: < 0.5}
+  - {name: CENTRALITY, value: 15-50%}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.61}
+    - {label: sys, symerror: 0.09}
+    value: -0.34
+  - errors:
+    - {label: stat, symerror: 0.3}
+    - {label: sys, symerror: 0.09}
+    value: 0.62
+  - errors:
+    - {label: stat, symerror: 0.25}
+    - {label: sys, symerror: 0.09}
+    value: 0.42
+  - errors:
+    - {label: stat, symerror: 0.25}
+    - {label: sys, symerror: 0.1}
+    value: 0.31
+  - errors:
+    - {label: stat, symerror: 0.26}
+    - {label: sys, symerror: 0.1}
+    value: -0.19
+  - errors:
+    - {label: stat, symerror: 0.29}
+    - {label: sys, symerror: 0.11}
+    value: -0.24
+  - errors:
+    - {label: stat, symerror: 0.34}
+    - {label: sys, symerror: 0.12}
+    value: -0.02
+  - errors:
+    - {label: stat, symerror: 0.38}
+    - {label: sys, symerror: 0.13}
+    value: 0.46
+  - errors:
+    - {label: stat, symerror: 0.48}
+    - {label: sys, symerror: 0.15}
+    value: -0.46
+  - errors:
+    - {label: stat, symerror: 0.75}
+    - {label: sys, symerror: 0.17}
+    value: -0.28
+  - errors:
+    - {label: stat, symerror: 0.98}
+    - {label: sys, symerror: 0.22}
+    value: -0.03
+independent_variables:
+- header: {name: PT, units: GEV/C}
+  values:
+  - {high: 0.8, low: 0.5}
+  - {high: 1.1, low: 0.8}
+  - {high: 1.4, low: 1.1}
+  - {high: 1.7, low: 1.4}
+  - {high: 2, low: 1.7}
+  - {high: 2.3, low: 2}
+  - {high: 2.6, low: 2.3}
+  - {high: 3, low: 2.6}
+  - {high: 3.5, low: 3}
+  - {high: 4, low: 3.5}
+  - {high: 5, low: 4}

@@ -1,0 +1,24 @@
+dependent_variables:
+- header: {name: '$e^{HF}$ $v_{2}$'}
+  qualifiers:
+  - {name: Collisions Energy, value: 27 GeV}
+  - {name: Collisions System, value: Au+Au}
+  - {name: Centrality, value: 0-60%}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.04}
+    - {label: sys., symerror: 0.08}
+    - asymerror: {minus: -0.01, plus: 0}
+      label: non-flow
+    value: 0.01
+  - errors:
+    - {label: stat., symerror: 0.05}
+    - {label: sys., symerror: 0.07}
+    - asymerror: {minus: -0.03, plus: 0}
+      label: non-flow
+    value: -0.03
+independent_variables:
+- header: {name: '$p_{T}$ (GeV/c)'}
+  values:
+  - {high: 0.7, low: 0.6}
+  - {high: 1.4, low: 1.2}

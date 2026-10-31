@@ -1,0 +1,51 @@
+dependent_variables:
+- header: {name: $P_\Lambda$, units: PCT}
+  qualifiers:
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '200.0'}
+  - {name: PARTICLES, value: $\Lambda$}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.059}
+    - asymerror: {minus: 0.032, plus: 0.035}
+      label: sys
+    value: 0.116
+  - errors:
+    - {label: stat, symerror: 0.054}
+    - asymerror: {minus: 0.05, plus: 0.054}
+      label: sys
+    value: 0.185
+  - errors:
+    - {label: stat, symerror: 0.06}
+    - asymerror: {minus: 0.072, plus: 0.079}
+      label: sys
+    value: 0.27
+  - errors:
+    - {label: stat, symerror: 0.073}
+    - asymerror: {minus: 0.083, plus: 0.09}
+      label: sys
+    value: 0.308
+  - errors:
+    - {label: stat, symerror: 0.101}
+    - asymerror: {minus: 0.085, plus: 0.092}
+      label: sys
+    value: 0.317
+  - errors:
+    - {label: stat, symerror: 0.167}
+    - asymerror: {minus: 0.155, plus: 0.168}
+      label: sys
+    value: 0.578
+  - errors:
+    - {label: stat, symerror: 0.341}
+    - asymerror: {minus: 0.153, plus: 0.166}
+      label: sys
+    value: 0.564
+independent_variables:
+- header: {name: CENTRALITY, units: PCT}
+  values:
+  - {value: 15}
+  - {value: 25}
+  - {value: 35}
+  - {value: 45}
+  - {value: 55}
+  - {value: 65}
+  - {value: 75}

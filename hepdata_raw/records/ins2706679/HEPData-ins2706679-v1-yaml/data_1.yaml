@@ -1,0 +1,33 @@
+dependent_variables:
+- header: {name: '$v_2^{\mathrm{sub}}$'}
+  qualifiers:
+  - {name: SQRT(S)/NUCLEON, units: TeV, value: 8.16}
+  - {name: RE, value: 'P PB --> $\Upsilon(\mathrm{1S})$ + X'}
+  - {name: Multiplicity Class, value: '$70 \leq N_{trk}^{offline}<300$'}
+  - {name: $|\Delta \eta|$, value: '>1'}
+  - {name: Rapidity, value: $-2.4<y<2.4$}
+  - {name: pT range, value: '$0 < p_{\mathrm{T}} < 30$ GeV'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0276}
+    - {label: sys, symerror: 0.0081}
+    value: 0.0202
+  - errors:
+    - {label: stat, symerror: 0.0304}
+    - {label: sys, symerror: 0.0051}
+    value: -0.0425
+  - errors:
+    - {label: stat, symerror: 0.033}
+    - {label: sys, symerror: 0.022}
+    value: 0.006
+  - errors:
+    - {label: stat, symerror: 0.036}
+    - {label: sys, symerror: 0.02}
+    value: -0.022
+independent_variables:
+- header: {name: '$p_{\mathrm{T}}$', units: GeV}
+  values:
+  - {value: 1.5}
+  - {value: 4.5}
+  - {value: 8.0}
+  - {value: 20.0}

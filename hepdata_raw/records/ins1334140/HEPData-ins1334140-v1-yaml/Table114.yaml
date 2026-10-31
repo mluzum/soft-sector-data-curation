@@ -1,0 +1,47 @@
+dependent_variables:
+- header: {name: RCP}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 40.0-60.0}
+  - {name: R, value: '0.4'}
+  - {name: RE, value: P PB --> JET X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  - {name: YRAP, value: 3.6-4.4}
+  values:
+  - errors:
+    - {label: stat, symerror: 6.1%}
+    - {label: sys, symerror: 4.0%}
+    - asymerror: {minus: 3.7%, plus: 3.2%}
+      label: sys,RCOLL uncertainty
+    value: 0.752
+  - errors:
+    - {label: stat, symerror: 3.5%}
+    - {label: sys, symerror: 3.3%}
+    - asymerror: {minus: 3.7%, plus: 3.2%}
+      label: sys,RCOLL uncertainty
+    value: 0.856
+  - errors:
+    - {label: stat, symerror: 7.3%}
+    - {label: sys, symerror: 2.6%}
+    - asymerror: {minus: 3.7%, plus: 3.2%}
+      label: sys,RCOLL uncertainty
+    value: 0.82
+  - errors:
+    - {label: stat, symerror: 15.1%}
+    - {label: sys, symerror: 2.1%}
+    - asymerror: {minus: 3.7%, plus: 3.2%}
+      label: sys,RCOLL uncertainty
+    value: 0.67
+  - errors:
+    - {label: stat, symerror: 38.7%}
+    - {label: sys, symerror: 1.7%}
+    - asymerror: {minus: 3.7%, plus: 3.2%}
+      label: sys,RCOLL uncertainty
+    value: 1.114
+independent_variables:
+- header: {name: PT*COSH(<Y*>), units: GEV}
+  values:
+  - {high: 863.6, low: 686.0}
+  - {high: 1087.0, low: 863.6}
+  - {high: 1369.0, low: 1087.0}
+  - {high: 1723.0, low: 1369.0}
+  - {high: 2169.0, low: 1723.0}

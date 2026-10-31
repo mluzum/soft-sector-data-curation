@@ -1,0 +1,80 @@
+dependent_variables:
+- header: {name: Counts}
+  qualifiers:
+  - {name: PT(L), value: '$p_{T}(\ell)>20 GeV$'}
+  - {name: ETA(L), value: '$|\eta(\mu)|<2.4~\wedge~|\eta(e)|\in[0,1.444]\cup[1.566,2.5]$'}
+  - {name: M(LL), value: $m(\ell^+\ell^-)>20 GeV$}
+  - {name: CHARGE(LL), value: '0'}
+  - {name: LL, value: '$\ell\ell \in [ee,\mu\mu]$'}
+  - {name: ACOPL(LL), value: $1-|\Delta\phi(\ell^+\ell^-)|/\pi > 0.01$}
+  - {name: CENTRALITY_BIN, value: '$cen \in [0,90]$'}
+  - {name: RE, value: Pb Pb --> T Tbar}
+  - {name: SQRT(S_NN), units: GeV, value: 5360}
+  values:
+  - errors:
+    - asymerror: {minus: -5.1, plus: 6.2}
+      label: stat
+    value: 26.0
+  - errors:
+    - asymerror: {minus: -7.0, plus: 8.1}
+      label: stat
+    value: 50.0
+  - errors:
+    - {label: stat, symerror: 15.8}
+    value: 250.0
+  - errors:
+    - {label: stat, symerror: 22.1}
+    value: 489.0
+  - errors:
+    - {label: stat, symerror: 33.2}
+    value: 1101.0
+  - errors:
+    - {label: stat, symerror: 137}
+    value: 18869
+  - errors:
+    - {label: stat, symerror: 69}
+    value: 4718
+  - errors:
+    - {label: stat, symerror: 17.6}
+    value: 309.0
+  - errors:
+    - asymerror: {minus: -12.2, plus: 13.3}
+      label: stat
+    value: 150.0
+  - errors:
+    - asymerror: {minus: -8.2, plus: 9.2}
+      label: stat
+    value: 67.0
+  - errors:
+    - asymerror: {minus: -6.1, plus: 7.1}
+      label: stat
+    value: 37.0
+  - errors:
+    - asymerror: {minus: -5.4, plus: 6.5}
+      label: stat
+    value: 30.0
+  - errors:
+    - asymerror: {minus: -3.8, plus: 5.0}
+      label: stat
+    value: 15.0
+  - errors:
+    - asymerror: {minus: -7.4, plus: 8.5}
+      label: stat
+    value: 55.0
+independent_variables:
+- header: {name: Dilepton mass, units: GeV}
+  values:
+  - {value: 20.0}
+  - {value: 33.333}
+  - {value: 46.667}
+  - {value: 60.0}
+  - {value: 73.333}
+  - {value: 86.667}
+  - {value: 100.0}
+  - {value: 113.33}
+  - {value: 126.67}
+  - {value: 140.0}
+  - {value: 153.33}
+  - {value: 166.67}
+  - {value: 180.0}
+  - {value: 193.33}

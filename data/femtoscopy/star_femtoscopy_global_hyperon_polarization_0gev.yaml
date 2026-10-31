@@ -1,0 +1,245 @@
+---
+observable_type: femtoscopy
+inspire_id: '1897216'
+version: 1
+hepdata_file: PolarizationVsCentrality.yaml
+hepdata_table_label: The centrality dependence of Global $\Lambda$-hyperon Polarization at $\sqrt{s_{\rm NN}}=3$ GeV.
+qualifiers:
+  \alpha_\lambda: '0.732'
+  \sqrt{s_{\rm nn}}: '3'
+  collision species: Au+Au
+  detector: STAR
+  p_{\rm t}: '>0.7'
+  y: '[-0.2,1]'
+collision_system:
+  energy_gev: 0.0
+  reaction: Au+Au
+centrality:
+  classes:
+  - 0-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: Lambda
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+    bins:
+    - -1.0
+    - 1.0
+  pT:
+    min: 0.15
+    max: 10
+    bins:
+    - 0.15
+    - 10
+observable: hbt_radii
+value_type: lambda
+pair_type: pi+pi+
+---
+observable_type: femtoscopy
+inspire_id: '1897216'
+version: 1
+hepdata_file: PolarizationVsEnergy.yaml
+hepdata_table_label: 'The integrated Global $\Lambda$-hyperon Polarization in mid-central collisions at $\sqrt{s_{\rm NN}}=3$
+  GeV. The trend of increasing $\overline{P}_{\rm H}$ with decreasing $\sqrt{s_{\rm NN}}$ is maintained at this low collision
+  energy. Previous experimental results are scaled by the updated $\Lambda$-hyperon decay parameter $\alpha_\Lambda=0.732$
+  for comparison with this result. Recent model calculations extended to low collision energy show disagreement between our
+  data and AMPT and rough agreement with the 3-Fluid Dynamics (3FD) model. Previous measurements shown alongside our data
+  can be found at: https://www.hepdata.net/record/ins750410?version=2; https://www.hepdata.net/record/ins1510474?version=1;
+  https://www.hepdata.net/record/ins1672785?version=2; https://www.hepdata.net/record/ins1752507?version=2.'
+qualifiers:
+  \alpha_\lambda: '0.732'
+  centrality: '[20,50]'
+  collision species: Au+Au
+  detector: STAR
+  p_{\rm t}: '>0.7'
+  y: '[-0.2,1]'
+collision_system:
+  energy_gev: 0.0
+  reaction: Au+Au
+centrality:
+  classes:
+  - 20-50%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: Lambda
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+    bins:
+    - -1.0
+    - 1.0
+  pT:
+    min: 0.15
+    max: 10
+    bins:
+    - 0.15
+    - 10
+observable: hbt_radii
+value_type: lambda
+pair_type: pi+pi+
+---
+observable_type: femtoscopy
+inspire_id: '1897216'
+version: 1
+hepdata_file: PolarizationVsPt.yaml
+hepdata_table_label: The $p_{\rm T}$ dependence of Global $\Lambda$-hyperon Polarization at $\sqrt{s_{\rm NN}}=3$ GeV.
+qualifiers:
+  \alpha_\lambda: '0.732'
+  \sqrt{s_{\rm nn}}: '3'
+  centrality: '[0,50]'
+  collision species: Au+Au
+  detector: STAR
+  y: '[-0.2,1]'
+collision_system:
+  energy_gev: 0.0
+  reaction: Au+Au
+centrality:
+  classes:
+  - 0-50%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: Lambda
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+    bins:
+    - -1.0
+    - 1.0
+  pT:
+    min: 0.15
+    max: 10
+    bins:
+    - 0.15
+    - 10
+observable: hbt_radii
+value_type: lambda
+pair_type: pi+pi+
+---
+observable_type: femtoscopy
+inspire_id: '1897216'
+version: 1
+hepdata_file: PolarizationVsRapidity.yaml
+hepdata_table_label: The rapidity dependence of Global $\Lambda$-hyperon Polarization at $\sqrt{s_{\rm NN}}=3$ GeV.
+qualifiers:
+  \alpha_\lambda: '0.732'
+  \sqrt{s_{\rm nn}}: '3'
+  centrality: '[0,50]'
+  collision species: Au+Au
+  detector: STAR
+  p_{\rm t}: '>0.7'
+collision_system:
+  energy_gev: 0.0
+  reaction: Au+Au
+centrality:
+  classes:
+  - 0-50%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: Lambda
+kinematic_range:
+  y:
+    min: -0.2
+    max: 1.0
+    bins:
+    - -0.2
+    - 0.0
+    - 0.2
+    - 0.4
+    - 0.6
+    - 0.8
+    - 1.0
+  eta:
+    min: -1.0
+    max: 1.0
+    bins:
+    - -1.0
+    - 1.0
+  pT:
+    min: 0.15
+    max: 10
+    bins:
+    - 0.15
+    - 10
+observable: hbt_radii
+value_type: lambda
+pair_type: pi+pi+
+---
+observable_type: femtoscopy
+inspire_id: '1897216'
+version: 1
+hepdata_file: SineDependence.yaml
+hepdata_table_label: The signal polarizations extracted according to the restricted invariant-mass method as a function of
+  $\phi_\Lambda - \phi_p^*$, for positive-rapidity $\Lambda$ hyperons. The sinusoidal behavior is driven by non-zero net $v_1$.
+  The vertical shift corresponds to the vorticity-driven polarization; in collider mode, where the net $v_1$ is zero, this
+  dependence on $\phi_\Lambda - \phi_p^*$ does not exist.
+qualifiers:
+  \alpha_\lambda: '0.732'
+  \sqrt{s_{\rm nn}}: '3'
+  centrality: '[20,50]'
+  collision species: Au+Au
+  detector: STAR
+  p_{\rm t}: '>0.7'
+  y: '[0,1]'
+collision_system:
+  energy_gev: 0.0
+  reaction: Au+Au
+centrality:
+  classes:
+  - 20-50%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: Lambda
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+    bins:
+    - -1.0
+    - 1.0
+  pT:
+    min: 0.15
+    max: 10
+    bins:
+    - 0.15
+    - 10
+observable: hbt_radii
+value_type: lambda
+pair_type: pi+pi+

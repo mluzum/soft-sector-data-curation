@@ -1,0 +1,38 @@
+dependent_variables:
+- header: {name: Yield}
+  qualifiers:
+  - {name: ABS(DELTA ETA), value: 0.0-0.78}
+  - {name: ABS(DELTA PHI), value: 0.0-0.78}
+  - {name: ABS(ETA), value: 0.0-1.0}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '200.0'}
+  values:
+  - errors:
+    - {symerror: 0.0077}
+    value: 0.0832
+  - errors:
+    - {symerror: 0.011}
+    value: 0.092
+  - errors:
+    - {symerror: 0.0087}
+    value: 0.0861
+  - errors:
+    - {symerror: 0.0093}
+    value: 0.1068
+  - errors:
+    - {symerror: 0.012}
+    value: 0.129
+independent_variables:
+- header: {name: correlation}
+  values:
+  - {value: $\Lambda$-h}
+  - {value: $\Lambda$-h}
+  - {value: $K_S^0$-h}
+  - {value: $K_S^0$-h}
+  - {value: $K_S^0$-h}
+- header: {name: centrality}
+  values:
+  - {value: 20-60%}
+  - {value: 0-20%}
+  - {value: 40-60%}
+  - {value: 20-40%}
+  - {value: 0-20%}

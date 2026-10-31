@@ -1,0 +1,39 @@
+observable_type: mean_pT
+inspire_id: '590820'
+version: 1
+hepdata_file: ppg013fig4.yaml
+hepdata_table_label: "Centrality dependence of $\u27E8p^{trunc}_T\u27E9$, the average\
+  \ $p_T$ of charged particles with $p_T$ above a threshold $p^{min}_T$ minus the\
+  \ threshold $p^{min}_T$. Shown are values for two $p^{min}_T$ cuts, one at $p_T\
+  \ >$ 0.5 GeV/$c$ representing all data presented in Fig. 2 and the other one at\
+  \ $p_T >$ 2 GeV/$c$."
+qualifiers:
+  p^{min}_t: 0.5 GeV/$c$
+collision_system:
+  energy_gev: 200.0
+  reaction: Au Au --> CHARGED X
+centrality:
+  classes:
+  - 80-92%
+  - 60-80%
+  - 30-60%
+  - 15-30%
+  - 5-15%
+  - 0-5%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: charged
+observable: mean_pT
+value_type: mean_pT
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8

@@ -1,0 +1,17 @@
+dependent_variables:
+- header: {name: d$\sigma$/d$y$, units: $\mu$b}
+  qualifiers:
+  - {name: RE, value: P PB --> JPSI (Q=PROMPT) X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020.0'}
+  - {name: PT, value: '>0.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 78.0}
+    - {label: sys, symerror: 65.0}
+    - asymerror: {minus: -3.0, plus: 2.0}
+      label: sys,extrapolation
+    value: 816.0
+independent_variables:
+- header: {name: YRAP}
+  values:
+  - {high: 0.43, low: -1.37}

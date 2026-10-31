@@ -1,0 +1,49 @@
+dependent_variables:
+- header: {name: '$<|\Delta\eta|>/<|\Delta\eta|>_{N_{ch}<65}$'}
+  qualifiers:
+  - {name: ABS(ETARAP), value: $<2.4$}
+  - {name: '$p_{T}$', units: GeV, value: 0.5 -- 2.0}
+  - {name: RE, value: PB PB -->  CHARGED X}
+  - {name: SQRT(S_NN), units: GeV, value: 5020}
+  - {name: $|\Delta\phi|$, value: $<\pi/2$}
+  values:
+  - {value: 1}
+  - errors:
+    - {label: stat, symerror: 0.0027}
+    - {label: syst, symerror: 0.004}
+    value: 0.9747
+  - errors:
+    - {label: stat, symerror: 0.0026}
+    - {label: syst, symerror: 0.001}
+    value: 0.9469
+  - errors:
+    - {label: stat, symerror: 0.003}
+    - {label: syst, symerror: 0.006}
+    value: 0.9286
+  - errors:
+    - {label: stat, symerror: 0.003}
+    - {label: syst, symerror: 0.0016}
+    value: 0.919
+  - errors:
+    - {label: stat, symerror: 0.0034}
+    - {label: syst, symerror: 0.0052}
+    value: 0.8949
+  - errors:
+    - {label: stat, symerror: 0.0044}
+    - {label: syst, symerror: 0.001}
+    value: 0.8805
+  - errors:
+    - {label: stat, symerror: 0.0061}
+    - {label: syst, symerror: 0.0025}
+    value: 0.8757
+independent_variables:
+- header: {name: '$N_{ch}$'}
+  values:
+  - {value: 65}
+  - {value: 160}
+  - {value: 328}
+  - {value: 620}
+  - {value: 1057}
+  - {value: 1678}
+  - {value: 2540}
+  - {value: 3770}

@@ -1,0 +1,108 @@
+dependent_variables:
+- header: {name: '$f_{\sqrt{s}(13/5.02)}$'}
+  qualifiers:
+  - {name: REACTION, value: pp --> $\gamma$ X}
+  - {name: '$|\eta^{\gamma}|$', value: $<$ 0.67}
+  - {name: $R$, value: 0.4}
+  - {name: '$p_{\mathrm{T}}^{\mathrm{iso}}$', units: (charged) GeV/$c$, value: 1.5}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0852}
+    - {label: syst, symerror: 0.184}
+    value: 2.355
+  - errors:
+    - {label: stat, symerror: 0.0461}
+    - {label: syst, symerror: 0.136}
+    value: 2.437
+  - errors:
+    - {label: stat, symerror: 0.0496}
+    - {label: syst, symerror: 0.0987}
+    value: 2.362
+  - errors:
+    - {label: stat, symerror: 0.0651}
+    - {label: syst, symerror: 0.103}
+    value: 2.456
+  - errors:
+    - {label: stat, symerror: 0.0923}
+    - {label: syst, symerror: 0.112}
+    value: 2.676
+  - errors:
+    - {label: stat, symerror: 0.093}
+    - {label: syst, symerror: 0.124}
+    value: 2.972
+  - errors:
+    - {label: stat, symerror: 0.145}
+    - {label: syst, symerror: 0.128}
+    value: 3.053
+  - errors:
+    - {label: stat, symerror: 0.185}
+    - {label: syst, symerror: 0.14}
+    value: 3.345
+  - errors:
+    - {label: stat, symerror: 0.237}
+    - {label: syst, symerror: 0.133}
+    value: 2.98
+  - errors:
+    - {label: stat, symerror: 0.658}
+    - {label: syst, symerror: 0.186}
+    value: 3.773
+- header: {name: '$f_{\sqrt{s}(13/5.02)}^{\mathrm{NLO~pQCD}}$'}
+  qualifiers:
+  - {name: REACTION, value: NLO pQCD pp --> $\gamma$ X}
+  - {name: '$|\eta^{\gamma}|$', value: $<$ 0.67}
+  - {name: $R$, value: 0.4}
+  - {name: '$p_{\mathrm{T}}^{\mathrm{iso}}$', units: (charged+neutral) GeV/$c$, value: 2}
+  values:
+  - errors:
+    - {label: scale, symerror: 0.164}
+    - {label: PDF, symerror: 0.0598}
+    value: 2.202
+  - errors:
+    - {label: scale, symerror: 0.147}
+    - {label: PDF, symerror: 0.0319}
+    value: 2.3
+  - errors:
+    - {label: scale, symerror: 0.118}
+    - {label: PDF, symerror: 0.0329}
+    value: 2.342
+  - errors:
+    - {label: scale, symerror: 0.127}
+    - {label: PDF, symerror: 0.0402}
+    value: 2.443
+  - errors:
+    - {label: scale, symerror: 0.121}
+    - {label: PDF, symerror: 0.0319}
+    value: 2.473
+  - errors:
+    - {label: scale, symerror: 0.127}
+    - {label: PDF, symerror: 0.031}
+    value: 2.611
+  - errors:
+    - {label: scale, symerror: 0.109}
+    - {label: PDF, symerror: 0.0327}
+    value: 2.736
+  - errors:
+    - {label: scale, symerror: 0.0978}
+    - {label: PDF, symerror: 0.0258}
+    value: 2.897
+  - errors:
+    - {label: scale, symerror: 0.0993}
+    - {label: PDF, symerror: 0.0225}
+    value: 3.125
+  - errors:
+    - {label: scale, symerror: 0.0872}
+    - {label: PDF, symerror: 0.0398}
+    value: 3.441
+independent_variables:
+- header: {name: PT, units: GEV/c}
+  values:
+  - {high: 12.0, low: 11.0}
+  - {high: 14.0, low: 12.0}
+  - {high: 16.0, low: 14.0}
+  - {high: 18.0, low: 16.0}
+  - {high: 20.0, low: 18.0}
+  - {high: 25.0, low: 20.0}
+  - {high: 30.0, low: 25.0}
+  - {high: 40.0, low: 30.0}
+  - {high: 60.0, low: 40.0}
+  - {high: 80.0, low: 60.0}

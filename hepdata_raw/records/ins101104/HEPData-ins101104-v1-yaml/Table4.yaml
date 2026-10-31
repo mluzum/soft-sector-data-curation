@@ -1,0 +1,40 @@
+dependent_variables:
+- header: {name: D(SIG)/D(T), units: MUB/GEV**2}
+  qualifiers:
+  - {name: A, value: '1.01'}
+  - {name: P, units: GeV, value: '3.2'}
+  - {name: RE, value: HE P --> P HE}
+  values:
+  - errors:
+    - {symerror: 1.5}
+    - {label: 'sys,OVERALL UNCERTAINTY ACCOUNTABLE TO THE ACCEPTANCE DETERMINATIONAND
+        TO THE INCIDENT FLUX CALIBRATION', symerror: 10.0%}
+    value: 21.7
+  - errors:
+    - {symerror: 2.0}
+    - {label: 'sys,OVERALL UNCERTAINTY ACCOUNTABLE TO THE ACCEPTANCE DETERMINATIONAND
+        TO THE INCIDENT FLUX CALIBRATION', symerror: 10.0%}
+    value: 18.7
+  - errors:
+    - {symerror: 1.0}
+    - {label: 'sys,OVERALL UNCERTAINTY ACCOUNTABLE TO THE ACCEPTANCE DETERMINATIONAND
+        TO THE INCIDENT FLUX CALIBRATION', symerror: 10.0%}
+    value: 14.8
+  - errors:
+    - {symerror: 0.9}
+    - {label: 'sys,OVERALL UNCERTAINTY ACCOUNTABLE TO THE ACCEPTANCE DETERMINATIONAND
+        TO THE INCIDENT FLUX CALIBRATION', symerror: 10.0%}
+    value: 11.7
+independent_variables:
+- header: {name: -T(P=3), units: GEV**2}
+  values:
+  - {value: 1.232}
+  - {value: 1.303}
+  - {value: 1.42}
+  - {value: 1.473}
+- header: {name: 'THETA(P=3,RF=CM)', units: DEG}
+  values:
+  - {value: 129.7}
+  - {value: 137.2}
+  - {value: 152.8}
+  - {value: 163.9}

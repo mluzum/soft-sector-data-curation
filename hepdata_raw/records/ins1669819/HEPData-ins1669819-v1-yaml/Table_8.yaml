@@ -1,0 +1,43 @@
+dependent_variables:
+- header: {name: D(N)/DPT, units: GEV**-1}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 30.0-50.0}
+  - {name: RE, value: PB PB --> D/s+ X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  - {name: YRAP, value: -0.5-0.5}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.00167}
+    - asymerror: {minus: -0.00225, plus: 0.00199}
+      label: sys
+    - {label: 'sys,uncertainty on branching ratio', symerror: 3.5%}
+    - {label: 'sys,from centrality limits', symerror: 2.0%}
+    value: 0.00967
+  - errors:
+    - {label: stat, symerror: 0.00041}
+    - asymerror: {minus: -0.00045, plus: 0.000338}
+      label: sys
+    - {label: 'sys,uncertainty on branching ratio', symerror: 3.5%}
+    - {label: 'sys,from centrality limits', symerror: 2.0%}
+    value: 0.00206
+  - errors:
+    - {label: stat, symerror: 5.44e-05}
+    - asymerror: {minus: -7.87e-05, plus: 5.94e-05}
+      label: sys
+    - {label: 'sys,uncertainty on branching ratio', symerror: 3.5%}
+    - {label: 'sys,from centrality limits', symerror: 2.0%}
+    value: 0.000379
+  - errors:
+    - {label: stat, symerror: 1.88e-05}
+    - asymerror: {minus: -1.68e-05, plus: 1.33e-05}
+      label: sys
+    - {label: 'sys,uncertainty on branching ratio', symerror: 3.5%}
+    - {label: 'sys,from centrality limits', symerror: 2.0%}
+    value: 9.27e-05
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {high: 6.0, low: 4.0}
+  - {high: 8.0, low: 6.0}
+  - {high: 12.0, low: 8.0}
+  - {high: 16.0, low: 12.0}

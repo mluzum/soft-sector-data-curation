@@ -1,0 +1,30 @@
+dependent_variables:
+- header: {name: 1/Nevt* dN/dM, units: (GEV/c**2)*-1}
+  qualifiers:
+  - {name: CENTRALITY, value: 50.0-70.0}
+  - {name: RE, value: PB PB --> E+ E- X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  - {name: ETARAP, value: -0.8 TO 0.8}
+  - {name: PTMIN, units: GEV/c, value: '0.2'}
+  - {name: PTEEMAX, units: GEV/c, value: '0.1'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.000220441}
+    - {label: sys, symerror: 9.84318e-05}
+    value: 0.000546843
+  - errors:
+    - {label: stat, symerror: 0.000169765}
+    - {label: sys, symerror: 3.73143e-05}
+    value: 0.000207302
+  - {value: <0.00022935}
+  - errors:
+    - {label: stat, symerror: 9.42739e-06}
+    - {label: sys, symerror: 3.21842e-06}
+    value: 1.78801e-05
+independent_variables:
+- header: {name: M, units: GEV/c**2}
+  values:
+  - {high: 0.7, low: 0.4}
+  - {high: 0.8, low: 0.7}
+  - {high: 1.1, low: 0.8}
+  - {high: 2.7, low: 1.1}

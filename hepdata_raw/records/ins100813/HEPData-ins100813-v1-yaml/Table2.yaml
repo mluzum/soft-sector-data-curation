@@ -1,0 +1,61 @@
+dependent_variables:
+- header: {name: '(1/PI)*D2(SIG)/D(T(P=3,P=2))/D(S(P=4)/S(P=1 2))', units: MB/GEV**2}
+  qualifiers:
+  - {name: P, units: GeV, value: '14.3'}
+  - {name: RE, value: K- P --> PI- X}
+  - {name: SQRT(S), units: GeV, value: '5.288'}
+  - {name: 'T(P=3,P=2)', units: GEV**2, value: -0.45 TO -0.30}
+  values:
+  - errors:
+    - {symerror: 0.07}
+    - {label: sys, symerror: 5.0%}
+    value: 0.69
+  - errors:
+    - {symerror: 0.075}
+    - {label: sys, symerror: 5.0%}
+    value: 1.17
+  - errors:
+    - {symerror: 0.07}
+    - {label: sys, symerror: 5.0%}
+    value: 1.33
+  - errors:
+    - {symerror: 0.105}
+    - {label: sys, symerror: 5.0%}
+    value: 1.64
+  - errors:
+    - {symerror: 0.125}
+    - {label: sys, symerror: 5.0%}
+    value: 2.32
+  - errors:
+    - {symerror: 0.155}
+    - {label: sys, symerror: 5.0%}
+    value: 3.38
+  - errors:
+    - {symerror: 0.19}
+    - {label: sys, symerror: 5.0%}
+    value: 4.95
+  - errors:
+    - {symerror: 0.25}
+    - {label: sys, symerror: 5.0%}
+    value: 7.68
+  - errors:
+    - {symerror: 0.3}
+    - {label: sys, symerror: 5.0%}
+    value: 12.74
+  - errors:
+    - {symerror: 0.41}
+    - {label: sys, symerror: 5.0%}
+    value: 19.8
+independent_variables:
+- header: {name: S(P=4)/S(P=1 2)}
+  values:
+  - {high: 0.5, low: 0.45}
+  - {high: 0.55, low: 0.5}
+  - {high: 0.6, low: 0.55}
+  - {high: 0.65, low: 0.6}
+  - {high: 0.7, low: 0.65}
+  - {high: 0.75, low: 0.7}
+  - {high: 0.8, low: 0.75}
+  - {high: 0.85, low: 0.8}
+  - {high: 0.9, low: 0.85}
+  - {high: 0.95, low: 0.9}

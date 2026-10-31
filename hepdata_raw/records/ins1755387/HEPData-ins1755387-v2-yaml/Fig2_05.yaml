@@ -1,0 +1,49 @@
+dependent_variables:
+- header: {name: Non Perturbative correction factor}
+  qualifiers:
+  - {name: RE, value: P P --> jet + X}
+  - {name: SQRT(S), units: GEV, value: 5020}
+  - {name: YRAP, value: -0.2 TO 0.2}
+  - {name: model, value: PYTHIA8 A14 NNPDF2.3LO}
+  - {name: jet radius, value: 0.5}
+  - {name: jet method, value: 'Anti-$k_{T}$'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.007232749}
+    value: 1.120388
+  - errors:
+    - {label: stat, symerror: 0.007238962}
+    value: 1.061203
+  - errors:
+    - {label: stat, symerror: 0.007439887}
+    value: 1.04334
+  - errors:
+    - {label: stat, symerror: 0.007293064}
+    value: 1.019919
+  - errors:
+    - {label: stat, symerror: 0.00774406}
+    value: 1.034395
+  - errors:
+    - {label: stat, symerror: 0.007910112}
+    value: 1.017235
+  - errors:
+    - {label: stat, symerror: 0.005759362}
+    value: 1.007238
+  - errors:
+    - {label: stat, symerror: 0.005700557}
+    value: 1.010033
+  - errors:
+    - {label: stat, symerror: 0.005730932}
+    value: 1.007517
+independent_variables:
+- header: {name: PTjet, units: GEV}
+  values:
+  - {high: 30, low: 20}
+  - {high: 40, low: 30}
+  - {high: 50, low: 40}
+  - {high: 60, low: 50}
+  - {high: 70, low: 60}
+  - {high: 80, low: 70}
+  - {high: 100, low: 80}
+  - {high: 120, low: 100}
+  - {high: 140, low: 120}

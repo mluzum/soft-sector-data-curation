@@ -1,0 +1,35 @@
+dependent_variables:
+- header: {name: '$(dN_{ch}/d\eta)/(N_{qp}/2)$'}
+  qualifiers:
+  - {name: system, value: $p$+Al}
+  values:
+  - errors:
+    - {label: syst., symerror: 0.19}
+    value: 1.29
+  - errors:
+    - {label: syst., symerror: 0.22}
+    value: 1.44
+  - errors:
+    - {label: syst., symerror: 0.23}
+    value: 1.52
+  - errors:
+    - {label: syst., symerror: 0.22}
+    value: 1.45
+  - errors:
+    - {label: syst., symerror: 0.23}
+    value: 1.56
+independent_variables:
+- header: {name: Centrality (%)}
+  values:
+  - {high: 5, low: 0}
+  - {high: 10, low: 5}
+  - {high: 20, low: 10}
+  - {high: 40, low: 20}
+  - {high: 72, low: 40}
+- header: {name: '$N_{qp}$'}
+  values:
+  - {value: 1.29}
+  - {value: 1.44}
+  - {value: 1.52}
+  - {value: 1.45}
+  - {value: 1.56}

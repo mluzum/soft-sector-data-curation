@@ -1,0 +1,93 @@
+dependent_variables:
+- header: {name: proton}
+  qualifiers:
+  - {name: Particle, value: $p$}
+  - {name: SQRT(S), units: TeV, value: 0.2}
+  - {name: Reaction, value: Isobar}
+  values:
+  - {value: 0.1}
+  - {value: 0.1}
+  - {value: 0.1}
+  - {value: 0.1}
+  - {value: 0.1}
+- header: {name: anti-proton}
+  qualifiers:
+  - {name: Particle, value: '$\bar{p}$'}
+  - {name: SQRT(S), units: TeV, value: 0.2}
+  - {name: Reaction, value: Isobar}
+  values:
+  - {value: 0.1}
+  - {value: 0.1}
+  - {value: 0.1}
+  - {value: 0.1}
+  - {value: 0.1}
+- header: {name: neutron}
+  qualifiers:
+  - {name: Particle, value: $n$}
+  - {name: SQRT(S), units: TeV, value: 0.2}
+  - {name: Reaction, value: Isobar}
+  values:
+  - errors:
+    - {label: Stat., symerror: 4.0e-05}
+    - {label: Sys. (Excluding feeddown), symerror: 0.00218}
+    - {label: Sys. from feeddown, symerror: 0.00263}
+    value: 0.08888
+  - errors:
+    - {label: Stat., symerror: 5.0e-05}
+    - {label: Sys. (Excluding feeddown), symerror: 0.00183}
+    - {label: Sys. from feeddown, symerror: 0.00241}
+    value: 0.08509
+  - errors:
+    - {label: Stat., symerror: 3.2e-05}
+    - {label: Sys. (Excluding feeddown), symerror: 0.001679}
+    - {label: Sys. from feeddown, symerror: 0.002004}
+    value: 0.082584
+  - errors:
+    - {label: Stat., symerror: 4.0e-05}
+    - {label: Sys. (Excluding feeddown), symerror: 0.00161}
+    - {label: Sys. from feeddown, symerror: 0.0019}
+    value: 0.07852
+  - errors:
+    - {label: Stat., symerror: 6.0e-05}
+    - {label: Sys. (Excluding feeddown), symerror: 0.00235}
+    - {label: Sys. from feeddown, symerror: 0.00177}
+    value: 0.0739
+- header: {name: anti-neutron}
+  qualifiers:
+  - {name: Particle, value: '$\bar{n}$'}
+  - {name: SQRT(S), units: TeV, value: 0.2}
+  - {name: Reaction, value: Isobar}
+  values:
+  - errors:
+    - {label: Stat., symerror: 2.5e-05}
+    - {label: Sys. (Excluding feeddown), symerror: 0.001142}
+    - {label: Sys. from feeddown, symerror: 0.001598}
+    value: 0.059714
+  - errors:
+    - {label: Stat., symerror: 3.1e-05}
+    - {label: Sys. (Excluding feeddown), symerror: 0.001078}
+    - {label: Sys. from feeddown, symerror: 0.001498}
+    value: 0.057065
+  - errors:
+    - {label: Stat., symerror: 2.2e-05}
+    - {label: Sys. (Excluding feeddown), symerror: 0.001241}
+    - {label: Sys. from feeddown, symerror: 0.001251}
+    value: 0.056693
+  - errors:
+    - {label: Stat., symerror: 2.9e-05}
+    - {label: Sys. (Excluding feeddown), symerror: 0.00129}
+    - {label: Sys. from feeddown, symerror: 0.001227}
+    value: 0.054135
+  - errors:
+    - {label: Stat., symerror: 3.5e-05}
+    - {label: Sys. (Excluding feeddown), symerror: 0.00187}
+    - {label: Sys. from feeddown, symerror: 0.001125}
+    value: 0.050708
+independent_variables:
+- header: {name: Centrality}
+  values:
+  - {value: 0-10%}
+  - {value: 10-20%}
+  - {value: 20-40%}
+  - {value: 40-60%}
+  - {value: 60-80%}

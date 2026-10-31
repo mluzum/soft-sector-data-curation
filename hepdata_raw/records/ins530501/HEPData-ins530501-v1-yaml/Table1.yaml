@@ -1,0 +1,21 @@
+dependent_variables:
+- header: {name: D(N)/D(ETARAP)}
+  qualifiers:
+  - {name: ETARAP(RF=LAB), value: -1 TO 1}
+  - {name: RE, value: AU AU --> MULT(CHARGED) X}
+  - {name: SYS, value: Monte-Carlo simulation unsertainties (HIJING event generator
+      used)}
+  values:
+  - errors:
+    - {label: stat, symerror: 12.0}
+    - {label: sys, symerror: 30.0}
+    value: 408.0
+  - errors:
+    - {label: stat, symerror: 12.0}
+    - {label: sys, symerror: 35.0}
+    value: 555.0
+independent_variables:
+- header: {name: SQRT(S)/A(P=1), units: GEV}
+  values:
+  - {value: 56.0}
+  - {value: 130.0}

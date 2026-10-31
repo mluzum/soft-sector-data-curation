@@ -1,0 +1,29 @@
+dependent_variables:
+- header: {name: yields, units: (GEV)**-1}
+  qualifiers:
+  - {name: RE, value: XE XE --> d + X}
+  - {name: SQRT(S), units: GEV, value: 5440}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.000235348}
+    - {label: syst, symerror: 8.28718e-05}
+    value: 0.00197118
+  - errors:
+    - {label: stat, symerror: 0.000146889}
+    - {label: syst, symerror: 5.39316e-05}
+    value: 0.00146518
+  - errors:
+    - {label: stat, symerror: 8.17853e-05}
+    - {label: syst, symerror: 3.61173e-05}
+    value: 0.00097649
+  - errors:
+    - {label: stat, symerror: 6.16843e-05}
+    - {label: syst, symerror: 2.15335e-05}
+    value: 0.000669393
+independent_variables:
+- header: {name: transverse momentum PT, units: GEV}
+  values:
+  - {high: 1.2, low: 0.8}
+  - {high: 1.6, low: 1.2}
+  - {high: 2.0, low: 1.6}
+  - {high: 2.5, low: 2.0}

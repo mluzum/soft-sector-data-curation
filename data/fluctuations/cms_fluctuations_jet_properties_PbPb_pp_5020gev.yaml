@@ -1,0 +1,98 @@
+---
+observable_type: fluctuations
+inspire_id: '1658057'
+version: 1
+hepdata_file: data7.yaml
+hepdata_table_label: The distribution of jet-correlated charged-particle tracks with $\Delta\mathrm{r} <1$ as a function of
+  ${p_{\mathrm{T}}^{\text{trk}}}$ in PbPb and pp collisions. The PbPb results are shown for different centrality regions.
+qualifiers:
+  centrality: pp
+  jet algo: ANTI-K_T JET R = 0.4
+  pt(jet): '> 120'
+  pt(trk): '> 0.7'
+  re: P P --> CHARGED X
+  sqrt(s)/nucleon: '5020.0'
+  '|eta(jet)|': < 1.6
+  '|eta(trk)|': < 2.4
+collision_system:
+  energy_gev: 5020.0
+  reaction: P P --> CHARGED X
+centrality:
+  classes:
+  - 0.7-1%
+  - 1-2%
+  - 2-3%
+  - 3-4%
+  - 4-8%
+  - 8-12%
+  - 12-16%
+  - 16-20%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: cumulant_C2
+value_type: cumulant_C2
+charge_type: net_charge
+---
+observable_type: fluctuations
+inspire_id: '1658057'
+version: 1
+hepdata_file: data8.yaml
+hepdata_table_label: The corresponding results for the difference between the PbPb and pp measurements from Table 7.
+qualifiers:
+  centrality: 50-100%
+  jet algo: ANTI-K_T JET R = 0.4
+  pt(jet): '> 120'
+  pt(trk): '> 0.7'
+  re: PB PB --> CHARGED X
+  sqrt(s)/nucleon: '5020.0'
+  '|eta(jet)|': < 1.6
+  '|eta(trk)|': < 2.4
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 50-100%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+  pT:
+    min: 0.3
+    max: 20
+observable: cumulant_C2
+value_type: cumulant_C2
+charge_type: net_charge

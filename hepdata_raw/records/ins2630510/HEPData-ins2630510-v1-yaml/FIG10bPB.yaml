@@ -1,0 +1,73 @@
+dependent_variables:
+- header: {name: 1/Npair dNpair/dxJ}
+  qualifiers:
+  - {name: ABS(YRAP), value: '|y| < 2.1'}
+  - {name: R(JETS), value: '0.4'}
+  - {name: SYSTEM, value: PbPb}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  - {name: PBPB CENTRALITY, value: 20-40%}
+  - {name: PT1, value: 100-126 GeV}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.015539}
+    - asymerror: {minus: -0.318346, plus: 0.317767}
+      label: sys
+    value: 0.64311
+  - errors:
+    - {label: stat, symerror: 0.0171}
+    - asymerror: {minus: -0.342007, plus: 0.342415}
+      label: sys
+    value: 0.925212
+  - errors:
+    - {label: stat, symerror: 0.017614}
+    - asymerror: {minus: -0.267504, plus: 0.268827}
+      label: sys
+    value: 1.198558
+  - errors:
+    - {label: stat, symerror: 0.017209}
+    - asymerror: {minus: -0.14295, plus: 0.145682}
+      label: sys
+    value: 1.449377
+  - errors:
+    - {label: stat, symerror: 0.016081}
+    - asymerror: {minus: -0.056676, plus: 0.06203}
+      label: sys
+    value: 1.609866
+  - errors:
+    - {label: stat, symerror: 0.014361}
+    - asymerror: {minus: -0.150047, plus: 0.151531}
+      label: sys
+    value: 1.698049
+  - errors:
+    - {label: stat, symerror: 0.01257}
+    - asymerror: {minus: -0.19851, plus: 0.199019}
+      label: sys
+    value: 1.667794
+  - errors:
+    - {label: stat, symerror: 0.011022}
+    - asymerror: {minus: -0.223262, plus: 0.222974}
+      label: sys
+    value: 1.551372
+  - errors:
+    - {label: stat, symerror: 0.009943}
+    - asymerror: {minus: -0.126968, plus: 0.124412}
+      label: sys
+    value: 1.555009
+  - errors:
+    - {label: stat, symerror: 0.014256}
+    - asymerror: {minus: -0.133478, plus: 0.127984}
+      label: sys
+    value: 1.561579
+independent_variables:
+- header: {name: xJ}
+  values:
+  - {high: 0.354813, low: 0.316228}
+  - {high: 0.398107, low: 0.354813}
+  - {high: 0.446684, low: 0.398107}
+  - {high: 0.501187, low: 0.446684}
+  - {high: 0.562341, low: 0.501187}
+  - {high: 0.630957, low: 0.562341}
+  - {high: 0.707946, low: 0.630957}
+  - {high: 0.794328, low: 0.707946}
+  - {high: 0.891251, low: 0.794328}
+  - {high: 1.0, low: 0.891251}

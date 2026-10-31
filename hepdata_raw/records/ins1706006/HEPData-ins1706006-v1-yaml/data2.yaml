@@ -1,0 +1,36 @@
+dependent_variables:
+- header: {name: v_2}
+  qualifiers:
+  - {name: RE, value: PB PB --> JPSI < MU+ MU- > X}
+  - {name: SQRT(S), units: GEV, value: 5020.0}
+  - {name: YRAP, value: 2.50 TO 4.00}
+  - {name: CENTRALITY, units: pct, value: 10.0 TO 30.0}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0093}
+    - {label: sys, symerror: 0.0024}
+    value: 0.0213
+  - errors:
+    - {label: stat, symerror: 0.0089}
+    - {label: sys, symerror: 0.0019}
+    value: 0.0813
+  - errors:
+    - {label: stat, symerror: 0.0121}
+    - {label: sys, symerror: 0.0026}
+    value: 0.0985
+  - errors:
+    - {label: stat, symerror: 0.0195}
+    - {label: sys, symerror: 0.0028}
+    value: 0.0873
+  - errors:
+    - {label: stat, symerror: 0.0281}
+    - {label: sys, symerror: 0.0073}
+    value: 0.0843
+independent_variables:
+- header: {name: PT, units: GEV/C}
+  values:
+  - {high: 2.0, low: 0.0, value: 1.17}
+  - {high: 4.0, low: 2.0, value: 2.81}
+  - {high: 6.0, low: 4.0, value: 4.81}
+  - {high: 8.0, low: 6.0, value: 6.79}
+  - {high: 12.0, low: 8.0, value: 9.33}

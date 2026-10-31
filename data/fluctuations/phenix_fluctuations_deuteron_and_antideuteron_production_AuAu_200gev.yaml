@@ -1,0 +1,84 @@
+---
+observable_type: fluctuations
+inspire_id: '651462'
+version: 1
+hepdata_file: ppg020f2a.yaml
+hepdata_table_label: Corrected spectra for deuterons and anti-deuterons for different centralities are plotted vs $m_T$.
+qualifiers:
+  centrality: Min. Bias
+  particle: $\bar{d}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU + AU --> CHARGED X0
+centrality:
+  classes:
+  - 2.2-2.4%
+  - 2.4-2.7%
+  - 2.7-3%
+  - 3-3.3%
+  - 3.3-3.6%
+  - 3.6-4%
+  - 4-4.7%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.35
+    max: 0.35
+  pT:
+    min: 0.2
+    max: 20
+    bins:
+    - 0.2
+    - 20
+observable: cumulant_C2
+value_type: cumulant_C2
+charge_type: net_charge
+---
+observable_type: fluctuations
+inspire_id: '651462'
+version: 1
+hepdata_file: ppg020f2b.yaml
+hepdata_table_label: Corrected spectra for deuterons and anti-deuterons for different centralities are plotted vs $m_T$.
+qualifiers:
+  centrality: 20-92%
+  particle: $\bar{d}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU + AU --> CHARGED X0
+centrality:
+  classes:
+  - 20-92%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.35
+    max: 0.35
+  pT:
+    min: 0.2
+    max: 20
+    bins:
+    - 0.2
+    - 20
+observable: cumulant_C2
+value_type: cumulant_C2
+charge_type: net_charge

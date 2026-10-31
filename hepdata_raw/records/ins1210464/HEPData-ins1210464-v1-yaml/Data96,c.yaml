@@ -1,0 +1,24 @@
+dependent_variables:
+- header: {name: '${v_2}$'}
+  qualifiers:
+  - {name: SQRT(S), units: GEV, value: 11.5}
+  - {name: Au+Au, value: '${\bar{\Xi}{^+}}$'}
+  - {name: Centrality, units: percentage, value: 0-80}
+  values:
+  - errors:
+    - asymerror: {minus: -0.006364, plus: 0.009872}
+      label: sys
+    - {label: stat, symerror: 0.023386}
+    - {label: glob, symerror: 0.002602}
+    value: -0.008404
+  - errors:
+    - asymerror: {minus: -0.014444, plus: 0.010942}
+      label: sys
+    - {label: stat, symerror: 0.024894}
+    - {label: glob, symerror: 0.002602}
+    value: 0.02685
+independent_variables:
+- header: {name: $Reduced ~transverse~ mass~(GeV/C^2)$}
+  values:
+  - {value: 1.0815}
+  - {value: 1.7965}

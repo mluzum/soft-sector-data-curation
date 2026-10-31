@@ -1,0 +1,52 @@
+dependent_variables:
+- header: {name: '$(1/N_{s})dN_{s}/d\alpha$'}
+  qualifiers:
+  - {name: SQRT(S_NN), units: GeV, value: 5020}
+  - {name: '$p_{T}^{\mu}$', value: '> 3.5 GeV'}
+  - {name: '$|\eta^{\mu}|$', value: < 2.4}
+  - {name: '$|y_{\mu\mu}|$', value: < 2.4}
+  - {name: '$m_{\mu\mu}$', value: '$8< m_{\mu\mu} < 60$ GeV'}
+  values:
+  - errors:
+    - {label: stat, symerror: 69.1}
+    - {label: sys, symerror: 31.2}
+    value: 489.6
+  - errors:
+    - {label: stat, symerror: 63.3}
+    - {label: sys, symerror: 30.8}
+    value: 429.0
+  - errors:
+    - {label: stat, symerror: 52.7}
+    - {label: sys, symerror: 25.2}
+    value: 315.7
+  - errors:
+    - {label: stat, symerror: 28.3}
+    - {label: sys, symerror: 16.4}
+    value: 178.1
+  - errors:
+    - {label: stat, symerror: 15.4}
+    - {label: sys, symerror: 9.7}
+    value: 85.9
+  - errors:
+    - {label: stat, symerror: 6.6}
+    - {label: sys, symerror: 2.5}
+    value: 17.9
+  - errors:
+    - {label: stat, symerror: 0.88}
+    - {label: sys, symerror: 0.65}
+    value: 2.38
+  - errors:
+    - {label: stat, symerror: 0.158}
+    - {label: sys, symerror: 0.092}
+    value: 0.127
+independent_variables:
+- header: {name: acoplanarity}
+  values:
+  - {high: 0.0005, low: 0.0}
+  - {high: 0.001, low: 0.0005}
+  - {high: 0.0015, low: 0.001}
+  - {high: 0.0025, low: 0.0015}
+  - {high: 0.004, low: 0.0025}
+  - {high: 0.006, low: 0.004}
+  - {high: 0.02, low: 0.006}
+  - {high: 0.06, low: 0.02}

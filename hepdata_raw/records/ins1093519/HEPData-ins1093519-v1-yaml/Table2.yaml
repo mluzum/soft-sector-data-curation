@@ -1,0 +1,15 @@
+dependent_variables:
+- header: {name: SIG(Mutual EMD), units: B}
+  qualifiers:
+  - {name: ETARAP(P=3), value: '> 8.8'}
+  - {name: ETARAP(P=4), value: < -8.8}
+  - {name: RE, value: PB PB --> N N X}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.1}
+    - {label: sys, symerror: 0.4}
+    value: 5.7
+independent_variables:
+- header: {name: SQRT(S)/NUCLEON, units: GEV}
+  values:
+  - {value: 2760.0}

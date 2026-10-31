@@ -1,0 +1,26 @@
+dependent_variables:
+- header: {name: '$\Delta\gamma_\mathrm{CME}$'}
+  values:
+  - errors:
+    - {label: stat, symerror: 2.1e-05}
+    - {label: syst, symerror: 4.0e-05}
+    value: 1.2e-05
+  - errors:
+    - {label: stat, symerror: 2.3e-05}
+    - {label: syst, symerror: 4.1e-05}
+    value: 3.7e-05
+  - errors:
+    - {label: stat, symerror: 3.6e-05}
+    - {label: syst, symerror: 4.3e-05}
+    value: -3.6e-05
+  - errors:
+    - {label: stat, symerror: 4.3e-05}
+    - {label: syst, symerror: 4.5e-05}
+    value: -4.6e-05
+independent_variables:
+- header: {name: method}
+  values:
+  - {value: 1.0}
+  - {value: 2.0}
+  - {value: 3.0}
+  - {value: 4.0}

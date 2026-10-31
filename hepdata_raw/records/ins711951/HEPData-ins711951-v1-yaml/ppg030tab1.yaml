@@ -1,0 +1,64 @@
+dependent_variables:
+- header: {name: '$\langle N_{coll} \rangle$'}
+  values:
+  - errors:
+    - {label: stat., symerror: 1.0}
+    value: 15.4
+  - errors:
+    - {label: stat., symerror: 0.7}
+    value: 10.6
+  - errors:
+    - {label: stat., symerror: 0.6}
+    value: 7.0
+  - errors:
+    - {label: stat., symerror: 0.3}
+    value: 3.1
+- header: {name: '$\langle N_{part} \rangle$'}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.9}
+    value: 15.6
+  - errors:
+    - {label: stat., symerror: 0.6}
+    value: 11.1
+  - errors:
+    - {label: stat., symerror: 0.4}
+    value: 7.7
+  - errors:
+    - {label: stat., symerror: 0.3}
+    value: 4.2
+- header: {name: '$\langle \nu = N_{coll}/N^d_{part} \rangle$'}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.5}
+    value: 7.5
+  - errors:
+    - {label: stat., symerror: 0.4}
+    value: 5.6
+  - errors:
+    - {label: stat., symerror: 0.3}
+    value: 4.0
+  - errors:
+    - {label: stat., symerror: 0.2}
+    value: 2.2
+- header: {name: Trigger bias correction}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.3}
+    value: 0.95
+  - errors:
+    - {label: stat., symerror: 0.007}
+    value: 0.99
+  - errors:
+    - {label: stat., symerror: 0.009}
+    value: 1.03
+  - errors:
+    - {label: stat., symerror: 0.027}
+    value: 1.04
+independent_variables:
+- header: {name: Centrality (%)}
+  values:
+  - {high: 20, low: 0}
+  - {high: 40, low: 20}
+  - {high: 60, low: 40}
+  - {high: 88, low: 60}

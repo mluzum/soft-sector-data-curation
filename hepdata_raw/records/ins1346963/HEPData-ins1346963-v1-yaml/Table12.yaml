@@ -1,0 +1,44 @@
+dependent_variables:
+- header: {name: R = 0.2/ R = 0.4}
+  qualifiers:
+  - {name: ALGO-JET, value: ANTIKT}
+  - {name: ETARAP-JET, value: -0.5-0.5}
+  - {name: ETARAP-PARTICLE, value: -0.9-0.9}
+  - {name: RADIUS-JET, value: 0.2/0.4}
+  - {name: SQRT(S), units: GeV, value: '5023.0'}
+  values:
+  - errors:
+    - {symerror: 0.002691}
+    value: 0.5386
+  - errors:
+    - {symerror: 0.002838}
+    value: 0.6031
+  - errors:
+    - {symerror: 0.003021}
+    value: 0.6474
+  - errors:
+    - {symerror: 0.003427}
+    value: 0.6799
+  - errors:
+    - {symerror: 0.003835}
+    value: 0.6993
+  - errors:
+    - {symerror: 0.004004}
+    value: 0.7077
+  - errors:
+    - {symerror: 0.006892}
+    value: 0.7359
+  - errors:
+    - {symerror: 0.00992}
+    value: 0.7513
+independent_variables:
+- header: {name: '$p_\mathrm{T,\;ch\;jet} (\mathrm{GeV}/c)$'}
+  values:
+  - {value: '25 +5,-5'}
+  - {value: '35 +5,-5'}
+  - {value: '45 +5,-5'}
+  - {value: '55 +5,-5'}
+  - {value: '65 +5,-5'}
+  - {value: '75 +5,-5'}
+  - {value: '90 +10,-10'}
+  - {value: '110 +10,-10'}

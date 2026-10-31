@@ -1,0 +1,41 @@
+dependent_variables:
+- header: {name: '$ \mathcal{B} \times (1/T_{AA}) \times d^2N/dydp_{T}$ (nb / GeV/c)'}
+  qualifiers:
+  - {name: RE, value: Pb Pb --> UPSILON(1S) < MU+ MU- > X}
+  - {name: ABS(RAP), value: 0-2.4}
+  - {name: SQRT(S), units: GeV, value: '5020.0'}
+  - {name: GLOBAL UNCERTAINTY, value: +3.4 % -3.9 %}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0026}
+    - {label: syst, symerror: 0.0116}
+    value: 0.0307
+  - errors:
+    - {label: stat, symerror: 0.0052}
+    - {label: syst, symerror: 0.0053}
+    value: 0.0699
+  - errors:
+    - {label: stat, symerror: 0.0056}
+    - {label: syst, symerror: 0.0047}
+    value: 0.0684
+  - errors:
+    - {label: stat, symerror: 0.0025}
+    - {label: syst, symerror: 0.0021}
+    value: 0.0374
+  - errors:
+    - {label: stat, symerror: 0.0013}
+    - {label: syst, symerror: 0.0017}
+    value: 0.0163
+  - errors:
+    - {label: stat, symerror: 0.0001}
+    - {label: syst, symerror: 0.0001}
+    value: 0.002
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {high: 2.0, low: 0.0}
+  - {high: 4.0, low: 2.0}
+  - {high: 6.0, low: 4.0}
+  - {high: 9.0, low: 6.0}
+  - {high: 12.0, low: 9.0}
+  - {high: 30.0, low: 12.0}

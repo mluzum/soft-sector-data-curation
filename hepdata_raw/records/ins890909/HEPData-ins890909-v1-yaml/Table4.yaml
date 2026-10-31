@@ -1,0 +1,41 @@
+dependent_variables:
+- header: {name: (10**8/N(C=Min-Bias))*D(N)/DYRAP}
+  qualifiers:
+  - {name: RE, value: PB PB --> Z0 < MU+ MU- > X}
+  - {name: sqrts/Nucleon, units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 3.0}
+    - {label: sys, symerror: 1.0}
+    value: 7.9
+  - errors:
+    - {label: stat, symerror: 16.0}
+    - {label: sys, symerror: 7.7}
+    value: 59.5
+  - errors:
+    - {label: stat, symerror: 40.0}
+    - {label: sys, symerror: 22.0}
+    value: 165.0
+- header: {name: ' RAA'}
+  qualifiers:
+  - {name: RE, value: PB PB --> Z0 < MU+ MU- > X}
+  - {name: sqrts/Nucleon, units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.35}
+    - {label: sys, symerror: 0.16}
+    value: 0.92
+  - errors:
+    - {label: stat, symerror: 0.23}
+    - {label: sys, symerror: 0.12}
+    value: 0.86
+  - errors:
+    - {label: stat, symerror: 0.29}
+    - {label: sys, symerror: 0.16}
+    value: 1.2
+independent_variables:
+- header: {name: CENTRALITY, units: PCT}
+  values:
+  - {high: 100.0, low: 30.0}
+  - {high: 30.0, low: 10.0}
+  - {high: 10.0, low: 0.0}

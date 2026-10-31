@@ -1,0 +1,28 @@
+dependent_variables:
+- header: {name: v2}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 0.0-10.0}
+  - {name: RE, value: AU AU --> XIBAR+ X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '27.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.010765}
+    - asymerror: {minus: -0.005777, plus: 0.004263}
+      label: sys
+    value: 0.020236
+  - errors:
+    - {label: stat, symerror: 0.010632}
+    - asymerror: {minus: -0.006186, plus: 0.007209}
+      label: sys
+    value: 0.047414
+  - errors:
+    - {label: stat, symerror: 0.016155}
+    - asymerror: {minus: -0.009795, plus: 0.008501}
+      label: sys
+    value: 0.059542
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {value: 1.1015}
+  - {value: 1.6695}
+  - {value: 2.3055}

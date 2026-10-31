@@ -1,0 +1,56 @@
+dependent_variables:
+- header: {name: '$\Lambda_{c}^{+}/\mathrm{D^0}$ production ratio'}
+  qualifiers:
+  - {name: SQRT(S), units: GeV, value: '5020'}
+  - {name: $|y(\Lambda_c^+)|$, value: < 1}
+  - {name: RE, value: P P --> LAMBDAc+ --> P+ + K- + PI+}
+  - {name: GLOBAL UNCERTAINTY, units: $\%$, value: '6.6'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.095}
+    - {label: sys, symerror: 0.223}
+    value: 0.712
+  - errors:
+    - {label: stat, symerror: 0.048}
+    - {label: sys, symerror: 0.201}
+    value: 0.552
+  - errors:
+    - {label: stat, symerror: 0.03}
+    - {label: sys, symerror: 0.064}
+    value: 0.351
+  - errors:
+    - {label: stat, symerror: 0.029}
+    - {label: sys, symerror: 0.067}
+    value: 0.342
+  - errors:
+    - {label: stat, symerror: 0.019}
+    - {label: sys, symerror: 0.047}
+    value: 0.217
+  - errors:
+    - {label: stat, symerror: 0.026}
+    - {label: sys, symerror: 0.056}
+    value: 0.235
+  - errors:
+    - {label: stat, symerror: 0.039}
+    - {label: sys, symerror: 0.044}
+    value: 0.24
+  - errors:
+    - {label: stat, symerror: 0.035}
+    - {label: sys, symerror: 0.035}
+    value: 0.177
+  - errors:
+    - {label: stat, symerror: 0.045}
+    - {label: sys, symerror: 0.033}
+    value: 0.165
+independent_variables:
+- header: {name: '$p_\mathrm{T}$'}
+  values:
+  - {high: 4.0, low: 3.0}
+  - {high: 5.0, low: 4.0}
+  - {high: 6.0, low: 5.0}
+  - {high: 8.0, low: 6.0}
+  - {high: 10.0, low: 8.0}
+  - {high: 12.5, low: 10.0}
+  - {high: 15.0, low: 12.5}
+  - {high: 20.0, low: 15.0}
+  - {high: 30.0, low: 20.0}

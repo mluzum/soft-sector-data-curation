@@ -1,0 +1,53 @@
+dependent_variables:
+- header: {name: '$f(\mathrm{c}\rightarrow\mathrm{h}_\mathrm{c})$', units: '%'}
+  qualifiers:
+  - {name: REACTION, value: P PB --> CCBAR X}
+  - {name: PT, units: GEV/C, value: 0 TO 50}
+  - {name: SQRT(S), units: GEV, value: '5020.0'}
+  - {name: Y, value: -0.96 TO 0.04}
+  values:
+  - errors:
+    - {label: stat., symerror: 1.3}
+    - asymerror: {minus: -3.2, plus: 2.7}
+      label: syst.
+    value: 41.3
+  - errors:
+    - {label: stat., symerror: 1.0}
+    - asymerror: {minus: -1.6, plus: 1.6}
+      label: syst.
+    value: 18.2
+  - errors:
+    - {label: stat., symerror: 0.5}
+    - asymerror: {minus: -1.2, plus: 1.6}
+      label: syst.
+    value: 9.0
+  - errors:
+    - {label: stat., symerror: 1.1}
+    - asymerror: {minus: -1.8, plus: 1.5}
+      label: syst.
+    value: 17.1
+  - errors:
+    - {label: stat., symerror: 1.1}
+    - asymerror: {minus: -1.8, plus: 2.5}
+      label: syst.
+    value: 7.0
+  - errors:
+    - {label: stat., symerror: 0.02}
+    - asymerror: {minus: -0.04, plus: 0.04}
+      label: syst.
+    value: 0.41
+  - errors:
+    - {label: stat., symerror: 0.6}
+    - asymerror: {minus: -1.2, plus: 1.1}
+      label: syst.
+    value: 12.9
+independent_variables:
+- header: {name: '$\mathrm{h_{c}}$'}
+  values:
+  - {value: '$\mathrm{D}^0$'}
+  - {value: '$\mathrm{D}^+$'}
+  - {value: '$\mathrm{D}_\mathrm{s}^+$'}
+  - {value: '$\Lambda_\mathrm{c}^+$'}
+  - {value: '$\Xi_\mathrm{c}^0$'}
+  - {value: '$\mathrm{J/\psi}$'}
+  - {value: '$\mathrm{D}^{*+}$'}

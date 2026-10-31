@@ -1,0 +1,32 @@
+dependent_variables:
+- header: {name: '$\rho_{00}$'}
+  qualifiers:
+  - {name: '$p_{\rm T}$ range', units: GeV/$c$, value: 3.0-5.0}
+  - {name: RE, value: Pb-Pb $\rightarrow$ $\phi$ X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  - {name: Plane, value: Production Plane}
+  - {name: YRAP, value: -0.5-0.5}
+  values:
+  - errors:
+    - {label: stat., symerror: 0.0153}
+    - {label: syst., symerror: 0.03591}
+    value: 0.342
+  - errors:
+    - {label: stat., symerror: 0.0143}
+    - {label: syst., symerror: 0.0353745}
+    value: 0.3369
+  - errors:
+    - {label: stat., symerror: 0.0132}
+    - {label: syst., symerror: 0.0322245}
+    value: 0.3069
+  - errors:
+    - {label: stat., symerror: 0.0152}
+    - {label: syst., symerror: 0.031752}
+    value: 0.3024
+independent_variables:
+- header: {name: '$\langle N_{part} \rangle$'}
+  values:
+  - {high: 311.8, low: 304.4}
+  - {high: 160.3, low: 154.1}
+  - {high: 70.6, low: 66.6}
+  - {high: 18.1, low: 16.9}

@@ -1,0 +1,29 @@
+dependent_variables:
+- header: {name: '1/($N_{part}$/2) 1/(2$\pi p_T$) $d^2$N/d$p_T$dy ($c$/GeV$)^2$'}
+  qualifiers:
+  - {name: $p_T$ (GeV/$c$), value: '810 MeV/$c^2$ $\le$ $m_{ee}$ < 990 MeV/$c^2$ $\times
+      10^{-3}$'}
+  values:
+  - errors:
+    - {label: stat., symerror: 9.0e-09}
+    - {label: syst., symerror: 6.0e-09}
+    value: 1.9e-08
+  - errors:
+    - {label: stat., symerror: 2.7e-09}
+    - {label: syst., symerror: 3.4e-09}
+    value: 7.1e-09
+  - errors:
+    - {label: stat., symerror: 8.0e-10}
+    - {label: syst., symerror: 8.0e-10}
+    value: 1.4e-09
+  - errors:
+    - {label: stat., symerror: 1.1e-10}
+    - {label: syst., symerror: 6.0e-11}
+    value: 1.3e-10
+independent_variables:
+- header: {name: $p_T$ (GeV/$c$)}
+  values:
+  - {high: 0.3, low: 0.0}
+  - {high: 0.6, low: 0.3}
+  - {high: 1.0, low: 0.6}
+  - {high: 1.8, low: 1.0}

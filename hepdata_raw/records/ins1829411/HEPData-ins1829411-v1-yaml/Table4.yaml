@@ -1,0 +1,53 @@
+dependent_variables:
+- header: {name: '$\sqrt{\langle j_\mathrm{T}^2 \rangle }$'}
+  qualifiers:
+  - {name: '$\sqrt{\langle j_\mathrm{T}^2 \rangle }$', units: GeV/c, value: Narrow
+      component}
+  - {name: stat, value: Statistical Uncertainty}
+  - {name: sys, value: Systematic Uncertainty}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0079771}
+    - {label: sys, symerror: 0.034858}
+    value: 0.268138
+  - errors:
+    - {label: stat, symerror: 0.00420545}
+    - {label: sys, symerror: 0.0234184}
+    value: 0.246473
+  - errors:
+    - {label: stat, symerror: 0.0069435}
+    - {label: sys, symerror: 0.0252418}
+    value: 0.280464
+  - errors:
+    - {label: stat, symerror: 0.00979632}
+    - {label: sys, symerror: 0.0185814}
+    value: 0.20646
+- header: {name: '$\sqrt{\langle j_\mathrm{T}^2 \rangle }$'}
+  qualifiers:
+  - {name: '$\sqrt{\langle j_\mathrm{T}^2 \rangle }$', units: GeV/c, value: Wide component}
+  - {name: stat, value: Statistical Uncertainty}
+  - {name: sys, value: Systematic Uncertainty}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0321297}
+    - {label: sys, symerror: 0.0622717}
+    value: 0.778397
+  - errors:
+    - {label: stat, symerror: 0.028876}
+    - {label: sys, symerror: 0.0648486}
+    value: 0.810607
+  - errors:
+    - {label: stat, symerror: 0.0571078}
+    - {label: sys, symerror: 0.0774069}
+    value: 0.967586
+  - errors:
+    - {label: stat, symerror: 0.0800018}
+    - {label: sys, symerror: 0.0809357}
+    value: 1.0117
+independent_variables:
+- header: {name: '$p_\mathrm{T, jet}$'}
+  values:
+  - {high: 60, low: 40}
+  - {high: 80, low: 60}
+  - {high: 100, low: 80}
+  - {high: 150, low: 100}

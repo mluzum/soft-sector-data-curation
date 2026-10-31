@@ -1,0 +1,23 @@
+dependent_variables:
+- header: {name: SIG, units: MUB}
+  qualifiers:
+  - {name: P, units: GEV, value: 3.1 TO 3.6}
+  - {name: RE, value: K- P --> A0(980)- SIGMA(1385P13)+}
+  - {name: SQRT(S), units: GeV, value: 2.648-2.818}
+  - {name: SYS, value: 'RES-DEF(RES=DELTA(970),BACK=CORRECTED)'}
+  values:
+  - errors:
+    - {symerror: 3.0}
+    value: 7.0
+- header: {name: SIG, units: MUB}
+  qualifiers:
+  - {name: P, units: GEV, value: 3.1 TO 3.6}
+  - {name: RE, value: K- P --> A0(980)+ LAMBDA PI-}
+  - {name: SQRT(S), units: GeV, value: 2.648-2.818}
+  - {name: SYS, value: 'RES-DEF(RES=DELTA(970),BACK=CORRECTED)'}
+  values:
+  - {value: 5.0}
+independent_variables:
+- header: {name: -T, units: GEV**2}
+  values:
+  - {value: < 0.6}

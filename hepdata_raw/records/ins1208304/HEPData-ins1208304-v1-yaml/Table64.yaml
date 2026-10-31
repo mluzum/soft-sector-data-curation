@@ -1,0 +1,42 @@
+dependent_variables:
+- header: {name: c3}
+  qualifiers:
+  - {name: ABS(DELTA(ETARAP)), value: 2.0-5.0}
+  - {name: PT(b), units: GeV, value: 0.5-1.0}
+  - {name: RE, value: P PB --> CHARGED X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  - {name: SUM(ET(PB)), units: GeV, value: 55.0-80.0}
+  values:
+  - errors:
+    - {label: stat, symerror: 8.41e-05}
+    - {label: sys, symerror: 3.89e-06}
+    value: 0.000194
+  - errors:
+    - {label: stat, symerror: 0.000138}
+    - {label: sys, symerror: 7.82e-06}
+    value: 0.000391
+  - errors:
+    - {label: stat, symerror: 0.000218}
+    - {label: sys, symerror: 1.07e-05}
+    value: 0.000532
+  - errors:
+    - {label: stat, symerror: 0.000336}
+    - {label: sys, symerror: 7.6e-06}
+    value: 0.000379
+  - errors:
+    - {label: stat, symerror: 0.000502}
+    - {label: sys, symerror: 2.94e-05}
+    value: 0.00146
+  - errors:
+    - {label: stat, symerror: 0.00059}
+    - {label: sys, symerror: 2.23e-05}
+    value: 0.00111
+independent_variables:
+- header: {name: PT(a), units: GEV}
+  values:
+  - {value: 0.75}
+  - {value: 1.25}
+  - {value: 1.75}
+  - {value: 2.25}
+  - {value: 2.75}
+  - {value: 3.4}

@@ -1,0 +1,57 @@
+observable_type: flow_pT_correlations
+description: >
+  Correlations between anisotropic flow harmonics and mean transverse momentum
+  measured event-by-event.  The primary observable is the modified Pearson
+  correlation coefficient:
+    ρ_n = ⟨δvn² δ⟨pT⟩⟩ / √⟨(δvn²)²⟩ √⟨(δ⟨pT⟩)²⟩
+  or equivalently the c_k coefficients of ATLAS:
+    c_k(v_n², ⟨pT⟩) = covariance(v_n², ⟨pT⟩)
+  These quantify the coupling between radial flow and anisotropy.
+
+composes:
+  - _common#collision_system
+  - centrality#centrality
+
+required_fields:
+  observable:
+    type: string
+    required: true
+    description: Short identifier.
+    example: "rho_2"
+  value_type:
+    type: string
+    required: true
+    description: >
+      One of: 'rho_n' (Pearson coefficient), 'c_k' (covariance),
+      'modified_Pearson', 'covariance'
+    example: "rho_n"
+  harmonic:
+    type: integer
+    required: true
+    description: "Flow harmonic n correlated with ⟨pT⟩."
+    example: 2
+
+optional_fields:
+  method:
+    type: string
+    required: false
+    description: "Method for vn determination (e.g. 'EP', '2PC', 'SP')."
+    example: "EP"
+  pT_range:
+    type: object
+    required: false
+    description: "pT range used for both vn and ⟨pT⟩ determination."
+    fields:
+      min: {type: float, required: true, example: 0.5}
+      max: {type: float, required: true, example: 2.0}
+  eta_range:
+    type: object
+    required: false
+    description: "Pseudorapidity acceptance."
+    fields:
+      min: {type: float, required: true, example: -2.5}
+      max: {type: float, required: true, example: 2.5}
+
+validation:
+  rules:
+    - "rho_between_minus_one_and_one"

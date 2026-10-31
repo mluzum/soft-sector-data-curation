@@ -1,0 +1,49 @@
+dependent_variables:
+- header: {name: B*D(N(P=3))/D(YRAP(P=3))}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 0.0-20.0}
+  - {name: RE, value: AU AU --> J/PSI < E+ E- > X}
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  - {name: YRAP, value: -0.35-0.35}
+  values:
+  - errors:
+    - {label: stat, symerror: 3.147e-05}
+    - {label: sys, symerror: 3.084e-05}
+    value: 0.00030127
+- header: {name: B*D(N(P=3))/D(YRAP(P=3))}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 20.0-40.0}
+  - {name: RE, value: AU AU --> J/PSI < E+ E- > X}
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  - {name: YRAP, value: -0.35-0.35}
+  values:
+  - errors:
+    - {label: stat, symerror: 1.679e-05}
+    - {label: sys, symerror: 1.652e-05}
+    value: 0.00017807
+- header: {name: B*D(N(P=3))/D(YRAP(P=3))}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 40.0-60.0}
+  - {name: RE, value: AU AU --> J/PSI < E+ E- > X}
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  - {name: YRAP, value: -0.35-0.35}
+  values:
+  - errors:
+    - {label: stat, symerror: 6.59e-06}
+    - {label: sys, symerror: 5.59e-06}
+    value: 6.264e-05
+- header: {name: B*D(N(P=3))/D(YRAP(P=3))}
+  qualifiers:
+  - {name: CENTRALITY, units: pct, value: 60.0-92.0}
+  - {name: RE, value: AU AU --> J/PSI < E+ E- > X}
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  - {name: YRAP, value: -0.35-0.35}
+  values:
+  - errors:
+    - {label: stat, symerror: 1.82e-06}
+    - {label: sys, symerror: 1.0e-06}
+    value: 1.14e-05
+independent_variables:
+- header: {name: 'YRAP '}
+  values:
+  - {high: 0.35, low: -0.35}

@@ -1,0 +1,30 @@
+dependent_variables:
+- header: {name: MEAN(PT), units: GEV}
+  qualifiers:
+  - {name: RE, value: PB PB --> (K*(892)0 < PI- K+ > + AK*(892)0 < PI+ K- >) X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  - {name: YRAP, value: -0.5-0.5}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.043}
+    - {label: sys, symerror: 0.114}
+    value: 1.314
+  - errors:
+    - {label: stat, symerror: 0.038}
+    - {label: sys, symerror: 0.115}
+    value: 1.292
+  - errors:
+    - {label: stat, symerror: 0.035}
+    - {label: sys, symerror: 0.078}
+    value: 1.158
+  - errors:
+    - {label: stat, symerror: 0.032}
+    - {label: sys, symerror: 0.072}
+    value: 1.081
+independent_variables:
+- header: {name: CENTRALITY, units: PCT}
+  values:
+  - {high: 20.0, low: 0.0}
+  - {high: 40.0, low: 20.0}
+  - {high: 60.0, low: 40.0}
+  - {high: 80.0, low: 60.0}

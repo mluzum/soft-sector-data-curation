@@ -1,0 +1,69 @@
+dependent_variables:
+- header: {name: Associated yield (NS)}
+  qualifiers:
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: 5020.0}
+  - {name: pT condition, value: '$p_{T}^{e} > p_{T}^{assoc}$'}
+  - {name: Electron ETA, value: -0.6 to 0.6}
+  - {name: DELTA ETA, value: -1 to 1}
+  - {name: Near side region, value: '$|\Delta \varphi| < 3 \sigma_{NS}$'}
+  - {name: RE, value: 'pp -> (c,b)->e + X'}
+  - {name: pTe, units: GeV/c, value: 4 to 7}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.04421247}
+    - {label: sys, symerror: 0.03162923}
+    value: 0.645629
+  - errors:
+    - {label: stat, symerror: 0.02138155}
+    - {label: sys, symerror: 0.01052799}
+    value: 0.2415286
+  - errors:
+    - {label: stat, symerror: 0.01321177}
+    - {label: sys, symerror: 0.006333858}
+    value: 0.1070617
+  - errors:
+    - {label: stat, symerror: 0.008172013}
+    - {label: sys, symerror: 0.003220709}
+    value: 0.05092388
+  - errors:
+    - {label: stat, symerror: 0.004171879}
+    - {label: sys, symerror: 0.0007535475}
+    value: 0.01149149
+- header: {name: Associated yield (NS)}
+  qualifiers:
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: 5020.0}
+  - {name: pT condition, value: '$p_{T}^{e} > p_{T}^{assoc}$'}
+  - {name: Electron ETA, value: -0.6 to 0.6}
+  - {name: DELTA ETA, value: -1 to 1}
+  - {name: Near side region, value: '$|\Delta \varphi| < 3 \sigma_{NS}$'}
+  - {name: RE, value: 'pp -> (c,b)->e + X'}
+  - {name: pTe, units: GeV/c, value: 7 to 16}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.08658521}
+    - {label: sys, symerror: 0.0527306}
+    value: 0.8913099
+  - errors:
+    - {label: stat, symerror: 0.05187329}
+    - {label: sys, symerror: 0.02754016}
+    value: 0.4655136
+  - errors:
+    - {label: stat, symerror: 0.03425633}
+    - {label: sys, symerror: 0.01570496}
+    value: 0.2654623
+  - errors:
+    - {label: stat, symerror: 0.0244306}
+    - {label: sys, symerror: 0.01067181}
+    value: 0.1803866
+  - errors:
+    - {label: stat, symerror: 0.02353742}
+    - {label: sys, symerror: 0.01109873}
+    value: 0.1345919
+independent_variables:
+- header: {name: '$p_{T}^{assoc}$', units: GeV/c}
+  values:
+  - {high: 2.0, low: 1.0}
+  - {high: 3.0, low: 2.0}
+  - {high: 4.0, low: 3.0}
+  - {high: 5.0, low: 4.0}
+  - {high: 7.0, low: 5.0}

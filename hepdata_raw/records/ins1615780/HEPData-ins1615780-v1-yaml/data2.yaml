@@ -1,0 +1,71 @@
+dependent_variables:
+- header: {name: v2}
+  qualifiers:
+  - {name: RE, value: Pb Pb --> D0 X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020'}
+  - {name: RAPIDITY |Y|, value: <1.}
+  - {name: PbPb CENTRALITY, units: PERCENTILE, value: 10-30}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.045}
+    - {label: 'sys,other', symerror: 0.03}
+    - {label: 'sys,nonprompt', symerror: 0.03}
+    value: 0.037
+  - errors:
+    - {label: stat, symerror: 0.013}
+    - {label: 'sys,other', symerror: 0.007}
+    - {label: 'sys,nonprompt', symerror: 0.01}
+    value: 0.136
+  - errors:
+    - {label: stat, symerror: 0.008}
+    - {label: 'sys,other', symerror: 0.007}
+    - {label: 'sys,nonprompt', symerror: 0.01}
+    value: 0.146
+  - errors:
+    - {label: stat, symerror: 0.008}
+    - {label: 'sys,other', symerror: 0.007}
+    - {label: 'sys,nonprompt', symerror: 0.01}
+    value: 0.156
+  - errors:
+    - {label: stat, symerror: 0.01}
+    - {label: 'sys,other', symerror: 0.007}
+    - {label: 'sys,nonprompt', symerror: 0.01}
+    value: 0.115
+  - errors:
+    - {label: stat, symerror: 0.009}
+    - {label: 'sys,other', symerror: 0.007}
+    - {label: 'sys,nonprompt', symerror: 0.01}
+    value: 0.082
+  - errors:
+    - {label: stat, symerror: 0.011}
+    - {label: 'sys,other', symerror: 0.006}
+    - {label: 'sys,nonprompt', symerror: 0.01}
+    value: 0.065
+  - errors:
+    - {label: stat, symerror: 0.011}
+    - {label: 'sys,other', symerror: 0.006}
+    - {label: 'sys,nonprompt', symerror: 0.01}
+    value: 0.054
+  - errors:
+    - {label: stat, symerror: 0.019}
+    - {label: 'sys,other', symerror: 0.006}
+    - {label: 'sys,nonprompt', symerror: 0.01}
+    value: 0.026
+  - errors:
+    - {label: stat, symerror: 0.023}
+    - {label: 'sys,other', symerror: 0.02}
+    - {label: 'sys,nonprompt', symerror: 0.01}
+    value: 0.069
+independent_variables:
+- header: {name: PT (GEV)}
+  values:
+  - {high: 2.0, low: 1.0}
+  - {high: 3.0, low: 2.0}
+  - {high: 4.0, low: 3.0}
+  - {high: 5.0, low: 4.0}
+  - {high: 6.0, low: 5.0}
+  - {high: 8.0, low: 6.0}
+  - {high: 10.0, low: 8.0}
+  - {high: 15.0, low: 10.0}
+  - {high: 20.0, low: 15.0}
+  - {high: 40.0, low: 20.0}

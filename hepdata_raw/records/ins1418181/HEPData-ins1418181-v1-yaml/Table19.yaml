@@ -1,0 +1,50 @@
+dependent_variables:
+- header: {name: '$\langle p_{T} \rangle$', units: GeV}
+  qualifiers:
+  - {name: RE, value: P PB --> PHI X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  - {name: YRAP(C=CM), value: -0.5-0.0}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.009}
+    - {label: sys, symerror: 0.0282}
+    value: 1.437
+  - errors:
+    - {label: stat, symerror: 0.0093}
+    - {label: sys, symerror: 0.0254}
+    value: 1.4421
+  - errors:
+    - {label: stat, symerror: 0.0075}
+    - {label: sys, symerror: 0.024}
+    value: 1.4215
+  - errors:
+    - {label: stat, symerror: 0.0056}
+    - {label: sys, symerror: 0.0252}
+    value: 1.3574
+  - errors:
+    - {label: stat, symerror: 0.0064}
+    - {label: sys, symerror: 0.0307}
+    value: 1.3097
+  - errors:
+    - {label: stat, symerror: 0.0078}
+    - {label: sys, symerror: 0.0243}
+    value: 1.2424
+  - errors:
+    - {label: stat, symerror: 0.0096}
+    - {label: sys, symerror: 0.0303}
+    value: 1.0549
+  - errors:
+    - {label: stat, symerror: 0.0032}
+    - {label: sys, symerror: 0.0305}
+    value: 1.3547
+independent_variables:
+- header: {name: class, units: PCT}
+  values:
+  - {high: 5.0, low: 0.0}
+  - {high: 10.0, low: 5.0}
+  - {high: 20.0, low: 10.0}
+  - {high: 40.0, low: 20.0}
+  - {high: 60.0, low: 40.0}
+  - {high: 80.0, low: 60.0}
+  - {high: 100.0, low: 80.0}
+  - {value: NSD}

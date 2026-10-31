@@ -1,0 +1,47 @@
+dependent_variables:
+- header: {name: '$<dN_{ch}/d\eta>$'}
+  qualifiers:
+  - {name: ABS(YRAP), value: < 0.5}
+  - {name: RE, value: PB PB --> (3H + 3HBAR) X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {symerror: 39.0}
+    value: 1447.0
+  - errors:
+    - {symerror: 12.0}
+    value: 575.0
+- header: {name: '$^{3}_{\Lambda}H \times BR \times 10^{-5}$'}
+  qualifiers:
+  - {name: ABS(YRAP), value: < 0.5}
+  - {name: RE, value: PB PB --> (3H + 3HBAR) X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.77}
+    - {label: sys, symerror: 0.68}
+    value: 3.86
+  - errors:
+    - {label: stat, symerror: 0.37}
+    - {label: sys, symerror: 0.23}
+    value: 1.31
+- header: {name: '$^{3}_{\overline{\Lambda}}\overline{H} \times BR \times 10^{-5}
+      $'}
+  qualifiers:
+  - {name: ABS(YRAP), value: < 0.5}
+  - {name: RE, value: PB PB --> (3H + 3HBAR) X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '2760.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.81}
+    - {label: sys, symerror: 0.69}
+    value: 3.47
+  - errors:
+    - {label: stat, symerror: 0.29}
+    - {label: sys, symerror: 0.17}
+    value: 0.85
+independent_variables:
+- header: {name: CENTRALITY, units: PCT}
+  values:
+  - {high: 10.0, low: 0.0}
+  - {high: 50.0, low: 10.0}

@@ -1,0 +1,25 @@
+dependent_variables:
+- header: {name: '$v_{2}^{HFe}$'}
+  qualifiers:
+  - {name: RE, value: P PB --> (E+ + E-)/2 X}
+  - {name: SQRT(S), units: GEV, value: '5020.0'}
+  - {name: YRAP, value: -1.26 TO 0.34}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.014}
+    - {label: sys, symerror: 0.012}
+    value: 0.064
+  - errors:
+    - {label: stat, symerror: 0.012}
+    - {label: sys, symerror: 0.011}
+    value: 0.067
+  - errors:
+    - {label: stat, symerror: 0.031}
+    - {label: sys, symerror: 0.005}
+    value: 0.032
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {high: 2, low: 1.5}
+  - {high: 4, low: 2}
+  - {high: 6, low: 4}

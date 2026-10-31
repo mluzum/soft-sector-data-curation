@@ -1,0 +1,29 @@
+dependent_variables:
+- header: {name: (1/SIG)*D(SIG)/D(THETA)}
+  qualifiers:
+  - {name: RE, value: P P --> TOP TOPBAR X}
+  - {name: SQRT(S), units: GeV, value: '8000.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.0076}
+    - {label: sys, symerror: 0.0168}
+    value: 1.1249
+  - errors:
+    - {label: stat, symerror: 0.0052}
+    - {label: sys, symerror: 0.0083}
+    value: 1.0172
+  - errors:
+    - {label: stat, symerror: 0.0051}
+    - {label: sys, symerror: 0.008}
+    value: 0.9401
+  - errors:
+    - {label: stat, symerror: 0.0072}
+    - {label: sys, symerror: 0.0207}
+    value: 0.9392
+independent_variables:
+- header: {name: THETA/PI}
+  values:
+  - {high: 0.2, low: 0.0}
+  - {high: 0.5, low: 0.2}
+  - {high: 0.8, low: 0.5}
+  - {high: 1.0, low: 0.8}

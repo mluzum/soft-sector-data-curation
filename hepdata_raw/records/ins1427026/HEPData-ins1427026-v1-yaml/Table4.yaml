@@ -1,0 +1,50 @@
+dependent_variables:
+- header: {name: 'd$\sigma/$d${p}_{\rm T}$ (mb $c$/GeV)'}
+  qualifiers:
+  - {name: ALGO-JET, value: 'anti-$k_{\rm T}$'}
+  - {name: CENTRALITY, units: pct, value: 40.0-60.0}
+  - {name: ETARAP-JET, value: -0.5-0.5}
+  - {name: ETARAP-PARTICLE, value: -0.9-0.9}
+  - {name: PT-PARTICLE, value: '> 0.15 GeV/c'}
+  - {name: RADIUS-JET, value: '0.2'}
+  - {name: SQRT(SNN), units: GeV, value: '5023.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.00023}
+    - {label: sys, symerror: 0.0012}
+    - {label: 'sys,Normalization uncertainty', symerror: 3.3%}
+    value: 0.01403
+  - errors:
+    - {label: stat, symerror: 8.4e-05}
+    - {label: sys, symerror: 0.0003}
+    - {label: 'sys,Normalization uncertainty', symerror: 3.3%}
+    value: 0.00306
+  - errors:
+    - {label: stat, symerror: 3.9e-05}
+    - {label: sys, symerror: 9.5e-05}
+    - {label: 'sys,Normalization uncertainty', symerror: 3.3%}
+    value: 0.000866
+  - errors:
+    - {label: stat, symerror: 2.0e-05}
+    - {label: sys, symerror: 3.6e-05}
+    - {label: 'sys,Normalization uncertainty', symerror: 3.3%}
+    value: 0.000325
+  - errors:
+    - {label: stat, symerror: 1.2e-05}
+    - {label: sys, symerror: 1.7e-05}
+    - {label: 'sys,Normalization uncertainty', symerror: 3.3%}
+    value: 0.000137
+  - errors:
+    - {label: stat, symerror: 8.0e-06}
+    - {label: sys, symerror: 8.3e-06}
+    - {label: 'sys,Normalization uncertainty', symerror: 3.3%}
+    value: 6.58e-05
+independent_variables:
+- header: {name: '$p_{\rm {T, ch. jet}} $(GeV/$c$)'}
+  values:
+  - {high: 30.0, low: 20.0}
+  - {high: 40.0, low: 30.0}
+  - {high: 50.0, low: 40.0}
+  - {high: 60.0, low: 50.0}
+  - {high: 70.0, low: 60.0}
+  - {high: 80.0, low: 70.0}

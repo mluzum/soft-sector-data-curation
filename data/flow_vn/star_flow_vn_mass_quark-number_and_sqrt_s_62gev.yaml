@@ -1,0 +1,6520 @@
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: figure-1_panel1_hadrons.yaml
+hepdata_table_label: Minimum-bias (0–80% of the collision cross section) v2(pT ) for
+  identified hadrons at |η| < 1 from Au+Au collisions at √sNN = 62.4 GeV. To facilitate
+  comparisons between panels, v2 values for inclusive charged hadrons are displayed
+  in each panel. The error bars on the data points represent statistical uncertainties.
+  Systematic uncertainties for the identified particles are shown as shaded bands
+  around v2 = 0.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.39375
+    - 0.5924499999999999
+    - 0.7917
+    - 0.9913
+    - 1.1909999999999998
+    - 1.391
+    - 1.5910000000000002
+    - 1.791
+    - 2.0275
+    - 2.364
+    - 2.7645
+    - 3.166
+    - 3.633
+    - 4.43
+    - 6.064
+    - 8.788499999999999
+    - 12.031500000000001
+    max: 12.031500000000001
+    min: 0.39375
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  p_t (gev): minbias charged hadrons
+value_type: v_2
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (pi+ + pi-) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-1_panel1_pions_TOF.yaml
+hepdata_table_label: Minimum-bias (0–80% of the collision cross section) v2(pT ) for
+  identified hadrons at |η| < 1 from Au+Au collisions at √sNN = 62.4 GeV. To facilitate
+  comparisons between panels, v2 values for inclusive charged hadrons are displayed
+  in each panel. The error bars on the data points represent statistical uncertainties.
+  Systematic uncertainties for the identified particles are shown as shaded bands
+  around v2 = 0.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.24999999999999997
+    - 0.35
+    - 0.45
+    - 0.55
+    - 0.6499999999999999
+    - 0.75
+    - 0.8500000000000001
+    - 0.95
+    - 1.075
+    - 1.25
+    - 1.4500000000000002
+    - 1.65
+    - 1.85
+    - 2.125
+    - 2.55
+    - 3.175
+    - 3.925
+    max: 3.925
+    min: 0.24999999999999997
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: pi+ + pi-
+qualifiers:
+  p_t (gev): minbias charged pions (TOF)
+value_type: v_2
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (pi+ + pi-) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-1_panel1_pions_dEdx.yaml
+hepdata_table_label: Minimum-bias (0–80% of the collision cross section) v2(pT ) for
+  identified hadrons at |η| < 1 from Au+Au collisions at √sNN = 62.4 GeV. To facilitate
+  comparisons between panels, v2 values for inclusive charged hadrons are displayed
+  in each panel. The error bars on the data points represent statistical uncertainties.
+  Systematic uncertainties for the identified particles are shown as shaded bands
+  around v2 = 0.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.16784999999999997
+    - 0.23255
+    - 0.30105000000000004
+    - 0.37415
+    - 0.44815000000000005
+    - 0.52195
+    - 0.59545
+    - 0.6691
+    - 0.74315
+    - 0.8176
+    - 0.8924
+    - 1.5444499999999999
+    - 2.3609999999999998
+    - 2.7640000000000002
+    - 3.166
+    - 3.568
+    - 3.97
+    max: 3.97
+    min: 0.16784999999999997
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: pi+ + pi-
+qualifiers:
+  p_t (gev): minbias charged pions (dE/dx)
+value_type: v_2
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: figure-1_panel1_sys_err.yaml
+hepdata_table_label: Minimum-bias (0–80% of the collision cross section) v2(pT ) for
+  identified hadrons at |η| < 1 from Au+Au collisions at √sNN = 62.4 GeV. To facilitate
+  comparisons between panels, v2 values for inclusive charged hadrons are displayed
+  in each panel. The error bars on the data points represent statistical uncertainties.
+  Systematic uncertainties for the identified particles are shown as shaded bands
+  around v2 = 0.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.16784999999999997
+    - 0.23255
+    - 0.30105000000000004
+    - 0.37415
+    - 0.44815000000000005
+    - 0.52195
+    - 0.59545
+    - 0.6691
+    - 0.74315
+    - 0.8176
+    - 0.8924
+    - 1.5444499999999999
+    - 2.3609999999999998
+    - 2.7640000000000002
+    - 3.166
+    - 3.568
+    - 3.97
+    max: 3.97
+    min: 0.16784999999999997
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  p_t (gev): systematic error estimate for figure 1 panel 1
+value_type: v_2
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (K0_S) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-1_panel2_K0short.yaml
+hepdata_table_label: Minimum-bias (0–80% of the collision cross section) v2(pT ) for
+  identified hadrons at |η| < 1 from Au+Au collisions at √sNN = 62.4 GeV. To facilitate
+  comparisons between panels, v2 values for inclusive charged hadrons are displayed
+  in each panel. The error bars on the data points represent statistical uncertainties.
+  Systematic uncertainties for the identified particles are shown as shaded bands
+  around v2 = 0.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.19999999999999998
+    - 0.4
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2000000000000002
+    - 1.4
+    - 1.6
+    - 1.7999999999999998
+    - 2.05
+    - 2.45
+    - 2.975
+    - 3.6
+    - 4.775
+    - 6.424999999999999
+    max: 6.424999999999999
+    min: 0.19999999999999998
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  pdg_id: 310
+  species: K0_S
+qualifiers:
+  p_t (gev): minbias K0short
+value_type: v_2
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (K+ + K-) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-1_panel2_kaons_TOF.yaml
+hepdata_table_label: Minimum-bias (0–80% of the collision cross section) v2(pT ) for
+  identified hadrons at |η| < 1 from Au+Au collisions at √sNN = 62.4 GeV. To facilitate
+  comparisons between panels, v2 values for inclusive charged hadrons are displayed
+  in each panel. The error bars on the data points represent statistical uncertainties.
+  Systematic uncertainties for the identified particles are shown as shaded bands
+  around v2 = 0.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.29999999999999993
+    - 0.4
+    - 0.5
+    - 0.6000000000000001
+    - 0.7
+    - 0.8
+    - 0.8999999999999999
+    - 1.025
+    - 1.2000000000000002
+    - 1.4500000000000002
+    - 1.75
+    max: 1.75
+    min: 0.29999999999999993
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: K+ + K-
+qualifiers:
+  p_t (gev): minbias charged kaons (TOF)
+value_type: v_2
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (K+ + K-) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-1_panel2_kaons_dEdx.yaml
+hepdata_table_label: Minimum-bias (0–80% of the collision cross section) v2(pT ) for
+  identified hadrons at |η| < 1 from Au+Au collisions at √sNN = 62.4 GeV. To facilitate
+  comparisons between panels, v2 values for inclusive charged hadrons are displayed
+  in each panel. The error bars on the data points represent statistical uncertainties.
+  Systematic uncertainties for the identified particles are shown as shaded bands
+  around v2 = 0.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.1674
+    - 0.23420000000000002
+    - 0.3025
+    - 0.36995
+    - 0.43610000000000004
+    - 0.5033
+    max: 0.5033
+    min: 0.1674
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: K+ + K-
+qualifiers:
+  p_t (gev): minbias charged kaons (dE/dx)
+value_type: v_2
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: figure-1_panel2_sys_err.yaml
+hepdata_table_label: Minimum-bias (0–80% of the collision cross section) v2(pT ) for
+  identified hadrons at |η| < 1 from Au+Au collisions at √sNN = 62.4 GeV. To facilitate
+  comparisons between panels, v2 values for inclusive charged hadrons are displayed
+  in each panel. The error bars on the data points represent statistical uncertainties.
+  Systematic uncertainties for the identified particles are shown as shaded bands
+  around v2 = 0.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.19999999999999998
+    - 0.4
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2000000000000002
+    - 1.4
+    - 1.6
+    - 1.7999999999999998
+    - 2.05
+    - 2.45
+    - 2.975
+    - 3.6
+    - 4.775
+    - 6.424999999999999
+    max: 6.424999999999999
+    min: 0.19999999999999998
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  p_t (gev): systematic error estimate for figure 1 panel 2
+value_type: v_2
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (pbar) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-1_panel3_antiproton.yaml
+hepdata_table_label: Minimum-bias (0–80% of the collision cross section) v2(pT ) for
+  identified hadrons at |η| < 1 from Au+Au collisions at √sNN = 62.4 GeV. To facilitate
+  comparisons between panels, v2 values for inclusive charged hadrons are displayed
+  in each panel. The error bars on the data points represent statistical uncertainties.
+  Systematic uncertainties for the identified particles are shown as shaded bands
+  around v2 = 0.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.1688
+    - 0.2364
+    - 0.30610000000000004
+    - 0.37845
+    - 0.4517
+    - 0.5255
+    - 0.5993999999999999
+    - 0.67275
+    - 0.74455
+    - 0.8158000000000001
+    - 0.8876
+    max: 0.8876
+    min: 0.1688
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  pdg_id: -2212
+  species: pbar
+qualifiers:
+  p_t (gev): minbias anti-proton (dE/dx)
+value_type: v_2
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (p + pbar) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-1_panel3_p+pbar_TOF.yaml
+hepdata_table_label: Minimum-bias (0–80% of the collision cross section) v2(pT ) for
+  identified hadrons at |η| < 1 from Au+Au collisions at √sNN = 62.4 GeV. To facilitate
+  comparisons between panels, v2 values for inclusive charged hadrons are displayed
+  in each panel. The error bars on the data points represent statistical uncertainties.
+  Systematic uncertainties for the identified particles are shown as shaded bands
+  around v2 = 0.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.4
+    - 0.5
+    - 0.6000000000000001
+    - 0.7
+    - 0.8
+    - 0.8999999999999999
+    - 1.025
+    - 1.2000000000000002
+    - 1.4
+    - 1.6
+    - 1.7999999999999998
+    - 2.075
+    - 2.5
+    - 3.125
+    - 3.875
+    max: 3.875
+    min: 0.4
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: p + pbar
+qualifiers:
+  p_t (gev): minbias p+pbar (TOF)
+value_type: v_2
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (p + pbar) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-1_panel3_p+pbar_dEdx.yaml
+hepdata_table_label: Minimum-bias (0–80% of the collision cross section) v2(pT ) for
+  identified hadrons at |η| < 1 from Au+Au collisions at √sNN = 62.4 GeV. To facilitate
+  comparisons between panels, v2 values for inclusive charged hadrons are displayed
+  in each panel. The error bars on the data points represent statistical uncertainties.
+  Systematic uncertainties for the identified particles are shown as shaded bands
+  around v2 = 0.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 2.7735000000000003
+    - 3.1745
+    - 3.5755
+    - 4.0585
+    - 4.6235
+    max: 4.6235
+    min: 2.7735000000000003
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: p + pbar
+qualifiers:
+  p_t (gev): minbias p+pbar (rdE/dx)
+value_type: v_2
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: figure-1_panel3_sys_err.yaml
+hepdata_table_label: Minimum-bias (0–80% of the collision cross section) v2(pT ) for
+  identified hadrons at |η| < 1 from Au+Au collisions at √sNN = 62.4 GeV. To facilitate
+  comparisons between panels, v2 values for inclusive charged hadrons are displayed
+  in each panel. The error bars on the data points represent statistical uncertainties.
+  Systematic uncertainties for the identified particles are shown as shaded bands
+  around v2 = 0.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.1688
+    - 0.2364
+    - 0.30610000000000004
+    - 0.37845
+    - 0.43245
+    - 0.5
+    - 0.6000000000000001
+    - 0.7
+    - 0.8
+    - 0.8999999999999999
+    - 1.025
+    - 1.2000000000000002
+    - 1.4
+    - 1.6
+    - 1.7999999999999998
+    - 2.075
+    - 2.5
+    - 2.862
+    - 3.1745
+    - 3.5755
+    - 4.0585
+    - 2.17225
+    - -2.1652500000000003
+    max: -2.1652500000000003
+    min: 0.1688
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  p_t (gev): systematic error estimate for figure 1 panel 3
+value_type: v_2
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (Lambda) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-1_panel4_Lambda+Antilambda.yaml
+hepdata_table_label: Minimum-bias (0–80% of the collision cross section) v2(pT ) for
+  identified hadrons at |η| < 1 from Au+Au collisions at √sNN = 62.4 GeV. To facilitate
+  comparisons between panels, v2 values for inclusive charged hadrons are displayed
+  in each panel. The error bars on the data points represent statistical uncertainties.
+  Systematic uncertainties for the identified particles are shown as shaded bands
+  around v2 = 0.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.4
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2000000000000002
+    - 1.4
+    - 1.6
+    - 1.7999999999999998
+    - 2.0
+    - 2.2
+    - 2.5
+    - 2.975
+    - 3.6
+    - 4.775
+    - 6.424999999999999
+    max: 6.424999999999999
+    min: 0.4
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  pdg_id: 3122
+  species: Lambda
+qualifiers:
+  p_t (gev): minbias Lambda+Antilambda
+value_type: v_2
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: figure-1_panel4_Omega+Omegabar.yaml
+hepdata_table_label: Minimum-bias (0–80% of the collision cross section) v2(pT ) for
+  identified hadrons at |η| < 1 from Au+Au collisions at √sNN = 62.4 GeV. To facilitate
+  comparisons between panels, v2 values for inclusive charged hadrons are displayed
+  in each panel. The error bars on the data points represent statistical uncertainties.
+  Systematic uncertainties for the identified particles are shown as shaded bands
+  around v2 = 0.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 1.0500000000000003
+    - 2.05
+    - 3.05
+    - 4.05
+    max: 4.05
+    min: 1.0500000000000003
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  p_t (gev): minbias Omega+Omegabar
+value_type: v_2
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (Xi- + Xibar+) is a SUBSET of that sample, so the POI/reference diagonal equals
+    N_poi and is subtracted. INFERRED from the charged rows of the same table, not
+    quoted from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-1_panel4_Xi+Xibar.yaml
+hepdata_table_label: Minimum-bias (0–80% of the collision cross section) v2(pT ) for
+  identified hadrons at |η| < 1 from Au+Au collisions at √sNN = 62.4 GeV. To facilitate
+  comparisons between panels, v2 values for inclusive charged hadrons are displayed
+  in each panel. The error bars on the data points represent statistical uncertainties.
+  Systematic uncertainties for the identified particles are shown as shaded bands
+  around v2 = 0.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.6000000000000001
+    - 1.0
+    - 1.45
+    - 1.9500000000000002
+    - 2.45
+    - 2.95
+    - 3.45
+    max: 3.45
+    min: 0.6000000000000001
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: Xi- + Xibar+
+qualifiers:
+  p_t (gev): minbias Xi+Xibar
+value_type: v_2
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: figure-1_panel4_sys_err.yaml
+hepdata_table_label: Minimum-bias (0–80% of the collision cross section) v2(pT ) for
+  identified hadrons at |η| < 1 from Au+Au collisions at √sNN = 62.4 GeV. To facilitate
+  comparisons between panels, v2 values for inclusive charged hadrons are displayed
+  in each panel. The error bars on the data points represent statistical uncertainties.
+  Systematic uncertainties for the identified particles are shown as shaded bands
+  around v2 = 0.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.4
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2000000000000002
+    - 1.4
+    - 1.6
+    - 1.7999999999999998
+    - 2.0
+    - 2.2
+    - 2.5
+    - 2.975
+    - 3.6
+    - 4.775
+    - 6.424999999999999
+    max: 6.424999999999999
+    min: 0.4
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  p_t (gev): systematic error estimate for figure 1 panel 4
+value_type: v_2
+version: 1
+---
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (K0_S) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-2_bottom_left_panel_Kshort.yaml
+hepdata_table_label: The unidentified charged hadron, charged pion, $K^0_S$, charged
+  kaon, proton and Λ+Λ v2 as a function of pT for 10%–40%, 0%–10% and 40%–80% of the
+  Au+Au interaction cross section at √sNN = 62.4 GeV. Weak-decay feed-down errors
+  are included in the error bars on the data points while non-flow and tracking error
+  uncertainties are plotted as bands around v2 = 0, which apply to all identified
+  particles. The errors are asymmetric and the portion of the error band above (below)
+  zero represents the negative (positive) error.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.19999999999999998
+    - 0.4
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2000000000000002
+    - 1.4
+    - 1.6
+    - 1.7999999999999998
+    - 2.05
+    - 2.45
+    - 2.975
+    - 3.525
+    max: 3.525
+    min: 0.19999999999999998
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  pdg_id: 310
+  species: K0_S
+qualifiers:
+  p_t (gev): Kshort (0%-10)
+value_type: v_2
+version: 1
+---
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (Lambda) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-2_bottom_left_panel_Lambda+Antilambda.yaml
+hepdata_table_label: The unidentified charged hadron, charged pion, $K^0_S$, charged
+  kaon, proton and Λ+Λ v2 as a function of pT for 10%–40%, 0%–10% and 40%–80% of the
+  Au+Au interaction cross section at √sNN = 62.4 GeV. Weak-decay feed-down errors
+  are included in the error bars on the data points while non-flow and tracking error
+  uncertainties are plotted as bands around v2 = 0, which apply to all identified
+  particles. The errors are asymmetric and the portion of the error band above (below)
+  zero represents the negative (positive) error.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.4
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2000000000000002
+    - 1.4
+    - 1.6
+    - 1.7999999999999998
+    - 2.0
+    - 2.2
+    - 2.5
+    - 2.975
+    - 3.6
+    - 4.775
+    - 6.424999999999999
+    max: 6.424999999999999
+    min: 0.4
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  pdg_id: 3122
+  species: Lambda
+qualifiers:
+  p_t (gev): Lambda+Antilambda (0%-10)
+value_type: v_2
+version: 1
+---
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (pbar) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-2_bottom_left_panel_antiprotons.yaml
+hepdata_table_label: The unidentified charged hadron, charged pion, $K^0_S$, charged
+  kaon, proton and Λ+Λ v2 as a function of pT for 10%–40%, 0%–10% and 40%–80% of the
+  Au+Au interaction cross section at √sNN = 62.4 GeV. Weak-decay feed-down errors
+  are included in the error bars on the data points while non-flow and tracking error
+  uncertainties are plotted as bands around v2 = 0, which apply to all identified
+  particles. The errors are asymmetric and the portion of the error band above (below)
+  zero represents the negative (positive) error.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.2341
+    - 0.30610000000000004
+    - 0.37855
+    - 0.4518
+    - 0.5256
+    - 0.5993999999999999
+    - 0.67245
+    - 0.74405
+    - 0.81575
+    - 0.88845
+    max: 0.88845
+    min: 0.2341
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  pdg_id: -2212
+  species: pbar
+qualifiers:
+  p_t (gev): Antiprotons (0%-10)
+value_type: v_2
+version: 1
+---
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: figure-2_bottom_left_panel_hadrons.yaml
+hepdata_table_label: The unidentified charged hadron, charged pion, $K^0_S$, charged
+  kaon, proton and Λ+Λ v2 as a function of pT for 10%–40%, 0%–10% and 40%–80% of the
+  Au+Au interaction cross section at √sNN = 62.4 GeV. Weak-decay feed-down errors
+  are included in the error bars on the data points while non-flow and tracking error
+  uncertainties are plotted as bands around v2 = 0, which apply to all identified
+  particles. The errors are asymmetric and the portion of the error band above (below)
+  zero represents the negative (positive) error.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.39435
+    - 0.59285
+    - 0.79195
+    - 0.9919
+    - 1.1920000000000002
+    - 1.3915000000000002
+    - 1.5910000000000002
+    - 1.791
+    - 2.027
+    - 2.3635
+    - 2.7640000000000002
+    - 3.165
+    - 3.6315
+    - 4.425
+    - 6.0825
+    - 8.661
+    - 11.559
+    max: 11.559
+    min: 0.39435
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  p_t (gev): charged hadrons (0%-10%)
+value_type: v_2
+version: 1
+---
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (K+ + K-) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-2_bottom_left_panel_kaons.yaml
+hepdata_table_label: The unidentified charged hadron, charged pion, $K^0_S$, charged
+  kaon, proton and Λ+Λ v2 as a function of pT for 10%–40%, 0%–10% and 40%–80% of the
+  Au+Au interaction cross section at √sNN = 62.4 GeV. Weak-decay feed-down errors
+  are included in the error bars on the data points while non-flow and tracking error
+  uncertainties are plotted as bands around v2 = 0, which apply to all identified
+  particles. The errors are asymmetric and the portion of the error band above (below)
+  zero represents the negative (positive) error.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.16749999999999998
+    - 0.2343
+    - 0.3024
+    - 0.36935
+    - 0.43579999999999997
+    - 0.5042
+    max: 0.5042
+    min: 0.16749999999999998
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: K+ + K-
+qualifiers:
+  p_t (gev): charged kaons (0%-10)
+value_type: v_2
+version: 1
+---
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (pi+ + pi-) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-2_bottom_left_panel_pions.yaml
+hepdata_table_label: The unidentified charged hadron, charged pion, $K^0_S$, charged
+  kaon, proton and Λ+Λ v2 as a function of pT for 10%–40%, 0%–10% and 40%–80% of the
+  Au+Au interaction cross section at √sNN = 62.4 GeV. Weak-decay feed-down errors
+  are included in the error bars on the data points while non-flow and tracking error
+  uncertainties are plotted as bands around v2 = 0, which apply to all identified
+  particles. The errors are asymmetric and the portion of the error band above (below)
+  zero represents the negative (positive) error.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.16795
+    - 0.23265000000000002
+    - 0.30115000000000003
+    - 0.37424999999999997
+    - 0.44820000000000004
+    - 0.52205
+    - 0.5956999999999999
+    - 0.6695
+    - 0.74365
+    - 1.4694
+    - 2.3594999999999997
+    - 2.762
+    - 3.1645000000000003
+    - 3.567
+    - 3.9689999999999994
+    max: 3.9689999999999994
+    min: 0.16795
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: pi+ + pi-
+qualifiers:
+  p_t (gev): charged pions (0%-10)
+value_type: v_2
+version: 1
+---
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: figure-2_bottom_left_panel_sys_err.yaml
+hepdata_table_label: The unidentified charged hadron, charged pion, $K^0_S$, charged
+  kaon, proton and Λ+Λ v2 as a function of pT for 10%–40%, 0%–10% and 40%–80% of the
+  Au+Au interaction cross section at √sNN = 62.4 GeV. Weak-decay feed-down errors
+  are included in the error bars on the data points while non-flow and tracking error
+  uncertainties are plotted as bands around v2 = 0, which apply to all identified
+  particles. The errors are asymmetric and the portion of the error band above (below)
+  zero represents the negative (positive) error.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.16795
+    - 0.23265000000000002
+    - 0.30115000000000003
+    - 0.37424999999999997
+    - 0.44820000000000004
+    - 0.52205
+    - 0.5956999999999999
+    - 0.6695
+    - 0.74365
+    - 1.4694
+    - 2.3594999999999997
+    - 2.762
+    - 3.1645000000000003
+    - 3.567
+    - 3.9689999999999994
+    max: 3.9689999999999994
+    min: 0.16795
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  p_t (gev): systematic error estimate for figure 2 bottom left (0%-10%)
+value_type: v_2
+version: 1
+---
+centrality:
+  classes:
+  - 40-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (K0_S) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-2_bottom_right_panel_Kshort.yaml
+hepdata_table_label: The unidentified charged hadron, charged pion, $K^0_S$, charged
+  kaon, proton and Λ+Λ v2 as a function of pT for 10%–40%, 0%–10% and 40%–80% of the
+  Au+Au interaction cross section at √sNN = 62.4 GeV. Weak-decay feed-down errors
+  are included in the error bars on the data points while non-flow and tracking error
+  uncertainties are plotted as bands around v2 = 0, which apply to all identified
+  particles. The errors are asymmetric and the portion of the error band above (below)
+  zero represents the negative (positive) error.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.19999999999999998
+    - 0.4
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2000000000000002
+    - 1.4
+    - 1.6
+    - 1.7999999999999998
+    - 2.05
+    - 2.45
+    - 2.975
+    - 3.6
+    - 4.300000000000001
+    max: 4.300000000000001
+    min: 0.19999999999999998
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  pdg_id: 310
+  species: K0_S
+qualifiers:
+  p_t (gev): Kshort (40%-80)
+value_type: v_2
+version: 1
+---
+centrality:
+  classes:
+  - 40-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (Lambda) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-2_bottom_right_panel_Lambda+Antilambda.yaml
+hepdata_table_label: The unidentified charged hadron, charged pion, $K^0_S$, charged
+  kaon, proton and Λ+Λ v2 as a function of pT for 10%–40%, 0%–10% and 40%–80% of the
+  Au+Au interaction cross section at √sNN = 62.4 GeV. Weak-decay feed-down errors
+  are included in the error bars on the data points while non-flow and tracking error
+  uncertainties are plotted as bands around v2 = 0, which apply to all identified
+  particles. The errors are asymmetric and the portion of the error band above (below)
+  zero represents the negative (positive) error.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.4
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2000000000000002
+    - 1.4
+    - 1.6
+    - 1.7999999999999998
+    - 2.0
+    - 2.2
+    - 2.5
+    - 2.975
+    - 3.6
+    - 4.775
+    - 6.424999999999999
+    max: 6.424999999999999
+    min: 0.4
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  pdg_id: 3122
+  species: Lambda
+qualifiers:
+  p_t (gev): Lambda+Antilambda (40%-80)
+value_type: v_2
+version: 1
+---
+centrality:
+  classes:
+  - 40-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (pbar) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-2_bottom_right_panel_antiprotons.yaml
+hepdata_table_label: The unidentified charged hadron, charged pion, $K^0_S$, charged
+  kaon, proton and Λ+Λ v2 as a function of pT for 10%–40%, 0%–10% and 40%–80% of the
+  Au+Au interaction cross section at √sNN = 62.4 GeV. Weak-decay feed-down errors
+  are included in the error bars on the data points while non-flow and tracking error
+  uncertainties are plotted as bands around v2 = 0, which apply to all identified
+  particles. The errors are asymmetric and the portion of the error band above (below)
+  zero represents the negative (positive) error.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.23454999999999998
+    - 0.30605
+    - 0.37825
+    - 0.4515
+    - 0.5253
+    - 0.5992999999999999
+    - 0.673
+    - 0.74505
+    - 0.81585
+    - 0.8867499999999999
+    max: 0.8867499999999999
+    min: 0.23454999999999998
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  pdg_id: -2212
+  species: pbar
+qualifiers:
+  p_t (gev): Antiprotons (40%-80)
+value_type: v_2
+version: 1
+---
+centrality:
+  classes:
+  - 40-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: figure-2_bottom_right_panel_hadrons.yaml
+hepdata_table_label: The unidentified charged hadron, charged pion, $K^0_S$, charged
+  kaon, proton and Λ+Λ v2 as a function of pT for 10%–40%, 0%–10% and 40%–80% of the
+  Au+Au interaction cross section at √sNN = 62.4 GeV. Weak-decay feed-down errors
+  are included in the error bars on the data points while non-flow and tracking error
+  uncertainties are plotted as bands around v2 = 0, which apply to all identified
+  particles. The errors are asymmetric and the portion of the error band above (below)
+  zero represents the negative (positive) error.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.39295
+    - 0.59185
+    - 0.7912
+    - 0.99105
+    - 1.1909999999999998
+    - 1.391
+    - 1.5910000000000002
+    - 1.791
+    - 2.0275
+    - 2.3645
+    - 2.7655000000000003
+    - 3.167
+    - 3.6355
+    - 4.439
+    - 6.045999999999999
+    - 8.6435
+    - 11.6965
+    max: 11.6965
+    min: 0.39295
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  p_t (gev): charged hadrons (40%-80%)
+value_type: v_2
+version: 1
+---
+centrality:
+  classes:
+  - 40-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (K+ + K-) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-2_bottom_right_panel_kaons.yaml
+hepdata_table_label: The unidentified charged hadron, charged pion, $K^0_S$, charged
+  kaon, proton and Λ+Λ v2 as a function of pT for 10%–40%, 0%–10% and 40%–80% of the
+  Au+Au interaction cross section at √sNN = 62.4 GeV. Weak-decay feed-down errors
+  are included in the error bars on the data points while non-flow and tracking error
+  uncertainties are plotted as bands around v2 = 0, which apply to all identified
+  particles. The errors are asymmetric and the portion of the error band above (below)
+  zero represents the negative (positive) error.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.16729999999999998
+    - 0.2341
+    - 0.30255
+    - 0.37055000000000005
+    - 0.4366
+    - 0.5028
+    max: 0.5028
+    min: 0.16729999999999998
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: K+ + K-
+qualifiers:
+  p_t (gev): charged kaons (40%-80)
+value_type: v_2
+version: 1
+---
+centrality:
+  classes:
+  - 40-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (pi+ + pi-) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-2_bottom_right_panel_pions.yaml
+hepdata_table_label: The unidentified charged hadron, charged pion, $K^0_S$, charged
+  kaon, proton and Λ+Λ v2 as a function of pT for 10%–40%, 0%–10% and 40%–80% of the
+  Au+Au interaction cross section at √sNN = 62.4 GeV. Weak-decay feed-down errors
+  are included in the error bars on the data points while non-flow and tracking error
+  uncertainties are plotted as bands around v2 = 0, which apply to all identified
+  particles. The errors are asymmetric and the portion of the error band above (below)
+  zero represents the negative (positive) error.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.16775
+    - 0.23245
+    - 0.3009
+    - 0.374
+    - 0.44799999999999995
+    - 0.5217
+    - 0.59495
+    - 0.6682999999999999
+    - 0.7421
+    - 0.81635
+    - 1.5073
+    - 2.363
+    - 2.7655000000000003
+    - 3.167
+    - 3.5679999999999996
+    - 3.968
+    max: 3.968
+    min: 0.16775
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: pi+ + pi-
+qualifiers:
+  p_t (gev): charged pions (40%-80)
+value_type: v_2
+version: 1
+---
+centrality:
+  classes:
+  - 40-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: figure-2_bottom_right_panel_sys_err.yaml
+hepdata_table_label: The unidentified charged hadron, charged pion, $K^0_S$, charged
+  kaon, proton and Λ+Λ v2 as a function of pT for 10%–40%, 0%–10% and 40%–80% of the
+  Au+Au interaction cross section at √sNN = 62.4 GeV. Weak-decay feed-down errors
+  are included in the error bars on the data points while non-flow and tracking error
+  uncertainties are plotted as bands around v2 = 0, which apply to all identified
+  particles. The errors are asymmetric and the portion of the error band above (below)
+  zero represents the negative (positive) error.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.16775
+    - 0.23245
+    - 0.3009
+    - 0.374
+    - 0.44799999999999995
+    - 0.5217
+    - 0.59495
+    - 0.6682999999999999
+    - 0.7421
+    - 0.81635
+    - 1.5073
+    - 2.363
+    - 2.7655000000000003
+    - 3.167
+    - 3.5679999999999996
+    - 3.968
+    max: 3.968
+    min: 0.16775
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  p_t (gev): systematic error estimate for figure 2 bottom right panel (40%-80%)
+value_type: v_2
+version: 1
+---
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (K0_S) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-2_top_panel_Kshort.yaml
+hepdata_table_label: The unidentified charged hadron, charged pion, $K^0_S$, charged
+  kaon, proton and Λ+Λ v2 as a function of pT for 10%–40%, 0%–10% and 40%–80% of the
+  Au+Au interaction cross section at √sNN = 62.4 GeV. Weak-decay feed-down errors
+  are included in the error bars on the data points while non-flow and tracking error
+  uncertainties are plotted as bands around v2 = 0, which apply to all identified
+  particles. The errors are asymmetric and the portion of the error band above (below)
+  zero represents the negative (positive) error.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.19999999999999998
+    - 0.4
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2000000000000002
+    - 1.4
+    - 1.6
+    - 1.7999999999999998
+    - 2.05
+    - 2.45
+    - 2.975
+    - 3.6
+    - 4.300000000000001
+    max: 4.300000000000001
+    min: 0.19999999999999998
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  pdg_id: 310
+  species: K0_S
+qualifiers:
+  p_t (gev): Kshort (10%-40%)
+value_type: v_2
+version: 1
+---
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (Lambda) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-2_top_panel_Lambda+Antilambda.yaml
+hepdata_table_label: The unidentified charged hadron, charged pion, $K^0_S$, charged
+  kaon, proton and Λ+Λ v2 as a function of pT for 10%–40%, 0%–10% and 40%–80% of the
+  Au+Au interaction cross section at √sNN = 62.4 GeV. Weak-decay feed-down errors
+  are included in the error bars on the data points while non-flow and tracking error
+  uncertainties are plotted as bands around v2 = 0, which apply to all identified
+  particles. The errors are asymmetric and the portion of the error band above (below)
+  zero represents the negative (positive) error.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.4
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2000000000000002
+    - 1.4
+    - 1.6
+    - 1.7999999999999998
+    - 2.0
+    - 2.2
+    - 2.5
+    - 2.975
+    - 3.6
+    - 4.775
+    - 6.424999999999999
+    max: 6.424999999999999
+    min: 0.4
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  pdg_id: 3122
+  species: Lambda
+qualifiers:
+  p_t (gev): Lambda+Antilambda (10%-40%)
+value_type: v_2
+version: 1
+---
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (pbar) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-2_top_panel_antiprotons_dEdx.yaml
+hepdata_table_label: The unidentified charged hadron, charged pion, $K^0_S$, charged
+  kaon, proton and Λ+Λ v2 as a function of pT for 10%–40%, 0%–10% and 40%–80% of the
+  Au+Au interaction cross section at √sNN = 62.4 GeV. Weak-decay feed-down errors
+  are included in the error bars on the data points while non-flow and tracking error
+  uncertainties are plotted as bands around v2 = 0, which apply to all identified
+  particles. The errors are asymmetric and the portion of the error band above (below)
+  zero represents the negative (positive) error.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.23415
+    - 0.30605000000000004
+    - 0.37845
+    - 0.45175
+    - 0.52555
+    - 0.59945
+    - 0.67285
+    - 0.7446
+    - 0.8158000000000001
+    - 0.8876
+    max: 0.8876
+    min: 0.23415
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  pdg_id: -2212
+  species: pbar
+qualifiers:
+  p_t (gev): Antiprotons dE/dx (10%-40%)
+value_type: v_2
+version: 1
+---
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: figure-2_top_panel_hadrons.yaml
+hepdata_table_label: The unidentified charged hadron, charged pion, $K^0_S$, charged
+  kaon, proton and Λ+Λ v2 as a function of pT for 10%–40%, 0%–10% and 40%–80% of the
+  Au+Au interaction cross section at √sNN = 62.4 GeV. Weak-decay feed-down errors
+  are included in the error bars on the data points while non-flow and tracking error
+  uncertainties are plotted as bands around v2 = 0, which apply to all identified
+  particles. The errors are asymmetric and the portion of the error band above (below)
+  zero represents the negative (positive) error.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.3937
+    - 0.5925
+    - 0.79175
+    - 0.9913
+    - 1.1909999999999998
+    - 1.391
+    - 1.5910000000000002
+    - 1.791
+    - 2.0275
+    - 2.364
+    - 2.765
+    - 3.1665
+    - 3.633
+    - 4.4295
+    - 6.058
+    - 8.953
+    - 12.547
+    max: 12.547
+    min: 0.3937
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  p_t (gev): charged hadrons (10%-40%)
+value_type: v_2
+version: 1
+---
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (K+ + K-) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-2_top_panel_kaons_TOF.yaml
+hepdata_table_label: The unidentified charged hadron, charged pion, $K^0_S$, charged
+  kaon, proton and Λ+Λ v2 as a function of pT for 10%–40%, 0%–10% and 40%–80% of the
+  Au+Au interaction cross section at √sNN = 62.4 GeV. Weak-decay feed-down errors
+  are included in the error bars on the data points while non-flow and tracking error
+  uncertainties are plotted as bands around v2 = 0, which apply to all identified
+  particles. The errors are asymmetric and the portion of the error band above (below)
+  zero represents the negative (positive) error.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.29999999999999993
+    - 0.4
+    - 0.5
+    - 0.6000000000000001
+    - 0.7
+    - 0.8
+    - 0.8999999999999999
+    - 1.025
+    - 1.2000000000000002
+    - 1.4
+    - 1.6
+    max: 1.6
+    min: 0.29999999999999993
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: K+ + K-
+qualifiers:
+  p_t (gev): charged kaons from TOF (10%-40%)
+value_type: v_2
+version: 1
+---
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (K+ + K-) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-2_top_panel_kaons_dEdx.yaml
+hepdata_table_label: The unidentified charged hadron, charged pion, $K^0_S$, charged
+  kaon, proton and Λ+Λ v2 as a function of pT for 10%–40%, 0%–10% and 40%–80% of the
+  Au+Au interaction cross section at √sNN = 62.4 GeV. Weak-decay feed-down errors
+  are included in the error bars on the data points while non-flow and tracking error
+  uncertainties are plotted as bands around v2 = 0, which apply to all identified
+  particles. The errors are asymmetric and the portion of the error band above (below)
+  zero represents the negative (positive) error.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.16735
+    - 0.23425
+    - 0.30255
+    - 0.36995
+    - 0.436
+    - 0.5029999999999999
+    max: 0.5029999999999999
+    min: 0.16735
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: K+ + K-
+qualifiers:
+  p_t (gev): charged kaons dE/dx (10%-40%)
+value_type: v_2
+version: 1
+---
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (p + pbar) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-2_top_panel_p+pbar_TOF.yaml
+hepdata_table_label: The unidentified charged hadron, charged pion, $K^0_S$, charged
+  kaon, proton and Λ+Λ v2 as a function of pT for 10%–40%, 0%–10% and 40%–80% of the
+  Au+Au interaction cross section at √sNN = 62.4 GeV. Weak-decay feed-down errors
+  are included in the error bars on the data points while non-flow and tracking error
+  uncertainties are plotted as bands around v2 = 0, which apply to all identified
+  particles. The errors are asymmetric and the portion of the error band above (below)
+  zero represents the negative (positive) error.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.72
+    - 0.8200000000000001
+    - 0.9199999999999999
+    - 1.045
+    - 1.2200000000000002
+    - 1.42
+    - 1.62
+    - 1.8199999999999998
+    - 2.0949999999999998
+    - 2.4450000000000003
+    max: 2.4450000000000003
+    min: 0.72
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: p + pbar
+qualifiers:
+  p_t (gev): p+pbar from TOF (10%-40%)
+value_type: v_2
+version: 1
+---
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (pi+ + pi-) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-2_top_panel_pions_TOF.yaml
+hepdata_table_label: The unidentified charged hadron, charged pion, $K^0_S$, charged
+  kaon, proton and Λ+Λ v2 as a function of pT for 10%–40%, 0%–10% and 40%–80% of the
+  Au+Au interaction cross section at √sNN = 62.4 GeV. Weak-decay feed-down errors
+  are included in the error bars on the data points while non-flow and tracking error
+  uncertainties are plotted as bands around v2 = 0, which apply to all identified
+  particles. The errors are asymmetric and the portion of the error band above (below)
+  zero represents the negative (positive) error.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.18
+    - 0.28
+    - 0.38
+    - 0.48
+    - 0.5800000000000001
+    - 0.6799999999999999
+    - 0.78
+    - 0.88
+    - 1.0050000000000001
+    - 1.1800000000000002
+    - 1.38
+    - 1.58
+    - 1.7799999999999998
+    - 1.98
+    max: 1.98
+    min: 0.18
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: pi+ + pi-
+qualifiers:
+  p_t (gev): charged pions from TOF (10%-40%)
+value_type: v_2
+version: 1
+---
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (pi+ + pi-) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-2_top_panel_pions_dEdx.yaml
+hepdata_table_label: The unidentified charged hadron, charged pion, $K^0_S$, charged
+  kaon, proton and Λ+Λ v2 as a function of pT for 10%–40%, 0%–10% and 40%–80% of the
+  Au+Au interaction cross section at √sNN = 62.4 GeV. Weak-decay feed-down errors
+  are included in the error bars on the data points while non-flow and tracking error
+  uncertainties are plotted as bands around v2 = 0, which apply to all identified
+  particles. The errors are asymmetric and the portion of the error band above (below)
+  zero represents the negative (positive) error.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.16784999999999997
+    - 0.23255
+    - 0.30105000000000004
+    - 0.37415
+    - 0.44815000000000005
+    - 0.52195
+    - 0.5953999999999999
+    - 0.669
+    - 0.743
+    - 0.8174
+    - 1.50685
+    - 2.3609999999999998
+    - 2.7640000000000002
+    - 3.166
+    - 3.5685000000000002
+    - 3.9715
+    max: 3.9715
+    min: 0.16784999999999997
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: pi+ + pi-
+qualifiers:
+  p_t (gev): charged pions dE/dx (10%-40%)
+value_type: v_2
+version: 1
+---
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
+    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
+    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
+    from the collaboration's standard practice and from this table's charged rows,
+    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
+    the text.
+  provenance: assumed_tpc
+  same_sample_as_poi: true
+harmonic: 2
+hepdata_file: figure-2_top_panel_sys_err.yaml
+hepdata_table_label: The unidentified charged hadron, charged pion, $K^0_S$, charged
+  kaon, proton and Λ+Λ v2 as a function of pT for 10%–40%, 0%–10% and 40%–80% of the
+  Au+Au interaction cross section at √sNN = 62.4 GeV. Weak-decay feed-down errors
+  are included in the error bars on the data points while non-flow and tracking error
+  uncertainties are plotted as bands around v2 = 0, which apply to all identified
+  particles. The errors are asymmetric and the portion of the error band above (below)
+  zero represents the negative (positive) error.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.16784999999999997
+    - 0.23255
+    - 0.30105000000000004
+    - 0.37415
+    - 0.44815000000000005
+    - 0.52195
+    - 0.5953999999999999
+    - 0.669
+    - 0.743
+    - 0.8174
+    - 1.50685
+    - 2.3609999999999998
+    - 2.7640000000000002
+    - 3.166
+    - 3.5685000000000002
+    - 3.9715
+    max: 3.9715
+    min: 0.16784999999999997
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: charged
+qualifiers:
+  p_t (gev): systematic error estimate for figure 2 top panel (10%-40%)
+value_type: v_2
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (K0_S) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-5a_Kshort.yaml
+hepdata_table_label: Identified particle v2 from minimum bias collisions at √sNN =
+  62.4 GeV scaled by the number of valence quarks in the hadron (nq) and plotted versus
+  pT/nq (a) and (mT − m0)/nq (b). In each case a polynomial curve is fit to all particles
+  except pions. The ratio of v2/nq to the fit function is shown in the bottom panels
+  (c) and (d).
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.1
+    - 0.2
+    - 0.3
+    - 0.4
+    - 0.5
+    - 0.6
+    - 0.7
+    - 0.8
+    - 0.9
+    - 1.025
+    - 1.225
+    - 1.4875
+    - 1.8
+    - 2.3875
+    - 3.2125
+    max: 3.2125
+    min: 0.1
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (figure-5a_Kshort.yaml), which tabulates
+    14 pT centres; converted to edges by midpoint (outer edges extrapolated). The
+    import had collapsed them to a single [min, max] bin, so the v2(pT) shape was
+    not being reproduced.
+observable_type: flow_vn
+particle_id:
+  pdg_id: 310
+  species: K0_S
+qualifiers:
+  p_t/n_q$ (gev/c): Minbias v2/n vs pt/n (Kshort 62.4 GeV)
+value_type: v_2/n_q
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (Lambda) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-5a_Lambda+Antilambda.yaml
+hepdata_table_label: Identified particle v2 from minimum bias collisions at √sNN =
+  62.4 GeV scaled by the number of valence quarks in the hadron (nq) and plotted versus
+  pT/nq (a) and (mT − m0)/nq (b). In each case a polynomial curve is fit to all particles
+  except pions. The ratio of v2/nq to the fit function is shown in the bottom panels
+  (c) and (d).
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.1334
+    - 0.2
+    - 0.26665
+    - 0.33335
+    - 0.4
+    - 0.46665
+    - 0.53335
+    - 0.6
+    - 0.66665
+    - 0.73335
+    - 0.83335
+    - 0.9915
+    - 1.2
+    - 1.592
+    - 2.142
+    max: 2.142
+    min: 0.1334
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (figure-5a_Lambda+Antilambda.yaml),
+    which tabulates 14 pT centres; converted to edges by midpoint (outer edges extrapolated).
+    The import had collapsed them to a single [min, max] bin, so the v2(pT) shape
+    was not being reproduced.
+observable_type: flow_vn
+particle_id:
+  pdg_id: 3122
+  species: Lambda
+qualifiers:
+  p_t/n_q$ (gev/c): Minbias v2/n vs pt/n (Lambda+Antilambda 62.4 GeV)
+value_type: v_2/n_q
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (Xi- + Xibar+) is a SUBSET of that sample, so the POI/reference diagonal equals
+    N_poi and is subtracted. INFERRED from the charged rows of the same table, not
+    quoted from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-5a_Xi+Xibar.yaml
+hepdata_table_label: Identified particle v2 from minimum bias collisions at √sNN =
+  62.4 GeV scaled by the number of valence quarks in the hadron (nq) and plotted versus
+  pT/nq (a) and (mT − m0)/nq (b). In each case a polynomial curve is fit to all particles
+  except pions. The ratio of v2/nq to the fit function is shown in the bottom panels
+  (c) and (d).
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.20005
+    - 0.33335
+    - 0.48335
+    - 0.65
+    - 0.81665
+    - 0.9835
+    - 1.1505
+    max: 1.1505
+    min: 0.20005
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (figure-5a_Xi+Xibar.yaml), which
+    tabulates 6 pT centres; converted to edges by midpoint (outer edges extrapolated).
+    The import had collapsed them to a single [min, max] bin, so the v2(pT) shape
+    was not being reproduced.
+observable_type: flow_vn
+particle_id:
+  species: Xi- + Xibar+
+qualifiers:
+  p_t/n_q$ (gev/c): Minbias v2/n vs pt/n (Xi+Xibar 62.4 GeV)
+value_type: v_2/n_q
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (K+ + K-) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-5a_kaons.yaml
+hepdata_table_label: Identified particle v2 from minimum bias collisions at √sNN =
+  62.4 GeV scaled by the number of valence quarks in the hadron (nq) and plotted versus
+  pT/nq (a) and (mT − m0)/nq (b). In each case a polynomial curve is fit to all particles
+  except pions. The ratio of v2/nq to the fit function is shown in the bottom panels
+  (c) and (d).
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.15
+    - 0.2
+    - 0.25
+    - 0.3
+    - 0.35
+    - 0.4
+    - 0.45
+    - 0.5125
+    - 0.6
+    - 0.725
+    - 0.875
+    max: 0.875
+    min: 0.15
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (figure-5a_kaons.yaml), which tabulates
+    10 pT centres; converted to edges by midpoint (outer edges extrapolated). The
+    import had collapsed them to a single [min, max] bin, so the v2(pT) shape was
+    not being reproduced.
+observable_type: flow_vn
+particle_id:
+  species: K+ + K-
+qualifiers:
+  p_t/n_q$ (gev/c): Minbias v2/n vs pt/n (charged kaons 62.4 GeV)
+value_type: v_2/n_q
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (p + pbar) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-5a_p+pbar_1.yaml
+hepdata_table_label: Identified particle v2 from minimum bias collisions at √sNN =
+  62.4 GeV scaled by the number of valence quarks in the hadron (nq) and plotted versus
+  pT/nq (a) and (mT − m0)/nq (b). In each case a polynomial curve is fit to all particles
+  except pions. The ratio of v2/nq to the fit function is shown in the bottom panels
+  (c) and (d).
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.13335
+    - 0.16665
+    - 0.2
+    - 0.23335
+    - 0.26665
+    - 0.3
+    - 0.3417
+    - 0.4
+    - 0.46665
+    - 0.53335
+    - 0.6
+    - 0.69165
+    - 0.83335
+    - 1.04185
+    - 1.29215
+    max: 1.29215
+    min: 0.13335
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (figure-5a_p+pbar_1.yaml), which
+    tabulates 14 pT centres; converted to edges by midpoint (outer edges extrapolated).
+    The import had collapsed them to a single [min, max] bin, so the v2(pT) shape
+    was not being reproduced.
+observable_type: flow_vn
+particle_id:
+  species: p + pbar
+qualifiers:
+  p_t/n_q$ (gev/c): Minbias v2/n vs pt/n (p+pbar 62.4 GeV)
+value_type: v_2/n_q
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (p + pbar) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-5a_p+pbar_2.yaml
+hepdata_table_label: Identified particle v2 from minimum bias collisions at √sNN =
+  62.4 GeV scaled by the number of valence quarks in the hadron (nq) and plotted versus
+  pT/nq (a) and (mT − m0)/nq (b). In each case a polynomial curve is fit to all particles
+  except pions. The ratio of v2/nq to the fit function is shown in the bottom panels
+  (c) and (d).
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.056295
+    - 0.078805
+    - 0.10203
+    - 0.12615
+    - 0.15055
+    - 0.17515
+    - 0.1998
+    - 0.22425
+    - 0.2482
+    - 0.27195
+    - 0.6376
+    - 1.05815
+    - 1.192
+    - 1.353
+    - 1.541
+    max: 1.541
+    min: 0.056295
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (figure-5a_p+pbar_2.yaml), which
+    tabulates 14 pT centres; converted to edges by midpoint (outer edges extrapolated).
+    The import had collapsed them to a single [min, max] bin, so the v2(pT) shape
+    was not being reproduced.
+observable_type: flow_vn
+particle_id:
+  species: p + pbar
+qualifiers:
+  p_t/n_q$ (gev/c): Minbias v2/n vs pt/n (p+pbar 62.4 GeV)
+value_type: v_2/n_q
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (pi+ + pi-) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-5a_pions.yaml
+hepdata_table_label: Identified particle v2 from minimum bias collisions at √sNN =
+  62.4 GeV scaled by the number of valence quarks in the hadron (nq) and plotted versus
+  pT/nq (a) and (mT − m0)/nq (b). In each case a polynomial curve is fit to all particles
+  except pions. The ratio of v2/nq to the fit function is shown in the bottom panels
+  (c) and (d).
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.08395
+    - 0.11625
+    - 0.1505
+    - 0.1871
+    - 0.2241
+    - 0.261
+    - 0.29775
+    - 0.33455
+    - 0.37155
+    - 0.40875
+    - 0.4462
+    - 0.4825
+    - 0.5375
+    - 0.625
+    - 0.725
+    - 0.825
+    - 0.925
+    - 1.0275
+    - 1.1805
+    - 1.3815
+    - 1.5825
+    - 1.784
+    - 1.986
+    max: 1.986
+    min: 0.08395
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (figure-5a_pions.yaml), which tabulates
+    22 pT centres; converted to edges by midpoint (outer edges extrapolated). The
+    import had collapsed them to a single [min, max] bin, so the v2(pT) shape was
+    not being reproduced.
+observable_type: flow_vn
+particle_id:
+  species: pi+ + pi-
+qualifiers:
+  p_t/n_q$ (gev/c): Minbias v2/n vs pt/n (charged pions 62.4 GeV)
+value_type: v_2/n_q
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (K0_S) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-5b_Kshort.yaml
+hepdata_table_label: Identified particle v2 from minimum bias collisions at √sNN =
+  62.4 GeV scaled by the number of valence quarks in the hadron (nq) and plotted versus
+  pT/nq (a) and (mT − m0)/nq (b). In each case a polynomial curve is fit to all particles
+  except pions. The ratio of v2/nq to the fit function is shown in the bottom panels
+  (c) and (d).
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  pdg_id: 310
+  species: K0_S
+qualifiers:
+  (m_t-m_0)/n_q$ (gev/c/c): Minbias $v_2/n$ vs $(m_t-m_0)/n_q$ (Kshort 62.4 GeV)
+value_type: v_2/n_q
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (Lambda) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-5b_Lambda+Antilambda.yaml
+hepdata_table_label: Identified particle v2 from minimum bias collisions at √sNN =
+  62.4 GeV scaled by the number of valence quarks in the hadron (nq) and plotted versus
+  pT/nq (a) and (mT − m0)/nq (b). In each case a polynomial curve is fit to all particles
+  except pions. The ratio of v2/nq to the fit function is shown in the bottom panels
+  (c) and (d).
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  pdg_id: 3122
+  species: Lambda
+qualifiers:
+  (m_t-m_0)/n_q$ (gev/c/c): Minbias $v_2/n$ vs $(m_t-m_0)/n_q$ (Lambda+Antilambda
+    62.4 GeV)
+value_type: v_2/n_q
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (Xi- + Xibar+) is a SUBSET of that sample, so the POI/reference diagonal equals
+    N_poi and is subtracted. INFERRED from the charged rows of the same table, not
+    quoted from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-5b_Xi+Xibar.yaml
+hepdata_table_label: Identified particle v2 from minimum bias collisions at √sNN =
+  62.4 GeV scaled by the number of valence quarks in the hadron (nq) and plotted versus
+  pT/nq (a) and (mT − m0)/nq (b). In each case a polynomial curve is fit to all particles
+  except pions. The ratio of v2/nq to the fit function is shown in the bottom panels
+  (c) and (d).
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: Xi- + Xibar+
+qualifiers:
+  (m_t-m_0)/n_q$ (gev/c/c): Minbias $v_2/n$ vs $(m_t-m_0)/n_q$ (Xi+Xibar 62.4 GeV)
+value_type: v_2/n_q
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (K+ + K-) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-5b_kaons.yaml
+hepdata_table_label: Identified particle v2 from minimum bias collisions at √sNN =
+  62.4 GeV scaled by the number of valence quarks in the hadron (nq) and plotted versus
+  pT/nq (a) and (mT − m0)/nq (b). In each case a polynomial curve is fit to all particles
+  except pions. The ratio of v2/nq to the fit function is shown in the bottom panels
+  (c) and (d).
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: K+ + K-
+qualifiers:
+  (m_t-m_0)/n_q$ (gev/c/c): Minbias $v_2/n$ vs $(m_t-m_0)/n_q$ (charged kaons 62.4
+    GeV)
+value_type: v_2/n_q
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (p + pbar) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-5b_p+pbar_1.yaml
+hepdata_table_label: Identified particle v2 from minimum bias collisions at √sNN =
+  62.4 GeV scaled by the number of valence quarks in the hadron (nq) and plotted versus
+  pT/nq (a) and (mT − m0)/nq (b). In each case a polynomial curve is fit to all particles
+  except pions. The ratio of v2/nq to the fit function is shown in the bottom panels
+  (c) and (d).
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: p + pbar
+qualifiers:
+  (m_t-m_0)/n_q$ (gev/c/c): Minbias $v_2/n$ vs $(m_t-m_0)/n_q$ (p+pbar 62.4 GeV)
+value_type: v_2/n_q
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (p + pbar) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-5b_p+pbar_2.yaml
+hepdata_table_label: Identified particle v2 from minimum bias collisions at √sNN =
+  62.4 GeV scaled by the number of valence quarks in the hadron (nq) and plotted versus
+  pT/nq (a) and (mT − m0)/nq (b). In each case a polynomial curve is fit to all particles
+  except pions. The ratio of v2/nq to the fit function is shown in the bottom panels
+  (c) and (d).
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: p + pbar
+qualifiers:
+  (m_t-m_0)/n_q$ (gev/c/c): Minbias $v_2/n$ vs $(m_t-m_0)/n_q$ (p+pbar 62.4 GeV)
+value_type: v_2/n_q
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (pi+ + pi-) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-5b_pions.yaml
+hepdata_table_label: Identified particle v2 from minimum bias collisions at √sNN =
+  62.4 GeV scaled by the number of valence quarks in the hadron (nq) and plotted versus
+  pT/nq (a) and (mT − m0)/nq (b). In each case a polynomial curve is fit to all particles
+  except pions. The ratio of v2/nq to the fit function is shown in the bottom panels
+  (c) and (d).
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: pi+ + pi-
+qualifiers:
+  (m_t-m_0)/n_q$ (gev/c/c): Minbias $v_2/n$ vs $(m_t-m_0)/n_q$ (charged pions 62.4
+    GeV)
+value_type: v_2/n_q
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (K0_S) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-5c_Kshort.yaml
+hepdata_table_label: Identified particle v2 from minimum bias collisions at √sNN =
+  62.4 GeV scaled by the number of valence quarks in the hadron (nq) and plotted versus
+  pT/nq (a) and (mT − m0)/nq (b). In each case a polynomial curve is fit to all particles
+  except pions. The ratio of v2/nq to the fit function is shown in the bottom panels
+  (c) and (d).
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.2
+    - 0.3
+    - 0.4
+    - 0.5
+    - 0.6
+    - 0.7
+    - 0.8
+    - 0.9
+    - 1.025
+    - 1.225
+    - 1.4875
+    - 1.8
+    - 2.3875
+    - 3.2125
+    max: 3.2125
+    min: 0.2
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (figure-5c_Kshort.yaml), which tabulates
+    13 pT centres; converted to edges by midpoint (outer edges extrapolated). The
+    import had collapsed them to a single [min, max] bin, so the v2(pT) shape was
+    not being reproduced.
+observable_type: flow_vn
+particle_id:
+  pdg_id: 310
+  species: K0_S
+qualifiers:
+  p_t/n_q$ (gev/c): v2/n vs pt/n Data over Polynomial fit (Kshort 62.4 GeV)
+value_type: Data/Fit
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (Lambda) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-5c_Lambda+Antilambda.yaml
+hepdata_table_label: Identified particle v2 from minimum bias collisions at √sNN =
+  62.4 GeV scaled by the number of valence quarks in the hadron (nq) and plotted versus
+  pT/nq (a) and (mT − m0)/nq (b). In each case a polynomial curve is fit to all particles
+  except pions. The ratio of v2/nq to the fit function is shown in the bottom panels
+  (c) and (d).
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.1334
+    - 0.2
+    - 0.26665
+    - 0.33335
+    - 0.4
+    - 0.46665
+    - 0.53335
+    - 0.6
+    - 0.66665
+    - 0.73335
+    - 0.83335
+    - 0.9915
+    - 1.2
+    - 1.592
+    - 2.142
+    max: 2.142
+    min: 0.1334
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (figure-5c_Lambda+Antilambda.yaml),
+    which tabulates 14 pT centres; converted to edges by midpoint (outer edges extrapolated).
+    The import had collapsed them to a single [min, max] bin, so the v2(pT) shape
+    was not being reproduced.
+observable_type: flow_vn
+particle_id:
+  pdg_id: 3122
+  species: Lambda
+qualifiers:
+  p_t/n_q$ (gev/c): v2/n vs pt/n Data over Polynomial fit (Lambda+Antilambda 62.4
+    GeV)
+value_type: Data/Fit
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (Xi- + Xibar+) is a SUBSET of that sample, so the POI/reference diagonal equals
+    N_poi and is subtracted. INFERRED from the charged rows of the same table, not
+    quoted from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-5c_Xi+Xibar.yaml
+hepdata_table_label: Identified particle v2 from minimum bias collisions at √sNN =
+  62.4 GeV scaled by the number of valence quarks in the hadron (nq) and plotted versus
+  pT/nq (a) and (mT − m0)/nq (b). In each case a polynomial curve is fit to all particles
+  except pions. The ratio of v2/nq to the fit function is shown in the bottom panels
+  (c) and (d).
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.20005
+    - 0.33335
+    - 0.48335
+    - 0.65
+    - 0.81665
+    - 0.9835
+    - 1.1505
+    max: 1.1505
+    min: 0.20005
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (figure-5c_Xi+Xibar.yaml), which
+    tabulates 6 pT centres; converted to edges by midpoint (outer edges extrapolated).
+    The import had collapsed them to a single [min, max] bin, so the v2(pT) shape
+    was not being reproduced.
+observable_type: flow_vn
+particle_id:
+  species: Xi- + Xibar+
+qualifiers:
+  p_t/n_q$ (gev/c): v2/n vs pt/n Data over Polynomial fit (Xi+Xibar 62.4 GeV)
+value_type: Data/Fit
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (K+ + K-) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-5c_kaons.yaml
+hepdata_table_label: Identified particle v2 from minimum bias collisions at √sNN =
+  62.4 GeV scaled by the number of valence quarks in the hadron (nq) and plotted versus
+  pT/nq (a) and (mT − m0)/nq (b). In each case a polynomial curve is fit to all particles
+  except pions. The ratio of v2/nq to the fit function is shown in the bottom panels
+  (c) and (d).
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.2
+    - 0.25
+    - 0.3
+    - 0.35
+    - 0.4
+    - 0.45
+    - 0.5125
+    - 0.6
+    - 0.725
+    - 0.875
+    max: 0.875
+    min: 0.2
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (figure-5c_kaons.yaml), which tabulates
+    9 pT centres; converted to edges by midpoint (outer edges extrapolated). The import
+    had collapsed them to a single [min, max] bin, so the v2(pT) shape was not being
+    reproduced.
+observable_type: flow_vn
+particle_id:
+  species: K+ + K-
+qualifiers:
+  p_t/n_q$ (gev/c): v2/n vs pt/n Data over Polynomial fit (charged kaons 62.4 GeV)
+value_type: Data/Fit
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (p + pbar) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-5c_p+pbar_1.yaml
+hepdata_table_label: Identified particle v2 from minimum bias collisions at √sNN =
+  62.4 GeV scaled by the number of valence quarks in the hadron (nq) and plotted versus
+  pT/nq (a) and (mT − m0)/nq (b). In each case a polynomial curve is fit to all particles
+  except pions. The ratio of v2/nq to the fit function is shown in the bottom panels
+  (c) and (d).
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.92445
+    - 1.05815
+    - 1.192
+    - 1.353
+    - 1.541
+    max: 1.541
+    min: 0.92445
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (figure-5c_p+pbar_1.yaml), which
+    tabulates 4 pT centres; converted to edges by midpoint (outer edges extrapolated).
+    The import had collapsed them to a single [min, max] bin, so the v2(pT) shape
+    was not being reproduced.
+observable_type: flow_vn
+particle_id:
+  species: p + pbar
+qualifiers:
+  p_t/n_q$ (gev/c): v2/n vs pt/n Data over Polynomial fit (p+pbar 62.4 GeV)
+value_type: Data/Fit
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (p + pbar) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-5c_p+pbar_2.yaml
+hepdata_table_label: Identified particle v2 from minimum bias collisions at √sNN =
+  62.4 GeV scaled by the number of valence quarks in the hadron (nq) and plotted versus
+  pT/nq (a) and (mT − m0)/nq (b). In each case a polynomial curve is fit to all particles
+  except pions. The ratio of v2/nq to the fit function is shown in the bottom panels
+  (c) and (d).
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.1666
+    - 0.2
+    - 0.23335
+    - 0.26665
+    - 0.3
+    - 0.3417
+    - 0.4
+    - 0.46665
+    - 0.53335
+    - 0.6
+    - 0.69165
+    - 0.83335
+    - 1.04185
+    - 1.29215
+    max: 1.29215
+    min: 0.1666
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (figure-5c_p+pbar_2.yaml), which
+    tabulates 13 pT centres; converted to edges by midpoint (outer edges extrapolated).
+    The import had collapsed them to a single [min, max] bin, so the v2(pT) shape
+    was not being reproduced.
+observable_type: flow_vn
+particle_id:
+  species: p + pbar
+qualifiers:
+  p_t/n_q$ (gev/c): v2/n vs pt/n Data over Polynomial fit (p+pbar 62.4 GeV)
+value_type: Data/Fit
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (pi+ + pi-) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-5c_pions_1.yaml
+hepdata_table_label: Identified particle v2 from minimum bias collisions at √sNN =
+  62.4 GeV scaled by the number of valence quarks in the hadron (nq) and plotted versus
+  pT/nq (a) and (mT − m0)/nq (b). In each case a polynomial curve is fit to all particles
+  except pions. The ratio of v2/nq to the fit function is shown in the bottom panels
+  (c) and (d).
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.125
+    - 0.175
+    - 0.225
+    - 0.275
+    - 0.325
+    - 0.375
+    - 0.425
+    - 0.475
+    - 0.5375
+    - 0.625
+    - 0.725
+    - 0.825
+    - 0.925
+    - 1.025
+    max: 1.025
+    min: 0.125
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (figure-5c_pions_1.yaml), which tabulates
+    13 pT centres; converted to edges by midpoint (outer edges extrapolated). The
+    import had collapsed them to a single [min, max] bin, so the v2(pT) shape was
+    not being reproduced.
+observable_type: flow_vn
+particle_id:
+  species: pi+ + pi-
+qualifiers:
+  p_t/n_q$ (gev/c): v2/n vs pt/n Data over Polynomial fit (charged pions 62.4 GeV)
+value_type: Data/Fit
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (pi+ + pi-) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-5c_pions_2.yaml
+hepdata_table_label: Identified particle v2 from minimum bias collisions at √sNN =
+  62.4 GeV scaled by the number of valence quarks in the hadron (nq) and plotted versus
+  pT/nq (a) and (mT − m0)/nq (b). In each case a polynomial curve is fit to all particles
+  except pions. The ratio of v2/nq to the fit function is shown in the bottom panels
+  (c) and (d).
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.9795
+    - 1.1805
+    - 1.3815
+    - 1.5825
+    - 1.784
+    - 1.986
+    max: 1.986
+    min: 0.9795
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (figure-5c_pions_2.yaml), which tabulates
+    5 pT centres; converted to edges by midpoint (outer edges extrapolated). The import
+    had collapsed them to a single [min, max] bin, so the v2(pT) shape was not being
+    reproduced.
+observable_type: flow_vn
+particle_id:
+  species: pi+ + pi-
+qualifiers:
+  p_t/n_q$ (gev/c): v2/n vs pt/n Data over Polynomial fit (charged pions 62.4 GeV)
+value_type: Data/Fit
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (K0_S) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-5d_Kshort.yaml
+hepdata_table_label: Identified particle v2 from minimum bias collisions at √sNN =
+  62.4 GeV scaled by the number of valence quarks in the hadron (nq) and plotted versus
+  pT/nq (a) and (mT − m0)/nq (b). In each case a polynomial curve is fit to all particles
+  except pions. The ratio of v2/nq to the fit function is shown in the bottom panels
+  (c) and (d).
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  pdg_id: 310
+  species: K0_S
+qualifiers:
+  (m_t-m_0)/n_q$ (gev/c/c): v2/n vs $(m_t-m_0)/n_q$ Data over Polynomial fit (Kshort
+    62.4 GeV)
+value_type: Data/Fit
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (Lambda) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-5d_Lambda+Antilambda.yaml
+hepdata_table_label: Identified particle v2 from minimum bias collisions at √sNN =
+  62.4 GeV scaled by the number of valence quarks in the hadron (nq) and plotted versus
+  pT/nq (a) and (mT − m0)/nq (b). In each case a polynomial curve is fit to all particles
+  except pions. The ratio of v2/nq to the fit function is shown in the bottom panels
+  (c) and (d).
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  pdg_id: 3122
+  species: Lambda
+qualifiers:
+  (m_t-m_0)/n_q$ (gev/c/c): v2/n vs $(m_t-m_0)/n_q$ Data over Polynomial fit (Lambda+Antilambda
+    62.4 GeV)
+value_type: Data/Fit
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (Xi- + Xibar+) is a SUBSET of that sample, so the POI/reference diagonal equals
+    N_poi and is subtracted. INFERRED from the charged rows of the same table, not
+    quoted from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-5d_Xi+Xibar.yaml
+hepdata_table_label: Identified particle v2 from minimum bias collisions at √sNN =
+  62.4 GeV scaled by the number of valence quarks in the hadron (nq) and plotted versus
+  pT/nq (a) and (mT − m0)/nq (b). In each case a polynomial curve is fit to all particles
+  except pions. The ratio of v2/nq to the fit function is shown in the bottom panels
+  (c) and (d).
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: Xi- + Xibar+
+qualifiers:
+  (m_t-m_0)/n_q$ (gev/c/c): v2/n vs $(m_t-m_0)/n_q$ Data over Polynomial fit (Xi+Xibar
+    62.4 GeV)
+value_type: Data/Fit
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (K+ + K-) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-5d_kaons.yaml
+hepdata_table_label: Identified particle v2 from minimum bias collisions at √sNN =
+  62.4 GeV scaled by the number of valence quarks in the hadron (nq) and plotted versus
+  pT/nq (a) and (mT − m0)/nq (b). In each case a polynomial curve is fit to all particles
+  except pions. The ratio of v2/nq to the fit function is shown in the bottom panels
+  (c) and (d).
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: K+ + K-
+qualifiers:
+  (m_t-m_0)/n_q$ (gev/c/c): v2/n vs $(m_t-m_0)/n_q$ Data over Polynomial fit (charged
+    kaons 62.4 GeV)
+value_type: Data/Fit
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (p + pbar) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-5d_p+pbar_1.yaml
+hepdata_table_label: Identified particle v2 from minimum bias collisions at √sNN =
+  62.4 GeV scaled by the number of valence quarks in the hadron (nq) and plotted versus
+  pT/nq (a) and (mT − m0)/nq (b). In each case a polynomial curve is fit to all particles
+  except pions. The ratio of v2/nq to the fit function is shown in the bottom panels
+  (c) and (d).
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: p + pbar
+qualifiers:
+  (m_t-m_0)/n_q$ (gev/c/c): v2/n vs $(m_t-m_0)/n_q$ Data over Polynomial fit (p+pbar
+    62.4 GeV)
+value_type: Data/Fit
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (p + pbar) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-5d_p+pbar_2.yaml
+hepdata_table_label: Identified particle v2 from minimum bias collisions at √sNN =
+  62.4 GeV scaled by the number of valence quarks in the hadron (nq) and plotted versus
+  pT/nq (a) and (mT − m0)/nq (b). In each case a polynomial curve is fit to all particles
+  except pions. The ratio of v2/nq to the fit function is shown in the bottom panels
+  (c) and (d).
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: p + pbar
+qualifiers:
+  (m_t-m_0)/n_q$ (gev/c/c): v2/n vs $(m_t-m_0)/n_q$ Data over Polynomial fit (p+pbar
+    62.4 GeV)
+value_type: Data/Fit
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (pi+ + pi-) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-5d_pions.yaml
+hepdata_table_label: Identified particle v2 from minimum bias collisions at √sNN =
+  62.4 GeV scaled by the number of valence quarks in the hadron (nq) and plotted versus
+  pT/nq (a) and (mT − m0)/nq (b). In each case a polynomial curve is fit to all particles
+  except pions. The ratio of v2/nq to the fit function is shown in the bottom panels
+  (c) and (d).
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: pi+ + pi-
+qualifiers:
+  (m_t-m_0)/n_q$ (gev/c/c): v2/n vs $(m_t-m_0)/n_q$ Data over Polynomial fit (charged
+    pions 62.4 GeV)
+value_type: Data/Fit
+version: 1
+---
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (K0_S) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-6a_Kshort.yaml
+hepdata_table_label: v2/nq scaled by the mean eccentricity of the initial overlap
+  region versus (mT − m0)/nq for 0%–10%, 10%–40%, and 40%–80% most central Au+Au collisions
+  at √sNN = 62.4 GeV.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  pdg_id: 310
+  species: K0_S
+qualifiers:
+  (m_t-m_0)/n_q$ (gev/c/c): $v_2/(n<e_{part}>)$ vs $(m_t-m_0)/n_q$ for Kshort (0%-10%
+    central Au+Au at 62.4 GeV
+value_type: v_2/(n<e_{part}>)
+version: 1
+---
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (Lambda) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-6a_Lambda+Antilambda.yaml
+hepdata_table_label: v2/nq scaled by the mean eccentricity of the initial overlap
+  region versus (mT − m0)/nq for 0%–10%, 10%–40%, and 40%–80% most central Au+Au collisions
+  at √sNN = 62.4 GeV.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  pdg_id: 3122
+  species: Lambda
+qualifiers:
+  (m_t-m_0)/n_q$ (gev/c/c): $v_2/(n<e_{part}>)$ vs $(m_t-m_0)/n_q$ for Lambda+Antilambda
+    (0%-10% central Au+Au at 62.4 GeV
+value_type: v_2/(n<e_{part}>)
+version: 1
+---
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (pbar) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-6a_antiprotons.yaml
+hepdata_table_label: v2/nq scaled by the mean eccentricity of the initial overlap
+  region versus (mT − m0)/nq for 0%–10%, 10%–40%, and 40%–80% most central Au+Au collisions
+  at √sNN = 62.4 GeV.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  pdg_id: -2212
+  species: pbar
+qualifiers:
+  (m_t-m_0)/n_q$ (gev/c/c): $v_2/(n<e_{part}>)$ vs $(m_t-m_0)/n_q$ for antiprotons
+    (0%-10% central Au+Au at 62.4 GeV
+value_type: v_2/(n<e_{part}>)
+version: 1
+---
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (K+ + K-) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-6a_kaons.yaml
+hepdata_table_label: v2/nq scaled by the mean eccentricity of the initial overlap
+  region versus (mT − m0)/nq for 0%–10%, 10%–40%, and 40%–80% most central Au+Au collisions
+  at √sNN = 62.4 GeV.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: K+ + K-
+qualifiers:
+  (m_t-m_0)/n_q$ (gev/c/c): $v_2/(n<e_{part}>)$ vs $(m_t-m_0)/n_q$ for charged kaons
+    (0%-10% central Au+Au at 62.4 GeV
+value_type: v_2/(n<e_{part}>)
+version: 1
+---
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (pi+ + pi-) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-6a_pions.yaml
+hepdata_table_label: v2/nq scaled by the mean eccentricity of the initial overlap
+  region versus (mT − m0)/nq for 0%–10%, 10%–40%, and 40%–80% most central Au+Au collisions
+  at √sNN = 62.4 GeV.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: pi+ + pi-
+qualifiers:
+  (m_t-m_0)/n_q$ (gev/c/c): $v_2/(n<e_{part}>)$ vs $(m_t-m_0)/n_q$ for charged pions
+    (0%-10% central Au+Au at 62.4 GeV
+value_type: v_2/(n<e_{part}>)
+version: 1
+---
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (K0_S) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-6b_Kshort.yaml
+hepdata_table_label: v2/nq scaled by the mean eccentricity of the initial overlap
+  region versus (mT − m0)/nq for 0%–10%, 10%–40%, and 40%–80% most central Au+Au collisions
+  at √sNN = 62.4 GeV.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  pdg_id: 310
+  species: K0_S
+qualifiers:
+  (m_t-m_0)/n_q$ (gev/c/c): $v_2/(n<e_{part}>)$ vs $(m_t-m_0)/n_q$ for Kshort (10%-40%
+    central Au+Au at 62.4 GeV
+value_type: v_2/(n<e_{part}>)
+version: 1
+---
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (Lambda) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-6b_Lambda+Antilambda.yaml
+hepdata_table_label: v2/nq scaled by the mean eccentricity of the initial overlap
+  region versus (mT − m0)/nq for 0%–10%, 10%–40%, and 40%–80% most central Au+Au collisions
+  at √sNN = 62.4 GeV.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  pdg_id: 3122
+  species: Lambda
+qualifiers:
+  (m_t-m_0)/n_q$ (gev/c/c): $v_2/(n<e_{part}>)$ vs $(m_t-m_0)/n_q$ for Lambda+Antilambda
+    (10%-40% central Au+Au at 62.4 GeV
+value_type: v_2/(n<e_{part}>)
+version: 1
+---
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (K+ + K-) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-6b_kaons.yaml
+hepdata_table_label: v2/nq scaled by the mean eccentricity of the initial overlap
+  region versus (mT − m0)/nq for 0%–10%, 10%–40%, and 40%–80% most central Au+Au collisions
+  at √sNN = 62.4 GeV.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: K+ + K-
+qualifiers:
+  (m_t-m_0)/n_q$ (gev/c/c): $v_2/(n<e_{part}>)$ vs $(m_t-m_0)/n_q$ for charged kaons
+    (10%-40% central Au+Au at 62.4 GeV
+value_type: v_2/(n<e_{part}>)
+version: 1
+---
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (K+ + K-) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-6b_kaons_TOF.yaml
+hepdata_table_label: v2/nq scaled by the mean eccentricity of the initial overlap
+  region versus (mT − m0)/nq for 0%–10%, 10%–40%, and 40%–80% most central Au+Au collisions
+  at √sNN = 62.4 GeV.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: K+ + K-
+qualifiers:
+  (m_t-m_0)/n_q$ (gev/c/c): $v_2/(n<e_{part}>)$ vs $(m_t-m_0)/n_q$ for charged kaons
+    from TOF (10%-40% central Au+Au at 62.4 GeV
+value_type: v_2/(n<e_{part}>)
+version: 1
+---
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (pi+ + pi-) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-6b_pions.yaml
+hepdata_table_label: v2/nq scaled by the mean eccentricity of the initial overlap
+  region versus (mT − m0)/nq for 0%–10%, 10%–40%, and 40%–80% most central Au+Au collisions
+  at √sNN = 62.4 GeV.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: pi+ + pi-
+qualifiers:
+  (m_t-m_0)/n_q$ (gev/c/c): $v_2/(n<e_{part}>)$ vs $(m_t-m_0)/n_q$ for charged pions
+    (10%-40% central Au+Au at 62.4 GeV
+value_type: v_2/(n<e_{part}>)
+version: 1
+---
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (pi+ + pi-) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-6b_pions_TOF.yaml
+hepdata_table_label: v2/nq scaled by the mean eccentricity of the initial overlap
+  region versus (mT − m0)/nq for 0%–10%, 10%–40%, and 40%–80% most central Au+Au collisions
+  at √sNN = 62.4 GeV.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: pi+ + pi-
+qualifiers:
+  (m_t-m_0)/n_q$ (gev/c/c): $v_2/(n<e_{part}>)$ vs $(m_t-m_0)/n_q$ for charged pions
+    from TOF (10%-40% central Au+Au at 62.4 GeV
+value_type: v_2/(n<e_{part}>)
+version: 1
+---
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (p + pbar) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-6b_protons_TOF.yaml
+hepdata_table_label: v2/nq scaled by the mean eccentricity of the initial overlap
+  region versus (mT − m0)/nq for 0%–10%, 10%–40%, and 40%–80% most central Au+Au collisions
+  at √sNN = 62.4 GeV.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: p + pbar
+qualifiers:
+  (m_t-m_0)/n_q$ (gev/c/c): $v_2/(n<e_{part}>)$ vs $(m_t-m_0)/n_q$ for protons from
+    TOF (10%-40% central Au+Au at 62.4 GeV
+value_type: v_2/(n<e_{part}>)
+version: 1
+---
+centrality:
+  classes:
+  - 40-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (K0_S) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-6c_Kshort.yaml
+hepdata_table_label: v2/nq scaled by the mean eccentricity of the initial overlap
+  region versus (mT − m0)/nq for 0%–10%, 10%–40%, and 40%–80% most central Au+Au collisions
+  at √sNN = 62.4 GeV.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  pdg_id: 310
+  species: K0_S
+qualifiers:
+  (m_t-m_0)/n_q$ (gev/c/c): $v_2/(n<e_{part}>)$ vs $(m_t-m_0)/n_q$ for Kshort (40%-80%
+    central Au+Au at 62.4 GeV
+value_type: v_2/(n<e_{part}>)
+version: 1
+---
+centrality:
+  classes:
+  - 40-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (Lambda) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-6c_Lambda+Antilambda.yaml
+hepdata_table_label: v2/nq scaled by the mean eccentricity of the initial overlap
+  region versus (mT − m0)/nq for 0%–10%, 10%–40%, and 40%–80% most central Au+Au collisions
+  at √sNN = 62.4 GeV.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  pdg_id: 3122
+  species: Lambda
+qualifiers:
+  (m_t-m_0)/n_q$ (gev/c/c): $v_2/(n<e_{part}>)$ vs $(m_t-m_0)/n_q$ for Lambda+Antilambda
+    (40%-80% central Au+Au at 62.4 GeV
+value_type: v_2/(n<e_{part}>)
+version: 1
+---
+centrality:
+  classes:
+  - 40-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (pbar) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-6c_antiprotons.yaml
+hepdata_table_label: v2/nq scaled by the mean eccentricity of the initial overlap
+  region versus (mT − m0)/nq for 0%–10%, 10%–40%, and 40%–80% most central Au+Au collisions
+  at √sNN = 62.4 GeV.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  pdg_id: -2212
+  species: pbar
+qualifiers:
+  (m_t-m_0)/n_q$ (gev/c/c): $v_2/(n<e_{part}>)$ vs $(m_t-m_0)/n_q$ for antiprotons
+    (40%-80% central Au+Au at 62.4 GeV
+value_type: v_2/(n<e_{part}>)
+version: 1
+---
+centrality:
+  classes:
+  - 40-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (K+ + K-) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-6c_kaons.yaml
+hepdata_table_label: v2/nq scaled by the mean eccentricity of the initial overlap
+  region versus (mT − m0)/nq for 0%–10%, 10%–40%, and 40%–80% most central Au+Au collisions
+  at √sNN = 62.4 GeV.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: K+ + K-
+qualifiers:
+  (m_t-m_0)/n_q$ (gev/c/c): $v_2/(n<e_{part}>)$ vs $(m_t-m_0)/n_q$ for charged kaons
+    (40%-80% central Au+Au at 62.4 GeV
+value_type: v_2/(n<e_{part}>)
+version: 1
+---
+centrality:
+  classes:
+  - 40-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (pi+ + pi-) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-6c_pions.yaml
+hepdata_table_label: v2/nq scaled by the mean eccentricity of the initial overlap
+  region versus (mT − m0)/nq for 0%–10%, 10%–40%, and 40%–80% most central Au+Au collisions
+  at √sNN = 62.4 GeV.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    max: 10
+    min: 0.15
+method: event_plane
+observable_type: flow_vn
+particle_id:
+  species: pi+ + pi-
+qualifiers:
+  (m_t-m_0)/n_q$ (gev/c/c): $v_2/(n<e_{part}>)$ vs $(m_t-m_0)/n_q$ for charged pions
+    (40%-80% central Au+Au at 62.4 GeV
+value_type: v_2/(n<e_{part}>)
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (K0_S) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 4
+hepdata_file: figure-7_Kshort.yaml
+hepdata_table_label: Top panels - minimum bias $v_4$ for pions, charged kaons, $K^0_S$,
+  anti-protons and Λ + Λbar at √sNN = 62.4 GeV. In the left panel the solid (dashed)
+  line shows thevalue for $v_2^2$ for pions (kaons). Intheright panel the dashedline
+  is $v_2^2$ for Λ + Λbar. Bottom panels - $v_4$ scaled by $v_2^2$ (points where $v_4$
+  and $v_2$ fluctuate around zero are not plotted). Grey bands correspond to the fit
+  results described in the text and Table II. The systematic errors on the $v_4/v_2^2$
+  ratio from nonflow are included in the error bars leading to asymmetric errors.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+    - 2.05
+    - 2.45
+    - 2.95
+    max: 2.95
+    min: 0.6
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (figure-7_Kshort.yaml), which tabulates
+    9 pT centres; converted to edges by midpoint (outer edges extrapolated). The import
+    had collapsed them to a single [min, max] bin, so the v2(pT) shape was not being
+    reproduced.
+observable_type: flow_vn
+particle_id:
+  pdg_id: 310
+  species: K0_S
+qualifiers:
+  p_t$ (gev/c): minbias $v_4$ vs $p_T$ for Kshort (Au+Au at 62.4 GeV)
+value_type: v_4
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (K0_S) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-7_Kshort_ratio.yaml
+hepdata_table_label: Top panels - minimum bias $v_4$ for pions, charged kaons, $K^0_S$,
+  anti-protons and Λ + Λbar at √sNN = 62.4 GeV. In the left panel the solid (dashed)
+  line shows thevalue for $v_2^2$ for pions (kaons). Intheright panel the dashedline
+  is $v_2^2$ for Λ + Λbar. Bottom panels - $v_4$ scaled by $v_2^2$ (points where $v_4$
+  and $v_2$ fluctuate around zero are not plotted). Grey bands correspond to the fit
+  results described in the text and Table II. The systematic errors on the $v_4/v_2^2$
+  ratio from nonflow are included in the error bars leading to asymmetric errors.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+    - 2.05
+    - 2.45
+    - 2.95
+    max: 2.95
+    min: 0.6
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (figure-7_Kshort_ratio.yaml), which
+    tabulates 9 pT centres; converted to edges by midpoint (outer edges extrapolated).
+    The import had collapsed them to a single [min, max] bin, so the v2(pT) shape
+    was not being reproduced.
+observable_type: flow_vn
+particle_id:
+  pdg_id: 310
+  species: K0_S
+qualifiers:
+  p_t$ (gev/c): minbias $v_4/v_2^2$ vs $p_T$ for Kshort (Au+Au at 62.4 GeV)
+value_type: v_4/v_2^2
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (Lambda) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 4
+hepdata_file: figure-7_Lambda+Antilambda.yaml
+hepdata_table_label: Top panels - minimum bias $v_4$ for pions, charged kaons, $K^0_S$,
+  anti-protons and Λ + Λbar at √sNN = 62.4 GeV. In the left panel the solid (dashed)
+  line shows thevalue for $v_2^2$ for pions (kaons). Intheright panel the dashedline
+  is $v_2^2$ for Λ + Λbar. Bottom panels - $v_4$ scaled by $v_2^2$ (points where $v_4$
+  and $v_2$ fluctuate around zero are not plotted). Grey bands correspond to the fit
+  results described in the text and Table II. The systematic errors on the $v_4/v_2^2$
+  ratio from nonflow are included in the error bars leading to asymmetric errors.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+    - 2.0
+    - 2.2
+    - 2.5
+    - 2.9
+    max: 2.9
+    min: 0.6
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (figure-7_Lambda+Antilambda.yaml),
+    which tabulates 10 pT centres; converted to edges by midpoint (outer edges extrapolated).
+    The import had collapsed them to a single [min, max] bin, so the v2(pT) shape
+    was not being reproduced.
+observable_type: flow_vn
+particle_id:
+  pdg_id: 3122
+  species: Lambda
+qualifiers:
+  p_t$ (gev/c): minbias $v_4$ vs $p_T$ for Lambda+Antilambda (Au+Au at 62.4 GeV)
+value_type: v_4
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (Lambda) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-7_Lambda+Antilambda_ratio.yaml
+hepdata_table_label: Top panels - minimum bias $v_4$ for pions, charged kaons, $K^0_S$,
+  anti-protons and Λ + Λbar at √sNN = 62.4 GeV. In the left panel the solid (dashed)
+  line shows thevalue for $v_2^2$ for pions (kaons). Intheright panel the dashedline
+  is $v_2^2$ for Λ + Λbar. Bottom panels - $v_4$ scaled by $v_2^2$ (points where $v_4$
+  and $v_2$ fluctuate around zero are not plotted). Grey bands correspond to the fit
+  results described in the text and Table II. The systematic errors on the $v_4/v_2^2$
+  ratio from nonflow are included in the error bars leading to asymmetric errors.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.5293
+    - 0.6431
+    - 0.8
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+    - 2.0
+    - 2.2
+    - 2.5
+    - 2.9
+    max: 2.9
+    min: 0.5293
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (figure-7_Lambda+Antilambda_ratio.yaml),
+    which tabulates 11 pT centres; converted to edges by midpoint (outer edges extrapolated).
+    The import had collapsed them to a single [min, max] bin, so the v2(pT) shape
+    was not being reproduced.
+observable_type: flow_vn
+particle_id:
+  pdg_id: 3122
+  species: Lambda
+qualifiers:
+  p_t$ (gev/c): minbias $v_4/v_2^2$ vs $p_T$ for Lambda+Antolambda (Au+Au at 62.4
+    GeV)
+value_type: v_4/v_2^2
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (pbar) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 4
+hepdata_file: figure-7_antiprotons.yaml
+hepdata_table_label: Top panels - minimum bias $v_4$ for pions, charged kaons, $K^0_S$,
+  anti-protons and Λ + Λbar at √sNN = 62.4 GeV. In the left panel the solid (dashed)
+  line shows thevalue for $v_2^2$ for pions (kaons). Intheright panel the dashedline
+  is $v_2^2$ for Λ + Λbar. Bottom panels - $v_4$ scaled by $v_2^2$ (points where $v_4$
+  and $v_2$ fluctuate around zero are not plotted). Grey bands correspond to the fit
+  results described in the text and Table II. The systematic errors on the $v_4/v_2^2$
+  ratio from nonflow are included in the error bars leading to asymmetric errors.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.2343
+    - 0.3061
+    - 0.37845
+    - 0.4517
+    - 0.5255
+    - 0.5994
+    - 0.67275
+    - 0.74455
+    - 0.81525
+    max: 0.81525
+    min: 0.2343
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (figure-7_antiprotons.yaml), which
+    tabulates 8 pT centres; converted to edges by midpoint (outer edges extrapolated).
+    The import had collapsed them to a single [min, max] bin, so the v2(pT) shape
+    was not being reproduced.
+observable_type: flow_vn
+particle_id:
+  pdg_id: -2212
+  species: pbar
+qualifiers:
+  p_t$ (gev/c): minbias $v_4$ vs $p_T$ for antiprotons (Au+Au at 62.4 GeV)
+value_type: v_4
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (K+ + K-) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 4
+hepdata_file: figure-7_kaons.yaml
+hepdata_table_label: Top panels - minimum bias $v_4$ for pions, charged kaons, $K^0_S$,
+  anti-protons and Λ + Λbar at √sNN = 62.4 GeV. In the left panel the solid (dashed)
+  line shows thevalue for $v_2^2$ for pions (kaons). Intheright panel the dashedline
+  is $v_2^2$ for Λ + Λbar. Bottom panels - $v_4$ scaled by $v_2^2$ (points where $v_4$
+  and $v_2$ fluctuate around zero are not plotted). Grey bands correspond to the fit
+  results described in the text and Table II. The systematic errors on the $v_4/v_2^2$
+  ratio from nonflow are included in the error bars leading to asymmetric errors.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.1674
+    - 0.2342
+    - 0.3025
+    - 0.36995
+    - 0.43505
+    max: 0.43505
+    min: 0.1674
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (figure-7_kaons.yaml), which tabulates
+    4 pT centres; converted to edges by midpoint (outer edges extrapolated). The import
+    had collapsed them to a single [min, max] bin, so the v2(pT) shape was not being
+    reproduced.
+observable_type: flow_vn
+particle_id:
+  species: K+ + K-
+qualifiers:
+  p_t$ (gev/c): minbias $v_4$ vs $p_T$ for charged kaons (Au+Au at 62.4 GeV)
+value_type: v_4
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (pi+ + pi-) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 4
+hepdata_file: figure-7_pions.yaml
+hepdata_table_label: Top panels - minimum bias $v_4$ for pions, charged kaons, $K^0_S$,
+  anti-protons and Λ + Λbar at √sNN = 62.4 GeV. In the left panel the solid (dashed)
+  line shows thevalue for $v_2^2$ for pions (kaons). Intheright panel the dashedline
+  is $v_2^2$ for Λ + Λbar. Bottom panels - $v_4$ scaled by $v_2^2$ (points where $v_4$
+  and $v_2$ fluctuate around zero are not plotted). Grey bands correspond to the fit
+  results described in the text and Table II. The systematic errors on the $v_4/v_2^2$
+  ratio from nonflow are included in the error bars leading to asymmetric errors.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.16785
+    - 0.23255
+    - 0.30105
+    - 0.37415
+    - 0.44815
+    - 0.52195
+    - 0.59545
+    - 0.6691
+    - 0.74315
+    - 0.8176
+    - 0.8924
+    - 1.54445
+    - 2.361
+    - 2.764
+    - 3.166
+    - 3.568
+    max: 3.568
+    min: 0.16785
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (figure-7_pions.yaml), which tabulates
+    15 pT centres; converted to edges by midpoint (outer edges extrapolated). The
+    import had collapsed them to a single [min, max] bin, so the v2(pT) shape was
+    not being reproduced.
+observable_type: flow_vn
+particle_id:
+  species: pi+ + pi-
+qualifiers:
+  p_t$ (gev/c): minbias $v_4$ vs $p_T$ for charged pions (Au+Au at 62.4 GeV)
+value_type: v_4
+version: 1
+---
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (pi+ + pi-) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-7_pions_ratio.yaml
+hepdata_table_label: Top panels - minimum bias $v_4$ for pions, charged kaons, $K^0_S$,
+  anti-protons and Λ + Λbar at √sNN = 62.4 GeV. In the left panel the solid (dashed)
+  line shows thevalue for $v_2^2$ for pions (kaons). Intheright panel the dashedline
+  is $v_2^2$ for Λ + Λbar. Bottom panels - $v_4$ scaled by $v_2^2$ (points where $v_4$
+  and $v_2$ fluctuate around zero are not plotted). Grey bands correspond to the fit
+  results described in the text and Table II. The systematic errors on the $v_4/v_2^2$
+  ratio from nonflow are included in the error bars leading to asymmetric errors.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.16785
+    - 0.23255
+    - 0.30105
+    - 0.37415
+    - 0.44815
+    - 0.52195
+    - 0.59545
+    - 0.6691
+    - 0.74315
+    - 0.8176
+    - 0.8924
+    - 1.54445
+    - 2.361
+    - 2.764
+    - 3.166
+    - 3.568
+    max: 3.568
+    min: 0.16785
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (figure-7_pions_ratio.yaml), which
+    tabulates 15 pT centres; converted to edges by midpoint (outer edges extrapolated).
+    The import had collapsed them to a single [min, max] bin, so the v2(pT) shape
+    was not being reproduced.
+observable_type: flow_vn
+particle_id:
+  species: pi+ + pi-
+qualifiers:
+  p_t$ (gev/c): minbias $v_4/v_2^2$ vs $p_T$ for charged pions (Au+Au at 62.4 GeV)
+value_type: v_4/v_2^2
+version: 1
+---
+centrality:
+  classes: []
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers Cross-energy v2
+    ratio (200 GeV in energy_gev); not a single-energy measurement - excluded from
+    single-energy model comparisons.
+collision_system:
+  energy_gev: 200.0
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (K0_S) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-8_Kshort_ratio200.yaml
+hepdata_table_label: Top panel - $v_2$ for pions and protons at √sNN = 62.4 and 17.3
+  GeV. The 62.4 GeV data are from TOF and dE/dx measurements combined. Middle and
+  bottom panel - ratios of $v_2$ for $\pi^++\pi^-$, $K^0_S$, p+p, Λ+Λbar and at different
+  center-of-mass energies scaled by the values at 62.4 GeV. The grey and yellow bands
+  represent systematic uncertainties in the v2 ratios arising from non-flow effects.
+  The grey bands (above unity) are the uncertainties for the 200 GeV/62.4 GeV data
+  and the yellow bands (below unity) are for the 17.3 GeV/62.4 GeV data.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.2
+    - 0.4
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+    - 2.05
+    - 2.45
+    - 2.975
+    - 3.6
+    - 4.3
+    max: 4.3
+    min: 0.2
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (figure-8_Kshort_ratio200.yaml),
+    which tabulates 13 pT centres; converted to edges by midpoint (outer edges extrapolated).
+    The import had collapsed them to a single [min, max] bin, so the v2(pT) shape
+    was not being reproduced.
+observable_type: flow_vn
+particle_id:
+  pdg_id: 310
+  species: K0_S
+qualifiers:
+  p_t$ (gev/c): $v_2$ ratio 200/62.4 vs $p_T$ for Kshort
+value_type: v_2
+version: 1
+---
+centrality:
+  classes: []
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers Cross-energy v2
+    ratio (200 GeV in energy_gev); not a single-energy measurement - excluded from
+    single-energy model comparisons.
+collision_system:
+  energy_gev: 200.0
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (Lambda) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-8_Lambda+Antilambda_ratio200.yaml
+hepdata_table_label: Top panel - $v_2$ for pions and protons at √sNN = 62.4 and 17.3
+  GeV. The 62.4 GeV data are from TOF and dE/dx measurements combined. Middle and
+  bottom panel - ratios of $v_2$ for $\pi^++\pi^-$, $K^0_S$, p+p, Λ+Λbar and at different
+  center-of-mass energies scaled by the values at 62.4 GeV. The grey and yellow bands
+  represent systematic uncertainties in the v2 ratios arising from non-flow effects.
+  The grey bands (above unity) are the uncertainties for the 200 GeV/62.4 GeV data
+  and the yellow bands (below unity) are for the 17.3 GeV/62.4 GeV data.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.4
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+    - 2.0
+    - 2.2
+    - 2.5
+    - 2.975
+    - 3.6
+    - 4.3
+    max: 4.3
+    min: 0.4
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (figure-8_Lambda+Antilambda_ratio200.yaml),
+    which tabulates 13 pT centres; converted to edges by midpoint (outer edges extrapolated).
+    The import had collapsed them to a single [min, max] bin, so the v2(pT) shape
+    was not being reproduced.
+observable_type: flow_vn
+particle_id:
+  pdg_id: 3122
+  species: Lambda
+qualifiers:
+  p_t$ (gev/c): $v_2$ ratio 200/62.4 vs $p_T$ for Lambda+Antilambda
+value_type: v_2
+version: 1
+---
+centrality:
+  classes: []
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers Cross-energy v2
+    ratio (200 GeV in energy_gev); not a single-energy measurement - excluded from
+    single-energy model comparisons.
+collision_system:
+  energy_gev: 200.0
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (pbar) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-8_antiprotons_ratio200.yaml
+hepdata_table_label: Top panel - $v_2$ for pions and protons at √sNN = 62.4 and 17.3
+  GeV. The 62.4 GeV data are from TOF and dE/dx measurements combined. Middle and
+  bottom panel - ratios of $v_2$ for $\pi^++\pi^-$, $K^0_S$, p+p, Λ+Λbar and at different
+  center-of-mass energies scaled by the values at 62.4 GeV. The grey and yellow bands
+  represent systematic uncertainties in the v2 ratios arising from non-flow effects.
+  The grey bands (above unity) are the uncertainties for the 200 GeV/62.4 GeV data
+  and the yellow bands (below unity) are for the 17.3 GeV/62.4 GeV data.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.4515
+    - 0.5253
+    - 0.5991
+    - 0.6727
+    - 0.7453
+    - 0.8171
+    max: 0.8171
+    min: 0.4515
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (figure-8_antiprotons_ratio200.yaml),
+    which tabulates 5 pT centres; converted to edges by midpoint (outer edges extrapolated).
+    The import had collapsed them to a single [min, max] bin, so the v2(pT) shape
+    was not being reproduced.
+observable_type: flow_vn
+particle_id:
+  pdg_id: -2212
+  species: pbar
+qualifiers:
+  p_t$ (gev/c): $v_2$ ratio 200/62.4 vs $p_T$ for antiprotons
+value_type: v_2
+version: 1
+---
+centrality:
+  classes: []
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers Cross-energy v2
+    ratio (17.3 GeV in energy_gev); not a single-energy measurement - excluded from
+    single-energy model comparisons.
+collision_system:
+  energy_gev: 17.3
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (p + pbar) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-8_p+pbar_ratio17.yaml
+hepdata_table_label: Top panel - $v_2$ for pions and protons at √sNN = 62.4 and 17.3
+  GeV. The 62.4 GeV data are from TOF and dE/dx measurements combined. Middle and
+  bottom panel - ratios of $v_2$ for $\pi^++\pi^-$, $K^0_S$, p+p, Λ+Λbar and at different
+  center-of-mass energies scaled by the values at 62.4 GeV. The grey and yellow bands
+  represent systematic uncertainties in the v2 ratios arising from non-flow effects.
+  The grey bands (above unity) are the uncertainties for the 200 GeV/62.4 GeV data
+  and the yellow bands (below unity) are for the 17.3 GeV/62.4 GeV data.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.8
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+    - 2.0
+    max: 2.0
+    min: 0.8
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (figure-8_p+pbar_ratio17.yaml), which
+    tabulates 6 pT centres; converted to edges by midpoint (outer edges extrapolated).
+    The import had collapsed them to a single [min, max] bin, so the v2(pT) shape
+    was not being reproduced.
+observable_type: flow_vn
+particle_id:
+  species: p + pbar
+qualifiers:
+  p_t$ (gev/c): $v_2$ ratio 17.3/62.4 vs $p_T$ for p+pbar
+value_type: v_2
+version: 1
+---
+centrality:
+  classes:
+  - 0-40%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (pi+ + pi-) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-8_pions.yaml
+hepdata_table_label: Top panel - $v_2$ for pions and protons at √sNN = 62.4 and 17.3
+  GeV. The 62.4 GeV data are from TOF and dE/dx measurements combined. Middle and
+  bottom panel - ratios of $v_2$ for $\pi^++\pi^-$, $K^0_S$, p+p, Λ+Λbar and at different
+  center-of-mass energies scaled by the values at 62.4 GeV. The grey and yellow bands
+  represent systematic uncertainties in the v2 ratios arising from non-flow effects.
+  The grey bands (above unity) are the uncertainties for the 200 GeV/62.4 GeV data
+  and the yellow bands (below unity) are for the 17.3 GeV/62.4 GeV data.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.16785
+    - 0.23255
+    - 0.3011
+    - 0.37425
+    - 0.4482
+    - 0.522
+    - 0.59555
+    - 0.66925
+    - 0.7433
+    - 0.8152
+    - 0.9
+    - 1.025
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+    - 2.0295
+    - 2.3605
+    - 2.7635
+    - 3.166
+    - 3.5685
+    - 3.9715
+    max: 3.9715
+    min: 0.16785
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (figure-8_pions.yaml), which tabulates
+    21 pT centres; converted to edges by midpoint (outer edges extrapolated). The
+    import had collapsed them to a single [min, max] bin, so the v2(pT) shape was
+    not being reproduced.
+observable_type: flow_vn
+particle_id:
+  species: pi+ + pi-
+qualifiers:
+  p_t$ (gev/c): $v_2$ vs $p_T$ for charged pions (0%-40% Au+Au at 62.4 GeV)
+value_type: v_2
+version: 1
+---
+centrality:
+  classes: []
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers Cross-energy v2
+    ratio (17.3 GeV in energy_gev); not a single-energy measurement - excluded from
+    single-energy model comparisons.
+collision_system:
+  energy_gev: 17.3
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (pi+ + pi-) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-8_pions_ratio17.yaml
+hepdata_table_label: Top panel - $v_2$ for pions and protons at √sNN = 62.4 and 17.3
+  GeV. The 62.4 GeV data are from TOF and dE/dx measurements combined. Middle and
+  bottom panel - ratios of $v_2$ for $\pi^++\pi^-$, $K^0_S$, p+p, Λ+Λbar and at different
+  center-of-mass energies scaled by the values at 62.4 GeV. The grey and yellow bands
+  represent systematic uncertainties in the v2 ratios arising from non-flow effects.
+  The grey bands (above unity) are the uncertainties for the 200 GeV/62.4 GeV data
+  and the yellow bands (below unity) are for the 17.3 GeV/62.4 GeV data.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.2
+    - 0.25
+    - 0.3
+    - 0.35
+    - 0.4125
+    - 0.5
+    - 0.6
+    - 0.7
+    - 0.825
+    - 1.0
+    - 1.25
+    - 1.6
+    - 2.0
+    max: 2.0
+    min: 0.2
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (figure-8_pions_ratio17.yaml), which
+    tabulates 12 pT centres; converted to edges by midpoint (outer edges extrapolated).
+    The import had collapsed them to a single [min, max] bin, so the v2(pT) shape
+    was not being reproduced.
+observable_type: flow_vn
+particle_id:
+  species: pi+ + pi-
+qualifiers:
+  p_t$ (gev/c): $v_2$ ratio 17.3/62.4 vs $p_T$ for charged pions
+value_type: v_2
+version: 1
+---
+centrality:
+  classes: []
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers Cross-energy v2
+    ratio (200 GeV in energy_gev); not a single-energy measurement - excluded from
+    single-energy model comparisons.
+collision_system:
+  energy_gev: 200.0
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (pi+ + pi-) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-8_pions_ratio200.yaml
+hepdata_table_label: Top panel - $v_2$ for pions and protons at √sNN = 62.4 and 17.3
+  GeV. The 62.4 GeV data are from TOF and dE/dx measurements combined. Middle and
+  bottom panel - ratios of $v_2$ for $\pi^++\pi^-$, $K^0_S$, p+p, Λ+Λbar and at different
+  center-of-mass energies scaled by the values at 62.4 GeV. The grey and yellow bands
+  represent systematic uncertainties in the v2 ratios arising from non-flow effects.
+  The grey bands (above unity) are the uncertainties for the 200 GeV/62.4 GeV data
+  and the yellow bands (below unity) are for the 17.3 GeV/62.4 GeV data.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.16895
+    - 0.23285
+    - 0.301
+    - 0.37415
+    - 0.44815
+    - 0.5219
+    - 0.59515
+    - 0.6686
+    - 0.7428
+    - 0.81755
+    - 0.89245
+    - 0.96735
+    max: 0.96735
+    min: 0.16895
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (figure-8_pions_ratio200.yaml), which
+    tabulates 11 pT centres; converted to edges by midpoint (outer edges extrapolated).
+    The import had collapsed them to a single [min, max] bin, so the v2(pT) shape
+    was not being reproduced.
+observable_type: flow_vn
+particle_id:
+  species: pi+ + pi-
+qualifiers:
+  p_t$ (gev/c): $v_2$ ratio 200/62.4 vs $p_T$ for charged pions
+value_type: v_2
+version: 1
+---
+centrality:
+  classes:
+  - 0-40%
+  estimator:
+    detector: TPC
+    name: RefMult
+    observable: Nch
+  eta:
+  - max: 0.5
+    min: -0.5
+  notes: centrality classes not auto-parsed from HEPData qualifiers
+collision_system:
+  energy_gev: 62.4
+  reaction: AuAu --> charged hadrons
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - max: 1.0
+    min: -1.0
+  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
+    (p + pbar) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi
+    and is subtracted. INFERRED from the charged rows of the same table, not quoted
+    from the paper.
+  provenance: assumed_tpc
+harmonic: 2
+hepdata_file: figure-8_protons.yaml
+hepdata_table_label: Top panel - $v_2$ for pions and protons at √sNN = 62.4 and 17.3
+  GeV. The 62.4 GeV data are from TOF and dE/dx measurements combined. Middle and
+  bottom panel - ratios of $v_2$ for $\pi^++\pi^-$, $K^0_S$, p+p, Λ+Λbar and at different
+  center-of-mass energies scaled by the values at 62.4 GeV. The grey and yellow bands
+  represent systematic uncertainties in the v2 ratios arising from non-flow effects.
+  The grey bands (above unity) are the uncertainties for the 200 GeV/62.4 GeV data
+  and the yellow bands (below unity) are for the 17.3 GeV/62.4 GeV data.
+inspire_id: '741917'
+kinematic_range:
+  eta:
+    bins:
+    - -1.0
+    - 1.0
+    max: 1.0
+    min: -1.0
+  pT:
+    bins:
+    - 0.169
+    - 0.2364
+    - 0.30605
+    - 0.37845
+    - 0.45175
+    - 0.5256
+    - 0.59945
+    - 0.6727
+    - 0.74445
+    - 0.8158
+    - 0.9009
+    - 1.025
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+    - 2.075
+    - 2.425
+    max: 2.425
+    min: 0.169
+method: event_plane
+notes:
+  value: pT.bins recovered from the source table (figure-8_protons.yaml), which tabulates
+    17 pT centres; converted to edges by midpoint (outer edges extrapolated). The
+    import had collapsed them to a single [min, max] bin, so the v2(pT) shape was
+    not being reproduced.
+observable_type: flow_vn
+particle_id:
+  species: p + pbar
+qualifiers:
+  p_t$ (gev/c): $v_2$ vs $p_T$ for charged protons (0%-40% Au+Au at 62.4 GeV)
+value_type: v_2
+version: 1

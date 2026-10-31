@@ -1,0 +1,43 @@
+dependent_variables:
+- header: {name: D(N)/DETARAP(P=3)}
+  qualifiers:
+  - {name: ETARAP(P=3), value: '0.0'}
+  - {name: RE, value: AU AU --> J/PSI < E+ E- > X}
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  - {name: '', value: Most likely value}
+  values:
+  - {value: '-'}
+  - errors:
+    - asymerror: {minus: -0.000201, plus: 0.000234}
+      label: stat
+    - asymerror: {minus: -0.00016, plus: 0.000136}
+      label: sys
+    value: 0.0004
+  - errors:
+    - asymerror: {minus: -4.4e-05, plus: 5.2e-05}
+      label: stat
+    - asymerror: {minus: -3.5e-05, plus: 2.9e-05}
+      label: sys
+    value: 8.6e-05
+- header: {name: D(N)/DETARAP(P=3)}
+  qualifiers:
+  - {name: ETARAP(P=3), value: '0.0'}
+  - {name: RE, value: AU AU --> J/PSI < E+ E- > X}
+  - {name: SQRT(S), units: GeV, value: '200.0'}
+  - {name: '', value: Upper limit}
+  values:
+  - errors:
+    - {symerror: 0.0}
+    value: <6.08E-4
+  - errors:
+    - {symerror: 0.0}
+    value: <7.19E-4
+  - errors:
+    - {symerror: 0.0}
+    value: <1.6E-4
+independent_variables:
+- header: {name: CENTRALITY, units: PCT}
+  values:
+  - {high: 20.0, low: 0.0}
+  - {high: 40.0, low: 20.0}
+  - {high: 90.0, low: 40.0}

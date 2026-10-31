@@ -1,0 +1,23 @@
+dependent_variables:
+- header: {name: F2(Q=NU)/F2(Q=E)}
+  qualifiers:
+  - {name: Q**2, value: 2. TO 4.}
+  - {name: RE(Q=E), value: E- P --> E- X}
+  - {name: RE(Q=NU), value: NU P --> MU- X}
+  - {name: SQRT(S), units: GeV, value: '0.0'}
+  values:
+  - errors:
+    - {symerror: 0.26}
+    value: 2.11
+  - errors:
+    - {symerror: 0.2}
+    value: 1.75
+  - errors:
+    - {symerror: 0.23}
+    value: 1.55
+independent_variables:
+- header: {name: X}
+  values:
+  - {value: 0.15}
+  - {value: 0.25}
+  - {value: 0.35}

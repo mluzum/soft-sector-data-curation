@@ -1,0 +1,26 @@
+dependent_variables:
+- header: {name: 'e_\{HF\} v_2\{2\} (two-particle correlations)'}
+  qualifiers:
+  - {name: '', value: 'Elliptic flow v2\{2\} of electrons from heavy-flavor hadron
+      decays'}
+  - {name: '', value: Au+Au collisions 0-60% central events with minimum bias trigger}
+  - {name: 'SQRT(S_\{NN\})', units: GeV, value: 39}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.007}
+    - {label: sys, symerror: 0.028}
+    value: -0.01
+  - errors:
+    - {label: stat, symerror: 0.035}
+    - {label: sys, symerror: 0.034}
+    value: -0.005
+  - errors:
+    - {label: stat, symerror: 0.146}
+    - {label: sys, symerror: 0.035}
+    value: 0.068
+independent_variables:
+- header: {name: PT, units: GeV/c}
+  values:
+  - {high: 0.279, low: 0.279}
+  - {high: 0.623, low: 0.623}
+  - {high: 1.433, low: 1.433}

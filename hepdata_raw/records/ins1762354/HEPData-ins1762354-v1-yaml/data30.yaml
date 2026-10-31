@@ -1,0 +1,66 @@
+dependent_variables:
+- header: {name: Away-side Peak width (rad) (pp)}
+  qualifiers:
+  - {name: SQRT(S) (PP), units: GEV, value: '5020'}
+  - {name: SQRT(S)/NUCLEON (P-PB), units: GEV, value: '5020'}
+  - {name: YRAP (PP), value: '-0.5 TO 0.5 (D0, D+, D*+)'}
+  - {name: YRAP(RF=CMS) (P-PB), value: '-0.96 TO 0.04 (D0, D+, D*+)'}
+  - {name: ABS(DETA), value: <1}
+  - {name: PT(CHARGED), units: GEV, value: 0.3 TO 1.0}
+  values:
+  - errors:
+    - {label: stat, symerror: ''}
+    - asymerror: {minus: '', plus: ''}
+      label: sys,uncorr
+    value: ''
+  - errors:
+    - {label: stat, symerror: 0.065514}
+    - asymerror: {minus: -0.085288, plus: 0.085288}
+      label: sys,uncorr
+    value: 0.573226
+  - errors:
+    - {label: stat, symerror: 0.068844}
+    - asymerror: {minus: -0.046942, plus: 0.046942}
+      label: sys,uncorr
+    value: 0.569476
+  - errors:
+    - {label: stat, symerror: ''}
+    - asymerror: {minus: '', plus: ''}
+      label: sys,uncorr
+    value: ''
+- header: {name: Away-side Peak width (rad) (p-Pb)}
+  qualifiers:
+  - {name: SQRT(S) (PP), units: GEV, value: '5020'}
+  - {name: SQRT(S)/NUCLEON (P-PB), units: GEV, value: '5020'}
+  - {name: YRAP (PP), value: '-0.5 TO 0.5 (D0, D+, D*+)'}
+  - {name: YRAP(RF=CMS) (P-PB), value: '-0.96 TO 0.04 (D0, D+, D*+)'}
+  - {name: ABS(DETA), value: <1}
+  - {name: PT(CHARGED), units: GEV, value: 0.3 TO 1.0}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.213116}
+    - asymerror: {minus: -0.177245, plus: 0.188128}
+      label: sys,uncorr
+    value: 0.657957
+  - errors:
+    - {label: stat, symerror: 0.07658}
+    - asymerror: {minus: -0.055839, plus: 0.059442}
+      label: sys,uncorr
+    value: 0.800548
+  - errors:
+    - {label: stat, symerror: 0.067852}
+    - asymerror: {minus: -0.055913, plus: 0.056211}
+      label: sys,uncorr
+    value: 0.65916
+  - errors:
+    - {label: stat, symerror: 0.085262}
+    - asymerror: {minus: -0.036294, plus: 0.036276}
+      label: sys,uncorr
+    value: 0.394803
+independent_variables:
+- header: {name: 'D-meson $p_{\rm T}$ (GeV/$c$)'}
+  values:
+  - {high: 5.0, low: 3.0}
+  - {high: 8.0, low: 5.0}
+  - {high: 16.0, low: 8.0}
+  - {high: 24.0, low: 16.0}

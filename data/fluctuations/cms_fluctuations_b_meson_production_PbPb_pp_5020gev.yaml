@@ -1,0 +1,147 @@
+---
+observable_type: fluctuations
+inspire_id: '1697571'
+version: 1
+hepdata_file: data1.yaml
+hepdata_table_label: The $B^{0}_{s}$ p$_T$-differential production cross section in pp collisions at $\sqrt(s_{_{NN}})=5.02$TeV,
+  in three p$_T$ intervals from 7 to 50GeV/c. The global systematic uncertainty, not included in the point-to-point uncertainties,
+  comprises the uncertainties in the integrated luminosity measurment and the branching fraction.
+qualifiers:
+  abs(yrap): 0 - 2.4
+  global uncertainty: 7.9%
+  p_{t}: 7.0 ~ 50.0
+  re: P P --> Bs0 --> J/PSI (MU+ MU-) + PHI (K+ K-)
+  sqrt(s)/nucleon: '5020.0'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P P --> Bs0 --> J/PSI (MU+ MU-) + PHI (K+ K-)
+centrality:
+  classes:
+  - 7.0-50.0%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: K+
+kinematic_range:
+  pT:
+    min: 7.75
+    max: 43.75
+    bins:
+    - 7.75
+    - 14.25
+    - 26.25
+    - 43.75
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+observable: cumulant_C2
+value_type: cumulant_C2
+charge_type: net_charge
+---
+observable_type: fluctuations
+inspire_id: '1697571'
+version: 1
+hepdata_file: data2.yaml
+hepdata_table_label: The $B^{0}_{s}$ p$_T$-differential production cross section in pp collisions at $\sqrt(s_{_{NN}})=5.02$TeV,
+  in two p$_T$ intervals from 7 to 50GeV/c. The global systematic uncertainty, not included in the point-to-point uncertainties,
+  comprises the uncertainties in the integrated luminosity measurment and the branching fraction.
+qualifiers:
+  abs(yrap): 0 - 2.4
+  global uncertainty: 7.9%
+  p_{t}: 7.0 ~ 50.0
+  re: P P --> Bs0 --> J/PSI (MU+ MU-) + PHI (K+ K-)
+  sqrt(s)/nucleon: '5020.0'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P P --> Bs0 --> J/PSI (MU+ MU-) + PHI (K+ K-)
+centrality:
+  classes:
+  - 7.0-50.0%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: K+
+kinematic_range:
+  pT:
+    min: 0.25
+    max: 43.25
+    bins:
+    - 0.25
+    - 21.75
+    - 43.25
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+observable: cumulant_C2
+value_type: cumulant_C2
+charge_type: net_charge
+---
+observable_type: fluctuations
+inspire_id: '1697571'
+version: 1
+hepdata_file: data3.yaml
+hepdata_table_label: The $B^{0}_{s}$ p$_T$-differential yield scaled by $\rm{T_{AA}}$ in PbPb collisions at $\sqrt(s_{_{NN}})=5.02$TeV,
+  in two p$_T$ intervals from 7 to 50GeV/c. The global systematic uncertainty, not included in the point-to-point uncertainties,
+  comprises the uncertainties in $\rm{T_{AA}}$, N$_{MB}$, and the branching fraction.
+qualifiers:
+  \rm{t_{aa}}: '5.6'
+  abs(yrap): 0 - 2.4
+  centrality: 0-100 %
+  global uncertainty: +8.3, -8.5%
+  p_{t}: 7.0 ~ 50.0
+  re: PB PB --> Bs0 --> J/PSI (MU+ MU-) + PHI (K+ K-)
+  sqrt(s)/nucleon: '5020.0'
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> Bs0 --> J/PSI (MU+ MU-) + PHI (K+ K-)
+centrality:
+  classes:
+  - 0-100%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: K+
+kinematic_range:
+  pT:
+    min: 0.25
+    max: 43.25
+    bins:
+    - 0.25
+    - 21.75
+    - 43.25
+  eta:
+    min: -2.4
+    max: 2.4
+    bins:
+    - -2.4
+    - 2.4
+observable: cumulant_C2
+value_type: cumulant_C2
+charge_type: net_charge

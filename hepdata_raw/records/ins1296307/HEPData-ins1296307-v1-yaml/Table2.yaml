@@ -1,0 +1,22 @@
+dependent_variables:
+- header: {name: '[SIGMA_PSI(2S)/SIGMA_JPSI]_pA/[SIGMA_PSI(2S)/SIGMA_JPSI]_pp'}
+  qualifiers:
+  - {name: RE, value: P PB --> J/PSI < MU+ MU- > X}
+  - {name: RE, value: P PB --> PSI(2S) < MU+ MU- > X}
+  - {name: SQRT(S)/NUCLEON, units: GeV, value: '5020.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.09}
+    - {label: 'sys,corr', symerror: 0.05}
+    - {label: 'sys,uncor', symerror: 0.05}
+    value: 0.52
+  - errors:
+    - {label: stat, symerror: 0.09}
+    - {label: 'sys,corr', symerror: 0.07}
+    - {label: 'sys,uncor', symerror: 0.07}
+    value: 0.69
+independent_variables:
+- header: {name: Y_CMS}
+  values:
+  - {high: -2.96, low: -4.46}
+  - {high: 3.53, low: 2.03}
