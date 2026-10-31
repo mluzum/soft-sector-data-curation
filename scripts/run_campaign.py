@@ -9,8 +9,10 @@ One ``run_pipeline.py`` process per (design point, variant), writing
 ``<out-dir>/dp<NNNN>[_<variant>].h5`` and a ``.log``.  The record selection
 defaults to the manifest's ``selection`` (``--no-default-selection`` drops it);
 options after ``--`` are appended.  A run is skipped while its output is
-up to date: same pipeline arguments and the same source files (size and
-mtime, as reported by the adapter).  Outputs are written under a temporary
+up to date: same pipeline arguments, the same source files (size and
+mtime, as reported by the adapter), and the same selected records and
+pipeline code (``run_pipeline.py --print-fingerprint``; ``--ignore-code-changes``
+keeps outputs made with older code).  Outputs are written under a temporary
 name and renamed on success, and discarded if a source file changed while
 the run read it, so a live campaign is recomputed where it grew.  Then
 ``collect_campaign.py`` stacks the outputs into one table.
@@ -74,24 +76,40 @@ def output_name(dp: int, variant) -> str:
     return f"dp{dp:04d}" + (f"_{variant}" if variant else "") + ".h5"
 
 
-def up_to_date(out: Path, argv: list[str], signature: list) -> bool:
+def up_to_date(out: Path, argv: list[str], signature: list, fingerprint: dict,
+               ignore_code=False) -> bool:
     if not out.exists():
         return False
     import h5py
     try:
         with h5py.File(out, "r") as f:
-            return (json.loads(f.attrs.get("campaign_argv", "null")) == argv
-                    and json.loads(f.attrs.get("campaign_sources", "null")) == signature)
+            if (json.loads(f.attrs.get("campaign_argv", "null")) != argv
+                    or json.loads(f.attrs.get("campaign_sources", "null")) != signature):
+                return False
+            if f.attrs.get("records_fingerprint", "") != fingerprint["records"]:
+                return False
+            return ignore_code or f.attrs.get("code_fingerprint", "") == fingerprint["code"]
     except OSError:
         return False
 
 
-def run_one(pkg, dp, variant, base_argv, out_dir, force, env):
+def current_fingerprint(base_argv, env) -> dict:
+    """Fingerprint of the selected records and the code, from run_pipeline itself."""
+    r = subprocess.run([sys.executable, str(ROOT / "scripts" / "run_pipeline.py"),
+                        *base_argv, "--print-fingerprint"],
+                       cwd=ROOT, capture_output=True, text=True, env=env)
+    lines = r.stdout.strip().splitlines()
+    if r.returncode != 0 or not lines:
+        raise SystemExit(f"run_pipeline.py --print-fingerprint failed:\n{r.stdout[-2000:]}{r.stderr[-2000:]}")
+    return json.loads(lines[-1])
+
+
+def run_one(pkg, dp, variant, base_argv, out_dir, force, env, fingerprint, ignore_code):
     out = out_dir / output_name(dp, variant)
     log = out.with_suffix(".log")
     argv = base_argv + ["--design-point", str(dp)] + (["--variant", variant] if variant else [])
     sig = source_signature(pkg, dp)
-    if not force and sig and up_to_date(out, argv, sig):
+    if not force and sig and up_to_date(out, argv, sig, fingerprint, ignore_code):
         return dp, variant, "up-to-date", 0.0
     tmp = out.with_name(out.name + ".tmp")
     t0 = time.time()
@@ -136,6 +154,9 @@ def main():
     ap.add_argument("--data-root", default=None)
     ap.add_argument("--adapter-path", default=None)
     ap.add_argument("--force", action="store_true", help="rerun up-to-date outputs")
+    ap.add_argument("--ignore-code-changes", action="store_true",
+                    help="keep outputs made with older pipeline code (record "
+                         "changes still trigger reruns)")
     ap.add_argument("--dry-run", action="store_true", help="list the runs and exit")
     a = ap.parse_args(own)
 
@@ -175,11 +196,15 @@ def main():
     env = dict(os.environ)
     for var in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS"):
         env.setdefault(var, "1")      # parallelism comes from --jobs
+    fingerprint = current_fingerprint(base, env)
+    print(f"selection: {fingerprint['n_records']} records (fingerprint {fingerprint['records']}), "
+          f"code {fingerprint['code']}")
 
     counts = {}
     failed = []
     with ThreadPoolExecutor(max(1, a.jobs)) as ex:
-        futs = [ex.submit(run_one, pkg, dp, v, base, out_dir, a.force, env) for dp, v in jobs]
+        futs = [ex.submit(run_one, pkg, dp, v, base, out_dir, a.force, env, fingerprint,
+                          a.ignore_code_changes) for dp, v in jobs]
         for k, fut in enumerate(futs, 1):
             dp, v, status, dt = fut.result()
             key = status.split(" ")[0]

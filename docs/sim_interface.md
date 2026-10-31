@@ -190,9 +190,12 @@ python scripts/collect_campaign.py runs/ --output table.h5
 ```
 
 `run_campaign.py` runs one pipeline process per (design point, variant) with
-the manifest's `selection`, and skips runs whose arguments and source files
-are unchanged, so rerunning it after new data arrive computes only what is
-new.  `collect_campaign.py` writes runs × observables (`values`, `errors`),
+the manifest's `selection`, and skips runs whose arguments, source files,
+selected records and pipeline code are unchanged (the last two from
+`run_pipeline.py --print-fingerprint`, stored in each output as
+`records_fingerprint` / `code_fingerprint`), so rerunning it after new data
+or record corrections computes only what changed.  `--ignore-code-changes`
+keeps outputs made with older code.  `collect_campaign.py` writes runs × observables (`values`, `errors`),
 the aligned experimental points and the design parameters.
 
 ## 5. Without a package

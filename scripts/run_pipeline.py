@@ -49,6 +49,38 @@ CONFIG_PATH = os.path.join(_PROJECT_ROOT, "config/sim_paths.yaml")
 CONFIG_EXAMPLE = os.path.join(_PROJECT_ROOT, "config/sim_paths.example.yaml")
 
 
+def selection_fingerprint(dispatchable):
+    """Hashes of what determines a run's output besides the simulation.
+
+    records: the dispatched records (content and file) and the raw tables
+    their experimental values come from; code: the analysis library and the
+    pipeline scripts.  run_campaign.py reruns an output when either changes.
+    """
+    import hashlib
+    import json
+    rec = hashlib.sha256()
+    for fpath, doc, _entry in sorted(dispatchable, key=lambda x: (str(x[0]), json.dumps(
+            x[1], sort_keys=True, default=str))):
+        rec.update(str(fpath).encode())
+        rec.update(json.dumps(doc, sort_keys=True, default=str).encode())
+        raw = os.path.join(_PROJECT_ROOT, "hepdata_raw/records", f"ins{doc.get('inspire_id')}",
+                           f"HEPData-ins{doc.get('inspire_id')}-v{doc.get('version')}-yaml",
+                           str(doc.get('hepdata_file')))
+        if os.path.isfile(raw):
+            with open(raw, 'rb') as fh:
+                rec.update(hashlib.sha256(fh.read()).digest())
+    code = hashlib.sha256()
+    paths = sorted(os.path.join(_PROJECT_ROOT, "analysis", f)
+                   for f in os.listdir(os.path.join(_PROJECT_ROOT, "analysis")) if f.endswith(".py"))
+    paths += [os.path.join(_PROJECT_ROOT, "scripts", f) for f in ("run_pipeline.py", "compute_flow_vn.py")]
+    for p in paths:
+        code.update(os.path.basename(p).encode())
+        with open(p, 'rb') as fh:
+            code.update(fh.read())
+    return {"records": rec.hexdigest()[:16], "code": code.hexdigest()[:16],
+            "n_records": len(dispatchable)}
+
+
 def load_config():
     """Load the local simulation path mappings (config/sim_paths.yaml).
 
@@ -319,6 +351,10 @@ def main():
     parser.add_argument("--data-root", default=None,
                         help="--sim-package: data location, overriding the "
                              "manifest's data_root.")
+    parser.add_argument("--print-fingerprint", action="store_true",
+                        help="Print the fingerprint of the selected records "
+                             "and of the pipeline code as JSON (last line) "
+                             "and exit without computing.")
     parser.add_argument("--adapter-path", default=None,
                         help="--sim-package: directory to import the adapter "
                              "from (a checkout of the adapter repository), "
@@ -491,7 +527,8 @@ def main():
         try:
             sim_pkg = SimPackage(args.sim_package, data_root=args.data_root,
                                  adapter_path=args.adapter_path)
-            sim_pkg.check_variant(args.variant)
+            if not args.print_fingerprint:     # the selection needs no variant
+                sim_pkg.check_variant(args.variant)
         except SimPackageError as e:
             parser.error(str(e))
         print(f"  Sim package: {sim_pkg.name} ({sim_pkg.container}), "
@@ -624,6 +661,12 @@ def main():
                 pass
         print(f"  Found {len(dispatchable)} dispatchable records")
 
+    fingerprint = selection_fingerprint(dispatchable)
+    if args.print_fingerprint:
+        import json
+        print(json.dumps(fingerprint))
+        return
+
     groups = group_records((fp, d) for fp, d, _ in dispatchable)
     print(f"  Grouped into {len(groups)} collision systems")
 
@@ -634,6 +677,8 @@ def main():
         h5f.attrs['type'] = ",".join(args.type)
         import json
         h5f.attrs['pipeline_argv'] = json.dumps(sys.argv[1:])
+        h5f.attrs['records_fingerprint'] = fingerprint['records']
+        h5f.attrs['code_fingerprint'] = fingerprint['code']
         h5f.attrs['sim_type'] = sim_pkg.container if sim_pkg else args.sim
         h5f.attrs['design_point'] = args.design_point
         h5f.attrs['cent_method'] = args.cent_method

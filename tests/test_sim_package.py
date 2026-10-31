@@ -310,6 +310,33 @@ def test_campaign_driver_and_collector():
                            cwd=ROOT, capture_output=True, text=True)
         check("campaign: dry run selects", "1 design points x 1 variant(s)" in r.stdout)
 
+        # The selection/code fingerprint: stored in the outputs, and a change
+        # in either makes an output stale (records changed => rerun).
+        import importlib.util
+        import json as _json
+        spec = importlib.util.spec_from_file_location("rc", ROOT / "scripts" / "run_campaign.py")
+        rc = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(rc)
+        sel = cmd[9:]
+        base = ["--sim-package", str(pkg_dir)] + sel
+        fp = rc.current_fingerprint(base, dict(os.environ))
+        other = [r"^v3\{2\}$" if x == r"^v2\{2\}$" else x for x in base]
+        fp_other = rc.current_fingerprint(other, dict(os.environ))
+        check("fingerprint follows the selection",
+              fp["records"] != fp_other["records"] and fp["code"] == fp_other["code"])
+        out0 = out / "dp0000_plain.h5"
+        with h5py.File(out0, "r") as f:
+            stored = (f.attrs["records_fingerprint"], f.attrs["code_fingerprint"])
+            argv = _json.loads(f.attrs["campaign_argv"])
+            sig = _json.loads(f.attrs["campaign_sources"])
+        check("outputs carry the fingerprint", stored == (fp["records"], fp["code"]))
+        check("up to date with the same fingerprint", rc.up_to_date(out0, argv, sig, fp))
+        check("stale when the records change",
+              not rc.up_to_date(out0, argv, sig, dict(fp, records="0" * 16)))
+        check("stale when the code changes, unless ignored",
+              not rc.up_to_date(out0, argv, sig, dict(fp, code="0" * 16))
+              and rc.up_to_date(out0, argv, sig, dict(fp, code="0" * 16), ignore_code=True))
+
         table = Path(tmp) / "table.h5"
         r = subprocess.run([sys.executable, "scripts/collect_campaign.py", str(out),
                             "--output", str(table), "--csv", str(Path(tmp) / "long.csv")],
