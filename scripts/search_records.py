@@ -195,6 +195,9 @@ def generate_manifest(matches_list, output_path):
             "harmonic": doc.get("harmonic"),
             "cumulant_order": doc.get("cumulant_order"),
             "particles": doc.get("particles"),
+            # Tells apart the per-centrality documents of one table, which
+            # share the id; run_pipeline checks the pin against it.
+            "centrality_classes": (doc.get("centrality") or {}).get("classes"),
             "select": True,
         }
         # Remove None fields for cleanliness

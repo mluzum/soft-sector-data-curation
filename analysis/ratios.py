@@ -25,10 +25,23 @@ from analysis.dispatcher import resolve
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-def resolve_link(link):
-    """(absolute path, document index, document) of a ratio link; raises ValueError."""
+def collection_base(record_file):
+    """Directory that relative links of a record resolve against: the parent of
+    the records root holding it (<base>/data/<type>/<file>); this repository for
+    its own records, the collection's directory for records kept elsewhere."""
+    if not record_file:
+        return ROOT
+    p = os.path.abspath(record_file)
+    return os.path.dirname(os.path.dirname(os.path.dirname(p)))
+
+
+def resolve_link(link, base=None):
+    """(absolute path, document index, document) of a ratio link; raises ValueError.
+
+    Relative links ("data/<type>/<file>[#<doc>]") resolve against `base`
+    (collection_base of the ratio record), default this repository."""
     path, _, idx = str(link).partition('#')
-    full = path if os.path.isabs(path) else os.path.join(ROOT, path)
+    full = path if os.path.isabs(path) else os.path.join(base or ROOT, path)
     if not os.path.isfile(full):
         raise ValueError(f'no record file {path}')
     docs = list(yaml.safe_load_all(open(full)))

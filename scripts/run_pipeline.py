@@ -109,6 +109,24 @@ def group_records(records_iter):
     return groups
 
 
+def _pin_mismatch(entry, doc):
+    """Why the document at a manifest pin is not the entry's record, or None."""
+    from analysis.record_id import record_short_id
+    if doc is None:
+        return 'no document at that index'
+    if entry.get('id') and record_short_id(doc) != entry['id']:
+        return f"it holds {record_short_id(doc)}"
+    for k in ('inspire_id', 'hepdata_file', 'value_type'):
+        if entry.get(k) is not None and str(doc.get(k)) != str(entry[k]):
+            return f"its {k} is {doc.get(k)!r}, not {entry[k]!r}"
+    # The per-centrality documents of one table share the id; the classes tell
+    # them apart.
+    classes = (doc.get('centrality') or {}).get('classes')
+    if entry.get('centrality_classes') is not None and classes != entry['centrality_classes']:
+        return f"its centrality classes are {classes}"
+    return None
+
+
 def _normalize_reaction(reaction):
     """Map full HEPData reaction strings to abbreviated config keys."""
     upp = reaction.upper()
@@ -583,17 +601,27 @@ def main():
             # tell them apart.
             found = None
             if entry.get('fpath') is not None and entry.get('doc_index') is not None:
+                # A pin must still hold the record the manifest names: files
+                # change (records added, split, moved to another collection),
+                # and a stale index would silently compute another record.
+                # A pin that cannot be honored skips the entry rather than
+                # falling back to the ambiguous lookups below.
+                pin = f"{entry['fpath']}#{entry['doc_index']}"
                 import yaml as _yaml
                 try:
                     _docs = list(_yaml.safe_load_all(open(entry['fpath'])))
                     _doc = _docs[int(entry['doc_index'])]
-                    if _doc is not None:
-                        found = {'file_path': entry['fpath'],
-                                 'doc_index': int(entry['doc_index']),
-                                 'doc': _doc}
                 except Exception as e:
-                    print(f"  WARNING: manifest pin {entry.get('fpath')}#{entry.get('doc_index')} failed: {e}")
-                    found = None
+                    _doc, why = None, str(e)
+                else:
+                    why = _pin_mismatch(entry, _doc)
+                if why:
+                    print(f"  WARNING: manifest pin {pin} is stale ({why}); skipping "
+                          f"{entry.get('id', '?')} -- regenerate the manifest with search_records.py")
+                    continue
+                found = {'file_path': entry['fpath'],
+                         'doc_index': int(entry['doc_index']),
+                         'doc': _doc}
             if found is not None and found.get('doc') is not None:
                 # Stash the pinned doc index so per-record overrides can
                 # target ONE doc of a multi-doc file.  Needed because all

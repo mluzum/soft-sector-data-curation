@@ -11,26 +11,19 @@ Run: python3 tests/test_ratio_links.py
 import os
 import sys
 
-import yaml
-
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
 
 from analysis.dispatcher import iter_records  # noqa: E402
+from analysis import ratios  # noqa: E402
 
 
 def resolve_link(link):
-    path, _, idx = str(link).partition('#')
-    full = os.path.join(ROOT, path)
-    if not os.path.isfile(full):
-        return None, f'no file {path}'
-    docs = [d for d in yaml.safe_load_all(open(full)) if d]
-    if idx:
-        i = int(idx)
-        return (docs[i], None) if i < len(docs) else (None, f'{path} has no document {i}')
-    if len(docs) != 1:
-        return None, f'{path} holds {len(docs)} documents; link one with "#<index>"'
-    return docs[0], None
+    """Links of this repository's ratio records must resolve within it."""
+    try:
+        return ratios.resolve_link(link, ROOT)[2], None
+    except ValueError as e:
+        return None, str(e)
 
 
 def _norm(reaction):

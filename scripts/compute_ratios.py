@@ -45,7 +45,7 @@ sys.path.insert(0, str(ROOT))
 
 from analysis.dispatcher import (extract_measurement_params, iter_records,  # noqa: E402
                                  load_experimental, record_roots)
-from analysis.ratios import joint_jackknife, label_key, resolve_link, side_record  # noqa: E402
+from analysis.ratios import collection_base, joint_jackknife, label_key, resolve_link, side_record  # noqa: E402
 
 
 def select_ratio_records(a):
@@ -169,7 +169,7 @@ def main():
         try:
             sides = {}
             for side, link in (("num", r["numerator_record"]), ("den", r["denominator_record"])):
-                path, idx, doc = resolve_link(link)
+                path, idx, doc = resolve_link(link, collection_base(r.get("_record_file")))
                 rec = side_record(doc, r)
                 if rec != doc:      # computed as the corrected quantity: pin a modified copy
                     path = str(work / f"{side}_{len(entries[side])}.yaml")

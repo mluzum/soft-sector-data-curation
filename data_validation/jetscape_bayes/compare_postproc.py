@@ -28,6 +28,8 @@ import numpy as np
 
 sys.path.insert(0, '.')
 
+from analysis.dispatcher import record_roots  # noqa: E402
+
 
 # Model differential binnings (bin edges) for observable families where the
 # model columns carry no edge metadata.  Established by value-matching
@@ -201,6 +203,27 @@ def short_vt(vt):
     return vt if len(vt) <= 25 else vt[:22] + '...'
 
 
+# Record types the JETSCAPE comparison covers.
+RECORD_TYPES = ('flow_vn', 'particle_yields', 'mean_pT', 'transverse_energy',
+                'flow_harmonic_correlations')
+
+
+def is_row_record(doc, row):
+    """True if doc is the record an inventory row names."""
+    if doc is None:
+        return False
+    for k in ('hepdata_file', 'value_type'):
+        if row.get(k) and str(doc.get(k, '')) != row[k]:
+            return False
+    try:
+        lo, hi = float(row['record_cent_lo']), float(row['record_cent_hi'])
+    except (KeyError, TypeError, ValueError):
+        return True
+    # The row's class is the model's; it lies within one of the record's.
+    cents = record_cent_list(doc)
+    return not cents or cent_contains(cents, lo, hi)
+
+
 def build_record_index(data_dirs, cache_path=None):
     """Walk the data/ YAMLs and build a record index.
 
@@ -211,9 +234,15 @@ def build_record_index(data_dirs, cache_path=None):
     If cache_path is given and exists, load from it. Otherwise build and save.
     """
     import json
+    # The cache is valid for the same record files, unchanged.
+    stamp = sorted([os.path.abspath(os.path.join(d, f)), os.path.getmtime(os.path.join(d, f))]
+                   for d in data_dirs if os.path.isdir(d)
+                   for f in os.listdir(d) if f.endswith('.yaml'))
     if cache_path and os.path.isfile(cache_path):
         with open(cache_path) as f:
-            return json.load(f)
+            cached = json.load(f)
+        if isinstance(cached, dict) and cached.get('files') == stamp:
+            return cached['index']
 
     import yaml
     src_to_records = {}
@@ -240,7 +269,7 @@ def build_record_index(data_dirs, cache_path=None):
     # Convert to JSON-serializable
     if cache_path:
         with open(cache_path, 'w') as f:
-            json.dump(src_to_records, f)
+            json.dump({'files': stamp, 'index': src_to_records}, f)
     return src_to_records
 
 
@@ -689,9 +718,13 @@ def main():
                          'simulation.csv of github.com/IFUSP-Heavy-Ions/hic-bayes')
     ap.add_argument('--exp-csv', default='data_validation/jetscape_bayes/exp_data/experiment.csv')
     ap.add_argument('--err-csv', default='data_validation/jetscape_bayes/exp_data/exp_error.csv')
-    ap.add_argument('--data-dirs', nargs='+',
-                    default=['data/flow_vn', 'data/particle_yields', 'data/mean_pT',
-                              'data/transverse_energy', 'data/flow_harmonic_correlations'])
+    ap.add_argument('--data-dirs', nargs='+', default=None,
+                    help='record directories to index (default: the RECORD_TYPES '
+                         'directories of every records root)')
+    ap.add_argument('--extra-records', action='append', default=[], metavar='DIR',
+                    help='another records root (laid out like data/<type>/), e.g. for '
+                         'inventory rows whose records are kept outside this database; '
+                         'repeatable, also $SOFT_SECTOR_EXTRA_RECORDS')
     ap.add_argument('--output', required=True, help='output CSV path')
     args = ap.parse_args()
 
@@ -699,6 +732,9 @@ def main():
     inv = load_inventory(args.inventory)
     print(f'  {len(inv)} inventory rows', flush=True)
 
+    roots = record_roots(args.extra_records)
+    if args.data_dirs is None:
+        args.data_dirs = [os.path.join(r, t) for r in roots for t in RECORD_TYPES]
     print(f'Building record index from {args.data_dirs}', flush=True)
     cache = 'data_validation/jetscape_bayes/_record_index_cache.json'
     src_to_records = build_record_index(args.data_dirs, cache_path=cache)
@@ -772,26 +808,25 @@ def main():
     import yaml as _yaml
     from analysis.dispatcher import load_experimental as _load_exp
 
-    def load_doc(fpath, doc_idx):
-        inv_basename = fpath.split('/')[-1]
-        cands = [
-            fpath,
-            os.path.join('data', fpath.split('/', 1)[-1] if '/' in fpath else fpath),
-            os.path.join('data', 'flow_vn', inv_basename),
-            os.path.join('data', 'particle_yields', inv_basename),
-            os.path.join('data', 'mean_pT', inv_basename),
-            os.path.join('data', 'transverse_energy', inv_basename),
-            os.path.join('data', 'flow_harmonic_correlations', inv_basename),
-        ]
-        for cp in cands:
-            if os.path.isfile(cp):
-                try:
-                    docs = list(_yaml.safe_load_all(open(cp)))
-                except Exception:
-                    return None
-                if 0 <= doc_idx < len(docs):
-                    return docs[doc_idx]
-                return None
+    def load_doc(fpath, doc_idx, row):
+        """The record of an inventory row: document doc_idx of fpath, or of the
+        file of that name in a records root.  Document indices go stale when
+        record files change (records added, files split, records moved to
+        another root), so the document must match the row: hepdata_file,
+        value_type, and a class holding the row's.  That catches a stale index, except
+        between documents agreeing on all three (the three PHOBOS v2(eta)
+        figures, told apart only by their bins)."""
+        name = os.path.basename(fpath)
+        cands = [fpath] + [os.path.join(r, t, name) for r in roots for t in RECORD_TYPES]
+        for path in dict.fromkeys(cands):
+            if not os.path.isfile(path):
+                continue
+            try:
+                docs = list(_yaml.safe_load_all(open(path)))
+            except Exception:
+                continue
+            if 0 <= doc_idx < len(docs) and is_row_record(docs[doc_idx], row):
+                return docs[doc_idx]
         return None
 
     by_record = {}
@@ -815,8 +850,9 @@ def main():
         if not rec_rows:
             n_skipped_no_model += len([r for r in by_record[(fpath, doc_idx)]])
             continue
-        doc = load_doc(fpath, doc_idx)
+        doc = load_doc(fpath, doc_idx, rec_rows[0])
         if doc is None:
+            # Not found, or the document at that index is another record.
             skip('record_yaml_not_found')
             n_skipped_no_src += len(rec_rows)
             continue
