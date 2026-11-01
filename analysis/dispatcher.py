@@ -836,10 +836,9 @@ def load_experimental(params):
         # PHENIX "Mean pT MeV/c") normalize to GeV, so experimental
         # overlays match computed values.
         values = []
-        errs_stat = []
-        errs_syst = []
+        errors = []
         for vrows in zip(*[s["values"] for s in series]):
-            acc_val, acc_stat, acc_syst = 0.0, 0.0, 0.0
+            acc_val, acc_err = 0.0, 0.0
             row_ok = True
             for v, s in zip(vrows, series):
                 header = s.get('header', {}) or {}
@@ -856,45 +855,46 @@ def load_experimental(params):
                 if np.isnan(val):
                     row_ok = False
                     break
-                e0 = v.get("errors", [{}])[0]
-                e1 = v.get("errors", [{}])[1] if len(v.get("errors", [])) > 1 else {}
-                stat = _safe_float(e0.get("symerror"))
-                syst = _safe_float(e1.get("symerror"))
-                if np.isnan(stat):
-                    asym = e0.get("asymerror", {})
-                    plus = _safe_float(asym.get("plus"))
-                    minus = _safe_float(asym.get("minus"))
-                    if not np.isnan(plus) and not np.isnan(minus):
-                        stat = (plus + abs(minus)) / 2
-                    else:
-                        stat = 0.0
                 acc_val += val * scale
-                acc_stat += stat * scale if not np.isnan(stat) else 0.0
-                acc_syst += syst * scale if not np.isnan(syst) else 0.0
+                acc_err += _point_error(v.get("errors") or [], val) * scale
             if not row_ok:
                 continue
-            n_ser = len(series)
-            values.append(acc_val / n_ser)
-            errs_stat.append(acc_stat / n_ser)
-            errs_syst.append(acc_syst / n_ser)
+            values.append(acc_val / len(series))
+            errors.append(acc_err / len(series))
         if not values:
             print(f"  No valid experimental values found")
             return None, None
-        vals = np.array(values)
-        errs = np.sqrt(np.array(errs_stat) ** 2 + np.array(errs_syst) ** 2)
-        return vals, errs
+        return np.array(values), np.array(errors)
     except Exception as e:
         print(f"  Could not load experimental values: {e}")
         return None, None
-        if not values:
-            print(f"  No valid experimental values found")
-            return None, None
-        vals = np.array(values)
-        errs = np.sqrt(np.array(errs_stat) ** 2 + np.array(errs_syst) ** 2)
-        return vals, errs
-    except Exception as e:
-        print(f"  Could not load experimental values: {e}")
-        return None, None
+
+
+def _error_size(x, val):
+    """One error number: absolute, or 'x%' relative to the value."""
+    if isinstance(x, str) and x.strip().endswith('%'):
+        return abs(val) * _safe_float(x.strip()[:-1]) / 100
+    return abs(_safe_float(x))
+
+
+def _point_error(errs, val):
+    """Total error of a HEPData point: all components (statistical and every
+    systematic one) in quadrature; an asymmetric component enters as the mean
+    of its two sides."""
+    total = 0.0
+    for e in errs:
+        if 'symerror' in e:
+            size = _error_size(e['symerror'], val)
+        elif 'asymerror' in e:
+            a = e['asymerror'] or {}
+            sides = [_error_size(a.get(k), val) for k in ('plus', 'minus')]
+            sides = [x for x in sides if not np.isnan(x)]
+            size = sum(sides) / len(sides) if sides else np.nan
+        else:
+            size = np.nan
+        if not np.isnan(size):
+            total += size ** 2
+    return float(np.sqrt(total))
 
 
 def iter_records(record_dir, value_type_filter=None):

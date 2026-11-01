@@ -166,6 +166,10 @@ bias-corrected central value θ̂ = Nθ − (N−1)θ̄.
   `extract_differential_bins` returns none for `dimensionality: integrated`.
 - **Experimental scales**: percent or ×100 columns and MeV headers are
   normalized in `load_experimental`.
+- **Experimental errors**: `load_experimental` returns the total error, all
+  HEPData components in quadrature (asymmetric: the mean of the two sides;
+  `x%`: relative to the value).  Until November 2026 a third component was
+  ignored and an asymmetric second one dropped.
 - **Reproducibility**: outputs agree run to run to about 1e-16, not bit for
   bit (numpy SIMD reductions depend on memory alignment). Compare outputs
   with a relative tolerance, and containers exactly.

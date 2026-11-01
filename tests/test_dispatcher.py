@@ -417,6 +417,29 @@ def test_validator_points_rules():
     assert errs({'min': -5, 'max': 5, 'bin_ranges': [[2.5, 3.0]], 'bins': [0.0, 1.0]})
 
 
+def test_load_experimental_total_error():
+    """The experimental error is every HEPData component in quadrature: an
+    asymmetric one as the mean of its sides, 'x%' relative to the value.
+    (Until Nov 2026 a third component was ignored and an asymmetric second
+    one dropped.)"""
+    import numpy as np
+    from analysis.dispatcher import load_experimental
+    table = {'independent_variables': [{'header': {'name': 'X'}, 'values': [{'value': i} for i in range(4)]}],
+             'dependent_variables': [{'header': {'name': 'V2'}, 'values': [
+                 {'value': 1.0, 'errors': [{'symerror': 0.3, 'label': 'stat'},
+                                           {'asymerror': {'plus': 0.5, 'minus': -0.3}, 'label': 'sys'}]},
+                 {'value': 2.0, 'errors': [{'symerror': 0.1}, {'symerror': 0.2}, {'symerror': 0.2}]},
+                 {'value': 4.0, 'errors': [{'symerror': '5%'}, {'symerror': 0.3}]},
+                 {'value': 1.0, 'errors': [{'asymerror': {'plus': 0.2}}]}]}]}
+    with tempfile.TemporaryDirectory() as tmp:
+        path = os.path.join(tmp, 't.yaml')
+        yaml.safe_dump(table, open(path, 'w'))
+        v, e = load_experimental({'inspire_id': '0', 'version': 1, 'hepdata_file': 't.yaml', 'value_table': path})
+    assert list(v) == [1.0, 2.0, 4.0, 1.0], v
+    want = [np.hypot(0.3, 0.4), 0.3, np.hypot(0.2, 0.3), 0.2]
+    assert np.allclose(e, want), (e, want)
+
+
 if __name__ == '__main__':
     tests = [fn for fn in dir() if fn.startswith('test_')]
     n_pass = 0
