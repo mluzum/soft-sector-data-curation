@@ -1,21 +1,15 @@
----
 observable_type: particle_spectra
 inspire_id: '1378002'
 version: 1
 hepdata_file: Table1.yaml
-hepdata_table_label: 'Phi Meson Spectra.
-
-  '
-qualifiers:
-  centrality: 0.0-10.0
-  re: AU AU --> PHI X
-  sqrt(s)/nucleon: '7.7'
+dv_index: 0
+hepdata_table_label: phi spectrum, 0-10% Au+Au at 7.7 GeV (Data from Figure 1)
 collision_system:
   energy_gev: 7.7
-  reaction: AU AU --> PHI X
+  reaction: AU AU --> X
 centrality:
   classes:
-  - 0.0-10.0%
+  - 0-10%
   estimator:
     name: RefMult
     observable: Nch
@@ -23,461 +17,43 @@ centrality:
   eta:
   - min: -0.5
     max: 0.5
-particle_id:
-  species: charged
 kinematic_range:
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-  pT:
-    min: 0.15
-    max: 10
-    bins:
-    - 0.15
-    - 10
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table10.yaml
-hepdata_table_label: 'Phi Meson Spectra.
-
-  '
-qualifiers:
-  centrality: 0.0-40.0
-  re: AU AU --> PHI X
-  sqrt(s)/nucleon: '7.7'
-collision_system:
-  energy_gev: 7.7
-  reaction: AU AU --> PHI X
-centrality:
-  classes:
-  - 0.0-40.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
+  y:
+    min: -0.5
     max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
   pT:
-    min: 0.15
-    max: 10
+    min: 0.4
+    max: 1.7
     bins:
-    - 0.15
-    - 10
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table11.yaml
-hepdata_table_label: 'Phi Meson Spectra.
-
-  '
-qualifiers:
-  centrality: 0.0-60.0
-  re: AU AU --> PHI X
-  sqrt(s)/nucleon: '7.7'
-collision_system:
-  energy_gev: 7.7
-  reaction: AU AU --> PHI X
-centrality:
-  classes:
-  - 0.0-60.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
+    - 0.4
+    - 0.5
+    - 0.6
+    - 0.7
+    - 0.9
     - 1.0
-  pT:
-    min: 0.15
-    max: 10
-    bins:
-    - 0.15
-    - 10
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table12.yaml
-hepdata_table_label: 'Phi Meson Spectra.
-
-  '
-qualifiers:
-  centrality: 0.0-80.0
-  re: AU AU --> PHI X
-  sqrt(s)/nucleon: '7.7'
-collision_system:
-  energy_gev: 7.7
-  reaction: AU AU --> PHI X
-centrality:
-  classes:
-  - 0.0-80.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
+    - 1.3
+    - 1.7
 particle_id:
-  species: charged
-kinematic_range:
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-  pT:
-    min: 0.15
-    max: 10
-    bins:
-    - 0.15
-    - 10
-observable: dN_dpT_dy
+  species: phi
+observable: invariant_yield
 value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table13.yaml
-hepdata_table_label: 'Phi Meson Spectra.
-
-  '
-qualifiers:
-  centrality: 0.0-10.0
-  re: AU AU --> PHI X
-  sqrt(s)/nucleon: '7.7'
-collision_system:
-  energy_gev: 7.7
-  reaction: AU AU --> PHI X
-centrality:
-  classes:
-  - 0.0-10.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-  pT:
-    min: 0.15
-    max: 10
-    bins:
-    - 0.15
-    - 10
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table14.yaml
-hepdata_table_label: 'Phi Meson Spectra.
-
-  '
-qualifiers:
-  centrality: 0.0-20.0
-  re: AU AU --> PHI X
-  sqrt(s)/nucleon: '7.7'
-collision_system:
-  energy_gev: 7.7
-  reaction: AU AU --> PHI X
-centrality:
-  classes:
-  - 0.0-20.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-  pT:
-    min: 0.15
-    max: 10
-    bins:
-    - 0.15
-    - 10
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table15.yaml
-hepdata_table_label: 'Phi Meson Spectra.
-
-  '
-qualifiers:
-  centrality: 0.0-30.0
-  re: AU AU --> PHI X
-  sqrt(s)/nucleon: '7.7'
-collision_system:
-  energy_gev: 7.7
-  reaction: AU AU --> PHI X
-centrality:
-  classes:
-  - 0.0-30.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-  pT:
-    min: 0.15
-    max: 10
-    bins:
-    - 0.15
-    - 10
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table16.yaml
-hepdata_table_label: 'Phi Meson Spectra.
-
-  '
-qualifiers:
-  centrality: 0.0-40.0
-  re: AU AU --> PHI X
-  sqrt(s)/nucleon: '7.7'
-collision_system:
-  energy_gev: 7.7
-  reaction: AU AU --> PHI X
-centrality:
-  classes:
-  - 0.0-40.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-  pT:
-    min: 0.15
-    max: 10
-    bins:
-    - 0.15
-    - 10
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table17.yaml
-hepdata_table_label: 'Phi Meson Spectra.
-
-  '
-qualifiers:
-  centrality: 0.0-60.0
-  re: AU AU --> PHI X
-  sqrt(s)/nucleon: '7.7'
-collision_system:
-  energy_gev: 7.7
-  reaction: AU AU --> PHI X
-centrality:
-  classes:
-  - 0.0-60.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-  pT:
-    min: 0.15
-    max: 10
-    bins:
-    - 0.15
-    - 10
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table18.yaml
-hepdata_table_label: 'Phi Meson Spectra.
-
-  '
-qualifiers:
-  centrality: 0.0-80.0
-  re: AU AU --> PHI X
-  sqrt(s)/nucleon: '7.7'
-collision_system:
-  energy_gev: 7.7
-  reaction: AU AU --> PHI X
-centrality:
-  classes:
-  - 0.0-80.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-  pT:
-    min: 0.15
-    max: 10
-    bins:
-    - 0.15
-    - 10
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table19.yaml
-hepdata_table_label: 'Phi Meson Spectra.
-
-  '
-qualifiers:
-  centrality: 0.0-10.0
-  re: AU AU --> PHI X
-  sqrt(s)/nucleon: '7.7'
-collision_system:
-  energy_gev: 7.7
-  reaction: AU AU --> PHI X
-centrality:
-  classes:
-  - 0.0-10.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-  pT:
-    min: 0.15
-    max: 10
-    bins:
-    - 0.15
-    - 10
-observable: dN_dpT_dy
-value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 1. d2N/(2 pi N_evt pT dy
+    dpT) of phi, |y| < 0.5, 0-10% at 7.7 GeV; pT bins from the axis strings. Energy and class from the figure (the HEPData
+    labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
 ---
 observable_type: particle_spectra
 inspire_id: '1378002'
 version: 1
 hepdata_file: Table2.yaml
-hepdata_table_label: 'Phi Meson Spectra.
-
-  '
-qualifiers:
-  centrality: 0.0-20.0
-  re: AU AU --> PHI X
-  sqrt(s)/nucleon: '7.7'
+dv_index: 0
+hepdata_table_label: phi spectrum, 10-20% Au+Au at 7.7 GeV (Data from Figure 1)
 collision_system:
   energy_gev: 7.7
-  reaction: AU AU --> PHI X
+  reaction: AU AU --> X
 centrality:
   classes:
-  - 0.0-20.0%
+  - 10-20%
   estimator:
     name: RefMult
     observable: Nch
@@ -485,461 +61,43 @@ centrality:
   eta:
   - min: -0.5
     max: 0.5
-particle_id:
-  species: charged
 kinematic_range:
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-  pT:
-    min: 0.15
-    max: 10
-    bins:
-    - 0.15
-    - 10
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table20.yaml
-hepdata_table_label: 'Phi Meson Spectra.
-
-  '
-qualifiers:
-  centrality: 0.0-20.0
-  re: AU AU --> PHI X
-  sqrt(s)/nucleon: '7.7'
-collision_system:
-  energy_gev: 7.7
-  reaction: AU AU --> PHI X
-centrality:
-  classes:
-  - 0.0-20.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
+  y:
+    min: -0.5
     max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
   pT:
-    min: 0.15
-    max: 10
+    min: 0.4
+    max: 1.7
     bins:
-    - 0.15
-    - 10
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table21.yaml
-hepdata_table_label: 'Phi Meson Spectra.
-
-  '
-qualifiers:
-  centrality: 0.0-30.0
-  re: AU AU --> PHI X
-  sqrt(s)/nucleon: '7.7'
-collision_system:
-  energy_gev: 7.7
-  reaction: AU AU --> PHI X
-centrality:
-  classes:
-  - 0.0-30.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
+    - 0.4
+    - 0.5
+    - 0.6
+    - 0.7
+    - 0.9
     - 1.0
-  pT:
-    min: 0.15
-    max: 10
-    bins:
-    - 0.15
-    - 10
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table22.yaml
-hepdata_table_label: 'Phi Meson Spectra.
-
-  '
-qualifiers:
-  centrality: 0.0-40.0
-  re: AU AU --> PHI X
-  sqrt(s)/nucleon: '7.7'
-collision_system:
-  energy_gev: 7.7
-  reaction: AU AU --> PHI X
-centrality:
-  classes:
-  - 0.0-40.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
+    - 1.3
+    - 1.7
 particle_id:
-  species: charged
-kinematic_range:
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-  pT:
-    min: 0.15
-    max: 10
-    bins:
-    - 0.15
-    - 10
-observable: dN_dpT_dy
+  species: phi
+observable: invariant_yield
 value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table23.yaml
-hepdata_table_label: 'Phi Meson Spectra.
-
-  '
-qualifiers:
-  centrality: 0.0-60.0
-  re: AU AU --> PHI X
-  sqrt(s)/nucleon: '7.7'
-collision_system:
-  energy_gev: 7.7
-  reaction: AU AU --> PHI X
-centrality:
-  classes:
-  - 0.0-60.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-  pT:
-    min: 0.15
-    max: 10
-    bins:
-    - 0.15
-    - 10
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table24.yaml
-hepdata_table_label: 'Phi Meson Spectra.
-
-  '
-qualifiers:
-  centrality: 0.0-80.0
-  re: AU AU --> PHI X
-  sqrt(s)/nucleon: '7.7'
-collision_system:
-  energy_gev: 7.7
-  reaction: AU AU --> PHI X
-centrality:
-  classes:
-  - 0.0-80.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-  pT:
-    min: 0.15
-    max: 10
-    bins:
-    - 0.15
-    - 10
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table25.yaml
-hepdata_table_label: 'Phi Meson Spectra.
-
-  '
-qualifiers:
-  centrality: 0.0-10.0
-  re: AU AU --> PHI X
-  sqrt(s)/nucleon: '7.7'
-collision_system:
-  energy_gev: 7.7
-  reaction: AU AU --> PHI X
-centrality:
-  classes:
-  - 0.0-10.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-  pT:
-    min: 0.15
-    max: 10
-    bins:
-    - 0.15
-    - 10
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table26.yaml
-hepdata_table_label: 'Phi Meson Spectra.
-
-  '
-qualifiers:
-  centrality: 0.0-20.0
-  re: AU AU --> PHI X
-  sqrt(s)/nucleon: '7.7'
-collision_system:
-  energy_gev: 7.7
-  reaction: AU AU --> PHI X
-centrality:
-  classes:
-  - 0.0-20.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-  pT:
-    min: 0.15
-    max: 10
-    bins:
-    - 0.15
-    - 10
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table27.yaml
-hepdata_table_label: 'Phi Meson Spectra.
-
-  '
-qualifiers:
-  centrality: 0.0-30.0
-  re: AU AU --> PHI X
-  sqrt(s)/nucleon: '7.7'
-collision_system:
-  energy_gev: 7.7
-  reaction: AU AU --> PHI X
-centrality:
-  classes:
-  - 0.0-30.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-  pT:
-    min: 0.15
-    max: 10
-    bins:
-    - 0.15
-    - 10
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table28.yaml
-hepdata_table_label: 'Phi Meson Spectra.
-
-  '
-qualifiers:
-  centrality: 0.0-40.0
-  re: AU AU --> PHI X
-  sqrt(s)/nucleon: '7.7'
-collision_system:
-  energy_gev: 7.7
-  reaction: AU AU --> PHI X
-centrality:
-  classes:
-  - 0.0-40.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-  pT:
-    min: 0.15
-    max: 10
-    bins:
-    - 0.15
-    - 10
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table29.yaml
-hepdata_table_label: 'Phi Meson Spectra.
-
-  '
-qualifiers:
-  centrality: 0.0-60.0
-  re: AU AU --> PHI X
-  sqrt(s)/nucleon: '7.7'
-collision_system:
-  energy_gev: 7.7
-  reaction: AU AU --> PHI X
-centrality:
-  classes:
-  - 0.0-60.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-  pT:
-    min: 0.15
-    max: 10
-    bins:
-    - 0.15
-    - 10
-observable: dN_dpT_dy
-value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 1. d2N/(2 pi N_evt pT dy
+    dpT) of phi, |y| < 0.5, 10-20% at 7.7 GeV; pT bins from the axis strings. Energy and class from the figure (the HEPData
+    labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
 ---
 observable_type: particle_spectra
 inspire_id: '1378002'
 version: 1
 hepdata_file: Table3.yaml
-hepdata_table_label: 'Phi Meson Spectra.
-
-  '
-qualifiers:
-  centrality: 0.0-30.0
-  re: AU AU --> PHI X
-  sqrt(s)/nucleon: '7.7'
+dv_index: 0
+hepdata_table_label: phi spectrum, 20-30% Au+Au at 7.7 GeV (Data from Figure 1)
 collision_system:
   energy_gev: 7.7
-  reaction: AU AU --> PHI X
+  reaction: AU AU --> X
 centrality:
   classes:
-  - 0.0-30.0%
+  - 20-30%
   estimator:
     name: RefMult
     observable: Nch
@@ -947,486 +105,43 @@ centrality:
   eta:
   - min: -0.5
     max: 0.5
-particle_id:
-  species: charged
 kinematic_range:
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-  pT:
-    min: 0.15
-    max: 10
-    bins:
-    - 0.15
-    - 10
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table30.yaml
-hepdata_table_label: 'Phi Meson Spectra.
-
-  '
-qualifiers:
-  centrality: 0.0-80.0
-  re: AU AU --> PHI X
-  sqrt(s)/nucleon: '7.7'
-collision_system:
-  energy_gev: 7.7
-  reaction: AU AU --> PHI X
-centrality:
-  classes:
-  - 0.0-80.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
+  y:
+    min: -0.5
     max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
   pT:
-    min: 0.15
-    max: 10
+    min: 0.4
+    max: 1.7
     bins:
-    - 0.15
-    - 10
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table31.yaml
-hepdata_table_label: No description provided.
-qualifiers:
-  centrality: 0.0-60.0
-  re: AU AU --> OMEGA- X
-  sqrt(s)/nucleon: '7.7'
-collision_system:
-  energy_gev: 7.7
-  reaction: AU AU --> OMEGA- X
-centrality:
-  classes:
-  - 0.0-60.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
-  pT:
-    min: 0.799085
-    max: 3.198615
-    bins:
-    - 0.799085
-    - 1.229455
-    - 1.615025
-    - 2.00335
-    - 2.547065
-    - 3.198615
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
+    - 0.4
+    - 0.5
+    - 0.6
+    - 0.7
+    - 0.9
     - 1.0
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table32.yaml
-hepdata_table_label: No description provided.
-qualifiers:
-  centrality: 0.0-60.0
-  re: AU AU --> OMEGABAR+ X
-  sqrt(s)/nucleon: '7.7'
-collision_system:
-  energy_gev: 7.7
-  reaction: AU AU --> OMEGABAR+ X
-centrality:
-  classes:
-  - 0.0-60.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
+    - 1.3
+    - 1.7
 particle_id:
-  species: charged
-kinematic_range:
-  pT:
-    min: 0.7913999999999999
-    max: 3.1944850000000002
-    bins:
-    - 0.7913999999999999
-    - 1.2262
-    - 1.613545
-    - 2.00085
-    - 2.543635
-    - 3.1944850000000002
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-observable: dN_dpT_dy
+  species: phi
+observable: invariant_yield
 value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table33.yaml
-hepdata_table_label: No description provided.
-qualifiers:
-  centrality: 0.0-10.0
-  re: AU AU --> OMEGA- X
-  sqrt(s)/nucleon: '11.5'
-collision_system:
-  energy_gev: 11.5
-  reaction: AU AU --> OMEGA- X
-centrality:
-  classes:
-  - 0.0-10.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
-  pT:
-    min: 0.8217800000000002
-    max: 3.4031100000000003
-    bins:
-    - 0.8217800000000002
-    - 1.20448
-    - 1.592695
-    - 1.9878300000000002
-    - 2.385015
-    - 2.85699
-    - 3.4031100000000003
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table34.yaml
-hepdata_table_label: No description provided.
-qualifiers:
-  centrality: 0.0-60.0
-  re: AU AU --> OMEGA- X
-  sqrt(s)/nucleon: '11.5'
-collision_system:
-  energy_gev: 11.5
-  reaction: AU AU --> OMEGA- X
-centrality:
-  classes:
-  - 0.0-60.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
-  pT:
-    min: 0.812515
-    max: 3.403895
-    bins:
-    - 0.812515
-    - 1.1987450000000002
-    - 1.5891950000000001
-    - 1.98523
-    - 2.3832950000000004
-    - 2.856405
-    - 3.403895
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table35.yaml
-hepdata_table_label: No description provided.
-qualifiers:
-  centrality: 0.0-10.0
-  re: AU AU --> OMEGABAR+ X
-  sqrt(s)/nucleon: '11.5'
-collision_system:
-  energy_gev: 11.5
-  reaction: AU AU --> OMEGABAR+ X
-centrality:
-  classes:
-  - 0.0-10.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
-  pT:
-    min: 0.8224550000000002
-    max: 3.404435
-    bins:
-    - 0.8224550000000002
-    - 1.204885
-    - 1.59295
-    - 1.98808
-    - 2.385275
-    - 2.857605
-    - 3.404435
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table36.yaml
-hepdata_table_label: No description provided.
-qualifiers:
-  centrality: 0.0-60.0
-  re: AU AU --> OMEGABAR+ X
-  sqrt(s)/nucleon: '11.5'
-collision_system:
-  energy_gev: 11.5
-  reaction: AU AU --> OMEGABAR+ X
-centrality:
-  classes:
-  - 0.0-60.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
-  pT:
-    min: 0.8195050000000001
-    max: 3.39813
-    bins:
-    - 0.8195050000000001
-    - 1.203095
-    - 1.59177
-    - 1.98691
-    - 2.38407
-    - 2.8546899999999997
-    - 3.39813
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table37.yaml
-hepdata_table_label: No description provided.
-qualifiers:
-  centrality: 0.0-10.0
-  re: AU AU --> OMEGA- X
-  sqrt(s)/nucleon: '19.6'
-collision_system:
-  energy_gev: 19.6
-  reaction: AU AU --> OMEGA- X
-centrality:
-  classes:
-  - 0.0-10.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
-  pT:
-    min: 0.8203349999999999
-    max: 3.40982
-    bins:
-    - 0.8203349999999999
-    - 1.203725
-    - 1.592445
-    - 1.9879250000000002
-    - 2.385495
-    - 2.85968
-    - 3.40982
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table38.yaml
-hepdata_table_label: No description provided.
-qualifiers:
-  centrality: 0.0-20.0
-  re: AU AU --> OMEGA- X
-  sqrt(s)/nucleon: '19.6'
-collision_system:
-  energy_gev: 19.6
-  reaction: AU AU --> OMEGA- X
-centrality:
-  classes:
-  - 0.0-20.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
-  pT:
-    min: 0.8211149999999999
-    max: 3.401745
-    bins:
-    - 0.8211149999999999
-    - 1.204085
-    - 1.5924399999999999
-    - 1.98758
-    - 2.384755
-    - 2.8563549999999998
-    - 3.401745
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table39.yaml
-hepdata_table_label: No description provided.
-qualifiers:
-  centrality: 0.0-40.0
-  re: AU AU --> OMEGA- X
-  sqrt(s)/nucleon: '19.6'
-collision_system:
-  energy_gev: 19.6
-  reaction: AU AU --> OMEGA- X
-centrality:
-  classes:
-  - 0.0-40.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
-  pT:
-    min: 0.81622
-    max: 3.4018749999999995
-    bins:
-    - 0.81622
-    - 1.20112
-    - 1.59066
-    - 1.986225
-    - 2.383825
-    - 2.855925
-    - 3.4018749999999995
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-observable: dN_dpT_dy
-value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 1. d2N/(2 pi N_evt pT dy
+    dpT) of phi, |y| < 0.5, 20-30% at 7.7 GeV; pT bins from the axis strings. Energy and class from the figure (the HEPData
+    labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
 ---
 observable_type: particle_spectra
 inspire_id: '1378002'
 version: 1
 hepdata_file: Table4.yaml
-hepdata_table_label: 'Phi Meson Spectra.
-
-  '
-qualifiers:
-  centrality: 0.0-40.0
-  re: AU AU --> PHI X
-  sqrt(s)/nucleon: '7.7'
+dv_index: 0
+hepdata_table_label: phi spectrum, 30-40% Au+Au at 7.7 GeV (Data from Figure 1)
 collision_system:
   energy_gev: 7.7
-  reaction: AU AU --> PHI X
+  reaction: AU AU --> X
 centrality:
   classes:
-  - 0.0-40.0%
+  - 30-40%
   estimator:
     name: RefMult
     observable: Nch
@@ -1434,490 +149,43 @@ centrality:
   eta:
   - min: -0.5
     max: 0.5
-particle_id:
-  species: charged
 kinematic_range:
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-  pT:
-    min: 0.15
-    max: 10
-    bins:
-    - 0.15
-    - 10
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table40.yaml
-hepdata_table_label: No description provided.
-qualifiers:
-  centrality: 0.0-60.0
-  re: AU AU --> OMEGA- X
-  sqrt(s)/nucleon: '19.6'
-collision_system:
-  energy_gev: 19.6
-  reaction: AU AU --> OMEGA- X
-centrality:
-  classes:
-  - 0.0-60.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
+  y:
+    min: -0.5
     max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
   pT:
-    min: 0.812325
-    max: 3.407845
+    min: 0.4
+    max: 1.7
     bins:
-    - 0.812325
-    - 1.198715
-    - 1.589325
-    - 1.98553
-    - 2.38377
-    - 2.8580949999999996
-    - 3.407845
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
+    - 0.4
+    - 0.5
+    - 0.6
+    - 0.7
+    - 0.9
     - 1.0
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table41.yaml
-hepdata_table_label: No description provided.
-qualifiers:
-  centrality: 0.0-10.0
-  re: AU AU --> OMEGABAR+ X
-  sqrt(s)/nucleon: '19.6'
-collision_system:
-  energy_gev: 19.6
-  reaction: AU AU --> OMEGABAR+ X
-centrality:
-  classes:
-  - 0.0-10.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
+    - 1.3
+    - 1.7
 particle_id:
-  species: charged
-kinematic_range:
-  pT:
-    min: 0.8239249999999998
-    max: 3.407205
-    bins:
-    - 0.8239249999999998
-    - 1.205735
-    - 1.5934750000000002
-    - 1.9885899999999999
-    - 2.38579
-    - 2.858875
-    - 3.407205
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-observable: dN_dpT_dy
+  species: phi
+observable: invariant_yield
 value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table42.yaml
-hepdata_table_label: No description provided.
-qualifiers:
-  centrality: 0.0-20.0
-  re: AU AU --> OMEGABAR+ X
-  sqrt(s)/nucleon: '19.6'
-collision_system:
-  energy_gev: 19.6
-  reaction: AU AU --> OMEGABAR+ X
-centrality:
-  classes:
-  - 0.0-20.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
-  pT:
-    min: 0.8231000000000002
-    max: 3.4056950000000006
-    bins:
-    - 0.8231000000000002
-    - 1.20526
-    - 1.593185
-    - 1.9883099999999998
-    - 2.38551
-    - 2.8581849999999998
-    - 3.4056950000000006
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table43.yaml
-hepdata_table_label: No description provided.
-qualifiers:
-  centrality: 0.0-40.0
-  re: AU AU --> OMEGABAR+ X
-  sqrt(s)/nucleon: '19.6'
-collision_system:
-  energy_gev: 19.6
-  reaction: AU AU --> OMEGABAR+ X
-centrality:
-  classes:
-  - 0.0-40.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
-  pT:
-    min: 0.8240299999999999
-    max: 3.4073949999999997
-    bins:
-    - 0.8240299999999999
-    - 1.20579
-    - 1.5935100000000002
-    - 1.9886300000000001
-    - 2.3858300000000003
-    - 2.858965
-    - 3.4073949999999997
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table44.yaml
-hepdata_table_label: No description provided.
-qualifiers:
-  centrality: 0.0-60.0
-  re: AU AU --> OMEGABAR+ X
-  sqrt(s)/nucleon: '19.6'
-collision_system:
-  energy_gev: 19.6
-  reaction: AU AU --> OMEGABAR+ X
-centrality:
-  classes:
-  - 0.0-60.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
-  pT:
-    min: 0.8163500000000001
-    max: 2.780215
-    bins:
-    - 0.8163500000000001
-    - 1.20103
-    - 1.59026
-    - 1.985385
-    - 2.382485
-    - 2.780215
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table45.yaml
-hepdata_table_label: No description provided.
-qualifiers:
-  centrality: 0.0-10.0
-  re: AU AU --> OMEGA- X
-  sqrt(s)/nucleon: '27.0'
-collision_system:
-  energy_gev: 27.0
-  reaction: AU AU --> OMEGA- X
-centrality:
-  classes:
-  - 0.0-10.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
-  pT:
-    min: 0.8274249999999999
-    max: 3.4129
-    bins:
-    - 0.8274249999999999
-    - 1.207655
-    - 1.59456
-    - 1.98964
-    - 2.3868650000000002
-    - 2.8615
-    - 3.4129
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table46.yaml
-hepdata_table_label: No description provided.
-qualifiers:
-  centrality: 0.0-20.0
-  re: AU AU --> OMEGA- X
-  sqrt(s)/nucleon: '27.0'
-collision_system:
-  energy_gev: 27.0
-  reaction: AU AU --> OMEGA- X
-centrality:
-  classes:
-  - 0.0-20.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
-  pT:
-    min: 0.8235849999999999
-    max: 3.4065849999999998
-    bins:
-    - 0.8235849999999999
-    - 1.2055349999999998
-    - 1.59335
-    - 1.988475
-    - 2.38568
-    - 2.858595
-    - 3.4065849999999998
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table47.yaml
-hepdata_table_label: No description provided.
-qualifiers:
-  centrality: 0.0-40.0
-  re: AU AU --> OMEGA- X
-  sqrt(s)/nucleon: '27.0'
-collision_system:
-  energy_gev: 27.0
-  reaction: AU AU --> OMEGA- X
-centrality:
-  classes:
-  - 0.0-40.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
-  pT:
-    min: 0.8271000000000001
-    max: 3.41242
-    bins:
-    - 0.8271000000000001
-    - 1.2074799999999999
-    - 1.5944699999999998
-    - 1.989555
-    - 2.386775
-    - 2.86128
-    - 3.41242
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table48.yaml
-hepdata_table_label: No description provided.
-qualifiers:
-  centrality: 0.0-60.0
-  re: AU AU --> OMEGA- X
-  sqrt(s)/nucleon: '27.0'
-collision_system:
-  energy_gev: 27.0
-  reaction: AU AU --> OMEGA- X
-centrality:
-  classes:
-  - 0.0-60.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
-  pT:
-    min: 0.819655
-    max: 3.39849
-    bins:
-    - 0.819655
-    - 1.203185
-    - 1.5918299999999999
-    - 1.986975
-    - 2.3841349999999997
-    - 2.85485
-    - 3.39849
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table49.yaml
-hepdata_table_label: No description provided.
-qualifiers:
-  centrality: 0.0-10.0
-  re: AU AU --> OMEGABAR+ X
-  sqrt(s)/nucleon: '27.0'
-collision_system:
-  energy_gev: 27.0
-  reaction: AU AU --> OMEGABAR+ X
-centrality:
-  classes:
-  - 0.0-10.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
-  pT:
-    min: 0.8311
-    max: 3.417765
-    bins:
-    - 0.8311
-    - 1.20956
-    - 1.59552
-    - 1.990545
-    - 2.3877800000000002
-    - 2.863735
-    - 3.417765
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-observable: dN_dpT_dy
-value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 1. d2N/(2 pi N_evt pT dy
+    dpT) of phi, |y| < 0.5, 30-40% at 7.7 GeV; pT bins from the axis strings. Energy and class from the figure (the HEPData
+    labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
 ---
 observable_type: particle_spectra
 inspire_id: '1378002'
 version: 1
 hepdata_file: Table5.yaml
-hepdata_table_label: 'Phi Meson Spectra.
-
-  '
-qualifiers:
-  centrality: 0.0-60.0
-  re: AU AU --> PHI X
-  sqrt(s)/nucleon: '7.7'
+dv_index: 0
+hepdata_table_label: phi spectrum, 40-60% Au+Au at 7.7 GeV (Data from Figure 1)
 collision_system:
   energy_gev: 7.7
-  reaction: AU AU --> PHI X
+  reaction: AU AU --> X
 centrality:
   classes:
-  - 0.0-60.0%
+  - 40-60%
   estimator:
     name: RefMult
     observable: Nch
@@ -1925,513 +193,43 @@ centrality:
   eta:
   - min: -0.5
     max: 0.5
-particle_id:
-  species: charged
 kinematic_range:
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-  pT:
-    min: 0.15
-    max: 10
-    bins:
-    - 0.15
-    - 10
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table50.yaml
-hepdata_table_label: No description provided.
-qualifiers:
-  centrality: 0.0-20.0
-  re: AU AU --> OMEGABAR+ X
-  sqrt(s)/nucleon: '27.0'
-collision_system:
-  energy_gev: 27.0
-  reaction: AU AU --> OMEGABAR+ X
-centrality:
-  classes:
-  - 0.0-20.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
+  y:
+    min: -0.5
     max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
   pT:
-    min: 0.8277349999999999
-    max: 3.41335
+    min: 0.4
+    max: 1.7
     bins:
-    - 0.8277349999999999
-    - 1.207825
-    - 1.594655
-    - 1.9897299999999998
-    - 2.386955
-    - 2.86171
-    - 3.41335
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
+    - 0.4
+    - 0.5
+    - 0.6
+    - 0.7
+    - 0.9
     - 1.0
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table51.yaml
-hepdata_table_label: No description provided.
-qualifiers:
-  centrality: 0.0-40.0
-  re: AU AU --> OMEGABAR+ X
-  sqrt(s)/nucleon: '27.0'
-collision_system:
-  energy_gev: 27.0
-  reaction: AU AU --> OMEGABAR+ X
-centrality:
-  classes:
-  - 0.0-40.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
+    - 1.3
+    - 1.7
 particle_id:
-  species: charged
-kinematic_range:
-  pT:
-    min: 0.8257900000000001
-    max: 3.41038
-    bins:
-    - 0.8257900000000001
-    - 1.2067700000000001
-    - 1.5940750000000001
-    - 1.9891750000000001
-    - 2.38639
-    - 2.86034
-    - 3.41038
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-observable: dN_dpT_dy
+  species: phi
+observable: invariant_yield
 value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table52.yaml
-hepdata_table_label: No description provided.
-qualifiers:
-  centrality: 0.0-60.0
-  re: AU AU --> OMEGABAR+ X
-  sqrt(s)/nucleon: '27.0'
-collision_system:
-  energy_gev: 27.0
-  reaction: AU AU --> OMEGABAR+ X
-centrality:
-  classes:
-  - 0.0-60.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
-  pT:
-    min: 0.8179099999999999
-    max: 3.3942249999999996
-    bins:
-    - 0.8179099999999999
-    - 1.20207
-    - 1.59104
-    - 1.98618
-    - 2.3833149999999996
-    - 2.852875
-    - 3.3942249999999996
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table53.yaml
-hepdata_table_label: No description provided.
-qualifiers:
-  centrality: 0.0-10.0
-  re: AU AU --> OMEGA- X
-  sqrt(s)/nucleon: '39.0'
-collision_system:
-  energy_gev: 39.0
-  reaction: AU AU --> OMEGA- X
-centrality:
-  classes:
-  - 0.0-10.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
-  pT:
-    min: 0.8215129999999999
-    max: 4.69972
-    bins:
-    - 0.8215129999999999
-    - 1.108131
-    - 1.39935
-    - 1.696145
-    - 2.0166899999999996
-    - 2.387295
-    - 2.785525
-    - 3.18431
-    - 3.58344
-    - 4.08862
-    - 4.69972
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table54.yaml
-hepdata_table_label: No description provided.
-qualifiers:
-  centrality: 0.0-20.0
-  re: AU AU --> OMEGA- X
-  sqrt(s)/nucleon: '39.0'
-collision_system:
-  energy_gev: 39.0
-  reaction: AU AU --> OMEGA- X
-centrality:
-  classes:
-  - 0.0-20.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
-  pT:
-    min: 0.8216915
-    max: 4.7001599999999994
-    bins:
-    - 0.8216915
-    - 1.1082105
-    - 1.399385
-    - 1.6961849999999998
-    - 2.016735
-    - 2.387345
-    - 2.78558
-    - 3.18437
-    - 3.583495
-    - 4.0888
-    - 4.7001599999999994
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table55.yaml
-hepdata_table_label: No description provided.
-qualifiers:
-  centrality: 0.0-40.0
-  re: AU AU --> OMEGA- X
-  sqrt(s)/nucleon: '39.0'
-collision_system:
-  energy_gev: 39.0
-  reaction: AU AU --> OMEGA- X
-centrality:
-  classes:
-  - 0.0-40.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
-  pT:
-    min: 0.8211185
-    max: 4.698775
-    bins:
-    - 0.8211185
-    - 1.1079395
-    - 1.39928
-    - 1.6960899999999999
-    - 2.016605
-    - 2.387175
-    - 2.785405
-    - 3.184195
-    - 3.58332
-    - 4.088225
-    - 4.698775
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table56.yaml
-hepdata_table_label: No description provided.
-qualifiers:
-  centrality: 0.0-60.0
-  re: AU AU --> OMEGA- X
-  sqrt(s)/nucleon: '39.0'
-collision_system:
-  energy_gev: 39.0
-  reaction: AU AU --> OMEGA- X
-centrality:
-  classes:
-  - 0.0-60.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
-  pT:
-    min: 0.818301
-    max: 3.582155
-    bins:
-    - 0.818301
-    - 1.106547
-    - 1.3986649999999998
-    - 1.69555
-    - 2.015865
-    - 2.386215
-    - 2.78442
-    - 3.183185
-    - 3.582155
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table57.yaml
-hepdata_table_label: No description provided.
-qualifiers:
-  centrality: 0.0-80.0
-  re: AU AU --> OMEGA- X
-  sqrt(s)/nucleon: '39.0'
-collision_system:
-  energy_gev: 39.0
-  reaction: AU AU --> OMEGA- X
-centrality:
-  classes:
-  - 0.0-80.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
-  pT:
-    min: 0.810132
-    max: 2.778975
-    bins:
-    - 0.810132
-    - 1.1018240000000001
-    - 1.3958249999999999
-    - 1.692875
-    - 2.012105
-    - 2.381285
-    - 2.778975
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table58.yaml
-hepdata_table_label: No description provided.
-qualifiers:
-  centrality: 0.0-10.0
-  re: AU AU --> OMEGABAR+ X
-  sqrt(s)/nucleon: '39.0'
-collision_system:
-  energy_gev: 39.0
-  reaction: AU AU --> OMEGABAR+ X
-centrality:
-  classes:
-  - 0.0-10.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
-  pT:
-    min: 0.8221350000000001
-    max: 4.7012149999999995
-    bins:
-    - 0.8221350000000001
-    - 1.108425
-    - 1.39947
-    - 1.6962549999999998
-    - 2.016835
-    - 2.38747
-    - 2.785705
-    - 3.1845
-    - 3.58363
-    - 4.089245
-    - 4.7012149999999995
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table59.yaml
-hepdata_table_label: No description provided.
-qualifiers:
-  centrality: 0.0-20.0
-  re: AU AU --> OMEGABAR+ X
-  sqrt(s)/nucleon: '39.0'
-collision_system:
-  energy_gev: 39.0
-  reaction: AU AU --> OMEGABAR+ X
-centrality:
-  classes:
-  - 0.0-20.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
-  pT:
-    min: 0.8221079999999998
-    max: 4.70111
-    bins:
-    - 0.8221079999999998
-    - 1.108416
-    - 1.39947
-    - 1.696245
-    - 2.01682
-    - 2.3874649999999997
-    - 2.7857
-    - 3.18449
-    - 3.5836249999999996
-    - 4.08921
-    - 4.70111
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-observable: dN_dpT_dy
-value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 1. d2N/(2 pi N_evt pT dy
+    dpT) of phi, |y| < 0.5, 40-60% at 7.7 GeV; pT bins from the axis strings. Energy and class from the figure (the HEPData
+    labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
 ---
 observable_type: particle_spectra
 inspire_id: '1378002'
 version: 1
 hepdata_file: Table6.yaml
-hepdata_table_label: 'Phi Meson Spectra.
-
-  '
-qualifiers:
-  centrality: 0.0-80.0
-  re: AU AU --> PHI X
-  sqrt(s)/nucleon: '7.7'
+dv_index: 0
+hepdata_table_label: phi spectrum, 60-80% Au+Au at 7.7 GeV (Data from Figure 1)
 collision_system:
   energy_gev: 7.7
-  reaction: AU AU --> PHI X
+  reaction: AU AU --> X
 centrality:
   classes:
-  - 0.0-80.0%
+  - 60-80%
   estimator:
     name: RefMult
     observable: Nch
@@ -2439,182 +237,43 @@ centrality:
   eta:
   - min: -0.5
     max: 0.5
-particle_id:
-  species: charged
 kinematic_range:
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-  pT:
-    min: 0.15
-    max: 10
-    bins:
-    - 0.15
-    - 10
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table60.yaml
-hepdata_table_label: No description provided.
-qualifiers:
-  centrality: 0.0-40.0
-  re: AU AU --> OMEGABAR+ X
-  sqrt(s)/nucleon: '39.0'
-collision_system:
-  energy_gev: 39.0
-  reaction: AU AU --> OMEGABAR+ X
-centrality:
-  classes:
-  - 0.0-40.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
+  y:
+    min: -0.5
     max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
   pT:
-    min: 0.820235
-    max: 4.69645
+    min: 0.4
+    max: 1.7
     bins:
-    - 0.820235
-    - 1.107505
-    - 1.39909
-    - 1.695925
-    - 2.016385
-    - 2.386895
-    - 2.78512
-    - 3.1839
-    - 3.58302
-    - 4.08725
-    - 4.69645
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
+    - 0.4
+    - 0.5
+    - 0.6
+    - 0.7
+    - 0.9
     - 1.0
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table61.yaml
-hepdata_table_label: No description provided.
-qualifiers:
-  centrality: 0.0-60.0
-  re: AU AU --> OMEGABAR+ X
-  sqrt(s)/nucleon: '39.0'
-collision_system:
-  energy_gev: 39.0
-  reaction: AU AU --> OMEGABAR+ X
-centrality:
-  classes:
-  - 0.0-60.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
+    - 1.3
+    - 1.7
 particle_id:
-  species: charged
-kinematic_range:
-  pT:
-    min: 0.818006
-    max: 3.5820350000000003
-    bins:
-    - 0.818006
-    - 1.1064019999999999
-    - 1.3985949999999998
-    - 1.6954799999999999
-    - 2.015765
-    - 2.3860900000000003
-    - 2.7843
-    - 3.183065
-    - 3.5820350000000003
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-observable: dN_dpT_dy
+  species: phi
+observable: invariant_yield
 value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '1378002'
-version: 1
-hepdata_file: Table62.yaml
-hepdata_table_label: No description provided.
-qualifiers:
-  centrality: 0.0-80.0
-  re: AU AU --> OMEGABAR+ X
-  sqrt(s)/nucleon: '39.0'
-collision_system:
-  energy_gev: 39.0
-  reaction: AU AU --> OMEGABAR+ X
-centrality:
-  classes:
-  - 0.0-80.0%
-  estimator:
-    name: RefMult
-    observable: Nch
-    detector: TPC
-  eta:
-  - min: -0.5
-    max: 0.5
-particle_id:
-  species: charged
-kinematic_range:
-  pT:
-    min: 0.810245
-    max: 2.7790799999999996
-    bins:
-    - 0.810245
-    - 1.1018949999999998
-    - 1.39588
-    - 1.692925
-    - 2.01217
-    - 2.38138
-    - 2.7790799999999996
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
-observable: dN_dpT_dy
-value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 1. d2N/(2 pi N_evt pT dy
+    dpT) of phi, |y| < 0.5, 60-80% at 7.7 GeV; pT bins from the axis strings. Energy and class from the figure (the HEPData
+    labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
 ---
 observable_type: particle_spectra
 inspire_id: '1378002'
 version: 1
 hepdata_file: Table7.yaml
-hepdata_table_label: 'Phi Meson Spectra.
-
-  '
-qualifiers:
-  centrality: 0.0-10.0
-  re: AU AU --> PHI X
-  sqrt(s)/nucleon: '7.7'
+dv_index: 0
+hepdata_table_label: phi spectrum, 0-10% Au+Au at 11.5 GeV (Data from Figure 1)
 collision_system:
-  energy_gev: 7.7
-  reaction: AU AU --> PHI X
+  energy_gev: 11.5
+  reaction: AU AU --> X
 centrality:
   classes:
-  - 0.0-10.0%
+  - 0-10%
   estimator:
     name: RefMult
     observable: Nch
@@ -2622,41 +281,46 @@ centrality:
   eta:
   - min: -0.5
     max: 0.5
-particle_id:
-  species: charged
 kinematic_range:
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
+  y:
+    min: -0.5
+    max: 0.5
   pT:
-    min: 0.15
-    max: 10
+    min: 0.4
+    max: 3.5
     bins:
-    - 0.15
-    - 10
-observable: dN_dpT_dy
+    - 0.4
+    - 0.5
+    - 0.6
+    - 0.7
+    - 0.9
+    - 1.0
+    - 1.3
+    - 1.7
+    - 2.0
+    - 2.5
+    - 3.5
+particle_id:
+  species: phi
+observable: invariant_yield
 value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 1. d2N/(2 pi N_evt pT dy
+    dpT) of phi, |y| < 0.5, 0-10% at 11.5 GeV; pT bins from the axis strings. Energy and class from the figure (the HEPData
+    labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
 ---
 observable_type: particle_spectra
 inspire_id: '1378002'
 version: 1
 hepdata_file: Table8.yaml
-hepdata_table_label: 'Phi Meson Spectra.
-
-  '
-qualifiers:
-  centrality: 0.0-20.0
-  re: AU AU --> PHI X
-  sqrt(s)/nucleon: '7.7'
+dv_index: 0
+hepdata_table_label: phi spectrum, 10-20% Au+Au at 11.5 GeV (Data from Figure 1)
 collision_system:
-  energy_gev: 7.7
-  reaction: AU AU --> PHI X
+  energy_gev: 11.5
+  reaction: AU AU --> X
 centrality:
   classes:
-  - 0.0-20.0%
+  - 10-20%
   estimator:
     name: RefMult
     observable: Nch
@@ -2664,41 +328,46 @@ centrality:
   eta:
   - min: -0.5
     max: 0.5
-particle_id:
-  species: charged
 kinematic_range:
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
+  y:
+    min: -0.5
+    max: 0.5
   pT:
-    min: 0.15
-    max: 10
+    min: 0.4
+    max: 3.5
     bins:
-    - 0.15
-    - 10
-observable: dN_dpT_dy
+    - 0.4
+    - 0.5
+    - 0.6
+    - 0.7
+    - 0.9
+    - 1.0
+    - 1.3
+    - 1.7
+    - 2.0
+    - 2.5
+    - 3.5
+particle_id:
+  species: phi
+observable: invariant_yield
 value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 1. d2N/(2 pi N_evt pT dy
+    dpT) of phi, |y| < 0.5, 10-20% at 11.5 GeV; pT bins from the axis strings. Energy and class from the figure (the HEPData
+    labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
 ---
 observable_type: particle_spectra
 inspire_id: '1378002'
 version: 1
 hepdata_file: Table9.yaml
-hepdata_table_label: 'Phi Meson Spectra.
-
-  '
-qualifiers:
-  centrality: 0.0-30.0
-  re: AU AU --> PHI X
-  sqrt(s)/nucleon: '7.7'
+dv_index: 0
+hepdata_table_label: phi spectrum, 20-30% Au+Au at 11.5 GeV (Data from Figure 1)
 collision_system:
-  energy_gev: 7.7
-  reaction: AU AU --> PHI X
+  energy_gev: 11.5
+  reaction: AU AU --> X
 centrality:
   classes:
-  - 0.0-30.0%
+  - 20-30%
   estimator:
     name: RefMult
     observable: Nch
@@ -2706,20 +375,2448 @@ centrality:
   eta:
   - min: -0.5
     max: 0.5
-particle_id:
-  species: charged
 kinematic_range:
-  eta:
-    min: -1.0
-    max: 1.0
-    bins:
-    - -1.0
-    - 1.0
+  y:
+    min: -0.5
+    max: 0.5
   pT:
-    min: 0.15
-    max: 10
+    min: 0.4
+    max: 3.5
     bins:
-    - 0.15
-    - 10
-observable: dN_dpT_dy
+    - 0.4
+    - 0.5
+    - 0.6
+    - 0.7
+    - 0.9
+    - 1.0
+    - 1.3
+    - 1.7
+    - 2.0
+    - 2.5
+    - 3.5
+particle_id:
+  species: phi
+observable: invariant_yield
 value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 1. d2N/(2 pi N_evt pT dy
+    dpT) of phi, |y| < 0.5, 20-30% at 11.5 GeV; pT bins from the axis strings. Energy and class from the figure (the HEPData
+    labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table10.yaml
+dv_index: 0
+hepdata_table_label: phi spectrum, 30-40% Au+Au at 11.5 GeV (Data from Figure 1)
+collision_system:
+  energy_gev: 11.5
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 30-40%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.4
+    max: 3.5
+    bins:
+    - 0.4
+    - 0.5
+    - 0.6
+    - 0.7
+    - 0.9
+    - 1.0
+    - 1.3
+    - 1.7
+    - 2.0
+    - 2.5
+    - 3.5
+particle_id:
+  species: phi
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 1. d2N/(2 pi N_evt pT dy
+    dpT) of phi, |y| < 0.5, 30-40% at 11.5 GeV; pT bins from the axis strings. Energy and class from the figure (the HEPData
+    labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table11.yaml
+dv_index: 0
+hepdata_table_label: phi spectrum, 40-60% Au+Au at 11.5 GeV (Data from Figure 1)
+collision_system:
+  energy_gev: 11.5
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 40-60%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.4
+    max: 3.5
+    bins:
+    - 0.4
+    - 0.5
+    - 0.6
+    - 0.7
+    - 0.9
+    - 1.0
+    - 1.3
+    - 1.7
+    - 2.0
+    - 2.5
+    - 3.5
+particle_id:
+  species: phi
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 1. d2N/(2 pi N_evt pT dy
+    dpT) of phi, |y| < 0.5, 40-60% at 11.5 GeV; pT bins from the axis strings. Energy and class from the figure (the HEPData
+    labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table12.yaml
+dv_index: 0
+hepdata_table_label: phi spectrum, 60-80% Au+Au at 11.5 GeV (Data from Figure 1)
+collision_system:
+  energy_gev: 11.5
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 60-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.4
+    max: 3.5
+    bins:
+    - 0.4
+    - 0.5
+    - 0.6
+    - 0.7
+    - 0.9
+    - 1.0
+    - 1.3
+    - 1.7
+    - 2.0
+    - 2.5
+    - 3.5
+particle_id:
+  species: phi
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 1. d2N/(2 pi N_evt pT dy
+    dpT) of phi, |y| < 0.5, 60-80% at 11.5 GeV; pT bins from the axis strings. Energy and class from the figure (the HEPData
+    labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table13.yaml
+dv_index: 0
+hepdata_table_label: phi spectrum, 0-10% Au+Au at 19.6 GeV (Data from Figure 1)
+collision_system:
+  energy_gev: 19.6
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.4
+    max: 4.0
+    bins:
+    - 0.4
+    - 0.5
+    - 0.6
+    - 0.7
+    - 0.9
+    - 1.0
+    - 1.3
+    - 1.7
+    - 2.0
+    - 2.5
+    - 3.0
+    - 4.0
+particle_id:
+  species: phi
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 1. d2N/(2 pi N_evt pT dy
+    dpT) of phi, |y| < 0.5, 0-10% at 19.6 GeV; pT bins from the axis strings. Energy and class from the figure (the HEPData
+    labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table14.yaml
+dv_index: 0
+hepdata_table_label: phi spectrum, 10-20% Au+Au at 19.6 GeV (Data from Figure 1)
+collision_system:
+  energy_gev: 19.6
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-20%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.4
+    max: 4.0
+    bins:
+    - 0.4
+    - 0.5
+    - 0.6
+    - 0.7
+    - 0.9
+    - 1.0
+    - 1.3
+    - 1.7
+    - 2.0
+    - 2.5
+    - 3.0
+    - 4.0
+particle_id:
+  species: phi
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 1. d2N/(2 pi N_evt pT dy
+    dpT) of phi, |y| < 0.5, 10-20% at 19.6 GeV; pT bins from the axis strings. Energy and class from the figure (the HEPData
+    labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table15.yaml
+dv_index: 0
+hepdata_table_label: phi spectrum, 20-30% Au+Au at 19.6 GeV (Data from Figure 1)
+collision_system:
+  energy_gev: 19.6
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 20-30%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.4
+    max: 4.0
+    bins:
+    - 0.4
+    - 0.5
+    - 0.6
+    - 0.7
+    - 0.9
+    - 1.0
+    - 1.3
+    - 1.7
+    - 2.0
+    - 2.5
+    - 3.0
+    - 4.0
+particle_id:
+  species: phi
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 1. d2N/(2 pi N_evt pT dy
+    dpT) of phi, |y| < 0.5, 20-30% at 19.6 GeV; pT bins from the axis strings. Energy and class from the figure (the HEPData
+    labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table16.yaml
+dv_index: 0
+hepdata_table_label: phi spectrum, 30-40% Au+Au at 19.6 GeV (Data from Figure 1)
+collision_system:
+  energy_gev: 19.6
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 30-40%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.4
+    max: 4.0
+    bins:
+    - 0.4
+    - 0.5
+    - 0.6
+    - 0.7
+    - 0.9
+    - 1.0
+    - 1.3
+    - 1.7
+    - 2.0
+    - 2.5
+    - 3.0
+    - 4.0
+particle_id:
+  species: phi
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 1. d2N/(2 pi N_evt pT dy
+    dpT) of phi, |y| < 0.5, 30-40% at 19.6 GeV; pT bins from the axis strings. Energy and class from the figure (the HEPData
+    labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table17.yaml
+dv_index: 0
+hepdata_table_label: phi spectrum, 40-60% Au+Au at 19.6 GeV (Data from Figure 1)
+collision_system:
+  energy_gev: 19.6
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 40-60%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.4
+    max: 4.0
+    bins:
+    - 0.4
+    - 0.5
+    - 0.6
+    - 0.7
+    - 0.9
+    - 1.0
+    - 1.3
+    - 1.7
+    - 2.0
+    - 2.5
+    - 3.0
+    - 4.0
+particle_id:
+  species: phi
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 1. d2N/(2 pi N_evt pT dy
+    dpT) of phi, |y| < 0.5, 40-60% at 19.6 GeV; pT bins from the axis strings. Energy and class from the figure (the HEPData
+    labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table18.yaml
+dv_index: 0
+hepdata_table_label: phi spectrum, 60-80% Au+Au at 19.6 GeV (Data from Figure 1)
+collision_system:
+  energy_gev: 19.6
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 60-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.4
+    max: 4.0
+    bins:
+    - 0.4
+    - 0.5
+    - 0.6
+    - 0.7
+    - 0.9
+    - 1.0
+    - 1.3
+    - 1.7
+    - 2.0
+    - 2.5
+    - 3.0
+    - 4.0
+particle_id:
+  species: phi
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 1. d2N/(2 pi N_evt pT dy
+    dpT) of phi, |y| < 0.5, 60-80% at 19.6 GeV; pT bins from the axis strings. Energy and class from the figure (the HEPData
+    labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table19.yaml
+dv_index: 0
+hepdata_table_label: phi spectrum, 0-10% Au+Au at 27 GeV (Data from Figure 1)
+collision_system:
+  energy_gev: 27.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.4
+    max: 5.0
+    bins:
+    - 0.4
+    - 0.5
+    - 0.6
+    - 0.7
+    - 0.9
+    - 1.0
+    - 1.3
+    - 1.7
+    - 2.0
+    - 2.5
+    - 3.0
+    - 4.0
+    - 5.0
+particle_id:
+  species: phi
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 1. d2N/(2 pi N_evt pT dy
+    dpT) of phi, |y| < 0.5, 0-10% at 27 GeV; pT bins from the axis strings. Energy and class from the figure (the HEPData
+    labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table20.yaml
+dv_index: 0
+hepdata_table_label: phi spectrum, 10-20% Au+Au at 27 GeV (Data from Figure 1)
+collision_system:
+  energy_gev: 27.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-20%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.4
+    max: 5.0
+    bins:
+    - 0.4
+    - 0.5
+    - 0.6
+    - 0.7
+    - 0.9
+    - 1.0
+    - 1.3
+    - 1.7
+    - 2.0
+    - 2.5
+    - 3.0
+    - 4.0
+    - 5.0
+particle_id:
+  species: phi
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 1. d2N/(2 pi N_evt pT dy
+    dpT) of phi, |y| < 0.5, 10-20% at 27 GeV; pT bins from the axis strings. Energy and class from the figure (the HEPData
+    labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table21.yaml
+dv_index: 0
+hepdata_table_label: phi spectrum, 20-30% Au+Au at 27 GeV (Data from Figure 1)
+collision_system:
+  energy_gev: 27.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 20-30%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.4
+    max: 5.0
+    bins:
+    - 0.4
+    - 0.5
+    - 0.6
+    - 0.7
+    - 0.9
+    - 1.0
+    - 1.3
+    - 1.7
+    - 2.0
+    - 2.5
+    - 3.0
+    - 4.0
+    - 5.0
+particle_id:
+  species: phi
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 1. d2N/(2 pi N_evt pT dy
+    dpT) of phi, |y| < 0.5, 20-30% at 27 GeV; pT bins from the axis strings. Energy and class from the figure (the HEPData
+    labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table22.yaml
+dv_index: 0
+hepdata_table_label: phi spectrum, 30-40% Au+Au at 27 GeV (Data from Figure 1)
+collision_system:
+  energy_gev: 27.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 30-40%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.4
+    max: 5.0
+    bins:
+    - 0.4
+    - 0.5
+    - 0.6
+    - 0.7
+    - 0.9
+    - 1.0
+    - 1.3
+    - 1.7
+    - 2.0
+    - 2.5
+    - 3.0
+    - 4.0
+    - 5.0
+particle_id:
+  species: phi
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 1. d2N/(2 pi N_evt pT dy
+    dpT) of phi, |y| < 0.5, 30-40% at 27 GeV; pT bins from the axis strings. Energy and class from the figure (the HEPData
+    labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table23.yaml
+dv_index: 0
+hepdata_table_label: phi spectrum, 40-60% Au+Au at 27 GeV (Data from Figure 1)
+collision_system:
+  energy_gev: 27.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 40-60%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.4
+    max: 5.0
+    bins:
+    - 0.4
+    - 0.5
+    - 0.6
+    - 0.7
+    - 0.9
+    - 1.0
+    - 1.3
+    - 1.7
+    - 2.0
+    - 2.5
+    - 3.0
+    - 4.0
+    - 5.0
+particle_id:
+  species: phi
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 1. d2N/(2 pi N_evt pT dy
+    dpT) of phi, |y| < 0.5, 40-60% at 27 GeV; pT bins from the axis strings. Energy and class from the figure (the HEPData
+    labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table24.yaml
+dv_index: 0
+hepdata_table_label: phi spectrum, 60-80% Au+Au at 27 GeV (Data from Figure 1)
+collision_system:
+  energy_gev: 27.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 60-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.4
+    max: 5.0
+    bins:
+    - 0.4
+    - 0.5
+    - 0.6
+    - 0.7
+    - 0.9
+    - 1.0
+    - 1.3
+    - 1.7
+    - 2.0
+    - 2.5
+    - 3.0
+    - 4.0
+    - 5.0
+particle_id:
+  species: phi
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 1. d2N/(2 pi N_evt pT dy
+    dpT) of phi, |y| < 0.5, 60-80% at 27 GeV; pT bins from the axis strings. Energy and class from the figure (the HEPData
+    labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table25.yaml
+dv_index: 0
+hepdata_table_label: phi spectrum, 0-10% Au+Au at 39 GeV (Data from Figure 1)
+collision_system:
+  energy_gev: 39.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.4
+    max: 5.0
+    bins:
+    - 0.4
+    - 0.5
+    - 0.6
+    - 0.7
+    - 0.9
+    - 1.0
+    - 1.3
+    - 1.7
+    - 2.0
+    - 2.5
+    - 3.0
+    - 4.0
+    - 5.0
+particle_id:
+  species: phi
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 1. d2N/(2 pi N_evt pT dy
+    dpT) of phi, |y| < 0.5, 0-10% at 39 GeV; pT bins from the axis strings. Energy and class from the figure (the HEPData
+    labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table26.yaml
+dv_index: 0
+hepdata_table_label: phi spectrum, 10-20% Au+Au at 39 GeV (Data from Figure 1)
+collision_system:
+  energy_gev: 39.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-20%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.4
+    max: 5.0
+    bins:
+    - 0.4
+    - 0.5
+    - 0.6
+    - 0.7
+    - 0.9
+    - 1.0
+    - 1.3
+    - 1.7
+    - 2.0
+    - 2.5
+    - 3.0
+    - 4.0
+    - 5.0
+particle_id:
+  species: phi
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 1. d2N/(2 pi N_evt pT dy
+    dpT) of phi, |y| < 0.5, 10-20% at 39 GeV; pT bins from the axis strings. Energy and class from the figure (the HEPData
+    labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table27.yaml
+dv_index: 0
+hepdata_table_label: phi spectrum, 20-30% Au+Au at 39 GeV (Data from Figure 1)
+collision_system:
+  energy_gev: 39.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 20-30%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.4
+    max: 5.0
+    bins:
+    - 0.4
+    - 0.5
+    - 0.6
+    - 0.7
+    - 0.9
+    - 1.0
+    - 1.3
+    - 1.7
+    - 2.0
+    - 2.5
+    - 3.0
+    - 4.0
+    - 5.0
+particle_id:
+  species: phi
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 1. d2N/(2 pi N_evt pT dy
+    dpT) of phi, |y| < 0.5, 20-30% at 39 GeV; pT bins from the axis strings. Energy and class from the figure (the HEPData
+    labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table28.yaml
+dv_index: 0
+hepdata_table_label: phi spectrum, 30-40% Au+Au at 39 GeV (Data from Figure 1)
+collision_system:
+  energy_gev: 39.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 30-40%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.4
+    max: 5.0
+    bins:
+    - 0.4
+    - 0.5
+    - 0.6
+    - 0.7
+    - 0.9
+    - 1.0
+    - 1.3
+    - 1.7
+    - 2.0
+    - 2.5
+    - 3.0
+    - 4.0
+    - 5.0
+particle_id:
+  species: phi
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 1. d2N/(2 pi N_evt pT dy
+    dpT) of phi, |y| < 0.5, 30-40% at 39 GeV; pT bins from the axis strings. Energy and class from the figure (the HEPData
+    labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table29.yaml
+dv_index: 0
+hepdata_table_label: phi spectrum, 40-60% Au+Au at 39 GeV (Data from Figure 1)
+collision_system:
+  energy_gev: 39.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 40-60%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.4
+    max: 5.0
+    bins:
+    - 0.4
+    - 0.5
+    - 0.6
+    - 0.7
+    - 0.9
+    - 1.0
+    - 1.3
+    - 1.7
+    - 2.0
+    - 2.5
+    - 3.0
+    - 4.0
+    - 5.0
+particle_id:
+  species: phi
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 1. d2N/(2 pi N_evt pT dy
+    dpT) of phi, |y| < 0.5, 40-60% at 39 GeV; pT bins from the axis strings. Energy and class from the figure (the HEPData
+    labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table30.yaml
+dv_index: 0
+hepdata_table_label: phi spectrum, 60-80% Au+Au at 39 GeV (Data from Figure 1)
+collision_system:
+  energy_gev: 39.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 60-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.4
+    max: 5.0
+    bins:
+    - 0.4
+    - 0.5
+    - 0.6
+    - 0.7
+    - 0.9
+    - 1.0
+    - 1.3
+    - 1.7
+    - 2.0
+    - 2.5
+    - 3.0
+    - 4.0
+    - 5.0
+particle_id:
+  species: phi
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 1. d2N/(2 pi N_evt pT dy
+    dpT) of phi, |y| < 0.5, 60-80% at 39 GeV; pT bins from the axis strings. Energy and class from the figure (the HEPData
+    labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table31.yaml
+dv_index: 0
+hepdata_table_label: Omega- spectrum, 0-60% Au+Au at 7.7 GeV (Data from Figure 2)
+collision_system:
+  energy_gev: 7.7
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-60%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.9143
+    max: 2.9728
+    points:
+    - 1.01427
+    - 1.44464
+    - 1.78541
+    - 2.22129
+    - 2.87284
+    point_window: 0.2
+particle_id:
+  species: Omega-
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 2. d2N/(2 pi N_evt pT dy
+    dpT) of Omega-, |y| < 0.5, 0-60% at 7.7 GeV; mean-pT points (0.2 GeV/c windows). Energy and class from the figure (the
+    HEPData labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table32.yaml
+dv_index: 0
+hepdata_table_label: Omegabar+ spectrum, 0-60% Au+Au at 7.7 GeV (Data from Figure 2)
+collision_system:
+  energy_gev: 7.7
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-60%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.9088
+    max: 2.9691
+    points:
+    - 1.0088
+    - 1.4436
+    - 1.78349
+    - 2.21821
+    - 2.86906
+    point_window: 0.2
+particle_id:
+  species: Omegabar+
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 2. d2N/(2 pi N_evt pT dy
+    dpT) of Omegabar+, |y| < 0.5, 0-60% at 7.7 GeV; mean-pT points (0.2 GeV/c windows). Energy and class from the figure (the
+    HEPData labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table33.yaml
+dv_index: 0
+hepdata_table_label: Omega- spectrum, 0-10% Au+Au at 11.5 GeV (Data from Figure 2)
+collision_system:
+  energy_gev: 11.5
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.9131
+    max: 3.2301
+    points:
+    - 1.01313
+    - 1.39583
+    - 1.78956
+    - 2.1861
+    - 2.58393
+    - 3.13005
+    point_window: 0.2
+particle_id:
+  species: Omega-
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 2. d2N/(2 pi N_evt pT dy
+    dpT) of Omega-, |y| < 0.5, 0-10% at 11.5 GeV; mean-pT points (0.2 GeV/c windows). Energy and class from the figure (the
+    HEPData labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table34.yaml
+dv_index: 0
+hepdata_table_label: Omega- spectrum, 10-60% Au+Au at 11.5 GeV (Data from Figure 2)
+collision_system:
+  energy_gev: 11.5
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-60%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.9056
+    max: 3.2302
+    points:
+    - 1.00563
+    - 1.39186
+    - 1.78653
+    - 2.18393
+    - 2.58266
+    - 3.13015
+    point_window: 0.2
+particle_id:
+  species: Omega-
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 2. d2N/(2 pi N_evt pT dy
+    dpT) of Omega-, |y| < 0.5, 10-60% at 11.5 GeV; mean-pT points (0.2 GeV/c windows). Energy and class from the figure (the
+    HEPData labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table35.yaml
+dv_index: 0
+hepdata_table_label: Omegabar+ spectrum, 0-10% Au+Au at 11.5 GeV (Data from Figure 2)
+collision_system:
+  energy_gev: 11.5
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.9137
+    max: 3.231
+    points:
+    - 1.01367
+    - 1.3961
+    - 1.7898
+    - 2.18636
+    - 2.58419
+    - 3.13102
+    point_window: 0.2
+particle_id:
+  species: Omegabar+
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 2. d2N/(2 pi N_evt pT dy
+    dpT) of Omegabar+, |y| < 0.5, 0-10% at 11.5 GeV; mean-pT points (0.2 GeV/c windows). Energy and class from the figure
+    (the HEPData labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table36.yaml
+dv_index: 0
+hepdata_table_label: Omegabar+ spectrum, 10-60% Au+Au at 11.5 GeV (Data from Figure 2)
+collision_system:
+  energy_gev: 11.5
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-60%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.9113
+    max: 3.2264
+    points:
+    - 1.0113
+    - 1.39489
+    - 1.78865
+    - 2.18517
+    - 2.58297
+    - 3.12641
+    point_window: 0.2
+particle_id:
+  species: Omegabar+
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 2. d2N/(2 pi N_evt pT dy
+    dpT) of Omegabar+, |y| < 0.5, 10-60% at 11.5 GeV; mean-pT points (0.2 GeV/c windows). Energy and class from the figure
+    (the HEPData labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table37.yaml
+dv_index: 0
+hepdata_table_label: Omega- spectrum, 0-10% Au+Au at 19.6 GeV (Data from Figure 2)
+collision_system:
+  energy_gev: 19.6
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.912
+    max: 3.2348
+    points:
+    - 1.01203
+    - 1.39542
+    - 1.78947
+    - 2.18638
+    - 2.58461
+    - 3.13475
+    point_window: 0.2
+particle_id:
+  species: Omega-
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 2. d2N/(2 pi N_evt pT dy
+    dpT) of Omega-, |y| < 0.5, 0-10% at 19.6 GeV; mean-pT points (0.2 GeV/c windows). Energy and class from the figure (the
+    HEPData labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table38.yaml
+dv_index: 0
+hepdata_table_label: Omega- spectrum, 10-20% Au+Au at 19.6 GeV (Data from Figure 2)
+collision_system:
+  energy_gev: 19.6
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-20%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.9126
+    max: 3.229
+    points:
+    - 1.0126
+    - 1.39557
+    - 1.78931
+    - 2.18585
+    - 2.58366
+    - 3.12905
+    point_window: 0.2
+particle_id:
+  species: Omega-
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 2. d2N/(2 pi N_evt pT dy
+    dpT) of Omega-, |y| < 0.5, 10-20% at 19.6 GeV; mean-pT points (0.2 GeV/c windows). Energy and class from the figure (the
+    HEPData labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table39.yaml
+dv_index: 0
+hepdata_table_label: Omega- spectrum, 20-40% Au+Au at 19.6 GeV (Data from Figure 2)
+collision_system:
+  energy_gev: 19.6
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 20-40%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.9087
+    max: 3.2289
+    points:
+    - 1.00867
+    - 1.39357
+    - 1.78775
+    - 2.1847
+    - 2.58295
+    - 3.1289
+    point_window: 0.2
+particle_id:
+  species: Omega-
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 2. d2N/(2 pi N_evt pT dy
+    dpT) of Omega-, |y| < 0.5, 20-40% at 19.6 GeV; mean-pT points (0.2 GeV/c windows). Energy and class from the figure (the
+    HEPData labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table40.yaml
+dv_index: 0
+hepdata_table_label: Omega- spectrum, 40-60% Au+Au at 19.6 GeV (Data from Figure 2)
+collision_system:
+  energy_gev: 19.6
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 40-60%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.9055
+    max: 3.233
+    points:
+    - 1.00552
+    - 1.39191
+    - 1.78674
+    - 2.18432
+    - 2.58322
+    - 3.13297
+    point_window: 0.2
+particle_id:
+  species: Omega-
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 2. d2N/(2 pi N_evt pT dy
+    dpT) of Omega-, |y| < 0.5, 40-60% at 19.6 GeV; mean-pT points (0.2 GeV/c windows). Energy and class from the figure (the
+    HEPData labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table41.yaml
+dv_index: 0
+hepdata_table_label: Omegabar+ spectrum, 0-10% Au+Au at 19.6 GeV (Data from Figure 2)
+collision_system:
+  energy_gev: 19.6
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.9148
+    max: 3.233
+    points:
+    - 1.01483
+    - 1.39664
+    - 1.79031
+    - 2.18687
+    - 2.58471
+    - 3.13304
+    point_window: 0.2
+particle_id:
+  species: Omegabar+
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 2. d2N/(2 pi N_evt pT dy
+    dpT) of Omegabar+, |y| < 0.5, 0-10% at 19.6 GeV; mean-pT points (0.2 GeV/c windows). Energy and class from the figure
+    (the HEPData labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table42.yaml
+dv_index: 0
+hepdata_table_label: Omegabar+ spectrum, 10-20% Au+Au at 19.6 GeV (Data from Figure 2)
+collision_system:
+  energy_gev: 19.6
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-20%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.9142
+    max: 3.2319
+    points:
+    - 1.01418
+    - 1.39634
+    - 1.79003
+    - 2.18659
+    - 2.58443
+    - 3.13194
+    point_window: 0.2
+particle_id:
+  species: Omegabar+
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 2. d2N/(2 pi N_evt pT dy
+    dpT) of Omegabar+, |y| < 0.5, 10-20% at 19.6 GeV; mean-pT points (0.2 GeV/c windows). Energy and class from the figure
+    (the HEPData labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table43.yaml
+dv_index: 0
+hepdata_table_label: Omegabar+ spectrum, 20-40% Au+Au at 19.6 GeV (Data from Figure 2)
+collision_system:
+  energy_gev: 19.6
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 20-40%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.9149
+    max: 3.2332
+    points:
+    - 1.01491
+    - 1.39667
+    - 1.79035
+    - 2.18691
+    - 2.58475
+    - 3.13318
+    point_window: 0.2
+particle_id:
+  species: Omegabar+
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 2. d2N/(2 pi N_evt pT dy
+    dpT) of Omegabar+, |y| < 0.5, 20-40% at 19.6 GeV; mean-pT points (0.2 GeV/c windows). Energy and class from the figure
+    (the HEPData labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table44.yaml
+dv_index: 0
+hepdata_table_label: Omegabar+ spectrum, 40-60% Au+Au at 19.6 GeV (Data from Figure 2)
+collision_system:
+  energy_gev: 19.6
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 40-60%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.9087
+    max: 2.6814
+    points:
+    - 1.00869
+    - 1.39337
+    - 1.78715
+    - 2.18362
+    - 2.58135
+    point_window: 0.2
+particle_id:
+  species: Omegabar+
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 2. d2N/(2 pi N_evt pT dy
+    dpT) of Omegabar+, |y| < 0.5, 40-60% at 19.6 GeV; mean-pT points (0.2 GeV/c windows). Energy and class from the figure
+    (the HEPData labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table45.yaml
+dv_index: 0
+hepdata_table_label: Omega- spectrum, 0-10% Au+Au at 27 GeV (Data from Figure 2)
+collision_system:
+  energy_gev: 27.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.9175
+    max: 3.2372
+    points:
+    - 1.01754
+    - 1.39777
+    - 1.79135
+    - 2.18793
+    - 2.5858
+    - 3.1372
+    point_window: 0.2
+particle_id:
+  species: Omega-
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 2. d2N/(2 pi N_evt pT dy
+    dpT) of Omega-, |y| < 0.5, 0-10% at 27 GeV; mean-pT points (0.2 GeV/c windows). Energy and class from the figure (the
+    HEPData labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table46.yaml
+dv_index: 0
+hepdata_table_label: Omega- spectrum, 10-20% Au+Au at 27 GeV (Data from Figure 2)
+collision_system:
+  energy_gev: 27.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-20%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.9146
+    max: 3.2326
+    points:
+    - 1.01456
+    - 1.39651
+    - 1.79019
+    - 2.18676
+    - 2.5846
+    - 3.13259
+    point_window: 0.2
+particle_id:
+  species: Omega-
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 2. d2N/(2 pi N_evt pT dy
+    dpT) of Omega-, |y| < 0.5, 10-20% at 27 GeV; mean-pT points (0.2 GeV/c windows). Energy and class from the figure (the
+    HEPData labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table47.yaml
+dv_index: 0
+hepdata_table_label: Omega- spectrum, 20-40% Au+Au at 27 GeV (Data from Figure 2)
+collision_system:
+  energy_gev: 27.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 20-40%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.9173
+    max: 3.2369
+    points:
+    - 1.01729
+    - 1.39767
+    - 1.79127
+    - 2.18784
+    - 2.58571
+    - 3.13685
+    point_window: 0.2
+particle_id:
+  species: Omega-
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 2. d2N/(2 pi N_evt pT dy
+    dpT) of Omega-, |y| < 0.5, 20-40% at 27 GeV; mean-pT points (0.2 GeV/c windows). Energy and class from the figure (the
+    HEPData labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table48.yaml
+dv_index: 0
+hepdata_table_label: Omega- spectrum, 40-60% Au+Au at 27 GeV (Data from Figure 2)
+collision_system:
+  energy_gev: 27.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 40-60%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.9114
+    max: 3.2267
+    points:
+    - 1.01142
+    - 1.39495
+    - 1.78871
+    - 2.18524
+    - 2.58303
+    - 3.12667
+    point_window: 0.2
+particle_id:
+  species: Omega-
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 2. d2N/(2 pi N_evt pT dy
+    dpT) of Omega-, |y| < 0.5, 40-60% at 27 GeV; mean-pT points (0.2 GeV/c windows). Energy and class from the figure (the
+    HEPData labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table49.yaml
+dv_index: 0
+hepdata_table_label: Omegabar+ spectrum, 0-10% Au+Au at 27 GeV (Data from Figure 2)
+collision_system:
+  energy_gev: 27.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.9203
+    max: 3.2408
+    points:
+    - 1.02033
+    - 1.39879
+    - 1.79225
+    - 2.18884
+    - 2.58672
+    - 3.14075
+    point_window: 0.2
+particle_id:
+  species: Omegabar+
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 2. d2N/(2 pi N_evt pT dy
+    dpT) of Omegabar+, |y| < 0.5, 0-10% at 27 GeV; mean-pT points (0.2 GeV/c windows). Energy and class from the figure (the
+    HEPData labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table50.yaml
+dv_index: 0
+hepdata_table_label: Omegabar+ spectrum, 10-20% Au+Au at 27 GeV (Data from Figure 2)
+collision_system:
+  energy_gev: 27.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-20%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.9178
+    max: 3.2375
+    points:
+    - 1.01778
+    - 1.39787
+    - 1.79144
+    - 2.18802
+    - 2.58589
+    - 3.13753
+    point_window: 0.2
+particle_id:
+  species: Omegabar+
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 2. d2N/(2 pi N_evt pT dy
+    dpT) of Omegabar+, |y| < 0.5, 10-20% at 27 GeV; mean-pT points (0.2 GeV/c windows). Energy and class from the figure (the
+    HEPData labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table51.yaml
+dv_index: 0
+hepdata_table_label: Omegabar+ spectrum, 20-40% Au+Au at 27 GeV (Data from Figure 2)
+collision_system:
+  energy_gev: 27.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 20-40%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.9163
+    max: 3.2354
+    points:
+    - 1.01628
+    - 1.39726
+    - 1.79089
+    - 2.18746
+    - 2.58532
+    - 3.13536
+    point_window: 0.2
+particle_id:
+  species: Omegabar+
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 2. d2N/(2 pi N_evt pT dy
+    dpT) of Omegabar+, |y| < 0.5, 20-40% at 27 GeV; mean-pT points (0.2 GeV/c windows). Energy and class from the figure (the
+    HEPData labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table52.yaml
+dv_index: 0
+hepdata_table_label: Omegabar+ spectrum, 40-60% Au+Au at 27 GeV (Data from Figure 2)
+collision_system:
+  energy_gev: 27.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 40-60%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.91
+    max: 3.2235
+    points:
+    - 1.00999
+    - 1.39415
+    - 1.78793
+    - 2.18443
+    - 2.5822
+    - 3.12355
+    point_window: 0.2
+particle_id:
+  species: Omegabar+
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 2. d2N/(2 pi N_evt pT dy
+    dpT) of Omegabar+, |y| < 0.5, 40-60% at 27 GeV; mean-pT points (0.2 GeV/c windows). Energy and class from the figure (the
+    HEPData labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table53.yaml
+dv_index: 0
+hepdata_table_label: Omega- spectrum, 0-10% Au+Au at 39 GeV (Data from Figure 2)
+collision_system:
+  energy_gev: 39.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.8648
+    max: 4.4942
+    points:
+    - 0.964822
+    - 1.25144
+    - 1.54726
+    - 1.84503
+    - 2.18835
+    - 2.58624
+    - 2.98481
+    - 3.38381
+    - 3.78307
+    - 4.39417
+    point_window: 0.2
+particle_id:
+  species: Omega-
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 2. d2N/(2 pi N_evt pT dy
+    dpT) of Omega-, |y| < 0.5, 0-10% at 39 GeV; mean-pT points (0.2 GeV/c windows). Energy and class from the figure (the
+    HEPData labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table54.yaml
+dv_index: 0
+hepdata_table_label: Omega- spectrum, 10-20% Au+Au at 39 GeV (Data from Figure 2)
+collision_system:
+  energy_gev: 39.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-20%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.865
+    max: 4.4945
+    points:
+    - 0.964951
+    - 1.25147
+    - 1.5473
+    - 1.84507
+    - 2.1884
+    - 2.58629
+    - 2.98487
+    - 3.38387
+    - 3.78312
+    - 4.39448
+    point_window: 0.2
+particle_id:
+  species: Omega-
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 2. d2N/(2 pi N_evt pT dy
+    dpT) of Omega-, |y| < 0.5, 10-20% at 39 GeV; mean-pT points (0.2 GeV/c windows). Energy and class from the figure (the
+    HEPData labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table55.yaml
+dv_index: 0
+hepdata_table_label: Omega- spectrum, 20-40% Au+Au at 39 GeV (Data from Figure 2)
+collision_system:
+  energy_gev: 39.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 20-40%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.8645
+    max: 4.4935
+    points:
+    - 0.964529
+    - 1.25135
+    - 1.54721
+    - 1.84497
+    - 2.18824
+    - 2.58611
+    - 2.9847
+    - 3.38369
+    - 3.78295
+    - 4.3935
+    point_window: 0.2
+particle_id:
+  species: Omega-
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 2. d2N/(2 pi N_evt pT dy
+    dpT) of Omega-, |y| < 0.5, 20-40% at 39 GeV; mean-pT points (0.2 GeV/c windows). Energy and class from the figure (the
+    HEPData labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table56.yaml
+dv_index: 0
+hepdata_table_label: Omega- spectrum, 40-60% Au+Au at 39 GeV (Data from Figure 2)
+collision_system:
+  energy_gev: 39.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 40-60%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.8624
+    max: 3.4827
+    points:
+    - 0.962424
+    - 1.25067
+    - 1.54666
+    - 1.84444
+    - 2.18729
+    - 2.58514
+    - 2.9837
+    - 3.38267
+    point_window: 0.2
+particle_id:
+  species: Omega-
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 2. d2N/(2 pi N_evt pT dy
+    dpT) of Omega-, |y| < 0.5, 40-60% at 39 GeV; mean-pT points (0.2 GeV/c windows). Energy and class from the figure (the
+    HEPData labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table57.yaml
+dv_index: 0
+hepdata_table_label: Omega- spectrum, 60-80% Au+Au at 39 GeV (Data from Figure 2)
+collision_system:
+  energy_gev: 39.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 60-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.856
+    max: 2.6801
+    points:
+    - 0.955978
+    - 1.24767
+    - 1.54398
+    - 1.84177
+    - 2.18244
+    - 2.58013
+    point_window: 0.2
+particle_id:
+  species: Omega-
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 2. d2N/(2 pi N_evt pT dy
+    dpT) of Omega-, |y| < 0.5, 60-80% at 39 GeV; mean-pT points (0.2 GeV/c windows). Energy and class from the figure (the
+    HEPData labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table58.yaml
+dv_index: 0
+hepdata_table_label: Omegabar+ spectrum, 0-10% Au+Au at 39 GeV (Data from Figure 2)
+collision_system:
+  energy_gev: 39.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.8653
+    max: 4.4952
+    points:
+    - 0.96528
+    - 1.25157
+    - 1.54737
+    - 1.84514
+    - 2.18853
+    - 2.58641
+    - 2.985
+    - 3.384
+    - 3.78326
+    - 4.39523
+    point_window: 0.2
+particle_id:
+  species: Omegabar+
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 2. d2N/(2 pi N_evt pT dy
+    dpT) of Omegabar+, |y| < 0.5, 0-10% at 39 GeV; mean-pT points (0.2 GeV/c windows). Energy and class from the figure (the
+    HEPData labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table59.yaml
+dv_index: 0
+hepdata_table_label: Omegabar+ spectrum, 10-20% Au+Au at 39 GeV (Data from Figure 2)
+collision_system:
+  energy_gev: 39.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-20%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.8653
+    max: 4.4952
+    points:
+    - 0.965262
+    - 1.25157
+    - 1.54737
+    - 1.84512
+    - 2.18852
+    - 2.58641
+    - 2.98499
+    - 3.38399
+    - 3.78326
+    - 4.39516
+    point_window: 0.2
+particle_id:
+  species: Omegabar+
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 2. d2N/(2 pi N_evt pT dy
+    dpT) of Omegabar+, |y| < 0.5, 10-20% at 39 GeV; mean-pT points (0.2 GeV/c windows). Energy and class from the figure (the
+    HEPData labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table60.yaml
+dv_index: 0
+hepdata_table_label: Omegabar+ spectrum, 20-40% Au+Au at 39 GeV (Data from Figure 2)
+collision_system:
+  energy_gev: 39.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 20-40%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.8639
+    max: 4.4918
+    points:
+    - 0.96387
+    - 1.25114
+    - 1.54704
+    - 1.84481
+    - 2.18796
+    - 2.58583
+    - 2.98441
+    - 3.38339
+    - 3.78265
+    - 4.39185
+    point_window: 0.2
+particle_id:
+  species: Omegabar+
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 2. d2N/(2 pi N_evt pT dy
+    dpT) of Omegabar+, |y| < 0.5, 20-40% at 39 GeV; mean-pT points (0.2 GeV/c windows). Energy and class from the figure (the
+    HEPData labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table61.yaml
+dv_index: 0
+hepdata_table_label: Omegabar+ spectrum, 40-60% Au+Au at 39 GeV (Data from Figure 2)
+collision_system:
+  energy_gev: 39.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 40-60%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.8622
+    max: 3.4826
+    points:
+    - 0.962204
+    - 1.2506
+    - 1.54659
+    - 1.84437
+    - 2.18716
+    - 2.58502
+    - 2.98358
+    - 3.38255
+    point_window: 0.2
+particle_id:
+  species: Omegabar+
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 2. d2N/(2 pi N_evt pT dy
+    dpT) of Omegabar+, |y| < 0.5, 40-60% at 39 GeV; mean-pT points (0.2 GeV/c windows). Energy and class from the figure (the
+    HEPData labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
+---
+observable_type: particle_spectra
+inspire_id: '1378002'
+version: 1
+hepdata_file: Table62.yaml
+dv_index: 0
+hepdata_table_label: Omegabar+ spectrum, 60-80% Au+Au at 39 GeV (Data from Figure 2)
+collision_system:
+  energy_gev: 39.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 60-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.8561
+    max: 2.6802
+    points:
+    - 0.95607
+    - 1.24772
+    - 1.54404
+    - 1.84181
+    - 2.18253
+    - 2.58023
+    point_window: 0.2
+particle_id:
+  species: Omegabar+
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'L. Adamczyk et al. (STAR), PRC 93, 021903(R) (2016), arXiv:1506.07605, Data from Figure 2. d2N/(2 pi N_evt pT dy
+    dpT) of Omegabar+, |y| < 0.5, 60-80% at 39 GeV; mean-pT points (0.2 GeV/c windows). Energy and class from the figure (the
+    HEPData labels read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.'
