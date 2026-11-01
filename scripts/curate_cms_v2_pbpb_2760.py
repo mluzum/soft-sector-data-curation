@@ -43,12 +43,17 @@ import re
 import numpy as np
 import yaml
 
+# Forward-detector references (calorimeter/scintillator) see every particle: reference pT 0-100 GeV/c.
+ALL_PT_REF = {'min': 0.0, 'max': 100.0}
+FWD_NOTE = (' Reference pT: all particles (a calorimeter/scintillator reference has no pT selection; its E_T or '
+            'hit weighting is not modelled).')
 RAW = 'hepdata_raw/records/ins1107659/HEPData-ins1107659-v1-yaml'
 CITE = 'S. Chatrchyan et al. (CMS), PRC 87, 014902 (2013), arXiv:1204.1409'
 HF = {'estimator': {'name': 'HF', 'observable': 'ET', 'detector': 'HF'},
       'eta': [{'min': -5.0, 'max': -3.0}, {'min': 3.0, 'max': 5.0}]}
 EP_REF = {'detector': 'HF', 'mirror': True, 'eta': [{'min': 3.0, 'max': 5.0}],
-          'notes': 'Event plane of the HF on the side opposite the track (HF- for eta > 0), gap >= 3.'}
+          'notes': 'Event plane of the HF on the side opposite the track (HF- for eta > 0), gap >= 3.' + FWD_NOTE,
+          'pT': dict(ALL_PT_REF)}
 CUM_REF = {'pT': {'min': 0.3, 'max': 3.0},
            'notes': 'Reference flow 0.3 < pT < 3 GeV/c in the record eta window (generating-function cumulants).'}
 CENTRES = {2.5: '0-5', 7.5: '5-10', 12.5: '10-15', 17.5: '15-20', 22.5: '20-25', 27.5: '25-30', 32.5: '30-35',

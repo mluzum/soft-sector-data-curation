@@ -272,6 +272,11 @@ near c_4 = 0, ratios) the correction is unstable (zr96c2 dp0001, v2{4}
   identified-only reference (identified records gave 0) and kept the
   POI's own particles for a reference overlapping it (STAR TPC halves).
   The integrated `vn2_sp` 3D prepare still ignores `flow_reference`.
+  A forward-detector reference (FCal, HF, BBC, EPD, RXN, Octagon) states
+  `pT: {min: 0.0, max: 100.0}`; without it the reference takes the
+  record's pT (until November 2026 ATLAS v_n(eta) at 4 < pT < 8 GeV had a
+  near-empty FCal reference).  A non-positive reference power, or a bin
+  without POI particles, gives NaN.
 - **Charge factors**:
   - 2D JETSCAPE containers hold positive charges only, so charged
     quantities take ×2, and self-correlation terms take ×CF², consistently;

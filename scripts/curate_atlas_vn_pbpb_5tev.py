@@ -41,6 +41,10 @@ import re
 
 import yaml
 
+# Forward-detector references (calorimeter/scintillator) see every particle: reference pT 0-100 GeV/c.
+ALL_PT_REF = {'min': 0.0, 'max': 100.0}
+FWD_NOTE = (' Reference pT: all particles (a calorimeter/scintillator reference has no pT selection; its E_T or '
+            'hit weighting is not modelled).')
 RAW = 'hepdata_raw/records/ins1686834/HEPData-ins1686834-v1-yaml'
 CITE = 'M. Aaboud et al. (ATLAS), EPJC 78, 997 (2018), arXiv:1808.03951'
 FCAL = {'estimator': {'name': 'FCal', 'observable': 'ET', 'detector': 'FCal'},
@@ -119,7 +123,8 @@ def main():
                           'kinematic_range': {'eta': {'min': -2.5, 'max': 2.5}, 'pT': {'min': plo, 'max': phi_}},
                           'method': meth, 'dimensionality': 'integrated',
                           'flow_reference': {'detector': 'FCal', 'eta': FCAL_BOTH,
-                                             'notes': 'FCal Q_n, 3.2 < |eta| < 4.9, E_T weighted (both sides here).'},
+                                             'notes': 'FCal Q_n, 3.2 < |eta| < 4.9, E_T weighted (both sides here).' + FWD_NOTE,
+                                             'pT': dict(ALL_PT_REF)},
                           'notes': {'value': (f'{CITE}. v_{n} for {plo:g} < pT < {phi_:g} GeV, |eta| < 2.5, '
                                               f'{npt.group(2)} method with the FCal reference, vs <N_part>: classes from '
                                               'Table 1 of the paper (nearest <N_part>); table_rows selects this record\'s '
@@ -145,7 +150,8 @@ def main():
             else:
                 d['flow_reference'] = {'detector': 'FCal', 'eta': FCAL_BOTH,
                                        'notes': 'FCal Q_n, 3.2 < |eta| < 4.9, E_T weighted; ATLAS uses the side '
-                                                'opposite each track (both sides here: the pT bins span |eta| < 2.5).'}
+                                                'opposite each track (both sides here: the pT bins span |eta| < 2.5).' + FWD_NOTE,
+                                       'pT': dict(ALL_PT_REF)}
                 how = (f'{m.group(2)} method with the FCal reference'
                        + ('; computed with the scalar-product estimator (EP/SP within a few per cent)'
                           if meth == 'event_plane' else ''))
@@ -160,7 +166,8 @@ def main():
             d.update({'kinematic_range': {'eta': axis(t), 'pT': {'min': plo, 'max': phi_}},
                       'method': meth, 'dimensionality': 'differential_eta',
                       'flow_reference': {'detector': 'FCal', 'mirror': True, 'eta': [{'min': 3.2, 'max': 4.9}],
-                                         'notes': 'FCal Q_n of the side opposite the track, 3.2 < |eta| < 4.9.'},
+                                         'notes': 'FCal Q_n of the side opposite the track, 3.2 < |eta| < 4.9.' + FWD_NOTE,
+                                         'pT': dict(ALL_PT_REF)},
                       'notes': {'value': (f'{CITE}. v_{n}(|eta|) folded into 0 < |eta| < 2.5 for {plo:g} < pT < '
                                           f'{phi_:g} GeV, {e.group(2)} method, FCal on the opposite side; computed '
                                           'at eta > 0.' + (' Computed with the scalar-product estimator (EP/SP '

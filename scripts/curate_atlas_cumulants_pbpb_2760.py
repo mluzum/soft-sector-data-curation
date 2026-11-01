@@ -47,6 +47,10 @@ import re
 
 import yaml
 
+# Forward-detector references (calorimeter/scintillator) see every particle: reference pT 0-100 GeV/c.
+ALL_PT_REF = {'min': 0.0, 'max': 100.0}
+FWD_NOTE = (' Reference pT: all particles (a calorimeter/scintillator reference has no pT selection; its E_T or '
+            'hit weighting is not modelled).')
 RAW = 'hepdata_raw/records/ins1311487/HEPData-ins1311487-v1-yaml'
 CITE = 'G. Aad et al. (ATLAS), EPJC 74 (2014) 3157, arXiv:1408.4342'
 FCAL = {'estimator': {'name': 'FCal', 'observable': 'ET', 'detector': 'FCal'},
@@ -134,10 +138,12 @@ def main():
             d['method'] = 'event_plane'
             if dim == 'differential_eta':
                 d['flow_reference'] = {'detector': 'FCal', 'mirror': True, 'eta': [{'min': 3.2, 'max': 4.9}],
-                                       'notes': 'Event plane of the FCal half opposite the track (PRC 86, 014907).'}
+                                       'notes': 'Event plane of the FCal half opposite the track (PRC 86, 014907).' + FWD_NOTE,
+                                       'pT': dict(ALL_PT_REF)}
             else:
                 d['flow_reference'] = {'detector': 'FCal', 'eta': FCAL_BOTH,
-                                       'notes': 'Event plane of the full FCal, 3.2 < |eta| < 4.9.'}
+                                       'notes': 'Event plane of the full FCal, 3.2 < |eta| < 4.9.' + FWD_NOTE,
+                                       'pT': dict(ALL_PT_REF)}
             how = 'FCal event plane (PRC 86, 014907 reanalysed); computed with the scalar-product estimator'
         else:
             d.update({'method': 'cumulant', 'cumulant_order': order})

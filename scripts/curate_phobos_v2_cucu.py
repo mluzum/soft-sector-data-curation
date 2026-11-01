@@ -29,6 +29,10 @@ import sys
 
 import yaml
 
+# Forward-detector references (calorimeter/scintillator) see every particle: reference pT 0-100 GeV/c.
+ALL_PT_REF = {'min': 0.0, 'max': 100.0}
+FWD_NOTE = (' Reference pT: all particles (a calorimeter/scintillator reference has no pT selection; its E_T or '
+            'hit weighting is not modelled).')
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
 from scripts.value_tables import write_value_table  # noqa: E402
@@ -40,7 +44,8 @@ PADDLE = {'estimator': {'name': 'Paddle', 'observable': 'energy', 'detector': 'P
           'eta': [{'min': -4.5, 'max': -3.0}, {'min': 3.0, 'max': 4.5}]}
 REF = {'detector': 'Octagon', 'mirror': True, 'eta': [{'min': 0.1, 'max': 3.0}],
        'notes': 'Hit-based method: for v2 at positive (negative) eta, the event plane from the sub-event on '
-                'the opposite side of midrapidity; sub-events 0.1 < |eta| < 3.0.'}
+                'the opposite side of midrapidity; sub-events 0.1 < |eta| < 3.0.' + FWD_NOTE,
+       'pT': dict(ALL_PT_REF)}
 BINS = [[-5.25, -4.57], [-4.5, -3.85], [-3.7, -3.15], [-3.0, -2.5], [-2.5, -2.0], [-2.0, -1.5],
         [-1.5, -1.0], [-1.0, -0.5], [-0.5, -0.1], [0.1, 0.5], [0.5, 1.0], [1.0, 1.5], [1.5, 2.0],
         [2.0, 2.5], [2.5, 3.0], [3.13, 3.72], [3.85, 4.52], [4.6, 5.31]]

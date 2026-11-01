@@ -31,9 +31,13 @@ flow_reference:
     min: 3.0
   - max: -3.0
     min: -3.9
-  notes: Second-order event plane determined via hits in the North and South BBCs,
+  notes: 'Second-order event plane determined via hits in the North and South BBCs,
     |eta| ~ 3-3.9, both arms summed. POI is the central arms |eta| < 0.35, so the
-    reference shares no particles with it.
+    reference shares no particles with it. Reference pT: all particles (a calorimeter/scintillator
+    reference has no pT selection; its E_T or hit weighting is not modelled).'
+  pT:
+    max: 100.0
+    min: 0.0
   provenance: paper
   reference: arXiv:nucl-ex/0411040 (INSPIRE 664944) event-plane section
 harmonic: 2
@@ -81,9 +85,13 @@ flow_reference:
     min: 3.0
   - max: -3.0
     min: -3.9
-  notes: Second-order event plane determined via hits in the North and South BBCs,
+  notes: 'Second-order event plane determined via hits in the North and South BBCs,
     |eta| ~ 3-3.9, both arms summed. POI is the central arms |eta| < 0.35, so the
-    reference shares no particles with it.
+    reference shares no particles with it. Reference pT: all particles (a calorimeter/scintillator
+    reference has no pT selection; its E_T or hit weighting is not modelled).'
+  pT:
+    max: 100.0
+    min: 0.0
   provenance: paper
   reference: arXiv:nucl-ex/0411040 (INSPIRE 664944) event-plane section
 harmonic: 2

@@ -46,6 +46,7 @@ phenix:
   # two silently stamps nothing (or the wrong paper).
   '1332240':
     detector: BBC
+    pT: {min: 0.0, max: 100.0}   # forward detector: every particle, whatever its pT
     eta:
       - {min: 3.0, max: 3.9}
       - {min: -3.9, max: -3.0}
@@ -77,6 +78,7 @@ phenix:
   # three-subevents methods".
   '819672':
     detector: BBC
+    pT: {min: 0.0, max: 100.0}   # forward detector: every particle, whatever its pT
     eta:
       - {min: 3.1, max: 3.9}
       - {min: -3.9, max: -3.1}
@@ -100,6 +102,7 @@ phenix:
   # BBCS, BBCN, CNT from three sub-events as a function of centrality."
   '1394897':
     detector: BBC
+    pT: {min: 0.0, max: 100.0}   # forward detector: every particle, whatever its pT
     eta:
       - {min: 3.1, max: 3.9}
       - {min: -3.9, max: -3.1}
@@ -129,6 +132,7 @@ phenix:
   # section if this paper's numbers are ever load-bearing.
   '1332239':
     detector: BBC
+    pT: {min: 0.0, max: 100.0}   # forward detector: every particle, whatever its pT
     eta:
       - {min: 3.1, max: 3.9}
       - {min: -3.9, max: -3.1}
@@ -152,6 +156,7 @@ phenix:
   # via hits in the North and South BBC's located at |eta| ~ 3-3.9".
   '664944':
     detector: BBC
+    pT: {min: 0.0, max: 100.0}   # forward detector: every particle, whatever its pT
     eta: [{min: 3.0, max: 3.9}, {min: -3.9, max: -3.0}]
     provenance: paper
     reference: "arXiv:nucl-ex/0411040 (INSPIRE 664944) event-plane section"
@@ -165,6 +170,7 @@ phenix:
   # covering the pseudo-rapidity range 3 < |eta| < 3.9".
   '723948':
     detector: BBC
+    pT: {min: 0.0, max: 100.0}   # forward detector: every particle, whatever its pT
     eta: [{min: 3.0, max: 3.9}, {min: -3.9, max: -3.0}]
     provenance: paper
     reference: "arXiv:nucl-ex/0608033 (INSPIRE 723948) event-plane section"
@@ -178,6 +184,7 @@ phenix:
   # 3 < |eta| < 3.9".
   '746499':
     detector: BBC
+    pT: {min: 0.0, max: 100.0}   # forward detector: every particle, whatever its pT
     eta: [{min: 3.0, max: 3.9}, {min: -3.9, max: -3.0}]
     provenance: paper
     reference: "arXiv:nucl-ex/0703024 (INSPIRE 746499) event-plane section"
@@ -199,6 +206,7 @@ phenix:
   #      specifically because the title invited the opposite conclusion.
   '816486':
     detector: BBC
+    pT: {min: 0.0, max: 100.0}   # forward detector: every particle, whatever its pT
     eta: [{min: 3.0, max: 3.9}, {min: -3.9, max: -3.0}]
     provenance: paper
     reference: "arXiv:0903.4886 (INSPIRE 816486) abstract"
@@ -222,6 +230,7 @@ phenix:
   # and reduces short-range correlations".
   '1672133':
     detector: BBC
+    pT: {min: 0.0, max: 100.0}   # forward detector: every particle, whatever its pT
     eta: [{min: -3.9, max: -3.1}]
     provenance: paper
     reference: "arXiv:1805.02973 (INSPIRE 1672133) Event Plane Determination"
@@ -246,6 +255,7 @@ phenix:
   # direction."
   '1684475':
     detector: BBC
+    pT: {min: 0.0, max: 100.0}   # forward detector: every particle, whatever its pT
     eta: [{min: -3.9, max: -3.1}]
     provenance: paper
     reference: "arXiv:1807.11928 (INSPIRE 1684475) pseudorapidity-dependence section"
@@ -283,6 +293,7 @@ atlas:
   # cumulant order 2 during curation.
   '1093733':
     detector: FCal
+    pT: {min: 0.0, max: 100.0}   # forward detector: every particle, whatever its pT
     eta: [{min: 3.2, max: 4.9}, {min: -4.9, max: -3.2}]
     provenance: paper
     reference: "arXiv:1203.3087 (INSPIRE 1093733) Sec IV.1 Event plane method"

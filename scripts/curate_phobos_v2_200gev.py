@@ -57,16 +57,22 @@ CENT = {'estimator': {'name': 'Paddle', 'observable': 'energy', 'detector': 'Pad
         'eta': [{'min': -4.5, 'max': -3.0}, {'min': 3.0, 'max': 4.5}]}
 ALL_PT = {'min': 0.0, 'max': 5000000000.0}
 WINDOW = 0.2
+# Octagon (silicon) references see every particle: reference pT 0-100 GeV/c.
+ALL_PT_REF = {'min': 0.0, 'max': 100.0}
+FWD_NOTE = (' Reference pT: all particles (a calorimeter/scintillator reference has no pT selection; its E_T or '
+            'hit weighting is not modelled).')
 CLASSES = ['25-50', '15-25', '3-15']            # table order: peripheral, mid-central, central
 TRACK_REF = {'detector': 'Octagon', 'eta': [{'min': -3.2, 'max': -2.05}, {'min': 2.05, 'max': 3.2}],
              'notes': 'Track-based method: event plane from the two octagon sub-events at 2.05 < |eta| < 3.2 '
                       '(parts with full azimuthal acceptance), combined; resolution from the sub-event '
-                      'technique, by centrality and vertex.'}
+                      'technique, by centrality and vertex.' + FWD_NOTE,
+             'pT': dict(ALL_PT_REF)}
 HIT_REF = {'detector': 'Octagon', 'mirror': True, 'eta': [{'min': 0.1, 'max': 2.0}],
            'notes': 'Hit-based method as described in PRL 89, 222301 (2002): for v2 at positive (negative) '
                     'eta, the event plane from the octagon sub-event on the opposite side, 0.1 < |eta| < 2.0 '
                     'in that paper (this paper does not restate the ranges); suppression corrected with '
-                    'HIJING + GEANT.'}
+                    'HIJING + GEANT.' + FWD_NOTE,
+           'pT': dict(ALL_PT_REF)}
 PT_EDGES = [0.04, 0.2, 0.4, 0.6, 0.8, 1.0, 1.2, 1.4, 1.6, 2.0, 2.5, 3.0, 4.0]
 FIG5_ETA = [0.31, 0.76, 1.22, 1.69, 3.04, 3.67, 4.13, 4.96]
 FIG5_Y = {'25-50': [1388, 1345, 1268, 1208, 1042, 903, 722, 600],     # squares

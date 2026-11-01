@@ -33,6 +33,10 @@ import re
 
 import yaml
 
+# Forward-detector references (calorimeter/scintillator) see every particle: reference pT 0-100 GeV/c.
+ALL_PT_REF = {'min': 0.0, 'max': 100.0}
+FWD_NOTE = (' Reference pT: all particles (a calorimeter/scintillator reference has no pT selection; its E_T or '
+            'hit weighting is not modelled).')
 RAW = 'hepdata_raw/records/ins1093733/HEPData-ins1093733-v1-yaml'
 CITE = 'G. Aad et al. (ATLAS), PRC 86, 014907 (2012), arXiv:1203.3087'
 FCAL = {'estimator': {'name': 'FCal', 'observable': 'ET', 'detector': 'FCal'},
@@ -107,7 +111,8 @@ def main():
                               'kinematic_range': {'eta': {'min': -2.5, 'max': 2.5}, 'pT': {'min': plo, 'max': phi_}},
                               'method': 'event_plane', 'dimensionality': 'integrated',
                               'flow_reference': {'detector': 'FCal', 'eta': [{'min': -4.9, 'max': -3.2}, {'min': 3.2, 'max': 4.9}],
-                                                 'notes': 'Event plane of the full FCal, 3.2 < |eta| < 4.9.'},
+                                                 'notes': 'Event plane of the full FCal, 3.2 < |eta| < 4.9.' + FWD_NOTE,
+                                             'pT': dict(ALL_PT_REF)},
                               'notes': {'value': f'{CITE}. v_{n} vs centrality for {plo:g} < pT < {phi_:g} GeV, |eta| < '
                                                  '2.5, full-FCal event plane; computed with the scalar-product estimator. '
                                                  'The table also holds nested classes (0-1% inside 0-5%): table_rows '
@@ -126,7 +131,8 @@ def main():
                 d.update({'kinematic_range': {'eta': {'min': -2.5, 'max': 2.5}, 'pT': bins({'values': [iv['values'][j] for j in r]})},
                           'method': 'event_plane', 'dimensionality': 'differential_pT',
                           'flow_reference': {'detector': 'FCal', 'eta': [{'min': -4.9, 'max': -3.2}, {'min': 3.2, 'max': 4.9}],
-                                             'notes': 'Event plane of the full FCal, 3.2 < |eta| < 4.9.'},
+                                             'notes': 'Event plane of the full FCal, 3.2 < |eta| < 4.9.' + FWD_NOTE,
+                                             'pT': dict(ALL_PT_REF)},
                           'notes': {'value': f'{CITE}. v_{n}(pT), |eta| < 2.5, full-FCal event plane; computed with the '
                                              'scalar-product estimator. Errors: statistical and systematic.'}})
             elif desc.startswith('The Fourier'):
@@ -136,7 +142,8 @@ def main():
                 d.update({'kinematic_range': {'eta': bins({'values': [iv['values'][j] for j in r]}), 'pT': {'min': plo, 'max': phi_}},
                           'method': 'event_plane', 'dimensionality': 'differential_eta',
                           'flow_reference': {'detector': 'FCal', 'mirror': True, 'eta': [{'min': 3.2, 'max': 4.9}],
-                                             'notes': 'FCal_P(N): event plane of the FCal half opposite the track.'},
+                                             'notes': 'FCal_P(N): event plane of the FCal half opposite the track.' + FWD_NOTE,
+                                             'pT': dict(ALL_PT_REF)},
                           'notes': {'value': f'{CITE}. v_{n}(|eta|) for {plo:g} < pT < {phi_:g} GeV, FCal_P(N) event '
                                              'plane (opposite half); computed at eta > 0 with the scalar-product '
                                              'estimator. Errors as tabulated.'}})

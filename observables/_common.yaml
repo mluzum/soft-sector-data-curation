@@ -317,7 +317,11 @@ flow_reference:
       required: false
       description: >
         pT window of the reference sample.  Omit to reuse the top-level
-        kinematic_range.pT.
+        kinematic_range.pT (a tracking reference in the record's own
+        acceptance).  A forward detector that sees every particle
+        (calorimeter, scintillator, silicon hit counter: FCal, HF, BBC,
+        EPD, RXN, Octagon) states {min: 0.0, max: 100.0}: with the
+        record's pT, a high-pT record gets a near-empty reference.
       fields:
         min: {type: float, required: true, example: 0.0}
         max: {type: float, required: true, example: 4.0}

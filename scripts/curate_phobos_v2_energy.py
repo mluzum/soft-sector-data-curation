@@ -35,6 +35,10 @@ import sys
 
 import yaml
 
+# Forward-detector references (calorimeter/scintillator) see every particle: reference pT 0-100 GeV/c.
+ALL_PT_REF = {'min': 0.0, 'max': 100.0}
+FWD_NOTE = (' Reference pT: all particles (a calorimeter/scintillator reference has no pT selection; its E_T or '
+            'hit weighting is not modelled).')
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
 from scripts.value_tables import write_value_table  # noqa: E402
@@ -48,7 +52,8 @@ OCTAGON = {'estimator': {'name': 'Octagon', 'observable': 'energy', 'detector': 
            'eta': [{'min': -3.0, 'max': 3.0}]}
 REF = {'detector': 'Octagon', 'mirror': True, 'eta': [{'min': 0.1, 'max': 3.0}],
        'notes': 'Hit-based method: for v2 at positive (negative) eta, the event plane from the sub-event on '
-                'the opposite side of midrapidity; sub-events 0.1 < |eta| < 3.0 at all four energies.'}
+                'the opposite side of midrapidity; sub-events 0.1 < |eta| < 3.0 at all four energies.' + FWD_NOTE,
+       'pT': dict(ALL_PT_REF)}
 ENERGIES = [19.6, 62.4, 130.0, 200.0]
 
 

@@ -30,13 +30,18 @@ import re
 
 import yaml
 
+# Forward-detector references (calorimeter/scintillator) see every particle: reference pT 0-100 GeV/c.
+ALL_PT_REF = {'min': 0.0, 'max': 100.0}
+FWD_NOTE = (' Reference pT: all particles (a calorimeter/scintillator reference has no pT selection; its E_T or '
+            'hit weighting is not modelled).')
 RAW = 'hepdata_raw/records/ins925720/HEPData-ins925720-v1-yaml'
 CITE = 'G. Aad et al. (ATLAS), PLB 707 (2012) 330, arXiv:1108.6018'
 FCAL = {'estimator': {'name': 'FCal', 'observable': 'ET', 'detector': 'FCal'},
         'eta': [{'min': -4.9, 'max': -3.2}, {'min': 3.2, 'max': 4.9}]}
 REF = {'detector': 'FCal', 'mirror': True, 'eta': [{'min': 3.2, 'max': 4.9}],
        'notes': 'Event plane of the FCal (first sampling layer, E_T weighted) in the eta hemisphere opposite the '
-                'track; charged particles with unit weights here.'}
+                'track; charged particles with unit weights here.' + FWD_NOTE,
+       'pT': dict(ALL_PT_REF)}
 
 
 def rng(text):

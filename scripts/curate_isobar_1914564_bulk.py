@@ -27,6 +27,10 @@ import os
 import yaml
 
 BASE = "hepdata_raw/records/ins1914564/HEPData-ins1914564-v1-yaml"
+# The EPD (scintillator) sees every particle: reference pT 0-100 GeV/c.
+EPD_ALL_PT = {"pT": {"min": 0.0, "max": 100.0},
+              "notes": "Reference pT: all particles (a calorimeter/scintillator reference has no pT selection; its "
+                       "E_T or hit weighting is not modelled)."}
 OUT_FLOW = "data/flow_vn"
 OUT_YIELD = "data/particle_yields"
 
@@ -77,11 +81,11 @@ V2_TABLES = {
     "fig4_left_top_isobarpaper_star_red_solid_v2_tpcepd_ruru.yaml":
         ("Ru+Ru", 2, "event_plane", None, "v2{EP,TPC-EPD}", None,
          {"detector": "EPD", "same_sample_as_poi": False,
-          "eta": [{"min": 2.1, "max": 5.1}, {"min": -5.1, "max": -2.1}]}),
+          "eta": [{"min": 2.1, "max": 5.1}, {"min": -5.1, "max": -2.1}], **EPD_ALL_PT}),
     "fig4_left_top_isobarpaper_star_red_open_v2_tpcepd_zrzr.yaml":
         ("Zr+Zr", 2, "event_plane", None, "v2{EP,TPC-EPD}", None,
          {"detector": "EPD", "same_sample_as_poi": False,
-          "eta": [{"min": 2.1, "max": 5.1}, {"min": -5.1, "max": -2.1}]}),
+          "eta": [{"min": 2.1, "max": 5.1}, {"min": -5.1, "max": -2.1}], **EPD_ALL_PT}),
     "fig4_left_top_isobarpaper_star_yellow_solid_v2_EP_ruru.yaml":
         ("Ru+Ru", 2, "event_plane", None, "v2{EP}", None,
          {"detector": "TPC", "same_sample_as_poi": True}),
@@ -122,11 +126,11 @@ V3_TABLES = {
     "fig10_right_top_isobarpaper_star_yellow_solid_v3_epd_ruru.yaml":
         ("Ru+Ru", 3, "event_plane", None, "v3{EP,EPD}", None,
          {"detector": "EPD", "same_sample_as_poi": False,
-          "eta": [{"min": 2.1, "max": 5.1}, {"min": -5.1, "max": -2.1}]}),
+          "eta": [{"min": 2.1, "max": 5.1}, {"min": -5.1, "max": -2.1}], **EPD_ALL_PT}),
     "fig10_right_top_isobarpaper_star_yellow_open_v3_epd_zrzr.yaml":
         ("Zr+Zr", 3, "event_plane", None, "v3{EP,EPD}", None,
          {"detector": "EPD", "same_sample_as_poi": False,
-          "eta": [{"min": 2.1, "max": 5.1}, {"min": -5.1, "max": -2.1}]}),
+          "eta": [{"min": 2.1, "max": 5.1}, {"min": -5.1, "max": -2.1}], **EPD_ALL_PT}),
 }
 
 MULT_TABLES = {
