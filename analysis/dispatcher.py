@@ -401,6 +401,12 @@ def resolve(record):
     # centrality-bin-width correction): the pipeline computes over the
     # whole class, which keeps the multiplicity fluctuations inside it.
     cent = record.get("centrality")
+    est = (cent or {}).get("estimator") if isinstance(cent, dict) else None
+    if isinstance(est, dict) and est.get("observable") == "spectator_neutrons":
+        raise ValueError(
+            f"{record.get('value_type')!r} classes come from spectator "
+            f"neutrons ({est.get('detector')}); a model without spectators "
+            f"cannot form that centrality")
     if isinstance(cent, dict) and cent.get("combined_from"):
         raise ValueError(
             f"{record.get('value_type')!r} combines values measured in "
@@ -751,6 +757,11 @@ def extract_measurement_params(exp_rec):
         # gap of those two-particle terms
         'normalized': bool(exp_rec.get('normalized')),
         'normalization_eta_gap': exp_rec.get('normalization_eta_gap'),
+        # Asymmetric systems: frame of the record's windows (lab / nn_cms),
+        # the centre-of-mass rapidity in the lab, and the +eta beam.
+        'frame': (exp_rec.get('collision_system') or {}).get('frame'),
+        'rapidity_shift': (exp_rec.get('collision_system') or {}).get('rapidity_shift'),
+        'forward_beam': (exp_rec.get('collision_system') or {}).get('forward_beam'),
     }
 
 

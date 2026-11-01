@@ -143,6 +143,14 @@ Fields that change dispatch:
   SC / (<v_m^2><v_n^2>)); `normalization_eta_gap` takes the denominator
   from the two halves of the window separated by the gap (ALICE, STAR:
   |Delta eta| > 1).  SC of three harmonics is refused.
+- Asymmetric systems (p+Pb, d+Au, 3He+Au, Cu+Au): `collision_system.frame`
+  (lab | nn_cms), `rapidity_shift` (y_lab = y_cms + shift; ALICE p-Pb
+  -0.465) and `forward_beam` (the beam toward +eta) state the frame of
+  every eta/y window, the estimator's included.  2D containers are
+  boost-invariant and frame-independent; run_pipeline skips such records
+  on 3D containers, whose orientation is not declared yet.
+- `centrality.estimator.observable: spectator_neutrons` (ALICE ZNA): refused,
+  models have no spectators.
 - `centrality.combined_from: unit_multiplicity`: class values combined
   from bins of one unit of the estimator multiplicity (STAR's
   centrality-bin-width correction); refused, since the pipeline computes

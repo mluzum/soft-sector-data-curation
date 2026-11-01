@@ -499,6 +499,27 @@ def test_table_rows_selects_rows():
     assert not errs([1, 2]) and errs([2, 1]) and errs([]) and errs([-1])
 
 
+
+def test_asymmetric_frame_and_spectator_estimator():
+    """Frame fields reach the params; a spectator-neutron centrality is refused."""
+    rec = {'observable_type': 'particle_yields', 'inspire_id': '0', 'version': 1, 'hepdata_file': 't.yaml',
+           'value_type': 'dNch/deta',
+           'collision_system': {'energy_gev': 8160.0, 'reaction': 'P PB --> CHARGED X', 'frame': 'lab',
+                                'rapidity_shift': -0.465, 'forward_beam': 'Pb'},
+           'centrality': {'classes': ['0-5%'], 'estimator': {'name': 'V0A', 'observable': 'amplitude'},
+                          'eta': [{'min': 2.8, 'max': 5.1}]},
+           'kinematic_range': {'eta': {'min': -0.5, 'max': 0.5}}}
+    resolve(rec)
+    p = extract_measurement_params(rec)
+    assert (p['frame'], p['rapidity_shift'], p['forward_beam']) == ('lab', -0.465, 'Pb'), p
+    zna = dict(rec, centrality=dict(rec['centrality'], estimator={'name': 'ZNA', 'observable': 'spectator_neutrons'}))
+    try:
+        resolve(zna)
+        raise AssertionError('spectator-neutron centrality not refused')
+    except ValueError as e:
+        assert 'spectator' in str(e), e
+
+
 if __name__ == '__main__':
     tests = [fn for fn in dir() if fn.startswith('test_')]
     n_pass = 0

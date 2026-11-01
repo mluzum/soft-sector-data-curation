@@ -1044,6 +1044,16 @@ def main():
                     if not isinstance(qv, (QGridData, MultiSpeciesGrid)):
                         print(f"    Skipping: qv is not a 3D grid")
                         continue
+                    # An asymmetric system's windows are in a stated frame
+                    # (collision_system.frame/rapidity_shift/forward_beam);
+                    # 3D containers do not declare their orientation yet, so
+                    # the windows cannot be mapped onto them.
+                    if params.get('forward_beam') or params.get('rapidity_shift'):
+                        print(f"    Skipping {rec.get('value_type','?')}: windows in the "
+                              f"{params.get('frame')} frame of an asymmetric system "
+                              f"(shift {params.get('rapidity_shift')}, +eta beam "
+                              f"{params.get('forward_beam')}); 3D container frames are not mapped yet")
+                        continue
 
                     cent_mult_3d = np.zeros(n_events, dtype=np.float64)
                     for emin, emax in cent_eta_ranges:

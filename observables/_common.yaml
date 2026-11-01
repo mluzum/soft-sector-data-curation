@@ -23,6 +23,33 @@ collision_system:
       required: false
       description: Short label like "AuAu", "PbPb", "dAu", "pPb", "pp".
       example: "AuAu"
+    frame:
+      type: string
+      required: false
+      allowed: [lab, nn_cms]
+      description: >
+        Asymmetric systems (p+Pb, d+Au, 3He+Au, Cu+Au): the frame of the
+        record's eta / y windows, the centrality estimator's included --
+        lab, or nn_cms (nucleon-nucleon centre of mass).  Omit for
+        symmetric systems.  2D (boost-invariant) containers do not depend
+        on it; the 3D pipeline skips records it cannot map onto the
+        container (container orientation not declared yet).
+      example: "lab"
+    rapidity_shift:
+      type: float
+      required: false
+      description: >
+        Rapidity of the nucleon-nucleon centre of mass in the lab frame,
+        along +eta_lab (y_lab = y_cms + rapidity_shift).  ALICE p-Pb, proton
+        beam toward -eta_lab: -0.465 at 5.02 and 8.16 TeV.
+      example: -0.465
+    forward_beam:
+      type: string
+      required: false
+      description: >
+        The beam moving toward +eta in `frame` (e.g. "Pb" for ALICE p-Pb,
+        whose V0A at 2.8 < eta_lab < 5.1 is on the Pb-going side).
+      example: "Pb"
 
 particle_id:
   description: >

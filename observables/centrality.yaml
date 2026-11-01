@@ -52,11 +52,15 @@ centrality:
           required: true
           description: >
             The physical quantity measured by the estimator.
+            spectator_neutrons: the neutron energy in a zero-degree
+            calorimeter (ALICE ZNA); refused, since models have no
+            spectators.
           allowed:
             - amplitude
             - Nch
             - ET
             - energy
+            - spectator_neutrons
           example: "amplitude"
         detector:
           type: string
