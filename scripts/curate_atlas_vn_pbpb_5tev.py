@@ -29,8 +29,9 @@ Records (one per table):
   bin), computed at eta > 0 (v_n(eta) is symmetric).
 The pipeline computes the event-plane records with the scalar-product
 estimator (it has no resolution correction); ATLAS reports SP/EP within a
-few per cent.  Not curated: v_n vs <N_part> (overlapping classes 0-0.1, 0-1,
-0-5% in one table), the EP tables with Run-1 pT binning (duplicates), the
+few per cent.  v_n vs <N_part>: classes from Table 1 of the paper (nearest
+<N_part>), one record of the non-overlapping classes and one each for the
+nested 0-1% and 0-0.1% (table_rows).  Not curated: the EP tables with Run-1 pT binning (duplicates), the
 SP/EP and SP/2PC ratios, and the scaled v_n(pT) and its scale factors.
 
 Run from the repository root:  python scripts/curate_atlas_vn_pbpb_5tev.py
@@ -51,6 +52,23 @@ ETA_RE = re.compile(r"The V(\d) harmonic measured with the (scalar product|event
                     r"pseudorapidity for transverse momentum range ([0-9.]+) < PT < ([0-9.]+) GeV in centrality bin "
                     r"([0-9.]+-[0-9.]+)%$")
 METHOD = {'scalar product': 'scalar_product', 'event plane': 'event_plane', 'two particle correlation': 'cumulant'}
+
+# Table 1 of the paper: centrality -> <N_part>
+NPART = {'0-0.1': 406.6, '0-1': 402.9, '0-5': 384.5, '5-10': 333.1, '10-20': 264.1, '20-30': 189.2, '30-40': 131.4,
+         '40-50': 87.0, '50-60': 53.9, '60-70': 30.6, '70-80': 15.4}
+NPART_RE = re.compile(r"The V(\d) harmonic measured with the (scalar product|event plane) method as a fun?c?tion of "
+                      r"MEAN\(Npart\) integrated over ([0-9.]+) < PT < ([0-9.]+) GeV$")
+
+
+def split_overlaps(classes):
+    """Row groups that a record can hold: the rows whose class lies inside no
+    other row's class, then each nested row alone (0-1% inside 0-5%)."""
+    rng_ = [tuple(float(x) for x in c.rstrip('%').split('-')) for c in classes]
+    nested = [i for i, (a, b) in enumerate(rng_)
+              if any(j != i and c <= a and b <= d and (c, d) != (a, b) for j, (c, d) in enumerate(rng_))]
+    main = [i for i in range(len(classes)) if i not in nested]
+    return [main] + [[i] for i in nested]
+
 
 
 def axis(t):
@@ -77,7 +95,39 @@ def main():
     for x in sub:
         desc = ' '.join(x['description'].split())
         hf = x['data_file']
-        m, e = PT_RE.match(desc), ETA_RE.match(desc)
+        m, e, npt = PT_RE.match(desc), ETA_RE.match(desc), NPART_RE.match(desc)
+        if npt:
+            n, meth, plo, phi_ = int(npt.group(1)), METHOD[npt.group(2)], float(npt.group(3)), float(npt.group(4))
+            t = yaml.safe_load(open(os.path.join(RAW, hf)))
+            nps = [float(v['value']) for v in t['independent_variables'][0]['values']]
+            # each <N_part> value -> the class of Table 1 with the nearest <N_part> (within 2%)
+            classes = []
+            for x in nps:
+                c, ref = min(NPART.items(), key=lambda kv: abs(kv[1] - x))
+                assert abs(ref - x) < 0.02 * ref, (hf, x, c, ref)
+                classes.append(f'{c}%')
+            assert len(set(classes)) == len(classes), (hf, classes)
+            dv = t['dependent_variables'][0]
+            blank = {j for j, v in enumerate(dv['values']) if str(v['value']).strip() in ('', '-')}
+            for grp in split_overlaps(classes):
+                grp = [j for j in grp if j not in blank]
+                if not grp:
+                    continue
+                d = base(hf, n, classes[grp[0]].rstrip('%'), desc)
+                d['centrality']['classes'] = [classes[j] for j in grp]
+                d.update({'table_rows': grp,
+                          'kinematic_range': {'eta': {'min': -2.5, 'max': 2.5}, 'pT': {'min': plo, 'max': phi_}},
+                          'method': meth, 'dimensionality': 'integrated',
+                          'flow_reference': {'detector': 'FCal', 'eta': FCAL_BOTH,
+                                             'notes': 'FCal Q_n, 3.2 < |eta| < 4.9, E_T weighted (both sides here).'},
+                          'notes': {'value': (f'{CITE}. v_{n} for {plo:g} < pT < {phi_:g} GeV, |eta| < 2.5, '
+                                              f'{npt.group(2)} method with the FCal reference, vs <N_part>: classes from '
+                                              'Table 1 of the paper (nearest <N_part>); table_rows selects this record\'s '
+                                              'rows (0-0.1% and 0-1% lie inside 0-5%).'
+                                              + (' Computed with the scalar-product estimator.' if meth == 'event_plane' else '')
+                                              + ' Errors: statistical and systematic.')}})
+                docs.append(d)
+            continue
         if m and not m.group(4):
             n, meth, cls = int(m.group(1)), METHOD[m.group(2)], m.group(3)
             t = yaml.safe_load(open(os.path.join(RAW, hf)))

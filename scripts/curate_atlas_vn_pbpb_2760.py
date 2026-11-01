@@ -9,20 +9,20 @@ From the paper:
 - tracks |eta| < 2.5; centrality from the FCal Sigma E_T, 3.2 < |eta| < 4.9;
 - event plane (EP), "full FCal" method: tracks correlated with the event
   plane of the whole FCal (3.2 < |eta| < 4.9), resolution from the two
-  halves -- v_n(pT) (Tables 46-53) and v_n vs centrality;
+  halves -- v_n(pT) (Tables 46-53) and v_n vs centrality (Tables 54-59);
 - "FCal_P(N)" method: tracks at eta >= 0 (< 0) with the event plane of the
   opposite FCal half -- v_n(|eta|) (Tables 6-45);
 - two-particle correlations (2PC) with 2 < |Delta eta| < 5: v_n(pT_b) =
   v_nn(pT_a, pT_b) / v_n(pT_a) for reference ranges pT_a (Tables 91-114);
 - errors: statistical and systematic.
 
-Records: one per table column.  EP records: event_plane with the FCal
+Records: one per table column (v_n vs centrality: one record of the
+non-overlapping classes and one per nested class, through table_rows).  EP records: event_plane with the FCal
 reference (both halves for the full-FCal v_n(pT); the opposite half,
 mirror, for v_n(|eta|), computed at eta > 0), computed with the scalar-
 product estimator.  2PC records: cumulant order 2, POI pT_b points
 (0.1 GeV windows), reference pT_a (flow_reference.pT), pair gap recorded
-as eta_gap.  Not curated: v_n vs centrality (classes 0-1% and 0-5% in one
-table overlap), the resolution and chi tables, correlation functions,
+as eta_gap.  Not curated: the resolution and chi tables, correlation functions,
 v_nn(pT_a, pT_b), v_n and v_nn vs n, v_1,1 and the fitted v_1.
 
 Run from the repository root:  python scripts/curate_atlas_vn_pbpb_2760.py
@@ -55,6 +55,16 @@ def bins(iv):
     return ax
 
 
+def split_overlaps(classes):
+    """Row groups that a record can hold: the rows whose class lies inside no
+    other row's class, then each nested row alone (0-1% inside 0-5%)."""
+    rng_ = [tuple(float(x) for x in c.rstrip('%').split('-')) for c in classes]
+    nested = [i for i, (a, b) in enumerate(rng_)
+              if any(j != i and c <= a and b <= d and (c, d) != (a, b) for j, (c, d) in enumerate(rng_))]
+    main = [i for i in range(len(classes)) if i not in nested]
+    return [main] + [[i] for i in nested]
+
+
 def rows(dv):
     return [j for j, v in enumerate(dv['values']) if str(v['value']).strip() not in ('', '-')]
 
@@ -74,11 +84,36 @@ def main():
     for x in sub:
         desc = ' '.join(x['description'].split())
         hf = x['data_file']
-        if desc.startswith(('V_n vs PT for centrality', 'The Fourier coefiiciant V_n vs eta', 'v_n extracted from 2PC')):
+        if desc.startswith(('V_n vs PT for centrality', 'The Fourier coefiiciant V_n vs eta', 'v_n extracted from 2PC',
+                            'V_n vs Centrality for PT')):
             t = yaml.safe_load(open(os.path.join(RAW, hf)))
         else:
             continue
         iv = t['independent_variables'][0]
+        if desc.startswith('V_n vs Centrality'):
+            classes = [f"{float(v['low']):g}-{float(v['high']):g}%" for v in iv['values']]
+            for i, dv in enumerate(t['dependent_variables']):
+                q = {qq['name']: qq.get('value') for qq in dv.get('qualifiers', [])}
+                n = int(float(q['N']))
+                plo, phi_ = rng(q['PT'])
+                blank = set(j for j in range(len(classes)) if j not in rows(dv))
+                for grp in split_overlaps(classes):
+                    grp = [j for j in grp if j not in blank]
+                    if not grp:
+                        continue
+                    d = base(hf, i, n, '0-100', f'{desc} (n = {n})')
+                    d['centrality']['classes'] = [classes[j] for j in grp]
+                    d.update({'table_rows': grp,
+                              'kinematic_range': {'eta': {'min': -2.5, 'max': 2.5}, 'pT': {'min': plo, 'max': phi_}},
+                              'method': 'event_plane', 'dimensionality': 'integrated',
+                              'flow_reference': {'detector': 'FCal', 'eta': [{'min': -4.9, 'max': -3.2}, {'min': 3.2, 'max': 4.9}],
+                                                 'notes': 'Event plane of the full FCal, 3.2 < |eta| < 4.9.'},
+                              'notes': {'value': f'{CITE}. v_{n} vs centrality for {plo:g} < pT < {phi_:g} GeV, |eta| < '
+                                                 '2.5, full-FCal event plane; computed with the scalar-product estimator. '
+                                                 'The table also holds nested classes (0-1% inside 0-5%): table_rows '
+                                                 'selects this record\'s rows. Errors: statistical and systematic.'}})
+                    docs.append(d)
+            continue
         for i, dv in enumerate(t['dependent_variables']):
             q = {qq['name']: qq.get('value') for qq in dv.get('qualifiers', [])}
             r = rows(dv)
