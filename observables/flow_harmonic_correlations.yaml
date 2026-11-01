@@ -49,6 +49,22 @@ required_fields:
     example: [5, 2]
 
 optional_fields:
+  normalized:
+    type: boolean
+    required: false
+    description: >
+      symmetric_cumulant: true for NSC(m,n) = SC(m,n) / (<v_m^2><v_n^2>),
+      false for SC(m,n).  Required by the computation (SC(m,n) only, two
+      harmonics).
+    example: true
+  normalization_eta_gap:
+    type: float
+    required: false
+    description: >
+      NSC: the <v_n^2> of the denominator from two-particle correlations
+      between the two halves of the window separated by this gap (ALICE:
+      |Delta eta| > 1).  Absent: from the same particles as SC.
+    example: 1.0
   estimator:
     type: string
     required: false

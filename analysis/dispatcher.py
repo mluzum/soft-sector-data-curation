@@ -397,6 +397,15 @@ def resolve(record):
             f"{record.get('value_type')!r} is measured relative to the "
             f"spectator plane ({fr.get('detector')}); a model without "
             f"spectators cannot form that reference")
+    # Class values combined from narrow multiplicity bins (STAR's
+    # centrality-bin-width correction): the pipeline computes over the
+    # whole class, which keeps the multiplicity fluctuations inside it.
+    cent = record.get("centrality")
+    if isinstance(cent, dict) and cent.get("combined_from"):
+        raise ValueError(
+            f"{record.get('value_type')!r} combines values measured in "
+            f"{cent['combined_from']} bins; the pipeline computes over the "
+            f"whole centrality class")
 
     # A species the simulations cannot provide (heavy flavour, quarkonia,
     # leptons, photons, eta, resonances, ...) would compute as zero, not be
@@ -484,6 +493,16 @@ def resolve(record):
                 reqs_per = entry.get("requires_per_ct", {})
                 if ct in reqs_per:
                     entry["requires"] = reqs_per[ct]
+            # Symmetric cumulants: SC(m, n) only, and the record must say
+            # whether it is normalized (NSC = SC / <<2>>_m <<2>>_n); until
+            # November 2026 NSC records were compared with unnormalized SC.
+            if entry.get("compute") == "sc_mn":
+                harms = record.get("harmonics") or []
+                if len(harms) != 2:
+                    raise ValueError(f"symmetric cumulant of {len(harms)} harmonics {harms}: only SC(m, n) "
+                                     f"is implemented")
+                if "normalized" not in record:
+                    raise ValueError("symmetric_cumulant record needs 'normalized' (true: NSC, false: SC)")
             # For particle_yields, choose per-eta vs integrated based on
             # whether the record has eta bin edges (differential_eta).
             if obs_type == "particle_yields":
@@ -728,6 +747,10 @@ def extract_measurement_params(exp_rec):
         'quantity': exp_rec.get('quantity'),
         'reference_pT': _kr_pT({'pT': exp_rec['reference_pT']}) if exp_rec.get('reference_pT') else None,
         'multiplicity_baseline': exp_rec.get('multiplicity_baseline'),
+        # symmetric cumulants: NSC (divided by <<2>>_m <<2>>_n) and the eta
+        # gap of those two-particle terms
+        'normalized': bool(exp_rec.get('normalized')),
+        'normalization_eta_gap': exp_rec.get('normalization_eta_gap'),
     }
 
 

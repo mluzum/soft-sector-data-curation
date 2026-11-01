@@ -138,6 +138,18 @@ Fields that change dispatch:
   (pi+ + pi-)/2, ...); absolute quantities are half of the sum.
 - Ratio records link `numerator_record` / `denominator_record` (path, with
   `#<doc>` for multi-document files); `tests/test_ratio_links.py` checks every link.
+- Symmetric cumulants (`correlation_type: symmetric_cumulant`, key
+  `sc_mn`): two harmonics only, and `normalized` is required (true: NSC =
+  SC / (<v_m^2><v_n^2>)); `normalization_eta_gap` takes the denominator
+  from the two halves of the window separated by the gap (ALICE, STAR:
+  |Delta eta| > 1).  SC of three harmonics is refused.
+- `centrality.combined_from: unit_multiplicity`: class values combined
+  from bins of one unit of the estimator multiplicity (STAR's
+  centrality-bin-width correction); refused, since the pipeline computes
+  over the whole class.
+- A dependence on a lower pT cut (`p_T,min` axis, e.g. ALICE SC and v_n
+  vs pT_min): one integrated record per point, pT [pT_min, max] and
+  `table_rows: [j]`; audit_metadata checks the pairing.
 
 ## Pipeline
 
@@ -235,6 +247,18 @@ near c_4 = 0, ratios) the correction is unstable (zr96c2 dp0001, v2{4}
   species, v_n{4}(pT) was (v' v^3)^(1/4) with an unbalanced four-particle
   term, v_n{4} ignored the record's pT window, and 3D v_n{2}(pT)
   correlated each bin with itself.
+  v_n{4} needs Q_{2n} only in weight-squared self-correlation terms
+  (relative order 1/M_eff, M_eff = (sum w)^2/sum w^2); a container that
+  does not store it drops them with a printed note (v3{4} on 2D JETSCAPE
+  containers, n <= 5, M_eff ~ 2e4: < 1% of c3{4}).  SC(m,n), a small
+  difference, refuses a missing Q_{m+n} instead.
+- **Symmetric cumulants** (`sc_mn`, `analysis.correlators.sc_arrays`):
+  SC(m,n) = <<4>>_{m,n,-m,-n} - <<2>>_m <<2>>_n over distinct particles
+  (2D Jacobian weights or 3D unit weights), event weights the numbers of
+  4-tuples and pairs; needs Q_{m+n} (the prepare raises otherwise).
+  tests/test_toy_mc_sc.py.  Until November 2026 it used |Q_n|^2/M^2 (no
+  self-correlation removal), ignored the pT window and the 2D weights,
+  never normalized, and read SC of three harmonics as SC of the first two.
 - **Scalar product / event plane, differential** (`vn2_sp_diff_*`, which
   also serve event_plane records that declare a `flow_reference`): the
   POI is the record species per bin; the reference is charged hadrons in

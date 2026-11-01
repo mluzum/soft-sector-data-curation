@@ -2,7 +2,8 @@ observable_type: flow_harmonic_correlations
 inspire_id: '2654313'
 version: 1
 hepdata_file: data1.yaml
-hepdata_table_label: Centrality dependence of ${\rm SC}(2,3)$ in Pb$-$Pb collisions at $\sqrt{s_{\rm NN}} = 5.02$ TeV.
+dv_index: 0
+hepdata_table_label: Centrality dependence of ${\rm SC}(2,3)$ in Pb$-$Pb collisions at $\sqrt{s_{\rm NN}} = 5.02$ TeV. | SC(2,3)
 collision_system:
   energy_gev: 5020.0
   reaction: PB PB --> CHARGED X
@@ -24,26 +25,31 @@ centrality:
   - min: 2.8
     max: 5.1
 kinematic_range:
-  pT:
-    min: 0.2
-    max: 5.0
   eta:
     min: -0.8
     max: 0.8
-observable: NSC_2_3
+  pT:
+    min: 0.2
+    max: 5.0
+observable: SC_2_3
 correlation_type: symmetric_cumulant
 harmonics:
 - 2
 - 3
-value_type: NSC(2,3)
+normalized: false
+value_type: SC(2,3)
 dimensionality: integrated
 estimator: standard
+notes:
+  value: 'S. Acharya et al. (ALICE), PRC 108, 055203 (2023), arXiv:2303.13414. SC(2,3), four- and two-particle cumulants without
+    gap; charged, |eta| < 0.8, 0.2 < pT < 5 GeV/c. Errors: statistical and systematic.'
 ---
 observable_type: flow_harmonic_correlations
 inspire_id: '2654313'
 version: 1
 hepdata_file: data12.yaml
-hepdata_table_label: Centrality dependence of ${\rm SC}(2,4)$ in Pb$-$Pb collisions at $\sqrt{s_{\rm NN}} = 5.02$ TeV.
+dv_index: 0
+hepdata_table_label: Centrality dependence of ${\rm SC}(2,4)$ in Pb$-$Pb collisions at $\sqrt{s_{\rm NN}} = 5.02$ TeV. | SC(2,4)
 collision_system:
   energy_gev: 5020.0
   reaction: PB PB --> CHARGED X
@@ -65,26 +71,31 @@ centrality:
   - min: 2.8
     max: 5.1
 kinematic_range:
-  pT:
-    min: 0.2
-    max: 5.0
   eta:
     min: -0.8
     max: 0.8
-observable: NSC_2_4
+  pT:
+    min: 0.2
+    max: 5.0
+observable: SC_2_4
 correlation_type: symmetric_cumulant
 harmonics:
 - 2
 - 4
-value_type: NSC(2,4)
+normalized: false
+value_type: SC(2,4)
 dimensionality: integrated
 estimator: standard
+notes:
+  value: 'S. Acharya et al. (ALICE), PRC 108, 055203 (2023), arXiv:2303.13414. SC(2,4), four- and two-particle cumulants without
+    gap; charged, |eta| < 0.8, 0.2 < pT < 5 GeV/c. Errors: statistical and systematic.'
 ---
 observable_type: flow_harmonic_correlations
 inspire_id: '2654313'
 version: 1
 hepdata_file: data22.yaml
-hepdata_table_label: Centrality dependence of ${\rm SC}(3,4)$ in Pb$-$Pb collisions at $\sqrt{s_{\rm NN}} = 5.02$ TeV.
+dv_index: 0
+hepdata_table_label: Centrality dependence of ${\rm SC}(3,4)$ in Pb$-$Pb collisions at $\sqrt{s_{\rm NN}} = 5.02$ TeV. | SC(3,4)
 collision_system:
   energy_gev: 5020.0
   reaction: PB PB --> CHARGED X
@@ -106,17 +117,21 @@ centrality:
   - min: 2.8
     max: 5.1
 kinematic_range:
-  pT:
-    min: 0.2
-    max: 5.0
   eta:
     min: -0.8
     max: 0.8
-observable: NSC_3_4
+  pT:
+    min: 0.2
+    max: 5.0
+observable: SC_3_4
 correlation_type: symmetric_cumulant
 harmonics:
 - 3
 - 4
-value_type: NSC(3,4)
+normalized: false
+value_type: SC(3,4)
 dimensionality: integrated
 estimator: standard
+notes:
+  value: 'S. Acharya et al. (ALICE), PRC 108, 055203 (2023), arXiv:2303.13414. SC(3,4), four- and two-particle cumulants without
+    gap; charged, |eta| < 0.8, 0.2 < pT < 5 GeV/c. Errors: statistical and systematic.'

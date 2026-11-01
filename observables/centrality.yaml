@@ -121,6 +121,22 @@ centrality:
       required: false
       description: Width, in percent, of the windows around `points`.
       example: 2.0
+    combined_from:
+      type: string
+      required: false
+      allowed:
+        - unit_multiplicity
+        - analysis_classes
+      description: >
+        The class values combine values measured in narrower bins of the
+        estimator: unit_multiplicity, bins of one unit of its multiplicity
+        (STAR's centrality-bin-width correction, e.g. RefMult);
+        analysis_classes, the narrower percentile classes listed in
+        `analysis_classes` (e.g. PHENIX 0-50% from 10% classes, weighted by
+        the particle multiplicity; the weighting goes in the notes).  The
+        pipeline computes over the whole class, so such records are
+        refused until the combination is implemented.
+      example: "unit_multiplicity"
     analysis_classes:
       type: list
       required: false

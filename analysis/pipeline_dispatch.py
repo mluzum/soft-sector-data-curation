@@ -38,7 +38,6 @@ from analysis.observables_2d import (
     compute_v1_odd_sp_diff_eta,
     compute_spectra_invariant_yield,
     compute_mean_pt,
-    compute_sc_mn,
     compute_nac_mn,
 )
 
@@ -1177,41 +1176,84 @@ def _wrap_radial_flow(data, w):
 # ── Symmetric-cumulant SC(n,m) prepares ─────────────────────────────────────
 
 
-def prepare_sc_2d(qv, params):
-    """Weighted Q^1 vectors in the eta/pT acceptance for SC(n,m).
-
-    Returns {'Q1': (n_events, n_harm) complex, 'n': int, 'm': int}.
-    The harmonic indices are taken from params['harmonics'] (set by
-    extract_measurement_params from the curated record's `harmonics` list).
-    """
+def _sc_settings(params):
+    """(m, n, eta window, pT window, normalization gap or None) of an SC record."""
+    harms = [int(h) for h in (params.get('harmonics') or [])]
+    if len(harms) != 2:
+        raise ValueError(f"symmetric cumulant of harmonics {harms}: only SC(m, n) is implemented")
     sk = params.get('single_range', {})
-    eta = sk.get('eta', (-1, 1))
+    eta = tuple(sk.get('eta', (-0.8, 0.8)))
+    pt = tuple(sk.get('pT', (0.2, 5.0)))
     if eta[0] is None or eta[1] is None:
-        z = np.zeros((qv.n_events, 6), dtype=complex)
-        return {'Q1': z, 'n': 0, 'm': 0}
-    jac = _make_jacobian_list(qv.pt_centers, qv.masses, eta[0], eta[1])
-    Q1 = _compute_weighted_qvectors(qv, jac, 1)
-    harms = params.get('harmonics') or [0, 0]
-    n, m = int(harms[0]), int(harms[1])
-    return {'Q1': Q1, 'n': n, 'm': m}
+        raise ValueError("symmetric cumulant needs kinematic_range.eta")
+    gap = params.get('normalization_eta_gap')
+    return harms[0], harms[1], eta, pt, gap
+
+
+def _sc_check_harmonics(m, n, n_harm):
+    if m + n >= n_harm:
+        raise ValueError(f"SC({m},{n}) needs Q_{m + n}; the container stores harmonics below {n_harm}")
+
+
+def _sc_gap_windows(eta, gap):
+    mid = 0.5 * (eta[0] + eta[1])
+    return (eta[0], mid - gap / 2), (mid + gap / 2, eta[1])
+
+
+def prepare_sc_2d(qv, params):
+    """SC(m, n) on the 2D container: charged particles with the window's
+    Jacobian weights; distinct-particle sums (analysis.correlators), so the
+    weights' self-correlations are removed exactly.  With a normalization
+    gap, <<2>>_m and <<2>>_n of the normalized SC come from the two halves
+    of the window separated by the gap."""
+    from analysis.correlators import Container2D, sc_arrays, two_particle_gap
+    m, n, eta, pt, gap = _sc_settings(params)
+    _sc_check_harmonics(m, n, qv.Qn.shape[2])
+    idx, _cf = charged_species_indices(getattr(qv, 'pdg_ids', None))
+    lo, hi = _find_pt_slice_edges(qv.pt_bin_edges, pt[0], pt[1])
+
+    def sample(window):
+        return {'idx': list(idx), 'pt': (lo, hi), 'jac': _make_jacobian_list(qv.pt_centers, qv.masses, *window)}
+    full = sample(eta)
+    out = sc_arrays(Container2D(qv, full, full), m, n)
+    if gap is not None:
+        a, b = _sc_gap_windows(eta, gap)
+        c = Container2D(qv, sample(a), sample(b))
+        out['G2m'], out['GD'] = two_particle_gap(c, m)
+        out['G2n'], _ = two_particle_gap(c, n)
+    out['normalized'] = bool(params.get('normalized'))
+    return out
 
 
 def prepare_sc_3d(grid, params):
-    """Q-vectors in (eta, pT) acceptance from a QGridData for SC(n,m)."""
-    sk = params.get('single_range', {})
-    eta = sk.get('eta', (-1, 1))
-    pt = sk.get('pT', (0.1, 10))
-    if eta[0] is None or eta[1] is None:
-        z = np.zeros((grid.n_events, 6), dtype=complex)
-        return {'Q1': z, 'n': 0, 'm': 0}
-    Q1 = grid.acceptance(eta[0], eta[1], pt[0], pt[1])
-    harms = params.get('harmonics') or [0, 0]
-    n, m = int(harms[0]), int(harms[1])
-    return {'Q1': Q1, 'n': n, 'm': m}
+    """SC(m, n) on a unit-weight charged grid (see prepare_sc_2d)."""
+    from analysis.correlators import Container3D, sc_arrays, two_particle_gap
+    m, n, eta, pt, gap = _sc_settings(params)
+    _sc_check_harmonics(m, n, grid.Qn.shape[-1])
+    win = (eta[0], eta[1], pt[0], pt[1])
+    out = sc_arrays(Container3D(grid, win, grid, win, True), m, n)
+    if gap is not None:
+        a, b = _sc_gap_windows(eta, gap)
+        c = Container3D(grid, (a[0], a[1], pt[0], pt[1]), grid, (b[0], b[1], pt[0], pt[1]), False)
+        out['G2m'], out['GD'] = two_particle_gap(c, m)
+        out['G2n'], _ = two_particle_gap(c, n)
+    out['normalized'] = bool(params.get('normalized'))
+    return out
 
 
 def _wrap_sc(data, w):
-    return compute_sc_mn(data['Q1'], w, data['n'], data['m'])
+    """SC(m, n) = <<4>> - <<2>>_m <<2>>_n (event weights: the numbers of
+    distinct 4-tuples and pairs); normalized: divided by <<2>>_m <<2>>_n,
+    from the gapped subevents when the record gives a gap."""
+    from analysis.correlators import _avg
+    four = _avg(data['N4'], data['D4'], w)
+    c2m, c2n = _avg(data['N2m'], data['D2'], w), _avg(data['N2n'], data['D2'], w)
+    sc = four - c2m * c2n
+    if not data.get('normalized'):
+        return np.array([sc])
+    if 'G2m' in data:
+        c2m, c2n = _avg(data['G2m'], data['GD'], w), _avg(data['G2n'], data['GD'], w)
+    return np.array([sc / (c2m * c2n)])
 
 
 # ── Event-plane correlation NAC(n,m) (subevent) prepares ─────────────────────

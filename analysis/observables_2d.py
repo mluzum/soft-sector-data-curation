@@ -1420,60 +1420,6 @@ def compute_vn2_gap_diff_eta(Qn_corrected_A, Qn_corrected_B, qv, jac_A, jac_B,
 # ── Symmetric cumulants SC(n,m) ─────────────────────────────────────────────
 
 
-def _core_sc_mn(Q1, event_weights, n, m):
-    """Core SC(n,m) direct-product estimator, one centrality bin, no JK.
-
-    SC(n,m) = <v_n² v_m²> − <v_n²><v_m²>  (Bilandzic, standard estimator)
-
-    In Q-vector form (direct product, no self-corr subtraction -- see note):
-
-        v_n²(e) = |Q_n(e)|² / M(e)²   (per-event resolution-biased estimator)
-        SC      = <v_n² v_m²> − <v_n²><v_m²>
-
-    Args:
-        Q1: (n_events, n_harm) complex — weighted Q^1 vectors; slot 0 = M
-            (real), slots >=1 = Q_n.  For 2D the Jacobian weights are already
-            inside Q1 via cut_qvectors; for 3D the grid is unit-weighted.
-        event_weights: (n_events,) float — per-event centrality weight
-        n, m: positive int — the two harmonics
-
-    Returns: scalar float — SC(n,m).
-
-    NOTE on self-correlation subtraction: the direct-product formula above is
-    the "standard" SC estimator used in most published ALICE/ATLAS/CMS SC
-    tables; it is biased upward by O(1/M) finite-multiplicity self-correlation
-    terms (Bilandzic PhD §3.2).  At typical M~300 this bias is <0.5%, well
-    inside the experimental systematic uncertainty.  The fully-subtracted
-    Bilandzic version (using dQ0, dQ2n cross-terms) is a future refinement;
-    adding it requires the per-event dQ0 slot which is already available in
-    Q2 for the 2D weighted path.
-    """
-    M = Q1[:, 0].real
-    Qn = Q1[:, n]
-    Qm = Q1[:, m]
-    M2 = np.maximum(M * M, 1e-60)
-    vn_sq = (Qn * np.conj(Qn)).real / M2          # |Q_n|² / M²
-    vm_sq = (Qm * np.conj(Qm)).real / M2          # |Q_m|² / M²
-    if event_weights is not None:
-        wsum = event_weights.sum()
-        if wsum < 1e-30:
-            return np.nan
-        mean_vn_sq = np.sum(event_weights * vn_sq) / wsum
-        mean_vm_sq = np.sum(event_weights * vm_sq) / wsum
-        mean_prod = np.sum(event_weights * vn_sq * vm_sq) / wsum
-    else:
-        mean_vn_sq = vn_sq.mean()
-        mean_vm_sq = vm_sq.mean()
-        mean_prod = (vn_sq * vm_sq).mean()
-    return mean_prod - mean_vn_sq * mean_vm_sq
-
-
-@register("sc_mn")
-def compute_sc_mn(Q1, event_weights, n, m):
-    """SC(n,m) for one centrality bin (length-1 array for the dispatcher)."""
-    return np.array([_core_sc_mn(Q1, event_weights, n, m)])
-
-
 # ── Event-plane correlations NAC(n,m) (subevent) ─────────────────────────────
 
 

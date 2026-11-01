@@ -80,7 +80,44 @@ def correlator_arrays(S, n_harm, order, which=('poi', 'ref')):
     for tag, sign, roles in specs:
         out['N' + tag] = np.stack([distinct_sum(S, tuple(h * x for x in sign), roles) for h in hs], axis=1)
         out['D' + tag] = np.real(distinct_sum(S, (0,) * len(sign), roles))
+        if len(sign) == 4:
+            _note_missing_q2n(S, [h for h in hs if 2 * h >= n_harm], n_harm)
     return out
+
+
+_NOTED = set()
+
+
+def _note_missing_q2n(S, harms, n_harm):
+    """<4>_{n,n,-n,-n} needs Q_{2n} where two members coincide: only
+    weight-squared self-correlation terms, of relative order 1/M_eff
+    (M_eff = (sum w)^2 / sum w^2).  A container that does not store Q_{2n}
+    drops them; say so once, with M_eff (oversampled 2D JETSCAPE containers:
+    ~2e4, a < 1% effect on c3{4}; unit weights: M_eff = M)."""
+    key = (tuple(harms), n_harm)
+    if not harms or key in _NOTED:
+        return
+    _NOTED.add(key)
+    w1, w2 = np.real(S(0, 0, 1)), np.real(S(0, 0, 2))
+    ok = w2 > 0
+    m_eff = float(np.median(w1[ok] ** 2 / w2[ok])) if ok.any() else float('nan')
+    print(f"  note: v_n{{4}} for n = {', '.join(map(str, harms))}: Q_2n is not stored (harmonics < {n_harm}); "
+          f"its self-correlation terms (relative order 1/M_eff, median M_eff = {m_eff:.3g}) are dropped")
+
+
+def sc_arrays(S, m, n):
+    """Per-event sums for the symmetric cumulant SC(m, n) = <<4>>_{m,n,-m,-n}
+    - <<2>>_m <<2>>_n over distinct particles of one sample: N4, D4, N2m, N2n,
+    D2 (Bilandzic et al., PRC 89, 064904)."""
+    return {'N4': distinct_sum(S, (m, n, -m, -n), 'RRRR'), 'D4': np.real(distinct_sum(S, (0, 0, 0, 0), 'RRRR')),
+            'N2m': distinct_sum(S, (m, -m), 'RR'), 'N2n': distinct_sum(S, (n, -n), 'RR'),
+            'D2': np.real(distinct_sum(S, (0, 0), 'RR'))}
+
+
+def two_particle_gap(S_AB, h):
+    """Per-event <2> between two subevents (POI role = A, REF role = B):
+    numerator and pair count over distinct particles."""
+    return distinct_sum(S_AB, (h, -h), 'PR'), np.real(distinct_sum(S_AB, (0, 0), 'PR'))
 
 
 def _avg(num, den, w):

@@ -1,210 +1,197 @@
-"""Toy-MC validation harness for symmetric cumulant SC(n,m).
+"""Symmetric cumulants SC(m, n) and NSC(m, n) (analysis.correlators, sc_mn).
 
-Verifies the direct-product SC estimator against the per-event truth for
-unit-weighted events.  Two layers of test:
+SC(m, n) = <<4>>_{m,n,-m,-n} - <<2>>_m <<2>>_n over distinct particles;
+NSC divides by <<2>>_m <<2>>_n (with a normalization gap: from the two
+halves of the window).
 
-  1. **Synthetic Q-vectors** (exact, machine-precision): construct
-     Q_n = M · v_n_true · e^{i Ψ_n} so that the per-event |Q_n|²/M²
-     reproduces v_n_true² exactly.  SC(qvec) must equal SC(true) bit-exact.
+Toy: v2 and v3 fluctuate event by event and are correlated (v3 grows with
+v2), so SC(3,2) > 0; truth SC = <v2^2 v3^2> - <v2^2><v3^2>.
 
-  2. **No-flow sanity** (particle level): generate events with v_n = v_m = 0;
-     the estimator must return SC ≈ 0 within statistical noise.
+Checks:
+  - 3D: production equals the closed-form unit-weight Q-cumulant
+    (Bilandzic et al., PRC 89, 064904, Eq. for <4>_{m,n,-m,-n}) on the same
+    particles, to machine precision;
+  - physics: SC(3,2) and NSC(3,2) recover the truth within errors, in 3D and
+    on the 2D container (Jacobian weights), with and without the
+    normalization gap; the old |Q_n|^2/M^2 estimator would be biased by the
+    1/M self-correlations;
+  - refusals: SC of three harmonics, a record without 'normalized', and a
+    harmonic the container does not store (SC(4,2) needs Q6).
+Until November 2026 sc_mn used |Q_n|^2/M^2 (no self-correlation removal),
+ignored the pT window and the weights in 2D, never normalized, and read
+three-harmonic SC as SC of the first two.
+Run: python3 tests/test_toy_mc_sc.py
 """
+import os
 import sys
 
 import numpy as np
 
-sys.path.insert(0, '.')
-from analysis.observables_2d import _core_sc_mn
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+
+from analysis.converters import particles_to_qgrid_data, particles_to_qvector_data  # noqa: E402
+from analysis.dispatcher import extract_measurement_params, resolve  # noqa: E402
+from analysis.pipeline_dispatch import get_pipeline_entry  # noqa: E402
+from analysis.toy_mc import SPECIES_MASSES, SPECIES_NAMES  # noqa: E402
+
+NE, M_MEAN = 3000, 500
+ETA = (-0.8, 0.8)
+_CACHE = {}
 
 
-def _sc_truth(v_n_sq, v_m_sq, w=None):
-    """Per-event truth SC(n,m) = <v_n² v_m²> − <v_n²><v_m²>."""
-    if w is None:
-        return (v_n_sq * v_m_sq).mean() - v_n_sq.mean() * v_m_sq.mean()
-    wsum = w.sum()
-    a = (w * v_n_sq * v_m_sq).sum() / wsum
-    b = (w * v_n_sq).sum() / wsum
-    c = (w * v_m_sq).sum() / wsum
-    return a - b * c
+def check(name, ok, detail=''):
+    print(f"  {'PASS' if ok else 'FAIL'} {name} {detail}")
+    if not ok:
+        raise AssertionError(f'{name}: {detail}')
 
 
-def test_synthetic_exact_fixed_v():
-    """Fixed v_n, v_m per event -- SC must match truth bit-exact."""
-    rng = np.random.RandomState(0)
-    n_events = 2000
-    M = rng.normal(300.0, 30.0, n_events).clip(50.0)
-    v_n = np.full(n_events, 0.05)
-    v_m = np.full(n_events, 0.04)
-    psi_n = rng.uniform(0, 2 * np.pi, n_events)
-    psi_m = rng.uniform(0, 2 * np.pi, n_events)
-    Qn = M * v_n * np.exp(1j * psi_n)
-    Qm = M * v_m * np.exp(1j * psi_m)
-    Q1 = np.zeros((n_events, 4), dtype=complex)
-    Q1[:, 0] = M
-    Q1[:, 2] = Qn  # harmonic n=2
-    Q1[:, 3] = Qm  # harmonic m=3
-
-    sc_qvec = _core_sc_mn(Q1, event_weights=None, n=2, m=3)
-    sc_true = _sc_truth(v_n ** 2, v_m ** 2)
-    # fixed v: <v²>² = v⁴ and <v²v²> = v⁴ so SC = 0 exactly
-    assert abs(sc_qvec) < 1e-12, f"fixed-v SC must be 0, got {sc_qvec}"
-    assert abs(sc_true) < 1e-12, f"truth SC must be 0, got {sc_true}"
-
-
-def test_synthetic_exact_ebe_fluctuation():
-    """Per-event ebE v_n, v_m -- SC matches truth bit-exact via Q-vectors."""
-    rng = np.random.RandomState(1)
-    n_events = 3000
-    M = rng.normal(300.0, 30.0, n_events).clip(50.0)
-    # ebE fluctuating v_2, v_3 with positive correlation
-    base_n, sig_n = 0.05, 0.01
-    base_m, sig_m = 0.04, 0.008
-    rho = 0.5  # correlation between v_n and v_m event-by-event
-    cov = np.array([[sig_n ** 2, rho * sig_n * sig_m],
-                    [rho * sig_n * sig_m, sig_m ** 2]])
-    v_n, v_m = rng.multivariate_normal([base_n, base_m], cov, n_events).T
-    v_n = v_n.clip(0.001, 0.2)
-    v_m = v_m.clip(0.001, 0.2)
-    psi_n = rng.uniform(0, 2 * np.pi, n_events)
-    psi_m = rng.uniform(0, 2 * np.pi, n_events)
-    # Construct Q-vectors that yield |Q_n|²/M² = v_n² EXACTLY:
-    Qn = M * v_n * np.exp(1j * psi_n)
-    Qm = M * v_m * np.exp(1j * psi_m)
-    Q1 = np.zeros((n_events, 4), dtype=complex)
-    Q1[:, 0] = M
-    Q1[:, 2] = Qn
-    Q1[:, 3] = Qm
-
-    sc_qvec = _core_sc_mn(Q1, event_weights=None, n=2, m=3)
-    sc_true = _sc_truth(v_n ** 2, v_m ** 2)
-    # The synthetic Q-vectors are constructed so the per-event estimator
-    # |Q_n|²/M² == v_n² exactly; the SC(qvec) is therefore bit-exact equal
-    # to SC(true).
-    assert abs(sc_qvec - sc_true) < 1e-12, \
-        f"SC(qvec)={sc_qvec} != SC(true)={sc_true} (delta={sc_qvec - sc_true})"
-    # sanity: with rho>0 and the per-event v magnitudes, SC should be > 0
-    assert sc_true > 0
+def _events():
+    if 'ev' in _CACHE:
+        return _CACHE['ev']
+    rng = np.random.default_rng(7)
+    events, v2s, v3s = [], [], []
+    for _ in range(NE):
+        v2 = abs(rng.normal(0.07, 0.03))
+        v3 = abs(0.02 + 0.3 * (v2 - 0.07) + rng.normal(0, 0.008))
+        psi2, psi3 = rng.uniform(0, 2 * np.pi, 2)
+        m = rng.poisson(M_MEAN)
+        phi = []
+        while len(phi) < m:          # accept-reject from 1 + 2 v2 cos 2(phi-psi2) + 2 v3 cos 3(phi-psi3)
+            c = rng.uniform(0, 2 * np.pi, 2 * m)
+            f = 1 + 2 * v2 * np.cos(2 * (c - psi2)) + 2 * v3 * np.cos(3 * (c - psi3))
+            phi.extend(c[rng.uniform(0, 1 + 2 * (v2 + v3), c.size) < f].tolist())
+        phi = np.array(phi[:m])
+        eta = rng.uniform(-1, 1, m)
+        pt = rng.exponential(0.5, m) + 0.2
+        events.append({'phi': phi, 'eta': eta, 'pt': pt, 'species_idx': np.zeros(m, int),
+                       'mass': np.full(m, SPECIES_MASSES[0])})
+        v2s.append(v2)
+        v3s.append(v3)
+    v2s, v3s = np.array(v2s), np.array(v3s)
+    truth_sc = np.mean(v2s ** 2 * v3s ** 2) - np.mean(v2s ** 2) * np.mean(v3s ** 2)
+    eta_edges = np.round(np.linspace(-6, 6, 121), 10)
+    pt_edges = np.round(np.linspace(0.0, 10.0, 101), 10)
+    mult = np.array([len(e['phi']) for e in events], float)
+    grid = particles_to_qgrid_data(events, eta_edges, pt_edges, n_harm=9, cent_mult=mult, masses=SPECIES_MASSES)
+    qv = particles_to_qvector_data(events, pt_edges, rap_max=1.0, species_names=list(SPECIES_NAMES),
+                                   masses=SPECIES_MASSES, n_harm=9)
+    _CACHE['ev'] = dict(events=events, grid=grid, qv=qv, sc=truth_sc,
+                        nsc=truth_sc / (np.mean(v2s ** 2) * np.mean(v3s ** 2)))
+    return _CACHE['ev']
 
 
-def test_synthetic_exact_anticorrelated():
-    """Anti-correlated v_n, v_m (rho < 0) -- SC must be negative."""
-    rng = np.random.RandomState(2)
-    n_events = 2000
-    M = rng.normal(300.0, 30.0, n_events).clip(50.0)
-    base_n, sig_n = 0.05, 0.01
-    base_m, sig_m = 0.04, 0.008
-    rho = -0.6
-    cov = np.array([[sig_n ** 2, rho * sig_n * sig_m],
-                    [rho * sig_n * sig_m, sig_m ** 2]])
-    v_n, v_m = rng.multivariate_normal([base_n, base_m], cov, n_events).T
-    v_n = v_n.clip(0.001, 0.2)
-    v_m = v_m.clip(0.001, 0.2)
-    psi_n = rng.uniform(0, 2 * np.pi, n_events)
-    psi_m = rng.uniform(0, 2 * np.pi, n_events)
-    Qn = M * v_n * np.exp(1j * psi_n)
-    Qm = M * v_m * np.exp(1j * psi_m)
-    Q1 = np.zeros((n_events, 4), dtype=complex)
-    Q1[:, 0] = M
-    Q1[:, 2] = Qn
-    Q1[:, 3] = Qm
-
-    sc_qvec = _core_sc_mn(Q1, event_weights=None, n=2, m=3)
-    sc_true = _sc_truth(v_n ** 2, v_m ** 2)
-    assert abs(sc_qvec - sc_true) < 1e-12
-    assert sc_true < 0
+def record(m=3, n=2, normalized=False, gap=None):
+    r = dict(observable_type='flow_harmonic_correlations', correlation_type='symmetric_cumulant',
+             harmonics=[m, n], observable='SC', value_type='SC', hepdata_file='t.yaml', inspire_id='0', version=1,
+             collision_system={'energy_gev': 2760.0, 'reaction': 'PB PB --> CHARGED X'},
+             centrality={'classes': ['0-100%'], 'eta': [{'min': 3.0, 'max': 5.0}]},
+             kinematic_range={'eta': {'min': ETA[0], 'max': ETA[1]}, 'pT': {'min': 0.2, 'max': 5.0}},
+             normalized=normalized)
+    if gap is not None:
+        r['normalization_eta_gap'] = gap
+    return r
 
 
-def test_synthetic_with_event_weights():
-    """Per-event centrality weight should reduce to a weighted mean."""
-    rng = np.random.RandomState(3)
-    n_events = 2000
-    M = rng.normal(300.0, 30.0, n_events).clip(50.0)
-    v_n, v_m = 0.05, 0.04
-    psi_n = rng.uniform(0, 2 * np.pi, n_events)
-    psi_m = rng.uniform(0, 2 * np.pi, n_events)
-    Qn = M * v_n * np.exp(1j * psi_n)
-    Qm = M * v_m * np.exp(1j * psi_m)
-    Q1 = np.zeros((n_events, 4), dtype=complex)
-    Q1[:, 0] = M
-    Q1[:, 2] = Qn
-    Q1[:, 3] = Qm
-
-    # fixed v => SC = 0 regardless of weights
-    w = rng.uniform(0.5, 1.5, n_events)
-    sc_w = _core_sc_mn(Q1, event_weights=w, n=2, m=3)
-    assert abs(sc_w) < 1e-12, f"weighted fixed-v SC must be 0, got {sc_w}"
+def production(rec, dim, w=None):
+    fx = _events()
+    p = extract_measurement_params(rec)
+    ent = get_pipeline_entry(resolve(rec)['compute'])
+    data = ent['prepare_data_2d'](fx['qv'], p) if dim == '2D' else ent['prepare_data_3d'](fx['grid'], p)
+    return float(ent['core_fn'](data, np.ones(NE) if w is None else w)[0])
 
 
-def test_synthetic_harmonic_3_4():
-    """Same machinery works for any (n,m); spot-check (3,4)."""
-    rng = np.random.RandomState(4)
-    n_events = 1500
-    M = rng.normal(300.0, 30.0, n_events).clip(50.0)
-    base_n, sig_n = 0.03, 0.008
-    base_m, sig_m = 0.02, 0.005
-    rho = 0.3
-    cov = np.array([[sig_n ** 2, rho * sig_n * sig_m],
-                    [rho * sig_n * sig_m, sig_m ** 2]])
-    v_n, v_m = rng.multivariate_normal([base_n, base_m], cov, n_events).T
-    v_n = v_n.clip(0.001, 0.2)
-    v_m = v_m.clip(0.001, 0.2)
-    Q1 = np.zeros((n_events, 5), dtype=complex)
-    Q1[:, 0] = M
-    Q1[:, 3] = M * v_n * np.exp(1j * rng.uniform(0, 2 * np.pi, n_events))
-    Q1[:, 4] = M * v_m * np.exp(1j * rng.uniform(0, 2 * np.pi, n_events))
-
-    sc_qvec = _core_sc_mn(Q1, event_weights=None, n=3, m=4)
-    sc_true = _sc_truth(v_n ** 2, v_m ** 2)
-    assert abs(sc_qvec - sc_true) < 1e-12
-    assert sc_true > 0  # rho > 0
+def closed_form(events, m, n):
+    """Unit-weight SC(m,n) from Q-vectors of the particles in the window."""
+    num4, den4, n2m, n2n, den2 = [], [], [], [], []
+    for e in events:
+        s = (e['eta'] >= ETA[0]) & (e['eta'] < ETA[1]) & (e['pt'] >= 0.2) & (e['pt'] < 5.0)
+        phi = e['phi'][s]
+        M = float(len(phi))
+        Q = {h: np.exp(1j * h * phi).sum() for h in (m, n, m + n, m - n)}
+        a = (abs(Q[m]) ** 2 * abs(Q[n]) ** 2 - 2 * np.real(Q[m + n] * np.conj(Q[m]) * np.conj(Q[n]))
+             - 2 * np.real(Q[m] * np.conj(Q[m - n]) * np.conj(Q[n])) + abs(Q[m + n]) ** 2 + abs(Q[m - n]) ** 2
+             - (M - 4) * (abs(Q[m]) ** 2 + abs(Q[n]) ** 2) + M * (M - 6))
+        num4.append(a)
+        den4.append(M * (M - 1) * (M - 2) * (M - 3))
+        n2m.append(abs(Q[m]) ** 2 - M)
+        n2n.append(abs(Q[n]) ** 2 - M)
+        den2.append(M * (M - 1))
+    four = np.sum(num4) / np.sum(den4)
+    return four - np.sum(n2m) / np.sum(den2) * np.sum(n2n) / np.sum(den2)
 
 
-def test_no_flow_particle_level():
-    """Particle-level no-flow: SC must be ~0 within statistical noise.
+def jk_error(fn, n_blocks=10):
+    blocks = np.array_split(np.arange(NE), n_blocks)
+    vals = []
+    for b in blocks:
+        w = np.ones(NE)
+        w[b] = 0
+        vals.append(fn(w))
+    vals = np.array(vals)
+    return np.sqrt((n_blocks - 1) / n_blocks * np.sum((vals - vals.mean()) ** 2))
 
-    Generates events with v_n = v_m = 0 (flat phi), fills Q-vectors from
-    particles via the toy_mc converter, computes SC.  The direct-product
-    estimator has O(1/M) self-corr noise even at zero flow; with M~300
-    and N_events=2000 the residual should be well below 1e-3.
-    """
-    from analysis.toy_mc import (ToyGenConfig, generate_events,
-                                  make_qvector_data)
-    cfg = ToyGenConfig(n_events=2000, mult_mean=300, mult_sigma=20,
-                        rap_max=1.0, seed=7, flow={})  # no flow
-    events, truth = generate_events(cfg)
-    qv = make_qvector_data(events, truth, n_pt=20, n_harm=5)
-    Q1 = qv.Qn_sum if hasattr(qv, 'Qn_sum') else None
-    # qv.Qn has shape (n_events, n_species, n_harm, n_pT); we need a single
-    # (n_events, n_harm) Q-vector.  Use the Qn sum helper or the Q-vectors
-    # the toy_mc test_toy_mc_flow already validated.
-    from analysis.pipeline_dispatch import PTCUTS
-    # weighted sum over species and pT using Jacobian
-    from analysis.observables_2d import _compute_weighted_qvectors
-    # build a flat Jacobian = 1 (unit weights) over the production pT grid
-    pt_edges = qv.pt_bin_edges
-    n_pt = len(pt_edges) - 1
-    jac = np.ones((qv.n_species, n_pt))
-    # event weights = 1
-    w = np.ones(qv.n_events)
-    Q1 = _compute_weighted_qvectors(qv, jac, 1)  # (n_events, n_harm) complex
-    sc_23 = _core_sc_mn(Q1, w, 2, 3)
-    sc_24 = _core_sc_mn(Q1, w, 2, 4)
-    # both must be tiny
-    assert abs(sc_23) < 1e-3, f"no-flow SC(2,3) too large: {sc_23}"
-    assert abs(sc_24) < 1e-3, f"no-flow SC(2,4) too large: {sc_24}"
+
+def test_engine_matches_closed_form():
+    print('test_engine_matches_closed_form')
+    fx = _events()
+    got, want = production(record(), '3D'), closed_form(fx['events'], 3, 2)
+    check('3D SC(3,2) == closed-form Q-cumulant', abs(got - want) < 1e-9 * abs(want), f'{got:.6e} vs {want:.6e}')
+
+
+def test_physics():
+    print('test_physics')
+    fx = _events()
+    for dim in ('3D', '2D'):
+        for norm, gap, truth in ((False, None, fx['sc']), (True, None, fx['nsc']), (True, 1.0, fx['nsc'])):
+            rec = record(normalized=norm, gap=gap)
+            v = production(rec, dim)
+            e = jk_error(lambda w, rec=rec, dim=dim: production(rec, dim, w))
+            name = ('NSC' if norm else 'SC') + ('(gap 1)' if gap else '')
+            check(f'{dim} {name}(3,2) = {truth:.3e}', abs(v - truth) < 3 * e + 0.05 * abs(truth), f'{v:.3e} +- {e:.1e}')
+    # what the old estimator gave: |Q|^2/M^2 keeps the 1/M self-correlations
+    old = []
+    for e in fx['events']:
+        s = (np.abs(e['eta']) < 0.8) & (e['pt'] < 5.0)
+        phi = e['phi'][s]
+        M = len(phi)
+        old.append((abs(np.exp(2j * phi).sum()) ** 2 / M ** 2, abs(np.exp(3j * phi).sum()) ** 2 / M ** 2))
+    old = np.array(old)
+    sc_old = np.mean(old[:, 0] * old[:, 1]) - old[:, 0].mean() * old[:, 1].mean()
+    print(f'      old estimator: SC = {sc_old:.3e} (truth {fx["sc"]:.3e})')
+
+
+def test_refusals():
+    print('test_refusals')
+    r3 = record()
+    r3['harmonics'] = [2, 3, 4]
+    for name, rec in (('three harmonics', r3), ('no normalized field', {k: v for k, v in record().items()
+                                                                        if k != 'normalized'})):
+        try:
+            resolve(rec)
+            check(f'refused: {name}', False)
+        except ValueError:
+            check(f'refused: {name}', True)
+    fx = _events()
+    import copy
+    small = copy.copy(fx['qv'])
+    small.Qn = fx['qv'].Qn[:, :, :6, :]
+    p = extract_measurement_params(record(4, 2))
+    try:
+        get_pipeline_entry('sc_mn')['prepare_data_2d'](small, p)
+        check('SC(4,2) without Q6 refused', False)
+    except ValueError:
+        check('SC(4,2) without Q6 refused', True)
 
 
 if __name__ == '__main__':
-    tests = [fn for fn in sorted(dir()) if fn.startswith('test_')]
-    n_pass = n_fail = 0
-    for name in tests:
+    tests = [test_engine_matches_closed_form, test_physics, test_refusals]
+    n_pass = 0
+    for t in tests:
         try:
-            globals()[name]()
-            print(f"  PASS  {name}\n")
+            t()
             n_pass += 1
-        except Exception as e:
-            print(f"  FAIL  {name}: {type(e).__name__}: {e}\n")
-            n_fail += 1
-    print(f"{n_pass}/{n_pass + n_fail} passed")
-    sys.exit(1 if n_fail else 0)
+            print(f'  PASS  {t.__name__}\n')
+        except AssertionError as ex:
+            print(f'  FAIL  {t.__name__}: {ex}\n')
+    print(f'{n_pass}/{len(tests)} passed')
+    sys.exit(0 if n_pass == len(tests) else 1)
