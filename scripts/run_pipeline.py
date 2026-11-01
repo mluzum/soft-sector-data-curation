@@ -270,18 +270,38 @@ def load_2d_group(sim_path, design_point, delta_f=0):
 
 
 
-def run_block_jackknife(compute_fn, n_events, n_blocks=20):
+def jk_event_ids(container, rule):
+    """Event ids for event_id jackknife blocks (jackknife_blocks), or None.
+
+    rule: 'auto' (the container's meta['event_ids'] when present, as
+    simulation-package adapters provide), 'event_id' (required) or
+    'contiguous' (container order)."""
+    if rule == 'contiguous':
+        return None
+    ids = (getattr(container, 'meta', None) or {}).get('event_ids')
+    if ids is not None and len(ids) == container.n_events:
+        return np.asarray(ids)
+    if rule == 'event_id':
+        raise SystemExit("--jk-blocks event_id: the container has no meta['event_ids'] "
+                         "(one per event)")
+    return None
+
+
+def run_block_jackknife(compute_fn, n_events, n_blocks=20, event_ids=None):
     """Block jackknife for a combined compute function.
 
-    compute_fn(event_mask) → flat array of all observables.
+    compute_fn(event_mask) → flat array of all observables.  event_ids:
+    blocks by event id (jackknife_blocks), else contiguous.
 
-    Returns: (theta_hat, errors, covariance)
+    Returns: (theta_hat, errors, covariance) -- theta_hat bias-corrected,
+    N theta - (N-1) mean(replicates); run_block_jackknife.last keeps the
+    full-sample estimate and the replicates.
     """
     mask_all = np.ones(n_events, dtype=bool)
     theta_hat = compute_fn(mask_all)
 
     n_obs = len(theta_hat)
-    blocks = jackknife_blocks(n_events, min(n_blocks, n_events))
+    blocks = jackknife_blocks(n_events, min(n_blocks, n_events), event_ids)
     n_b = len(blocks)
 
     theta_i = np.zeros((n_b, n_obs), dtype=np.float64)
@@ -392,6 +412,11 @@ def main():
     parser.add_argument("--output", default="analysis_manifest.h5",
                         help="Output HDF5 path")
     parser.add_argument("--n-jk-blocks", type=int, default=20)
+    parser.add_argument("--jk-blocks", choices=("auto", "event_id", "contiguous"), default="auto",
+                        help="Jackknife blocks: by event id (block b = events with id %% n_blocks == b; "
+                             "the same seeds in every block at every design point of a common-random-number "
+                             "campaign) or contiguous in container order.  auto: event ids when the container "
+                             "has meta['event_ids'] (simulation packages), else contiguous.")
     parser.add_argument("--save-jackknife-replicates", action="store_true",
                         help="Also store the full-sample estimates (jk_full) and "
                              "the delete-one-block replicates (jk_replicates, "
@@ -794,6 +819,7 @@ def main():
 
             n_events = qv.n_events
             print(f"  Events: {n_events}")
+            group_event_ids = jk_event_ids(qv, args.jk_blocks)
 
             # Optional per-event reweighting (None ⇒ equal weighting).
             # Captured per group; combined with centrality weights below.
@@ -1260,8 +1286,16 @@ def main():
 
             # Run block jackknife
             corr, errors, cov = run_block_jackknife(
-                compute_fn, n_events, n_blocks=args.n_jk_blocks)
-            print(f"  Jackknife done: mean error = {np.mean(errors):.6f}")
+                compute_fn, n_events, n_blocks=args.n_jk_blocks, event_ids=group_event_ids)
+            jk_rule = 'event_id' if group_event_ids is not None else 'contiguous'
+            jk_full, jk_rep = run_block_jackknife.last
+            jk_bias = jk_full - corr
+            # The bias correction can dominate a non-linear estimator near
+            # zero (v_n{4} = (-c_4)^(1/4) at low statistics): flag it.
+            big = np.abs(jk_bias) > np.where(errors > 0, errors, np.inf)
+            print(f"  Jackknife done ({jk_rule} blocks): mean error = {np.mean(errors):.6f}"
+                  + (f"; {int(big.sum())} values with a bias correction larger than their error "
+                     f"(values_full holds the uncorrected estimates)" if big.any() else ""))
 
             # Build labels for each observable in this group
             def _short_vt(vt):
@@ -1332,8 +1366,12 @@ def main():
             grp.create_dataset('values', data=corr)
             grp.create_dataset('errors', data=errors)
             grp.create_dataset('covariance', data=cov)
+            # the full-sample estimates (values are bias-corrected) and the rule
+            # that defined the jackknife blocks
+            grp.create_dataset('values_full', data=jk_full)
+            grp.attrs['jk_block_rule'] = jk_rule
+            grp.attrs['n_large_bias_correction'] = int(big.sum())
             if args.save_jackknife_replicates:
-                jk_full, jk_rep = run_block_jackknife.last
                 grp.create_dataset('jk_full', data=jk_full)
                 grp.create_dataset('jk_replicates', data=jk_rep)
                 grp.attrs['n_jk_blocks'] = jk_rep.shape[0]

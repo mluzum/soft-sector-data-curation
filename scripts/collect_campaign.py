@@ -6,7 +6,15 @@
 Reads every ``*.h5`` written by run_campaign.py (or run_pipeline.py) in
 ``<out-dir>`` and writes:
 
-- ``values``, ``errors``: (n_runs, n_obs), NaN where a run lacks an observable;
+- ``values``, ``errors``: (n_runs, n_obs), NaN where a run lacks an observable
+  (``values`` are jackknife bias-corrected); ``values_full``: the
+  full-sample estimates (NaN for runs written before they were stored);
+- with ``--replicates``: ``replicates`` (n_runs, n_blocks, n_obs), each run's
+  delete-one-block jackknife replicates (runs made with
+  ``--save-jackknife-replicates``), attrs ``jk_block_rule`` and
+  ``n_jk_blocks``.  With event-id blocks (common random numbers) the noise
+  covariance between runs i and j of observable k is
+  (B-1)/B sum_b (r_ibk - rbar_ik)(r_jbk - rbar_jk);
 - ``runs/design_point``, ``runs/variant``, ``runs/file``;
 - ``observables/key`` (``<system group>|<label>``), ``observables/system``,
   ``observables/label``, ``observables/exp_values``, ``observables/exp_errors``
@@ -62,10 +70,14 @@ def read_run(path: Path) -> dict:
                 continue
             labels = [x.decode() if isinstance(x, bytes) else str(x) for x in G["labels"][:]]
             n = len(labels)
+            rule = G.attrs.get("jk_block_rule", "contiguous")
             run["groups"][g] = {
                 "labels": labels,
                 "values": G["values"][:],
                 "errors": G["errors"][:],
+                "values_full": G["values_full"][:] if "values_full" in G else np.full(n, np.nan),
+                "replicates": G["jk_replicates"][:] if "jk_replicates" in G else None,
+                "jk_block_rule": rule.decode() if isinstance(rule, bytes) else str(rule),
                 "exp_values": G["exp_values"][:] if "exp_values" in G else np.full(n, np.nan),
                 "exp_errors": G["exp_errors"][:] if "exp_errors" in G else np.full(n, np.nan),
             }
@@ -82,6 +94,9 @@ def main():
                     help="package for the design table (default: the one recorded in the runs)")
     ap.add_argument("--allow-mixed", action="store_true",
                     help="accept runs made with different pipeline options")
+    ap.add_argument("--replicates", action="store_true",
+                    help="also stack the jackknife replicates (runs need --save-jackknife-replicates "
+                         "and one block count and rule)")
     a = ap.parse_args()
 
     files = sorted(p for p in Path(a.in_dir).glob("*.h5"))
@@ -118,11 +133,24 @@ def main():
     n_runs, n_obs = len(runs), len(keys)
     vals = np.full((n_runs, n_obs), np.nan)
     errs = np.full((n_runs, n_obs), np.nan)
+    full = np.full((n_runs, n_obs), np.nan)
+    reps, rules = None, set()
+    if a.replicates:
+        shapes = {d["replicates"].shape[0] if d["replicates"] is not None else None
+                  for r in runs for d in r["groups"].values()}
+        rules = {d["jk_block_rule"] for r in runs for d in r["groups"].values()}
+        if None in shapes or len(shapes) != 1 or len(rules) != 1:
+            raise SystemExit(f"--replicates: runs need jk_replicates with one block count and rule "
+                             f"(block counts {sorted(map(str, shapes))}, rules {sorted(rules)})")
+        reps = np.full((n_runs, shapes.pop(), n_obs), np.nan)
     for i, r in enumerate(runs):
         for g, d in r["groups"].items():
             cols = [index[f"{g}|{lab}"] for lab in d["labels"]]
             vals[i, cols] = d["values"]
             errs[i, cols] = d["errors"]
+            full[i, cols] = d["values_full"]
+            if reps is not None:
+                reps[i][:, cols] = d["replicates"]
 
     par_names, par_vals = [], np.zeros((n_runs, 0))
     manifest = a.sim_package or next((r["manifest"] for r in runs if r["manifest"]), None)
@@ -147,6 +175,11 @@ def main():
             f.attrs["sim_package_manifest"] = str(manifest)
         f.create_dataset("values", data=vals)
         f.create_dataset("errors", data=errs)
+        f.create_dataset("values_full", data=full)
+        if reps is not None:
+            f.create_dataset("replicates", data=reps)
+            f.attrs["jk_block_rule"] = rules.pop()
+            f.attrs["n_jk_blocks"] = reps.shape[1]
         f.create_dataset("runs/design_point", data=[r["design_point"] for r in runs])
         f.create_dataset("runs/variant", data=[r["variant"] for r in runs], dtype=str_dt)
         f.create_dataset("runs/file", data=[r["file"] for r in runs], dtype=str_dt)

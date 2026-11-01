@@ -186,6 +186,16 @@ Centrality (`analysis/weights.py`):
 
 Errors: a delete-block jackknife (20 blocks by default) with the
 bias-corrected central value θ̂ = Nθ − (N−1)θ̄.
+- Blocks (`--jk-blocks`): by event id when the container has
+  `meta['event_ids']` (block b: id % n_blocks == b), else contiguous in
+  container order.  With common random numbers (event id k has the same
+  seed at every design point) the replicates of different points then
+  delete the same seeds and give the cross-point noise covariance directly,
+  whatever events are missing.  The output records `jk_block_rule`;
+  compute_ratios warns when its two sides differ.
+- `values_full` holds the uncorrected full-sample estimates; the run
+  reports values whose bias correction exceeds their error (non-linear
+  estimators near zero, e.g. v_n{4} at low statistics).
 
 ## Conventions and traps (each was a real bug once)
 

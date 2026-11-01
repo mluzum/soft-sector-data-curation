@@ -107,6 +107,8 @@ def read_side(path):
         for g in f.values():
             if "jk_replicates" not in g:
                 continue
+            rule = g.attrs.get("jk_block_rule", "contiguous")
+            prov["jk_block_rule"] = rule.decode() if isinstance(rule, bytes) else rule
             labels = [x.decode() if isinstance(x, bytes) else str(x) for x in g["labels"][:]]
             recs = g["label_record"][:]
             full, rep, vals = g["jk_full"][:], g["jk_replicates"][:], g["values"][:]
@@ -191,6 +193,12 @@ def main():
 
     num, num_prov = read_side(run_side("num", a, list(entries["num"]), work, extra))
     den, den_prov = read_side(run_side("den", a, list(entries["den"]), work, extra))
+    # replicate k must delete the same events on both sides for paired
+    # (common-random-number) samples: event-id blocks (run_pipeline --jk-blocks)
+    if num_prov.get("jk_block_rule") != den_prov.get("jk_block_rule"):
+        print(f"WARNING: jackknife blocks differ (numerator {num_prov.get('jk_block_rule')}, "
+              f"denominator {den_prov.get('jk_block_rule')}): the joint jackknife pairs block k with "
+              f"block k, which is right only for independent samples")
 
     labels, rec_idx, nf, nr, df, dr, nv, dv, ev, ee = [], [], [], [], [], [], [], [], [], []
     for i, (f, r, sides) in enumerate(ratios):

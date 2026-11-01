@@ -155,7 +155,11 @@ The adapter imports numpy and its own readers, never this repository.
   `event_weights`, `sum_pt`, `sum_pt2`, `sum_ET`.  Several species:
   `{"species": {pdg: <3D dict>}, "combined": <3D dict> or None}`.
 
-Anything else goes under `meta`.  Unknown keys are refused, as are
+Anything else goes under `meta`; `meta['event_ids']` (one id per event, in
+container order) makes the jackknife blocks follow the event ids (block b:
+id % n_blocks == b), so that with common random numbers the replicates of
+different design points delete the same seeds (`run_pipeline --jk-blocks`).
+Unknown keys are refused, as are
 non-finite values, negative or complex counts, wrong edge lengths and
 non-positive `nsamples`.  `anchor` returns anything `resolve_anchor`
 accepts (the coverage of the loaded events in the total cross section;

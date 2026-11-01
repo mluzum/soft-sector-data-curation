@@ -1,7 +1,21 @@
 import numpy as np
 
 
-def jackknife_blocks(n_events, n_blocks):
+def jackknife_blocks(n_events, n_blocks, event_ids=None):
+    """Delete-one-block masks (False = the deleted block).
+
+    Contiguous blocks in container order by default.  With ``event_ids``
+    (one id per event), block b is the events whose id % n_blocks == b: in a
+    campaign with common random numbers (event id k has the same seed at
+    every design point) block b then holds the same seeds at every point,
+    whatever events are missing or reordered, so replicates of different
+    design points can be correlated directly.
+    """
+    if event_ids is not None:
+        ids = np.asarray(event_ids).astype(np.int64)
+        if ids.shape != (n_events,):
+            raise ValueError(f'event_ids: {ids.shape} for {n_events} events')
+        return [ids % n_blocks != b for b in range(n_blocks)]
     block_size = n_events // n_blocks
     blocks = []
     for i in range(n_blocks):
