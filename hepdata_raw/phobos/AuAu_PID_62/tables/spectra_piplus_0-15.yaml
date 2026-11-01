@@ -1,0 +1,62 @@
+description: 'B. B. Back et al. (PHOBOS), PRC 75, 024910 (2007), arXiv:nucl-ex/0610001: invariant yield of pi+ at y = 0.8,
+  0-15% Au+Au at 62.4 GeV, at the quoted pT.'
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {value: 0.233503}
+  - {value: 0.307531}
+  - {value: 0.354062}
+  - {value: 0.411442}
+  - {value: 0.48372}
+  - {value: 0.537956}
+  - {value: 0.611331}
+  - {value: 0.720105}
+  - {value: 1.0061}
+  - {value: 1.21886}
+dependent_variables:
+- header: {name: 1/(2*PI*PT)*D2N/DPT/DY, units: GEV**-2}
+  qualifiers:
+  - {name: CENTRALITY, value: 0-15%}
+  - {name: PARTICLE, value: pi+}
+  - {name: YRAP, value: 0.8}
+  values:
+  - value: 210.698
+    errors:
+    - {symerror: 0.362837, label: stat}
+    - {symerror: 22.6313, label: sys}
+  - value: 144.635
+    errors:
+    - {symerror: 0.284542, label: stat}
+    - {symerror: 15.0331, label: sys}
+  - value: 111.521
+    errors:
+    - {symerror: 0.221371, label: stat}
+    - {symerror: 11.8807, label: sys}
+  - value: 80.1721
+    errors:
+    - {symerror: 0.136565, label: stat}
+    - {symerror: 8.22663, label: sys}
+  - value: 54.8375
+    errors:
+    - {symerror: 0.102197, label: stat}
+    - {symerror: 5.56935, label: sys}
+  - value: 43.1775
+    errors:
+    - {symerror: 0.127355, label: stat}
+    - {symerror: 4.37902, label: sys}
+  - value: 29.7914
+    errors:
+    - {symerror: 0.0767772, label: stat}
+    - {symerror: 2.97884, label: sys}
+  - value: 17.324
+    errors:
+    - {symerror: 0.0666458, label: stat}
+    - {symerror: 1.711, label: sys}
+  - value: 4.67614
+    errors:
+    - {symerror: 0.0731407, label: stat}
+    - {symerror: 0.454938, label: sys}
+  - value: 1.9481
+    errors:
+    - {symerror: 0.0279464, label: stat}
+    - {symerror: 0.190813, label: sys}
