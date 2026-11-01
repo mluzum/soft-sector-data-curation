@@ -250,6 +250,20 @@ def _get_cent_anchor(cfg, reaction, energy):
     return None
 
 
+def _get_sim_frame(cfg, reaction, energy):
+    """Orientation of a 3D container of an asymmetric system: the optional
+    top-level ``sim_frames`` mapping of config/sim_paths.yaml, keyed like
+    ``cent_anchors`` ("p Pb 5020": {frame: nn_cms, forward_beam: p}).
+    None if not declared."""
+    norm = _normalize_reaction(reaction)
+    frames = cfg.get('sim_frames', {}) or {}
+    for key in (f"{norm} {energy}", f"{reaction} {energy}", f"{norm} {int(float(energy))}"):
+        if key in frames:
+            return frames[key]
+    return None
+
+
+from analysis.frames import to_container_frame  # noqa: E402
 from analysis.pipeline_dispatch import (
     get_pipeline_entry, PTCUTS, container_for_prepare, SINGLE_ROW_KEYS,
 )
@@ -831,6 +845,15 @@ def main():
             if group_event_weights is not None:
                 group_event_weights = np.asarray(group_event_weights, dtype=float)
 
+            # Orientation of a 3D container (asymmetric systems): the
+            # package's system entry, else sim_frames in the config.
+            container_frame = None
+            if not is_2d:
+                container_frame = (sim_pkg.frame(reaction, energy) if sim_pkg is not None
+                                   else _get_sim_frame(cfg, reaction, energy))
+                if container_frame:
+                    print(f"  Container frame: {container_frame}")
+
             # Centrality anchor (reference total cross section).  Defaults
             # to the full sim set (f=1) unless overridden by CLI or config.
             anchor_spec = args.cent_anchor
@@ -861,7 +884,17 @@ def main():
 
             for fpath, rec in rec_list:
                 _tag_entries()
-                params = extract_measurement_params(rec)
+                if not is_2d:
+                    # Windows of an asymmetric system's record, mapped into
+                    # the 3D container's frame (2D is boost-invariant).
+                    rec_c, why = to_container_frame(rec, container_frame)
+                    if why:
+                        print(f"  Skipping {rec.get('value_type','?')} from "
+                              f"{rec.get('hepdata_file','?')}: frame not mapped: {why}")
+                        continue
+                    params = extract_measurement_params(rec_c)
+                else:
+                    params = extract_measurement_params(rec)
                 if not params['cent_edges']:
                     print(f"  Skipping {rec.get('value_type','?')} from {rec.get('hepdata_file','?')}: no cent classes")
                     continue
@@ -1043,16 +1076,6 @@ def main():
                     # QGridData subclass); every 3D record used to be skipped.
                     if not isinstance(qv, (QGridData, MultiSpeciesGrid)):
                         print(f"    Skipping: qv is not a 3D grid")
-                        continue
-                    # An asymmetric system's windows are in a stated frame
-                    # (collision_system.frame/rapidity_shift/forward_beam);
-                    # 3D containers do not declare their orientation yet, so
-                    # the windows cannot be mapped onto them.
-                    if params.get('forward_beam') or params.get('rapidity_shift'):
-                        print(f"    Skipping {rec.get('value_type','?')}: windows in the "
-                              f"{params.get('frame')} frame of an asymmetric system "
-                              f"(shift {params.get('rapidity_shift')}, +eta beam "
-                              f"{params.get('forward_beam')}); 3D container frames are not mapped yet")
                         continue
 
                     cent_mult_3d = np.zeros(n_events, dtype=np.float64)

@@ -147,8 +147,13 @@ Fields that change dispatch:
   (lab | nn_cms), `rapidity_shift` (y_lab = y_cms + shift; ALICE p-Pb
   -0.465) and `forward_beam` (the beam toward +eta) state the frame of
   every eta/y window, the estimator's included.  2D containers are
-  boost-invariant and frame-independent; run_pipeline skips such records
-  on 3D containers, whose orientation is not declared yet.
+  boost-invariant and frame-independent.  On 3D containers
+  `analysis/frames.py` maps the windows into the container frame
+  (nn_cms, `forward_beam` from `sim_frames` in config/sim_paths.yaml or
+  the package's system entry): eta_c = +-(eta - shift), bins keep their
+  row order; mirrored/segmented references are refused, and a container
+  without a declared frame skips the record.  JETSCAPE 3D p+Pb and d+Au
+  put the light projectile at +eta (tests/test_frames.py).
 - `centrality.estimator.observable: spectator_neutrons` (ALICE ZNA): refused,
   models have no spectators.
 - `centrality.combined_from: unit_multiplicity`: class values combined
@@ -236,7 +241,8 @@ near c_4 = 0, ratios) the correction is unstable (zr96c2 dp0001, v2{4}
   Spectra count cut cells by overlap fraction (`QGridData.acceptance_fractional`:
   uniform in eta, uniform in pT^2, i.e. constant invariant yield).
   `acceptance()` snaps to whole cells; it is fine for ratios like v_n but
-  not for yields.
+  not for yields, which use the fractional overlap too (dN/deta windows
+  off the grid, e.g. shifted p+Pb windows).
 - **Charge-scaled 3D grids**: normalized observables (flow, correlations,
   mean pT and its fluctuations) are computed on unit weights
   (`pipeline_dispatch._unit_weights`); only `ABSOLUTE_KEYS` keep the

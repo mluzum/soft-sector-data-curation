@@ -120,6 +120,9 @@ adapter:
 systems:                          # record groups the data may be compared to
   - {reaction: Ru Ru, energy_gev: 200}
   - {reaction: Zr Zr, energy_gev: 200}
+  # asymmetric systems (3D): the frame and the beam moving toward +eta,
+  # e.g. {reaction: p Pb, energy_gev: 5020, frame: nn_cms, forward_beam: p}
+  # (records in another frame are mapped into it: analysis/frames.py)
 variants: [Grad22, CE, PTB]       # or null; e.g. delta f models
 design: {file: design.csv, id_column: label}   # optional; id's trailing integer = design point
 selection:                        # optional default record selection (run_pipeline options)

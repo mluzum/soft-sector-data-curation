@@ -726,6 +726,13 @@ def prepare_yield_2d(qv, params):
     return {'Q0': Q0, 'delta_eta': delta_eta}
 
 
+def _yield_acceptance(grid, eta_lo, eta_hi, pt_lo, pt_hi):
+    """Yield window on a 3D grid: fractional cell overlap when the grid
+    provides it (QGridData.acceptance_fractional), else whole cells."""
+    frac = getattr(grid, 'acceptance_fractional', None)
+    return frac(eta_lo, eta_hi, pt_lo, pt_hi) if frac is not None else grid.acceptance(eta_lo, eta_hi, pt_lo, pt_hi)
+
+
 def prepare_yield_3d(grid, params):
     """Extract Q0 from grid for dNch/dη, normalized by nsamples.
 
@@ -738,7 +745,10 @@ def prepare_yield_3d(grid, params):
     if eta[0] is None or eta[1] is None:
         return {'Q0': np.zeros(grid.n_events), 'delta_eta': 1.0}
     pt = sk.get('pT', (0.1, 10))
-    Qn = grid.acceptance(eta[0], eta[1], pt[0], pt[1])
+    # Cells cut by the window count by overlap (a window off the grid --
+    # e.g. a lab-frame window shifted into the container frame -- would
+    # otherwise snap to whole cells while dividing by its own width).
+    Qn = _yield_acceptance(grid, eta[0], eta[1], pt[0], pt[1])
     Q0 = Qn[:, 0].real / grid.nsamples
     delta_eta = abs(eta[1] - eta[0])
     return {'Q0': Q0, 'delta_eta': delta_eta}
@@ -770,7 +780,7 @@ def prepare_yield_3d_per_eta(grid, params):
     Q0_per_eta = np.zeros((n_events, len(bins)))
     delta_eta_per_bin = np.zeros(len(bins))
     for b, (e_lo, e_hi) in enumerate(bins):
-        Q = grid.acceptance(e_lo, e_hi, pT_lo, pT_hi)
+        Q = _yield_acceptance(grid, e_lo, e_hi, pT_lo, pT_hi)
         Q0_per_eta[:, b] = Q[:, 0].real / grid.nsamples
         delta_eta_per_bin[b] = abs(e_hi - e_lo)
     return {'Q0_per_eta': Q0_per_eta, 'delta_eta_per_bin': delta_eta_per_bin}

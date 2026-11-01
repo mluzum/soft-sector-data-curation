@@ -33,3 +33,11 @@
 # cent_anchors:
 #   "Au Au 200": {b_max: 12.0, sigma_tot: 530.0}
 #   "Pb Pb 2760": 0.85
+
+# Orientation of 3D containers of asymmetric systems (p+Pb, d+Au, ...):
+# frame (nn_cms) and the beam moving toward +eta.  Records state their own
+# frame (collision_system.frame / rapidity_shift / forward_beam) and are
+# mapped into this one; without it, run_pipeline skips framed records on 3D.
+# sim_frames:
+#   "p Pb 5020": {frame: nn_cms, forward_beam: p}
+#   "d Au 200": {frame: nn_cms, forward_beam: d}

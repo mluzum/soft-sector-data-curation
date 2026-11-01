@@ -347,8 +347,12 @@ class SimPackage:
         self.variants = [str(v) for v in variants] if variants else None
         self.systems = []          # (normalized reaction, energy) for matching
         self.system_labels = []    # as written in the manifest
+        self.frames = {}           # asymmetric systems: container orientation
         for s in m.get("systems") or []:
             self.systems.append((_norm_reaction(s["reaction"]), float(s["energy_gev"])))
+            if s.get("forward_beam"):
+                self.frames[self.systems[-1]] = {"frame": s.get("frame", "nn_cms"),
+                                                 "forward_beam": str(s["forward_beam"])}
             self.system_labels.append(f"{s['reaction']} {float(s['energy_gev']):g} GeV")
         if not self.systems:
             raise SimPackageError(f"{mpath}: list the simulated systems under 'systems'")
@@ -375,6 +379,16 @@ class SimPackage:
         r, e = _norm_reaction(reaction), float(energy)
         return any(r == sr and abs(e - se) <= 1e-6 * max(1.0, se)
                    for sr, se in self.systems)
+
+    def frame(self, reaction: str, energy):
+        """Orientation of the container for an asymmetric system (the
+        system entry's frame and forward_beam, the beam toward +eta), or
+        None when the manifest does not declare it."""
+        r, e = _norm_reaction(reaction), float(energy)
+        for (sr, se), f in self.frames.items():
+            if r == sr and abs(e - se) <= 1e-6 * max(1.0, se):
+                return f
+        return None
 
     def check_variant(self, variant):
         if self.variants is None:

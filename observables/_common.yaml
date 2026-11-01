@@ -32,8 +32,9 @@ collision_system:
         record's eta / y windows, the centrality estimator's included --
         lab, or nn_cms (nucleon-nucleon centre of mass).  Omit for
         symmetric systems.  2D (boost-invariant) containers do not depend
-        on it; the 3D pipeline skips records it cannot map onto the
-        container (container orientation not declared yet).
+        on it; on 3D containers analysis/frames.py maps the windows into
+        the container frame (sim_frames / the package's forward_beam), or
+        skips the record when the container declares none.
       example: "lab"
     rapidity_shift:
       type: float
