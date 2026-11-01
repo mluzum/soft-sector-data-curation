@@ -826,6 +826,7 @@ def main():
             except Exception:
                 continue
             if 0 <= doc_idx < len(docs) and is_row_record(docs[doc_idx], row):
+                docs[doc_idx]['_record_file'] = os.path.abspath(path)   # for a relative value_table
                 return docs[doc_idx]
         return None
 

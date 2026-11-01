@@ -522,6 +522,7 @@ def load_record(record_path, value_type_substring, dimensionality=None):
     for doc in docs:
         if doc is None:
             continue
+        doc["_record_file"] = os.path.abspath(record_path)   # resolves a relative value_table
         vt = doc.get("value_type", "")
         if value_type_substring in vt:
             if dimensionality is None or doc.get("dimensionality") == dimensionality:

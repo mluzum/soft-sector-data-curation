@@ -45,6 +45,9 @@ def resolve_link(link, base=None):
     if not os.path.isfile(full):
         raise ValueError(f'no record file {path}')
     docs = list(yaml.safe_load_all(open(full)))
+    for d in docs:
+        if d is not None:
+            d['_record_file'] = full        # resolves a relative value_table
     if idx:
         i = int(idx)
         if i >= len(docs) or docs[i] is None:

@@ -48,6 +48,7 @@ def main():
             path = f'data/{t}/{f}'
             for i, d in enumerate(yaml.safe_load_all(open(path))):
                 if d is not None:
+                    d['_record_file'] = os.path.abspath(path)    # resolves a relative value_table
                     docs[(os.path.abspath(path), i)] = d
     for (path, i), d in docs.items():
         if d.get('observable_type') != 'observable_ratios':
