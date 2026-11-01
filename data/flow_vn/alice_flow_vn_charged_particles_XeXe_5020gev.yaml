@@ -11,28 +11,28 @@ collision_system:
   reaction: XE XE --> CHARGED X
 centrality:
   classes:
-    - 5-10%
-    - 10-15%
-    - 15-20%
-    - 20-25%
-    - 25-30%
-    - 30-35%
-    - 35-40%
-    - 40-45%
-    - 45-50%
-    - 50-55%
-    - 55-60%
-    - 60-65%
-    - 65-70%
+  - 5-10%
+  - 10-15%
+  - 15-20%
+  - 20-25%
+  - 25-30%
+  - 30-35%
+  - 35-40%
+  - 40-45%
+  - 45-50%
+  - 50-55%
+  - 55-60%
+  - 60-65%
+  - 65-70%
   estimator:
     name: V0M
     observable: amplitude
     detector: V0
   eta:
-    - min: -3.7
-      max: -1.7
-    - min: 2.8
-      max: 5.1
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
 particle_id:
   species: charged
 kinematic_range:
@@ -61,22 +61,22 @@ collision_system:
   reaction: XE XE --> CHARGED X
 centrality:
   classes:
-    - 5-10%
-    - 10-20%
-    - 20-30%
-    - 30-40%
-    - 40-50%
-    - 50-60%
-    - 60-70%
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  - 60-70%
   estimator:
     name: V0M
     observable: amplitude
     detector: V0
   eta:
-    - min: -3.7
-      max: -1.7
-    - min: 2.8
-      max: 5.1
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
 particle_id:
   species: charged
 kinematic_range:
@@ -105,28 +105,28 @@ collision_system:
   reaction: XE XE --> CHARGED X
 centrality:
   classes:
-    - 5-10%
-    - 10-15%
-    - 15-20%
-    - 20-25%
-    - 25-30%
-    - 30-35%
-    - 35-40%
-    - 40-45%
-    - 45-50%
-    - 50-55%
-    - 55-60%
-    - 60-65%
-    - 65-70%
+  - 5-10%
+  - 10-15%
+  - 15-20%
+  - 20-25%
+  - 25-30%
+  - 30-35%
+  - 35-40%
+  - 40-45%
+  - 45-50%
+  - 50-55%
+  - 55-60%
+  - 60-65%
+  - 65-70%
   estimator:
     name: V0M
     observable: amplitude
     detector: V0
   eta:
-    - min: -3.7
-      max: -1.7
-    - min: 2.8
-      max: 5.1
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
 particle_id:
   species: charged
 kinematic_range:
@@ -155,22 +155,22 @@ collision_system:
   reaction: XE XE --> CHARGED X
 centrality:
   classes:
-    - 5-10%
-    - 10-20%
-    - 20-30%
-    - 30-40%
-    - 40-50%
-    - 50-60%
-    - 60-70%
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  - 60-70%
   estimator:
     name: V0M
     observable: amplitude
     detector: V0
   eta:
-    - min: -3.7
-      max: -1.7
-    - min: 2.8
-      max: 5.1
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
 particle_id:
   species: charged
 kinematic_range:
@@ -189,222 +189,6 @@ dimensionality: integrated
 observable_type: flow_vn
 inspire_id: '2070420'
 version: 1
-hepdata_file: figure_3.1.yaml
-hepdata_table_label: Transverse momentum dependence of $v_2\{\Psi_{\mathrm{SP}}\}$ for different centrality classes in Pb-Pb collisions at $\sqrt{s_{\mathrm{NN}}}=2.76~\mathrm{TeV}$.
-qualifiers:
-  abs(etarap): '0.8'
-  centrality: 50-60
-collision_system:
-  energy_gev: 5020.0
-  reaction: XE XE --> CHARGED X
-centrality:
-  classes:
-    - 50.0-60.0%
-  estimator:
-    name: V0M
-    observable: amplitude
-    detector: V0
-  eta:
-    - min: -3.7
-      max: -1.7
-    - min: 2.8
-      max: 5.1
-particle_id:
-  species: charged
-kinematic_range:
-  eta:
-    min: -0.8
-    max: 0.8
-  pT:
-    min: 0.2
-    max: 6.0
-    bins:
-      - 0.2
-      - 0.3
-      - 0.4
-      - 0.5
-      - 0.6
-      - 0.7
-      - 0.8
-      - 0.9
-      - 1.0
-      - 1.25
-      - 1.5
-      - 1.75
-      - 2.0
-      - 2.25
-      - 2.5
-      - 3.0
-      - 3.5
-      - 4.0
-      - 5.0
-      - 6.0
-harmonic: 2
-method: scalar_product
-value_type: v_2\{\Psi_{\mathrm{SP}}\}
-dimensionality: differential_pT
----
-observable_type: flow_vn
-inspire_id: '2070420'
-version: 1
-hepdata_file: figure_3.2.yaml
-hepdata_table_label: Transverse momentum dependence of $v_2\{4\}$ for different centrality classes in Pb-Pb collisions at $\sqrt{s_{\mathrm{NN}}}=2.76~\mathrm{TeV}$.
-qualifiers:
-  abs(etarap): '0.8'
-  centrality: 50-60
-collision_system:
-  energy_gev: 5020.0
-  reaction: XE XE --> CHARGED X
-centrality:
-  classes:
-    - 50.0-60.0%
-  estimator:
-    name: V0M
-    observable: amplitude
-    detector: V0
-  eta:
-    - min: -3.7
-      max: -1.7
-    - min: 2.8
-      max: 5.1
-particle_id:
-  species: charged
-kinematic_range:
-  eta:
-    min: -0.8
-    max: 0.8
-  pT:
-    min: 0.2
-    max: 6.0
-    bins:
-      - 0.2
-      - 0.3
-      - 0.4
-      - 0.5
-      - 0.6
-      - 0.7
-      - 0.8
-      - 0.9
-      - 1.0
-      - 1.25
-      - 1.5
-      - 1.75
-      - 2.0
-      - 2.25
-      - 2.5
-      - 3.0
-      - 3.5
-      - 4.0
-      - 5.0
-      - 6.0
-harmonic: 2
-method: cumulant
-value_type: v_2\{4\}
-dimensionality: differential_pT
-cumulant_order: 4
----
-observable_type: flow_vn
-inspire_id: '2070420'
-version: 1
-hepdata_file: figure_3.3.yaml
-hepdata_table_label: Transverse momentum dependence of $v_2\{\Psi_{\mathrm{SP}}\}/v_2\{4\}$ for different centrality classes in Pb-Pb collisions at $\sqrt{s_{\mathrm{NN}}}=2.76~\mathrm{TeV}$.
-qualifiers:
-  abs(etarap): '0.8'
-  centrality: 50-60
-collision_system:
-  energy_gev: 5020.0
-  reaction: XE XE --> CHARGED X
-centrality:
-  classes:
-    - 50.0-60.0%
-  estimator:
-    name: V0M
-    observable: amplitude
-    detector: V0
-  eta:
-    - min: -3.7
-      max: -1.7
-    - min: 2.8
-      max: 5.1
-particle_id:
-  species: charged
-kinematic_range:
-  eta:
-    min: -0.8
-    max: 0.8
-  pT:
-    min: 0.2
-    max: 6.0
-    bins:
-      - 0.2
-      - 0.3
-      - 0.4
-      - 0.5
-      - 0.6
-      - 0.7
-      - 0.8
-      - 0.9
-      - 1.0
-      - 1.25
-      - 1.5
-      - 1.75
-      - 2.0
-      - 2.25
-      - 2.5
-      - 3.0
-      - 3.5
-      - 4.0
-      - 5.0
-      - 6.0
-harmonic: 2
-method: scalar_product
-value_type: v_2\{\Psi_{\mathrm{SP}}\} / v_2\{4\}
-dimensionality: differential_pT
----
-observable_type: flow_vn
-inspire_id: '2070420'
-version: 1
-hepdata_file: figure_3.4.yaml
-hepdata_table_label: Slopes of the Linear fits to the transverse momentum dependence of $v_2\{\Psi_{\mathrm{SP}}\}/v_2\{4\}$ for different centrality classes in Pb-Pb collisions at $\sqrt{s_{\mathrm{NN}}}=2.76~\mathrm{TeV}$.
-qualifiers:
-  abs(etarap): '0.8'
-collision_system:
-  energy_gev: 5020.0
-  reaction: XE XE --> CHARGED X
-centrality:
-  classes:
-    - 5-10%
-    - 10-20%
-    - 20-30%
-    - 30-40%
-    - 40-50%
-    - 50-60%
-  estimator:
-    name: V0M
-    observable: amplitude
-    detector: V0
-  eta:
-    - min: -3.7
-      max: -1.7
-    - min: 2.8
-      max: 5.1
-particle_id:
-  species: charged
-kinematic_range:
-  eta:
-    min: -0.8
-    max: 0.8
-  pT:
-    min: 0.15
-    max: 50
-harmonic: 2
-method: scalar_product
-value_type: slope of linear fits to $v_2\{\Psi_{\mathrm{SP}}\} / v_2\{4\}
-dimensionality: integrated
----
-observable_type: flow_vn
-inspire_id: '2070420'
-version: 1
 hepdata_file: figure_4.5.yaml
 hepdata_table_label: Relative deviation of $v_2/\varepsilon_2$ as a function of $1/S\ \mathrm{d}N_{\mathrm{ch}}/\mathrm{d}\eta$ in Pb--Pb and Xe--Xe collisions.
 qualifiers:
@@ -416,16 +200,16 @@ collision_system:
   reaction: XE XE --> CHARGED X
 centrality:
   classes:
-    - 5.0-70.0%
+  - 5.0-70.0%
   estimator:
     name: V0M
     observable: amplitude
     detector: V0
   eta:
-    - min: -3.7
-      max: -1.7
-    - min: 2.8
-      max: 5.1
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
 particle_id:
   species: charged
 kinematic_range:

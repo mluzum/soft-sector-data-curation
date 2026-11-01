@@ -11,55 +11,6 @@ centrality:
 collision_system:
   energy_gev: 0.0
   reaction: unknown
-dimensionality: integrated
-flow_reference:
-  detector: TPC
-  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
-    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
-    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
-    from the collaboration's standard practice and from this table's charged rows,
-    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
-    the text.
-  provenance: assumed_tpc
-  same_sample_as_poi: true
-harmonic: 2
-hepdata_file: fig3.yaml
-hepdata_table_label: The 1st-order event plane ($\Psi_{1}$) resolution as a function
-  of centrality of Au+Au collisions at $\sqrt{s_{NN}}$ = 7.7, 11.5, 14.5, 19.6, 27,
-  and 39 GeV. The $\Psi_{1}$ is reconstructed with the BBC detectors and its resolution
-  is estimated by the correlation of sub-$\Psi_{1}$ from east BBC and west BBC. Data
-  presented later (10-40\% centrality) is indicated by the dashed-line box.
-inspire_id: '1806121'
-kinematic_range:
-  eta:
-    bins:
-    - -1.0
-    - 1.0
-    max: 1.0
-    min: -1.0
-  pT:
-    max: 10
-    min: 0.15
-method: event_plane
-observable_type: flow_vn
-particle_id:
-  species: charged
-value_type: \psi_1$ resolution at $\sqrt{s_{nn}}$ = 7.7 gev
-version: 1
----
-centrality:
-  classes:
-  - 10.0-40.0%
-  estimator:
-    detector: TPC
-    name: RefMult
-    observable: Nch
-  eta:
-  - max: 0.5
-    min: -0.5
-collision_system:
-  energy_gev: 0.0
-  reaction: unknown
 dimensionality: differential_eta
 flow_reference:
   detector: TPC
@@ -149,56 +100,6 @@ observable_type: flow_vn
 particle_id:
   species: p
 value_type: proton $v_1$ at $\sqrt{s_{NN}}$ = 7.7 GeV
-version: 1
----
-centrality:
-  classes:
-  - 10.0-40.0%
-  estimator:
-    detector: TPC
-    name: RefMult
-    observable: Nch
-  eta:
-  - max: 0.5
-    min: -0.5
-collision_system:
-  energy_gev: 0.0
-  reaction: unknown
-dimensionality: integrated
-flow_reference:
-  detector: TPC
-  eta:
-  - max: 1.0
-    min: -1.0
-  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
-    (p) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi and
-    is subtracted. INFERRED from the charged rows of the same table, not quoted from
-    the paper.
-  provenance: assumed_tpc
-harmonic: 2
-hepdata_file: fig5.yaml
-hepdata_table_label: Directed flow slope at mid-rapidity, $dv_{1}/dy|_{y=0}$, as a
-  function of beam energy in 10-40\% Au+Au collisions. Dots represent deuterons. Open
-  squares are the published results in~\cite{Adamczyk_2018} for protons. The band
-  denotes the results for deuterons from AMPT transport model. Statistical uncertainties
-  (bars) and systematic uncertainties (horizontal lines) are shown separately. For
-  visibility, the data points are staggered horizontally.
-inspire_id: '1806121'
-kinematic_range:
-  eta:
-    bins:
-    - -1.0
-    - 1.0
-    max: 1.0
-    min: -1.0
-  pT:
-    max: 10
-    min: 0.15
-method: event_plane
-observable_type: flow_vn
-particle_id:
-  species: p
-value_type: deuteron $dv_{1}/dy|_{y=0}
 version: 1
 ---
 centrality:

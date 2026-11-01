@@ -1,10 +1,8 @@
----
 observable_type: flow_vn
 inspire_id: '1419244'
 version: 2
 hepdata_file: Table10.yaml
-hepdata_table_label: 'Ratio of $p_{\rm T}$-differential $v_2${4} between $\sqrt{s_{\rm NN}}$ = 5.02 and 2.76 TeV, for centrality
-  20-30%.
+hepdata_table_label: 'Ratio of $p_{\rm T}$-differential $v_2${4} between $\sqrt{s_{\rm NN}}$ = 5.02 and 2.76 TeV, for centrality 20-30%.
 
   '
 qualifiers:
@@ -96,61 +94,4 @@ harmonic: 2
 method: cumulant
 value_type: V2{4}
 dimensionality: integrated
-cumulant_order: 4
----
-observable_type: flow_vn
-inspire_id: '1419244'
-version: 2
-hepdata_file: Table9.yaml
-hepdata_table_label: '$p_{\rm T}$ dependence of $v_2${4} for centralities 10-20%, 20-30% and 30-40%.
-
-  '
-qualifiers:
-  centrality: 30.0-40.0
-  etarap: -0.8-0.8
-  re: PB PB --> CHARGED X
-  sqrt(s)/nucleon: '5023.0'
-collision_system:
-  energy_gev: 5023.0
-  reaction: PB PB --> CHARGED X
-centrality:
-  classes:
-  - 30.0-40.0%
-  estimator:
-    name: V0M
-    observable: amplitude
-    detector: V0
-  eta:
-  - min: -3.7
-    max: -1.7
-  - min: 2.8
-    max: 5.1
-particle_id:
-  species: charged
-kinematic_range:
-  eta:
-    min: -0.8
-    max: 0.8
-  pT:
-    min: 0.2
-    max: 5.0
-    bins:
-    - 0.2
-    - 0.4
-    - 0.6
-    - 0.8
-    - 1.0
-    - 1.25
-    - 1.5
-    - 1.75
-    - 2.0
-    - 2.5
-    - 3.0
-    - 3.5
-    - 4.0
-    - 5.0
-harmonic: 2
-method: cumulant
-value_type: V2{4} (10-20%)
-dimensionality: differential_pT
 cumulant_order: 4
