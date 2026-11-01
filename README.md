@@ -14,7 +14,7 @@ The pipeline reads those fields and applies the record's exact cuts to the
 simulation. A model is then compared with the data on the same footing,
 record by record, for any selection of measurements.
 
-- **3,723 records** from 201 publications (STAR, PHENIX, BRAHMS, PHOBOS,
+- **3,842 records** from 203 publications (STAR, PHENIX, BRAHMS, PHOBOS,
   ALICE, ATLAS, CMS, LHCb), built from the HEPData tables in `hepdata_raw/`.
   **Every record can be computed from a simulation and compared with its
   data by the tools here**: it dispatches to a computation, its centrality
@@ -30,6 +30,8 @@ record by record, for any selection of measurements.
   - correlations: scalar-product and event-plane estimators, symmetric
     cumulants and normalized correlations;
   - identified and charged yields, spectra, mean pT and dE_T/dη;
+  - radial-flow fluctuations: v0, v0(pT) and the [pT]-spectrum covariance
+    from two pseudorapidity subevents;
   - ratios between collision systems (e.g. Ru+Ru / Zr+Zr) from two
     simulation sets.
   - Errors are a block jackknife with a full covariance matrix across
