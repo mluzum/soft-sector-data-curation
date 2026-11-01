@@ -24,7 +24,9 @@ From the paper:
   fit (refs. [90, 94]: PRC 86, 054908; PRC 79, 034909).  The tables give
   one centrality value per point, no class edges, listed peripheral first;
   for Fig. 1 "the range 1-5% is used instead of 0-5%".  Records keep the
-  values as centrality.points with 2%-wide windows as classes.
+  values as centrality.points with windows as classes: 2% wide, or the
+  closest spacing of a table's points when smaller (1% at 54.4 GeV, with
+  points at 11% and 12%), so that classes never overlap.
 - errors: statistical and systematic (the latter includes the residual
   non-flow estimate, 1% central to 13% peripheral at 200 GeV).
 
@@ -48,7 +50,7 @@ CITE = 'M. S. Abdallah et al. (STAR), PRL 129, 252301 (2022), arXiv:2201.10365'
 RAW = glob.glob('hepdata_raw/records/ins2017211/HEPData-ins2017211-v1-yaml')[0]
 REFMULT = {'estimator': {'name': 'RefMult', 'observable': 'Nch', 'detector': 'TPC'},
            'eta': [{'min': -0.5, 'max': 0.5}]}
-WINDOW = 2.0
+WINDOW = 2.0          # at most; narrower when a table's points are closer
 CHARGED_PT = {'min': 0.2, 'max': 4.0}
 PID_PT = {'min': 0.2, 'max': 2.0}
 # table -> (file tag, energy, reaction)
@@ -64,25 +66,30 @@ IDENTIFIED = {'200_pi': ('pi', 'pi+ + pi-'), '200_k': ('K', 'K+ + K-'), '200_p':
 SUBEVENTS = {'A': {'eta': {'min': 0.3, 'max': 1.0}}, 'B': {'eta': {'min': -1.0, 'max': -0.3}}}
 
 
-def window(p):
-    return f'{max(p - WINDOW / 2, 0):g}-{p + WINDOW / 2:g}%'
+def width(points):
+    srt = sorted(points)
+    return min([WINDOW] + [b - a for a, b in zip(srt, srt[1:])])
+
+
+def window(p, w):
+    return f'{max(p - w / 2, 0):g}-{p + w / 2:g}%'
 
 
 def table(name):
     return yaml.safe_load(open(os.path.join(RAW, f'{name}.yaml')))
 
 
-def centrality(points):
-    return {'classes': [window(p) for p in points], **REFMULT, 'points': points, 'point_window': WINDOW,
+def centrality(points, w):
+    return {'classes': [window(p, w) for p in points], **REFMULT, 'points': points, 'point_window': w,
             'notes': ('RefMult (|eta| < 0.5) with a Glauber fit.  The table gives one centrality value per point '
-                      'and no class edges; classes are 2%-wide windows centred on them.')}
+                      f'and no class edges; classes are {w:g}%-wide windows centred on them.')}
 
 
-def base(name, dv, cent_pts, energy, reaction, label):
+def base(name, dv, cent_pts, energy, reaction, label, w):
     return {'observable_type': 'flow_vn', 'inspire_id': '2017211', 'version': 1,
             'hepdata_file': f'{name}.yaml', 'dv_index': dv, 'hepdata_table_label': label,
             'collision_system': {'energy_gev': energy, 'reaction': reaction},
-            'centrality': centrality(cent_pts)}
+            'centrality': centrality(cent_pts, w)}
 
 
 def columns(t):
@@ -102,12 +109,13 @@ def charged_docs(name):
     t = table(name)
     pts = [float(v['value']) for v in t['independent_variables'][0]['values']]
     system = reaction.split(' -->')[0].title().replace(' ', '+')
+    w = width(pts)
     docs = []
     for k, (dv, rows) in sorted(columns(t).items()):
         rows_pts = [pts[j] for j in rows]
         assert rows == list(range(rows[0], rows[-1] + 1)), (name, k, rows)      # blanks only at the ends
         d = base(name, dv, rows_pts, energy, reaction,
-                 f'v2{{{k}}} of charged hadrons vs centrality, {system} at {energy:g} GeV')
+                 f'v2{{{k}}} of charged hadrons vs centrality, {system} at {energy:g} GeV', w)
         d.update({'particle_id': {'species': 'charged'},
                   'kinematic_range': {'eta': {'min': -1.0, 'max': 1.0}, 'pT': dict(CHARGED_PT)},
                   'harmonic': 2, 'method': 'cumulant', 'cumulant_order': k, 'value_type': f'v2{{{k}}}',
@@ -136,7 +144,7 @@ def identified_docs(name):
     dv, rows = columns(t)[2]
     assert rows == list(range(len(pts)))
     d = base(name, dv, pts, 200.0, 'AU AU --> CHARGED X',
-             f'v2{{2}} of {species} vs centrality, Au+Au at 200 GeV')
+             f'v2{{2}} of {species} vs centrality, Au+Au at 200 GeV', width(pts))
     d.update({'particle_id': {'species': species},
               'kinematic_range': {'eta': {'min': -1.0, 'max': 1.0}, 'pT': dict(PID_PT)},
               'harmonic': 2, 'method': 'cumulant', 'cumulant_order': 2, 'value_type': 'v2{2}',
