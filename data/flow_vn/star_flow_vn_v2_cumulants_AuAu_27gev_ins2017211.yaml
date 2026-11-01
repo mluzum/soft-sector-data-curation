@@ -1,0 +1,245 @@
+observable_type: flow_vn
+inspire_id: '2017211'
+version: 1
+hepdata_file: 27_GeV.yaml
+dv_index: 0
+hepdata_table_label: v2{2} of charged hadrons vs centrality, Au+Au at 27 GeV
+collision_system:
+  energy_gev: 27.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 61-63%
+  - 57-59%
+  - 52-54%
+  - 47-49%
+  - 43-45%
+  - 41-43%
+  - 38-40%
+  - 33-35%
+  - 31-33%
+  - 27-29%
+  - 23-25%
+  - 21-23%
+  - 17-19%
+  - 13-15%
+  - 10-12%
+  - 8-10%
+  - 5-7%
+  - 3-5%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  points:
+  - 62.0
+  - 58.0
+  - 53.0
+  - 48.0
+  - 44.0
+  - 42.0
+  - 39.0
+  - 34.0
+  - 32.0
+  - 28.0
+  - 24.0
+  - 22.0
+  - 18.0
+  - 14.0
+  - 11.0
+  - 9.0
+  - 6.0
+  - 4.0
+  point_window: 2.0
+  notes: RefMult (|eta| < 0.5) with a Glauber fit.  The table gives one centrality value per point and no class edges; classes
+    are 2%-wide windows centred on them.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 4.0
+harmonic: 2
+method: cumulant
+cumulant_order: 2
+value_type: v2{2}
+dimensionality: integrated
+particles: AB
+eta_gap: 0.6
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: 0.3
+        max: 1.0
+      pT:
+        min: 0.2
+        max: 4.0
+  B:
+    kinematic_range:
+      eta:
+        min: -1.0
+        max: -0.3
+      pT:
+        min: 0.2
+        max: 4.0
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRL 129, 252301 (2022), arXiv:2201.10365. Charged hadrons, 0.2 < pT < 4 GeV/c; v2{2}:
+    two subevents, eta_a > 0.3 and eta_b < -0.3 (|Delta eta| > 0.6). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2017211'
+version: 1
+hepdata_file: 27_GeV.yaml
+dv_index: 1
+hepdata_table_label: v2{4} of charged hadrons vs centrality, Au+Au at 27 GeV
+collision_system:
+  energy_gev: 27.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 61-63%
+  - 57-59%
+  - 52-54%
+  - 47-49%
+  - 43-45%
+  - 41-43%
+  - 38-40%
+  - 33-35%
+  - 31-33%
+  - 27-29%
+  - 23-25%
+  - 21-23%
+  - 17-19%
+  - 13-15%
+  - 10-12%
+  - 8-10%
+  - 5-7%
+  - 3-5%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  points:
+  - 62.0
+  - 58.0
+  - 53.0
+  - 48.0
+  - 44.0
+  - 42.0
+  - 39.0
+  - 34.0
+  - 32.0
+  - 28.0
+  - 24.0
+  - 22.0
+  - 18.0
+  - 14.0
+  - 11.0
+  - 9.0
+  - 6.0
+  - 4.0
+  point_window: 2.0
+  notes: RefMult (|eta| < 0.5) with a Glauber fit.  The table gives one centrality value per point and no class edges; classes
+    are 2%-wide windows centred on them.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 4.0
+harmonic: 2
+method: cumulant
+cumulant_order: 4
+value_type: v2{4}
+dimensionality: integrated
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRL 129, 252301 (2022), arXiv:2201.10365. Charged hadrons, 0.2 < pT < 4 GeV/c; v2{4}:
+    4-particle cumulant with particle weights over |eta| < 1. Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2017211'
+version: 1
+hepdata_file: 27_GeV.yaml
+dv_index: 2
+hepdata_table_label: v2{6} of charged hadrons vs centrality, Au+Au at 27 GeV
+collision_system:
+  energy_gev: 27.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 57-59%
+  - 52-54%
+  - 47-49%
+  - 43-45%
+  - 41-43%
+  - 38-40%
+  - 33-35%
+  - 31-33%
+  - 27-29%
+  - 23-25%
+  - 21-23%
+  - 17-19%
+  - 13-15%
+  - 10-12%
+  - 8-10%
+  - 5-7%
+  - 3-5%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  points:
+  - 58.0
+  - 53.0
+  - 48.0
+  - 44.0
+  - 42.0
+  - 39.0
+  - 34.0
+  - 32.0
+  - 28.0
+  - 24.0
+  - 22.0
+  - 18.0
+  - 14.0
+  - 11.0
+  - 9.0
+  - 6.0
+  - 4.0
+  point_window: 2.0
+  notes: RefMult (|eta| < 0.5) with a Glauber fit.  The table gives one centrality value per point and no class edges; classes
+    are 2%-wide windows centred on them.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 4.0
+harmonic: 2
+method: cumulant
+cumulant_order: 6
+value_type: v2{6}
+dimensionality: integrated
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRL 129, 252301 (2022), arXiv:2201.10365. Charged hadrons, 0.2 < pT < 4 GeV/c; v2{6}:
+    6-particle cumulant with particle weights over |eta| < 1. Errors: statistical and systematic. 1 blank table row(s) at
+    the ends left out.'

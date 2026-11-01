@@ -136,6 +136,7 @@ def main():
     for fp, di, hf, listed, raw in mismatches:
         print(f"  MISMATCH {fp} doc{di} {hf}: listed={listed} raw={raw}",
               flush=True)
+    return mismatches
 
 
 if __name__ == '__main__':
