@@ -166,6 +166,10 @@ bias-corrected central value θ̂ = Nθ − (N−1)θ̄.
   `extract_differential_bins` returns none for `dimensionality: integrated`.
 - **Experimental scales**: percent or ×100 columns and MeV headers are
   normalized in `load_experimental`.
+- **Rapidity with an assumed mass** (`kinematic_range.y.mass`, e.g. PHOBOS
+  y_π): the window is converted per species and pT (2D:
+  `rapidity_window_extent`) or per pT cell (3D: `acceptance_rapidity`).
+  It is implemented for spectra only; the dispatcher refuses it elsewhere.
 - **Experimental errors**: `load_experimental` returns the total error, all
   HEPData components in quadrature (asymmetric: the mean of the two sides;
   `x%`: relative to the value).  Until November 2026 a third component was

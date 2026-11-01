@@ -104,6 +104,15 @@ kinematic_range:
           description: "Explicit rapidity bin boundaries."
           items: {type: float}
           example: [-0.5, 0.0, 0.5]
+        mass:
+          type: float
+          required: false
+          description: >
+            Mass [GeV] with which the rapidity of every particle is computed,
+            when the measurement uses one mass for all (e.g. PHOBOS y_pi,
+            0.13957); absent, each particle's own mass (true rapidity).
+            Implemented for spectra (dispatcher.MASS_ASSUMED_RAPIDITY_KEYS).
+          example: 0.13957
     eta:
       description: Pseudorapidity range or bin edges.
       type: object

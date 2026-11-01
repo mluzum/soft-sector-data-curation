@@ -293,6 +293,30 @@ class QGridData:
             pi = _snap_searchsorted(self.pt_edges, pt_min, pt_max)
         return self.Qn[:, ei[0]:ei[1], pi[0]:pi[1], :].sum(axis=(1, 2))
 
+    def acceptance_rapidity(self, y_min, y_max, assumed_mass, pt_min=0.0, pt_max=1e9):
+        """Sum Q-vectors over a window in rapidity computed with one assumed
+        mass for every particle (e.g. PHOBOS y_pi), within pT bounds.
+
+        In each pT cell (at its centre pT) the window is the eta window
+        eta = asinh(mT_a sinh y / pT), mT_a = sqrt(pT^2 + m_a^2); eta cells
+        count with their overlap fraction (uniform density within a cell).
+        pT cells are chosen as in acceptance().  Returns (n_events, n_harm).
+        """
+        if getattr(self, 'pt_integrated', False):
+            raise ValueError('a mass-assumed rapidity window needs pT-binned grids')
+        pi = _snap_searchsorted(self.pt_edges, pt_min, pt_max)
+        lo_e, hi_e = self.eta_edges[:-1], self.eta_edges[1:]
+        out = np.zeros((self.Qn.shape[0], self.Qn.shape[3]), dtype=complex)
+        for c in range(pi[0], pi[1]):
+            pt = 0.5 * (self.pt_edges[c] + self.pt_edges[c + 1])
+            if pt <= 0:
+                continue
+            mta = np.sqrt(pt ** 2 + assumed_mass ** 2)
+            e0, e1 = np.arcsinh(mta * np.sinh(y_min) / pt), np.arcsinh(mta * np.sinh(y_max) / pt)
+            frac = np.clip((np.minimum(hi_e, e1) - np.maximum(lo_e, e0)) / (hi_e - lo_e), 0.0, 1.0)
+            out += (self.Qn[:, :, c, :] * frac[None, :, None]).sum(axis=1)
+        return out
+
     def select(self, particle_id):
         """Species selection for a plain (combined) QGridData.
 

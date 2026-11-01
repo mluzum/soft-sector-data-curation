@@ -491,7 +491,19 @@ def resolve(record):
                 f"Record missing required field '{req}' for dispatch "
                 f"key {key}")
 
+    # A rapidity window with an assumed mass (e.g. y_pi) is implemented for
+    # spectra only; elsewhere it would be read as a true-rapidity window.
+    y_kr = (record.get("kinematic_range") or {}).get("y") or {}
+    if y_kr.get("mass") is not None and entry["compute"] not in MASS_ASSUMED_RAPIDITY_KEYS:
+        raise ValueError(
+            f"kinematic_range.y.mass (rapidity with an assumed mass) is not "
+            f"implemented for '{entry['compute']}'")
+
     return entry
+
+
+# Computations that implement kinematic_range.y.mass.
+MASS_ASSUMED_RAPIDITY_KEYS = {"spectra_invariant_yield"}
 
 
 def _field_exists(doc, path):
@@ -574,6 +586,9 @@ def extract_measurement_params(exp_rec):
     # take a dy-mode branch.
     top_y = top_kr.get('y', {}) or {}
     single_kr['y'] = (top_y.get('min'), top_y.get('max'))
+    # A rapidity window computed with one assumed mass for every particle
+    # (e.g. PHOBOS y_pi): kinematic_range.y.mass, in GeV.
+    single_kr['y_mass'] = top_y.get('mass')
     cent_eta_raw = cent.get('eta', [])
     cent_eta_ranges = [(e['min'], e['max']) for e in cent_eta_raw]
     cent_pt_raw = cent.get('pT') or {}

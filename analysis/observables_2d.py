@@ -29,6 +29,29 @@ def cut_qvectors(qv, eta_min, eta_max):
     return Qn, jac
 
 
+def rapidity_window_extent(pt, mass, y_min, y_max, assumed_mass):
+    """True-rapidity extent of a window in rapidity computed with an assumed
+    mass (e.g. y_pi), for particles of the given mass and pT.  At fixed pT,
+    p_z = mT sinh y = mT_a sinh y_a, so y = asinh(mT_a / mT * sinh y_a).
+    assumed_mass = 0 gives the eta window."""
+    pt = np.asarray(pt, dtype=float)
+    r = np.sqrt(pt ** 2 + assumed_mass ** 2) / np.sqrt(pt ** 2 + mass ** 2)
+    return np.arcsinh(r * np.sinh(y_max)) - np.arcsinh(r * np.sinh(y_min))
+
+
+def cut_qvectors_rapidity(qv, y_min, y_max, assumed_mass):
+    """cut_qvectors for a window in rapidity computed with an assumed mass:
+    each species and pT bin weighted by the true-rapidity extent of the
+    window (the container is flat in true rapidity)."""
+    jac = np.array([rapidity_window_extent(qv.pt_centers, m, y_min, y_max, assumed_mass)
+                    for m in qv.masses])
+    Qn = qv.Qn.astype(np.complex128)
+    Qn /= 2.0 * qv.rap_max
+    Qn *= jac[np.newaxis, :, np.newaxis, :]
+    Qn /= qv.nsamples[:, None, None, None]
+    return Qn, jac
+
+
 def sum_over_species_pt(Qn):
     return Qn.sum(axis=(1, 3))
 
