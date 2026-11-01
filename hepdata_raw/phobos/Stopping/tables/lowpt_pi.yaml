@@ -1,0 +1,31 @@
+description: 'B. B. Back et al. (PHOBOS), PRC 70, 051901 (2004), arXiv:nucl-ex/0401006: invariant yield of pi+ + pi- (sum
+  of charges), 0-15% Au+Au at 200 GeV, -0.1 < y < 0.4, at the quoted pT.'
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {value: 0.0311}
+  - {value: 0.0435}
+  - {value: 0.0484}
+  - {value: 0.0529}
+dependent_variables:
+- header: {name: 1/(2*PI*PT)*D2N/DY/DPT, units: GEV**-2}
+  qualifiers:
+  - {name: CENTRALITY, value: 0-15%}
+  - {name: PARTICLE, value: pi+ + pi-}
+  values:
+  - value: 1478.1
+    errors:
+    - {symerror: 106.0, label: stat}
+    - {symerror: 177.4, label: sys}
+  - value: 1288.1
+    errors:
+    - {symerror: 51.4, label: stat}
+    - {symerror: 154.6, label: sys}
+  - value: 1387.9
+    errors:
+    - {symerror: 50.8, label: stat}
+    - {symerror: 166.5, label: sys}
+  - value: 1525.4
+    errors:
+    - {symerror: 53.9, label: stat}
+    - {symerror: 183.0, label: sys}

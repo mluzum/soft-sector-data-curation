@@ -1,0 +1,31 @@
+description: 'B. B. Back et al. (PHOBOS), PRC 70, 051901 (2004), arXiv:nucl-ex/0401006: invariant yield of K+ + K- (sum of
+  charges), 0-15% Au+Au at 200 GeV, -0.1 < y < 0.4, at the quoted pT.'
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {value: 0.096}
+  - {value: 0.116}
+  - {value: 0.123}
+  - {value: 0.128}
+dependent_variables:
+- header: {name: 1/(2*PI*PT)*D2N/DY/DPT, units: GEV**-2}
+  qualifiers:
+  - {name: CENTRALITY, value: 0-15%}
+  - {name: PARTICLE, value: K+ + K-}
+  values:
+  - value: 47.38
+    errors:
+    - {symerror: 3.72, label: stat}
+    - {symerror: 8.53, label: sys}
+  - value: 50.98
+    errors:
+    - {symerror: 4.89, label: stat}
+    - {symerror: 9.18, label: sys}
+  - value: 58.27
+    errors:
+    - {symerror: 5.61, label: stat}
+    - {symerror: 10.49, label: sys}
+  - value: 62.94
+    errors:
+    - {symerror: 6.15, label: stat}
+    - {symerror: 11.33, label: sys}

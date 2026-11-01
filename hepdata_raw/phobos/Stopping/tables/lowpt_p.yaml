@@ -1,0 +1,31 @@
+description: 'B. B. Back et al. (PHOBOS), PRC 70, 051901 (2004), arXiv:nucl-ex/0401006: invariant yield of p + pbar (sum of
+  charges), 0-15% Au+Au at 200 GeV, -0.1 < y < 0.4, at the quoted pT.'
+independent_variables:
+- header: {name: PT, units: GEV}
+  values:
+  - {value: 0.143}
+  - {value: 0.172}
+  - {value: 0.19}
+  - {value: 0.206}
+dependent_variables:
+- header: {name: 1/(2*PI*PT)*D2N/DY/DPT, units: GEV**-2}
+  qualifiers:
+  - {name: CENTRALITY, value: 0-15%}
+  - {name: PARTICLE, value: p + pbar}
+  values:
+  - value: 7.518
+    errors:
+    - {symerror: 0.899, label: stat}
+    - {symerror: 2.406, label: sys}
+  - value: 7.064
+    errors:
+    - {symerror: 0.773, label: stat}
+    - {symerror: 2.261, label: sys}
+  - value: 6.546
+    errors:
+    - {symerror: 0.791, label: stat}
+    - {symerror: 2.095, label: sys}
+  - value: 6.722
+    errors:
+    - {symerror: 0.823, label: stat}
+    - {symerror: 2.151, label: sys}
