@@ -843,7 +843,9 @@ def prepare_spectra_3d(grid, params):
     pt_centers = np.zeros(n_meas)
     pt_widths = np.zeros(n_meas)
     for b, (lo, hi) in enumerate(meas_bins):
-        Qn = grid.acceptance(eta[0], eta[1], lo, hi)
+        # partial cells by overlap fraction: measurement bins need not
+        # follow the grid (a 0.2-0.3 bin on 0.15/0.25/0.35 cells)
+        Qn = grid.acceptance_fractional(eta[0], eta[1], lo, hi)
         Q0_pt[:, b] = Qn[:, 0].real / grid.nsamples
         pt_centers[b] = (lo + hi) / 2
         pt_widths[b] = hi - lo

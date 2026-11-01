@@ -165,6 +165,11 @@ bias-corrected central value θ̂ = Nθ − (N−1)θ̄.
     (`h*n_bins + b`).
 
   `run_pipeline` asserts labels == values before writing; keep that check.
+- **3D spectra and grid cells**: measurement bins need not follow the grid.
+  Spectra count cut cells by overlap fraction (`QGridData.acceptance_fractional`:
+  uniform in eta, uniform in pT^2, i.e. constant invariant yield).
+  `acceptance()` snaps to whole cells; it is fine for ratios like v_n but
+  not for yields.
 - **Charge-scaled 3D grids**: normalized observables (flow, correlations,
   mean pT and its fluctuations) are computed on unit weights
   (`pipeline_dispatch._unit_weights`); only `ABSOLUTE_KEYS` keep the

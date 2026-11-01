@@ -139,6 +139,21 @@ def test_spectra_3d():
                      SPECTRA_TOL[b])
 
 
+def test_spectra_3d_bins_off_the_grid():
+    """Measurement bins that cut grid cells count the cut cells by their
+    overlap fraction.  Whole-cell snapping replaced a 0.3-0.5 bin on
+    ~0.2-wide cells by other cells, and a bin inside one cell got nothing."""
+    fx = _fx()
+    coarse = make_qgrid_data(fx['events'], {'cfg': fx['cfg']}, n_pt=15)
+    bins = [(0.3, 0.5), (0.5, 0.8), (0.8, 1.2)]
+    rec = record_spectra(eta=(-0.5, 0.5), bins=bins, cent_classes=('0-100%',))
+    cf = species_charge_factor('charged')
+    vals, _ = evaluate(rec, grid=coarse, cent_method='simple')
+    for b, (lo, hi) in enumerate(bins):
+        ref = ref_spectra(fx['events'], lo, hi, (-0.5, 0.5)) * cf
+        assert_close(f"spectra {lo}-{hi} 3D, coarse grid", vals[b], ref, 0.06)
+
+
 # ── mean pT ─────────────────────────────────────────────────────────────────
 
 def test_mean_pt_2d():
