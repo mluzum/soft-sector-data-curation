@@ -101,10 +101,12 @@ def test_value_correspondence_matches_paper():
     path = os.path.join(_ROOT, 'data_validation', 'jetscape_bayes',
                         'exp_data', 'experiment.csv')
     exp = next(csv.DictReader(open(path)))
-    # <eta> positions of the paper's Fig-5 combined table, 25-50% class.
-    # bins 9..15 <-> <eta> 0.31 0.76 1.22 1.69 3.04 3.67 4.13.
-    # Deviations: 2e-4 4e-4 5e-4 0 1e-4 1e-4 0 -- max 5e-4, i.e. agreement
-    # to the 4-decimal precision of the published table, with two exact.
+    # Fig-5 combined values, 25-50% class: experiment.csv bins 8..15 are
+    # <eta> 0.31 ... 4.96, so bins 9..15 are <eta> 0.76 1.22 1.69 3.04 3.67
+    # 4.13 4.96.  The values below are the published figure's.  The PHOBOS
+    # web table lists them one row early (against <eta> 0.31 ... 4.13; see
+    # scripts/curate_phobos_v2_200gev.py).
+    # Deviations: 2e-4 4e-4 5e-4 0 1e-4 1e-4 0 -- max 5e-4, two exact.
     pairs = [(9, 0.0612), (10, 0.0574), (11, 0.0542), (12, 0.0448),
              (13, 0.0373), (14, 0.0275), (15, 0.0209)]
     devs = []
