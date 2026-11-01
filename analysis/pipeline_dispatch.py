@@ -23,13 +23,9 @@ from analysis.observables_2d import (
     compute_vn2_single_mor,
     compute_vn2_subevent_per_cent,
     compute_vn2_gap_poi,
-    _core_vn4_single,
     _core_vn4_gap,
-    _core_vn2_diff_pT,
-    _core_vn2_diff_eta_all_bins,
     _core_vn2_gap_diff_pT_all_bins,
     _core_vn2_gap_diff_eta_all_bins,
-    _core_vn4_one_diff_bin,
     cut_qvectors,
     cut_qvectors_rapidity,
     sum_over_species_pt,
@@ -337,17 +333,126 @@ def _wrap_vn2_gap_poi(data, w):
                                data['d_pQ'], data['d_QQ'], w)
 
 
-def prepare_vn4_single_2d(qv, params):
-    """Returns {Q1, Q2, Q3, Q4} for v_n{4} single-acceptance."""
+# ── v_n{2}, v_n{4} of a particle of interest (analysis.correlators) ─────────
+#
+# The particle of interest (POI) is the record's species in the record's
+# acceptance (each differential bin narrows it); the reference is charged
+# hadrons in the whole acceptance (pT: flow_reference.pT when given).  For
+# a charged record POI and reference coincide and the results are the
+# integrated v_n{2}, v_n{4}; identified records get differential flow with
+# a charged reference (they used to get the charged-hadron value in 2D, and
+# an identified-only reference in 3D).
+
+def _cumulant_windows(params):
+    """(reference (eta, pT), [POI (eta, pT) per bin], differential?)."""
     sk = params.get('single_range', {})
-    eta = sk.get('eta', (-1, 1))
-    jac = _make_jacobian_list(qv.pt_centers, qv.masses, eta[0], eta[1])
-    return {
-        'Q1': _compute_weighted_qvectors(qv, jac, 1),
-        'Q2': _compute_weighted_qvectors(qv, jac, 2),
-        'Q3': _compute_weighted_qvectors(qv, jac, 3),
-        'Q4': _compute_weighted_qvectors(qv, jac, 4),
-    }
+    eta = tuple(sk.get('eta', (-1, 1)))
+    pt = tuple(sk.get('pT', (0.1, 10)))
+    fr = params.get('flow_reference') or {}
+    ref_pt = tuple(fr['pT']) if isinstance(fr, dict) and fr.get('pT') else pt
+    var, bins = params.get('differential_var'), params.get('differential_bins') or []
+    if var == 'pT' and bins:
+        return (eta, ref_pt), [(eta, (lo, hi)) for lo, hi in bins], True
+    if var == 'eta' and bins:
+        return (eta, ref_pt), [((lo, hi), pt) for lo, hi in bins], True
+    return (eta, ref_pt), [(eta, pt)], False
+
+
+def _poi_species(params):
+    pid = params.get('particle_id') or {}
+    return pid if pid.get('species') is not None else {'species': 'charged'}
+
+
+def _stack_bins(per_bin):
+    """List of per-bin POI dicts -> arrays with a trailing bin axis."""
+    return {k: np.stack([b[k] for b in per_bin], axis=-1) for k in per_bin[0]}
+
+
+def prepare_cumulant_poi_2d(qv, params, order):
+    from analysis.correlators import Container2D, correlator_arrays
+    pdg_ids = getattr(qv, 'pdg_ids', None)
+    pid = _poi_species(params)
+    if is_charged(pid.get('species')):
+        poi_idx, _ = charged_species_indices(pdg_ids)
+    else:
+        poi_idx, _, found = _get_species_selection(pid, qv)
+        if not found:
+            raise ValueError(f"species {pid.get('species')!r} not in the container")
+        if poi_idx is None:
+            poi_idx = list(range(qv.Qn.shape[1]))
+    ref_idx, _ = charged_species_indices(pdg_ids)
+    (r_eta, r_pt), bins, diff = _cumulant_windows(params)
+    centers = qv.pt_centers
+
+    def sample(idx, eta, pt, by_centers):
+        if by_centers:      # differential bins: the sim cells whose centres fall in the bin
+            lo, hi = int(np.searchsorted(centers, pt[0])), int(np.searchsorted(centers, pt[1], side='right'))
+        else:
+            lo, hi = _find_pt_slice_edges(qv.pt_bin_edges, pt[0], pt[1])
+        return {'idx': list(idx), 'pt': (lo, hi),
+                'jac': _make_jacobian_list(qv.pt_centers, qv.masses, eta[0], eta[1])}
+
+    ref = sample(ref_idx, r_eta, r_pt, False)
+    n_harm = qv.Qn.shape[2]
+    out = correlator_arrays(Container2D(qv, ref, ref), n_harm, order, which=('ref',))
+    per_bin = [correlator_arrays(Container2D(qv, sample(poi_idx, eta, pt, diff and params.get('differential_var') == 'pT'), ref),
+                                 n_harm, order, which=('poi',)) for eta, pt in bins]
+    out.update(_stack_bins(per_bin))
+    return out
+
+
+def _poi_within_charged(container, pid):
+    """Are the POI particles reference (charged) particles?"""
+    from analysis.qvector import MultiSpeciesGrid
+    sp = pid.get('species')
+    if is_charged(sp) or not isinstance(container, MultiSpeciesGrid):
+        return True          # a grid without species returns the combined charged grid
+    pdgs = resolve_species(sp)[1]
+    if pdgs is None:
+        from analysis.species import _ISOSPIN, _PDG_SETS
+        key = str(sp).strip().lower()
+        pdgs = _PDG_SETS.get(key) or (_ISOSPIN[key][1] if key in _ISOSPIN else [])
+    return bool(pdgs) and all(abs(int(p)) in (211, 321, 2212) for p in pdgs)
+
+
+def prepare_cumulant_poi_3d(container, params, order):
+    """3D: receives the unselected container (selects_species)."""
+    from analysis.correlators import Container3D, correlator_arrays
+    pid = _poi_species(params)
+    poi = _unit_weights(container.select(pid))
+    ref = _unit_weights(container.select({'species': 'charged'}))
+    overlap = _poi_within_charged(container, pid)
+    (r_eta, r_pt), bins, _ = _cumulant_windows(params)
+    rw = (r_eta[0], r_eta[1], r_pt[0], r_pt[1])
+    n_harm = ref.Qn.shape[-1]
+    out = correlator_arrays(Container3D(ref, rw, ref, rw, True), n_harm, order, which=('ref',))
+    per_bin = [correlator_arrays(Container3D(poi, (eta[0], eta[1], pt[0], pt[1]), ref, rw, overlap),
+                                 n_harm, order, which=('poi',)) for eta, pt in bins]
+    out.update(_stack_bins(per_bin))
+    return out
+
+
+def _poi_core(order, layout):
+    """Core for one centrality class.  layout: 'integrated' -> (n_harm-1,);
+    'h_major' -> (h-1)*n_bins + b, the layout run_pipeline reads."""
+    from analysis.correlators import vn_poi
+
+    def core(data, w):
+        v = vn_poi(data, w, order)                     # (n_harm-1, n_bins)
+        if layout == 'integrated':
+            return v[:, 0]
+        return v.ravel()
+    return core
+
+
+def _poi_prepares(order):
+    def p2(qv, params):
+        return prepare_cumulant_poi_2d(qv, params, order)
+
+    def p3(container, params):
+        return prepare_cumulant_poi_3d(container, params, order)
+    p2.__name__, p3.__name__ = f'prepare_vn{order}_poi_2d', f'prepare_vn{order}_poi_3d'
+    return p2, p3
 
 
 def prepare_vn4_gap_2d(qv, params):
@@ -385,65 +490,6 @@ def _extract_2d_pT_bins(params):
     elif isinstance(pT, (list, tuple)) and len(pT) == 2:
         return [(pT[0], pT[1])]
     return []
-
-
-def prepare_vn2_diff_pT_2d(qv, params):
-    """Data prep for v_n{2} pT-differential.
-
-    Maps measurement pT bins to sim pT indices, accumulating Q-vectors
-    and self-correction (dmq) per measurement bin.
-    """
-    sk = params.get('single_range', {})
-    eta = sk.get('eta', (-1, 1))
-    Qn_full, jac = cut_qvectors(qv, eta[0], eta[1])
-    Qn_int = sum_over_species_pt(Qn_full)
-    Q0 = Qn_int[:, 0].real
-    dQ0 = _compute_dq0(qv, Qn_full, jac)
-
-    meas_bins = _extract_2d_pT_bins(params)
-    if not meas_bins:
-        # Fallback: no measurement bins specified, use all sim bins
-        Qn_pt_int = Qn_full.sum(axis=1)
-        pt_centers = qv.pt_centers
-        meas_bins = [(pt_centers[0], pt_centers[-1])]
-
-    pt_centers = qv.pt_centers
-    n_meas = len(meas_bins)
-    Qn_pt_sim = Qn_full.sum(axis=1)  # (n_events, n_harm, n_pt_sim)
-    n_harm = Qn_pt_sim.shape[1]
-    Qn_pt_meas = np.zeros((Qn_pt_sim.shape[0], n_harm, n_meas), dtype=np.complex128)
-
-    # Pre-compute dmq per sim pT bin (fully vectorized)
-    w_sq = (jac[np.newaxis, :, :] /
-            (2.0 * qv.rap_max * qv.nsamples[:, np.newaxis, np.newaxis])) ** 2
-    dmq_sim = np.sum(qv.Qn[:, :, 0, :].real * w_sq, axis=1)
-    dmq_meas = np.zeros((dmq_sim.shape[0], n_meas))
-
-    for b, (lo, hi) in enumerate(meas_bins):
-        lo_b = int(np.searchsorted(pt_centers, lo))
-        hi_b = int(np.searchsorted(pt_centers, hi, side='right'))
-        Qn_pt_meas[:, :, b] = Qn_pt_sim[:, :, lo_b:hi_b].sum(axis=2)
-        dmq_meas[:, b] = dmq_sim[:, lo_b:hi_b].sum(axis=1)
-
-    return {
-        'Qn_int': Qn_int,
-        'Qn_pt_int': Qn_pt_meas,
-        'Q0': Q0,
-        'dQ0': dQ0,
-        'dmq': dmq_meas,
-    }
-
-
-def prepare_vn2_diff_eta_2d(qv, params):
-    """Data prep for v_n{2} η-differential."""
-    sk = params.get('single_range', {})
-    pt = sk.get('pT', (0.1, 10))
-    lo, hi = _find_pt_slice_edges(qv.pt_bin_edges, pt[0], pt[1])
-    eta = sk.get('eta', (-1, 1))
-    Qn_full, jac = cut_qvectors(qv, eta[0], eta[1])
-    Qn_full = Qn_full[:, :, :, lo:hi]
-    return {'Qn_corrected': Qn_full, 'qv': qv, 'jac': jac,
-            'params': params}
 
 
 def prepare_vn2_gap_diff_pT_2d(qv, params):
@@ -517,24 +563,6 @@ def prepare_vn2_gap_diff_eta_2d(qv, params):
     }
 
 
-def prepare_vn4_diff_2d(qv, params):
-    """Data prep for v_n{4} pT/η differential (single acceptance)."""
-    sk = params.get('single_range', {})
-    eta = sk.get('eta', (-1, 1))
-    jac = _make_jacobian_list(qv.pt_centers, qv.masses, eta[0], eta[1])
-    Q1_ref = _compute_weighted_qvectors(qv, jac, 1)
-    Q2_ref = _compute_weighted_qvectors(qv, jac, 2)
-    Q3_ref = _compute_weighted_qvectors(qv, jac, 3)
-    return {
-        'Q1_ref': Q1_ref,
-        'Q2_ref': Q2_ref,
-        'Q3_ref': Q3_ref,
-        'qv': qv,
-        'jac': jac,
-        'params': params,
-    }
-
-
 # ── prepare_data_3d functions (grid-based) ───────────────────────────
 
 def prepare_vn2_single_3d(grid, params):
@@ -575,23 +603,6 @@ def prepare_vn2_gap_3d(grid, params):
     return {'Qn_A': Qn_A, 'Qn_B': Qn_B, 'dQ_cross': dQ_cross}
 
 
-def prepare_vn4_single_3d(grid, params):
-    """Returns {Q1, Q2, Q3, Q4} for v_n{4} single-acceptance.
-
-    3D particles are unit-weighted → Q1 = Q2 = Q3 = Q4.
-    """
-    sk = params.get('single_range', {})
-    eta = sk.get('eta', (-1, 1))
-    pt = sk.get('pT', (0.1, 10))
-    Qn = grid.acceptance(eta[0], eta[1], pt[0], pt[1])
-    return {
-        'Q1': Qn,
-        'Q2': Qn.copy(),
-        'Q3': Qn.copy(),
-        'Q4': Qn.copy(),
-    }
-
-
 def prepare_vn4_gap_3d(grid, params):
     """Returns {Q1_A..Q4_A, Q1_B..Q4_B, dQ_cross} for v_n{4}AABB.
 
@@ -616,24 +627,11 @@ def prepare_vn4_gap_3d(grid, params):
 
 # ── 3D differential aliases (per-bin params → delegate to integrated 3D) ──
 
-def _prepare_vn2_diff_3d(grid, params):
-    """For vn2_single_diff_pT/eta: per-bin params already narrow single_range."""
-    return prepare_vn2_single_3d(grid, params)
-
 def _prepare_vn2_gap_diff_3d(grid, params):
     """For vn2_gap_diff_pT/eta: per-bin params narrow subevent's range."""
     return prepare_vn2_gap_3d(grid, params)
 
-def _prepare_vn4_diff_3d(grid, params):
-    """For vn4_single_diff_pT/eta: per-bin params narrow single_range."""
-    return prepare_vn4_single_3d(grid, params)
-
-
 # ── core_fn wrappers (uniform interface: data_dict, w) ────────────────
-
-def _wrap_vn2_single(data, w):
-    return compute_vn2_single_per_cent_bin(data['Qn'], data['dQ0'], w)
-
 
 def _wrap_vn2_single_mor(data, w):
     return compute_vn2_single_mor(data['Qn'], data['dQ0'], w)
@@ -641,13 +639,6 @@ def _wrap_vn2_single_mor(data, w):
 
 def _wrap_vn2_gap(data, w):
     return compute_vn2_subevent_per_cent(data['Qn_A'], data['Qn_B'], data['dQ_cross'], w)
-
-
-def _wrap_vn4_single(data, w):
-    if 'Qn' in data:
-        raise ValueError("vn4 requires higher-power Q-vectors (Q1..Q4); "
-                         "not available from 3D data")
-    return _core_vn4_single(data['Q1'], data['Q2'], data['Q3'], data['Q4'], w)
 
 
 def _wrap_vn4_gap(data, w):
@@ -658,34 +649,6 @@ def _wrap_vn4_gap(data, w):
         data['Q1_A'], data['Q2_A'], data['Q3_A'], data['Q4_A'],
         data['Q1_B'], data['Q2_B'], data['Q3_B'], data['Q4_B'],
         data['dQ_cross'], w,
-    )
-
-
-def _wrap_vn2_diff_pT(data, w):
-    return _core_vn2_diff_pT(
-        data['Qn_int'], data['Qn_pt_int'], data['Q0'], data['dQ0'],
-        data['dmq'], w)
-
-
-def _wrap_vn2_diff_eta(data, w):
-    # η bins come from params on the data dict
-    params = data.get('params', {})
-    sk = params.get('single_range', {})
-    eta_cfg = sk.get('eta', {})
-    # single_range['eta'] is normally a (lo, hi) tuple; a dict with 'bins'
-    # appears when differential η edges were stashed there.
-    eta_edges = eta_cfg.get('bins', []) if isinstance(eta_cfg, dict) else []
-    if not eta_edges:
-        eta_edges = params.get('differential_bins', [])
-        eta_bins = [(lo, hi) for lo, hi in eta_edges]
-    else:
-        eta_bins = [(eta_edges[i], eta_edges[i+1]) for i in range(len(eta_edges)-1)]
-    # Fixed pT acceptance for the differential measurement
-    pt = params.get('single_range', {}).get('pT', (0.1, 10.0))
-    pt_lo, pt_hi = _find_pt_slice_edges(data['qv'].pt_bin_edges, pt[0], pt[1])
-    return _core_vn2_diff_eta_all_bins(
-        data['Qn_corrected'], data['qv'], data['jac'], eta_bins, w,
-        pt_lo=pt_lo, pt_hi=pt_hi,
     )
 
 
@@ -701,49 +664,6 @@ def _wrap_vn2_gap_diff_eta(data, w):
     return _core_vn2_gap_diff_eta_all_bins(
         data['Qn_A_int'], data['Qn_B_int_per_bin'],
         data['dQ_cross_per_bin'], w)
-
-
-def _wrap_vn4_diff(data, w):
-    params = data['params']
-    jac = data['jac']
-    qv = data['qv']
-    pT_centers = qv.pt_centers
-    masses = qv.masses
-    diff_var = params.get('differential_var', 'pT')
-    diff_bins = params.get('differential_bins', [])
-    Q1_ref = data['Q1_ref']
-    Q2_ref = data['Q2_ref']
-    Q3_ref = data['Q3_ref']
-    pT_range = params.get('single_range', {}).get('pT', (0.1, 10.0))
-
-    n_bins = len(diff_bins)
-    n_harm = Q1_ref.shape[1]
-    out = np.zeros((n_harm - 1, n_bins))
-    n_events = Q1_ref.shape[0]
-
-    for b, (lo, hi) in enumerate(diff_bins):
-        if diff_var == 'pT':
-            lo_bin = int(np.searchsorted(pT_centers, lo))
-            hi_bin = int(np.searchsorted(pT_centers, hi, side='right'))
-            p1 = np.zeros((n_events, n_harm), dtype=complex)
-            p2 = np.zeros((n_events, n_harm), dtype=complex)
-            for p in range(lo_bin, min(hi_bin, len(pT_centers))):
-                w_p = jac[:, p] / (2.0 * qv.rap_max * qv.nsamples[:, None])
-                w_factor = w_p[:, :, np.newaxis]
-                qn_p = qv.Qn[:, :, :, p].astype(np.complex128)
-                p1 += (qn_p * w_factor).sum(axis=1)
-                p2 += (qn_p * w_factor ** 2).sum(axis=1)
-        else:
-            lo_idx = int(np.searchsorted(pT_centers, pT_range[0], side='left'))
-            hi_idx = int(np.searchsorted(pT_centers, min(pT_range[1], PTCUTS[-1]), side='right'))
-            Qn_cut, _ = cut_qvectors(qv, lo, hi)
-            Qn_int = Qn_cut[:, :, :, lo_idx:hi_idx].sum(axis=3)
-            p1 = 2.0 * Qn_int[:, :3, :].sum(axis=1)
-            p2 = 2.0 * Qn_int[:, :3, :].sum(axis=1)
-
-        out[:, b] = _core_vn4_one_diff_bin(p1[:, :n_harm], p2[:, :n_harm],
-                                            Q1_ref, Q2_ref, Q3_ref, w)
-    return out.ravel()
 
 
 # ── Yield / multiplicity prepare + wrappers ─────────────────────────────────
@@ -1953,11 +1873,12 @@ def _wrap_dET(data, w):
 
 PIPELINE_DISPATCH = {
     "vn2_single": {
-        "core_fn": _wrap_vn2_single,
-        "prepare_data_2d": prepare_vn2_single_2d,
-        "prepare_data_3d": prepare_vn2_single_3d,
+        "core_fn": _poi_core(2, 'integrated'),
+        "prepare_data_2d": _poi_prepares(2)[0],
+        "prepare_data_3d": _poi_prepares(2)[1],
+        "selects_species": True,
         "n_obs_per_cent": 5,
-        "description": "v_n{2} single-acceptance integrated",
+        "description": "v_n{2} single-acceptance integrated (POI vs charged reference)",
     },
     "vn2_single_mor": {
         "core_fn": _wrap_vn2_single_mor,
@@ -1984,16 +1905,18 @@ PIPELINE_DISPATCH = {
         "description": "v_n{2} of identified particles, two subevents, separate reference",
     },
     "vn2_single_diff_pT": {
-        "core_fn": _wrap_vn2_diff_pT,
-        "prepare_data_2d": prepare_vn2_diff_pT_2d,
-        "prepare_data_3d": _prepare_vn2_diff_3d,
+        "core_fn": _poi_core(2, 'h_major'),
+        "prepare_data_2d": _poi_prepares(2)[0],
+        "prepare_data_3d": _poi_prepares(2)[1],
+        "selects_species": True,
         "n_obs_per_cent": None,  # depends on n_pT bins
         "description": "v_n{2} pT-differential",
     },
     "vn2_single_diff_eta": {
-        "core_fn": _wrap_vn2_diff_eta,
-        "prepare_data_2d": prepare_vn2_diff_eta_2d,
-        "prepare_data_3d": _prepare_vn2_diff_3d,
+        "core_fn": _poi_core(2, 'h_major'),
+        "prepare_data_2d": _poi_prepares(2)[0],
+        "prepare_data_3d": _poi_prepares(2)[1],
+        "selects_species": True,
         "n_obs_per_cent": None,
         "description": "v_n{2} eta-differential",
     },
@@ -2012,23 +1935,26 @@ PIPELINE_DISPATCH = {
         "description": "v_n{2}ab eta-differential",
     },
     "vn4_single": {
-        "core_fn": _wrap_vn4_single,
-        "prepare_data_2d": prepare_vn4_single_2d,
-        "prepare_data_3d": prepare_vn4_single_3d,
+        "core_fn": _poi_core(4, 'integrated'),
+        "prepare_data_2d": _poi_prepares(4)[0],
+        "prepare_data_3d": _poi_prepares(4)[1],
+        "selects_species": True,
         "n_obs_per_cent": 5,
         "description": "v_n{4} single-acceptance integrated",
     },
     "vn4_single_diff_pT": {
-        "core_fn": _wrap_vn4_diff,
-        "prepare_data_2d": prepare_vn4_diff_2d,
-        "prepare_data_3d": _prepare_vn4_diff_3d,
+        "core_fn": _poi_core(4, 'h_major'),
+        "prepare_data_2d": _poi_prepares(4)[0],
+        "prepare_data_3d": _poi_prepares(4)[1],
+        "selects_species": True,
         "n_obs_per_cent": None,
         "description": "v_n{4} pT-differential",
     },
     "vn4_single_diff_eta": {
-        "core_fn": _wrap_vn4_diff,
-        "prepare_data_2d": prepare_vn4_diff_2d,
-        "prepare_data_3d": _prepare_vn4_diff_3d,
+        "core_fn": _poi_core(4, 'h_major'),
+        "prepare_data_2d": _poi_prepares(4)[0],
+        "prepare_data_3d": _poi_prepares(4)[1],
+        "selects_species": True,
         "n_obs_per_cent": None,
         "description": "v_n{4} eta-differential",
     },

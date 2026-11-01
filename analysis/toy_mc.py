@@ -619,10 +619,12 @@ def _extract_with_ncent(vec, params, n_cent):
         nac_mn)  ->  idx = b
         (These were previously indexed by (harm-1), which read out of range
         for harm > 1 and silently returned the wrong number.)
-      - vn2_single_diff_pT: harm-major with an unused h=0 row
-        -> idx = h*n_bins + b
       - everything else packs [v_1..v_N] per bin
         -> idx = (harm-1)*n_bins + b
+        (vn2_single_diff_pT included: its 2D core used to emit an unused
+        h=0 row, h*n_bins + b, which this harness followed while
+        run_pipeline read (harm-1)*n_bins + b -- production returned
+        v_{n-1}(pT); fixed Nov 2026.)
     """
     vec = np.atleast_1d(np.asarray(vec))
     nb = max(len(params.get('differential_bins') or []), 1)
@@ -631,15 +633,12 @@ def _extract_with_ncent(vec, params, n_cent):
     SINGLE_ROW = {'vn2_ep', 'vn3_ep', 'mean_pt', 'yield_dNch_deta',
                   'yield_dNch_deta_per_eta', 'spectra_invariant_yield',
                   'dET_deta', 'sc_mn', 'nac_mn'}
-    PT_ROW0 = {'vn2_single_diff_pT'}
     per = len(vec) // max(n_cent, 1)
     out = np.full(n_cent * nb, np.nan)
     for c in range(n_cent):
         base = c * per
         if key in SINGLE_ROW:
             off = 0
-        elif key in PT_ROW0:
-            off = h * nb
         else:
             off = (h - 1) * nb
         for b in range(nb):

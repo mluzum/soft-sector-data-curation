@@ -456,179 +456,6 @@ def compute_vn4_subevent_per_cent(qv, jac_A, jac_B, event_weights, n_jk_blocks=2
     return theta_full, err, bias
 
 
-def _core_vn4_one_diff_bin(p1_arr, p2_arr, ref_q1, ref_q2, ref_q3, w):
-    """v_n{4} differential cumulant for a single pT/η bin, one cent bin.
-
-    Returns (n_harm-1,) — v₂{4} through v_N{4} for this bin.
-    """
-    Q0_r = ref_q1[:, 0].real
-    dQ0_r = ref_q2[:, 0].real
-    tQ0_r = ref_q3[:, 0].real
-    mq = p1_arr[:, 0].real
-    dmq = p2_arr[:, 0].real
-    n_harm = ref_q1.shape[1]
-    result = np.zeros(n_harm)
-    for h in range(1, n_harm):
-        pn = p1_arr[:, h]
-        dQn_ref = ref_q2[:, h]
-        tQn_ref = ref_q3[:, h]
-        Qn_ref = ref_q1[:, h]
-
-        d2_num = np.real(pn * np.conj(Qn_ref)) - dmq
-        d2_den = mq * Q0_r - dmq
-        c4d_num = (pn * (np.conj(Qn_ref) ** 3)
-                   - 3 * dmq * np.abs(Qn_ref) ** 2
-                   - 3 * pn * np.conj(dQn_ref) * np.conj(Qn_ref)
-                   + 9 * dmq * dQ0_r + 2 * pn * np.conj(tQn_ref))
-        c4d_den = (mq * Q0_r ** 3 - 3 * dmq * Q0_r ** 2 + 2 * mq * tQ0_r)
-        c2_num = np.abs(Qn_ref) ** 2 - dQ0_r
-        c2_den = Q0_r ** 2 - dQ0_r
-
-        if w is not None and w.sum() > 1:
-            d2 = np.average(d2_num, weights=w) / max(np.average(d2_den, weights=w), 1e-60)
-            c4d = np.average(c4d_num.real if np.iscomplexobj(c4d_num) else c4d_num, weights=w) / max(np.average(c4d_den, weights=w), 1e-60)
-            c2 = np.average(c2_num, weights=w) / max(np.average(c2_den, weights=w), 1e-60)
-        else:
-            d2 = np.mean(d2_num) / max(np.mean(d2_den), 1e-60)
-            c4d = np.mean(c4d_num.real if np.iscomplexobj(c4d_num) else c4d_num) / max(np.mean(c4d_den), 1e-60)
-            c2 = np.mean(c2_num) / max(np.mean(c2_den), 1e-60)
-
-        v4 = 2 * d2 * c2 - c4d
-        result[h] = np.sign(v4) * np.power(np.abs(v4), 0.25)
-    return result[1:]
-
-
-def _core_vn4_diff_pT(p1_by_bin, p2_by_bin, Q1_full, Q2_full, Q3_full, pT_bins, w):
-    """Core v_n{4} pT-differential, single centrality bin, no jackknife.
-
-    Returns ((n_harm-1) * n_pT,) — flattened v_n{4} per pT bin.
-    """
-    n_pT = len(pT_bins)
-    n_harm = Q1_full.shape[1]
-    out = np.zeros((n_harm - 1, n_pT))
-    for b in range(n_pT):
-        out[:, b] = _core_vn4_one_diff_bin(
-            p1_by_bin[b], p2_by_bin[b], Q1_full, Q2_full, Q3_full, w)
-    return out.ravel()
-
-
-def _core_vn4_diff_eta(p1_by_bin, p2_by_bin, Q1_full, Q2_full, Q3_full, eta_bins, w):
-    """Core v_n{4} η-differential, single centrality bin, no jackknife.
-
-    Returns ((n_harm-1) * n_eta,) — flattened v_n{4} per η bin.
-    """
-    n_eta = len(eta_bins)
-    n_harm = Q1_full.shape[1]
-    out = np.zeros((n_harm - 1, n_eta))
-    for b in range(n_eta):
-        out[:, b] = _core_vn4_one_diff_bin(
-            p1_by_bin[b], p2_by_bin[b], Q1_full, Q2_full, Q3_full, w)
-    return out.ravel()
-
-
-@register("vn4_single_diff_pT")
-def compute_vn4_differential_pt_per_cent(Qn_corrected, qv, jac, event_weights,
-                                          pT_bins, n_jk_blocks=20):
-    n_events = Qn_corrected.shape[0]
-    n_cent = event_weights.shape[1]
-    n_harm = Qn_corrected.shape[2]
-    n_pT = len(pT_bins)
-
-    Q1_full = _compute_weighted_qvectors(qv, jac, 1)
-    Q2_full = _compute_weighted_qvectors(qv, jac, 2)
-    Q3_full = _compute_weighted_qvectors(qv, jac, 3)
-
-    p1_by_bin, p2_by_bin = [], []
-    for pt_lo, pt_hi in pT_bins:
-        lo = int(np.searchsorted(qv.pt_centers, pt_lo))
-        hi = int(np.searchsorted(qv.pt_centers, pt_hi, side='right'))
-        p1_by_bin.append(_compute_weighted_qvectors(qv, jac, 1, pt_lo=lo, pt_hi=hi))
-        p2_by_bin.append(_compute_weighted_qvectors(qv, jac, 2, pt_lo=lo, pt_hi=hi))
-
-    blocks = jackknife_blocks(n_events, min(n_jk_blocks, n_events))
-    n_b = len(blocks)
-
-    theta_full = np.zeros((n_cent, n_harm - 1, n_pT))
-    for c in range(n_cent):
-        w = event_weights[:, c]
-        if w.sum() < 2:
-            continue
-        for b in range(n_pT):
-            theta_full[c, :, b] = _core_vn4_one_diff_bin(
-                p1_by_bin[b], p2_by_bin[b], Q1_full, Q2_full, Q3_full, w)
-
-    theta_i = np.zeros((n_b, n_cent, n_harm - 1, n_pT))
-    for i, mask in enumerate(blocks):
-        Q1_b = Q1_full[mask]
-        Q2_b = Q2_full[mask]
-        Q3_b = Q3_full[mask]
-        w_b = event_weights[mask]
-        for c in range(n_cent):
-            w = w_b[:, c]
-            if w.sum() < 2:
-                continue
-            for b in range(n_pT):
-                theta_i[i, c, :, b] = _core_vn4_one_diff_bin(
-                    p1_by_bin[b][mask], p2_by_bin[b][mask],
-                    Q1_b, Q2_b, Q3_b, w)
-
-    bias = (n_b - 1) * (np.mean(theta_i, axis=0) - theta_full)
-    var = (n_b - 1) / n_b * np.sum((theta_i - np.mean(theta_i, axis=0)) ** 2, axis=0)
-    err = np.sqrt(np.maximum(var, 0))
-    return theta_full, err, bias
-
-
-@register("vn4_single_diff_eta")
-def compute_vn4_differential_eta(Qn_corrected, qv, jac, event_weights,
-                                  eta_bins, n_jk_blocks=20):
-    n_events = Qn_corrected.shape[0]
-    n_cent = event_weights.shape[1]
-    n_harm = Qn_corrected.shape[2]
-    n_eta = len(eta_bins)
-
-    Q1_full = _compute_weighted_qvectors(qv, jac, 1)
-    Q2_full = _compute_weighted_qvectors(qv, jac, 2)
-    Q3_full = _compute_weighted_qvectors(qv, jac, 3)
-
-    p1_by_bin, p2_by_bin = [], []
-    for eta_lo, eta_hi in eta_bins:
-        jac_sub = _make_jacobian_list(qv.pt_centers, qv.masses, eta_lo, eta_hi)
-        p1_by_bin.append(_compute_weighted_qvectors(qv, jac_sub, 1))
-        p2_by_bin.append(_compute_weighted_qvectors(qv, jac_sub, 2))
-
-    blocks = jackknife_blocks(n_events, min(n_jk_blocks, n_events))
-    n_b = len(blocks)
-
-    theta_full = np.zeros((n_cent, n_harm - 1, n_eta))
-    for c in range(n_cent):
-        w = event_weights[:, c]
-        if w.sum() < 2:
-            continue
-        for b in range(n_eta):
-            theta_full[c, :, b] = _core_vn4_one_diff_bin(
-                p1_by_bin[b], p2_by_bin[b], Q1_full, Q2_full, Q3_full, w)
-
-    theta_i = np.zeros((n_b, n_cent, n_harm - 1, n_eta))
-    for i, mask in enumerate(blocks):
-        Q1_b = Q1_full[mask]
-        Q2_b = Q2_full[mask]
-        Q3_b = Q3_full[mask]
-        w_b = event_weights[mask]
-        for c in range(n_cent):
-            w = w_b[:, c]
-            if w.sum() < 2:
-                continue
-            for b in range(n_eta):
-                theta_i[i, c, :, b] = _core_vn4_one_diff_bin(
-                    p1_by_bin[b][mask], p2_by_bin[b][mask],
-                    Q1_b, Q2_b, Q3_b, w)
-
-    bias = (n_b - 1) * (np.mean(theta_i, axis=0) - theta_full)
-    var = (n_b - 1) / n_b * np.sum((theta_i - np.mean(theta_i, axis=0)) ** 2, axis=0)
-    err = np.sqrt(np.maximum(var, 0))
-    return theta_full, err, bias
-
-
 @register("vn2_single")
 def compute_vn2_integrated(Qn_corrected, qv, jac, event_weights=None):
     Qn_int = sum_over_species_pt(Qn_corrected)
@@ -1149,91 +976,6 @@ def compute_mean_pt(num, den, w):
     return np.array([np.average(num, weights=w) / den_avg])
 
 
-def _core_vn2_diff_pT(Qn_int, Qn_pt_int, Q0, dQ0, dmq, w):
-    """Core v_n{2} pT-differential, single centrality bin, no jackknife.
-
-    dmq: (n_events, n_pt) — self-correction per measurement pT bin.
-    Returns (n_harm * n_pt,) — flattened v_n{2}(pT) per harmonic × pT bin.
-    Qn_int: (n_events, n_harm) — integrated over all pT.
-    Qn_pt_int: (n_events, n_harm, n_pt) — per-measurement-pT-bin.
-    """
-    n_harm = Qn_int.shape[1]
-    n_pt = Qn_pt_int.shape[2]
-    out = np.zeros((n_harm, n_pt))
-    w_sum = np.sum(w)
-    if w_sum < 1e-30:
-        return out.ravel()
-    for h in range(1, n_harm):
-        Qn_h = Qn_int[:, h]
-        num = np.abs(Qn_h) ** 2 - dQ0
-        den = Q0 * Q0 - dQ0
-        num_mean = np.average(num, weights=w)
-        den_mean = np.average(den, weights=w)
-        vn2_int = max(num_mean / max(den_mean, 1e-30), 0.0) ** 0.5
-        pn_all = Qn_pt_int[:, h, :]
-        mq_all = np.abs(Qn_pt_int[:, 0, :]).real
-        dn_all = (pn_all.real * Qn_h.real[:, np.newaxis] +
-                  pn_all.imag * Qn_h.imag[:, np.newaxis] - dmq)
-        dn_den_all = mq_all * Q0[:, np.newaxis] - dmq
-        dn_mean_all = np.sum(dn_all * w[:, np.newaxis], axis=0) / w_sum
-        dn_den_mean_all = np.sum(dn_den_all * w[:, np.newaxis], axis=0) / w_sum
-        dn_ratio_all = np.where(dn_den_mean_all > 1e-30,
-                                dn_mean_all / dn_den_mean_all, 0.0)
-        out[h, :] = dn_ratio_all / max(vn2_int, 1e-30)
-    return out.ravel()
-
-
-@register("vn2_single_diff_pT")
-def compute_vn2_differential_pt_per_cent(Qn_corrected, qv, jac, event_weights, n_jk_blocks=20):
-    n_events = Qn_corrected.shape[0]
-    n_cent = event_weights.shape[1]
-    n_harm = Qn_corrected.shape[2]
-    n_pt = Qn_corrected.shape[3]
-
-    Qn_int = sum_over_species_pt(Qn_corrected)
-    Q0 = Qn_int[:, 0].real
-    dQ0 = _compute_dq0(qv, Qn_corrected, jac)
-    Qn_pt_int = Qn_corrected.sum(axis=1)
-
-    dmq = _compute_dmq_full(qv, jac)
-
-    blocks = jackknife_blocks(n_events, min(n_jk_blocks, n_events))
-    n_b = len(blocks)
-
-    theta_full = np.zeros((n_cent, n_harm, n_pt))
-    for c in range(n_cent):
-        w = event_weights[:, c]
-        if w.sum() < 2:
-            continue
-        out = _core_vn2_diff_pT(Qn_int, Qn_pt_int, Q0, dQ0, dmq, w)
-        theta_full[c] = out.reshape(n_harm, n_pt)
-
-    theta_i = np.zeros((n_b, n_cent, n_harm, n_pt))
-    for i, mask in enumerate(blocks):
-        Qn_b = Qn_corrected[mask]
-        w_b = event_weights[mask]
-        Qn_int_b = sum_over_species_pt(Qn_b)
-        Q0_b = Qn_int_b[:, 0].real
-        dQ0_b = _compute_dq0(qv, Qn_b, jac)
-        Qn_pt_b = Qn_b.sum(axis=1)
-        qv_b = qv
-        qv_b.nsamples = qv.nsamples[mask]
-        qv_b.Qn = qv.Qn[mask]
-        dmq_b = _compute_dmq_full(qv_b, jac)
-
-        for c in range(n_cent):
-            w = w_b[:, c]
-            if w.sum() < 2:
-                continue
-            out = _core_vn2_diff_pT(Qn_int_b, Qn_pt_b, Q0_b, dQ0_b, dmq_b, w)
-            theta_i[i, c] = out.reshape(n_harm, n_pt)
-
-    bias = (n_b - 1) * (np.mean(theta_i, axis=0) - theta_full)
-    var = (n_b - 1) / n_b * np.sum((theta_i - np.mean(theta_i, axis=0)) ** 2, axis=0)
-    err = np.sqrt(np.maximum(var, 0))
-    return theta_full, err, bias
-
-
 def _compute_dmq_full(qv, jac):
     """dmq per sim pT bin for all events, fully vectorized.
     Returns (n_events, n_pt) — Σ species Q0_raw * (jac / (2*rap_max*nsample))²
@@ -1290,6 +1032,91 @@ def compute_vn2_single_per_cent_bin(Qn, dQ0, event_weights):
         result[h] = np.sign(r) * np.sqrt(np.abs(r))
     return result[1:]
 
+
+# v_n{2}(pT) for the legacy analysis.Computer2D (layout h*n_pt + b with an unused
+# h = 0 row).  The pipeline computes vn2_single_diff_pT with analysis.correlators.
+def _core_vn2_diff_pT(Qn_int, Qn_pt_int, Q0, dQ0, dmq, w):
+    """Core v_n{2} pT-differential, single centrality bin, no jackknife.
+
+    dmq: (n_events, n_pt) — self-correction per measurement pT bin.
+    Returns (n_harm * n_pt,) — flattened v_n{2}(pT) per harmonic × pT bin.
+    Qn_int: (n_events, n_harm) — integrated over all pT.
+    Qn_pt_int: (n_events, n_harm, n_pt) — per-measurement-pT-bin.
+    """
+    n_harm = Qn_int.shape[1]
+    n_pt = Qn_pt_int.shape[2]
+    out = np.zeros((n_harm, n_pt))
+    w_sum = np.sum(w)
+    if w_sum < 1e-30:
+        return out.ravel()
+    for h in range(1, n_harm):
+        Qn_h = Qn_int[:, h]
+        num = np.abs(Qn_h) ** 2 - dQ0
+        den = Q0 * Q0 - dQ0
+        num_mean = np.average(num, weights=w)
+        den_mean = np.average(den, weights=w)
+        vn2_int = max(num_mean / max(den_mean, 1e-30), 0.0) ** 0.5
+        pn_all = Qn_pt_int[:, h, :]
+        mq_all = np.abs(Qn_pt_int[:, 0, :]).real
+        dn_all = (pn_all.real * Qn_h.real[:, np.newaxis] +
+                  pn_all.imag * Qn_h.imag[:, np.newaxis] - dmq)
+        dn_den_all = mq_all * Q0[:, np.newaxis] - dmq
+        dn_mean_all = np.sum(dn_all * w[:, np.newaxis], axis=0) / w_sum
+        dn_den_mean_all = np.sum(dn_den_all * w[:, np.newaxis], axis=0) / w_sum
+        dn_ratio_all = np.where(dn_den_mean_all > 1e-30,
+                                dn_mean_all / dn_den_mean_all, 0.0)
+        out[h, :] = dn_ratio_all / max(vn2_int, 1e-30)
+    return out.ravel()
+
+
+def compute_vn2_differential_pt_per_cent(Qn_corrected, qv, jac, event_weights, n_jk_blocks=20):
+    n_events = Qn_corrected.shape[0]
+    n_cent = event_weights.shape[1]
+    n_harm = Qn_corrected.shape[2]
+    n_pt = Qn_corrected.shape[3]
+
+    Qn_int = sum_over_species_pt(Qn_corrected)
+    Q0 = Qn_int[:, 0].real
+    dQ0 = _compute_dq0(qv, Qn_corrected, jac)
+    Qn_pt_int = Qn_corrected.sum(axis=1)
+
+    dmq = _compute_dmq_full(qv, jac)
+
+    blocks = jackknife_blocks(n_events, min(n_jk_blocks, n_events))
+    n_b = len(blocks)
+
+    theta_full = np.zeros((n_cent, n_harm, n_pt))
+    for c in range(n_cent):
+        w = event_weights[:, c]
+        if w.sum() < 2:
+            continue
+        out = _core_vn2_diff_pT(Qn_int, Qn_pt_int, Q0, dQ0, dmq, w)
+        theta_full[c] = out.reshape(n_harm, n_pt)
+
+    theta_i = np.zeros((n_b, n_cent, n_harm, n_pt))
+    for i, mask in enumerate(blocks):
+        Qn_b = Qn_corrected[mask]
+        w_b = event_weights[mask]
+        Qn_int_b = sum_over_species_pt(Qn_b)
+        Q0_b = Qn_int_b[:, 0].real
+        dQ0_b = _compute_dq0(qv, Qn_b, jac)
+        Qn_pt_b = Qn_b.sum(axis=1)
+        qv_b = qv
+        qv_b.nsamples = qv.nsamples[mask]
+        qv_b.Qn = qv.Qn[mask]
+        dmq_b = _compute_dmq_full(qv_b, jac)
+
+        for c in range(n_cent):
+            w = w_b[:, c]
+            if w.sum() < 2:
+                continue
+            out = _core_vn2_diff_pT(Qn_int_b, Qn_pt_b, Q0_b, dQ0_b, dmq_b, w)
+            theta_i[i, c] = out.reshape(n_harm, n_pt)
+
+    bias = (n_b - 1) * (np.mean(theta_i, axis=0) - theta_full)
+    var = (n_b - 1) / n_b * np.sum((theta_i - np.mean(theta_i, axis=0)) ** 2, axis=0)
+    err = np.sqrt(np.maximum(var, 0))
+    return theta_full, err, bias
 
 @register("vn2_gap")
 def compute_vn2_subevent_per_cent(Qn_A, Qn_B, dQ_cross, event_weights):
@@ -1424,20 +1251,6 @@ def _core_vn2_diff_eta_one_bin(Qn_corrected, qv, jac, eta_lo, eta_hi, w,
     return result[1:]
 
 
-def _core_vn2_diff_eta_all_bins(Qn_corrected, qv, jac, eta_bins, w,
-                                pt_lo=None, pt_hi=None):
-    """Core v_n{2} η-differential, single centrality bin.
-    Returns ((n_harm-1) * n_eta,) — flattened v_n{2} per η bin.
-    """
-    n_eta = len(eta_bins)
-    n_harm = Qn_corrected.shape[2]
-    out = np.zeros((n_harm - 1, n_eta))
-    for b, (lo, hi) in enumerate(eta_bins):
-        out[:, b] = _core_vn2_diff_eta_one_bin(
-            Qn_corrected, qv, jac, lo, hi, w, pt_lo=pt_lo, pt_hi=pt_hi)
-    return out.ravel()
-
-
 def _core_vn2_gap_diff_pT_all_bins(Qn_A_int_per_bin, Qn_B_int_per_bin, dQ_cross_per_bin, w):
     """Vectorized v_n{2}ab pT-differential, single centrality bin, no jackknife.
 
@@ -1503,42 +1316,6 @@ def _core_vn2_gap_diff_eta_all_bins(Qn_A_int, Qn_B_int_per_bin, dQ_cross_per_bin
         r = np.where(den_mean > 1e-60, num_mean / den_mean, 0.0)
         out[h - 1, :] = np.sign(r) * np.sqrt(np.abs(r))
     return out.ravel()
-
-
-@register("vn2_single_diff_eta")
-def compute_vn2_single_diff_eta(Qn_corrected, qv, jac, event_weights,
-                                 eta_bins, n_jk_blocks=20):
-    n_events = Qn_corrected.shape[0]
-    n_cent = event_weights.shape[1]
-    n_harm = Qn_corrected.shape[2]
-    n_eta = len(eta_bins)
-
-    blocks = jackknife_blocks(n_events, min(n_jk_blocks, n_events))
-    n_b = len(blocks)
-
-    theta_full = np.zeros((n_cent, n_harm - 1, n_eta))
-    for c in range(n_cent):
-        w = event_weights[:, c]
-        if w.sum() < 2:
-            continue
-        out = _core_vn2_diff_eta_all_bins(Qn_corrected, qv, jac, eta_bins, w)
-        theta_full[c] = out.reshape(n_harm - 1, n_eta)
-
-    theta_i = np.zeros((n_b, n_cent, n_harm - 1, n_eta))
-    for i, mask in enumerate(blocks):
-        Qn_b = Qn_corrected[mask]
-        w_b = event_weights[mask]
-        for c in range(n_cent):
-            w = w_b[:, c]
-            if w.sum() < 2:
-                continue
-            out = _core_vn2_diff_eta_all_bins(Qn_b, qv, jac, eta_bins, w)
-            theta_i[i, c] = out.reshape(n_harm - 1, n_eta)
-
-    bias = (n_b - 1) * (np.mean(theta_i, axis=0) - theta_full)
-    var = (n_b - 1) / n_b * np.sum((theta_i - np.mean(theta_i, axis=0)) ** 2, axis=0)
-    err = np.sqrt(np.maximum(var, 0))
-    return theta_full, err, bias
 
 
 @register("vn2_gap_diff_pT")

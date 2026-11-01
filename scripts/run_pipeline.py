@@ -37,7 +37,7 @@ from analysis.dispatcher import (
     DISPATCH_TABLE, resolve, extract_measurement_params, load_experimental,
     iter_records, record_roots
 )
-from analysis.qvector import QVectorData, QGridData
+from analysis.qvector import QVectorData, QGridData, MultiSpeciesGrid
 from analysis.simulation_data import load_3d_grid, load_3d_species_grids
 from analysis.weights import (direct_cent_weights_percentile,
                                poisson_cdf_cent_weights, combine_weights,
@@ -1001,8 +1001,10 @@ def main():
                     if prepare_fn_3d is None:
                         print(f"    Skipping {rec.get('value_type','?')}: no 3d prepare function for '{dispatch_key}'")
                         continue
-                    if not isinstance(qv, QGridData):
-                        print(f"    Skipping: qv is not QGridData for 3D mode")
+                    # --species-grids gives a MultiSpeciesGrid (not a
+                    # QGridData subclass); every 3D record used to be skipped.
+                    if not isinstance(qv, (QGridData, MultiSpeciesGrid)):
+                        print(f"    Skipping: qv is not a 3D grid")
                         continue
 
                     cent_mult_3d = np.zeros(n_events, dtype=np.float64)
@@ -1032,13 +1034,13 @@ def main():
 
                     if is_diff:
                         diff_bins = params['differential_bins']
+                        # Keys whose 3D prepare handles one bin: the loop
+                        # below narrows each bin.  The single-acceptance
+                        # v_n{2}, v_n{4} keys are native (all bins at once,
+                        # POI narrowed, reference integrated).
                         integrated_map = {
-                            'vn2_single_diff_pT': 'vn2_single',
-                            'vn2_single_diff_eta': 'vn2_single',
                             'vn2_gap_diff_pT': 'vn2_gap',
                             'vn2_gap_diff_eta': 'vn2_gap',
-                            'vn4_single_diff_pT': 'vn4_single',
-                            'vn4_single_diff_eta': 'vn4_single',
                         }
                         int_key = integrated_map.get(dispatch_key)
                         if int_key is None:

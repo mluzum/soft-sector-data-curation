@@ -172,8 +172,9 @@ bias-corrected central value θ̂ = Nθ − (N−1)θ̄.
   - cores return harmonic-major arrays; v2 is index `harmonic - 1` for
     multi-harmonic cores;
   - single-row cores index by bin;
-  - differential cores are `(h-1)*n_bins + b`, except `vn2_single_diff_pT`
-    (`h*n_bins + b`).
+  - differential cores are `(h-1)*n_bins + b`, all of them (until November
+    2026 the 2D `vn2_single_diff_pT` core emitted `h*n_bins + b`, so
+    run_pipeline returned v_{n-1}(pT); the toy harness followed the core).
 
   `run_pipeline` asserts labels == values before writing; keep that check.
 - **3D spectra and grid cells**: measurement bins need not follow the grid.
@@ -186,6 +187,19 @@ bias-corrected central value θ̂ = Nθ − (N−1)θ̄.
   (`pipeline_dispatch._unit_weights`); only `ABSOLUTE_KEYS` keep the
   charge factor.  Their self-correlation terms assume unit weights
   (tests/test_charge_scaled_grids.py).
+- **Cumulants of a particle of interest** (`analysis/correlators.py`):
+  `vn2_single`, `vn4_single` and their pT/eta-differential keys correlate
+  the particle of interest (record species and acceptance; each
+  differential bin narrows it) with the charged reference (record
+  acceptance; pT from `flow_reference.pT` when given).  Sums over distinct
+  particles come from inclusion-exclusion over set partitions, valid for a
+  POI inside, partly inside or outside the reference and for the 2D
+  Jacobian weights.  v'{2} = d2/sqrt(c2), v'{4} = -d4/(-c4)^(3/4); a
+  charged record gives v{2}, v{4}.  The 3D prepares get the unselected
+  container (`selects_species`).  Until November 2026: 2D ignored the
+  species, v_n{4}(pT) was (v' v^3)^(1/4) with an unbalanced four-particle
+  term, v_n{4} ignored the record's pT window, and 3D v_n{2}(pT)
+  correlated each bin with itself.
 - **Charge factors**:
   - 2D JETSCAPE containers hold positive charges only, so charged
     quantities take ×2, and self-correlation terms take ×CF², consistently;
