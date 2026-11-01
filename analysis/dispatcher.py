@@ -392,7 +392,8 @@ def resolve(record):
             f"spectators cannot form that reference")
 
     # A species the simulations cannot provide (heavy flavour, quarkonia,
-    # leptons, photons, pi0, ...) would compute as zero, not be refused.
+    # leptons, photons, eta, resonances, ...) would compute as zero, not be
+    # refused.  (pi0 and K0_S resolve by isospin, analysis.species.)
     species = (record.get("particle_id") or {}).get("species")
     if species is not None and not species_known(species):
         raise ValueError(

@@ -24,14 +24,18 @@ CHARGED_PDGS = [211, 321, 2212]
 _SPECIES_TABLE = {
     'charged':            ([0, 1, 2], CHARGED_PDGS, 2.0),
     'pi+ + pi-':          ([0], [211, -211], 2.0),
-    'pi+ + pi- + pi0':    ([0], [211], 2.0),
+    # Neutral pions and kaons by isospin: pi0 ~ (pi+ + pi-)/2 ~ pi+ and
+    # K0_S ~ (K+ + K-)/2 ~ K+ (charge-symmetric matter; K0_S = (K0 + K0bar)/2).
+    # An explicit pi0 (111) or K0_S (310) axis wins (resolve_species_on_axis).
+    'pi0':                ([0], [211], 1.0),
+    'pi+ + pi- + pi0':    ([0], [211], 3.0),
     'pi+':                ([0], [211], 1.0),
     'pi-':                ([0], [-211], 1.0),
     'K+ + K-':            ([1], [321, -321], 2.0),
     'K+':                 ([1], [321], 1.0),
     'K-':                 ([1], [-321], 1.0),
-    'K0_S':               ([1], [321], 2.0),
-    'K0s':                ([1], [321], 2.0),
+    'K0_S':               ([1], [321], 1.0),
+    'K0s':                ([1], [321], 1.0),
     'p + pbar':           ([2], [2212, -2212], 2.0),
     'p':                  ([2], [2212], 1.0),
     'pbar':               ([2], [-2212], 1.0),
@@ -87,8 +91,16 @@ _PDG_SETS = {
     'omega- + omegabar+':   [3334, -3334],
     'phi':                  [333],
     'phi < k- k+ >':        [333],
-    'k0_s':                 [321],
-    'k0s':                  [321],
+}
+
+# Isospin estimates on a PDG axis: species -> (explicit PDG, charged PDGs to
+# sum, factor on their sum).  The explicit particle is used when the axis has
+# it; otherwise the charged partners, (pi+ + pi-)/2 etc.
+_ISOSPIN = {
+    'pi0':             (111, [211, -211], 0.5),
+    'pi+ + pi- + pi0': (None, [211, -211], 1.5),
+    'k0_s':            (310, [321, -321], 0.5),
+    'k0s':             (310, [321, -321], 0.5),
 }
 
 
@@ -111,6 +123,15 @@ def resolve_species_on_axis(species_str, pdg_ids):
     pos = {p: i for i, p in enumerate(pdg_ids)}
 
     key = str(species_str).strip().lower()
+    if key in _ISOSPIN:
+        explicit, partners, factor = _ISOSPIN[key]
+        if explicit is not None and explicit in pos:
+            return [pos[explicit]], 1.0, True
+        have = [p for p in partners if p in pos]
+        if not have:
+            return [], 1.0, False
+        # positives (or negatives) only: one partner stands for both
+        return [pos[p] for p in have], factor * len(partners) / len(have), True
     wanted = _PDG_SETS.get(key)
     if wanted is None:
         # Try the legacy table to accept aliases, then map its PDGs.
@@ -158,8 +179,9 @@ def charged_species_indices(pdg_ids):
 def species_known(species_str):
     """True if the pipeline can select this species: from the species table
     (charge-symmetric sims) or the exact-charge PDG sets."""
+    key = str(species_str).strip().lower()
     return (resolve_species(species_str)[0] is not None
-            or str(species_str).strip().lower() in _PDG_SETS)
+            or key in _PDG_SETS or key in _ISOSPIN)
 
 
 def is_charged(species_str):

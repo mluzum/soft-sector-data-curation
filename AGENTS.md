@@ -114,8 +114,10 @@ Fields that change dispatch:
   value per point and no class edges; the classes are the windows around
   the points (validate.py checks this).
 - A `particle_id.species` the simulations cannot provide (heavy flavour,
-  quarkonia, leptons, photons, pi0, Sigma, ...) is refused
-  (`analysis.species.species_known`) instead of computing zero.
+  quarkonia, leptons, photons, eta, resonances such as Sigma(1385), ...)
+  is refused (`analysis.species.species_known`) instead of computing zero.
+  pi0 and K0_S come from isospin, (pi+ + pi-)/2 and (K+ + K-)/2, unless
+  the container has an explicit 111 / 310 axis (`species._ISOSPIN`).
 - `particle_id.charge_average`: the measurement is (h+ + h-)/2 (or
   (pi+ + pi-)/2, ...); absolute quantities are half of the sum.
 - Ratio records link `numerator_record` / `denominator_record` (path, with
