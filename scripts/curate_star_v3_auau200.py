@@ -19,7 +19,7 @@ and 0-5% from Table 26), vs centrality (Table 19: the first and fourth
 columns; HEPData labels both "TPC", the fourth holds the FTPC values of
 Fig. 8), and v2{TPC}(pT) (Tables 23-25); event_plane computed with the
 scalar-product estimator; points with windows.  Columns in percent ("(%)",
-"*100") are scaled by the loader.  Not curated: the wide-Gaussian fit
+"*100") carry value_scale 100.  Not curated: the wide-Gaussian fit
 parameters and v3 (Tables 1-4, 11-12, 19 col. 2), the |Delta eta| > 1
 two-particle v3 (Table 19 col. 3: pairs, not two windows), v3^2 vs
 Delta eta (Table 20), v3{4}^4 and its ratio (Tables 21-22, with ALICE
@@ -66,6 +66,8 @@ def record(hf, i, desc, h, n, ref, classes, kr, dim, what, rows=None):
                             'statistical (systematic uncertainties only in the paper).'}}
     if rows is not None:
         d['table_rows'] = rows
+    if re.search(r'\(\s*%\s*\)|\*\s*100', h):          # 'v_3(TPC) (%)', 'v_3*100 (TPC)'
+        d['value_scale'] = 100
     return d
 
 

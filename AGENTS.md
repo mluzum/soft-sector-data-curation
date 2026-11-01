@@ -303,7 +303,9 @@ near c_4 = 0, ratios) the correction is unstable (zr96c2 dp0001, v2{4}
   `extract_differential_bins` returns none for `dimensionality: integrated`.
 - **Experimental scales**: percent columns (units `%`, a `(%)` in the
   column name, or `*100`) and MeV headers are normalized in
-  `load_experimental`.
+  `load_experimental`.  A record's `value_scale` (required by
+  validate_metadata for pre-scaled headers) replaces the percent guess,
+  so a column is never scaled twice.
 - **Rapidity with an assumed mass** (`kinematic_range.y.mass`, e.g. PHOBOS
   y_π): the window is converted per species and pT (2D:
   `rapidity_window_extent`) or per pT cell (3D: `acceptance_rapidity`).

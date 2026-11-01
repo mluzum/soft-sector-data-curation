@@ -1006,8 +1006,11 @@ def load_experimental(params):
                 low = f'{units} {name}'.lower()
                 # '%' units, 'v_3*100', or a '(%)' in the column name (STAR
                 # 1210062 'v_3(TPC) (%)'; not a bare '%', which centrality
-                # labels such as 'in centrality 0-50%' carry).
-                if '%' in units or '*100' in name.replace(' ', '') or re.search(r'\(\s*%\s*\)', name):
+                # labels such as 'in centrality 0-50%' carry).  A record's
+                # explicit value_scale replaces this guess (it is divided out
+                # below), so a pre-scaled column is never scaled twice.
+                if params.get('value_scale') is None and (
+                        '%' in units or '*100' in name.replace(' ', '') or re.search(r'\(\s*%\s*\)', name)):
                     scale = 0.01
                 elif 'mev' in low and 'gev' not in low:
                     scale = 0.001
