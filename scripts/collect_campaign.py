@@ -7,8 +7,8 @@ Reads every ``*.h5`` written by run_campaign.py (or run_pipeline.py) in
 ``<out-dir>`` and writes:
 
 - ``values``, ``errors``: (n_runs, n_obs), NaN where a run lacks an observable
-  (``values`` are jackknife bias-corrected); ``values_full``: the
-  full-sample estimates (NaN for runs written before they were stored);
+  (full-sample estimates); ``jk_bias``: the jackknife bias estimates, a
+  diagnostic (NaN for runs written before they were stored);
 - with ``--replicates``: ``replicates`` (n_runs, n_blocks, n_obs), each run's
   delete-one-block jackknife replicates (runs made with
   ``--save-jackknife-replicates``), attrs ``jk_block_rule`` and
@@ -75,7 +75,7 @@ def read_run(path: Path) -> dict:
                 "labels": labels,
                 "values": G["values"][:],
                 "errors": G["errors"][:],
-                "values_full": G["values_full"][:] if "values_full" in G else np.full(n, np.nan),
+                "jk_bias": G["jk_bias"][:] if "jk_bias" in G else np.full(n, np.nan),
                 "replicates": G["jk_replicates"][:] if "jk_replicates" in G else None,
                 "jk_block_rule": rule.decode() if isinstance(rule, bytes) else str(rule),
                 "exp_values": G["exp_values"][:] if "exp_values" in G else np.full(n, np.nan),
@@ -133,7 +133,7 @@ def main():
     n_runs, n_obs = len(runs), len(keys)
     vals = np.full((n_runs, n_obs), np.nan)
     errs = np.full((n_runs, n_obs), np.nan)
-    full = np.full((n_runs, n_obs), np.nan)
+    bias = np.full((n_runs, n_obs), np.nan)
     reps, rules = None, set()
     if a.replicates:
         shapes = {d["replicates"].shape[0] if d["replicates"] is not None else None
@@ -148,7 +148,7 @@ def main():
             cols = [index[f"{g}|{lab}"] for lab in d["labels"]]
             vals[i, cols] = d["values"]
             errs[i, cols] = d["errors"]
-            full[i, cols] = d["values_full"]
+            bias[i, cols] = d["jk_bias"]
             if reps is not None:
                 reps[i][:, cols] = d["replicates"]
 
@@ -175,7 +175,7 @@ def main():
             f.attrs["sim_package_manifest"] = str(manifest)
         f.create_dataset("values", data=vals)
         f.create_dataset("errors", data=errs)
-        f.create_dataset("values_full", data=full)
+        f.create_dataset("jk_bias", data=bias)
         if reps is not None:
             f.create_dataset("replicates", data=reps)
             f.attrs["jk_block_rule"] = rules.pop()

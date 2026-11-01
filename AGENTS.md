@@ -184,8 +184,14 @@ Centrality (`analysis/weights.py`):
   classes the record lists (until November 2026 single-class records gave
   every event weight 1).
 
-Errors: a delete-block jackknife (20 blocks by default) with the
-bias-corrected central value θ̂ = Nθ − (N−1)θ̄.
+Central values are the full-sample estimates; errors and the covariance
+come from a delete-block jackknife (20 blocks by default).  The jackknife
+bias estimate (N−1)(θ̄ − θ) is a diagnostic (`jk_bias`; the run reports
+values where it exceeds the error): for a smooth estimator it is O(1/N),
+far below the error, and for a non-linear one near a singularity (v_n{4}
+near c_4 = 0, ratios) the correction is unstable (zr96c2 dp0001, v2{4}
+0-5%: 0.012 uncorrected, 0.199 corrected, error 0.060).  Until November
+2026 the bias-corrected value θ̂ = Nθ − (N−1)θ̄ was reported.
 - Blocks (`--jk-blocks`): by event id when the container has
   `meta['event_ids']` (block b: id % n_blocks == b), else contiguous in
   container order.  With common random numbers (event id k has the same
@@ -193,9 +199,6 @@ bias-corrected central value θ̂ = Nθ − (N−1)θ̄.
   delete the same seeds and give the cross-point noise covariance directly,
   whatever events are missing.  The output records `jk_block_rule`;
   compute_ratios warns when its two sides differ.
-- `values_full` holds the uncorrected full-sample estimates; the run
-  reports values whose bias correction exceeds their error (non-linear
-  estimators near zero, e.g. v_n{4} at low statistics).
 
 ## Conventions and traps (each was a real bug once)
 

@@ -23,7 +23,7 @@ Output (HDF5, group "ratios"): values, errors, covariance, labels
 ("<ratio value_type> | <quantity>"), exp_values, exp_errors (the ratio
 record's points aligned by centrality class), ratio_record (index into the
 records list), numerator_values / denominator_values (each side's own
-bias-corrected values), and the provenance of both runs.
+full-sample values), and the provenance of both runs.
 """
 
 import argparse

@@ -293,9 +293,14 @@ def run_block_jackknife(compute_fn, n_events, n_blocks=20, event_ids=None):
     compute_fn(event_mask) → flat array of all observables.  event_ids:
     blocks by event id (jackknife_blocks), else contiguous.
 
-    Returns: (theta_hat, errors, covariance) -- theta_hat bias-corrected,
-    N theta - (N-1) mean(replicates); run_block_jackknife.last keeps the
-    full-sample estimate and the replicates.
+    Returns: (theta_hat, errors, covariance) -- theta_hat the full-sample
+    estimate.  The jackknife supplies the errors and covariance; its bias
+    estimate (N-1)(mean(replicates) - theta_hat) is kept as a diagnostic in
+    run_block_jackknife.bias (the correction removes an O(1/N) bias of a
+    smooth estimator, far below its error, and is unstable for non-linear
+    estimators near a singularity: v_n{4} near c_4 = 0, ratios).
+    run_block_jackknife.last keeps the full-sample estimate and the
+    replicates.  Until November 2026 the bias-corrected value was returned.
     """
     mask_all = np.ones(n_events, dtype=bool)
     theta_hat = compute_fn(mask_all)
@@ -320,11 +325,10 @@ def run_block_jackknife(compute_fn, n_events, n_blocks=20, event_ids=None):
     theta_mean = np.mean(theta_i, axis=0)
     diff = theta_i - theta_mean
     cov = (n_b - 1) / n_b * np.dot(diff.T, diff)
-    bias = (n_b - 1) * (theta_mean - theta_hat)
-    corr = theta_hat - bias
     errors = np.sqrt(np.maximum(np.diag(cov), 0))
     run_block_jackknife.last = (theta_hat, theta_i)     # for --save-jackknife-replicates
-    return corr, errors, cov
+    run_block_jackknife.bias = (n_b - 1) * (theta_mean - theta_hat)
+    return theta_hat, errors, cov
 
 
 def harm_major_stack(per_bin_outputs):
@@ -1289,13 +1293,14 @@ def main():
                 compute_fn, n_events, n_blocks=args.n_jk_blocks, event_ids=group_event_ids)
             jk_rule = 'event_id' if group_event_ids is not None else 'contiguous'
             jk_full, jk_rep = run_block_jackknife.last
-            jk_bias = jk_full - corr
-            # The bias correction can dominate a non-linear estimator near
-            # zero (v_n{4} = (-c_4)^(1/4) at low statistics): flag it.
+            jk_bias = run_block_jackknife.bias
+            # values are the full-sample estimates; a jackknife bias estimate
+            # beyond the error marks a non-linear estimator near a
+            # singularity (v_n{4} = (-c_4)^(1/4) at low statistics)
             big = np.abs(jk_bias) > np.where(errors > 0, errors, np.inf)
-            print(f"  Jackknife done ({jk_rule} blocks): mean error = {np.mean(errors):.6f}"
-                  + (f"; {int(big.sum())} values with a bias correction larger than their error "
-                     f"(values_full holds the uncorrected estimates)" if big.any() else ""))
+            print(f"  Jackknife done ({jk_rule} blocks): mean error = {np.nanmean(errors):.6f}"
+                  + (f"; {int(big.sum())} values with a jackknife bias estimate larger than "
+                     f"their error (jk_bias)" if big.any() else ""))
 
             # Build labels for each observable in this group
             def _short_vt(vt):
@@ -1366,11 +1371,11 @@ def main():
             grp.create_dataset('values', data=corr)
             grp.create_dataset('errors', data=errors)
             grp.create_dataset('covariance', data=cov)
-            # the full-sample estimates (values are bias-corrected) and the rule
-            # that defined the jackknife blocks
-            grp.create_dataset('values_full', data=jk_full)
+            # the jackknife bias estimate (diagnostic: values are the
+            # full-sample estimates) and the rule that defined the blocks
+            grp.create_dataset('jk_bias', data=jk_bias)
             grp.attrs['jk_block_rule'] = jk_rule
-            grp.attrs['n_large_bias_correction'] = int(big.sum())
+            grp.attrs['n_large_jk_bias'] = int(big.sum())
             if args.save_jackknife_replicates:
                 grp.create_dataset('jk_full', data=jk_full)
                 grp.create_dataset('jk_replicates', data=jk_rep)

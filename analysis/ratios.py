@@ -81,7 +81,8 @@ def label_key(label):
 
 
 def joint_jackknife(num_full, num_rep, den_full, den_rep):
-    """Bias-corrected ratio, errors and covariance from paired delete-one-block replicates.
+    """Ratio of the full-sample estimates, errors and covariance from paired
+    delete-one-block replicates (no bias correction, as in run_pipeline).
 
     num_full, den_full: (n,) full-sample estimates; num_rep, den_rep:
     (n_blocks, n) replicates with block k removed.  Both sides must use the
@@ -97,5 +98,4 @@ def joint_jackknife(num_full, num_rep, den_full, den_rep):
     mean = r_i.mean(axis=0)
     diff = r_i - mean
     cov = (nb - 1) / nb * diff.T @ diff
-    corr = r_hat - (nb - 1) * (mean - r_hat)
-    return corr, np.sqrt(np.maximum(np.diag(cov), 0)), cov
+    return r_hat, np.sqrt(np.maximum(np.diag(cov), 0)), cov

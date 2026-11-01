@@ -355,8 +355,8 @@ def test_campaign_driver_and_collector():
             expv = f["observables/exp_values"][:]
         check("collect: runs sorted", dps == [0, 0, 1, 1] and var == ["doubled", "plain"] * 2)
         with h5py.File(table, "r") as f:
-            vfull = f["values_full"][:]
-        check("collect: full-sample values stacked", vfull.shape == vals.shape and np.isfinite(vfull).any())
+            jkb = f["jk_bias"][:]
+        check("collect: jackknife bias estimates stacked", jkb.shape == vals.shape and np.isfinite(jkb).any())
         with h5py.File(out / "dp0000_plain.h5", "r") as f:
             rules = {f[g].attrs.get("jk_block_rule") for g in f if "labels" in f[g]}
         # this adapter gives no meta['event_ids']: contiguous blocks (event-id

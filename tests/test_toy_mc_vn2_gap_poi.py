@@ -110,7 +110,7 @@ def test_routing():
 def test_3d_equals_particle_level():
     fx = _fx()
     ref = particle_level(fx['events'])
-    # full-sample value (the jackknife returns the bias-corrected one)
+    # full-sample value
     v, _ = evaluate(record(), grid=fx['ms'], cent_method='simple', with_jackknife=False)
     check('3D == particle level', abs(v[0] - ref) < 1e-9 * max(abs(ref), 1), f'{v[0]:.9f} vs {ref:.9f}')
     vc, _ = evaluate(record(ref_species='charged'), grid=fx['ms'], cent_method='simple', with_jackknife=False)

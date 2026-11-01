@@ -157,9 +157,8 @@ def jk_vn2_harmonics(Qn_ch, dQ0, weights, n_blocks=20):
 
     n_b = len(theta_i)
     theta_mean = np.mean(theta_i, axis=0)
-    bias = (n_b - 1) * (theta_mean - theta_hat)
     var = (n_b - 1) / n_b * np.sum((theta_i - theta_mean) ** 2, axis=0)
-    corr = theta_hat - bias
+    corr = theta_hat          # full-sample estimate (run_pipeline convention)
     err = np.sqrt(np.maximum(var, 0))
     return corr, err
 
@@ -185,9 +184,8 @@ def jk_vn2_gap_harmonics(Qn_A, Qn_B, dQ_cross, weights, n_blocks=20):
 
     n_b = len(theta_i)
     theta_mean = np.mean(theta_i, axis=0)
-    bias = (n_b - 1) * (theta_mean - theta_hat)
     var = (n_b - 1) / n_b * np.sum((theta_i - theta_mean) ** 2, axis=0)
-    corr = theta_hat - bias
+    corr = theta_hat          # full-sample estimate (run_pipeline convention)
     err = np.sqrt(np.maximum(var, 0))
     return corr, err
 
