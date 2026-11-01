@@ -166,6 +166,74 @@ def _covers_all(cur, raw_classes):
         b[1] >= max(x[1] for x in bounds)
 
 
+# ---- checks added November 2026 (each caught real public records) ---------
+# A flow_vn record that is not a flow coefficient: slopes (dv1/dy, charge-
+# asymmetry slope r), counts, covariances/variances, R_AA ...
+_NOT_VN = re.compile(r"slope|counts|events|\bfraction|cov_|cov\(|var\(|\bc_\{?k\b|"
+                     r"R_\{?(AA|CP|AB|dAu|pPb)|d\s*\$?v_?\{?1\}?\$?\s*/\s*d\s*y", re.I)
+_GAP_TEXT = re.compile(r"Delta\s*\\?eta|\|\s*\\?Delta|eta.gap|sub-?event", re.I)
+_PID_TEXT = re.compile(r"\\pi\b|\bpions?\b|\bkaons?\b|\bprotons?\b|K\^\{?0|K_\{?S|\\Lambda|\bLambda|\\phi\b|"
+                       r"\\Xi|\bXi\b|\\Omega", re.I)
+_ENERGY_KEYS = {"sqrt(s)/nucleon", "sqrt(s)", "sqrt(s_nn)", "$\\sqrt{s_{nn}}$", "sqrt(s) per nucleon"}
+
+
+def _energy_gev(text):
+    m = re.search(r"([0-9]+(?:\.[0-9]+)?)", str(text))
+    if not m:
+        return None
+    v = float(m.group(1))
+    return v * 1000.0 if "tev" in str(text).lower() else v
+
+
+def _beams(reaction):
+    head = str(reaction).split("-->")[0].upper().replace("+", " ").replace("-", " ")
+    toks = [t for t in head.split() if t not in ("AND",)]
+    return tuple(toks[:2]) if len(toks) >= 2 else None
+
+
+def _extra_checks(doc, raw, sel_dv, sel_q, desc, flag):
+    otype = doc.get("observable_type")
+    header = str(((sel_dv or {}).get("header") or {}).get("name", ""))
+    text = " ".join([header, str(doc.get("value_type", "")), desc])
+    indeps = raw.get("independent_variables", []) if raw else []
+    iv0 = indeps[0] if indeps else None
+    n0 = len(iv0.get("values", [])) if iv0 else 0
+    # '$p_{\rm T}$', 'p_{T} [GeV/c]', 'PT' -> 'p_t...'
+    name0 = re.sub(r"\\(rm|mathrm|text|it)|[${}\\ ]", "", _indep_name(iv0).lower()) if iv0 else ""
+    if otype == "flow_vn":
+        if _NOT_VN.search(header) or _NOT_VN.search(str(doc.get("value_type", ""))):
+            flag("error", f"header {header!r} is not a flow coefficient")
+        elif "/" in header.replace("GeV/c", ""):
+            flag("warning", f"header {header!r} looks like a ratio")
+        dim = doc.get("dimensionality", "integrated")
+        if n0 > 1 and (name0.startswith(("p_t", "pt")) or "transversemomentum" in name0) and dim != "differential_pT":
+            flag("error", f"table is pT-differential ({n0} points), record is {dim}")
+        if n0 > 1 and (name0.startswith(("eta", "\\eta", "y", "pseudorapidity", "rapidity"))) and dim != "differential_eta":
+            flag("error", f"table is eta-differential ({n0} points), record is {dim}")
+        has_gap = (doc.get("particles") or doc.get("eta_gap") is not None or doc.get("flow_reference")
+                   or doc.get("method") in ("scalar_product", "event_plane"))
+        if _GAP_TEXT.search(text) and not has_gap:
+            flag("warning", "table mentions an eta gap or subevents; the record has none")
+    species = (doc.get("particle_id") or {}).get("species")
+    if species == "charged" and _PID_TEXT.search(header + " " + desc) and "charged" not in (header + desc).lower():
+        flag("warning", "table names an identified species; the record says charged")
+    rec_e = (doc.get("collision_system") or {}).get("energy_gev")
+    rec_r = (doc.get("collision_system") or {}).get("reaction")
+    for k, v in sel_q.items():
+        if k in _ENERGY_KEYS or k.startswith("sqrt(s"):
+            e = _energy_gev(v)
+            if e and e < 30 and rec_e and float(rec_e) > 1000:
+                e *= 1000.0                    # '2.76', '5.02': TeV without a unit
+            if e and rec_e and abs(e - float(rec_e)) > 0.01 * e:
+                flag("error", f"energy qualifier {v!r} -> {e:g} GeV, record {rec_e} GeV")
+        if k in ("re", "reaction"):
+            b = _beams(v)
+            if b and _beams(rec_r) and set(b) != set(_beams(rec_r)):
+                flag("error", f"reaction qualifier {v!r}, record {rec_r!r}")
+    if str(rec_r).strip().lower() == "unknown":
+        flag("warning", "reaction unknown")
+
+
 def audit_doc(path, doc):
     iid = str(doc.get("inspire_id", ""))
     version = doc.get("version", 1)
@@ -174,6 +242,9 @@ def audit_doc(path, doc):
     if iid.startswith("PHOBOS"):
         return None
     raw = _load_raw(iid, version, hf)
+    if doc.get("value_table"):        # curated from another source (value_tables.py)
+        vt = os.path.join(os.path.dirname(path), doc["value_table"])
+        raw = yaml.safe_load(open(vt)) if os.path.exists(vt) else None
     entry = {
         "file": os.path.relpath(path, REPO),
         "inspire_id": iid,
@@ -322,6 +393,8 @@ def audit_doc(path, doc):
                     flag("warning", f"eta/y qualifier {v!r} -> {r}, "
                                     f"curated={cur_r}")
 
+    _extra_checks(doc, raw, sel_dv, sel_q, entry["raw"]["table_description"], flag)
+
     # ---- pT bins ------------------------------------------------------
     pt_iv = None
     for iv in indeps:
@@ -360,6 +433,8 @@ def main():
                     help="YAML report path (default: stdout summary).")
     ap.add_argument("--all", action="store_true",
                     help="Audit all curated records.")
+    ap.add_argument("--by-paper", action="store_true",
+                    help="Summarize errors per publication (most affected first).")
     args = ap.parse_args()
 
     ids = set(x.strip() for x in args.inspire_ids.split(",")) if args.inspire_ids else None
@@ -387,16 +462,34 @@ def main():
                  if f["severity"] == "warning")
     print(f"audited {len(entries)} documents; {len(flagged)} with flags "
           f"({n_err} errors, {n_warn} warnings)")
+    if args.output:
+        with open(args.output, "w") as f:
+            yaml.safe_dump(entries, f, default_flow_style=False,
+                           sort_keys=False, width=140, allow_unicode=True)
+        print(f"wrote {args.output}")
+    if args.by_paper:
+        import collections
+        papers = collections.defaultdict(lambda: [0, 0, collections.Counter(), set()])
+        for e in entries:
+            rec = papers[e["inspire_id"]]
+            rec[0] += 1
+            rec[3].add(os.path.basename(e["file"]))
+            errs = [f["message"] for f in e["flags"] if f["severity"] == "error"]
+            if errs:
+                rec[1] += 1
+            for m in errs:
+                rec[2][re.sub(r"[\[(\'\"].*", "", m).strip()[:50]] += 1
+        rows = sorted(papers.items(), key=lambda kv: (-kv[1][1], -kv[1][0]))
+        print(f"\n{'inspire':>9} {'docs':>5} {'w/err':>5}  kinds / files")
+        for iid, (n, nerr, kinds, files) in rows:
+            if nerr:
+                print(f"{iid:>9} {n:5d} {nerr:5d}  {dict(kinds.most_common(3))}  {sorted(files)[0]}")
+        return
     for e in flagged[:80]:
         print(f"\n{e['file']} :: {e['hepdata_file']}")
         for f in e["flags"]:
             print(f"  [{f['severity']}] {f['message']}")
 
-    if args.output:
-        with open(args.output, "w") as f:
-            yaml.safe_dump(entries, f, default_flow_style=False,
-                           sort_keys=False, width=140, allow_unicode=True)
-        print(f"\nwrote {args.output}")
 
 
 if __name__ == "__main__":
