@@ -1,2586 +1,5166 @@
-centrality:
-  classes:
-  - 0.0-80.0%
-  estimator:
-    detector: TPC
-    name: RefMult
-    observable: Nch
-  eta:
-  - max: 0.5
-    min: -0.5
-collision_system:
-  energy_gev: 200.0
-  reaction: unknown
-dimensionality: differential_pT
-flow_reference:
-  detector: TPC
-  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
-    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
-    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
-    from the collaboration's standard practice and from this table's charged rows,
-    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
-    the text.
-  provenance: assumed_tpc
-  same_sample_as_poi: true
-harmonic: 2
-hepdata_file: Fig_1_k.yaml
-hepdata_table_label: 'The transverse momentum dependence of elliptic, triangular and
-  quadrangular flow of particles, antiparticles and their difference for 0-80 central
-  Au+Au collisions.
-
-  '
-inspire_id: '2051708'
-kinematic_range:
-  eta:
-    bins:
-    - -1.0
-    - 1.0
-    max: 1.0
-    min: -1.0
-  pT:
-    bins:
-    - 0.1885
-    - 0.5695
-    - 0.96
-    - 1.3595
-    - 1.7799999999999998
-    - 2.282
-    - 2.8440000000000003
-    max: 2.8440000000000003
-    min: 0.1885
-method: event_plane
 observable_type: flow_vn
-particle_id:
-  species: charged
-qualifiers:
-  p_{t} (gev/c): $ 0-80\% $
-source_file: star_flow_vn_centrality_and_transverse_momentum_dependence_200gev.yaml
-value_type: v_{2}$ $k^{+}
-version: 2
----
-centrality:
-  classes:
-  - 0.0-80.0%
-  estimator:
-    detector: TPC
-    name: RefMult
-    observable: Nch
-  eta:
-  - max: 0.5
-    min: -0.5
-collision_system:
-  energy_gev: 200.0
-  reaction: unknown
-dimensionality: differential_pT
-flow_reference:
-  detector: TPC
-  eta:
-  - max: 1.0
-    min: -1.0
-  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
-    (p) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi and
-    is subtracted. INFERRED from the charged rows of the same table, not quoted from
-    the paper.
-  provenance: assumed_tpc
-harmonic: 2
-hepdata_file: Fig_1_p.yaml
-hepdata_table_label: 'The transverse momentum dependence of elliptic, triangular and
-  quadrangular flow of particles, antiparticles and their difference for 0-80 central
-  Au+Au collisions.
-
-  '
 inspire_id: '2051708'
-kinematic_range:
-  eta:
-    bins:
-    - -1.0
-    - 1.0
-    max: 1.0
-    min: -1.0
-  pT:
-    bins:
-    - 0.1885
-    - 0.5695
-    - 0.96
-    - 1.3595
-    - 1.7799999999999998
-    - 2.282
-    - 2.8095
-    - 3.3025
-    max: 3.3025
-    min: 0.1885
-method: event_plane
-observable_type: flow_vn
-particle_id:
-  species: p
-qualifiers:
-  p_{t} (gev/c): $ 0-80\% $
-source_file: star_flow_vn_centrality_and_transverse_momentum_dependence_200gev.yaml
-value_type: v_{2}$ $p^{+}
 version: 2
----
-centrality:
-  classes:
-  - 0.0-80.0%
-  estimator:
-    detector: TPC
-    name: RefMult
-    observable: Nch
-  eta:
-  - max: 0.5
-    min: -0.5
-collision_system:
-  energy_gev: 200.0
-  reaction: unknown
-dimensionality: differential_pT
-flow_reference:
-  detector: TPC
-  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
-    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
-    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
-    from the collaboration's standard practice and from this table's charged rows,
-    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
-    the text.
-  provenance: assumed_tpc
-  same_sample_as_poi: true
-harmonic: 2
 hepdata_file: Fig_1_pi.yaml
-hepdata_table_label: 'The transverse momentum dependence of elliptic, triangular and
-  quadrangular flow of particles, antiparticles and their difference for 0-80 central
-  Au+Au collisions.
-
-  '
-inspire_id: '2051708'
-kinematic_range:
-  eta:
-    bins:
-    - -1.0
-    - 1.0
-    max: 1.0
-    min: -1.0
-  pT:
-    bins:
-    - 0.1885
-    - 0.5695
-    - 0.96
-    - 1.3595
-    - 1.7799999999999998
-    - 2.282
-    - 2.8095
-    - 3.3025
-    max: 3.3025
-    min: 0.1885
-method: event_plane
-observable_type: flow_vn
-particle_id:
-  species: charged
-qualifiers:
-  p_{t} (gev/c): $ 0-80\% $
-source_file: star_flow_vn_centrality_and_transverse_momentum_dependence_200gev.yaml
-value_type: v_{2}$ $\pi^{+}
-version: 2
----
-centrality:
-  classes:
-  - 0.0-80.0%
-  estimator:
-    detector: TPC
-    name: RefMult
-    observable: Nch
-  eta:
-  - max: 0.5
-    min: -0.5
+dv_index: 0
+hepdata_table_label: The transverse momentum dependence of elliptic, triangular and quadrangular flow of particles, antiparticles
+  and their difference for 0-80 central Au+ | $v_{2}$ $\pi^{+}$
 collision_system:
   energy_gev: 200.0
-  reaction: unknown
-dimensionality: differential_pT
-flow_reference:
-  detector: TPC
-  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
-    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
-    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
-    from the collaboration's standard practice and from this table's charged rows,
-    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
-    the text.
-  provenance: assumed_tpc
-  same_sample_as_poi: true
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: pi+
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.329
+    max: 3.106
+    points:
+    - 0.379
+    - 0.76
+    - 1.16
+    - 1.559
+    - 2.001
+    - 2.563
+    - 3.056
+    point_window: 0.1
 harmonic: 2
-hepdata_file: Fig_2_v2_k.yaml
-hepdata_table_label: 'The transverse momentum dependence of elliptic flow of particles,
-  antiparticles for 0-80 central Au+Au collisions.
-
-  '
-inspire_id: '2051708'
-kinematic_range:
-  eta:
-    bins:
-    - -1.0
-    - 1.0
-    max: 1.0
-    min: -1.0
-  pT:
-    bins:
-    - 0.24703650000000002
-    - 0.41924150000000004
-    - 0.6015505
-    - 0.7959624999999999
-    - 0.9932165
-    - 1.1917330000000002
-    - 1.3909384999999999
-    - 1.590771
-    - 1.791163
-    - 2.028501
-    - 2.328417
-    - 2.591386
-    - 2.7915739999999998
-    max: 2.7915739999999998
-    min: 0.24703650000000002
 method: event_plane
-observable_type: flow_vn
-particle_id:
-  species: charged
-qualifiers:
-  p_{t} (gev/c): $ 0-80\% $
-source_column: $v_{2}$ $K^{+} + K^{-} $
-source_file: star_flow_vn_centrality_and_transverse_momentum_dependence_200gev.yaml
-value_type: v_{2}$ $K^{+} + K^{-}
-version: 2
----
-centrality:
-  classes:
-  - 0.0-80.0%
-  estimator:
-    detector: TPC
-    name: RefMult
-    observable: Nch
-  eta:
-  - max: 0.5
-    min: -0.5
-collision_system:
-  energy_gev: 200.0
-  reaction: unknown
+value_type: $v_{2}$ $\pi^{+}$
 dimensionality: differential_pT
 flow_reference:
   detector: TPC
   eta:
-  - max: 1.0
-    min: -1.0
-  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
-    (p) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi and
-    is subtracted. INFERRED from the charged rows of the same table, not quoted from
-    the paper.
-  provenance: assumed_tpc
-harmonic: 2
-hepdata_file: Fig_2_v2_p.yaml
-hepdata_table_label: 'The transverse momentum dependence of elliptic flow of particles,
-  antiparticles  for 0-80 central Au+Au collisions.
-
-  '
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v2(pT) of pi+, 0-80% (Figure 1); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
 inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_1_pi.yaml
+dv_index: 1
+hepdata_table_label: The transverse momentum dependence of elliptic, triangular and quadrangular flow of particles, antiparticles
+  and their difference for 0-80 central Au+ | $v_{2}$ $\pi^{-}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: pi-
 kinematic_range:
   eta:
-    bins:
-    - -1.0
-    - 1.0
-    max: 1.0
     min: -1.0
+    max: 1.0
   pT:
-    bins:
-    - 0.281925
-    - 0.43312300000000004
-    - 0.6057295
-    - 0.80089
-    - 0.9979250000000001
-    - 1.1959835
-    - 1.3945285
-    - 1.5934425
-    - 1.7926345000000001
-    - 2.0294945
-    - 2.32892
-    - 2.591063
-    - 2.8209235
-    - 3.1404639999999997
-    - 3.519686
-    max: 3.519686
-    min: 0.281925
+    min: 0.329
+    max: 3.106
+    points:
+    - 0.379
+    - 0.76
+    - 1.16
+    - 1.559
+    - 2.001
+    - 2.563
+    - 3.056
+    point_window: 0.1
+harmonic: 2
 method: event_plane
+value_type: $v_{2}$ $\pi^{-}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v2(pT) of pi-, 0-80% (Figure 1); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
 observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_1_pi.yaml
+dv_index: 3
+hepdata_table_label: The transverse momentum dependence of elliptic, triangular and quadrangular flow of particles, antiparticles
+  and their difference for 0-80 central Au+ | $v_{3}$ $\pi^{+}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: pi+
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.329
+    max: 3.106
+    points:
+    - 0.379
+    - 0.76
+    - 1.16
+    - 1.559
+    - 2.001
+    - 2.563
+    - 3.056
+    point_window: 0.1
+harmonic: 3
+method: event_plane
+value_type: $v_{3}$ $\pi^{+}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v3(pT) of pi+, 0-80% (Figure 1); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_1_pi.yaml
+dv_index: 4
+hepdata_table_label: The transverse momentum dependence of elliptic, triangular and quadrangular flow of particles, antiparticles
+  and their difference for 0-80 central Au+ | $v_{3}$ $\pi^{-}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: pi-
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.329
+    max: 3.106
+    points:
+    - 0.379
+    - 0.76
+    - 1.16
+    - 1.559
+    - 2.001
+    - 2.563
+    - 3.056
+    point_window: 0.1
+harmonic: 3
+method: event_plane
+value_type: $v_{3}$ $\pi^{-}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v3(pT) of pi-, 0-80% (Figure 1); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_1_pi.yaml
+dv_index: 6
+hepdata_table_label: The transverse momentum dependence of elliptic, triangular and quadrangular flow of particles, antiparticles
+  and their difference for 0-80 central Au+ | $v_{4}$ $\pi^{+}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: pi+
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.329
+    max: 3.106
+    points:
+    - 0.379
+    - 0.76
+    - 1.16
+    - 1.559
+    - 2.001
+    - 2.563
+    - 3.056
+    point_window: 0.1
+harmonic: 4
+method: event_plane
+value_type: $v_{4}$ $\pi^{+}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v4(pT) of pi+, 0-80% (Figure 1); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_1_pi.yaml
+dv_index: 7
+hepdata_table_label: The transverse momentum dependence of elliptic, triangular and quadrangular flow of particles, antiparticles
+  and their difference for 0-80 central Au+ | $v_{4}$ $\pi^{-}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: pi-
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.329
+    max: 3.106
+    points:
+    - 0.379
+    - 0.76
+    - 1.16
+    - 1.559
+    - 2.001
+    - 2.563
+    - 3.056
+    point_window: 0.1
+harmonic: 4
+method: event_plane
+value_type: $v_{4}$ $\pi^{-}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v4(pT) of pi-, 0-80% (Figure 1); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_1_k.yaml
+dv_index: 0
+hepdata_table_label: The transverse momentum dependence of elliptic, triangular and quadrangular flow of particles, antiparticles
+  and their difference for 0-80 central Au+ | $v_{2}$ $k^{+}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: K+
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.329
+    max: 2.613
+    points:
+    - 0.379
+    - 0.76
+    - 1.16
+    - 1.559
+    - 2.001
+    - 2.563
+    point_window: 0.1
+harmonic: 2
+method: event_plane
+value_type: $v_{2}$ $k^{+}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v2(pT) of K+, 0-80% (Figure 1); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_1_k.yaml
+dv_index: 1
+hepdata_table_label: The transverse momentum dependence of elliptic, triangular and quadrangular flow of particles, antiparticles
+  and their difference for 0-80 central Au+ | $v_{2}$ $k^{-}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: K-
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.329
+    max: 2.613
+    points:
+    - 0.379
+    - 0.76
+    - 1.16
+    - 1.559
+    - 2.001
+    - 2.563
+    point_window: 0.1
+harmonic: 2
+method: event_plane
+value_type: $v_{2}$ $k^{-}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v2(pT) of K-, 0-80% (Figure 1); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_1_k.yaml
+dv_index: 3
+hepdata_table_label: The transverse momentum dependence of elliptic, triangular and quadrangular flow of particles, antiparticles
+  and their difference for 0-80 central Au+ | $v_{3}$ $k^{+}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: K+
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.329
+    max: 2.613
+    points:
+    - 0.379
+    - 0.76
+    - 1.16
+    - 1.559
+    - 2.001
+    - 2.563
+    point_window: 0.1
+harmonic: 3
+method: event_plane
+value_type: $v_{3}$ $k^{+}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v3(pT) of K+, 0-80% (Figure 1); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_1_k.yaml
+dv_index: 4
+hepdata_table_label: The transverse momentum dependence of elliptic, triangular and quadrangular flow of particles, antiparticles
+  and their difference for 0-80 central Au+ | $v_{3}$ $k^{-}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: K-
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.329
+    max: 2.613
+    points:
+    - 0.379
+    - 0.76
+    - 1.16
+    - 1.559
+    - 2.001
+    - 2.563
+    point_window: 0.1
+harmonic: 3
+method: event_plane
+value_type: $v_{3}$ $k^{-}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v3(pT) of K-, 0-80% (Figure 1); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_1_k.yaml
+dv_index: 6
+hepdata_table_label: The transverse momentum dependence of elliptic, triangular and quadrangular flow of particles, antiparticles
+  and their difference for 0-80 central Au+ | $v_{4}$ $k^{+}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: K+
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.329
+    max: 2.613
+    points:
+    - 0.379
+    - 0.76
+    - 1.16
+    - 1.559
+    - 2.001
+    - 2.563
+    point_window: 0.1
+harmonic: 4
+method: event_plane
+value_type: $v_{4}$ $k^{+}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v4(pT) of K+, 0-80% (Figure 1); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_1_k.yaml
+dv_index: 7
+hepdata_table_label: The transverse momentum dependence of elliptic, triangular and quadrangular flow of particles, antiparticles
+  and their difference for 0-80 central Au+ | $v_{4}$ $k^{-}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: K-
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.329
+    max: 2.613
+    points:
+    - 0.379
+    - 0.76
+    - 1.16
+    - 1.559
+    - 2.001
+    - 2.563
+    point_window: 0.1
+harmonic: 4
+method: event_plane
+value_type: $v_{4}$ $k^{-}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v4(pT) of K-, 0-80% (Figure 1); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_1_p.yaml
+dv_index: 0
+hepdata_table_label: The transverse momentum dependence of elliptic, triangular and quadrangular flow of particles, antiparticles
+  and their difference for 0-80 central Au+ | $v_{2}$ $p^{+}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
 particle_id:
   species: p
-qualifiers:
-  p_{t} (gev/c): $ 0-80\% $
-source_column: $v_{2}$ $p^{+} + p^{-} $
-source_file: star_flow_vn_centrality_and_transverse_momentum_dependence_200gev.yaml
-value_type: v_{2}$ $p^{+} + p^{-}
-version: 2
----
-centrality:
-  classes:
-  - 0.0-80.0%
-  estimator:
-    detector: TPC
-    name: RefMult
-    observable: Nch
+kinematic_range:
   eta:
-  - max: 0.5
-    min: -0.5
-collision_system:
-  energy_gev: 200.0
-  reaction: unknown
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.329
+    max: 3.106
+    points:
+    - 0.379
+    - 0.76
+    - 1.16
+    - 1.559
+    - 2.001
+    - 2.563
+    - 3.056
+    point_window: 0.1
+harmonic: 2
+method: event_plane
+value_type: $v_{2}$ $p^{+}$
 dimensionality: differential_pT
 flow_reference:
   detector: TPC
-  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
-    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
-    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
-    from the collaboration's standard practice and from this table's charged rows,
-    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
-    the text.
-  provenance: assumed_tpc
-  same_sample_as_poi: true
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v2(pT) of p, 0-80% (Figure 1); eta-sub event
+    plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta| < 1; pT
+    points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_1_p.yaml
+dv_index: 1
+hepdata_table_label: The transverse momentum dependence of elliptic, triangular and quadrangular flow of particles, antiparticles
+  and their difference for 0-80 central Au+ | $v_{2}$ $p^{-}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: pbar
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.329
+    max: 3.106
+    points:
+    - 0.379
+    - 0.76
+    - 1.16
+    - 1.559
+    - 2.001
+    - 2.563
+    - 3.056
+    point_window: 0.1
 harmonic: 2
+method: event_plane
+value_type: $v_{2}$ $p^{-}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v2(pT) of pbar, 0-80% (Figure 1); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_1_p.yaml
+dv_index: 3
+hepdata_table_label: The transverse momentum dependence of elliptic, triangular and quadrangular flow of particles, antiparticles
+  and their difference for 0-80 central Au+ | $v_{3}$ $p^{+}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: p
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.329
+    max: 3.106
+    points:
+    - 0.379
+    - 0.76
+    - 1.16
+    - 1.559
+    - 2.001
+    - 2.563
+    - 3.056
+    point_window: 0.1
+harmonic: 3
+method: event_plane
+value_type: $v_{3}$ $p^{+}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v3(pT) of p, 0-80% (Figure 1); eta-sub event
+    plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta| < 1; pT
+    points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_1_p.yaml
+dv_index: 4
+hepdata_table_label: The transverse momentum dependence of elliptic, triangular and quadrangular flow of particles, antiparticles
+  and their difference for 0-80 central Au+ | $v_{3}$ $p^{-}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: pbar
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.329
+    max: 3.106
+    points:
+    - 0.379
+    - 0.76
+    - 1.16
+    - 1.559
+    - 2.001
+    - 2.563
+    - 3.056
+    point_window: 0.1
+harmonic: 3
+method: event_plane
+value_type: $v_{3}$ $p^{-}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v3(pT) of pbar, 0-80% (Figure 1); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_1_p.yaml
+dv_index: 6
+hepdata_table_label: The transverse momentum dependence of elliptic, triangular and quadrangular flow of particles, antiparticles
+  and their difference for 0-80 central Au+ | $v_{4}$ $p^{+}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: p
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.329
+    max: 3.106
+    points:
+    - 0.379
+    - 0.76
+    - 1.16
+    - 1.559
+    - 2.001
+    - 2.563
+    - 3.056
+    point_window: 0.1
+harmonic: 4
+method: event_plane
+value_type: $v_{4}$ $p^{+}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v4(pT) of p, 0-80% (Figure 1); eta-sub event
+    plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta| < 1; pT
+    points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_1_p.yaml
+dv_index: 7
+hepdata_table_label: The transverse momentum dependence of elliptic, triangular and quadrangular flow of particles, antiparticles
+  and their difference for 0-80 central Au+ | $v_{4}$ $p^{-}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: pbar
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.329
+    max: 3.106
+    points:
+    - 0.379
+    - 0.76
+    - 1.16
+    - 1.559
+    - 2.001
+    - 2.563
+    - 3.056
+    point_window: 0.1
+harmonic: 4
+method: event_plane
+value_type: $v_{4}$ $p^{-}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v4(pT) of pbar, 0-80% (Figure 1); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
 hepdata_file: Fig_2_v2_pi.yaml
-hepdata_table_label: 'The transverse momentum dependence of elliptic flow of particles,
-  antiparticles  for 0-80 central Au+Au collisions.
-
-  '
-inspire_id: '2051708'
-kinematic_range:
-  eta:
-    bins:
-    - -1.0
-    - 1.0
-    max: 1.0
-    min: -1.0
-  pT:
-    bins:
-    - 0.202282
-    - 0.39474200000000004
-    - 0.590364
-    - 0.7896595
-    - 0.9896495000000001
-    - 1.189801
-    - 1.389872
-    - 1.5899425
-    - 1.790071
-    - 2.025877
-    - 2.3260285
-    - 2.590516
-    - 2.8274714999999997
-    - 3.1556059999999997
-    - 3.53812
-    max: 3.53812
-    min: 0.202282
-method: event_plane
-observable_type: flow_vn
-particle_id:
-  species: charged
-qualifiers:
-  p_{t} (gev/c): $ 0-80\% $
-source_column: $v_{2}$ $\pi^{+} + \pi^{-} $
-source_file: star_flow_vn_centrality_and_transverse_momentum_dependence_200gev.yaml
-value_type: v_{2}$ $\pi^{+} + \pi^{-}
-version: 2
----
-centrality:
-  classes:
-  - 0.0-80.0%
-  estimator:
-    detector: TPC
-    name: RefMult
-    observable: Nch
-  eta:
-  - max: 0.5
-    min: -0.5
+dv_index: 0
+hepdata_table_label: The transverse momentum dependence of elliptic flow of particles, antiparticles for 0-80 central Au+Au
+  collisions. | $v_{2}$ $\pi^{+} + \pi^{-} $
 collision_system:
   energy_gev: 200.0
-  reaction: unknown
-dimensionality: differential_pT
-flow_reference:
-  detector: TPC
-  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
-    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
-    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
-    from the collaboration's standard practice and from this table's charged rows,
-    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
-    the text.
-  provenance: assumed_tpc
-  same_sample_as_poi: true
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: pi+ + pi-
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.2485
+    max: 3.3969
+    points:
+    - 0.298512
+    - 0.490972
+    - 0.689756
+    - 0.889563
+    - 1.089736
+    - 1.289866
+    - 1.489878
+    - 1.690007
+    - 1.890135
+    - 2.161619
+    - 2.490438
+    - 2.690594
+    - 2.964349
+    - 3.346863
+    point_window: 0.1
 harmonic: 2
-hepdata_file: Fig_2_v3_KS0.yaml
-hepdata_table_label: 'The transverse momentum dependence of triangular flow of particles,
-  antiparticles  for 0-80 central Au+Au collisions.
-
-  '
-inspire_id: '2051708'
-kinematic_range:
-  eta:
-    bins:
-    - -1.0
-    - 1.0
-    max: 1.0
-    min: -1.0
-  pT:
-    bins:
-    - 0.44542500000000007
-    - 0.746255
-    - 0.996175
-    - 1.23445
-    - 1.57157
-    - 1.9696449999999999
-    - 2.36972
-    - 2.80421
-    - 3.3703649999999996
-    - 4.1899999999999995
-    - 5.165240000000001
-    max: 5.165240000000001
-    min: 0.44542500000000007
 method: event_plane
-observable_type: flow_vn
-particle_id:
-  species: charged
-qualifiers:
-  p_{t} (gev/c): $ 0-80\% $
-source_file: star_flow_vn_centrality_and_transverse_momentum_dependence_200gev.yaml
-value_type: v_{3}$ $K^{0}_{S}
-version: 2
----
-centrality:
-  classes:
-  - 0.0-80.0%
-  estimator:
-    detector: TPC
-    name: RefMult
-    observable: Nch
-  eta:
-  - max: 0.5
-    min: -0.5
-collision_system:
-  energy_gev: 200.0
-  reaction: unknown
-dimensionality: differential_pT
-flow_reference:
-  detector: TPC
-  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
-    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
-    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
-    from the collaboration's standard practice and from this table's charged rows,
-    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
-    the text.
-  provenance: assumed_tpc
-  same_sample_as_poi: true
-harmonic: 3
-hepdata_file: Fig_2_v3_k.yaml
-hepdata_table_label: 'The transverse momentum dependence of triangular flow of particles,
-  antiparticles  for 0-80 central Au+Au collisions.
-
-  '
-inspire_id: '2051708'
-kinematic_range:
-  eta:
-    bins:
-    - -1.0
-    - 1.0
-    max: 1.0
-    min: -1.0
-  pT:
-    bins:
-    - 0.29310900000000006
-    - 0.619099
-    - 0.9747494999999999
-    - 1.3575460000000001
-    - 1.786175
-    - 2.295337
-    - 2.836685
-    max: 2.836685
-    min: 0.29310900000000006
-method: event_plane
-observable_type: flow_vn
-particle_id:
-  species: charged
-qualifiers:
-  p_{t} (gev/c): $ 0-80\% $
-source_column: $v_{3}$ $K^{+} + K^{-} $
-source_file: star_flow_vn_centrality_and_transverse_momentum_dependence_200gev.yaml
-value_type: v_{3}$ $K^{+} + K^{-}
-version: 2
----
-centrality:
-  classes:
-  - 0.0-80.0%
-  estimator:
-    detector: TPC
-    name: RefMult
-    observable: Nch
-  eta:
-  - max: 0.5
-    min: -0.5
-collision_system:
-  energy_gev: 200.0
-  reaction: unknown
+value_type: $v_{2}$ $\pi^{+} + \pi^{-} $
 dimensionality: differential_pT
 flow_reference:
   detector: TPC
   eta:
-  - max: 1.0
-    min: -1.0
-  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
-    (p) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi and
-    is subtracted. INFERRED from the charged rows of the same table, not quoted from
-    the paper.
-  provenance: assumed_tpc
-harmonic: 3
-hepdata_file: Fig_2_v3_p.yaml
-hepdata_table_label: 'The transverse momentum dependence of triangular flow of particles,
-  antiparticles  for 0-80 central Au+Au collisions.
-
-  '
-inspire_id: '2051708'
-kinematic_range:
-  eta:
-    bins:
-    - -1.0
-    - 1.0
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
     max: 1.0
-    min: -1.0
   pT:
-    bins:
-    - 0.3229245
-    - 0.6433015
-    - 0.993737
-    - 1.3781585
-    - 1.800582
-    - 2.2945715
-    - 2.7912600000000003
-    - 3.2531559999999997
-    max: 3.2531559999999997
-    min: 0.3229245
-method: event_plane
-observable_type: flow_vn
-particle_id:
-  species: p
-qualifiers:
-  p_{t} (gev/c): $ 0-80\% $
-source_column: $v_{3}$ $p^{+} + p^{-} $
-source_file: star_flow_vn_centrality_and_transverse_momentum_dependence_200gev.yaml
-value_type: v_{3}$ $p^{+} + p^{-}
-version: 2
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v2(pT) of pi+ + pi-, 0-80% (Figure 2); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
 ---
-centrality:
-  classes:
-  - 0.0-80.0%
-  estimator:
-    detector: TPC
-    name: RefMult
-    observable: Nch
-  eta:
-  - max: 0.5
-    min: -0.5
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_2_v2_k.yaml
+dv_index: 0
+hepdata_table_label: The transverse momentum dependence of elliptic flow of particles, antiparticles for 0-80 central Au+Au
+  collisions. | $v_{2}$ $K^{+} + K^{-} $
 collision_system:
   energy_gev: 200.0
-  reaction: unknown
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: K+ + K-
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.2831
+    max: 2.7415
+    points:
+    - 0.333139
+    - 0.505344
+    - 0.697757
+    - 0.894168
+    - 1.092265
+    - 1.291201
+    - 1.490676
+    - 1.690866
+    - 1.89146
+    - 2.165542
+    - 2.491292
+    - 2.69148
+    point_window: 0.1
+harmonic: 2
+method: event_plane
+value_type: $v_{2}$ $K^{+} + K^{-} $
 dimensionality: differential_pT
 flow_reference:
   detector: TPC
-  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
-    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
-    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
-    from the collaboration's standard practice and from this table's charged rows,
-    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
-    the text.
-  provenance: assumed_tpc
-  same_sample_as_poi: true
-harmonic: 3
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v2(pT) of K+ + K-, 0-80% (Figure 2); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_2_v2_p.yaml
+dv_index: 0
+hepdata_table_label: The transverse momentum dependence of elliptic flow of particles, antiparticles for 0-80 central Au+Au
+  collisions. | $v_{2}$ $p^{+} + p^{-} $
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: p + pbar
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.3075
+    max: 3.3801
+    points:
+    - 0.357524
+    - 0.508722
+    - 0.702737
+    - 0.899043
+    - 1.096807
+    - 1.29516
+    - 1.493897
+    - 1.692988
+    - 1.892281
+    - 2.166708
+    - 2.491132
+    - 2.690994
+    - 2.950853
+    - 3.330075
+    point_window: 0.1
+harmonic: 2
+method: event_plane
+value_type: $v_{2}$ $p^{+} + p^{-} $
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v2(pT) of p + pbar, 0-80% (Figure 2); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
 hepdata_file: Fig_2_v3_pi.yaml
-hepdata_table_label: 'The transverse momentum dependence of triangular flow of particles,
-  antiparticles  for 0-80 central Au+Au collisions.
-
-  '
-inspire_id: '2051708'
-kinematic_range:
-  eta:
-    bins:
-    - -1.0
-    - 1.0
-    max: 1.0
-    min: -1.0
-  pT:
-    bins:
-    - 0.18887749999999998
-    - 0.5692284999999999
-    - 0.959713
-    - 1.3593985000000002
-    - 1.7797420000000002
-    - 2.281704
-    - 2.809138
-    - 3.302016
-    max: 3.302016
-    min: 0.18887749999999998
-method: event_plane
-observable_type: flow_vn
-particle_id:
-  species: charged
-qualifiers:
-  p_{t} (gev/c): $ 0-80\% $
-source_column: $v_{3}$ $\pi^{+} + \pi^{-} $
-source_file: star_flow_vn_centrality_and_transverse_momentum_dependence_200gev.yaml
-value_type: v_{3}$ $\pi^{+} + \pi^{-}
-version: 2
----
-centrality:
-  classes:
-  - 0.0-80.0%
-  estimator:
-    detector: TPC
-    name: RefMult
-    observable: Nch
-  eta:
-  - max: 0.5
-    min: -0.5
+dv_index: 0
+hepdata_table_label: The transverse momentum dependence of triangular flow of particles, antiparticles for 0-80 central Au+Au
+  collisions. | $v_{3}$ $\pi^{+} + \pi^{-} $
 collision_system:
   energy_gev: 200.0
-  reaction: unknown
-dimensionality: differential_pT
-flow_reference:
-  detector: TPC
-  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
-    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
-    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
-    from the collaboration's standard practice and from this table's charged rows,
-    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
-    the text.
-  provenance: assumed_tpc
-  same_sample_as_poi: true
-harmonic: 4
-hepdata_file: Fig_2_v4_k.yaml
-hepdata_table_label: 'The transverse momentum dependence of quadrangular flow of particles,
-  antiparticles  for 0-80 central Au+Au collisions.
-
-  '
-inspire_id: '2051708'
-kinematic_range:
-  eta:
-    bins:
-    - -1.0
-    - 1.0
-    max: 1.0
-    min: -1.0
-  pT:
-    bins:
-    - 0.29310900000000006
-    - 0.619099
-    - 0.9747494999999999
-    - 1.3575460000000001
-    - 1.786175
-    - 2.295337
-    - 2.836685
-    max: 2.836685
-    min: 0.29310900000000006
-method: event_plane
-observable_type: flow_vn
-particle_id:
-  species: charged
-qualifiers:
-  p_{t} (gev/c): $ 0-80\% $
-source_column: $v_{4}$ $K^{+} + K^{-} $
-source_file: star_flow_vn_centrality_and_transverse_momentum_dependence_200gev.yaml
-value_type: v_{4}$ $K^{+} + K^{-}
-version: 2
----
+  reaction: AU AU --> X
 centrality:
   classes:
-  - 0.0-80.0%
+  - 0-80%
   estimator:
-    detector: TPC
     name: RefMult
     observable: Nch
+    detector: TPC
   eta:
-  - max: 0.5
-    min: -0.5
-collision_system:
-  energy_gev: 200.0
-  reaction: unknown
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: pi+ + pi-
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.3291
+    max: 3.1056
+    points:
+    - 0.379053
+    - 0.759404
+    - 1.160022
+    - 1.558775
+    - 2.000709
+    - 2.562699
+    - 3.055577
+    point_window: 0.1
+harmonic: 3
+method: event_plane
+value_type: $v_{3}$ $\pi^{+} + \pi^{-} $
 dimensionality: differential_pT
 flow_reference:
   detector: TPC
   eta:
-  - max: 1.0
-    min: -1.0
-  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
-    (p) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi and
-    is subtracted. INFERRED from the charged rows of the same table, not quoted from
-    the paper.
-  provenance: assumed_tpc
-harmonic: 4
-hepdata_file: Fig_2_v4_p.yaml
-hepdata_table_label: 'The transverse momentum dependence of quadrangular flow of particles,
-  antiparticles  for 0-80 central Au+Au collisions.
-
-  '
-inspire_id: '2051708'
-kinematic_range:
-  eta:
-    bins:
-    - -1.0
-    - 1.0
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
     max: 1.0
-    min: -1.0
   pT:
-    bins:
-    - 0.3229245
-    - 0.6433015
-    - 0.993737
-    - 1.3781585
-    - 1.800582
-    - 2.2945715
-    - 2.7912600000000003
-    - 3.2531559999999997
-    max: 3.2531559999999997
-    min: 0.3229245
-method: event_plane
-observable_type: flow_vn
-particle_id:
-  species: p
-qualifiers:
-  p_{t} (gev/c): $ 0-80\% $
-source_column: $v_{4}$ $p^{+} + p^{-} $
-source_file: star_flow_vn_centrality_and_transverse_momentum_dependence_200gev.yaml
-value_type: v_{4}$ $p^{+} + p^{-}
-version: 2
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v3(pT) of pi+ + pi-, 0-80% (Figure 2); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
 ---
-centrality:
-  classes:
-  - 0.0-80.0%
-  estimator:
-    detector: TPC
-    name: RefMult
-    observable: Nch
-  eta:
-  - max: 0.5
-    min: -0.5
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_2_v3_k.yaml
+dv_index: 0
+hepdata_table_label: The transverse momentum dependence of triangular flow of particles, antiparticles for 0-80 central Au+Au
+  collisions. | $v_{3}$ $K^{+} + K^{-} $
 collision_system:
   energy_gev: 200.0
-  reaction: unknown
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: K+ + K-
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.4061
+    max: 2.616
+    points:
+    - 0.456104
+    - 0.782094
+    - 1.167405
+    - 1.547687
+    - 2.024663
+    - 2.566011
+    point_window: 0.1
+harmonic: 3
+method: event_plane
+value_type: $v_{3}$ $K^{+} + K^{-} $
 dimensionality: differential_pT
 flow_reference:
   detector: TPC
-  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
-    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
-    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
-    from the collaboration's standard practice and from this table's charged rows,
-    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
-    the text.
-  provenance: assumed_tpc
-  same_sample_as_poi: true
-harmonic: 4
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v3(pT) of K+ + K-, 0-80% (Figure 2); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_2_v3_p.yaml
+dv_index: 0
+hepdata_table_label: The transverse momentum dependence of triangular flow of particles, antiparticles for 0-80 central Au+Au
+  collisions. | $v_{3}$ $p^{+} + p^{-} $
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: p + pbar
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.4331
+    max: 3.0722
+    points:
+    - 0.483113
+    - 0.80349
+    - 1.183984
+    - 1.572333
+    - 2.028831
+    - 2.560312
+    - 3.022208
+    point_window: 0.1
+harmonic: 3
+method: event_plane
+value_type: $v_{3}$ $p^{+} + p^{-} $
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v3(pT) of p + pbar, 0-80% (Figure 2); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_2_v3_phi.yaml
+dv_index: 0
+hepdata_table_label: The transverse momentum dependence of triangular flow of particles, antiparticles for 0-80 central Au+Au
+  collisions. | $v_{3}$ $\phi$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: phi
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.6097
+    max: 4.6813
+    points:
+    - 0.65969
+    - 0.90176
+    - 1.09826
+    - 1.38036
+    - 1.7789
+    - 2.17739
+    - 2.57458
+    - 3.04045
+    - 3.69708
+    - 4.63131
+    point_window: 0.1
+harmonic: 3
+method: event_plane
+value_type: $v_{3}$ $\phi$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v3(pT) of phi, 0-80% (Figure 2); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_2_v3_KS0.yaml
+dv_index: 0
+hepdata_table_label: The transverse momentum dependence of triangular flow of particles, antiparticles for 0-80 central Au+Au
+  collisions. | $v_{3}$ $K^{0}_{S}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: K0_S
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.5458
+    max: 4.7276
+    points:
+    - 0.59584
+    - 0.89667
+    - 1.09568
+    - 1.37322
+    - 1.76992
+    - 2.16937
+    - 2.57007
+    - 3.03835
+    - 3.70238
+    - 4.67762
+    point_window: 0.1
+harmonic: 3
+method: event_plane
+value_type: $v_{3}$ $K^{0}_{S}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v3(pT) of K0_S, 0-80% (Figure 2); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_2_v3_Lam.yaml
+dv_index: 0
+hepdata_table_label: The transverse momentum dependence of elliptic, triangular and quadrangular flow of particles, antiparticles
+  for 0-80 central Au+Au collisions. | $v_{3}$ $\Lambda^{+} + \Lambda^{+} $
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.6107
+    max: 4.6523
+    points:
+    - 0.66068
+    - 0.90386
+    - 1.10092
+    - 1.39094
+    - 1.78009
+    - 2.17305
+    - 2.56956
+    - 3.02983
+    - 3.68023
+    - 4.60229
+    point_window: 0.1
+harmonic: 3
+method: event_plane
+value_type: $v_{3}$ $\Lambda^{+} + \Lambda^{+} $
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v3(pT) of Lambda + Lambdabar, 0-80% (Figure
+    2); eta-sub event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed
+    in |eta| < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
 hepdata_file: Fig_2_v4_pi.yaml
-hepdata_table_label: 'The transverse momentum dependence of quadrangular flow of particles,
-  antiparticles  for 0-80 central Au+Au collisions.
-
-  '
-inspire_id: '2051708'
-kinematic_range:
-  eta:
-    bins:
-    - -1.0
-    - 1.0
-    max: 1.0
-    min: -1.0
-  pT:
-    bins:
-    - 0.18887749999999998
-    - 0.5692284999999999
-    - 0.959713
-    - 1.3593985000000002
-    - 1.7797420000000002
-    - 2.281704
-    - 2.809138
-    - 3.302016
-    max: 3.302016
-    min: 0.18887749999999998
-method: event_plane
-observable_type: flow_vn
-particle_id:
-  species: charged
-qualifiers:
-  p_{t} (gev/c): $ 0-80\% $
-source_column: $v_{4}$ $\pi^{+} + \pi^{-} $
-source_file: star_flow_vn_centrality_and_transverse_momentum_dependence_200gev.yaml
-value_type: v_{4}$ $\pi^{+} + \pi^{-}
-version: 2
----
-centrality:
-  classes:
-  - 40.0-80.0%
-  estimator:
-    detector: TPC
-    name: RefMult
-    observable: Nch
-  eta:
-  - max: 0.5
-    min: -0.5
+dv_index: 0
+hepdata_table_label: The transverse momentum dependence of quadrangular flow of particles, antiparticles for 0-80 central
+  Au+Au collisions. | $v_{4}$ $\pi^{+} + \pi^{-} $
 collision_system:
   energy_gev: 200.0
-  reaction: unknown
-dimensionality: differential_pT
-flow_reference:
-  detector: TPC
-  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
-    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
-    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
-    from the collaboration's standard practice and from this table's charged rows,
-    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
-    the text.
-  provenance: assumed_tpc
-  same_sample_as_poi: true
-harmonic: 2
-hepdata_file: Fig_3_v2_k.yaml
-hepdata_table_label: 'The transverse momentum dependence of $v_{2} k^{+}$ for 0-10,
-  10-40 and 40-80 central Au+Au collisions.
-
-  '
-inspire_id: '2051708'
-kinematic_range:
-  eta:
-    bins:
-    - -1.0
-    - 1.0
-    max: 1.0
-    min: -1.0
-  pT:
-    bins:
-    - 0.2965
-    - 0.6215
-    - 0.976
-    - 1.3575
-    - 1.7850000000000001
-    - 2.294
-    - 2.836
-    max: 2.836
-    min: 0.2965
-method: event_plane
-observable_type: flow_vn
-particle_id:
-  species: charged
-qualifiers:
-  p_{t} (gev/c): $ 40-80\% $
-source_file: star_flow_vn_centrality_and_transverse_momentum_dependence_200gev.yaml
-value_type: v_{2}$ $K^{+}
-version: 2
----
+  reaction: AU AU --> X
 centrality:
   classes:
-  - 40.0-80.0%
+  - 0-80%
   estimator:
-    detector: TPC
     name: RefMult
     observable: Nch
+    detector: TPC
   eta:
-  - max: 0.5
-    min: -0.5
-collision_system:
-  energy_gev: 200.0
-  reaction: unknown
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: pi+ + pi-
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.3291
+    max: 3.1056
+    points:
+    - 0.379053
+    - 0.759404
+    - 1.160022
+    - 1.558775
+    - 2.000709
+    - 2.562699
+    - 3.055577
+    point_window: 0.1
+harmonic: 4
+method: event_plane
+value_type: $v_{4}$ $\pi^{+} + \pi^{-} $
 dimensionality: differential_pT
 flow_reference:
   detector: TPC
   eta:
-  - max: 1.0
-    min: -1.0
-  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
-    (p) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi and
-    is subtracted. INFERRED from the charged rows of the same table, not quoted from
-    the paper.
-  provenance: assumed_tpc
-harmonic: 2
-hepdata_file: Fig_3_v2_p.yaml
-hepdata_table_label: 'The transverse momentum dependence of $v_{2} p^{+}$, for 0-10,
-  10-40 and 40-80 central Au+Au collisions.
-
-  '
-inspire_id: '2051708'
-kinematic_range:
-  eta:
-    bins:
-    - -1.0
-    - 1.0
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
     max: 1.0
-    min: -1.0
   pT:
-    bins:
-    - 0.32249999999999995
-    - 0.6455
-    - 0.9964999999999999
-    - 1.3795
-    - 1.801
-    - 2.2945
-    - 2.8255
-    max: 2.8255
-    min: 0.32249999999999995
-method: event_plane
-observable_type: flow_vn
-particle_id:
-  species: p
-qualifiers:
-  p_{t} (gev/c): $ 40-80\% $
-source_file: star_flow_vn_centrality_and_transverse_momentum_dependence_200gev.yaml
-value_type: v_{2}$ $p^{+}
-version: 2
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v4(pT) of pi+ + pi-, 0-80% (Figure 2); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
 ---
-centrality:
-  classes:
-  - 0.0-10.0%
-  estimator:
-    detector: TPC
-    name: RefMult
-    observable: Nch
-  eta:
-  - max: 0.5
-    min: -0.5
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_2_v4_k.yaml
+dv_index: 0
+hepdata_table_label: The transverse momentum dependence of quadrangular flow of particles, antiparticles for 0-80 central
+  Au+Au collisions. | $v_{4}$ $K^{+} + K^{-} $
 collision_system:
   energy_gev: 200.0
-  reaction: unknown
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: K+ + K-
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.4061
+    max: 2.616
+    points:
+    - 0.456104
+    - 0.782094
+    - 1.167405
+    - 1.547687
+    - 2.024663
+    - 2.566011
+    point_window: 0.1
+harmonic: 4
+method: event_plane
+value_type: $v_{4}$ $K^{+} + K^{-} $
 dimensionality: differential_pT
 flow_reference:
   detector: TPC
-  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
-    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
-    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
-    from the collaboration's standard practice and from this table's charged rows,
-    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
-    the text.
-  provenance: assumed_tpc
-  same_sample_as_poi: true
-harmonic: 2
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v4(pT) of K+ + K-, 0-80% (Figure 2); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_2_v4_p.yaml
+dv_index: 0
+hepdata_table_label: The transverse momentum dependence of quadrangular flow of particles, antiparticles for 0-80 central
+  Au+Au collisions. | $v_{4}$ $p^{+} + p^{-} $
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: p + pbar
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.4331
+    max: 3.0722
+    points:
+    - 0.483113
+    - 0.80349
+    - 1.183984
+    - 1.572333
+    - 2.028831
+    - 2.560312
+    - 3.022208
+    point_window: 0.1
+harmonic: 4
+method: event_plane
+value_type: $v_{4}$ $p^{+} + p^{-} $
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v4(pT) of p + pbar, 0-80% (Figure 2); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
 hepdata_file: Fig_3_v2_pi_1.yaml
-hepdata_table_label: 'The transverse momentum dependence of $v_{2} \pi^{+}$ for 0-10
-  central Au+Au collisions.
-
-  '
-inspire_id: '2051708'
-kinematic_range:
-  eta:
-    bins:
-    - -1.0
-    - 1.0
-    max: 1.0
-    min: -1.0
-  pT:
-    bins:
-    - 0.1915
-    - 0.5705
-    - 0.96
-    - 1.359
-    - 1.778
-    - 2.28
-    - 2.8075
-    - 3.2984999999999998
-    max: 3.2984999999999998
-    min: 0.1915
-method: event_plane
-observable_type: flow_vn
-particle_id:
-  species: charged
-qualifiers:
-  p_{t} (gev/c): $ 0 -10\% $
-source_file: star_flow_vn_centrality_and_transverse_momentum_dependence_200gev.yaml
-value_type: v_{2}$ $\pi^{+}
-version: 2
----
-centrality:
-  classes:
-  - 10.0-40.0%
-  estimator:
-    detector: TPC
-    name: RefMult
-    observable: Nch
-  eta:
-  - max: 0.5
-    min: -0.5
+dv_index: 0
+hepdata_table_label: The transverse momentum dependence of $v_{2} \pi^{+}$ for 0-10 central Au+Au collisions. | $v_{2}$ $\pi^{+}$
 collision_system:
   energy_gev: 200.0
-  reaction: unknown
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: pi+
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.331
+    max: 3.103
+    points:
+    - 0.381
+    - 0.76
+    - 1.16
+    - 1.558
+    - 1.998
+    - 2.562
+    - 3.053
+    point_window: 0.1
+harmonic: 2
+method: event_plane
+value_type: $v_{2}$ $\pi^{+}$
 dimensionality: differential_pT
 flow_reference:
   detector: TPC
-  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
-    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
-    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
-    from the collaboration's standard practice and from this table's charged rows,
-    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
-    the text.
-  provenance: assumed_tpc
-  same_sample_as_poi: true
-harmonic: 2
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v2(pT) of pi+, 0-10% (Figure 3); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
 hepdata_file: Fig_3_v2_pi_2.yaml
-hepdata_table_label: 'The transverse momentum dependence of $v_{2} \pi^{+}$ for 10-40
-  central Au+Au collisions.
-
-  '
-inspire_id: '2051708'
-kinematic_range:
-  eta:
-    bins:
-    - -1.0
-    - 1.0
-    max: 1.0
-    min: -1.0
-  pT:
-    bins:
-    - 0.1915
-    - 0.5705
-    - 0.96
-    - 1.359
-    - 1.778
-    - 2.28
-    - 2.844
-    max: 2.844
-    min: 0.1915
-method: event_plane
-observable_type: flow_vn
-particle_id:
-  species: charged
-qualifiers:
-  p_{t} (gev/c): $ 10-40\% $
-source_file: star_flow_vn_centrality_and_transverse_momentum_dependence_200gev.yaml
-value_type: v_{2}$ $\pi^{+}
-version: 2
----
-centrality:
-  classes:
-  - 40.0-80.0%
-  estimator:
-    detector: TPC
-    name: RefMult
-    observable: Nch
-  eta:
-  - max: 0.5
-    min: -0.5
+dv_index: 0
+hepdata_table_label: The transverse momentum dependence of $v_{2} \pi^{+}$ for 10-40 central Au+Au collisions. | $v_{2}$ $\pi^{+}$
 collision_system:
   energy_gev: 200.0
-  reaction: unknown
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: pi+
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.331
+    max: 2.612
+    points:
+    - 0.381
+    - 0.76
+    - 1.16
+    - 1.558
+    - 1.998
+    - 2.562
+    point_window: 0.1
+harmonic: 2
+method: event_plane
+value_type: $v_{2}$ $\pi^{+}$
 dimensionality: differential_pT
 flow_reference:
   detector: TPC
-  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
-    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
-    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
-    from the collaboration's standard practice and from this table's charged rows,
-    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
-    the text.
-  provenance: assumed_tpc
-  same_sample_as_poi: true
-harmonic: 2
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v2(pT) of pi+, 10-40% (Figure 3); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
 hepdata_file: Fig_3_v2_pi_3.yaml
-hepdata_table_label: 'The transverse momentum dependence of $v_{2} \pi^{+}$, for 40-80
-  central Au+Au collisions.
-
-  '
-inspire_id: '2051708'
-kinematic_range:
-  eta:
-    bins:
-    - -1.0
-    - 1.0
-    max: 1.0
-    min: -1.0
-  pT:
-    bins:
-    - 0.1915
-    - 0.5705
-    - 0.96
-    - 1.359
-    - 1.778
-    - 2.28
-    - 2.844
-    max: 2.844
-    min: 0.1915
-method: event_plane
-observable_type: flow_vn
-particle_id:
-  species: charged
-qualifiers:
-  p_{t} (gev/c): $ 40-80\% $
-source_file: star_flow_vn_centrality_and_transverse_momentum_dependence_200gev.yaml
-value_type: v_{2}$ $\pi^{+}
-version: 2
----
-centrality:
-  classes:
-  - 40.0-80.0%
-  estimator:
-    detector: TPC
-    name: RefMult
-    observable: Nch
-  eta:
-  - max: 0.5
-    min: -0.5
+dv_index: 0
+hepdata_table_label: The transverse momentum dependence of $v_{2} \pi^{+}$, for 40-80 central Au+Au collisions. | $v_{2}$
+  $\pi^{+}$
 collision_system:
   energy_gev: 200.0
-  reaction: unknown
-dimensionality: differential_pT
-flow_reference:
-  detector: TPC
-  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
-    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
-    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
-    from the collaboration's standard practice and from this table's charged rows,
-    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
-    the text.
-  provenance: assumed_tpc
-  same_sample_as_poi: true
-harmonic: 3
-hepdata_file: Fig_3_v3_k.yaml
-hepdata_table_label: 'The transverse momentum dependence of $v_{3} k^{+}$ for 0-10,
-  10-40 and 40-80 central Au+Au collisions.
-
-  '
-inspire_id: '2051708'
-kinematic_range:
-  eta:
-    bins:
-    - -1.0
-    - 1.0
-    max: 1.0
-    min: -1.0
-  pT:
-    bins:
-    - 0.2965
-    - 0.6215
-    - 0.976
-    - 1.3575
-    - 1.7850000000000001
-    - 2.294
-    - 2.836
-    max: 2.836
-    min: 0.2965
-method: event_plane
-observable_type: flow_vn
-particle_id:
-  species: charged
-qualifiers:
-  p_{t} (gev/c): $ 40-80\% $
-source_file: star_flow_vn_centrality_and_transverse_momentum_dependence_200gev.yaml
-value_type: v_{3}$ $K^{+}
-version: 2
----
+  reaction: AU AU --> X
 centrality:
   classes:
-  - 40.0-80.0%
+  - 40-80%
   estimator:
-    detector: TPC
     name: RefMult
     observable: Nch
+    detector: TPC
   eta:
-  - max: 0.5
-    min: -0.5
-collision_system:
-  energy_gev: 200.0
-  reaction: unknown
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: pi+
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.331
+    max: 2.612
+    points:
+    - 0.381
+    - 0.76
+    - 1.16
+    - 1.558
+    - 1.998
+    - 2.562
+    point_window: 0.1
+harmonic: 2
+method: event_plane
+value_type: $v_{2}$ $\pi^{+}$
 dimensionality: differential_pT
 flow_reference:
   detector: TPC
   eta:
-  - max: 1.0
-    min: -1.0
-  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
-    (p) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi and
-    is subtracted. INFERRED from the charged rows of the same table, not quoted from
-    the paper.
-  provenance: assumed_tpc
-harmonic: 3
-hepdata_file: Fig_3_v3_p.yaml
-hepdata_table_label: 'The transverse momentum dependence of $v_{3} p^{+}$, for 0-10,
-  10-40 and 40-80 central Au+Au collisions.
-
-  '
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v2(pT) of pi+, 40-80% (Figure 3); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
 inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_3_v2_k.yaml
+dv_index: 0
+hepdata_table_label: The transverse momentum dependence of $v_{2} k^{+}$ for 0-10, 10-40 and 40-80 central Au+Au collisions.
+  | $v_{2}$ $K^{+}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: K+
 kinematic_range:
   eta:
-    bins:
-    - -1.0
-    - 1.0
-    max: 1.0
     min: -1.0
+    max: 1.0
   pT:
-    bins:
-    - 0.32249999999999995
-    - 0.6455
-    - 0.9964999999999999
-    - 1.3795
-    - 1.801
-    - 2.2945
-    - 2.8255
-    max: 2.8255
-    min: 0.32249999999999995
+    min: 0.409
+    max: 2.615
+    points:
+    - 0.459
+    - 0.784
+    - 1.168
+    - 1.547
+    - 2.023
+    - 2.565
+    point_window: 0.1
+harmonic: 2
 method: event_plane
+value_type: $v_{2}$ $K^{+}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v2(pT) of K+, 0-10% (Figure 3); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
 observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_3_v2_k.yaml
+dv_index: 1
+hepdata_table_label: The transverse momentum dependence of $v_{2} k^{+}$ for 0-10, 10-40 and 40-80 central Au+Au collisions.
+  | $v_{2}$ $K^{+}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: K+
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.409
+    max: 2.615
+    points:
+    - 0.459
+    - 0.784
+    - 1.168
+    - 1.547
+    - 2.023
+    - 2.565
+    point_window: 0.1
+harmonic: 2
+method: event_plane
+value_type: $v_{2}$ $K^{+}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v2(pT) of K+, 10-40% (Figure 3); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_3_v2_k.yaml
+dv_index: 2
+hepdata_table_label: The transverse momentum dependence of $v_{2} k^{+}$ for 0-10, 10-40 and 40-80 central Au+Au collisions.
+  | $v_{2}$ $K^{+}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 40-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: K+
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.409
+    max: 2.615
+    points:
+    - 0.459
+    - 0.784
+    - 1.168
+    - 1.547
+    - 2.023
+    - 2.565
+    point_window: 0.1
+harmonic: 2
+method: event_plane
+value_type: $v_{2}$ $K^{+}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v2(pT) of K+, 40-80% (Figure 3); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_3_v2_p.yaml
+dv_index: 0
+hepdata_table_label: The transverse momentum dependence of $v_{2} p^{+}$, for 0-10, 10-40 and 40-80 central Au+Au collisions.
+  | $v_{2}$ $p^{+}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
 particle_id:
   species: p
-qualifiers:
-  p_{t} (gev/c): $ 40-80\% $
-source_file: star_flow_vn_centrality_and_transverse_momentum_dependence_200gev.yaml
-value_type: v_{3}$ $p^{+}
-version: 2
----
-centrality:
-  classes:
-  - 0.0-10.0%
-  estimator:
-    detector: TPC
-    name: RefMult
-    observable: Nch
+kinematic_range:
   eta:
-  - max: 0.5
-    min: -0.5
-collision_system:
-  energy_gev: 200.0
-  reaction: unknown
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.434
+    max: 2.61
+    points:
+    - 0.484
+    - 0.807
+    - 1.186
+    - 1.573
+    - 2.029
+    - 2.56
+    point_window: 0.1
+harmonic: 2
+method: event_plane
+value_type: $v_{2}$ $p^{+}$
 dimensionality: differential_pT
 flow_reference:
   detector: TPC
-  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
-    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
-    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
-    from the collaboration's standard practice and from this table's charged rows,
-    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
-    the text.
-  provenance: assumed_tpc
-  same_sample_as_poi: true
-harmonic: 3
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v2(pT) of p, 0-10% (Figure 3); eta-sub event
+    plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta| < 1; pT
+    points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_3_v2_p.yaml
+dv_index: 1
+hepdata_table_label: The transverse momentum dependence of $v_{2} p^{+}$, for 0-10, 10-40 and 40-80 central Au+Au collisions.
+  | $v_{2}$ $p^{+}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: p
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.434
+    max: 2.61
+    points:
+    - 0.484
+    - 0.807
+    - 1.186
+    - 1.573
+    - 2.029
+    - 2.56
+    point_window: 0.1
+harmonic: 2
+method: event_plane
+value_type: $v_{2}$ $p^{+}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v2(pT) of p, 10-40% (Figure 3); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_3_v2_p.yaml
+dv_index: 2
+hepdata_table_label: The transverse momentum dependence of $v_{2} p^{+}$, for 0-10, 10-40 and 40-80 central Au+Au collisions.
+  | $v_{2}$ $p^{+}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 40-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: p
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.434
+    max: 2.61
+    points:
+    - 0.484
+    - 0.807
+    - 1.186
+    - 1.573
+    - 2.029
+    - 2.56
+    point_window: 0.1
+harmonic: 2
+method: event_plane
+value_type: $v_{2}$ $p^{+}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v2(pT) of p, 40-80% (Figure 3); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
 hepdata_file: Fig_3_v3_pi_1.yaml
-hepdata_table_label: 'The transverse momentum dependence of $v_{3} \pi^{+}$ for 0-10
-  central Au+Au collisions.
-
-  '
-inspire_id: '2051708'
-kinematic_range:
-  eta:
-    bins:
-    - -1.0
-    - 1.0
-    max: 1.0
-    min: -1.0
-  pT:
-    bins:
-    - 0.1915
-    - 0.5705
-    - 0.96
-    - 1.359
-    - 1.778
-    - 2.28
-    - 2.8075
-    - 3.2984999999999998
-    max: 3.2984999999999998
-    min: 0.1915
-method: event_plane
-observable_type: flow_vn
-particle_id:
-  species: charged
-qualifiers:
-  p_{t} (gev/c): $ 0 -10\% $
-source_file: star_flow_vn_centrality_and_transverse_momentum_dependence_200gev.yaml
-value_type: v_{3}$ $\pi^{+}
-version: 2
----
-centrality:
-  classes:
-  - 10.0-40.0%
-  estimator:
-    detector: TPC
-    name: RefMult
-    observable: Nch
-  eta:
-  - max: 0.5
-    min: -0.5
+dv_index: 0
+hepdata_table_label: The transverse momentum dependence of $v_{3} \pi^{+}$ for 0-10 central Au+Au collisions. | $v_{3}$ $\pi^{+}$
 collision_system:
   energy_gev: 200.0
-  reaction: unknown
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: pi+
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.331
+    max: 3.103
+    points:
+    - 0.381
+    - 0.76
+    - 1.16
+    - 1.558
+    - 1.998
+    - 2.562
+    - 3.053
+    point_window: 0.1
+harmonic: 3
+method: event_plane
+value_type: $v_{3}$ $\pi^{+}$
 dimensionality: differential_pT
 flow_reference:
   detector: TPC
-  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
-    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
-    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
-    from the collaboration's standard practice and from this table's charged rows,
-    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
-    the text.
-  provenance: assumed_tpc
-  same_sample_as_poi: true
-harmonic: 3
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v3(pT) of pi+, 0-10% (Figure 3); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
 hepdata_file: Fig_3_v3_pi_2.yaml
-hepdata_table_label: 'The transverse momentum dependence of $v_{3} \pi^{+}$ for 10-40
-  central Au+Au collisions.
-
-  '
-inspire_id: '2051708'
-kinematic_range:
-  eta:
-    bins:
-    - -1.0
-    - 1.0
-    max: 1.0
-    min: -1.0
-  pT:
-    bins:
-    - 0.1915
-    - 0.5705
-    - 0.96
-    - 1.359
-    - 1.778
-    - 2.28
-    - 2.844
-    max: 2.844
-    min: 0.1915
-method: event_plane
-observable_type: flow_vn
-particle_id:
-  species: charged
-qualifiers:
-  p_{t} (gev/c): $ 10-40\% $
-source_file: star_flow_vn_centrality_and_transverse_momentum_dependence_200gev.yaml
-value_type: v_{3}$ $\pi^{+}
-version: 2
----
-centrality:
-  classes:
-  - 40.0-80.0%
-  estimator:
-    detector: TPC
-    name: RefMult
-    observable: Nch
-  eta:
-  - max: 0.5
-    min: -0.5
+dv_index: 0
+hepdata_table_label: The transverse momentum dependence of $v_{3} \pi^{+}$ for 10-40 central Au+Au collisions. | $v_{3}$ $\pi^{+}$
 collision_system:
   energy_gev: 200.0
-  reaction: unknown
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: pi+
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.331
+    max: 2.612
+    points:
+    - 0.381
+    - 0.76
+    - 1.16
+    - 1.558
+    - 1.998
+    - 2.562
+    point_window: 0.1
+harmonic: 3
+method: event_plane
+value_type: $v_{3}$ $\pi^{+}$
 dimensionality: differential_pT
 flow_reference:
   detector: TPC
-  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
-    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
-    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
-    from the collaboration's standard practice and from this table's charged rows,
-    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
-    the text.
-  provenance: assumed_tpc
-  same_sample_as_poi: true
-harmonic: 3
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v3(pT) of pi+, 10-40% (Figure 3); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
 hepdata_file: Fig_3_v3_pi_3.yaml
-hepdata_table_label: 'The transverse momentum dependence of $v_{3} \pi^{+}$, for 40-80
-  central Au+Au collisions.
-
-  '
-inspire_id: '2051708'
-kinematic_range:
-  eta:
-    bins:
-    - -1.0
-    - 1.0
-    max: 1.0
-    min: -1.0
-  pT:
-    bins:
-    - 0.1915
-    - 0.5705
-    - 0.96
-    - 1.359
-    - 1.778
-    - 2.28
-    - 2.844
-    max: 2.844
-    min: 0.1915
-method: event_plane
-observable_type: flow_vn
-particle_id:
-  species: charged
-qualifiers:
-  p_{t} (gev/c): $ 40-80\% $
-source_file: star_flow_vn_centrality_and_transverse_momentum_dependence_200gev.yaml
-value_type: v_{3}$ $\pi^{+}
-version: 2
----
-centrality:
-  classes:
-  - 0.0-10.0%
-  estimator:
-    detector: TPC
-    name: RefMult
-    observable: Nch
-  eta:
-  - max: 0.5
-    min: -0.5
+dv_index: 0
+hepdata_table_label: The transverse momentum dependence of $v_{3} \pi^{+}$, for 40-80 central Au+Au collisions. | $v_{3}$
+  $\pi^{+}$
 collision_system:
   energy_gev: 200.0
-  reaction: unknown
-dimensionality: differential_pT
-flow_reference:
-  detector: TPC
-  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
-    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
-    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
-    from the collaboration's standard practice and from this table's charged rows,
-    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
-    the text.
-  provenance: assumed_tpc
-  same_sample_as_poi: true
-harmonic: 4
-hepdata_file: Fig_3_v4_k_1.yaml
-hepdata_table_label: 'The transverse momentum dependence of $v_{4} K^{+}$ for 0-10
-  central Au+Au collisions.
-
-  '
-inspire_id: '2051708'
-kinematic_range:
-  eta:
-    bins:
-    - -1.0
-    - 1.0
-    max: 1.0
-    min: -1.0
-  pT:
-    bins:
-    - 0.2965
-    - 0.6215
-    - 0.976
-    - 1.3575
-    - 1.7850000000000001
-    - 2.294
-    - 2.836
-    max: 2.836
-    min: 0.2965
-method: event_plane
-observable_type: flow_vn
-particle_id:
-  species: charged
-qualifiers:
-  p_{t} (gev/c): $ 0 -10\% $
-source_file: star_flow_vn_centrality_and_transverse_momentum_dependence_200gev.yaml
-value_type: v_{4}$ $K^{+}
-version: 2
----
+  reaction: AU AU --> X
 centrality:
   classes:
-  - 10.0-40.0%
+  - 40-80%
   estimator:
-    detector: TPC
     name: RefMult
     observable: Nch
+    detector: TPC
   eta:
-  - max: 0.5
-    min: -0.5
-collision_system:
-  energy_gev: 200.0
-  reaction: unknown
-dimensionality: differential_pT
-flow_reference:
-  detector: TPC
-  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
-    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
-    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
-    from the collaboration's standard practice and from this table's charged rows,
-    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
-    the text.
-  provenance: assumed_tpc
-  same_sample_as_poi: true
-harmonic: 4
-hepdata_file: Fig_3_v4_k_2.yaml
-hepdata_table_label: 'The transverse momentum dependence of $v_{4} K^{+}$ for 10-40
-  central Au+Au collisions.
-
-  '
-inspire_id: '2051708'
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: pi+
 kinematic_range:
   eta:
-    bins:
-    - -1.0
-    - 1.0
-    max: 1.0
     min: -1.0
-  pT:
-    bins:
-    - 0.2965
-    - 0.6215
-    - 0.976
-    - 1.3575
-    - 1.7850000000000001
-    - 2.294
-    - 2.836
-    max: 2.836
-    min: 0.2965
-method: event_plane
-observable_type: flow_vn
-particle_id:
-  species: charged
-qualifiers:
-  p_{t} (gev/c): $ 10-40\% $
-source_file: star_flow_vn_centrality_and_transverse_momentum_dependence_200gev.yaml
-value_type: v_{4}$ $K^{+}
-version: 2
----
-centrality:
-  classes:
-  - 40.0-80.0%
-  estimator:
-    detector: TPC
-    name: RefMult
-    observable: Nch
-  eta:
-  - max: 0.5
-    min: -0.5
-collision_system:
-  energy_gev: 200.0
-  reaction: unknown
-dimensionality: differential_pT
-flow_reference:
-  detector: TPC
-  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
-    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
-    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
-    from the collaboration's standard practice and from this table's charged rows,
-    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
-    the text.
-  provenance: assumed_tpc
-  same_sample_as_poi: true
-harmonic: 4
-hepdata_file: Fig_3_v4_k_3.yaml
-hepdata_table_label: 'The transverse momentum dependence of $v_{4} K^{+}$, for 40-80
-  central Au+Au collisions.
-
-  '
-inspire_id: '2051708'
-kinematic_range:
-  eta:
-    bins:
-    - -1.0
-    - 1.0
     max: 1.0
-    min: -1.0
   pT:
-    bins:
-    - 0.2965
-    - 0.6215
-    - 0.976
-    - 1.3575
-    - 1.7850000000000001
-    - 2.261
-    max: 2.261
-    min: 0.2965
+    min: 0.331
+    max: 2.612
+    points:
+    - 0.381
+    - 0.76
+    - 1.16
+    - 1.558
+    - 1.998
+    - 2.562
+    point_window: 0.1
+harmonic: 3
 method: event_plane
-observable_type: flow_vn
-particle_id:
-  species: charged
-qualifiers:
-  p_{t} (gev/c): $ 40-80\% $
-source_file: star_flow_vn_centrality_and_transverse_momentum_dependence_200gev.yaml
-value_type: v_{4}$ $K^{+}
-version: 2
----
-centrality:
-  classes:
-  - 0.0-10.0%
-  estimator:
-    detector: TPC
-    name: RefMult
-    observable: Nch
-  eta:
-  - max: 0.5
-    min: -0.5
-collision_system:
-  energy_gev: 200.0
-  reaction: unknown
+value_type: $v_{3}$ $\pi^{+}$
 dimensionality: differential_pT
 flow_reference:
   detector: TPC
   eta:
-  - max: 1.0
-    min: -1.0
-  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
-    (p) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi and
-    is subtracted. INFERRED from the charged rows of the same table, not quoted from
-    the paper.
-  provenance: assumed_tpc
-harmonic: 4
-hepdata_file: Fig_3_v4_p_1.yaml
-hepdata_table_label: 'The transverse momentum dependence of $v_{4} p^{+}$ for 0-10
-  central Au+Au collisions.
-
-  '
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v3(pT) of pi+, 40-80% (Figure 3); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
 inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_3_v3_k.yaml
+dv_index: 0
+hepdata_table_label: The transverse momentum dependence of $v_{3} k^{+}$ for 0-10, 10-40 and 40-80 central Au+Au collisions.
+  | $v_{3}$ $K^{+}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: K+
 kinematic_range:
   eta:
-    bins:
-    - -1.0
-    - 1.0
-    max: 1.0
     min: -1.0
+    max: 1.0
   pT:
-    bins:
-    - 0.32249999999999995
-    - 0.6455
-    - 0.9964999999999999
-    - 1.3795
-    - 1.801
-    - 2.2945
-    - 2.79
-    - 3.25
-    max: 3.25
-    min: 0.32249999999999995
+    min: 0.409
+    max: 2.615
+    points:
+    - 0.459
+    - 0.784
+    - 1.168
+    - 1.547
+    - 2.023
+    - 2.565
+    point_window: 0.1
+harmonic: 3
 method: event_plane
+value_type: $v_{3}$ $K^{+}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v3(pT) of K+, 0-10% (Figure 3); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
 observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_3_v3_k.yaml
+dv_index: 1
+hepdata_table_label: The transverse momentum dependence of $v_{3} k^{+}$ for 0-10, 10-40 and 40-80 central Au+Au collisions.
+  | $v_{3}$ $K^{+}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: K+
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.409
+    max: 2.615
+    points:
+    - 0.459
+    - 0.784
+    - 1.168
+    - 1.547
+    - 2.023
+    - 2.565
+    point_window: 0.1
+harmonic: 3
+method: event_plane
+value_type: $v_{3}$ $K^{+}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v3(pT) of K+, 10-40% (Figure 3); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_3_v3_k.yaml
+dv_index: 2
+hepdata_table_label: The transverse momentum dependence of $v_{3} k^{+}$ for 0-10, 10-40 and 40-80 central Au+Au collisions.
+  | $v_{3}$ $K^{+}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 40-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: K+
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.409
+    max: 2.615
+    points:
+    - 0.459
+    - 0.784
+    - 1.168
+    - 1.547
+    - 2.023
+    - 2.565
+    point_window: 0.1
+harmonic: 3
+method: event_plane
+value_type: $v_{3}$ $K^{+}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v3(pT) of K+, 40-80% (Figure 3); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_3_v3_p.yaml
+dv_index: 0
+hepdata_table_label: The transverse momentum dependence of $v_{3} p^{+}$, for 0-10, 10-40 and 40-80 central Au+Au collisions.
+  | $v_{3}$ $p^{+}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
 particle_id:
   species: p
-qualifiers:
-  p_{t} (gev/c): $ 0 -10\% $
-source_file: star_flow_vn_centrality_and_transverse_momentum_dependence_200gev.yaml
-value_type: v_{4}$ $p^{+}
-version: 2
----
-centrality:
-  classes:
-  - 10.0-40.0%
-  estimator:
-    detector: TPC
-    name: RefMult
-    observable: Nch
-  eta:
-  - max: 0.5
-    min: -0.5
-collision_system:
-  energy_gev: 200.0
-  reaction: unknown
-dimensionality: differential_pT
-flow_reference:
-  detector: TPC
-  eta:
-  - max: 1.0
-    min: -1.0
-  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
-    (p) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi and
-    is subtracted. INFERRED from the charged rows of the same table, not quoted from
-    the paper.
-  provenance: assumed_tpc
-harmonic: 4
-hepdata_file: Fig_3_v4_p_2.yaml
-hepdata_table_label: 'The transverse momentum dependence of $v_{4} p^{+}$ for 10-40
-  central Au+Au collisions.
-
-  '
-inspire_id: '2051708'
 kinematic_range:
   eta:
-    bins:
-    - -1.0
-    - 1.0
-    max: 1.0
     min: -1.0
+    max: 1.0
   pT:
-    bins:
-    - 0.32249999999999995
-    - 0.6455
-    - 0.9964999999999999
-    - 1.3795
-    - 1.801
-    - 2.2945
-    - 2.79
-    - 3.25
-    max: 3.25
-    min: 0.32249999999999995
+    min: 0.434
+    max: 2.61
+    points:
+    - 0.484
+    - 0.807
+    - 1.186
+    - 1.573
+    - 2.029
+    - 2.56
+    point_window: 0.1
+harmonic: 3
 method: event_plane
-observable_type: flow_vn
-particle_id:
-  species: p
-qualifiers:
-  p_{t} (gev/c): $ 10-40\% $
-source_file: star_flow_vn_centrality_and_transverse_momentum_dependence_200gev.yaml
-value_type: v_{4}$ $p^{+}
-version: 2
----
-centrality:
-  classes:
-  - 40.0-80.0%
-  estimator:
-    detector: TPC
-    name: RefMult
-    observable: Nch
-  eta:
-  - max: 0.5
-    min: -0.5
-collision_system:
-  energy_gev: 200.0
-  reaction: unknown
+value_type: $v_{3}$ $p^{+}$
 dimensionality: differential_pT
 flow_reference:
   detector: TPC
   eta:
-  - max: 1.0
-    min: -1.0
-  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
-    (p) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi and
-    is subtracted. INFERRED from the charged rows of the same table, not quoted from
-    the paper.
-  provenance: assumed_tpc
-harmonic: 4
-hepdata_file: Fig_3_v4_p_3.yaml
-hepdata_table_label: 'The transverse momentum dependence of $v_{4} p^{+}$, for 40-80
-  central Au+Au collisions.
-
-  '
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v3(pT) of p, 0-10% (Figure 3); eta-sub event
+    plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta| < 1; pT
+    points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
 inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_3_v3_p.yaml
+dv_index: 1
+hepdata_table_label: The transverse momentum dependence of $v_{3} p^{+}$, for 0-10, 10-40 and 40-80 central Au+Au collisions.
+  | $v_{3}$ $p^{+}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: p
 kinematic_range:
   eta:
-    bins:
-    - -1.0
-    - 1.0
-    max: 1.0
     min: -1.0
+    max: 1.0
   pT:
-    bins:
-    - 0.32249999999999995
-    - 0.6455
-    - 0.9964999999999999
-    - 1.3795
-    - 1.801
-    - 2.2569999999999997
-    max: 2.2569999999999997
-    min: 0.32249999999999995
+    min: 0.434
+    max: 2.61
+    points:
+    - 0.484
+    - 0.807
+    - 1.186
+    - 1.573
+    - 2.029
+    - 2.56
+    point_window: 0.1
+harmonic: 3
 method: event_plane
-observable_type: flow_vn
-particle_id:
-  species: p
-qualifiers:
-  p_{t} (gev/c): $ 40-80\% $
-source_file: star_flow_vn_centrality_and_transverse_momentum_dependence_200gev.yaml
-value_type: v_{4}$ $p^{+}
-version: 2
----
-centrality:
-  classes:
-  - 0.0-10.0%
-  estimator:
-    detector: TPC
-    name: RefMult
-    observable: Nch
-  eta:
-  - max: 0.5
-    min: -0.5
-collision_system:
-  energy_gev: 200.0
-  reaction: unknown
+value_type: $v_{3}$ $p^{+}$
 dimensionality: differential_pT
 flow_reference:
   detector: TPC
-  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
-    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
-    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
-    from the collaboration's standard practice and from this table's charged rows,
-    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
-    the text.
-  provenance: assumed_tpc
-  same_sample_as_poi: true
-harmonic: 4
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v3(pT) of p, 10-40% (Figure 3); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_3_v3_p.yaml
+dv_index: 2
+hepdata_table_label: The transverse momentum dependence of $v_{3} p^{+}$, for 0-10, 10-40 and 40-80 central Au+Au collisions.
+  | $v_{3}$ $p^{+}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 40-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: p
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.434
+    max: 2.61
+    points:
+    - 0.484
+    - 0.807
+    - 1.186
+    - 1.573
+    - 2.029
+    - 2.56
+    point_window: 0.1
+harmonic: 3
+method: event_plane
+value_type: $v_{3}$ $p^{+}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v3(pT) of p, 40-80% (Figure 3); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
 hepdata_file: Fig_3_v4_pi_1.yaml
-hepdata_table_label: 'The transverse momentum dependence of $v_{4} \pi^{+}$ for 0-10
-  central Au+Au collisions.
-
-  '
-inspire_id: '2051708'
-kinematic_range:
-  eta:
-    bins:
-    - -1.0
-    - 1.0
-    max: 1.0
-    min: -1.0
-  pT:
-    bins:
-    - 0.1915
-    - 0.5705
-    - 0.96
-    - 1.359
-    - 1.778
-    - 2.28
-    - 2.8075
-    - 3.2984999999999998
-    max: 3.2984999999999998
-    min: 0.1915
-method: event_plane
-observable_type: flow_vn
-particle_id:
-  species: charged
-qualifiers:
-  p_{t} (gev/c): $ 0 -10\% $
-source_file: star_flow_vn_centrality_and_transverse_momentum_dependence_200gev.yaml
-value_type: v_{4}$ $\pi^{+}
-version: 2
----
-centrality:
-  classes:
-  - 10.0-40.0%
-  estimator:
-    detector: TPC
-    name: RefMult
-    observable: Nch
-  eta:
-  - max: 0.5
-    min: -0.5
+dv_index: 0
+hepdata_table_label: The transverse momentum dependence of $v_{4} \pi^{+}$ for 0-10 central Au+Au collisions. | $v_{4}$ $\pi^{+}$
 collision_system:
   energy_gev: 200.0
-  reaction: unknown
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: pi+
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.331
+    max: 3.103
+    points:
+    - 0.381
+    - 0.76
+    - 1.16
+    - 1.558
+    - 1.998
+    - 2.562
+    - 3.053
+    point_window: 0.1
+harmonic: 4
+method: event_plane
+value_type: $v_{4}$ $\pi^{+}$
 dimensionality: differential_pT
 flow_reference:
   detector: TPC
-  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
-    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
-    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
-    from the collaboration's standard practice and from this table's charged rows,
-    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
-    the text.
-  provenance: assumed_tpc
-  same_sample_as_poi: true
-harmonic: 4
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v4(pT) of pi+, 0-10% (Figure 3); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
 hepdata_file: Fig_3_v4_pi_2.yaml
-hepdata_table_label: 'The transverse momentum dependence of $v_{4} \pi^{+}$ for 10-40
-  central Au+Au collisions.
-
-  '
-inspire_id: '2051708'
-kinematic_range:
-  eta:
-    bins:
-    - -1.0
-    - 1.0
-    max: 1.0
-    min: -1.0
-  pT:
-    bins:
-    - 0.1915
-    - 0.5705
-    - 0.96
-    - 1.359
-    - 1.778
-    - 2.28
-    - 2.8075
-    - 3.2984999999999998
-    max: 3.2984999999999998
-    min: 0.1915
-method: event_plane
-observable_type: flow_vn
-particle_id:
-  species: charged
-qualifiers:
-  p_{t} (gev/c): $ 10-40\% $
-source_file: star_flow_vn_centrality_and_transverse_momentum_dependence_200gev.yaml
-value_type: v_{4}$ $\pi^{+}
-version: 2
----
-centrality:
-  classes:
-  - 40.0-80.0%
-  estimator:
-    detector: TPC
-    name: RefMult
-    observable: Nch
-  eta:
-  - max: 0.5
-    min: -0.5
+dv_index: 0
+hepdata_table_label: The transverse momentum dependence of $v_{4} \pi^{+}$ for 10-40 central Au+Au collisions. | $v_{4}$ $\pi^{+}$
 collision_system:
   energy_gev: 200.0
-  reaction: unknown
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: pi+
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.331
+    max: 3.103
+    points:
+    - 0.381
+    - 0.76
+    - 1.16
+    - 1.558
+    - 1.998
+    - 2.562
+    - 3.053
+    point_window: 0.1
+harmonic: 4
+method: event_plane
+value_type: $v_{4}$ $\pi^{+}$
 dimensionality: differential_pT
 flow_reference:
   detector: TPC
-  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
-    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
-    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
-    from the collaboration's standard practice and from this table's charged rows,
-    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
-    the text.
-  provenance: assumed_tpc
-  same_sample_as_poi: true
-harmonic: 4
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v4(pT) of pi+, 10-40% (Figure 3); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
 hepdata_file: Fig_3_v4_pi_3.yaml
-hepdata_table_label: 'The transverse momentum dependence of $v_{4} \pi^{+}$, for 40-80
-  central Au+Au collisions.
-
-  '
-inspire_id: '2051708'
-kinematic_range:
-  eta:
-    bins:
-    - -1.0
-    - 1.0
-    max: 1.0
-    min: -1.0
-  pT:
-    bins:
-    - 0.1915
-    - 0.5705
-    - 0.96
-    - 1.359
-    - 1.778
-    - 2.28
-    - 2.844
-    max: 2.844
-    min: 0.1915
-method: event_plane
-observable_type: flow_vn
-particle_id:
-  species: charged
-qualifiers:
-  p_{t} (gev/c): $ 40-80\% $
-source_file: star_flow_vn_centrality_and_transverse_momentum_dependence_200gev.yaml
-value_type: v_{4}$ $\pi^{+}
-version: 2
----
-centrality:
-  classes:
-  - 40.0-80.0%
-  estimator:
-    detector: TPC
-    name: RefMult
-    observable: Nch
-  eta:
-  - max: 0.5
-    min: -0.5
+dv_index: 0
+hepdata_table_label: The transverse momentum dependence of $v_{4} \pi^{+}$, for 40-80 central Au+Au collisions. | $v_{4}$
+  $\pi^{+}$
 collision_system:
   energy_gev: 200.0
-  reaction: unknown
-dimensionality: differential_pT
-flow_reference:
-  detector: TPC
-  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
-    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
-    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
-    from the collaboration's standard practice and from this table's charged rows,
-    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
-    the text.
-  provenance: assumed_tpc
-  same_sample_as_poi: true
-harmonic: 2
-hepdata_file: Fig_4_v2_k.yaml
-hepdata_table_label: 'The transverse momentum dependence of $v_{2} k^{-}$ for  0-10,
-  10-40 and 40-80 central Au+Au collisions.
-
-  '
-inspire_id: '2051708'
-kinematic_range:
-  eta:
-    bins:
-    - -1.0
-    - 1.0
-    max: 1.0
-    min: -1.0
-  pT:
-    bins:
-    - 0.29500000000000004
-    - 0.621
-    - 0.976
-    - 1.3575
-    - 1.7845
-    - 2.2935
-    - 2.8365
-    max: 2.8365
-    min: 0.29500000000000004
-method: event_plane
-observable_type: flow_vn
-particle_id:
-  species: charged
-qualifiers:
-  p_{t} (gev/c): $ 40-80\% $
-source_file: star_flow_vn_centrality_and_transverse_momentum_dependence_200gev.yaml
-value_type: v_{2}$ $K^{-}
-version: 2
----
+  reaction: AU AU --> X
 centrality:
   classes:
-  - 40.0-80.0%
+  - 40-80%
   estimator:
-    detector: TPC
     name: RefMult
     observable: Nch
+    detector: TPC
   eta:
-  - max: 0.5
-    min: -0.5
-collision_system:
-  energy_gev: 200.0
-  reaction: unknown
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: pi+
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.331
+    max: 2.612
+    points:
+    - 0.381
+    - 0.76
+    - 1.16
+    - 1.558
+    - 1.998
+    - 2.562
+    point_window: 0.1
+harmonic: 4
+method: event_plane
+value_type: $v_{4}$ $\pi^{+}$
 dimensionality: differential_pT
 flow_reference:
   detector: TPC
   eta:
-  - max: 1.0
-    min: -1.0
-  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
-    (p) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi and
-    is subtracted. INFERRED from the charged rows of the same table, not quoted from
-    the paper.
-  provenance: assumed_tpc
-harmonic: 2
-hepdata_file: Fig_4_v2_p.yaml
-hepdata_table_label: 'The transverse momentum dependence of $v_{2} p^{-}$ for  0-10,
-  10-40 and 40-80 central Au+Au collisions.
-
-  '
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v4(pT) of pi+, 40-80% (Figure 3); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
 inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_3_v4_k_1.yaml
+dv_index: 0
+hepdata_table_label: The transverse momentum dependence of $v_{4} K^{+}$ for 0-10 central Au+Au collisions. | $v_{4}$ $K^{+}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: K+
 kinematic_range:
   eta:
-    bins:
-    - -1.0
-    - 1.0
-    max: 1.0
     min: -1.0
+    max: 1.0
   pT:
-    bins:
-    - 0.31849999999999995
-    - 0.6455
-    - 0.998
-    - 1.38
-    - 1.801
-    - 2.2945
-    - 2.7895000000000003
-    - 3.2485
-    max: 3.2485
-    min: 0.31849999999999995
+    min: 0.409
+    max: 2.615
+    points:
+    - 0.459
+    - 0.784
+    - 1.168
+    - 1.547
+    - 2.023
+    - 2.565
+    point_window: 0.1
+harmonic: 4
 method: event_plane
+value_type: $v_{4}$ $K^{+}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v4(pT) of K+, 0-10% (Figure 3); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
 observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_3_v4_k_2.yaml
+dv_index: 0
+hepdata_table_label: The transverse momentum dependence of $v_{4} K^{+}$ for 10-40 central Au+Au collisions. | $v_{4}$ $K^{+}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: K+
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.409
+    max: 2.615
+    points:
+    - 0.459
+    - 0.784
+    - 1.168
+    - 1.547
+    - 2.023
+    - 2.565
+    point_window: 0.1
+harmonic: 4
+method: event_plane
+value_type: $v_{4}$ $K^{+}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v4(pT) of K+, 10-40% (Figure 3); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_3_v4_k_3.yaml
+dv_index: 0
+hepdata_table_label: The transverse momentum dependence of $v_{4} K^{+}$, for 40-80 central Au+Au collisions. | $v_{4}$ $K^{+}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 40-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: K+
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.409
+    max: 2.073
+    points:
+    - 0.459
+    - 0.784
+    - 1.168
+    - 1.547
+    - 2.023
+    point_window: 0.1
+harmonic: 4
+method: event_plane
+value_type: $v_{4}$ $K^{+}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v4(pT) of K+, 40-80% (Figure 3); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_3_v4_p_1.yaml
+dv_index: 0
+hepdata_table_label: The transverse momentum dependence of $v_{4} p^{+}$ for 0-10 central Au+Au collisions. | $v_{4}$ $p^{+}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
 particle_id:
   species: p
-qualifiers:
-  p_{t} (gev/c): $ 40-80\% $
-source_file: star_flow_vn_centrality_and_transverse_momentum_dependence_200gev.yaml
-value_type: v_{2}$ $p^{-}
-version: 2
----
-centrality:
-  classes:
-  - 40.0-80.0%
-  estimator:
-    detector: TPC
-    name: RefMult
-    observable: Nch
+kinematic_range:
   eta:
-  - max: 0.5
-    min: -0.5
-collision_system:
-  energy_gev: 200.0
-  reaction: unknown
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.434
+    max: 3.07
+    points:
+    - 0.484
+    - 0.807
+    - 1.186
+    - 1.573
+    - 2.029
+    - 2.56
+    - 3.02
+    point_window: 0.1
+harmonic: 4
+method: event_plane
+value_type: $v_{4}$ $p^{+}$
 dimensionality: differential_pT
 flow_reference:
   detector: TPC
-  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
-    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
-    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
-    from the collaboration's standard practice and from this table's charged rows,
-    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
-    the text.
-  provenance: assumed_tpc
-  same_sample_as_poi: true
-harmonic: 2
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v4(pT) of p, 0-10% (Figure 3); eta-sub event
+    plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta| < 1; pT
+    points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_3_v4_p_2.yaml
+dv_index: 0
+hepdata_table_label: The transverse momentum dependence of $v_{4} p^{+}$ for 10-40 central Au+Au collisions. | $v_{4}$ $p^{+}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: p
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.434
+    max: 3.07
+    points:
+    - 0.484
+    - 0.807
+    - 1.186
+    - 1.573
+    - 2.029
+    - 2.56
+    - 3.02
+    point_window: 0.1
+harmonic: 4
+method: event_plane
+value_type: $v_{4}$ $p^{+}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v4(pT) of p, 10-40% (Figure 3); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_3_v4_p_3.yaml
+dv_index: 0
+hepdata_table_label: The transverse momentum dependence of $v_{4} p^{+}$, for 40-80 central Au+Au collisions. | $v_{4}$ $p^{+}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 40-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: p
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.434
+    max: 2.079
+    points:
+    - 0.484
+    - 0.807
+    - 1.186
+    - 1.573
+    - 2.029
+    point_window: 0.1
+harmonic: 4
+method: event_plane
+value_type: $v_{4}$ $p^{+}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v4(pT) of p, 40-80% (Figure 3); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
 hepdata_file: Fig_4_v2_pi.yaml
-hepdata_table_label: 'The transverse momentum dependence of $v_{2} \pi^{-}$ for  0-10,
-  10-40 and 40-80 central Au+Au collisions.
-
-  '
-inspire_id: '2051708'
-kinematic_range:
-  eta:
-    bins:
-    - -1.0
-    - 1.0
-    max: 1.0
-    min: -1.0
-  pT:
-    bins:
-    - 0.1915
-    - 0.5705
-    - 0.96
-    - 1.359
-    - 1.778
-    - 2.2795
-    - 2.806
-    - 3.2960000000000003
-    max: 3.2960000000000003
-    min: 0.1915
-method: event_plane
-observable_type: flow_vn
-particle_id:
-  species: charged
-qualifiers:
-  p_{t} (gev/c): $ 40-80\% $
-source_file: star_flow_vn_centrality_and_transverse_momentum_dependence_200gev.yaml
-value_type: v_{2}$ $\pi^{-}
-version: 2
----
-centrality:
-  classes:
-  - 40.0-80.0%
-  estimator:
-    detector: TPC
-    name: RefMult
-    observable: Nch
-  eta:
-  - max: 0.5
-    min: -0.5
+dv_index: 0
+hepdata_table_label: The transverse momentum dependence of $v_{2} \pi^{-}$ for 0-10, 10-40 and 40-80 central Au+Au collisions.
+  | $v_{2}$ $\pi^{-}$
 collision_system:
   energy_gev: 200.0
-  reaction: unknown
-dimensionality: differential_pT
-flow_reference:
-  detector: TPC
-  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
-    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
-    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
-    from the collaboration's standard practice and from this table's charged rows,
-    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
-    the text.
-  provenance: assumed_tpc
-  same_sample_as_poi: true
-harmonic: 3
-hepdata_file: Fig_4_v3_k.yaml
-hepdata_table_label: 'The transverse momentum dependence of $v_{3}ki^{-}$ for  0-10,
-  10-40 and 40-80 central Au+Au collisions.
-
-  '
-inspire_id: '2051708'
-kinematic_range:
-  eta:
-    bins:
-    - -1.0
-    - 1.0
-    max: 1.0
-    min: -1.0
-  pT:
-    bins:
-    - 0.29500000000000004
-    - 0.621
-    - 0.976
-    - 1.3575
-    - 1.7845
-    - 2.2935
-    - 2.8365
-    max: 2.8365
-    min: 0.29500000000000004
-method: event_plane
-observable_type: flow_vn
-particle_id:
-  species: charged
-qualifiers:
-  p_{t} (gev/c): $ 40-80\% $
-source_file: star_flow_vn_centrality_and_transverse_momentum_dependence_200gev.yaml
-value_type: v_{3}$ $K^{-}
-version: 2
----
+  reaction: AU AU --> X
 centrality:
   classes:
-  - 40.0-80.0%
+  - 0-10%
   estimator:
-    detector: TPC
     name: RefMult
     observable: Nch
+    detector: TPC
   eta:
-  - max: 0.5
-    min: -0.5
-collision_system:
-  energy_gev: 200.0
-  reaction: unknown
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: pi-
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.331
+    max: 3.101
+    points:
+    - 0.381
+    - 0.76
+    - 1.16
+    - 1.558
+    - 1.998
+    - 2.561
+    - 3.051
+    point_window: 0.1
+harmonic: 2
+method: event_plane
+value_type: $v_{2}$ $\pi^{-}$
 dimensionality: differential_pT
 flow_reference:
   detector: TPC
   eta:
-  - max: 1.0
-    min: -1.0
-  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
-    (p) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi and
-    is subtracted. INFERRED from the charged rows of the same table, not quoted from
-    the paper.
-  provenance: assumed_tpc
-harmonic: 3
-hepdata_file: Fig_4_v3_p.yaml
-hepdata_table_label: 'The transverse momentum dependence of $v_{3} p^{-}$ for  0-10,
-  10-40 and 40-80 central Au+Au collisions.
-
-  '
-inspire_id: '2051708'
-kinematic_range:
-  eta:
-    bins:
-    - -1.0
-    - 1.0
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
     max: 1.0
-    min: -1.0
   pT:
-    bins:
-    - 0.31849999999999995
-    - 0.6455
-    - 0.998
-    - 1.38
-    - 1.801
-    - 2.2945
-    - 2.7895000000000003
-    - 3.2485
-    max: 3.2485
-    min: 0.31849999999999995
-method: event_plane
-observable_type: flow_vn
-particle_id:
-  species: p
-qualifiers:
-  p_{t} (gev/c): $ 40-80\% $
-source_file: star_flow_vn_centrality_and_transverse_momentum_dependence_200gev.yaml
-value_type: v_{3}$ $p^{-}
-version: 2
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v2(pT) of pi-, 0-10% (Figure 4); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
 ---
-centrality:
-  classes:
-  - 40.0-80.0%
-  estimator:
-    detector: TPC
-    name: RefMult
-    observable: Nch
-  eta:
-  - max: 0.5
-    min: -0.5
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_4_v2_pi.yaml
+dv_index: 1
+hepdata_table_label: The transverse momentum dependence of $v_{2} \pi^{-}$ for 0-10, 10-40 and 40-80 central Au+Au collisions.
+  | $v_{2}$ $\pi^{-}$
 collision_system:
   energy_gev: 200.0
-  reaction: unknown
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: pi-
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.331
+    max: 3.101
+    points:
+    - 0.381
+    - 0.76
+    - 1.16
+    - 1.558
+    - 1.998
+    - 2.561
+    - 3.051
+    point_window: 0.1
+harmonic: 2
+method: event_plane
+value_type: $v_{2}$ $\pi^{-}$
 dimensionality: differential_pT
 flow_reference:
   detector: TPC
-  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
-    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
-    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
-    from the collaboration's standard practice and from this table's charged rows,
-    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
-    the text.
-  provenance: assumed_tpc
-  same_sample_as_poi: true
-harmonic: 3
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v2(pT) of pi-, 10-40% (Figure 4); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_4_v2_pi.yaml
+dv_index: 2
+hepdata_table_label: The transverse momentum dependence of $v_{2} \pi^{-}$ for 0-10, 10-40 and 40-80 central Au+Au collisions.
+  | $v_{2}$ $\pi^{-}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 40-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: pi-
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.331
+    max: 3.101
+    points:
+    - 0.381
+    - 0.76
+    - 1.16
+    - 1.558
+    - 1.998
+    - 2.561
+    - 3.051
+    point_window: 0.1
+harmonic: 2
+method: event_plane
+value_type: $v_{2}$ $\pi^{-}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v2(pT) of pi-, 40-80% (Figure 4); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_4_v2_k.yaml
+dv_index: 0
+hepdata_table_label: The transverse momentum dependence of $v_{2} k^{-}$ for 0-10, 10-40 and 40-80 central Au+Au collisions.
+  | $v_{2}$ $K^{-}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: K-
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.408
+    max: 2.615
+    points:
+    - 0.458
+    - 0.784
+    - 1.168
+    - 1.547
+    - 2.022
+    - 2.565
+    point_window: 0.1
+harmonic: 2
+method: event_plane
+value_type: $v_{2}$ $K^{-}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v2(pT) of K-, 0-10% (Figure 4); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_4_v2_k.yaml
+dv_index: 1
+hepdata_table_label: The transverse momentum dependence of $v_{2} k^{-}$ for 0-10, 10-40 and 40-80 central Au+Au collisions.
+  | $v_{2}$ $K^{-}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: K-
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.408
+    max: 2.615
+    points:
+    - 0.458
+    - 0.784
+    - 1.168
+    - 1.547
+    - 2.022
+    - 2.565
+    point_window: 0.1
+harmonic: 2
+method: event_plane
+value_type: $v_{2}$ $K^{-}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v2(pT) of K-, 10-40% (Figure 4); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_4_v2_k.yaml
+dv_index: 2
+hepdata_table_label: The transverse momentum dependence of $v_{2} k^{-}$ for 0-10, 10-40 and 40-80 central Au+Au collisions.
+  | $v_{2}$ $K^{-}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 40-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: K-
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.408
+    max: 2.615
+    points:
+    - 0.458
+    - 0.784
+    - 1.168
+    - 1.547
+    - 2.022
+    - 2.565
+    point_window: 0.1
+harmonic: 2
+method: event_plane
+value_type: $v_{2}$ $K^{-}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v2(pT) of K-, 40-80% (Figure 4); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_4_v2_p.yaml
+dv_index: 0
+hepdata_table_label: The transverse momentum dependence of $v_{2} p^{-}$ for 0-10, 10-40 and 40-80 central Au+Au collisions.
+  | $v_{2}$ $p^{-}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: pbar
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.432
+    max: 3.069
+    points:
+    - 0.482
+    - 0.809
+    - 1.187
+    - 1.573
+    - 2.029
+    - 2.56
+    - 3.019
+    point_window: 0.1
+harmonic: 2
+method: event_plane
+value_type: $v_{2}$ $p^{-}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v2(pT) of pbar, 0-10% (Figure 4); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_4_v2_p.yaml
+dv_index: 1
+hepdata_table_label: The transverse momentum dependence of $v_{2} p^{-}$ for 0-10, 10-40 and 40-80 central Au+Au collisions.
+  | $v_{2}$ $p^{-}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: pbar
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.432
+    max: 3.069
+    points:
+    - 0.482
+    - 0.809
+    - 1.187
+    - 1.573
+    - 2.029
+    - 2.56
+    - 3.019
+    point_window: 0.1
+harmonic: 2
+method: event_plane
+value_type: $v_{2}$ $p^{-}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v2(pT) of pbar, 10-40% (Figure 4); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_4_v2_p.yaml
+dv_index: 2
+hepdata_table_label: The transverse momentum dependence of $v_{2} p^{-}$ for 0-10, 10-40 and 40-80 central Au+Au collisions.
+  | $v_{2}$ $p^{-}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 40-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: pbar
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.432
+    max: 3.069
+    points:
+    - 0.482
+    - 0.809
+    - 1.187
+    - 1.573
+    - 2.029
+    - 2.56
+    - 3.019
+    point_window: 0.1
+harmonic: 2
+method: event_plane
+value_type: $v_{2}$ $p^{-}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v2(pT) of pbar, 40-80% (Figure 4); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
 hepdata_file: Fig_4_v3_pi.yaml
-hepdata_table_label: 'The transverse momentum dependence of $v_{3} \pi^{-}$ for  0-10,
-  10-40 and 40-80 central Au+Au collisions.
-
-  '
-inspire_id: '2051708'
-kinematic_range:
-  eta:
-    bins:
-    - -1.0
-    - 1.0
-    max: 1.0
-    min: -1.0
-  pT:
-    bins:
-    - 0.1915
-    - 0.5705
-    - 0.96
-    - 1.359
-    - 1.778
-    - 2.2795
-    - 2.806
-    - 3.2960000000000003
-    max: 3.2960000000000003
-    min: 0.1915
-method: event_plane
-observable_type: flow_vn
-particle_id:
-  species: charged
-qualifiers:
-  p_{t} (gev/c): $ 40-80\% $
-source_file: star_flow_vn_centrality_and_transverse_momentum_dependence_200gev.yaml
-value_type: v_{3}$ $\pi^{-}
-version: 2
----
-centrality:
-  classes:
-  - 0.0-10.0%
-  estimator:
-    detector: TPC
-    name: RefMult
-    observable: Nch
-  eta:
-  - max: 0.5
-    min: -0.5
+dv_index: 0
+hepdata_table_label: The transverse momentum dependence of $v_{3} \pi^{-}$ for 0-10, 10-40 and 40-80 central Au+Au collisions.
+  | $v_{3}$ $\pi^{-}$
 collision_system:
   energy_gev: 200.0
-  reaction: unknown
-dimensionality: differential_pT
-flow_reference:
-  detector: TPC
-  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
-    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
-    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
-    from the collaboration's standard practice and from this table's charged rows,
-    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
-    the text.
-  provenance: assumed_tpc
-  same_sample_as_poi: true
-harmonic: 4
-hepdata_file: Fig_4_v4_k_1.yaml
-hepdata_table_label: 'The transverse momentum dependence of $v_{4} k^{-}$ for 0-10
-  central Au+Au collisions.
-
-  '
-inspire_id: '2051708'
-kinematic_range:
-  eta:
-    bins:
-    - -1.0
-    - 1.0
-    max: 1.0
-    min: -1.0
-  pT:
-    bins:
-    - 0.29500000000000004
-    - 0.621
-    - 0.976
-    - 1.3575
-    - 1.7845
-    - 2.2935
-    - 2.8365
-    max: 2.8365
-    min: 0.29500000000000004
-method: event_plane
-observable_type: flow_vn
-particle_id:
-  species: charged
-qualifiers:
-  p_{t} (gev/c): $ 0 -10\% $
-source_file: star_flow_vn_centrality_and_transverse_momentum_dependence_200gev.yaml
-value_type: v_{4}$ $K^{-}
-version: 2
----
+  reaction: AU AU --> X
 centrality:
   classes:
-  - 10.0-40.0%
+  - 0-10%
   estimator:
-    detector: TPC
     name: RefMult
     observable: Nch
+    detector: TPC
   eta:
-  - max: 0.5
-    min: -0.5
-collision_system:
-  energy_gev: 200.0
-  reaction: unknown
-dimensionality: differential_pT
-flow_reference:
-  detector: TPC
-  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
-    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
-    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
-    from the collaboration's standard practice and from this table's charged rows,
-    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
-    the text.
-  provenance: assumed_tpc
-  same_sample_as_poi: true
-harmonic: 4
-hepdata_file: Fig_4_v4_k_2.yaml
-hepdata_table_label: 'The transverse momentum dependence of $v_{4} k^{-}$ for 10-40  central
-  Au+Au collisions.
-
-  '
-inspire_id: '2051708'
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: pi-
 kinematic_range:
   eta:
-    bins:
-    - -1.0
-    - 1.0
-    max: 1.0
     min: -1.0
-  pT:
-    bins:
-    - 0.5895
-    - 0.9745
-    - 1.357
-    - 1.786
-    - 2.2954999999999997
-    - 2.8365
-    max: 2.8365
-    min: 0.5895
-method: event_plane
-observable_type: flow_vn
-particle_id:
-  species: charged
-qualifiers:
-  p_{t} (gev/c): $ 10-40\% $
-source_file: star_flow_vn_centrality_and_transverse_momentum_dependence_200gev.yaml
-value_type: v_{4}$ $K^{-}
-version: 2
----
-centrality:
-  classes:
-  - 40.0-80.0%
-  estimator:
-    detector: TPC
-    name: RefMult
-    observable: Nch
-  eta:
-  - max: 0.5
-    min: -0.5
-collision_system:
-  energy_gev: 200.0
-  reaction: unknown
-dimensionality: differential_pT
-flow_reference:
-  detector: TPC
-  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
-    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
-    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
-    from the collaboration's standard practice and from this table's charged rows,
-    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
-    the text.
-  provenance: assumed_tpc
-  same_sample_as_poi: true
-harmonic: 4
-hepdata_file: Fig_4_v4_k_3.yaml
-hepdata_table_label: 'The transverse momentum dependence of $v_{4} k^{-}$ for  40-80
-  central Au+Au collisions.
-
-  '
-inspire_id: '2051708'
-kinematic_range:
-  eta:
-    bins:
-    - -1.0
-    - 1.0
     max: 1.0
-    min: -1.0
   pT:
-    bins:
-    - 0.28800000000000003
-    - 0.614
-    - 0.972
-    - 1.358
-    - 1.788
-    - 2.266
-    max: 2.266
-    min: 0.28800000000000003
+    min: 0.331
+    max: 3.101
+    points:
+    - 0.381
+    - 0.76
+    - 1.16
+    - 1.558
+    - 1.998
+    - 2.561
+    - 3.051
+    point_window: 0.1
+harmonic: 3
 method: event_plane
-observable_type: flow_vn
-particle_id:
-  species: charged
-qualifiers:
-  p_{t} (gev/c): $ 40-80\% $
-source_file: star_flow_vn_centrality_and_transverse_momentum_dependence_200gev.yaml
-value_type: v_{4}$ $K^{-}
-version: 2
----
-centrality:
-  classes:
-  - 40.0-80.0%
-  estimator:
-    detector: TPC
-    name: RefMult
-    observable: Nch
-  eta:
-  - max: 0.5
-    min: -0.5
-collision_system:
-  energy_gev: 200.0
-  reaction: unknown
+value_type: $v_{3}$ $\pi^{-}$
 dimensionality: differential_pT
 flow_reference:
   detector: TPC
   eta:
-  - max: 1.0
-    min: -1.0
-  notes: Event plane from charged TPC tracks in -1 < eta < 1; the particle of interest
-    (p) is a SUBSET of that sample, so the POI/reference diagonal equals N_poi and
-    is subtracted. INFERRED from the charged rows of the same table, not quoted from
-    the paper.
-  provenance: assumed_tpc
-harmonic: 4
-hepdata_file: Fig_4_v4_p.yaml
-hepdata_table_label: 'The transverse momentum dependence of $v_{4} p^{-}$ for  0-10,
-  10-40 and 40-80 central Au+Au collisions.
-
-  '
-inspire_id: '2051708'
-kinematic_range:
-  eta:
-    bins:
-    - -1.0
-    - 1.0
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
     max: 1.0
-    min: -1.0
   pT:
-    bins:
-    - 0.31849999999999995
-    - 0.6455
-    - 0.998
-    - 1.38
-    - 1.801
-    - 2.2945
-    - 2.8255
-    max: 2.8255
-    min: 0.31849999999999995
-method: event_plane
-observable_type: flow_vn
-particle_id:
-  species: p
-qualifiers:
-  p_{t} (gev/c): $ 40-80\% $
-source_file: star_flow_vn_centrality_and_transverse_momentum_dependence_200gev.yaml
-value_type: v_{4}$ $p^{-}
-version: 2
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v3(pT) of pi-, 0-10% (Figure 4); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
 ---
-centrality:
-  classes:
-  - 40.0-80.0%
-  estimator:
-    detector: TPC
-    name: RefMult
-    observable: Nch
-  eta:
-  - max: 0.5
-    min: -0.5
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_4_v3_pi.yaml
+dv_index: 1
+hepdata_table_label: The transverse momentum dependence of $v_{3} \pi^{-}$ for 0-10, 10-40 and 40-80 central Au+Au collisions.
+  | $v_{3}$ $\pi^{-}$
 collision_system:
   energy_gev: 200.0
-  reaction: unknown
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: pi-
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.331
+    max: 3.101
+    points:
+    - 0.381
+    - 0.76
+    - 1.16
+    - 1.558
+    - 1.998
+    - 2.561
+    - 3.051
+    point_window: 0.1
+harmonic: 3
+method: event_plane
+value_type: $v_{3}$ $\pi^{-}$
 dimensionality: differential_pT
 flow_reference:
   detector: TPC
-  notes: STAR midrapidity event plane reconstructed from TPC tracks in -1 < eta <
-    1 -- the same tracks whose flow is measured (STAR's 'standard event plane method',
-    V2{EP}, as opposed to the modified V2{EP2} that excludes same-side tracks). INFERRED
-    from the collaboration's standard practice and from this table's charged rows,
-    NOT quoted from the paper's method section; re-check provenance=assumed_tpc against
-    the text.
-  provenance: assumed_tpc
-  same_sample_as_poi: true
-harmonic: 4
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v3(pT) of pi-, 10-40% (Figure 4); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_4_v3_pi.yaml
+dv_index: 2
+hepdata_table_label: The transverse momentum dependence of $v_{3} \pi^{-}$ for 0-10, 10-40 and 40-80 central Au+Au collisions.
+  | $v_{3}$ $\pi^{-}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 40-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: pi-
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.331
+    max: 3.101
+    points:
+    - 0.381
+    - 0.76
+    - 1.16
+    - 1.558
+    - 1.998
+    - 2.561
+    - 3.051
+    point_window: 0.1
+harmonic: 3
+method: event_plane
+value_type: $v_{3}$ $\pi^{-}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v3(pT) of pi-, 40-80% (Figure 4); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_4_v3_k.yaml
+dv_index: 0
+hepdata_table_label: The transverse momentum dependence of $v_{3}ki^{-}$ for 0-10, 10-40 and 40-80 central Au+Au collisions.
+  | $v_{3}$ $K^{-}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: K-
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.408
+    max: 2.615
+    points:
+    - 0.458
+    - 0.784
+    - 1.168
+    - 1.547
+    - 2.022
+    - 2.565
+    point_window: 0.1
+harmonic: 3
+method: event_plane
+value_type: $v_{3}$ $K^{-}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v3(pT) of K-, 0-10% (Figure 4); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_4_v3_k.yaml
+dv_index: 1
+hepdata_table_label: The transverse momentum dependence of $v_{3}ki^{-}$ for 0-10, 10-40 and 40-80 central Au+Au collisions.
+  | $v_{3}$ $K^{-}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: K-
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.408
+    max: 2.615
+    points:
+    - 0.458
+    - 0.784
+    - 1.168
+    - 1.547
+    - 2.022
+    - 2.565
+    point_window: 0.1
+harmonic: 3
+method: event_plane
+value_type: $v_{3}$ $K^{-}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v3(pT) of K-, 10-40% (Figure 4); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_4_v3_k.yaml
+dv_index: 2
+hepdata_table_label: The transverse momentum dependence of $v_{3}ki^{-}$ for 0-10, 10-40 and 40-80 central Au+Au collisions.
+  | $v_{3}$ $K^{-}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 40-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: K-
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.408
+    max: 2.615
+    points:
+    - 0.458
+    - 0.784
+    - 1.168
+    - 1.547
+    - 2.022
+    - 2.565
+    point_window: 0.1
+harmonic: 3
+method: event_plane
+value_type: $v_{3}$ $K^{-}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v3(pT) of K-, 40-80% (Figure 4); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_4_v3_p.yaml
+dv_index: 0
+hepdata_table_label: The transverse momentum dependence of $v_{3} p^{-}$ for 0-10, 10-40 and 40-80 central Au+Au collisions.
+  | $v_{3}$ $p^{-}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: pbar
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.432
+    max: 3.069
+    points:
+    - 0.482
+    - 0.809
+    - 1.187
+    - 1.573
+    - 2.029
+    - 2.56
+    - 3.019
+    point_window: 0.1
+harmonic: 3
+method: event_plane
+value_type: $v_{3}$ $p^{-}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v3(pT) of pbar, 0-10% (Figure 4); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_4_v3_p.yaml
+dv_index: 1
+hepdata_table_label: The transverse momentum dependence of $v_{3} p^{-}$ for 0-10, 10-40 and 40-80 central Au+Au collisions.
+  | $v_{3}$ $p^{-}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: pbar
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.432
+    max: 3.069
+    points:
+    - 0.482
+    - 0.809
+    - 1.187
+    - 1.573
+    - 2.029
+    - 2.56
+    - 3.019
+    point_window: 0.1
+harmonic: 3
+method: event_plane
+value_type: $v_{3}$ $p^{-}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v3(pT) of pbar, 10-40% (Figure 4); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_4_v3_p.yaml
+dv_index: 2
+hepdata_table_label: The transverse momentum dependence of $v_{3} p^{-}$ for 0-10, 10-40 and 40-80 central Au+Au collisions.
+  | $v_{3}$ $p^{-}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 40-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: pbar
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.432
+    max: 3.069
+    points:
+    - 0.482
+    - 0.809
+    - 1.187
+    - 1.573
+    - 2.029
+    - 2.56
+    - 3.019
+    point_window: 0.1
+harmonic: 3
+method: event_plane
+value_type: $v_{3}$ $p^{-}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v3(pT) of pbar, 40-80% (Figure 4); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
 hepdata_file: Fig_4_v4_pi.yaml
-hepdata_table_label: 'The transverse momentum dependence of $v_{4} \pi^{-}$ for  0-10,
-  10-40 and 40-80 central Au+Au collisions.
-
-  '
-inspire_id: '2051708'
+dv_index: 0
+hepdata_table_label: The transverse momentum dependence of $v_{4} \pi^{-}$ for 0-10, 10-40 and 40-80 central Au+Au collisions.
+  | $v_{4}$ $\pi^{-}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: pi-
 kinematic_range:
   eta:
-    bins:
-    - -1.0
-    - 1.0
-    max: 1.0
     min: -1.0
+    max: 1.0
   pT:
-    bins:
-    - 0.1915
-    - 0.5705
-    - 0.96
-    - 1.359
-    - 1.778
-    - 2.2795
-    - 2.8425
-    max: 2.8425
-    min: 0.1915
+    min: 0.331
+    max: 2.611
+    points:
+    - 0.381
+    - 0.76
+    - 1.16
+    - 1.558
+    - 1.998
+    - 2.561
+    point_window: 0.1
+harmonic: 4
 method: event_plane
+value_type: $v_{4}$ $\pi^{-}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v4(pT) of pi-, 0-10% (Figure 4); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
 observable_type: flow_vn
-particle_id:
-  species: charged
-qualifiers:
-  p_{t} (gev/c): $ 40-80\% $
-source_file: star_flow_vn_centrality_and_transverse_momentum_dependence_200gev.yaml
-value_type: v_{4}$ $\pi^{-}
+inspire_id: '2051708'
 version: 2
+hepdata_file: Fig_4_v4_pi.yaml
+dv_index: 1
+hepdata_table_label: The transverse momentum dependence of $v_{4} \pi^{-}$ for 0-10, 10-40 and 40-80 central Au+Au collisions.
+  | $v_{4}$ $\pi^{-}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: pi-
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.331
+    max: 2.611
+    points:
+    - 0.381
+    - 0.76
+    - 1.16
+    - 1.558
+    - 1.998
+    - 2.561
+    point_window: 0.1
+harmonic: 4
+method: event_plane
+value_type: $v_{4}$ $\pi^{-}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v4(pT) of pi-, 10-40% (Figure 4); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_4_v4_pi.yaml
+dv_index: 2
+hepdata_table_label: The transverse momentum dependence of $v_{4} \pi^{-}$ for 0-10, 10-40 and 40-80 central Au+Au collisions.
+  | $v_{4}$ $\pi^{-}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 40-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: pi-
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.331
+    max: 2.611
+    points:
+    - 0.381
+    - 0.76
+    - 1.16
+    - 1.558
+    - 1.998
+    - 2.561
+    point_window: 0.1
+harmonic: 4
+method: event_plane
+value_type: $v_{4}$ $\pi^{-}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v4(pT) of pi-, 40-80% (Figure 4); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_4_v4_p.yaml
+dv_index: 0
+hepdata_table_label: The transverse momentum dependence of $v_{4} p^{-}$ for 0-10, 10-40 and 40-80 central Au+Au collisions.
+  | $v_{4}$ $p^{-}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: pbar
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.432
+    max: 2.61
+    points:
+    - 0.482
+    - 0.809
+    - 1.187
+    - 1.573
+    - 2.029
+    - 2.56
+    point_window: 0.1
+harmonic: 4
+method: event_plane
+value_type: $v_{4}$ $p^{-}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v4(pT) of pbar, 0-10% (Figure 4); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_4_v4_p.yaml
+dv_index: 1
+hepdata_table_label: The transverse momentum dependence of $v_{4} p^{-}$ for 0-10, 10-40 and 40-80 central Au+Au collisions.
+  | $v_{4}$ $p^{-}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: pbar
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.432
+    max: 2.61
+    points:
+    - 0.482
+    - 0.809
+    - 1.187
+    - 1.573
+    - 2.029
+    - 2.56
+    point_window: 0.1
+harmonic: 4
+method: event_plane
+value_type: $v_{4}$ $p^{-}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v4(pT) of pbar, 10-40% (Figure 4); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_4_v4_p.yaml
+dv_index: 2
+hepdata_table_label: The transverse momentum dependence of $v_{4} p^{-}$ for 0-10, 10-40 and 40-80 central Au+Au collisions.
+  | $v_{4}$ $p^{-}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 40-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: pbar
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.432
+    max: 2.61
+    points:
+    - 0.482
+    - 0.809
+    - 1.187
+    - 1.573
+    - 2.029
+    - 2.56
+    point_window: 0.1
+harmonic: 4
+method: event_plane
+value_type: $v_{4}$ $p^{-}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v4(pT) of pbar, 40-80% (Figure 4); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_4_v4_k_1.yaml
+dv_index: 0
+hepdata_table_label: The transverse momentum dependence of $v_{4} k^{-}$ for 0-10 central Au+Au collisions. | $v_{4}$ $K^{-}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: K-
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.408
+    max: 2.615
+    points:
+    - 0.458
+    - 0.784
+    - 1.168
+    - 1.547
+    - 2.022
+    - 2.565
+    point_window: 0.1
+harmonic: 4
+method: event_plane
+value_type: $v_{4}$ $K^{-}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v4(pT) of K-, 0-10% (Figure 4); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_4_v4_k_2.yaml
+dv_index: 0
+hepdata_table_label: The transverse momentum dependence of $v_{4} k^{-}$ for 10-40 central Au+Au collisions. | $v_{4}$ $K^{-}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: K-
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.732
+    max: 2.616
+    points:
+    - 0.782
+    - 1.167
+    - 1.547
+    - 2.025
+    - 2.566
+    point_window: 0.1
+harmonic: 4
+method: event_plane
+value_type: $v_{4}$ $K^{-}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v4(pT) of K-, 10-40% (Figure 4); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_4_v4_k_3.yaml
+dv_index: 0
+hepdata_table_label: The transverse momentum dependence of $v_{4} k^{-}$ for 40-80 central Au+Au collisions. | $v_{4}$ $K^{-}$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 40-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: K-
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.401
+    max: 2.077
+    points:
+    - 0.451
+    - 0.777
+    - 1.167
+    - 1.549
+    - 2.027
+    point_window: 0.1
+harmonic: 4
+method: event_plane
+value_type: $v_{4}$ $K^{-}$
+dimensionality: differential_pT
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. v4(pT) of K-, 40-80% (Figure 4); eta-sub
+    event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator; |y| < 1 computed in |eta|
+    < 1; pT points (0.1 GeV/c windows). Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_8_v2.yaml
+dv_index: 0
+hepdata_table_label: The centrality dependence of $v_{2} (\pi, K, p) $ for Au+Au collisions. | $v_{2}$ $\pi$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 60-70%
+  - 50-60%
+  - 40-50%
+  - 30-40%
+  - 20-30%
+  - 10-20%
+  - 5-10%
+  - 0-5%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: pi+ + pi-
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+harmonic: 2
+method: event_plane
+value_type: $v_{2}$ $\pi$
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. pT-integrated v2 of pi+ + pi- (pT < 2 GeV/c)
+    vs centrality (Fig. 8); eta-sub event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator;
+    |y| < 1 computed in |eta| < 1. Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_8_v2.yaml
+dv_index: 1
+hepdata_table_label: The centrality dependence of $v_{2} (\pi, K, p) $ for Au+Au collisions. | $v_{2}$ $K$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 60-70%
+  - 50-60%
+  - 40-50%
+  - 30-40%
+  - 20-30%
+  - 10-20%
+  - 5-10%
+  - 0-5%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: K+ + K-
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+harmonic: 2
+method: event_plane
+value_type: $v_{2}$ $K$
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. pT-integrated v2 of K+ + K- (pT < 2 GeV/c)
+    vs centrality (Fig. 8); eta-sub event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator;
+    |y| < 1 computed in |eta| < 1. Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_8_v2.yaml
+dv_index: 2
+hepdata_table_label: The centrality dependence of $v_{2} (\pi, K, p) $ for Au+Au collisions. | $v_{2}$ $p$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 60-70%
+  - 50-60%
+  - 40-50%
+  - 30-40%
+  - 20-30%
+  - 10-20%
+  - 5-10%
+  - 0-5%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: p + pbar
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+harmonic: 2
+method: event_plane
+value_type: $v_{2}$ $p$
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. pT-integrated v2 of p + pbar (pT < 2 GeV/c)
+    vs centrality (Fig. 8); eta-sub event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator;
+    |y| < 1 computed in |eta| < 1. Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_8_v3.yaml
+dv_index: 0
+hepdata_table_label: The centrality dependence of $v_{3} (\pi, K, p) $ for Au+Au collisions. | $v_{3}$ $\pi$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 60-70%
+  - 50-60%
+  - 40-50%
+  - 30-40%
+  - 20-30%
+  - 10-20%
+  - 5-10%
+  - 0-5%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: pi+ + pi-
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+harmonic: 3
+method: event_plane
+value_type: $v_{3}$ $\pi$
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. pT-integrated v3 of pi+ + pi- (pT < 2 GeV/c)
+    vs centrality (Fig. 8); eta-sub event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator;
+    |y| < 1 computed in |eta| < 1. Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_8_v3.yaml
+dv_index: 1
+hepdata_table_label: The centrality dependence of $v_{3} (\pi, K, p) $ for Au+Au collisions. | $v_{3}$ $K$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 60-70%
+  - 50-60%
+  - 40-50%
+  - 30-40%
+  - 20-30%
+  - 10-20%
+  - 5-10%
+  - 0-5%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: K+ + K-
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+harmonic: 3
+method: event_plane
+value_type: $v_{3}$ $K$
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. pT-integrated v3 of K+ + K- (pT < 2 GeV/c)
+    vs centrality (Fig. 8); eta-sub event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator;
+    |y| < 1 computed in |eta| < 1. Errors: statistical and systematic.'
+---
+observable_type: flow_vn
+inspire_id: '2051708'
+version: 2
+hepdata_file: Fig_8_v3.yaml
+dv_index: 2
+hepdata_table_label: The centrality dependence of $v_{3} (\pi, K, p) $ for Au+Au collisions. | $v_{3}$ $p$
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 60-70%
+  - 50-60%
+  - 40-50%
+  - 30-40%
+  - 20-30%
+  - 10-20%
+  - 5-10%
+  - 0-5%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: p + pbar
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+harmonic: 3
+method: event_plane
+value_type: $v_{3}$ $p$
+dimensionality: integrated
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: -0.05
+  - min: 0.05
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+  notes: 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle (both hemispheres here).'
+notes:
+  value: 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204. pT-integrated v3 of p + pbar (pT < 2 GeV/c)
+    vs centrality (Fig. 8); eta-sub event plane (TPC, 0.2 < pT < 2 GeV/c, gap 0.1), computed with the scalar-product estimator;
+    |y| < 1 computed in |eta| < 1. Errors: statistical and systematic.'
