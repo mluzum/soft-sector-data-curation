@@ -191,6 +191,17 @@ def _beams(reaction):
     return tuple(toks[:2]) if len(toks) >= 2 else None
 
 
+def _same_centres(classes, bins):
+    """Do the curated classes share the centres of the raw (lo, hi) bins?"""
+    if len(classes) != len(bins):
+        return False
+    for c, (lo, hi) in zip(classes, bins):
+        b = _cent_bounds(c)
+        if b is None or abs(0.5 * (b[0] + b[1]) - 0.5 * (float(lo) + float(hi))) > 1e-6:
+            return False
+    return True
+
+
 def _extra_checks(doc, raw, sel_dv, sel_q, desc, flag):
     otype = doc.get("observable_type")
     header = str(((sel_dv or {}).get("header") or {}).get("name", ""))
@@ -347,6 +358,11 @@ def audit_doc(path, doc):
             elif _covers_all(cur_classes, raw_classes):
                 flag("warning", f"coarse curated centrality {cur_norm} "
                                 f"spans raw bins {raw_classes[:3]}...")
+            elif cur_norm != raw_classes and _same_centres(cur_norm, cent_vals):
+                # plotting positions (points displaced for visibility,
+                # ATLAS 2967110 Fig. 7a): classes centred on the raw bins
+                flag("warning", f"raw centrality bins are plotting positions centred on the curated "
+                                f"classes ({raw_classes[:2]}... -> {cur_norm[:2]}...)")
             elif cur_norm != raw_classes:
                 flag("error", f"centrality classes/order mismatch: "
                               f"curated={cur_norm} raw={raw_classes}")
