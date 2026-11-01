@@ -28,7 +28,7 @@ import numpy as np
 
 sys.path.insert(0, '.')
 
-from analysis.dispatcher import record_roots  # noqa: E402
+from analysis.dispatcher import axis_bins, record_roots  # noqa: E402
 
 
 # Model differential binnings (bin edges) for observable families where the
@@ -463,19 +463,19 @@ def record_diff_bins(doc):
     except Exception:
         disp = None
     if disp == 'yield_dNch_deta_per_eta':
-        eb = (kr.get('eta', {}) or {}).get('bins', []) or []
-        if len(eb) > 2:
-            return 'eta', list(zip(eb[:-1], eb[1:])), params
+        eb = axis_bins(kr.get('eta', {}) or {})
+        if len(eb) > 1:
+            return 'eta', eb, params
     if disp in ('vn2_sp_diff_pT', 'vn2_single_diff_pT', 'vn2_gap_diff_pT',
                 'vn4_single_diff_pT'):
-        pb = (kr.get('pT', {}) or {}).get('bins', []) or []
-        if len(pb) > 2:
-            return 'pT', list(zip(pb[:-1], pb[1:])), params
+        pb = axis_bins(kr.get('pT', {}) or {})
+        if len(pb) > 1:
+            return 'pT', pb, params
     if disp in ('vn2_sp_diff_eta', 'vn2_single_diff_eta', 'vn2_gap_diff_eta',
                 'vn4_single_diff_eta', 'vn2_ep_diff_eta'):
-        eb = (kr.get('eta', {}) or {}).get('bins', []) or []
-        if len(eb) > 2:
-            return 'eta', list(zip(eb[:-1], eb[1:])), params
+        eb = axis_bins(kr.get('eta', {}) or {})
+        if len(eb) > 1:
+            return 'eta', eb, params
     return var, [], params
 
 

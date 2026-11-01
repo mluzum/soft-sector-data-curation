@@ -454,8 +454,7 @@ def resolve(record):
             # whether the record has eta bin edges (differential_eta).
             if obs_type == "particle_yields":
                 kr = record.get("kinematic_range", {})
-                eta_bins = kr.get("eta", {}).get("bins", [])
-                if eta_bins and len(eta_bins) > 2:
+                if len(axis_bins(kr.get("eta", {}))) > 1:
                     # Per-eta yield: needs the per-eta compute key.
                     entry = dict(entry)
                     entry["compute"] = "yield_dNch_deta_per_eta"
@@ -714,40 +713,52 @@ def _kr_pT(kr):
     return p.get('min'), p.get('max')
 
 
+def axis_bins(axis):
+    """(lo, hi) bins of a kinematic_range axis.
+
+    Consecutive `bins` edges; or, for a measurement published at mean
+    positions without bin edges (e.g. PHOBOS v2 at <eta>), windows of width
+    `point_window` centred on its `points`, a curation choice the record
+    states.  Windows may be disjoint.
+    """
+    if not isinstance(axis, dict):
+        return []
+    edges = axis.get('bins') or []
+    if len(edges) > 1:
+        return [(edges[i], edges[i + 1]) for i in range(len(edges) - 1)]
+    points = axis.get('points') or []
+    if points:
+        w = axis.get('point_window')
+        if not w:
+            raise ValueError('kinematic_range points need a point_window')
+        return [(p - w / 2, p + w / 2) for p in points]
+    return []
+
+
 def extract_differential_bins(exp_rec):
-    """Extract differential bin edges from a differential record.
+    """Extract differential bins from a differential record (see axis_bins).
 
     Returns:
         var: 'pT' or 'eta' — the differential variable, or None if integrated
         bins: list of (lo, hi) tuples for each bin
         fixed: (min, max) for the non-differential variable (fixed acceptance)
     """
+    kr = exp_rec.get('kinematic_range', {}) or {}
+    pT = kr.get('pT', {}) or {}
+    eta = kr.get('eta', {}) or {}
     dim = exp_rec.get('dimensionality')
     if dim == 'differential_pT':
-        pT = exp_rec.get('kinematic_range', {}).get('pT', {})
-        edges = pT.get('bins', [])
-        bins = [(edges[i], edges[i+1]) for i in range(len(edges) - 1)]
-        eta = exp_rec.get('kinematic_range', {}).get('eta', {})
-        fixed = (eta.get('min'), eta.get('max'))
-        return 'pT', bins, fixed
+        return 'pT', axis_bins(pT), (eta.get('min'), eta.get('max'))
     elif dim == 'differential_eta':
-        eta = exp_rec.get('kinematic_range', {}).get('eta', {})
-        edges = eta.get('bins', [])
-        bins = [(edges[i], edges[i+1]) for i in range(len(edges) - 1)]
-        pT = exp_rec.get('kinematic_range', {}).get('pT', {})
-        fixed = (pT.get('min'), pT.get('max'))
-        return 'eta', bins, fixed
+        return 'eta', axis_bins(eta), (pT.get('min'), pT.get('max'))
     elif dim == 'integrated' or dim is None:
         # Spectra-type records carry their measurement pT bins explicitly;
         # expose them so prepare functions see the real binning.
         if exp_rec.get('observable_type') == 'particle_spectra':
-            pT = exp_rec.get('kinematic_range', {}).get('pT', {})
-            edges = pT.get('bins', [])
-            eta = exp_rec.get('kinematic_range', {}).get('eta', {})
             fixed = (eta.get('min'), eta.get('max'))
-            if len(edges) > 2:
-                return 'pT', [(edges[i], edges[i+1])
-                              for i in range(len(edges) - 1)], fixed
+            bins = axis_bins(pT)
+            if len(bins) > 1:
+                return 'pT', bins, fixed
             if pT.get('min') is not None and pT.get('max') is not None:
                 return 'pT', [(pT['min'], pT['max'])], fixed
         # dN/deta per-eta records (e.g. PHOBOS dN/deta vs eta) are curated
@@ -756,29 +767,19 @@ def extract_differential_bins(exp_rec):
         # (Added Aug 2026 for the JETSCAPE cross-validation; covered by
         # test_dispatcher per-eta yield cases.)
         if exp_rec.get('observable_type') == 'particle_yields':
-            eta = exp_rec.get('kinematic_range', {}).get('eta', {})
-            edges = eta.get('bins', [])
-            pT = exp_rec.get('kinematic_range', {}).get('pT', {})
-            fixed = (pT.get('min'), pT.get('max'))
-            if len(edges) > 2:
-                return 'eta', [(edges[i], edges[i+1])
-                                for i in range(len(edges) - 1)], fixed
+            bins = axis_bins(eta)
+            if len(bins) > 1:
+                return 'eta', bins, (pT.get('min'), pT.get('max'))
         return None, [], None
     # Fallback: if kinematic_range.pT.bins exists, treat as pT-differential
-    pT = exp_rec.get('kinematic_range', {}).get('pT', {})
-    edges = pT.get('bins', [])
-    if len(edges) > 1:
-        bins = [(edges[i], edges[i+1]) for i in range(len(edges) - 1)]
-        eta = exp_rec.get('kinematic_range', {}).get('eta', {})
-        fixed = (eta.get('min'), eta.get('max'))
-        return 'pT', bins, fixed
+    bins = axis_bins(pT)
+    if bins:
+        return 'pT', bins, (eta.get('min'), eta.get('max'))
     # If pT has min/max but no bins, create a single bin covering the range
     pT_min = pT.get('min')
     pT_max = pT.get('max')
     if pT_min is not None and pT_max is not None:
-        eta = exp_rec.get('kinematic_range', {}).get('eta', {})
-        fixed = (eta.get('min'), eta.get('max'))
-        return 'pT', [(pT_min, pT_max)], fixed
+        return 'pT', [(pT_min, pT_max)], (eta.get('min'), eta.get('max'))
     return None, [], None
 
 

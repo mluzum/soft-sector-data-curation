@@ -376,6 +376,43 @@ def test_phenix_record_full_extraction():
 
 # ── Run tests when called directly ──────────────────────────────────────────
 
+def test_axis_bins_points_and_windows():
+    """A measurement published at mean positions: windows of point_window
+    around each point (possibly disjoint); edges keep their meaning."""
+    from analysis.dispatcher import axis_bins, extract_differential_bins
+    assert axis_bins({'bins': [0.0, 0.5, 1.0]}) == [(0.0, 0.5), (0.5, 1.0)]
+    w = axis_bins({'points': [-4.0, 0.3], 'point_window': 0.2})
+    assert [tuple(round(x, 9) for x in b) for b in w] == [(-4.1, -3.9), (0.2, 0.4)], w
+    try:
+        axis_bins({'points': [0.3]})
+        raise AssertionError('points without point_window accepted')
+    except ValueError:
+        pass
+    rec = {'dimensionality': 'differential_eta',
+           'kinematic_range': {'eta': {'min': -5.4, 'max': 5.4, 'points': [-3.0, 1.0], 'point_window': 0.2},
+                               'pT': {'min': 0.0, 'max': 5.0e9}}}
+    var, bins, fixed = extract_differential_bins(rec)
+    assert var == 'eta' and len(bins) == 2 and abs(bins[1][0] - 0.9) < 1e-9 and fixed == (0.0, 5.0e9)
+
+
+def test_validator_points_rules():
+    """points need a positive point_window and exclude bins."""
+    sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'scripts'))
+    from validate import validate_doc
+    base = {'observable_type': 'flow_vn', 'inspire_id': '1', 'version': 1, 'hepdata_file': 'x.yaml',
+            'value_type': 'v2', 'harmonic': 2, 'method': 'event_plane', 'dimensionality': 'differential_eta',
+            'particle_id': {'species': 'charged'},
+            'collision_system': {'energy_gev': 200.0, 'reaction': 'AU AU --> CHARGED X'},
+            'centrality': {'classes': ['0-50%'], 'estimator': {'name': 'Paddle', 'observable': 'energy'},
+                           'eta': [{'min': 3.0, 'max': 4.5}]}}
+    def errs(eta):
+        rec = dict(base, kinematic_range={'eta': eta, 'pT': {'min': 0.0, 'max': 5.0}})
+        return [e for e in validate_doc(rec, 'r') if 'point' in e]
+    assert not errs({'min': -5, 'max': 5, 'points': [0.3], 'point_window': 0.2})
+    assert errs({'min': -5, 'max': 5, 'points': [0.3]})
+    assert errs({'min': -5, 'max': 5, 'points': [0.3], 'point_window': 0.2, 'bins': [0.0, 1.0]})
+
+
 if __name__ == '__main__':
     tests = [fn for fn in dir() if fn.startswith('test_')]
     n_pass = 0

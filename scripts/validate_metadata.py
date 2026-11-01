@@ -95,11 +95,11 @@ def classify(doc, observable_type=None):
     particles = doc.get('particles')
 
     eta = kr.get('eta', {})
-    has_kr_eta = isinstance(eta, dict) and (eta.get('min') is not None or eta.get('bins', []))
+    has_kr_eta = isinstance(eta, dict) and (eta.get('min') is not None or eta.get('bins', []) or eta.get('points', []))
     y = kr.get('y', {})
-    has_kr_y = isinstance(y, dict) and (y.get('min') is not None or y.get('bins', []))
+    has_kr_y = isinstance(y, dict) and (y.get('min') is not None or y.get('bins', []) or y.get('points', []))
     pT = kr.get('pT', {})
-    has_kr_pT = isinstance(pT, dict) and (pT.get('min') is not None or pT.get('bins', []))
+    has_kr_pT = isinstance(pT, dict) and (pT.get('min') is not None or pT.get('bins', []) or pT.get('points', []))
     pT_bins = pT.get('bins', []) if isinstance(pT, dict) else []
     has_kr_pT_bins = len(pT_bins) > 2
 

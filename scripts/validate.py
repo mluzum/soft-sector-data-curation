@@ -400,6 +400,13 @@ def validate_doc(record, record_path, doc_index=None, verbose=False):
     if record.get("status") == "preliminary" and not record.get("source"):
         errors.append(f"'{record_name}': preliminary records need 'source' (where the "
                       f"values come from: proceedings, figure, how they were obtained)")
+    for ax, spec in ((record.get("kinematic_range") or {}).items()):
+        if isinstance(spec, dict) and spec.get("points") is not None:
+            w = spec.get("point_window")
+            if spec.get("bins"):
+                errors.append(f"'{record_name}': 'kinematic_range.{ax}': points and bins are exclusive")
+            if not isinstance(w, (int, float)) or w <= 0:
+                errors.append(f"'{record_name}': 'kinematic_range.{ax}.points' need a positive point_window")
     known = known_top | known_sections | known_conds | _implicit
     for key in record:
         if key not in known:

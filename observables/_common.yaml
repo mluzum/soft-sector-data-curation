@@ -65,6 +65,23 @@ kinematic_range:
           description: "Explicit bin boundaries [GeV/c]. Present when the measurement is binned in pT (default)."
           items: {type: float}
           example: [0.5, 0.75, 1.0, 1.25, 1.5, 2.0, 2.5]
+        points:
+          type: list
+          required: false
+          description: >
+            Published mean positions, for a measurement given at mean pT without
+            bin edges.  The computation uses windows of width point_window
+            centred on them (analysis.dispatcher.axis_bins).  Exclusive with bins.
+          items: {type: float}
+          example: [0.15, 0.3, 0.49]
+        point_window:
+          type: float
+          required: false
+          description: >
+            Full width of the window computed at each point, chosen by the
+            curator (narrow, so a smooth observable equals its value at the
+            mean position); required with points.
+          example: 0.1
         unit: {type: string, required: false, description: "Unit (default GeV/c)", example: "GeV/c"}
     y:
       description: Rapidity range or bin edges.
@@ -92,6 +109,23 @@ kinematic_range:
           description: "Explicit pseudorapidity bin boundaries."
           items: {type: float}
           example: [-0.8, 0.0, 0.8]
+        points:
+          type: list
+          required: false
+          description: >
+            Published mean positions, for a measurement given at mean eta without
+            bin edges.  The computation uses windows of width point_window
+            centred on them (analysis.dispatcher.axis_bins).  Exclusive with bins.
+          items: {type: float}
+          example: [-4.86, -4.01, -3.04]
+        point_window:
+          type: float
+          required: false
+          description: >
+            Full width of the window computed at each point, chosen by the
+            curator (narrow, so a smooth observable equals its value at the
+            mean position); required with points.
+          example: 0.2
     delta_eta:
       description: >
         Difference in pseudorapidity (Δη) — the correlation axis for
