@@ -1,0 +1,427 @@
+observable_type: flow_vn
+inspire_id: '698620'
+version: 1
+hepdata_file: AuAu_v1/v1Eta_AuAu_040Cent.txt
+value_table: ../../hepdata_raw/phobos/AuAu_v1/tables/fig2_v1_eta_0-40_19.6GeV.yaml
+dv_index: 0
+hepdata_table_label: 'Fig. 2: v1 vs eta, 0-40% Au+Au at sqrt(sNN) = 19.6 GeV'
+collision_system:
+  energy_gev: 19.6
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 0-40%
+  estimator:
+    name: Octagon
+    observable: energy
+    detector: Octagon
+  eta:
+  - min: -3.0
+    max: 3.0
+kinematic_range:
+  eta:
+    min: -5.25
+    max: 5.31
+    bin_ranges:
+    - - -5.25
+      - -4.57
+    - - -4.5
+      - -3.85
+    - - -3.7
+      - -3.15
+    - - -3.0
+      - -2.5
+    - - -2.5
+      - -2.0
+    - - -2.0
+      - -1.5
+    - - -1.5
+      - -1.0
+    - - -1.0
+      - -0.5
+    - - -0.5
+      - 0.0
+    - - 0.0
+      - 0.5
+    - - 0.5
+      - 1.0
+    - - 1.0
+      - 1.5
+    - - 1.5
+      - 2.0
+    - - 2.0
+      - 2.5
+    - - 2.5
+      - 3.0
+    - - 3.13
+      - 3.72
+    - - 3.85
+      - 4.52
+    - - 4.6
+      - 5.31
+  pT:
+    min: 0.0
+    max: 5000000000.0
+particle_id:
+  species: charged
+method: event_plane
+harmonic: 1
+value_type: v1
+dimensionality: differential_eta
+flow_reference:
+  odd: true
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 3.0
+    detector: Rings
+    eta:
+    - min: -5.0
+      max: -3.0
+    - min: 3.0
+      max: 5.0
+    notes: v1 in the octagon region from the symmetric rings sub-event (3 < |eta| < 5).
+  - applies_to_eta:
+      min: 3.0
+      max: 5.5
+    detector: Octagon
+    eta:
+    - min: -3.0
+      max: -1.5
+    - min: 1.5
+      max: 3.0
+    notes: v1 in the rings region from the symmetric octagon sub-event (1.5 < |eta| < 3).
+  sign_convention:
+    eta:
+      min: 4.6
+      max: 5.31
+    sign: positive
+  notes: 'Symmetric sub-events, halves at negative and positive eta with opposite signs for directed flow (momentum-conservation
+    recoil cancels).  Sign: v1 > 0 at the highest positive eta, the historical convention PHOBOS keeps at this energy.'
+notes:
+  value: 'B. B. Back et al. (PHOBOS), PRL 97, 012301 (2006), arXiv:nucl-ex/0511045, Fig. 2. Hit-based method, all charged
+    hadrons, 0-40%. eta bins as published (eta_low, eta_hi). Errors: 1 sigma statistical and 90% C.L. systematic. Centrality
+    estimator as in PRL 94, 122303 (PRC 83, 024913 Sec. III A).'
+---
+observable_type: flow_vn
+inspire_id: '698620'
+version: 1
+hepdata_file: AuAu_v1/v1Eta_AuAu_040Cent.txt
+value_table: ../../hepdata_raw/phobos/AuAu_v1/tables/fig2_v1_eta_0-40_62.4GeV.yaml
+dv_index: 0
+hepdata_table_label: 'Fig. 2: v1 vs eta, 0-40% Au+Au at sqrt(sNN) = 62.4 GeV'
+collision_system:
+  energy_gev: 62.4
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 0-40%
+  estimator:
+    name: Paddle
+    observable: energy
+    detector: Paddle counters
+  eta:
+  - min: -4.5
+    max: -3.0
+  - min: 3.0
+    max: 4.5
+kinematic_range:
+  eta:
+    min: -5.25
+    max: 5.31
+    bin_ranges:
+    - - -5.25
+      - -4.57
+    - - -4.5
+      - -3.85
+    - - -3.7
+      - -3.15
+    - - -3.0
+      - -2.5
+    - - -2.5
+      - -2.0
+    - - -2.0
+      - -1.5
+    - - -1.5
+      - -1.0
+    - - -1.0
+      - -0.5
+    - - -0.5
+      - 0.0
+    - - 0.0
+      - 0.5
+    - - 0.5
+      - 1.0
+    - - 1.0
+      - 1.5
+    - - 1.5
+      - 2.0
+    - - 2.0
+      - 2.5
+    - - 2.5
+      - 3.0
+    - - 3.13
+      - 3.72
+    - - 3.85
+      - 4.52
+    - - 4.6
+      - 5.31
+  pT:
+    min: 0.0
+    max: 5000000000.0
+particle_id:
+  species: charged
+method: event_plane
+harmonic: 1
+value_type: v1
+dimensionality: differential_eta
+flow_reference:
+  odd: true
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 3.0
+    detector: Rings
+    eta:
+    - min: -5.0
+      max: -3.0
+    - min: 3.0
+      max: 5.0
+    notes: v1 in the octagon region from the symmetric rings sub-event (3 < |eta| < 5).
+  - applies_to_eta:
+      min: 3.0
+      max: 5.5
+    detector: Octagon
+    eta:
+    - min: -3.0
+      max: -1.5
+    - min: 1.5
+      max: 3.0
+    notes: v1 in the rings region from the symmetric octagon sub-event (1.5 < |eta| < 3).
+  sign_convention:
+    eta:
+      min: 4.6
+      max: 5.31
+    sign: positive
+  notes: 'Symmetric sub-events, halves at negative and positive eta with opposite signs for directed flow (momentum-conservation
+    recoil cancels).  Sign: v1 > 0 at the highest positive eta, the historical convention PHOBOS keeps at this energy.'
+notes:
+  value: 'B. B. Back et al. (PHOBOS), PRL 97, 012301 (2006), arXiv:nucl-ex/0511045, Fig. 2. Hit-based method, all charged
+    hadrons, 0-40%. eta bins as published (eta_low, eta_hi). Errors: 1 sigma statistical and 90% C.L. systematic. Centrality
+    estimator as in PRL 94, 122303 (PRC 83, 024913 Sec. III A).'
+---
+observable_type: flow_vn
+inspire_id: '698620'
+version: 1
+hepdata_file: AuAu_v1/v1Eta_AuAu_040Cent.txt
+value_table: ../../hepdata_raw/phobos/AuAu_v1/tables/fig2_v1_eta_0-40_130GeV.yaml
+dv_index: 0
+hepdata_table_label: 'Fig. 2: v1 vs eta, 0-40% Au+Au at sqrt(sNN) = 130 GeV'
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 0-40%
+  estimator:
+    name: Paddle
+    observable: energy
+    detector: Paddle counters
+  eta:
+  - min: -4.5
+    max: -3.0
+  - min: 3.0
+    max: 4.5
+kinematic_range:
+  eta:
+    min: -5.25
+    max: 5.31
+    bin_ranges:
+    - - -5.25
+      - -4.57
+    - - -4.5
+      - -3.85
+    - - -3.7
+      - -3.15
+    - - -3.0
+      - -2.5
+    - - -2.5
+      - -2.0
+    - - -2.0
+      - -1.5
+    - - -1.5
+      - -1.0
+    - - -1.0
+      - -0.5
+    - - -0.5
+      - 0.0
+    - - 0.0
+      - 0.5
+    - - 0.5
+      - 1.0
+    - - 1.0
+      - 1.5
+    - - 1.5
+      - 2.0
+    - - 2.0
+      - 2.5
+    - - 2.5
+      - 3.0
+    - - 3.13
+      - 3.72
+    - - 3.85
+      - 4.52
+    - - 4.6
+      - 5.31
+  pT:
+    min: 0.0
+    max: 5000000000.0
+particle_id:
+  species: charged
+method: event_plane
+harmonic: 1
+value_type: v1
+dimensionality: differential_eta
+flow_reference:
+  odd: true
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 3.0
+    detector: Rings
+    eta:
+    - min: -5.0
+      max: -3.0
+    - min: 3.0
+      max: 5.0
+    notes: v1 in the octagon region from the symmetric rings sub-event (3 < |eta| < 5).
+  - applies_to_eta:
+      min: 3.0
+      max: 5.5
+    detector: Octagon
+    eta:
+    - min: -3.0
+      max: -1.5
+    - min: 1.5
+      max: 3.0
+    notes: v1 in the rings region from the symmetric octagon sub-event (1.5 < |eta| < 3).
+  sign_convention:
+    eta:
+      min: 1.5
+      max: 3.0
+    sign: negative
+  notes: 'Symmetric sub-events, halves at negative and positive eta with opposite signs for directed flow (momentum-conservation
+    recoil cancels).  Sign: PHOBOS inverted v1 at 130 and 200 GeV to match the lower energies; operationally v1 < 0 over 1.5
+    < eta < 3.'
+notes:
+  value: 'B. B. Back et al. (PHOBOS), PRL 97, 012301 (2006), arXiv:nucl-ex/0511045, Fig. 2. Hit-based method, all charged
+    hadrons, 0-40%. eta bins as published (eta_low, eta_hi). Errors: 1 sigma statistical and 90% C.L. systematic. Centrality
+    estimator as in PRL 94, 122303 (PRC 83, 024913 Sec. III A).'
+---
+observable_type: flow_vn
+inspire_id: '698620'
+version: 1
+hepdata_file: AuAu_v1/v1Eta_AuAu_040Cent.txt
+value_table: ../../hepdata_raw/phobos/AuAu_v1/tables/fig2_v1_eta_0-40_200GeV.yaml
+dv_index: 0
+hepdata_table_label: 'Fig. 2: v1 vs eta, 0-40% Au+Au at sqrt(sNN) = 200 GeV'
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 0-40%
+  estimator:
+    name: Paddle
+    observable: energy
+    detector: Paddle counters
+  eta:
+  - min: -4.5
+    max: -3.0
+  - min: 3.0
+    max: 4.5
+kinematic_range:
+  eta:
+    min: -5.25
+    max: 5.31
+    bin_ranges:
+    - - -5.25
+      - -4.57
+    - - -4.5
+      - -3.85
+    - - -3.7
+      - -3.15
+    - - -3.0
+      - -2.5
+    - - -2.5
+      - -2.0
+    - - -2.0
+      - -1.5
+    - - -1.5
+      - -1.0
+    - - -1.0
+      - -0.5
+    - - -0.5
+      - 0.0
+    - - 0.0
+      - 0.5
+    - - 0.5
+      - 1.0
+    - - 1.0
+      - 1.5
+    - - 1.5
+      - 2.0
+    - - 2.0
+      - 2.5
+    - - 2.5
+      - 3.0
+    - - 3.13
+      - 3.72
+    - - 3.85
+      - 4.52
+    - - 4.6
+      - 5.31
+  pT:
+    min: 0.0
+    max: 5000000000.0
+particle_id:
+  species: charged
+method: event_plane
+harmonic: 1
+value_type: v1
+dimensionality: differential_eta
+flow_reference:
+  odd: true
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 3.0
+    detector: Rings
+    eta:
+    - min: -5.0
+      max: -3.0
+    - min: 3.0
+      max: 5.0
+    notes: v1 in the octagon region from the symmetric rings sub-event (3 < |eta| < 5).
+  - applies_to_eta:
+      min: 3.0
+      max: 5.5
+    detector: Octagon
+    eta:
+    - min: -3.0
+      max: -1.5
+    - min: 1.5
+      max: 3.0
+    notes: v1 in the rings region from the symmetric octagon sub-event (1.5 < |eta| < 3).
+  sign_convention:
+    eta:
+      min: 1.5
+      max: 3.0
+    sign: negative
+  notes: 'Symmetric sub-events, halves at negative and positive eta with opposite signs for directed flow (momentum-conservation
+    recoil cancels).  Sign: PHOBOS inverted v1 at 130 and 200 GeV to match the lower energies; operationally v1 < 0 over 1.5
+    < eta < 3.'
+notes:
+  value: 'B. B. Back et al. (PHOBOS), PRL 97, 012301 (2006), arXiv:nucl-ex/0511045, Fig. 2. Hit-based method, all charged
+    hadrons, 0-40%. eta bins as published (eta_low, eta_hi). Errors: 1 sigma statistical and 90% C.L. systematic. Centrality
+    estimator as in PRL 94, 122303 (PRC 83, 024913 Sec. III A).'
