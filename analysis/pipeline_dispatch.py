@@ -824,6 +824,10 @@ def prepare_spectra_3d(grid, params):
     eta = sk.get('eta', (-1, 1))
     y = sk.get('y') or (None, None)
     ymass = sk.get('y_mass')
+    if ymass is None and (eta[0] is None or eta[1] is None):
+        # A true-rapidity window of an identified species: its own mass
+        # (set by the species selection); unknown for mixtures.
+        ymass = getattr(grid, 'mass', None)
     if ymass is not None and y[0] is not None and y[1] is not None:
         meas_bins = _extract_2d_pT_bins(params)
         Q0_pt = np.zeros((grid.n_events, len(meas_bins)))

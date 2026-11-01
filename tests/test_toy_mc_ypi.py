@@ -105,6 +105,24 @@ def test_charge_average():
         print(f"  {'PASS' if ok else 'FAIL'} charge average = half the charged sum ({'3D' if grid else '2D'})")
 
 
+def test_true_rapidity_identified_3d():
+    """A true-rapidity window (no y.mass) for an identified species on a 3D
+    grid: the species' own mass, which the species selection sets."""
+    fx = _fx()
+    g = fx['proton_grid']
+    g.mass = 0.93827
+    bins = [snap_window(g.pt_edges, lo, hi) for lo, hi in BINS]
+    rec = record('p', bins)
+    rec['kinematic_range']['y'] = dict(min=0.7, max=0.9)
+    vals, _ = evaluate(rec, grid=g, cent_method='simple', with_jackknife=False)
+    for b, (lo, hi) in enumerate(bins):
+        n = np.mean([((ev['y'] >= 0.7) & (ev['y'] < 0.9) & (ev['pt'] >= lo) & (ev['pt'] < hi)
+                      & (ev['species_idx'] == 2)).sum() for ev in fx['events']])
+        want = n / (2 * np.pi * 0.5 * (lo + hi) * (hi - lo) * 0.2)
+        check(f'protons in 0.7 < y < 0.9, {lo:.2f}-{hi:.2f} 3D', vals[b], want, 0.08)
+    del g.mass
+
+
 def test_refused_elsewhere():
     from analysis.dispatcher import resolve
     rec = record('charged', BINS)
@@ -125,6 +143,7 @@ if __name__ == '__main__':
     run('charged', None, grid=True)
     run('p + pbar', [2], grid=True)
     test_charge_average()
+    test_true_rapidity_identified_3d()
     test_refused_elsewhere()
     print(f'\n{sum(results)}/{len(results)} passed')
     sys.exit(0 if all(results) else 1)
