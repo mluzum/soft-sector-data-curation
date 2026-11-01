@@ -42,30 +42,34 @@ def components(c, s1, s2, W, F, bins, W_mult=None, F_mult=None):
                 (spectrum range normalizing n(pT); reference range of [pT]).
     bins      : list of (K,) pT-bin fractions (empty for integrated records).
     W_mult, F_mult : cell weights / pT fractions of the baseline multiplicity.
+
+    Every sum is a matrix product over the cells (one pass per weighted
+    array, not one per bin).
     """
+    n_ev, K = c.shape
+    Fs, Fr = np.asarray(F['spec'], float), np.asarray(F['ref'], float)
+    Fb = np.stack(bins, axis=1) if bins else np.zeros((K, 0))          # (K, n_bins)
     out = {}
-    Fs, Fr = F['spec'], F['ref']
     for X in 'AB':
-        wX = W[X]
-        out[f'N_{X}'] = (wX * Fs * c).sum(axis=1)
-        out[f'Nr_{X}'] = (wX * Fr * c).sum(axis=1)
-        out[f'P_{X}'] = (wX * Fr * s1).sum(axis=1)
-        out[f'Nb_{X}'] = (np.stack([(wX * Fb * c).sum(axis=1) for Fb in bins], axis=1)
-                          if bins else np.zeros((c.shape[0], 0)))
+        cw, s1w = W[X] * c, W[X] * s1
+        sums = cw @ np.column_stack([Fs, Fr, Fb])
+        out[f'N_{X}'], out[f'Nr_{X}'], out[f'Nb_{X}'] = sums[:, 0], sums[:, 1], sums[:, 2:]
+        out[f'P_{X}'] = s1w @ Fr
+    # pairs of a particle with itself: reference x reference, bin x
+    # reference, spectrum x reference (zero for disjoint 3D subevents)
     ww = W['A'] * W['B']
-    # pairs of a particle with itself: reference x reference, bin x reference,
-    # spectrum x reference
-    out['Srr0'] = (ww * Fr * Fr * c).sum(axis=1)
-    out['Srr1'] = (ww * Fr * Fr * s1).sum(axis=1)
-    out['Srr2'] = (ww * Fr * Fr * s2).sum(axis=1)
-    out['Sbr0'] = (np.stack([(ww * Fb * Fr * c).sum(axis=1) for Fb in bins], axis=1)
-                   if bins else np.zeros((c.shape[0], 0)))
-    out['Sbr1'] = (np.stack([(ww * Fb * Fr * s1).sum(axis=1) for Fb in bins], axis=1)
-                   if bins else np.zeros((c.shape[0], 0)))
-    out['Ssr0'] = (ww * Fs * Fr * c).sum(axis=1)
-    out['Ssr1'] = (ww * Fs * Fr * s1).sum(axis=1)
-    out['M'] = ((W_mult * F_mult * c).sum(axis=1) if W_mult is not None
-                else np.full(c.shape[0], np.nan))
+    if np.any(ww):
+        cww, s1ww = ww * c, ww * s1
+        cols = np.column_stack([Fr * Fr, Fs * Fr, Fb * Fr[:, None]])
+        c_s, s1_s = cww @ cols, s1ww @ cols
+        out['Srr0'], out['Srr1'], out['Srr2'] = c_s[:, 0], s1_s[:, 0], (ww * s2) @ (Fr * Fr)
+        out['Ssr0'], out['Ssr1'] = c_s[:, 1], s1_s[:, 1]
+        out['Sbr0'], out['Sbr1'] = c_s[:, 2:], s1_s[:, 2:]
+    else:
+        z, zb = np.zeros(n_ev), np.zeros((n_ev, Fb.shape[1]))
+        out.update(Srr0=z, Srr1=z.copy(), Srr2=z.copy(), Ssr0=z.copy(), Ssr1=z.copy(), Sbr0=zb, Sbr1=zb.copy())
+    out['M'] = ((W_mult * c) @ np.asarray(F_mult, float) if W_mult is not None
+                else np.full(n_ev, np.nan))
     return out
 
 
