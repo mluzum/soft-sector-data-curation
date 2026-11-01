@@ -711,6 +711,10 @@ def extract_measurement_params(exp_rec):
         'dv_index': int(exp_rec.get('dv_index', 0) or 0),
         'dv_average': (list(exp_rec.get('dv_average', None) or [])
                        if exp_rec.get('dv_average', None) else None),
+        # Rows of the table this record holds (ascending), e.g. the 0-5..70-80%
+        # rows of a table that also has an overlapping 0-1% row.
+        'table_rows': ([int(r) for r in exp_rec['table_rows']]
+                       if exp_rec.get('table_rows') is not None else None),
     }
 
 
@@ -942,7 +946,10 @@ def load_experimental(params):
         # overlays match computed values.
         values = []
         errors = []
-        for vrows in zip(*[s["values"] for s in series]):
+        keep = params.get('table_rows')
+        for j, vrows in enumerate(zip(*[s["values"] for s in series])):
+            if keep is not None and j not in keep:
+                continue
             acc_val, acc_err = 0.0, 0.0
             row_ok = True
             for v, s in zip(vrows, series):

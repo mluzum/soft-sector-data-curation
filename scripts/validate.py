@@ -393,7 +393,11 @@ def validate_doc(record, record_path, doc_index=None, verbose=False):
     known_conds = set(resolved["conditional_fields"].keys())
     _implicit = {"observable_type", "inspire_id", "hepdata_id", "version",
                  "hepdata_file", "hepdata_table_label", "table_doi",
-                 "status", "value_table", "source", "staging_reason"}
+                 "status", "value_table", "source", "staging_reason", "table_rows"}
+    tr = record.get("table_rows")
+    if tr is not None and not (isinstance(tr, list) and tr and all(isinstance(r, int) and r >= 0 for r in tr)
+                               and tr == sorted(set(tr))):
+        errors.append(f"'{record_name}': 'table_rows' must be ascending, distinct row indices")
     if record.get("status", "published") not in ("published", "preliminary"):
         errors.append(f"'{record_name}': 'status': must be published or preliminary, "
                       f"got {record.get('status')!r}")

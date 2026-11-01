@@ -320,6 +320,8 @@ def audit_doc(path, doc):
                           f"centrality empty")
     elif cent_iv is not None:
         cent_vals = _indep_values(cent_iv)
+        if doc.get("table_rows") is not None:          # the record holds these rows only
+            cent_vals = [cent_vals[r] for r in doc["table_rows"] if r < len(cent_vals)]
         if cent_vals and all(isinstance(v, tuple) for v in cent_vals):
             raw_classes = [f"{float(lo):g}-{float(hi):g}%"
                            for lo, hi in cent_vals]
@@ -349,6 +351,8 @@ def audit_doc(path, doc):
             # rows with a blank value in the selected column are dropped by
             # load_experimental, and the record's classes skip them too
             vals = (sel_dv or {}).get("values", [])
+            if doc.get("table_rows") is not None:
+                vals = [vals[r] for r in doc["table_rows"] if r < len(vals)]
             blank = {j for j, v in enumerate(vals) if str(v.get("value")).strip() in ("", "-")}
             centers = [float(v) for j, v in enumerate(cent_vals)
                        if isinstance(v, (int, float)) and j not in blank]

@@ -84,6 +84,8 @@ def main():
                         elif isinstance(x, dict) and 'low' in x:
                             vals.append(f"{x['low']}-{x['high']}")
                     raw_cent = vals
+                    if d.get('table_rows') is not None:      # the record holds these rows only
+                        raw_cent = [vals[r] for r in d['table_rows'] if r < len(vals)]
                     break
             if not raw_cent or len(raw_cent) != len(classes):
                 n_unresolvable += 1

@@ -467,6 +467,38 @@ def test_fractional_centrality_edges():
     assert w[:, 0].sum() == 10 and w[:, 1].sum() == 1250 and w[:, 2].sum() == 1000, w.sum(axis=0)
 
 
+def test_table_rows_selects_rows():
+    """table_rows: a record holds some rows of a table (overlapping classes,
+    e.g. 0-1% and 0-5% in one ATLAS table, go to separate records)."""
+    import tempfile
+    tab = {'independent_variables': [{'header': {'name': 'CENTRALITY'},
+                                      'values': [{'low': 0, 'high': 1}, {'low': 0, 'high': 5}, {'low': 5, 'high': 10}]}],
+           'dependent_variables': [{'header': {'name': 'V2'},
+                                    'values': [{'value': 0.02, 'errors': [{'symerror': 0.001}]},
+                                               {'value': 0.03, 'errors': [{'symerror': 0.002}]},
+                                               {'value': 0.05, 'errors': [{'symerror': 0.003}]}]}]}
+    d = tempfile.mkdtemp()
+    path = os.path.join(d, 't.yaml')
+    yaml.safe_dump(tab, open(path, 'w'))
+    rec = {'value_table': path, 'inspire_id': '0', 'version': 1, 'hepdata_file': 't.yaml', 'table_rows': [1, 2],
+           'centrality': {'classes': ['0-5%', '5-10%'], 'estimator': {'name': 'x', 'observable': 'ET'},
+                          'eta': [{'min': 3, 'max': 4}]},
+           'kinematic_range': {'eta': {'min': -1, 'max': 1}}}
+    p = extract_measurement_params(rec)
+    v, e = load_experimental(dict(p, inspire_id='0', version=1, hepdata_file='t.yaml', dv_index=0))
+    assert list(v) == [0.03, 0.05] and list(e) == [0.002, 0.003], (v, e)
+    sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'scripts'))
+    from validate import validate_doc
+    base = {'observable_type': 'flow_vn', 'inspire_id': '1', 'version': 1, 'hepdata_file': 'x.yaml',
+            'value_type': 'v2', 'harmonic': 2, 'method': 'cumulant', 'cumulant_order': 2,
+            'dimensionality': 'integrated', 'particle_id': {'species': 'charged'},
+            'collision_system': {'energy_gev': 2760.0, 'reaction': 'PB PB --> CHARGED X'},
+            'centrality': rec['centrality'], 'kinematic_range': {'eta': {'min': -1, 'max': 1}, 'pT': {'min': 0, 'max': 5}}}
+    def errs(rows):
+        return [x for x in validate_doc(dict(base, table_rows=rows), 'r') if 'table_rows' in x]
+    assert not errs([1, 2]) and errs([2, 1]) and errs([]) and errs([-1])
+
+
 if __name__ == '__main__':
     tests = [fn for fn in dir() if fn.startswith('test_')]
     n_pass = 0

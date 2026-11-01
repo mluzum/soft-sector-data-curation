@@ -110,6 +110,9 @@ Fields that change dispatch:
   default charged) in the other, over the reference v_n{2}ab.  Its 3D
   prepare receives the unselected container (`selects_species`,
   `pipeline_dispatch.container_for_prepare`).
+- `table_rows`: the table rows a record holds (ascending).  For tables
+  whose rows overlap as classes (0-1% and 0-5% in one ATLAS table), one
+  record per non-overlapping set; the loader and the audits honour it.
 - `centrality.points` + `point_window`: a table that gives one centrality
   value per point and no class edges; the classes are the windows around
   the points (validate.py checks this).
