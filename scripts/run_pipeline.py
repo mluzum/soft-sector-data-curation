@@ -251,7 +251,7 @@ def _get_cent_anchor(cfg, reaction, energy):
 
 
 from analysis.pipeline_dispatch import (
-    get_pipeline_entry, PTCUTS, container_for_prepare,
+    get_pipeline_entry, PTCUTS, container_for_prepare, SINGLE_ROW_KEYS,
 )
 
 
@@ -1223,12 +1223,7 @@ def main():
                             #    emit this layout; the wrapper used to emit
                             #    BIN-major, which is why vn2_single_diff_pT
                             #    needed a separate `harm*n_bins` fudge here.
-                            if qd['dispatch_key'] in (
-                                    'vn2_ep', 'vn3_ep',
-                                    'mean_pt', 'yield_dNch_deta',
-                                    'yield_dNch_deta_per_eta',
-                                    'spectra_invariant_yield', 'dET_deta',
-                                    'sc_mn', 'nac_mn'):
+                            if qd['dispatch_key'] in SINGLE_ROW_KEYS:
                                 base = 0
                             else:
                                 base = (harm - 1) * n_bins

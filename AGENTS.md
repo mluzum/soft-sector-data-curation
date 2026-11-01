@@ -110,6 +110,19 @@ Fields that change dispatch:
   default charged) in the other, over the reference v_n{2}ab.  Its 3D
   prepare receives the unselected container (`selects_species`,
   `pipeline_dispatch.container_for_prepare`).
+- `observable_type: radial_flow` (`analysis/radial_flow.py`, key
+  `radial_flow`): `quantity` v0 | v0_pT | normalized_covariance |
+  v0_pT_over_v0, two subevents (`particles: AB`, `subevents.{A,B}`
+  eta windows), `reference_pT` (the [pT] range), kinematic_range.pT (the
+  range normalizing n(pT), plus the pT bins), optional
+  `multiplicity_baseline` (deviations at fixed multiplicity, the
+  counterpart of narrow N_ch bins: per-class linear regression).  Pairs of
+  a particle with itself are removed exactly from per-cell sums of
+  w_a w_b (1, pT, pT^2): they matter on 2D containers, where both windows
+  hold every particle.  One value per pT bin (`SINGLE_ROW_KEYS`);
+  tests/test_toy_mc_radial_flow.py.
+- `value_scale`: a factor the tabulated values carry (1000 for "x 10^3");
+  load_experimental divides by it.
 - `table_rows`: the table rows a record holds (ascending).  For tables
   whose rows overlap as classes (0-1% and 0-5% in one ATLAS table), one
   record per non-overlapping set; the loader and the audits honour it.
@@ -179,7 +192,8 @@ bias-corrected central value θ̂ = Nθ − (N−1)θ̄.
 - **Output layout**:
   - cores return harmonic-major arrays; v2 is index `harmonic - 1` for
     multi-harmonic cores;
-  - single-row cores index by bin;
+  - single-row cores index by bin (`pipeline_dispatch.SINGLE_ROW_KEYS`,
+    shared by run_pipeline and the toy harness);
   - differential cores are `(h-1)*n_bins + b`, all of them (until November
     2026 the 2D `vn2_single_diff_pT` core emitted `h*n_bins + b`, so
     run_pipeline returned v_{n-1}(pT); the toy harness followed the core).

@@ -189,6 +189,11 @@ DISPATCH_TABLE_BY_TYPE = {
         "requires": [["kinematic_range.eta", "centrality.eta"]],
         "description": "dET/deta (grid containers only)",
     },
+    "radial_flow": {
+        "compute": "radial_flow",
+        "requires": ["subevents", "reference_pT", "quantity", "kinematic_range.pT"],
+        "description": "v0, v0(pT) and the normalized [pT]-spectrum covariance (two subevents)",
+    },
     "mean_pT": {
         "compute": "mean_pt",
         "requires": [["kinematic_range.eta", "kinematic_range.y", "centrality.eta"]],
@@ -717,6 +722,12 @@ def extract_measurement_params(exp_rec):
         # rows of a table that also has an overlapping 0-1% row.
         'table_rows': ([int(r) for r in exp_rec['table_rows']]
                        if exp_rec.get('table_rows') is not None else None),
+        'value_scale': exp_rec.get('value_scale'),
+        # radial_flow: the quantity, the [pT] reference range, and the
+        # multiplicity at fixed value of which deviations are taken
+        'quantity': exp_rec.get('quantity'),
+        'reference_pT': _kr_pT({'pT': exp_rec['reference_pT']}) if exp_rec.get('reference_pT') else None,
+        'multiplicity_baseline': exp_rec.get('multiplicity_baseline'),
     }
 
 
@@ -978,7 +989,9 @@ def load_experimental(params):
         if not values:
             print(f"  No valid experimental values found")
             return None, None
-        return np.array(values), np.array(errors)
+        # A record's own factor (e.g. 1000 for a column tabulated "x 10^3").
+        vs = float(params.get('value_scale') or 1.0)
+        return np.array(values) / vs, np.array(errors) / vs
     except Exception as e:
         print(f"  Could not load experimental values: {e}")
         return None, None

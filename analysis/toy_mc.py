@@ -630,9 +630,7 @@ def _extract_with_ncent(vec, params, n_cent):
     nb = max(len(params.get('differential_bins') or []), 1)
     h = int(params.get('harmonic', 2))
     key = params.get('_layout_key')
-    SINGLE_ROW = {'vn2_ep', 'vn3_ep', 'mean_pt', 'yield_dNch_deta',
-                  'yield_dNch_deta_per_eta', 'spectra_invariant_yield',
-                  'dET_deta', 'sc_mn', 'nac_mn'}
+    from analysis.pipeline_dispatch import SINGLE_ROW_KEYS as SINGLE_ROW
     per = len(vec) // max(n_cent, 1)
     out = np.full(n_cent * nb, np.nan)
     for c in range(n_cent):

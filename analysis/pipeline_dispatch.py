@@ -1075,6 +1075,105 @@ def _wrap_pT_fluct(data, w):
     return compute_pT_fluct(data['s1'], data['s2'], data['n'], w)
 
 
+# ── radial flow: v0, v0(pT), normalized covariance (analysis.radial_flow) ──
+
+def _radial_flow_settings(params):
+    sr = params.get('subevent_ranges') or {}
+    if sorted(sr) != ['A', 'B']:
+        raise ValueError("radial_flow needs subevents A and B")
+    spec = params.get('poi_range', {}).get('pT') or (None, None)
+    ref = params.get('reference_pT')
+    if spec[0] is None or spec[1] is None or not ref:
+        raise ValueError("radial_flow needs kinematic_range.pT and reference_pT")
+    bins = [tuple(b) for b in (params.get('differential_bins') or [])] \
+        if params.get('dimensionality') == 'differential_pT' else []
+    mb = params.get('multiplicity_baseline') or None
+    return sr, tuple(spec), tuple(ref), bins, mb
+
+
+def _radial_flow_data(comp, params, mb):
+    comp['quantity'] = params.get('quantity')
+    comp['use_multiplicity'] = mb is not None
+    return comp
+
+
+def prepare_radial_flow_3d(grid, params):
+    """Unit-weight cells of the charged grid: eta-window fractions per
+    subevent, pT-range fractions (uniform in pT^2) per range and bin."""
+    from analysis.qvector import _overlap_fractions, _pt_squared
+    from analysis import radial_flow
+    sr, spec, ref, bins, mb = _radial_flow_settings(params)
+    if getattr(grid, 'pt_integrated', False):
+        raise ValueError("radial_flow needs pT-binned grids")
+    n_ev, n_eta, n_pt = grid.Qn.shape[:3]
+    c = grid.Qn[..., 0].real
+    mids = 0.5 * (grid.pt_edges[:-1] + grid.pt_edges[1:])
+    s1 = grid.sum_pt if getattr(grid, 'sum_pt', None) is not None else c * mids
+    s2 = grid.sum_pt2 if getattr(grid, 'sum_pt2', None) is not None else c * mids ** 2
+
+    def eta_w(windows):
+        fe = sum(_overlap_fractions(grid.eta_edges, lo, hi) for lo, hi in windows)
+        return np.repeat(fe, n_pt)[None, :]
+
+    def pt_f(lo, hi):
+        return np.tile(_overlap_fractions(grid.pt_edges, lo, hi, _pt_squared), n_eta)
+
+    W = {X: eta_w([sr[X]['eta']]) for X in 'AB'}
+    F = {'spec': pt_f(*spec), 'ref': pt_f(*ref)}
+    Wm = Fm = None
+    if mb:
+        Wm = eta_w([(e['min'], e['max']) for e in mb['eta']])
+        mpt = mb.get('pT') or {}
+        Fm = pt_f(mpt.get('min', spec[0]), mpt.get('max', spec[1]))
+    K = n_eta * n_pt
+    comp = radial_flow.components(c.reshape(n_ev, K), s1.reshape(n_ev, K), s2.reshape(n_ev, K), W, F,
+                                  [pt_f(lo, hi) for lo, hi in bins], Wm, Fm)
+    return _radial_flow_data(comp, params, mb)
+
+
+def prepare_radial_flow_2d(qv, params):
+    """Charged species of the boost-invariant container: each subevent
+    weights a particle by its window's Jacobian (2 rap_max nsamples per
+    event), so every particle is in both subevents and the core removes
+    its pairs with itself.  Charge factors cancel (every term is a ratio)."""
+    from analysis.qvector import _overlap_fractions, _pt_squared
+    from analysis import radial_flow
+    sr, spec, ref, bins, mb = _radial_flow_settings(params)
+    idx, _cf = charged_species_indices(getattr(qv, 'pdg_ids', None))
+    idx = list(idx)
+    n_ev, n_pt = qv.n_events, qv.Qn.shape[3]
+    counts = qv.Qn[:, :, 0, :].real
+    c = counts[:, idx, :]
+    mids = 0.5 * (qv.pt_bin_edges[:-1] + qv.pt_bin_edges[1:])
+    s1 = (qv.sum_pt if getattr(qv, 'sum_pt', None) is not None else counts * mids)[:, idx, :]
+    s2 = (qv.sum_pt2 if getattr(qv, 'sum_pt2', None) is not None else counts * mids ** 2)[:, idx, :]
+    norm = (2.0 * qv.rap_max * qv.nsamples)[:, None]
+    K = len(idx) * n_pt
+
+    def eta_w(windows):
+        jac = sum(_make_jacobian_list(qv.pt_centers, qv.masses, lo, hi) for lo, hi in windows)
+        return jac[idx, :].reshape(1, K) / norm
+
+    def pt_f(lo, hi):
+        return np.tile(_overlap_fractions(qv.pt_bin_edges, lo, hi, _pt_squared), len(idx))
+
+    W = {X: eta_w([sr[X]['eta']]) for X in 'AB'}
+    F = {'spec': pt_f(*spec), 'ref': pt_f(*ref)}
+    Wm = Fm = None
+    if mb:
+        Wm = eta_w([(e['min'], e['max']) for e in mb['eta']])
+        mpt = mb.get('pT') or {}
+        Fm = pt_f(mpt.get('min', spec[0]), mpt.get('max', spec[1]))
+    comp = radial_flow.components(c.reshape(n_ev, K), s1.reshape(n_ev, K), s2.reshape(n_ev, K), W, F,
+                                  [pt_f(lo, hi) for lo, hi in bins], Wm, Fm)
+    return _radial_flow_data(comp, params, mb)
+
+
+def _wrap_radial_flow(data, w):
+    from analysis import radial_flow
+    return radial_flow.core(data, w)
+
+
 # ── Symmetric-cumulant SC(n,m) prepares ─────────────────────────────────────
 
 
@@ -2095,6 +2194,13 @@ PIPELINE_DISPATCH = {
         "n_obs_per_cent": 1,
         "description": "event-plane v2 integrated (fallback for event_plane records)",
     },
+    "radial_flow": {
+        "core_fn": _wrap_radial_flow,
+        "prepare_data_2d": prepare_radial_flow_2d,
+        "prepare_data_3d": prepare_radial_flow_3d,
+        "n_obs_per_cent": None,
+        "description": "v0, v0(pT), normalized [pT]-spectrum covariance (two subevents; one value per pT bin)",
+    },
     "vn2_sp": {
         "core_fn": _wrap_vn2_sp,
         "prepare_data_2d": prepare_vn2_sp_2d,
@@ -2158,6 +2264,14 @@ def _unit_weights(grid):
         if hasattr(grid, nm):
             setattr(out, nm, getattr(grid, nm))
     return out
+
+
+# Cores that return one value per differential bin, not [v_1..v_N] per bin:
+# run_pipeline and the toy harness index them by bin alone.
+SINGLE_ROW_KEYS = frozenset({
+    'vn2_ep', 'vn3_ep', 'mean_pt', 'yield_dNch_deta', 'yield_dNch_deta_per_eta',
+    'spectra_invariant_yield', 'dET_deta', 'sc_mn', 'nac_mn', 'radial_flow',
+})
 
 
 def container_for_prepare(container, params, entry):

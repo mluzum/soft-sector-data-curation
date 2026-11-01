@@ -1,0 +1,103 @@
+observable_type: radial_flow
+description: >
+  Radial-flow fluctuations from the event-by-event correlation between the
+  mean transverse momentum and the pT spectrum (Schenke, Shen, Teaney;
+  Parida, Samanta, Ollitrault), measured with two pseudorapidity
+  subevents a and b:
+    [pT]_X  = sum_i w_i pT_i / sum_i w_i        (reference pT range)
+    n_X(pT) = sum_{i in pT bin} w_i / sum_i w_i (spectrum pT range)
+    v0^2    = <d[pT]_a d[pT]_b> / <[pT]>^2
+    <dn(pT) d[pT]> = (<dn_a(pT) d[pT]_b> + <dn_b(pT) d[pT]_a>) / 2
+    normalized covariance = <dn(pT) d[pT]> / (<n(pT)> <[pT]>) = v0(pT) v0
+  d = deviation from the class mean (or from the mean at fixed
+  multiplicity, `multiplicity_baseline`).  Computed from both subevents'
+  per-event sums; pairs of a particle with itself are removed (2D
+  containers, where every window holds every particle).
+
+composes:
+  - _common#collision_system
+  - centrality#centrality
+  - _common#particle_id
+  - _common#kinematic_range
+
+optional_composes:
+  - _common#notes
+
+required_fields:
+  quantity:
+    type: string
+    required: true
+    allowed: [v0, v0_pT, normalized_covariance, v0_pT_over_v0]
+    description: >
+      v0 (integrated records), v0(pT), the normalized covariance
+      <dn(pT) d[pT]>/(<n(pT)><[pT]>) = v0(pT) v0, or v0(pT)/v0.
+    example: "v0_pT"
+  particles:
+    type: string
+    required: true
+    allowed: [AB]
+    description: "Two subevents, a and b (`subevents.A`, `subevents.B`)."
+    example: "AB"
+  subevents:
+    type: object
+    required: true
+    description: >
+      `A` and `B`, each with kinematic_range.eta: the two subevents
+      (ATLAS: -2.5 < eta_a < -eta_gap/2, eta_gap/2 < eta_b < 2.5).  pT
+      ranges come from the top-level kinematic_range (spectrum) and
+      `reference_pT`.
+    example: {A: {kinematic_range: {eta: {min: -2.5, max: -0.5}}}, B: {kinematic_range: {eta: {min: 0.5, max: 2.5}}}}
+  reference_pT:
+    type: object
+    required: true
+    description: "pT range of [pT] (pT^ref)."
+    fields:
+      min: {type: float, required: true, example: 0.5}
+      max: {type: float, required: true, example: 2.0}
+  value_type:
+    type: string
+    required: true
+    description: "Column header of the HEPData table."
+    example: "$v_{0}(p_{T})$ (for $p^{ref}_{T}$ = 0.5-2 GeV)"
+  dimensionality:
+    type: string
+    required: true
+    allowed: [integrated, differential_pT]
+    description: >
+      integrated: v0 per centrality class; differential_pT: v0(pT), the
+      normalized covariance or v0(pT)/v0 in the pT bins of
+      kinematic_range.pT (whose min and max are the spectrum range that
+      normalizes n(pT)).
+    example: "differential_pT"
+
+optional_fields:
+  eta_gap:
+    type: float
+    required: false
+    description: "Gap between the subevents (informational; the windows are in `subevents`)."
+    example: 1.0
+  multiplicity_baseline:
+    type: object
+    required: false
+    description: >
+      Deviations at fixed multiplicity instead of from the class mean, the
+      model counterpart of measuring in narrow multiplicity bins (ATLAS:
+      narrow N_ch ranges, |eta| < 2.5, 0.5 < pT < 5 GeV): in each class
+      [pT] and n(pT) are regressed linearly on this multiplicity.
+    fields:
+      observable: {type: string, required: false, example: "Nch"}
+      eta: {type: list, required: true, example: [{min: -2.5, max: 2.5}]}
+      pT: {type: object, required: false, example: {min: 0.5, max: 5.0}}
+  value_scale:
+    type: float
+    required: false
+    description: "Factor the tabulated values carry (e.g. 1000 for 'x 10^3')."
+    example: 1000.0
+  efficiency_corrected:
+    type: boolean
+    required: false
+    example: true
+
+validation:
+  rules:
+    - "subevent_consistency"
