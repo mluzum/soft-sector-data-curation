@@ -104,6 +104,9 @@ Fields that change dispatch:
   ~0.  Rapidity-even v1 is not implemented.
 - `kinematic_range.y.mass`: a rapidity window with one assumed mass (PHOBOS
   y_pi), spectra only.
+- A `particle_id.species` the simulations cannot provide (heavy flavour,
+  quarkonia, leptons, photons, pi0, Sigma, ...) is refused
+  (`analysis.species.species_known`) instead of computing zero.
 - `particle_id.charge_average`: the measurement is (h+ + h-)/2 (or
   (pi+ + pi-)/2, ...); absolute quantities are half of the sum.
 - Ratio records link `numerator_record` / `denominator_record` (path, with

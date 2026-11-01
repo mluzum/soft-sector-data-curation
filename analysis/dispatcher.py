@@ -13,6 +13,8 @@ import os
 import numpy as np
 import yaml
 
+from analysis.species import species_known
+
 
 _PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -388,6 +390,14 @@ def resolve(record):
             f"{record.get('value_type')!r} is measured relative to the "
             f"spectator plane ({fr.get('detector')}); a model without "
             f"spectators cannot form that reference")
+
+    # A species the simulations cannot provide (heavy flavour, quarkonia,
+    # leptons, photons, pi0, ...) would compute as zero, not be refused.
+    species = (record.get("particle_id") or {}).get("species")
+    if species is not None and not species_known(species):
+        raise ValueError(
+            f"species {species!r} is not produced by the pipeline "
+            f"(analysis.species lists the supported ones)")
 
     # Directed flow.  Rapidity-odd v1 needs an eta-odd reference (windows at
     # eta < 0 weighted -1) and a sign convention; the even-harmonic

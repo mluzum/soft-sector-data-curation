@@ -155,6 +155,13 @@ def charged_species_indices(pdg_ids):
     return indices, cf
 
 
+def species_known(species_str):
+    """True if the pipeline can select this species: from the species table
+    (charge-symmetric sims) or the exact-charge PDG sets."""
+    return (resolve_species(species_str)[0] is not None
+            or str(species_str).strip().lower() in _PDG_SETS)
+
+
 def is_charged(species_str):
     """True for the 'charged' aggregate (explicit charged Q-vector OR sum)."""
     return str(species_str).lower() == 'charged'
