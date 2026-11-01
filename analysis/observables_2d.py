@@ -627,7 +627,11 @@ def _core_vn2_sp_diff(q_poi_bins, n_poi_bins, q_ref, w, dQ_cross=None,
         if nr.ndim == 1:
             nr = nr[:, None]
         ref_pow = ref_pow - np.average(nr, axis=0, weights=w)
+    # A non-positive reference power (no reference flow left after the
+    # self-correlation removal, or an empty reference) or a bin without
+    # POI particles has no v_n: NaN, not num / 1e-30.
     denom_h = np.sqrt(np.maximum(ref_pow, 0.0))
+    has_poi = np.average(n_poi_bins, axis=0, weights=w) > 0
     inv_n = 1.0 / np.maximum(n_poi_bins, 1e-9)
     cross = _cross_avg(dQ_cross, n_poi_bins, w, per_event_normalised=True)
     if cross is not None:
@@ -639,7 +643,8 @@ def _core_vn2_sp_diff(q_poi_bins, n_poi_bins, q_ref, w, dQ_cross=None,
         num = np.real(np.average(qp * np.conj(qr), axis=0, weights=w))
         if cross is not None:
             num = num - cross
-        out[h - 1, :] = num / np.maximum(denom_h[h], 1e-30)
+        d = np.broadcast_to(denom_h[h], num.shape)
+        out[h - 1, :] = np.where((d > 0) & has_poi, num / np.where(d > 0, d, 1.0), np.nan)
     return out.ravel()
 
 
@@ -693,8 +698,9 @@ def _core_vn2_sp_diff_means(q_poi_bins, n_poi_bins, q_ref, n_ref, w,
          np.maximum(np.sum(wq * np.maximum(N2ref, 0.0), axis=0), 1e-30))
     for h in range(1, n_harm):
         qr = q_ref[:, h, :] if per_bin else q_ref[:, h][:, None]
-        ch = C[h]
-        if not np.all(np.isfinite(ch)) or np.any(ch <= 0):
+        ch = np.broadcast_to(np.asarray(C[h], dtype=float).reshape(-1), (n_bins,))
+        good = np.isfinite(ch) & (ch > 0)          # else NaN (out starts NaN)
+        if not good.any():
             continue
         M1 = np.sum(w[:, None] * np.real(q_poi_bins[:, h, :] *
                                          np.conj(qr)), axis=0)
@@ -708,8 +714,9 @@ def _core_vn2_sp_diff_means(q_poi_bins, n_poi_bins, q_ref, n_ref, w,
         if dQ_cross is not None:
             pairs = pairs - dq
         M2 = np.sum(w[:, None] * pairs, axis=0)
-        out[h - 1, :] = M1 / np.maximum(M2, 1e-30) / np.sqrt(np.maximum(ch,
-                                                                        1e-30))
+        good_h = good & (M2 > 0)
+        out[h - 1, :] = np.where(good_h, M1 / np.where(M2 > 0, M2, 1.0) / np.sqrt(np.where(good, ch, 1.0)),
+                                 np.nan)
     return out.ravel()
 
 
@@ -814,7 +821,7 @@ def _sp_harmonic1(q_poi, n_poi, q_ref, n_ref, dq, w):
     num = (np.real(np.average(q_poi * inv * np.conj(q_ref), axis=0, weights=w))
            - np.average(dq * inv, axis=0, weights=w))
     den = np.average(np.abs(q_ref) ** 2, axis=0, weights=w) - np.average(n_ref, axis=0, weights=w)
-    return num / np.sqrt(np.maximum(den, 1e-30))
+    return np.where(den > 0, num / np.sqrt(np.where(den > 0, den, 1.0)), np.nan)
 
 
 @register("v1_odd_sp_diff_eta")
@@ -924,8 +931,10 @@ def compute_vn2_sp(q_poi, q_ref, n_poi, n_ref, w, same_window=False,
               if dQ0_poi is not None else m_poi)
     dq_ref = (np.average(np.asarray(dQ0_ref, dtype=float), weights=w)
               if dQ0_ref is not None else m_ref)
-    denom_ref = np.sqrt(np.abs(np.average(np.abs(q_ref) ** 2, axis=0, weights=w)
-                               - dq_ref))
+    # Non-positive reference power or no POI: NaN (|.| used to hide a
+    # negative <|Q_ref|^2> - Sum w^2, and 1e-30 to turn 0/0 into 0 or 1e30).
+    ref_pow = np.average(np.abs(q_ref) ** 2, axis=0, weights=w) - dq_ref
+    denom_ref = np.sqrt(np.maximum(ref_pow, 0.0))
     for h in range(1, q_poi.shape[1]):
         num = np.real(np.average(q_poi[:, h] * np.conj(q_ref[:, h]),
                                  weights=w))
@@ -935,7 +944,7 @@ def compute_vn2_sp(q_poi, q_ref, n_poi, n_ref, w, same_window=False,
         if dQ_cross is not None:
             # General nested / partially-overlapping case.
             num -= np.average(np.asarray(dQ_cross, dtype=float), weights=w)
-        out[h - 1] = num / max(denom_ref[h] * m_poi, 1e-30)
+        out[h - 1] = num / (denom_ref[h] * m_poi) if ref_pow[h] > 0 and m_poi > 0 else np.nan
     return out
 
 
