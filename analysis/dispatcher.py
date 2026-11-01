@@ -1004,7 +1004,10 @@ def load_experimental(params):
                 units = str(header.get('units', ''))
                 name = str(header.get('name', ''))
                 low = f'{units} {name}'.lower()
-                if '%' in units or '*100' in name.replace(' ', ''):
+                # '%' units, 'v_3*100', or a '(%)' in the column name (STAR
+                # 1210062 'v_3(TPC) (%)'; not a bare '%', which centrality
+                # labels such as 'in centrality 0-50%' carry).
+                if '%' in units or '*100' in name.replace(' ', '') or re.search(r'\(\s*%\s*\)', name):
                     scale = 0.01
                 elif 'mev' in low and 'gev' not in low:
                     scale = 0.001

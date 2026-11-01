@@ -295,8 +295,9 @@ near c_4 = 0, ratios) the correction is unstable (zr96c2 dp0001, v2{4}
   bin starts at the record's lower edge, not 0.
 - **Integrated records never get differential bins**:
   `extract_differential_bins` returns none for `dimensionality: integrated`.
-- **Experimental scales**: percent or ×100 columns and MeV headers are
-  normalized in `load_experimental`.
+- **Experimental scales**: percent columns (units `%`, a `(%)` in the
+  column name, or `*100`) and MeV headers are normalized in
+  `load_experimental`.
 - **Rapidity with an assumed mass** (`kinematic_range.y.mass`, e.g. PHOBOS
   y_π): the window is converted per species and pT (2D:
   `rapidity_window_extent`) or per pT cell (3D: `acceptance_rapidity`).

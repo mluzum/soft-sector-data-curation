@@ -254,6 +254,7 @@ def _extra_checks(doc, raw, sel_dv, sel_q, desc, flag):
                 pass
         scale = float(doc.get("value_scale") or 1.0)
         if vals and "%" not in units and "*100" not in header.replace(" ", "") \
+                and not re.search(r"\(\s*%\s*\)", header) \
                 and sorted(vals)[len(vals) // 2] / scale > 0.5:
             flag("error", f"median |value| {sorted(vals)[len(vals) // 2]:.3g}: percent without a unit "
                           f"(value_scale) or not a flow coefficient")
