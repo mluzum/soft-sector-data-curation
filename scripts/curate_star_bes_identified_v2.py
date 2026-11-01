@@ -71,14 +71,18 @@ def main():
             if sp is None:
                 unknown[str(q.get('Au+Au'))] += 1
                 continue
-            rows = [j for j, v in enumerate(dv['values']) if str(v['value']).strip() not in ('', '-')]
+            nonblank = [j for j, v in enumerate(dv['values']) if str(v['value']).strip() not in ('', '-')]
+            # HEPData copy errors: a 'value' equal to its own pT, without errors
+            # (Data43,a: the Lambdabar pT points sit in the Lambda column)
+            rows = [j for j in nonblank if dv['values'][j].get('errors')
+                    or abs(float(dv['values'][j]['value']) - pts[j]) > 1e-9]
             key = (float(q['SQRT(S)']), sp, str(q['Centrality']))
-            cand = (len(rows), x['data_file'], i, [pts[j] for j in rows], desc)
+            cand = (len(rows), x['data_file'], i, [pts[j] for j in rows], desc, rows if rows != nonblank else None)
             if key not in best or cand[0] > best[key][0]:
                 best[key] = cand
     print('qualifiers not a species (skipped):', dict(unknown))
     docs = []
-    for (e, sp, cls), (_n, hf, i, pts, desc) in sorted(best.items(), key=lambda kv: (kv[0][0], kv[0][1], int(kv[0][2].split('-')[0]))):
+    for (e, sp, cls), (_n, hf, i, pts, desc, table_rows) in sorted(best.items(), key=lambda kv: (kv[0][0], kv[0][1], int(kv[0][2].split('-')[0]))):
         docs.append({
             'observable_type': 'flow_vn', 'inspire_id': '1210464', 'version': 1, 'hepdata_file': hf, 'dv_index': i,
             'hepdata_table_label': f'v2(pT) of {sp}, {cls}% Au+Au at {e:g} GeV',
@@ -95,8 +99,12 @@ def main():
                                         'gap +-0.05, pT weighted (both hemispheres here).'},
             'notes': {'value': (f'{CITE}. v2(pT) of {sp} from the eta-sub event plane, |eta| < 1; pT points '
                                 f'(mean pT of each bin, {WINDOW} GeV/c windows). Computed with the scalar-product '
-                                'estimator. Errors: statistical, systematic and a global (non-flow) systematic.')},
+                                'estimator. Errors: statistical, systematic and a global (non-flow) systematic.'
+                                + (' Table rows equal to their own pT, without errors (a HEPData copy error), '
+                                   'left out.' if table_rows else ''))},
         })
+        if table_rows:
+            docs[-1]['table_rows'] = table_rows
     out = 'data/flow_vn/star_flow_vn_identified_hadrons_multigev.yaml'
     with open(out, 'w') as fh:
         yaml.safe_dump_all(docs, fh, sort_keys=False, default_flow_style=False, width=120)
