@@ -49,9 +49,11 @@ def test_dispatch_table_has_known_entries():
 
 
 def test_dispatch_table_requires_are_strings():
+    """Each requirement is a field path, or a list of alternative paths (one of)."""
     for entry in DISPATCH_TABLE.values():
         for req in entry['requires']:
-            assert isinstance(req, str), f"requires entry not a string: {req}"
+            ok = isinstance(req, str) or (isinstance(req, list) and req and all(isinstance(r, str) for r in req))
+            assert ok, f"requires entry not a path or list of paths: {req}"
 
 
 # ── resolve ──────────────────────────────────────────────────────────────────

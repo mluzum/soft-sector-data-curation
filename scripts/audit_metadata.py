@@ -136,7 +136,7 @@ def _fmt_range(r):
 
 def _norm_cent(s):
     s = str(s).strip().replace("TO", "-").replace("to", "-")
-    s = s.replace("%", "").replace(" ", "")
+    s = re.sub(r"\s+", "", s.replace("%", ""))      # tabs too ('0\t-5', STAR 660793)
     m = re.match(r"([\d.]+)-([\d.]+)", s)
     if m:
         return f"{float(m.group(1)):g}-{float(m.group(2)):g}%"
@@ -169,7 +169,7 @@ def _covers_all(cur, raw_classes):
 # ---- checks added November 2026 (each caught real public records) ---------
 # A flow_vn record that is not a flow coefficient: slopes (dv1/dy, charge-
 # asymmetry slope r), counts, covariances/variances, R_AA ...
-_NOT_VN = re.compile(r"slope|counts|events|\bfraction|cov_|cov\(|var\(|\bc_\{?k\b|"
+_NOT_VN = re.compile(r"slope|counts|events|cov_|cov\(|var\(|\bc_\{?k\b|"
                      r"R_\{?(AA|CP|AB|dAu|pPb)|d\s*\$?v_?\{?1\}?\$?\s*/\s*d\s*y", re.I)
 _GAP_TEXT = re.compile(r"Delta\s*\\?eta|\|\s*\\?Delta|eta.gap|sub-?event", re.I)
 _PID_TEXT = re.compile(r"\\pi\b|\bpions?\b|\bkaons?\b|\bprotons?\b|K\^\{?0|K_\{?S|\\Lambda|\bLambda|\\phi\b|"
@@ -346,8 +346,12 @@ def audit_doc(path, doc):
                 flag("error", f"centrality classes/order mismatch: "
                               f"curated={cur_norm} raw={raw_classes}")
         else:
-            centers = [float(v) for v in cent_vals
-                       if isinstance(v, (int, float))]
+            # rows with a blank value in the selected column are dropped by
+            # load_experimental, and the record's classes skip them too
+            vals = (sel_dv or {}).get("values", [])
+            blank = {j for j, v in enumerate(vals) if str(v.get("value")).strip() in ("", "-")}
+            centers = [float(v) for j, v in enumerate(cent_vals)
+                       if isinstance(v, (int, float)) and j not in blank]
             if not cur_classes:
                 flag("error", f"raw centrality present ({centers[:3]}...) but "
                               f"curated centrality empty")

@@ -173,7 +173,7 @@ DISPATCH_TABLE_BY_TYPE = {
     },
     "particle_spectra": {
         "compute": "spectra_invariant_yield",
-        "requires": [["kinematic_range.eta", "kinematic_range.y", "centrality.eta"], [["kinematic_range.pT.bins", "kinematic_range.pT.points", "kinematic_range.pT.bin_ranges"], "kinematic_range.pT.min", "kinematic_range.pT.max"]],
+        "requires": [["kinematic_range.eta", "kinematic_range.y", "centrality.eta"], ["kinematic_range.pT.bins", "kinematic_range.pT.points", "kinematic_range.pT.bin_ranges", "kinematic_range.pT.min", "kinematic_range.pT.max"]],
         "description": "Invariant yield dN/(2π pT dpT dη)",
     },
     "fluctuations": {
