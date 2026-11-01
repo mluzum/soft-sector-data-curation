@@ -210,6 +210,21 @@ def _extra_checks(doc, raw, sel_dv, sel_q, desc, flag):
             flag("error", f"table is pT-differential ({n0} points), record is {dim}")
         if n0 > 1 and (name0.startswith(("eta", "\\eta", "y", "pseudorapidity", "rapidity"))) and dim != "differential_eta":
             flag("error", f"table is eta-differential ({n0} points), record is {dim}")
+        # Percent tables whose header carries no unit (STAR PRC 72, 014904:
+        # v2 = 1.89 for 1.89%): a flow coefficient's median |value| stays
+        # far below 0.5; single noisy high-pT points do not move the median.
+        units = str(((sel_dv or {}).get("header") or {}).get("units", ""))
+        vals = []
+        for v in (sel_dv or {}).get("values", []):
+            try:
+                vals.append(abs(float(v.get("value"))))
+            except (TypeError, ValueError):
+                pass
+        scale = float(doc.get("value_scale") or 1.0)
+        if vals and "%" not in units and "*100" not in header.replace(" ", "") \
+                and sorted(vals)[len(vals) // 2] / scale > 0.5:
+            flag("error", f"median |value| {sorted(vals)[len(vals) // 2]:.3g}: percent without a unit "
+                          f"(value_scale) or not a flow coefficient")
         has_gap = (doc.get("particles") or doc.get("eta_gap") is not None or doc.get("flow_reference")
                    or doc.get("method") in ("scalar_product", "event_plane"))
         if _GAP_TEXT.search(text) and not has_gap:
@@ -419,8 +434,11 @@ def audit_doc(path, doc):
             cur_bins = cur.get("bins")
             if cur_bins:
                 cur_f = [float(x) for x in cur_bins]
-                subset = all(any(abs(e - c) < 1e-6 for c in cur_f)
-                             for e in edges)
+                # every curated edge must be a raw edge (a record may hold
+                # some of the table's rows; until November 2026 this tested
+                # the reverse and flagged such records)
+                subset = all(any(abs(e - c) < 1e-6 for e in edges)
+                             for c in cur_f)
                 if subset and len(cur_f) != len(edges):
                     flag("warning", f"pT bins are a subset/rebin: curated "
                                     f"{len(cur_f)} vs raw {len(edges)}")
