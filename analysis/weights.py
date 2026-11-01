@@ -312,73 +312,70 @@ def _find_cdf_crossing(Q0, target, M_min=0, M_max=100000):
 def poisson_cdf_cent_weights(Q0ch, centbins, efficiency=1.0, anchor_cent=100.0):
     """Poisson-fluctuation centrality weights via CDF inversion.
 
-    Each hydro event's smooth charged multiplicity Q0ch is interpreted
-    as the mean of a Poisson-distributed detected count, scaled by
-    *efficiency*.  The fraction of events assigned to each centrality
-    bin is the probability that the detected count falls in that bin.
+    Each hydro event's smooth charged multiplicity Q0ch is interpreted as
+    the mean of a Poisson-distributed detected count, scaled by
+    *efficiency*.  An event's weight in a class is the probability that its
+    detected count falls in that class.
 
     efficiency controls the detector resolution:
-      = 1.0  — pure Poisson counting statistics (default)
-      → ∞    — deterministic (→ direct_cent_weights_percentile)
-      → 0    — maximal smearing (all bins equally likely)
+      = 1.0  -- pure Poisson counting statistics (default)
+      -> inf -- deterministic (-> direct_cent_weights_percentile)
+      -> 0   -- maximal smearing (all bins equally likely)
 
-    Cent bin labels are **true centrality**: a bin ``(cmin, cmax)`` refers
-    to the ``[cmin, cmax]`` percentile range of the *total* cross section.
-    With a finite-coverage simulation (anchor_cent < 100), any portion of
-    a bin that lies below ``[lower_cov, 1]`` (``lower_cov = 1 - anchor_cent/100``)
-    is excluded; events beyond the sim's coverage receive zero weight for
-    that bin.  Bins are then renormalized per event so the *covered* bin
-    weights sum to 1 (each event contributes its Poisson probability mass
-    within coverage, distributed across the covered bins it overlaps).
+    Classes are percentiles of the TOTAL cross section.  The simulation
+    covers its central fraction f = anchor_cent/100, so the total count
+    distribution is F_tot(M) = (1 - f) + f * mean_i P(N_i <= M) (the
+    uncovered events lie below every simulated count), and a class edge at
+    c% is the count where F_tot = 1 - c/100.  Weights are not renormalized:
+    probability mass outside the coverage, or in classes the record does
+    not list, is simply not counted.  The summed weight of a covered class
+    is then n_ref x width (n_ref = n_sim / f), as for the sharp cuts.
+
+    Until November 2026 the inversion used the simulated events' CDF at
+    1 - c/100 (an f-compressed percentile axis: 0-10% held 199 instead of
+    223 of 2000 events at f = 0.897), and each event's row was renormalized
+    over the record's classes, so a single-class record (spectra) gave every
+    event weight 1 and the most peripheral class of a list collected the
+    events beyond it (found by the isobar analysis, zr96c2 dp0001).
 
     Parameters
     ----------
-    Q0ch: (n_events,) array — smooth charged multiplicity per event
-    centbins: list of (min_cent%, max_cent%) tuples — true centrality
-    efficiency: float — effective Poisson mean = efficiency × Q0ch
-    anchor_cent: float — upper percentile of the sim-covered cross section
+    Q0ch: (n_events,) array -- smooth charged multiplicity per event
+    centbins: list of (min_cent%, max_cent%) tuples -- true centrality
+    efficiency: float -- effective Poisson mean = efficiency x Q0ch
+    anchor_cent: float -- upper percentile of the sim-covered cross section
                 (default 100 = full set)
 
-    Returns: (n_events, n_cent_bins) float — fractional weights per bin.
+    Returns: (n_events, n_cent_bins) float -- probabilities per class.
     """
     Q0ch = np.asarray(Q0ch)
     Q0ch_eff = efficiency * Q0ch
     nev = len(Q0ch)
-    nbins = len(centbins)
-    weights = np.zeros((nev, nbins))
+    weights = np.zeros((nev, len(centbins)))
     maxQ0_eff = np.max(Q0ch_eff)
     max_search = int(maxQ0_eff + 4.0 * np.sqrt(maxQ0_eff)) + 1
 
     if anchor_cent <= 0:
         raise ValueError(f"anchor_cent must be > 0, got {anchor_cent}")
-    lower_cov = 1.0 - anchor_cent / 100.0
-    if not 0.0 <= lower_cov <= 1.0:
-        raise ValueError(
-            f"anchor_cent={anchor_cent} -> lower_cov={lower_cov} out of [0, 1]")
+    f = anchor_cent / 100.0
+    if not 0.0 < f <= 1.0:
+        raise ValueError(f"anchor_cent={anchor_cent} out of (0, 100]")
+
+    def sim_target(frac):
+        """Total-cross-section CDF value -> the simulated events' CDF value."""
+        return min(max((frac - (1.0 - f)) / f, 0.0), 1.0)
+
+    def cdf(M):
+        return scipy.stats.poisson.cdf(M, Q0ch_eff) if M >= 0 else np.zeros(nev)
 
     for ibin, (cmin, cmax) in enumerate(centbins):
-        # True-centrality bin → full-percentile range (CDF inversion convention)
-        lo_frac = 1.0 - cmax / 100.0
-        hi_frac = 1.0 - cmin / 100.0
-        # Clip to the sim's coverage: anything below lower_cov is not sampled
-        lo_frac = max(lo_frac, lower_cov)
-        hi_frac = max(hi_frac, lower_cov)
-        lo_frac = min(lo_frac, 1.0)
-        hi_frac = min(hi_frac, 1.0)
-        if hi_frac <= lo_frac:
-            weights[:, ibin] = 0.0
-            continue
-        Mlo = _find_cdf_crossing(Q0ch_eff, lo_frac, 0, max_search)
-        Mhi = _find_cdf_crossing(Q0ch_eff, hi_frac, 0, max_search)
-        weights[:, ibin] = (
-            scipy.stats.poisson.cdf(Mhi, Q0ch_eff)
-            - scipy.stats.poisson.cdf(Mlo, Q0ch_eff)
-        )
-    # Renormalize per-event rows so the covered-bin weights sum to 1: each
-    # event distributes its Poisson mass within coverage across the covered
-    # bins it overlaps.  Events with no covered mass get sum=0 and are left
-    # as all-zero (the pipeline filters them via min_weight).
-    row_sums = weights.sum(axis=1, keepdims=True)
-    row_sums = np.maximum(row_sums, 1e-30)
-    weights = np.where(row_sums > 1e-15, weights / row_sums, 0.0)
+        lo = sim_target(1.0 - cmax / 100.0)
+        hi = sim_target(1.0 - cmin / 100.0)
+        if hi <= lo:
+            continue                     # beyond the coverage: no weight
+        # Edge at sim-CDF 0 (the coverage boundary) counts every outcome above -1
+        Mlo = _find_cdf_crossing(Q0ch_eff, lo, 0, max_search) if lo > 0 else -1
+        # The 0% edge takes the whole upper tail (not cdf(max_search))
+        upper = 1.0 if hi >= 1.0 else cdf(_find_cdf_crossing(Q0ch_eff, hi, 0, max_search))
+        weights[:, ibin] = upper - cdf(Mlo)
     return weights

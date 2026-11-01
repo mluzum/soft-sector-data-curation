@@ -161,7 +161,12 @@ Centrality (`analysis/weights.py`):
 - anchored to the total cross section by `resolve_anchor` (fraction f,
   N_ref, {b_max, sigma_tot} in fm², or {sigma_eff, sigma_tot});
 - bins beyond the anchor get zero weight, and bins below `--min-cent-weight`
-  are dropped from the output.
+  are dropped from the output;
+- Poisson weights are each event's probability to land in a class, with
+  edges from the total-cross-section CDF (1-f) + f * F_sim; rows are NOT
+  renormalized, so a class's summed weight is n_ref x width whatever other
+  classes the record lists (until November 2026 single-class records gave
+  every event weight 1).
 
 Errors: a delete-block jackknife (20 blocks by default) with the
 bias-corrected central value θ̂ = Nθ − (N−1)θ̄.

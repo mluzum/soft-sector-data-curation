@@ -83,73 +83,37 @@ def test_poisson_anchor_empty_beyond():
     assert w_anch[:, 2].sum() < 1e-6
 
 
-def test_poisson_anchor_total_rescaled():
-    # f=0.8 -> anchor_cent=80.  Cent labels are TRUE centrality: a bin
-    # (cmin, cmax) refers to the [cmin, cmax] percentile range of the total
-    # cross section.  The Poisson weighting computes the probability of
-    # landing in that *full* percentile range; below the sim's coverage
-    # (lower_cov = 0.2) the CDF is clipped to lower_cov.  Per-event rows
-    # are renormalized to sum to 1 across the covered bins, so the total
-    # weight of covered bins per event is 1 and the excluded bins are 0.
+def test_poisson_class_totals_anchored():
+    """Classes are percentiles of the total cross section: with coverage f the
+    summed weight of a covered class is n_ref x width (n_ref = n_sim / f), the
+    same whatever other classes the record lists (no per-event
+    renormalization; a single-class spectra record used to give every event
+    weight 1, and the last class of a list collected the events beyond it)."""
     rng = np.random.RandomState(3)
-    Q0 = rng.gamma(30.0, 10.0, size=500)
-    centbins = [(0, 20), (20, 50), (50, 80), (80, 100)]
-    w_anch = poisson_cdf_cent_weights(Q0, centbins, efficiency=1.0, anchor_cent=80.0)
-    # peripheral 80-100% bin excluded (zero weight)
-    assert w_anch[:, 3].sum() < 1e-6
-    # covered bins renormalized to 1 per event (or 0 for events with no
-    # covered mass)
-    row_sums = w_anch.sum(axis=1)
-    nz = row_sums > 1e-12
-    assert np.allclose(row_sums[nz], 1.0, atol=1e-9)
-    # The covered-bin shape (NOT the old 1/f-scaled edges) matches the
-    # full-anchor result restricted to the same percentile range:
-    w_full = poisson_cdf_cent_weights(Q0, centbins, efficiency=1.0, anchor_cent=100.0)
-    # rows of the full-anchor result restricted to the 0-80% range, then
-    # renormalized to sum to 1 (per event)
-    w_full_covered = w_full[:, :3]
-    fs = w_full_covered.sum(axis=1, keepdims=True)
-    fs = np.maximum(fs, 1e-30)
-    w_full_cov_norm = w_full_covered / np.where(fs > 1e-15, fs, 1.0)
-    # the renormalized anchored weights for the covered bins must equal the
-    # renormalized full-anchor restricted weights
-    assert np.allclose(w_anch[:, :3], w_full_cov_norm, rtol=1e-9, atol=1e-12)
-
-
-def test_poisson_anchor_scaled_full_invariant():
-    # True-centrality (NOT 1/f-scaled) interpretation: bin labels are the
-    # percentile range of the total cross section.  With anchor A, any bin
-    # above A is excluded; bins within coverage are computed on the
-    # full-percentile range and renormalized per event.
+    Q0 = rng.gamma(2.0, 150.0, size=4000)
+    f = 0.897
+    n_ref = len(Q0) / f
+    centbins = [(0, 10), (10, 20), (20, 40), (40, 60), (60, 80), (90, 100)]
+    w = poisson_cdf_cent_weights(Q0, centbins, efficiency=1.0, anchor_cent=100 * f)
+    for i, (a, b) in enumerate(centbins[:5]):
+        want = n_ref * (b - a) / 100
+        assert abs(w[:, i].sum() - want) < 0.02 * want, (centbins[i], w[:, i].sum(), want)
+        one = poisson_cdf_cent_weights(Q0, [centbins[i]], efficiency=1.0, anchor_cent=100 * f)
+        assert np.allclose(one[:, 0], w[:, i], rtol=0, atol=1e-12)
+    assert w[:, 5].sum() < 1e-9          # beyond the coverage
+def test_poisson_deterministic_limit_is_sharp_cuts():
+    """With negligible counting fluctuations the Poisson weights reduce to the
+    anchored sharp percentile cuts (direct_cent_weights_percentile, n_ref = n/f)."""
     rng = np.random.RandomState(7)
-    Q0 = rng.gamma(30.0, 10.0, size=500)
-    for A in (60.0, 80.0):
-        # bins: one fully inside coverage, one straddling, one beyond
-        centbins = [(0, A / 2), (A / 2 - 5, A / 2 + 5), (A, 100)]
-        w_anch = poisson_cdf_cent_weights(Q0, centbins, efficiency=1.0, anchor_cent=A)
-        w_full = poisson_cdf_cent_weights(Q0, centbins, efficiency=1.0, anchor_cent=100.0)
-        # bin beyond coverage (max > A) -> ~0 weight
-        assert w_anch[:, 2].sum() < 1e-9
-        # the fully-inside bin (0, A/2) matches the full-anchor restricted
-        # + renormalized weight (here the row-sums are 1 because the row is
-        # inside coverage)
-        w_full_in = w_full[:, :2]
-        fs = w_full_in.sum(axis=1, keepdims=True)
-        fs = np.maximum(fs, 1e-30)
-        w_full_in_norm = np.where(fs > 1e-15, w_full_in / fs, 0.0)
-        assert np.allclose(w_anch[:, :2], w_full_in_norm, rtol=1e-9, atol=1e-12)
-        # the straddling bin (A/2-5, A/2+5) is centered on A/2, fully
-        # inside coverage for A>50.  Both anchored and full-anchor
-        # include this bin, so w_anch[i, 1] = w_full[i, 1] / p(coverage)
-        # and w_full[i, 1] = p(bin).  The renormalized anchored weight
-        # is the bin probability divided by the coverage probability,
-        # so w_anch[i, 1] >= w_full[i, 1] for any event with non-zero
-        # excluded-bin mass.  For an event fully inside coverage
-        # (all 3 bin probs in [0, 1], sum to 1), the two are equal.
-        assert np.all(w_anch[:, 1] >= w_full[:, 1] - 1e-12)
-        assert np.all(w_anch[:, 1] <= 1.0 + 1e-12)
-
-
+    Q0 = rng.gamma(2.0, 150.0, size=3000)
+    for A in (60.0, 80.0, 100.0):
+        f = A / 100.0
+        edges = [0, 10, 30, 50]
+        wp = poisson_cdf_cent_weights(Q0, list(zip(edges, edges[1:])), efficiency=1e4, anchor_cent=A)
+        wd = direct_cent_weights_percentile(Q0, np.array(edges, float), n_ref=len(Q0) / f)
+        assert np.allclose(wp.sum(axis=0), wd.sum(axis=0), rtol=0.01), (A, wp.sum(0), wd.sum(0))
+        for i in range(3):
+            assert abs(np.average(Q0, weights=wp[:, i]) - np.average(Q0, weights=wd[:, i])) < 0.01 * Q0.mean()
 def test_direct_anchor_scaled_full_invariant():
     # Same exact identity for the direct (rank/percentile) method: n_ref = n_sim/f
     # is equivalent to scaling bin edges by 1/f on the full axis, so the two
@@ -168,34 +132,17 @@ def test_direct_anchor_scaled_full_invariant():
         assert w_anch[:, 2].sum() == 0
 
 
-def test_poisson_anchor_labels_true_centrality():
-    # The new (correct) labeling: a 5-10% cent bin at anchor 80 is the
-    # 5-10% percentile range of the FULL cross section, NOT the
-    # 5-10% percentile of the sim's coverage.  Verify by direct CDF
-    # inversion on the full axis.  The anchored row, renormalized across
-    # the *covered* bins, reproduces the renormalized full-anchor row
-    # restricted to the same bins.
+def test_poisson_anchor_is_scaled_edges():
+    """Coverage f is the same as scaling the class edges by 1/f on the
+    simulated events' own axis (the identity the direct method obeys)."""
     rng = np.random.RandomState(42)
     Q0 = rng.gamma(50.0, 5.0, size=2000)
-    centbins = [(0, 5), (5, 10), (10, 20), (70, 80), (80, 100)]
-    w = poisson_cdf_cent_weights(Q0, centbins, efficiency=1.0, anchor_cent=80.0)
-    # each row sums to 1 (or 0 if no covered mass)
-    nz = w.sum(axis=1) > 1e-12
-    assert np.allclose(w[nz].sum(axis=1), 1.0, atol=1e-9)
-    # 80-100% bin is beyond coverage -> 0
-    assert w[:, 4].sum() < 1e-9
-    # The anchored weights for the COVERED bins, restricted to the
-    # covered region and renormalized, equal the full-anchor weights
-    # restricted to the same region and renormalized.  This is the true-
-    # centrality identity: the cent-bin labels do NOT shift with anchor.
-    w_full = poisson_cdf_cent_weights(Q0, centbins, efficiency=1.0, anchor_cent=100.0)
-    w_full_cov = w_full[:, :4]  # restrict to covered bins
-    fs = w_full_cov.sum(axis=1, keepdims=True)
-    fs = np.maximum(fs, 1e-30)
-    w_full_cov_norm = np.where(fs > 1e-15, w_full_cov / fs, 0.0)
-    assert np.allclose(w[:, :4], w_full_cov_norm, rtol=1e-9, atol=1e-12)
-
-
+    for A in (60.0, 80.0):
+        f = A / 100.0
+        centbins = [(0, 5), (5, 10), (10, 20), (40, 50)]
+        w_anch = poisson_cdf_cent_weights(Q0, centbins, efficiency=1.0, anchor_cent=A)
+        w_scal = poisson_cdf_cent_weights(Q0, [(a / f, b / f) for a, b in centbins], efficiency=1.0)
+        assert np.allclose(w_anch, w_scal, rtol=1e-12, atol=1e-12)
 def test_direct_anchor_labels_true_centrality():
     # For the direct (rank/percentile) method with finite coverage, the
     # cent bin labels remain TRUE centrality: a 0-10% bin at anchor 50
@@ -254,12 +201,12 @@ def test_cent_weights_listed_order_robust():
         assert w_asc.shape == w_desc.shape == (1000, 4)
         for i in range(4):
             assert np.array_equal(w_desc[:, i], w_asc[:, 3 - i])
-        # every event in exactly one bin (simple) / rows sum to 1 (poisson)
+        # every event in exactly one bin (simple) / classes tiling 0-100%
+        # hold all of each event's probability (poisson)
         if method == 'simple':
             assert (w_desc.sum(axis=1) == 1).all()
         else:
-            nz = w_desc.sum(axis=1) > 1e-12
-            assert np.allclose(w_desc[nz].sum(axis=1), 1.0)
+            assert np.allclose(w_desc.sum(axis=1), 1.0, atol=1e-6)
 
 
 def test_cent_weights_disjoint_classes():
