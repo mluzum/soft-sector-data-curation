@@ -114,8 +114,8 @@ def _num_range(text):
     if text is None:
         return None
     s = str(text)
-    # "0.2 < pT < 2.0", "0.2 < pT < 5", "pT > 0.2", "0.2-2.0"
-    m = re.search(r"([\d.]+)\s*<\s*[^<]*<\s*([\d.]+)", s)
+    # "0.2 < pT < 2.0", "0.2 < pT < 5", "pT > 0.2", "0.2-2.0", "0.2 TO 5.0"
+    m = re.search(r"([\d.]+)\s*<\s*[^<]*<\s*([\d.]+)", s) or re.search(r"([\d.]+)\s+TO\s+([\d.]+)", s, re.I)
     if m:
         return (float(m.group(1)), float(m.group(2)))
     m = re.search(r"([\d.]+)\s*-\s*([\d.]+)", s)
@@ -202,6 +202,25 @@ def _same_centres(classes, bins):
     return True
 
 
+def _is_pt_cut_axis(name):
+    """A table axis of lower pT cuts ('p_T,min'), not pT bins."""
+    return bool(re.match(r"p_?t,?min|ptmin|p_t\^?min|minimump_?t", name))
+
+
+def _check_pt_cut_point(doc, iv, flag):
+    """A pT-cut axis: one integrated record per point (table_rows [j]),
+    with kinematic_range.pT.min at that cut."""
+    rows = doc.get("table_rows")
+    if doc.get("dimensionality", "integrated") != "integrated" or not rows or len(rows) != 1:
+        flag("error", "table is a pT_min dependence: one integrated record per point (table_rows [j])")
+        return
+    v = iv["values"][rows[0]]
+    cut = float(v["value"] if "value" in v else v["low"])
+    lo = ((doc.get("kinematic_range") or {}).get("pT") or {}).get("min")
+    if lo is None or abs(float(lo) - cut) > 1e-9:
+        flag("error", f"row {rows[0]} is pT_min = {cut:g}, record pT.min = {lo}")
+
+
 def _extra_checks(doc, raw, sel_dv, sel_q, desc, flag):
     otype = doc.get("observable_type")
     header = str(((sel_dv or {}).get("header") or {}).get("name", ""))
@@ -211,13 +230,15 @@ def _extra_checks(doc, raw, sel_dv, sel_q, desc, flag):
     n0 = len(iv0.get("values", [])) if iv0 else 0
     # '$p_{\rm T}$', 'p_{T} [GeV/c]', 'PT' -> 'p_t...'
     name0 = re.sub(r"\\(rm|mathrm|text|it)|[${}\\ ]", "", _indep_name(iv0).lower()) if iv0 else ""
+    if n0 > 1 and _is_pt_cut_axis(name0):
+        _check_pt_cut_point(doc, iv0, flag)
     if otype == "flow_vn":
         if _NOT_VN.search(header) or _NOT_VN.search(str(doc.get("value_type", ""))):
             flag("error", f"header {header!r} is not a flow coefficient")
         elif "/" in header.replace("GeV/c", ""):
             flag("warning", f"header {header!r} looks like a ratio")
         dim = doc.get("dimensionality", "integrated")
-        if n0 > 1 and (name0.startswith(("p_t", "pt")) or "transversemomentum" in name0) and dim != "differential_pT":
+        if n0 > 1 and not _is_pt_cut_axis(name0) and (name0.startswith(("p_t", "pt")) or "transversemomentum" in name0) and dim != "differential_pT":
             flag("error", f"table is pT-differential ({n0} points), record is {dim}")
         if n0 > 1 and (name0.startswith(("eta", "\\eta", "y", "pseudorapidity", "rapidity"))) and dim != "differential_eta":
             flag("error", f"table is eta-differential ({n0} points), record is {dim}")
