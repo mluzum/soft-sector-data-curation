@@ -109,7 +109,12 @@ def main():
                 rr = parse_range(raw_v)
                 lr = parse_range(listed)
                 if rr is not None and lr is not None:
-                    if abs(rr[0] - lr[0]) > 1e-9 or abs(rr[1] - lr[1]) > 1e-9:
+                    # A plotting-position bin (ATLAS 2967110 Fig. 7a: width
+                    # 2.6 around the class centre) is the class it is
+                    # centred on, if it is no wider than the class.
+                    same_centre = (abs((rr[0] + rr[1]) - (lr[0] + lr[1])) < 1e-6
+                                   and rr[1] - rr[0] <= lr[1] - lr[0] + 1e-9)
+                    if (abs(rr[0] - lr[0]) > 1e-9 or abs(rr[1] - lr[1]) > 1e-9) and not same_centre:
                         bad.append(pos)
                 elif rr is None:
                     rc = parse_center(raw_v)
