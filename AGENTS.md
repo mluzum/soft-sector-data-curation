@@ -104,6 +104,15 @@ Fields that change dispatch:
   ~0.  Rapidity-even v1 is not implemented.
 - `kinematic_range.y.mass`: a rapidity window with one assumed mass (PHOBOS
   y_pi), spectra only.
+- Two-subevent v_n{2} (`particles: AB`) of an identified species: computed
+  by `vn2_gap_poi`, the particle of interest (record species, top-level
+  pT) in one subevent with the reference (`subevents.<X>.particle_id`,
+  default charged) in the other, over the reference v_n{2}ab.  Its 3D
+  prepare receives the unselected container (`selects_species`,
+  `pipeline_dispatch.container_for_prepare`).
+- `centrality.points` + `point_window`: a table that gives one centrality
+  value per point and no class edges; the classes are the windows around
+  the points (validate.py checks this).
 - A `particle_id.species` the simulations cannot provide (heavy flavour,
   quarkonia, leptons, photons, pi0, Sigma, ...) is refused
   (`analysis.species.species_known`) instead of computing zero.

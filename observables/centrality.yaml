@@ -103,6 +103,24 @@ centrality:
           required: false
           description: Maximum pT [GeV/c] of the estimator acceptance.
           example: 100.0
+    points:
+      type: list
+      required: false
+      description: >
+        Published centrality values (e.g. the mean percentile of each
+        multiplicity bin) when the class edges are not published.
+        `classes` are then windows of width `point_window` centred on
+        them (clipped at 0), a curation choice the record states: the
+        comparison assumes the observable varies slowly across the
+        unpublished bin.
+      items:
+        type: float
+        example: 58.0
+    point_window:
+      type: float
+      required: false
+      description: Width, in percent, of the windows around `points`.
+      example: 2.0
     analysis_classes:
       type: list
       required: false

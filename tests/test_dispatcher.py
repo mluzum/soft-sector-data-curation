@@ -416,6 +416,16 @@ def test_validator_points_rules():
     assert errs({'min': -5, 'max': 5, 'bin_ranges': [[-2.5, -3.0]]})
     assert errs({'min': -5, 'max': 5, 'bin_ranges': [[2.5, 3.0]], 'bins': [0.0, 1.0]})
 
+    def cent_errs(**c):
+        cent = dict(base['centrality'], **c)
+        rec = dict(base, centrality=cent, kinematic_range={'eta': {'min': -1, 'max': 1}, 'pT': {'min': 0, 'max': 5}})
+        return [e for e in validate_doc(rec, 'r') if 'centrality' in e]
+    assert not cent_errs(classes=['58-60%', '1-3%'], points=[59.0, 2.0], point_window=2.0)
+    assert not cent_errs(classes=['0-1.5%'], points=[0.5], point_window=2.0)          # clipped at 0
+    assert cent_errs(classes=['55-62%'], points=[59.0], point_window=2.0)              # not the window
+    assert cent_errs(classes=['58-60%'], points=[59.0])                                # no window
+    assert cent_errs(classes=['58-60%', '1-3%'], points=[59.0], point_window=2.0)      # lengths
+
 
 def test_load_experimental_total_error():
     """The experimental error is every HEPData component in quadrature: an

@@ -22,6 +22,7 @@ from analysis.observables_2d import (
     compute_vn2_single_per_cent_bin,
     compute_vn2_single_mor,
     compute_vn2_subevent_per_cent,
+    compute_vn2_gap_poi,
     _core_vn4_single,
     _core_vn4_gap,
     _core_vn2_diff_pT,
@@ -229,6 +230,111 @@ def prepare_vn2_gap_2d(qv, params):
             qv, jac_A, jac_B, idx, cf, lo, hi)
 
     return {'Qn_A': Qn_A, 'Qn_B': Qn_B, 'dQ_cross': dQ_cross}
+
+
+def _poi_and_reference(params):
+    """(POI particle_id, POI pT, {label: (reference particle_id, eta, pT)}).
+
+    The POI is the record's particle_id in its top-level pT range; each
+    subevent's reference is its own particle_id (default: charged hadrons)
+    in its own eta and pT ranges."""
+    sr = params.get('subevent_ranges') or {}
+    labels = sorted(sr)
+    if len(labels) != 2:
+        raise ValueError("vn2_gap_poi needs exactly two subevents")
+    poi_pt = (params.get('poi_range') or {}).get('pT') or params['single_range']['pT']
+    ref = {}
+    for lab in labels:
+        pid = sr[lab].get('particle_id') or {'species': 'charged'}
+        pt = sr[lab]['pT'] if sr[lab]['pT'][0] is not None else poi_pt
+        ref[lab] = (pid, sr[lab]['eta'], pt)
+    return params.get('particle_id'), poi_pt, labels, ref
+
+
+def prepare_vn2_gap_poi_2d(qv, params):
+    """Identified particle of interest with a separate reference, two subevents (2D).
+
+    POI Q-vectors (record species, top-level pT) and reference Q-vectors
+    (subevent species, default charged; subevent pT) in each subevent's
+    eta window.  On the boost-invariant container every particle is in both
+    windows, so the POI-reference and reference-reference self-pair terms
+    (Sum w_A w_B over the particles common to both samples, with the samples'
+    charge factors) are kept for the core to subtract.
+    """
+    poi_pid, poi_pt, labels, ref = _poi_and_reference(params)
+    poi_idx, poi_cf, found = _get_species_selection(poi_pid, qv)
+    if not found:
+        raise ValueError(f"species {poi_pid!r} not in the container")
+    pdg_ids = getattr(qv, 'pdg_ids', None)
+    if poi_idx is None:
+        poi_idx = list(range(qv.Qn.shape[1]))
+    out, jacs, ref_sel = {}, {}, {}
+    for X, lab in zip('AB', labels):
+        rpid, eta, rpt = ref[lab]
+        if is_charged(rpid.get('species')):
+            ridx, rcf = charged_species_indices(pdg_ids)
+        else:
+            ridx, rcf, ok = _get_species_selection(rpid, qv)
+            if not ok:
+                raise ValueError(f"reference species {rpid!r} not in the container")
+        Qn_cut, jac = cut_qvectors(qv, eta[0], eta[1])
+        plo, phi_ = _find_pt_slice_edges(qv.pt_bin_edges, poi_pt[0], poi_pt[1])
+        rlo, rhi = _find_pt_slice_edges(qv.pt_bin_edges, rpt[0], rpt[1])
+        out[f'p_{X}'] = poi_cf * Qn_cut[:, poi_idx, :, plo:phi_].sum(axis=(1, 3))
+        out[f'Q_{X}'] = rcf * Qn_cut[:, ridx, :, rlo:rhi].sum(axis=(1, 3))
+        jacs[X] = jac
+        ref_sel[X] = (list(ridx), rcf, rlo, rhi)
+    plo, phi_ = _find_pt_slice_edges(qv.pt_bin_edges, poi_pt[0], poi_pt[1])
+
+    def cross(idx, factor, lo, hi):
+        if not idx or hi <= lo:
+            return np.zeros(qv.n_events)
+        return _compute_dq0_cross_species(qv, jacs['A'], jacs['B'], idx,
+                                          np.sqrt(factor), lo, hi)
+
+    # POI in A with the reference in B (and B with A): common particles are
+    # the POI species that are also reference species, in the common pT range.
+    # The term is symmetric in A <-> B; both orderings use the same windows.
+    terms = []
+    for X, Y in (('A', 'B'), ('B', 'A')):
+        ridx, rcf, rlo, rhi = ref_sel[Y]
+        common = [i for i in poi_idx if i in ridx]
+        terms.append(cross(common, poi_cf * rcf, max(plo, rlo), min(phi_, rhi)))
+    ia, cfa, la, ha = ref_sel['A']
+    ib, cfb, lb, hb = ref_sel['B']
+    common_ref = [i for i in ia if i in ib]
+    out['d_pQ'] = 0.5 * (terms[0] + terms[1])
+    out['d_QQ'] = cross(common_ref, cfa * cfb, max(la, lb), min(ha, hb))
+    return out
+
+
+def prepare_vn2_gap_poi_3d(container, params):
+    """Identified particle of interest with a separate reference, two subevents (3D).
+
+    Receives the unselected container (selects_species): the POI and the
+    reference are selected from it separately, on unit weights.  Disjoint
+    subevents share no particles, so the self-pair terms vanish; overlapping
+    windows are refused.
+    """
+    poi_pid, poi_pt, labels, ref = _poi_and_reference(params)
+    (ea0, ea1), (eb0, eb1) = ref[labels[0]][1], ref[labels[1]][1]
+    if min(ea1, eb1) > max(ea0, eb0) + 1e-9:
+        raise ValueError("vn2_gap_poi on a 3D grid needs disjoint subevents")
+    poi = _unit_weights(container.select(poi_pid))
+    out = {}
+    for X, lab in zip('AB', labels):
+        rpid, eta, rpt = ref[lab]
+        rgrid = _unit_weights(container.select(rpid))
+        out[f'p_{X}'] = poi.acceptance(eta[0], eta[1], poi_pt[0], poi_pt[1])
+        out[f'Q_{X}'] = rgrid.acceptance(eta[0], eta[1], rpt[0], rpt[1])
+    out['d_pQ'] = np.zeros(out['p_A'].shape[0])
+    out['d_QQ'] = np.zeros(out['p_A'].shape[0])
+    return out
+
+
+def _wrap_vn2_gap_poi(data, w):
+    return compute_vn2_gap_poi(data['p_A'], data['p_B'], data['Q_A'], data['Q_B'],
+                               data['d_pQ'], data['d_QQ'], w)
 
 
 def prepare_vn4_single_2d(qv, params):
@@ -1867,6 +1973,16 @@ PIPELINE_DISPATCH = {
         "n_obs_per_cent": 5,
         "description": "v_n{2}ab two-subevent integrated",
     },
+    "vn2_gap_poi": {
+        "core_fn": _wrap_vn2_gap_poi,
+        "prepare_data_2d": prepare_vn2_gap_poi_2d,
+        "prepare_data_3d": prepare_vn2_gap_poi_3d,
+        # The 3D prepare selects the POI and the reference itself: callers
+        # pass the unselected container (see container_for_prepare).
+        "selects_species": True,
+        "n_obs_per_cent": 5,
+        "description": "v_n{2} of identified particles, two subevents, separate reference",
+    },
     "vn2_single_diff_pT": {
         "core_fn": _wrap_vn2_diff_pT,
         "prepare_data_2d": prepare_vn2_diff_pT_2d,
@@ -2091,6 +2207,15 @@ def _unit_weights(grid):
         if hasattr(grid, nm):
             setattr(out, nm, getattr(grid, nm))
     return out
+
+
+def container_for_prepare(container, params, entry):
+    """The 3D container a prepare receives: species-selected by the record's
+    particle_id, or unselected for entries that select species themselves
+    (``selects_species``: a POI and a reference of different species)."""
+    if entry.get('selects_species'):
+        return container
+    return container.select(params.get('particle_id'))
 
 
 def _on_unit_weights(prepare):

@@ -686,7 +686,8 @@ def evaluate(record, qv=None, grid=None, with_jackknife=True,
     elif grid is not None:
         # Apply charge-symmetry / species selection once, up front, so the
         # 3D prepares read grid.charge_factor consistently with run_pipeline.
-        grid = grid.select(params.get('particle_id'))
+        from analysis.pipeline_dispatch import container_for_prepare
+        grid = container_for_prepare(grid, params, entry)
         data = entry['prepare_data_3d'](grid, params)
         n_events = grid.n_events
         mult = _cent_mult_3d(grid, params['cent_eta_ranges'])

@@ -13,7 +13,7 @@ import os
 import numpy as np
 import yaml
 
-from analysis.species import species_known
+from analysis.species import is_charged, species_known
 
 
 _PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -517,6 +517,17 @@ def resolve(record):
                 f"Record missing required field '{req}' for dispatch "
                 f"key {key}")
 
+    # Two-subevent v_n{2} of identified particles: the particle of interest
+    # (the record's species and kinematic_range) in one subevent, correlated
+    # with the reference (charged hadrons, or subevents.<X>.particle_id) in
+    # the other, and divided by the reference v_n{2} -- vn2_gap would return
+    # the reference's own v_n{2}.
+    if entry["compute"] == "vn2_gap" and species is not None and not is_charged(species):
+        entry = dict(VN2_GAP_POI_ENTRY)
+        for req in entry["requires"]:
+            if not _field_exists(record, req):
+                raise ValueError(f"Record missing required field '{req}' for vn2_gap_poi")
+
     # A rapidity window with an assumed mass (e.g. y_pi) is implemented for
     # spectra only; elsewhere it would be read as a true-rapidity window.
     y_kr = (record.get("kinematic_range") or {}).get("y") or {}
@@ -530,6 +541,17 @@ def resolve(record):
 
 # Computations that implement kinematic_range.y.mass.
 MASS_ASSUMED_RAPIDITY_KEYS = {"spectra_invariant_yield"}
+
+VN2_GAP_POI_ENTRY = {
+    "compute": "vn2_gap_poi",
+    "requires": [
+        "subevents.A.kinematic_range.eta",
+        "subevents.B.kinematic_range.eta",
+        "kinematic_range.pT",
+    ],
+    "description": "v_n{2} of identified particles, two subevents: POI in one subevent with the "
+                   "reference in the other, over the reference v_n{2}ab",
+}
 
 V1_ODD_ENTRY = {
     "compute": "v1_odd_sp_diff_eta",
@@ -594,6 +616,8 @@ def extract_measurement_params(exp_rec):
             subevent_ranges[label] = {
                 'eta': _kr_eta(sk),
                 'pT': _kr_pT(sk),
+                # species of this subevent's particles (None: the record's)
+                'particle_id': subevents.get(label, {}).get('particle_id'),
             }
 
     if subevent_ranges:
@@ -657,6 +681,9 @@ def extract_measurement_params(exp_rec):
         'particle_id': exp_rec.get('particle_id'),
         'subevent_ranges': subevent_ranges,
         'single_range': single_kr,
+        # The particle of interest's own acceptance (top-level
+        # kinematic_range); single_range is subevent A's when subevents exist.
+        'poi_range': {'eta': _kr_eta(top_kr), 'pT': _kr_pT(top_kr)},
         'dimensionality': dim,
         'differential_var': diff_var,
         'differential_bins': diff_bins,

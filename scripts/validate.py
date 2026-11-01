@@ -413,6 +413,18 @@ def validate_doc(record, record_path, doc_index=None, verbose=False):
                 errors.append(f"'{record_name}': 'kinematic_range.{ax}': points and bins are exclusive")
             if not isinstance(w, (int, float)) or w <= 0:
                 errors.append(f"'{record_name}': 'kinematic_range.{ax}.points' need a positive point_window")
+    cent = record.get("centrality") or {}
+    if isinstance(cent, dict) and cent.get("points") is not None:
+        pts, w = cent.get("points"), cent.get("point_window")
+        if not isinstance(w, (int, float)) or w <= 0:
+            errors.append(f"'{record_name}': 'centrality.points' need a positive point_window")
+        elif not isinstance(pts, list) or len(pts) != len(cent.get("classes") or []):
+            errors.append(f"'{record_name}': 'centrality.points' and 'classes' differ in length")
+        else:
+            want = [f"{max(p - w / 2, 0):g}-{p + w / 2:g}%" for p in pts]
+            if want != cent.get("classes"):
+                errors.append(f"'{record_name}': 'centrality.classes' must be the point_window "
+                              f"windows around 'centrality.points' ({want[:3]}...)")
     known = known_top | known_sections | known_conds | _implicit
     for key in record:
         if key not in known:

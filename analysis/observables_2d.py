@@ -1314,6 +1314,49 @@ def compute_vn2_subevent_per_cent(Qn_A, Qn_B, dQ_cross, event_weights):
     return result[1:]
 
 
+
+@register("vn2_gap_poi")
+def compute_vn2_gap_poi(p_A, p_B, Q_A, Q_B, d_pQ, d_QQ, event_weights):
+    """v_n{2} of a particle of interest (POI), two subevents, one centrality bin.
+
+    The POI in each subevent is correlated with the reference in the other,
+    both orderings summed, and divided by the reference v_n{2}ab:
+
+        d_n = <Re(p_A Q_B*) + Re(p_B Q_A*) - 2 d_pQ> / <m_A M_B + m_B M_A - 2 d_pQ>
+        c_n = <Re(Q_A Q_B*) - d_QQ> / <M_A M_B - d_QQ>
+        v_n = d_n / sqrt(c_n)
+
+    p_X, Q_X: (n_events, n_harm) complex POI / reference Q-vectors in
+      subevent X (slot 0 the counts);
+    d_pQ: (n_events,) POI-reference self-pair term, Sum w_A w_B over particles
+      in both samples (zero for disjoint subevents on a 3D grid; on a
+      boost-invariant 2D container every particle sits in both windows);
+    d_QQ: (n_events,) the same for the two reference samples.
+
+    Returns (n_harm-1,) harmonic-major v_1..v_{N-1} (v_2 at index 1), like
+    vn2_gap.  A negative c_n gives sign(c_n) sqrt|c_n| in the denominator.
+    """
+    n_harm = Q_A.shape[1]
+    out = np.zeros(n_harm - 1)
+    if np.sum(event_weights) <= 0:
+        return out
+    mA, mB = p_A[:, 0].real, p_B[:, 0].real
+    MA, MB = Q_A[:, 0].real, Q_B[:, 0].real
+    den_d = np.average(mA * MB + mB * MA - 2.0 * d_pQ, weights=event_weights)
+    den_c = np.average(MA * MB - d_QQ, weights=event_weights)
+    for h in range(1, n_harm):
+        num_d = np.average(np.real(p_A[:, h] * np.conj(Q_B[:, h]))
+                           + np.real(p_B[:, h] * np.conj(Q_A[:, h])) - 2.0 * d_pQ,
+                           weights=event_weights)
+        num_c = np.average(np.real(Q_A[:, h] * np.conj(Q_B[:, h])) - d_QQ,
+                           weights=event_weights)
+        d = num_d / max(den_d, 1e-60)
+        c = num_c / max(den_c, 1e-60)
+        root = np.sign(c) * np.sqrt(abs(c))
+        out[h - 1] = d / root if root != 0 else 0.0
+    return out
+
+
 def compute_vn2_subevent_per_cent_batch(Qn_A, Qn_B, dQ_cross, event_weights, n_jk_blocks=20):
     """v_n{2}ab two-subevent, batch jackknife over all centrality bins.
 

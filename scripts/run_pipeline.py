@@ -251,7 +251,7 @@ def _get_cent_anchor(cfg, reaction, energy):
 
 
 from analysis.pipeline_dispatch import (
-    get_pipeline_entry, PTCUTS,
+    get_pipeline_entry, PTCUTS, container_for_prepare,
 )
 
 
@@ -1050,7 +1050,7 @@ def main():
                             # Found Sep 2026 while unlocking v22_pt.
                             try:
                                 data_dict = prepare_fn_3d(
-                                    qv.select(params.get('particle_id')),
+                                    container_for_prepare(qv, params, pipe_entry),
                                     params)
                             except Exception as e:
                                 print(f"    Skipping: 3D diff prepare failed: {e}")
@@ -1094,7 +1094,7 @@ def main():
                                     kr['pT'] = (lo, hi)
                                 bin_params['single_range'] = kr
                             try:
-                                bd = prepare_fn_3d(qv.select(params.get('particle_id')),
+                                bd = prepare_fn_3d(container_for_prepare(qv, params, pipe_entry),
                                                   bin_params)
                             except Exception as e:
                                 print(f"    3D diff bin {lo:.2f}-{hi:.2f} failed: {e} — skipping")
@@ -1128,7 +1128,7 @@ def main():
                         })
                     else:
                         try:
-                            data_dict = prepare_fn_3d(qv.select(params.get('particle_id')),
+                            data_dict = prepare_fn_3d(container_for_prepare(qv, params, pipe_entry),
                                                       params)
                         except Exception as e:
                             print(f"    3D prepare failed: {e} — skipping record")
