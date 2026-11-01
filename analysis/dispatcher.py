@@ -107,12 +107,12 @@ DISPATCH_TABLE = {
     },
     ("cumulant", 2, None, "differential_pT"): {
         "compute": "vn2_single_diff_pT",
-        "requires": ["kinematic_range.eta", "kinematic_range.pT", "kinematic_range.pT.bins"],
+        "requires": ["kinematic_range.eta", "kinematic_range.pT", ["kinematic_range.pT.bins", "kinematic_range.pT.points", "kinematic_range.pT.bin_ranges"]],
         "description": "v_n{2} pT-differential, single centrality bin",
     },
     ("cumulant", 2, None, "differential_eta"): {
         "compute": "vn2_single_diff_eta",
-        "requires": ["kinematic_range.eta", "kinematic_range.pT", "kinematic_range.eta.bins"],
+        "requires": ["kinematic_range.eta", "kinematic_range.pT", ["kinematic_range.eta.bins", "kinematic_range.eta.points", "kinematic_range.eta.bin_ranges"]],
         "description": "v_n{2} eta-differential, single centrality bin",
     },
     ("cumulant", 2, "AB", "differential_pT"): {
@@ -122,7 +122,7 @@ DISPATCH_TABLE = {
             "subevents.A.kinematic_range.pT",
             "subevents.B.kinematic_range.eta",
             "subevents.B.kinematic_range.pT",
-            "kinematic_range.pT.bins",
+            ["kinematic_range.pT.bins", "kinematic_range.pT.points", "kinematic_range.pT.bin_ranges"],
         ],
         "description": "v_n{2}ab pT-differential, two-subevent",
     },
@@ -133,7 +133,7 @@ DISPATCH_TABLE = {
             "subevents.A.kinematic_range.pT",
             "subevents.B.kinematic_range.eta",
             "subevents.B.kinematic_range.pT",
-            "kinematic_range.eta.bins",
+            ["kinematic_range.eta.bins", "kinematic_range.eta.points", "kinematic_range.eta.bin_ranges"],
         ],
         "description": "v_n{2}ab eta-differential, two-subevent",
     },
@@ -144,12 +144,12 @@ DISPATCH_TABLE = {
     },
     ("cumulant", 4, None, "differential_pT"): {
         "compute": "vn4_single_diff_pT",
-        "requires": ["kinematic_range.eta", "kinematic_range.pT", "kinematic_range.pT.bins"],
+        "requires": ["kinematic_range.eta", "kinematic_range.pT", ["kinematic_range.pT.bins", "kinematic_range.pT.points", "kinematic_range.pT.bin_ranges"]],
         "description": "v_n{4} pT-differential, single centrality bin",
     },
     ("cumulant", 4, None, "differential_eta"): {
         "compute": "vn4_single_diff_eta",
-        "requires": ["kinematic_range.eta", "kinematic_range.pT", "kinematic_range.eta.bins"],
+        "requires": ["kinematic_range.eta", "kinematic_range.pT", ["kinematic_range.eta.bins", "kinematic_range.eta.points", "kinematic_range.eta.bin_ranges"]],
         "description": "v_n{4} eta-differential, single centrality bin",
     },
     ("cumulant", 4, "AABB", "integrated"): {
@@ -173,7 +173,7 @@ DISPATCH_TABLE_BY_TYPE = {
     },
     "particle_spectra": {
         "compute": "spectra_invariant_yield",
-        "requires": [["kinematic_range.eta", "kinematic_range.y", "centrality.eta"], ["kinematic_range.pT.bins", "kinematic_range.pT.min", "kinematic_range.pT.max"]],
+        "requires": [["kinematic_range.eta", "kinematic_range.y", "centrality.eta"], [["kinematic_range.pT.bins", "kinematic_range.pT.points", "kinematic_range.pT.bin_ranges"], "kinematic_range.pT.min", "kinematic_range.pT.max"]],
         "description": "Invariant yield dN/(2π pT dpT dη)",
     },
     "fluctuations": {
@@ -692,6 +692,9 @@ def extract_measurement_params(exp_rec):
         'eta_gap': exp_rec.get('eta_gap', None),
         'has_gap': (exp_rec.get('eta_gap', 0) or 0) > 0,
         'flow_reference': _flow_reference(exp_rec),
+        # Reference pT window (also without reference eta windows, which
+        # _flow_reference requires): the cumulant keys' reference sample.
+        'flow_reference_pT': _ref_pt(exp_rec),
         'cent_eta_ranges': cent_eta_ranges,
         'cent_pT_range': cent_pT_range,
         'cent_classes': cent_classes,
@@ -729,6 +732,13 @@ def _ref_windows(eta_field):
             continue
         out.append((float(lo), float(hi)))
     return out
+
+
+def _ref_pt(exp_rec):
+    pt = ((exp_rec.get('flow_reference') or {}) if isinstance(exp_rec.get('flow_reference'), dict) else {}).get('pT') or {}
+    if pt.get('min') is None or pt.get('max') is None:
+        return None
+    return (float(pt['min']), float(pt['max']))
 
 
 def _flow_reference(exp_rec):

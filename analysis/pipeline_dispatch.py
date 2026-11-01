@@ -348,8 +348,7 @@ def _cumulant_windows(params):
     sk = params.get('single_range', {})
     eta = tuple(sk.get('eta', (-1, 1)))
     pt = tuple(sk.get('pT', (0.1, 10)))
-    fr = params.get('flow_reference') or {}
-    ref_pt = tuple(fr['pT']) if isinstance(fr, dict) and fr.get('pT') else pt
+    ref_pt = tuple(params['flow_reference_pT']) if params.get('flow_reference_pT') else pt
     var, bins = params.get('differential_var'), params.get('differential_bins') or []
     if var == 'pT' and bins:
         return (eta, ref_pt), [(eta, (lo, hi)) for lo, hi in bins], True

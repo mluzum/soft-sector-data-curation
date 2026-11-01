@@ -68,12 +68,12 @@ def _fx():
     return _CACHE['fx']
 
 
-def particle_level(events, order, poi_slots, bins):
+def particle_level(events, order, poi_slots, bins, ref_pt=PT):
     """v'_2{order} per bin from the particles (POI slots vs charged slots 0-2)."""
     rows = []
     for e in events:
         acc = (np.abs(e['eta']) < ETA[1]) & (e['pt'] > PT[0]) & (e['pt'] < PT[1])
-        ref = acc & (e['species_idx'] < 3)
+        ref = (np.abs(e['eta']) < ETA[1]) & (e['pt'] > ref_pt[0]) & (e['pt'] < ref_pt[1]) & (e['species_idx'] < 3)
         per_bin = []
         for lo, hi in bins:
             poi = acc & np.isin(e['species_idx'], poi_slots) & (e['pt'] > lo) & (e['pt'] < hi)
@@ -144,6 +144,16 @@ def test_3d_equals_particle_level():
             v, _ = evaluate(record(species, order, BINS), grid=fx['ms'], cent_method='simple', with_jackknife=False)
             ref = particle_level(fx['events'], order, slots, BINS)
             check(f'3D v2{{{order}}}(pT) {tag}', np.allclose(v, ref, atol=1e-9), f'{np.round(v, 4)} vs {np.round(ref, 4)}')
+
+
+def test_reference_pt_window():
+    """flow_reference.pT sets the reference sample (ATLAS 2PC: 0.5 < pT_b < 2 GeV)."""
+    fx = _fx()
+    rec = record('charged', 2, BINS)
+    rec['flow_reference'] = {'pT': {'min': 0.6, 'max': 1.6}}
+    v, _ = evaluate(rec, grid=fx['ms'], cent_method='simple', with_jackknife=False)
+    ref = particle_level(fx['events'], 2, [0, 1, 2], BINS, ref_pt=(0.6, 1.6))
+    check('3D v2{2}(pT), reference 0.6-1.6', np.allclose(v, ref, atol=1e-9), f'{np.round(v, 4)} vs {np.round(ref, 4)}')
 
 
 def test_charged_unchanged_2d():
