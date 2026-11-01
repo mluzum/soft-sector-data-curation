@@ -716,16 +716,20 @@ def _kr_pT(kr):
 def axis_bins(axis):
     """(lo, hi) bins of a kinematic_range axis.
 
-    Consecutive `bins` edges; or, for a measurement published at mean
-    positions without bin edges (e.g. PHOBOS v2 at <eta>), windows of width
-    `point_window` centred on its `points`, a curation choice the record
-    states.  Windows may be disjoint.
+    Consecutive `bins` edges; explicit `bin_ranges` [lo, hi] pairs, for bins
+    that are not contiguous (e.g. PHOBOS eta bins with gaps between
+    detectors); or, for a measurement published at mean positions without
+    bin edges (e.g. PHOBOS v2 at <eta>), windows of width `point_window`
+    centred on its `points`, a curation choice the record states.
     """
     if not isinstance(axis, dict):
         return []
     edges = axis.get('bins') or []
     if len(edges) > 1:
         return [(edges[i], edges[i + 1]) for i in range(len(edges) - 1)]
+    ranges = axis.get('bin_ranges') or []
+    if ranges:
+        return [(float(lo), float(hi)) for lo, hi in ranges]
     points = axis.get('points') or []
     if points:
         w = axis.get('point_window')

@@ -381,6 +381,7 @@ def test_axis_bins_points_and_windows():
     around each point (possibly disjoint); edges keep their meaning."""
     from analysis.dispatcher import axis_bins, extract_differential_bins
     assert axis_bins({'bins': [0.0, 0.5, 1.0]}) == [(0.0, 0.5), (0.5, 1.0)]
+    assert axis_bins({'bin_ranges': [[-3.0, -2.5], [2.5, 3.0]]}) == [(-3.0, -2.5), (2.5, 3.0)]
     w = axis_bins({'points': [-4.0, 0.3], 'point_window': 0.2})
     assert [tuple(round(x, 9) for x in b) for b in w] == [(-4.1, -3.9), (0.2, 0.4)], w
     try:
@@ -396,7 +397,7 @@ def test_axis_bins_points_and_windows():
 
 
 def test_validator_points_rules():
-    """points need a positive point_window and exclude bins."""
+    """points need a positive point_window and exclude bins; bin_ranges are lo < hi pairs."""
     sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'scripts'))
     from validate import validate_doc
     base = {'observable_type': 'flow_vn', 'inspire_id': '1', 'version': 1, 'hepdata_file': 'x.yaml',
@@ -407,10 +408,13 @@ def test_validator_points_rules():
                            'eta': [{'min': 3.0, 'max': 4.5}]}}
     def errs(eta):
         rec = dict(base, kinematic_range={'eta': eta, 'pT': {'min': 0.0, 'max': 5.0}})
-        return [e for e in validate_doc(rec, 'r') if 'point' in e]
+        return [e for e in validate_doc(rec, 'r') if 'kinematic_range' in e]
     assert not errs({'min': -5, 'max': 5, 'points': [0.3], 'point_window': 0.2})
     assert errs({'min': -5, 'max': 5, 'points': [0.3]})
     assert errs({'min': -5, 'max': 5, 'points': [0.3], 'point_window': 0.2, 'bins': [0.0, 1.0]})
+    assert not errs({'min': -5, 'max': 5, 'bin_ranges': [[-3.0, -2.5], [2.5, 3.0]]})
+    assert errs({'min': -5, 'max': 5, 'bin_ranges': [[-2.5, -3.0]]})
+    assert errs({'min': -5, 'max': 5, 'bin_ranges': [[2.5, 3.0]], 'bins': [0.0, 1.0]})
 
 
 if __name__ == '__main__':

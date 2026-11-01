@@ -401,6 +401,12 @@ def validate_doc(record, record_path, doc_index=None, verbose=False):
         errors.append(f"'{record_name}': preliminary records need 'source' (where the "
                       f"values come from: proceedings, figure, how they were obtained)")
     for ax, spec in ((record.get("kinematic_range") or {}).items()):
+        if isinstance(spec, dict) and spec.get("bin_ranges") is not None:
+            r = spec["bin_ranges"]
+            if spec.get("bins") or spec.get("points"):
+                errors.append(f"'{record_name}': 'kinematic_range.{ax}': bin_ranges excludes bins and points")
+            if not (isinstance(r, list) and r and all(isinstance(b, list) and len(b) == 2 and b[0] < b[1] for b in r)):
+                errors.append(f"'{record_name}': 'kinematic_range.{ax}.bin_ranges' must be [lo, hi] pairs, lo < hi")
         if isinstance(spec, dict) and spec.get("points") is not None:
             w = spec.get("point_window")
             if spec.get("bins"):
