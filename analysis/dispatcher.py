@@ -389,6 +389,22 @@ def resolve(record):
             f"spectator plane ({fr.get('detector')}); a model without "
             f"spectators cannot form that reference")
 
+    # Directed flow.  Rapidity-odd v1 needs an eta-odd reference (windows at
+    # eta < 0 weighted -1) and a sign convention; the even-harmonic
+    # machinery would return ~0 or an unrelated number.  Rapidity-even v1
+    # is not implemented.
+    if record.get("observable_type") == "flow_vn" and record.get("harmonic") == 1:
+        if not (isinstance(fr, dict) and fr.get("odd")):
+            raise ValueError(
+                "directed flow (harmonic 1) needs a rapidity-odd reference "
+                "(flow_reference.odd); rapidity-even v1 is not implemented")
+        if record.get("dimensionality") != "differential_eta":
+            raise ValueError("rapidity-odd v1 is implemented for eta-differential records")
+        if not isinstance(fr.get("sign_convention"), dict):
+            raise ValueError("rapidity-odd v1 needs flow_reference.sign_convention "
+                             "(an odd reference leaves the overall sign open)")
+        return dict(V1_ODD_ENTRY)
+
     method = record.get("method")
     order = record.get("cumulant_order")
     particles = record.get("particles")
@@ -504,6 +520,13 @@ def resolve(record):
 
 # Computations that implement kinematic_range.y.mass.
 MASS_ASSUMED_RAPIDITY_KEYS = {"spectra_invariant_yield"}
+
+V1_ODD_ENTRY = {
+    "compute": "v1_odd_sp_diff_eta",
+    "requires": "kinematic_range.pT",
+    "description": "rapidity-odd directed flow v1(eta): scalar product with an eta-odd "
+                   "reference, segments aligned, sign by convention (3D only)",
+}
 
 
 def _field_exists(doc, path):
@@ -696,6 +719,18 @@ def _flow_reference(exp_rec):
         return out
 
     out = _one(raw)
+    # Rapidity-odd reference (directed flow): windows at eta < 0 enter with
+    # weight -1.  sign_convention fixes the overall sign, which an odd
+    # reference leaves open: ((lo, hi), +1 or -1) -- v1 averaged over that
+    # POI window has that sign.
+    out['odd'] = bool(raw.get('odd', False))
+    sc = raw.get('sign_convention') or {}
+    sc_eta = sc.get('eta') or {}
+    if sc_eta.get('min') is not None and sc_eta.get('max') is not None and sc.get('sign') in ('positive', 'negative'):
+        out['sign_convention'] = ((float(sc_eta['min']), float(sc_eta['max'])),
+                                  1 if sc['sign'] == 'positive' else -1)
+    else:
+        out['sign_convention'] = None
     segs = raw.get('segments')
     if isinstance(segs, list):
         parsed = []

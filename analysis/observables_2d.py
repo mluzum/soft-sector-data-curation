@@ -971,6 +971,43 @@ def compute_vn2_ep_diff_eta(Q_poi_bins, n_poi_bins, w):
     return _core_vn2_ep_diff_eta(Q_poi_bins, n_poi_bins, w)
 
 
+def _sp_harmonic1(q_poi, n_poi, q_ref, n_ref, dq, w):
+    """First-harmonic scalar product per column (bins on axis 1, or scalar):
+    (<Re(q_poi/n_poi q_ref*)> - <dq/n_poi>) / sqrt(<|q_ref|^2> - <n_ref>).
+    dq is the POI/reference diagonal (shared particles, with the reference's
+    weight); n_ref the reference's own self-correlation."""
+    inv = 1.0 / np.maximum(n_poi, 1e-9)
+    num = (np.real(np.average(q_poi * inv * np.conj(q_ref), axis=0, weights=w))
+           - np.average(dq * inv, axis=0, weights=w))
+    den = np.average(np.abs(q_ref) ** 2, axis=0, weights=w) - np.average(n_ref, axis=0, weights=w)
+    return num / np.sqrt(np.maximum(den, 1e-30))
+
+
+@register("v1_odd_sp_diff_eta")
+def compute_v1_odd_sp_diff_eta(d, w):
+    """Rapidity-odd directed flow v1(eta) per POI bin.
+
+    Each bin: scalar product with its eta-odd reference (windows at eta < 0
+    weighted -1), which measures v1 times the sign of the reference's own
+    directed flow.  Every bin is aligned to one common reference -- the one
+    governing the sign-convention window -- by the sign of the correlation
+    between the two references, and the overall sign makes v1 averaged
+    over the sign-convention window carry the declared sign.
+
+    Returns (n_bins,) float (the harmonic-1 row).
+    """
+    nb = d['q_poi'].shape[1]
+    if w.sum() < 2:
+        return np.zeros(nb)
+    v = _sp_harmonic1(d['q_poi'], d['n_poi'], d['q_ref'], d['n_ref'], d['dq'], w)
+    corr = (np.real(np.average(d['q_ref'] * np.conj(d['q_c'])[:, None], axis=0, weights=w))
+            - np.average(d['align_shared'], axis=0, weights=w))
+    align = np.sign(corr)
+    v_sw = _sp_harmonic1(d['q_sw'], d['n_sw'], d['q_c'], d['n_c'], d['dq_sw'], w)
+    s = d['sign'] * (np.sign(v_sw) if v_sw != 0 else 1.0)
+    return v * align * s
+
+
 @register("vn2_ep_diff_pT")
 def compute_vn2_ep_diff_pT(Q_poi_bins, n_poi_bins, w):
     """Event-plane v2 dispatcher for differential_pT.

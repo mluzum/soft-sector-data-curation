@@ -98,6 +98,12 @@ Fields that change dispatch:
   ratio of corrected ones only if it declares `efficiency_cancels: true`.
 - `flow_reference.plane: spectator`: flow relative to the spectator plane
   (ZDC/SMD), refused, because models have no spectators.
+- Directed flow (`harmonic: 1`) needs `flow_reference.odd` (an eta-odd
+  reference) and `sign_convention`: computed by `v1_odd_sp_diff_eta`
+  (3D only).  Otherwise refused: the even-harmonic machinery would return
+  ~0.  Rapidity-even v1 is not implemented.
+- `kinematic_range.y.mass`: a rapidity window with one assumed mass (PHOBOS
+  y_pi), spectra only.
 - Ratio records link `numerator_record` / `denominator_record` (path, with
   `#<doc>` for multi-document files); `tests/test_ratio_links.py` checks every link.
 
@@ -154,6 +160,11 @@ bias-corrected central value θ̂ = Nθ − (N−1)θ̄.
     (`h*n_bins + b`).
 
   `run_pipeline` asserts labels == values before writing; keep that check.
+- **Charge-scaled 3D grids**: normalized observables (flow, correlations,
+  mean pT and its fluctuations) are computed on unit weights
+  (`pipeline_dispatch._unit_weights`); only `ABSOLUTE_KEYS` keep the
+  charge factor.  Their self-correlation terms assume unit weights
+  (tests/test_charge_scaled_grids.py).
 - **Charge factors**:
   - 2D JETSCAPE containers hold positive charges only, so charged
     quantities take ×2, and self-correlation terms take ×CF², consistently;

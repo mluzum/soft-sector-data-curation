@@ -100,7 +100,7 @@ def _sample_phi(rng, vn_funcs, psis, n, harmonics):
                 continue
             vh = np.atleast_1d(f)[todo]
             w += 2.0 * vh * np.cos(h * (dphi - ps))
-            max_sum += float(vh.max())
+            max_sum += float(np.abs(vh).max())   # v_n may be negative (odd v1)
         bound = 1.0 + 2.0 * max_sum
         acc = rng.uniform(0, bound, m) < w
         out[todo[acc]] = dphi[acc]
@@ -117,7 +117,8 @@ class ToyGenConfig:
                  species_mix=None, temp={'pion': 0.22, 'kaon': 0.30,
                                          'proton': 0.35},
                  pt_min=0.05, pt_max=3.0,
-                 flow=None, fluctuate=None, pt_rescale_sigma=0.0):
+                 flow=None, fluctuate=None, pt_rescale_sigma=0.0,
+                 eta_shape=None):
         """
         flow : dict harmonic → dict(kind='const'|'linear', value=..., pt0=...)
                 e.g. {2: dict(kind='const', value=0.05)}
@@ -139,6 +140,9 @@ class ToyGenConfig:
         self.pt_max = pt_max
         self.flow = flow or {}
         self.fluctuate = fluctuate or {}
+        # harmonic -> f(eta): v_n(pT, eta) = v_n(pT) * f(eta), e.g. a
+        # rapidity-odd directed flow (f odd, possibly negative).
+        self.eta_shape = eta_shape or {}
         # Event-wise common pT rescale k_e ~ N(1, sigma) injects genuine
         # event-by-event mean-pT correlations (dynamical pT_fluct signal).
         self.pt_rescale_sigma = float(pt_rescale_sigma)
@@ -202,12 +206,17 @@ def generate_events(cfg: ToyGenConfig):
 
         mass_arr = sp_mass[s_idx]
         y = rng.uniform(-cfg.rap_max, cfg.rap_max, M)
+        if cfg.eta_shape:
+            _mT = np.sqrt(mass_arr ** 2 + pt ** 2)
+            eta_pre = np.arcsinh(_mT * np.sinh(y) / pt)
         vn_funcs, psis = [], []
         for h in harms:
             base_prof = vn_of_pt(pt, cfg.flow[h]['kind'],
                                  cfg.flow[h]['value'], cfg.flow[h].get('pt0'))
             base_at_ref = _vn_profile_scale(cfg.flow[h])
             f = base_prof * (vn_ebe[h][e] / max(base_at_ref, 1e-12))
+            if h in cfg.eta_shape:
+                f = f * cfg.eta_shape[h](eta_pre)
             vn_funcs.append(f)
             psis.append(psi[h][e])
         phi = _sample_phi(rng, vn_funcs, psis, M, harms)

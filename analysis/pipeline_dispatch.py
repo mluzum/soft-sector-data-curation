@@ -38,6 +38,7 @@ from analysis.observables_2d import (
     _make_jacobian_list,
     compute_yield_dNch_deta,
     compute_yield_dNch_deta_per_eta,
+    compute_v1_odd_sp_diff_eta,
     compute_spectra_invariant_yield,
     compute_mean_pt,
     compute_sc_mn,
@@ -1331,6 +1332,89 @@ def prepare_vn2_sp_diff_3d(grid, params):
             'q_ref_per_bin': per_bin, 'dQ_cross': dq_cross}
 
 
+def _odd_windows(windows):
+    """eta-odd weighting of reference windows: (lo, hi, +1 or -1); a window
+    across eta = 0 splits there."""
+    out = []
+    for lo, hi in windows:
+        if lo >= 0:
+            out.append((lo, hi, 1.0))
+        elif hi <= 0:
+            out.append((lo, hi, -1.0))
+        else:
+            out += [(lo, 0.0, -1.0), (0.0, hi, 1.0)]
+    return out
+
+
+def _odd_q(grid, wins, pt):
+    """Harmonic-1 Q-vector of signed windows and its self-correlation (count)."""
+    q = np.zeros(grid.n_events, complex)
+    n = np.zeros(grid.n_events)
+    for lo, hi, sg in wins:
+        a = grid.acceptance(lo, hi, pt[0], pt[1])
+        q += sg * a[:, 1]
+        n += a[:, 0].real
+    return q, n
+
+
+def _odd_shared(grid, wins_a, wins_b, pt_a, pt_b):
+    """Diagonal of Re<Q_a Q_b*> for signed windows: the particles in both,
+    each weighted by the product of its two signs."""
+    tot = np.zeros(grid.n_events)
+    lo_pt, hi_pt = max(pt_a[0], pt_b[0]), min(pt_a[1], pt_b[1])
+    if hi_pt <= lo_pt:
+        return tot
+    for la, ha, sa in wins_a:
+        for lb, hb, sb in wins_b:
+            lo, hi = max(la, lb), min(ha, hb)
+            if hi > lo:
+                tot += sa * sb * grid.acceptance(lo, hi, lo_pt, hi_pt)[:, 0].real
+    return tot
+
+
+def prepare_v1_odd_3d(grid, params):
+    """Rapidity-odd v1(eta): per POI bin its eta-odd reference (from
+    flow_reference, by |eta| segment), plus the reference of the
+    sign-convention window, which every bin is aligned to."""
+    fr = params.get('flow_reference') or {}
+    bins = params.get('differential_bins') or []
+    pt = (params.get('single_range') or {}).get('pT', (0.1, 10))
+    n_ev, nb = grid.n_events, max(len(bins), 1)
+    if getattr(grid, 'pt_integrated', False) or not bins or not fr.get('sign_convention'):
+        nan = np.full((n_ev, nb), np.nan)
+        return {'q_poi': nan.astype(complex), 'n_poi': nan, 'q_ref': nan.astype(complex), 'n_ref': nan,
+                'dq': nan, 'align_shared': nan, 'q_c': np.full(n_ev, np.nan, complex),
+                'n_c': np.full(n_ev, np.nan), 'q_sw': np.full(n_ev, np.nan, complex),
+                'n_sw': np.full(n_ev, np.nan), 'dq_sw': np.full(n_ev, np.nan), 'sign': 1.0}
+
+    def ref_for(lo, hi):
+        seg = _ref_segment_for(fr, lo, hi)
+        return _odd_windows(seg['eta']), (seg.get('pT') or pt)
+
+    (sw_lo, sw_hi), sign = fr['sign_convention']
+    wins_c, pt_c = ref_for(sw_lo, sw_hi)
+    q_c, n_c = _odd_q(grid, wins_c, pt_c)
+    a_sw = grid.acceptance(sw_lo, sw_hi, pt[0], pt[1])
+    out = {k: np.zeros((n_ev, nb), complex if k in ('q_poi', 'q_ref') else float)
+           for k in ('q_poi', 'n_poi', 'q_ref', 'n_ref', 'dq', 'align_shared')}
+    for b, (lo, hi) in enumerate(bins):
+        a = grid.acceptance(lo, hi, pt[0], pt[1])
+        wins, rpt = ref_for(lo, hi)
+        q_r, n_r = _odd_q(grid, wins, rpt)
+        out['q_poi'][:, b], out['n_poi'][:, b] = a[:, 1], a[:, 0].real
+        out['q_ref'][:, b], out['n_ref'][:, b] = q_r, n_r
+        out['dq'][:, b] = _odd_shared(grid, [(lo, hi, 1.0)], wins, pt, rpt)
+        out['align_shared'][:, b] = _odd_shared(grid, wins, wins_c, rpt, pt_c)
+    out.update(q_c=q_c, n_c=n_c, q_sw=a_sw[:, 1], n_sw=a_sw[:, 0].real,
+               dq_sw=_odd_shared(grid, [(sw_lo, sw_hi, 1.0)], wins_c, pt, pt_c), sign=float(sign))
+    # (Charge-scaled grids reach this on unit weights: _on_unit_weights.)
+    return out
+
+
+def _wrap_v1_odd(data, w):
+    return compute_v1_odd_sp_diff_eta(data, w)
+
+
 def _abs_eta_range(lo_b, hi_b):
     """Map a signed POI bin to its |eta| interval."""
     if lo_b >= 0:
@@ -1903,6 +1987,13 @@ PIPELINE_DISPATCH = {
         "n_obs_per_cent": None,
         "description": "scalar-product differential v_n(eta){SP}, JETSCAPE pair-normalized form",
     },
+    "v1_odd_sp_diff_eta": {
+        "core_fn": _wrap_v1_odd,
+        "prepare_data_2d": None,        # boost-invariant 2D has no rapidity-odd flow
+        "prepare_data_3d": prepare_v1_odd_3d,
+        "n_obs_per_cent": None,
+        "description": "rapidity-odd directed flow v1(eta) (eta-odd reference, sign convention)",
+    },
     "vn2_ep_diff_eta": {
         "core_fn": _wrap_vn2_ep_diff_eta,
         "prepare_data_2d": None,
@@ -1967,6 +2058,46 @@ PIPELINE_DISPATCH = {
         "description": "Event-plane correlation NAC(n,m) subevent, integrated",
     },
 }
+
+
+# Quantities that count particles; every other key is normalized.
+ABSOLUTE_KEYS = {'yield_dNch_deta', 'yield_dNch_deta_per_eta', 'spectra_invariant_yield', 'dET_deta'}
+
+
+def _unit_weights(grid):
+    """The grid with a charge-symmetry scaling undone.
+
+    A positives-only grid selected as 'charged' (or a 'p' grid as
+    'p + pbar') is scaled by grid.charge_factor.  Absolute quantities need
+    that; normalized ones -- flow coefficients, correlations, mean pT and
+    its fluctuations -- do not, and their self-correlation terms assume
+    unit-weighted particles, so on a scaled grid they come out biased
+    (v_n{4}, the event-plane amplitudes, the scalar-product v_n(eta) and pT
+    fluctuations by factors up to ~6; tests/test_charge_scaled_grids.py).
+    """
+    cf = getattr(grid, 'charge_factor', 1.0)
+    if cf == 1.0 or not isinstance(grid, QGridData):
+        return grid
+    from analysis.qvector import _scale_grid
+    out = _scale_grid(grid, 1.0 / cf)
+    out.charge_factor = 1.0
+    for nm in ('pt_integrated', 'mass'):
+        if hasattr(grid, nm):
+            setattr(out, nm, getattr(grid, nm))
+    return out
+
+
+def _on_unit_weights(prepare):
+    def wrapped(grid, params):
+        return prepare(_unit_weights(grid), params)
+    wrapped.__name__ = prepare.__name__
+    wrapped.__doc__ = prepare.__doc__
+    return wrapped
+
+
+for _key, _entry in PIPELINE_DISPATCH.items():
+    if _key not in ABSOLUTE_KEYS and _entry.get('prepare_data_3d') is not None:
+        _entry['prepare_data_3d'] = _on_unit_weights(_entry['prepare_data_3d'])
 
 
 def get_pipeline_entry(registered_key):
