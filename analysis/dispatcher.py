@@ -116,7 +116,9 @@ DISPATCH_TABLE = {
         "description": "v_n{2} eta-differential, single centrality bin",
     },
     ("cumulant", 2, "AB", "differential_pT"): {
-        "compute": "vn2_gap_diff_pT",
+        # POI in each pT bin of one subevent vs the reference integrated in
+        # the other (vn2_gap_diff_pT correlated each bin with itself).
+        "compute": "vn2_gap_poi",
         "requires": [
             "subevents.A.kinematic_range.eta",
             "subevents.A.kinematic_range.pT",

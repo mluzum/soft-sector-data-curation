@@ -247,6 +247,14 @@ def _poi_and_reference(params):
     return params.get('particle_id'), poi_pt, labels, ref
 
 
+def _poi_pt_bins(params, poi_pt):
+    """POI pT windows: the differential bins of a pT-differential record,
+    else the record's pT range."""
+    if params.get('differential_var') == 'pT' and params.get('differential_bins'):
+        return [tuple(b) for b in params['differential_bins']], True
+    return [tuple(poi_pt)], False
+
+
 def prepare_vn2_gap_poi_2d(qv, params):
     """Identified particle of interest with a separate reference, two subevents (2D).
 
@@ -264,7 +272,15 @@ def prepare_vn2_gap_poi_2d(qv, params):
     pdg_ids = getattr(qv, 'pdg_ids', None)
     if poi_idx is None:
         poi_idx = list(range(qv.Qn.shape[1]))
-    out, jacs, ref_sel = {}, {}, {}
+    pt_bins, diff = _poi_pt_bins(params, poi_pt)
+    centers = qv.pt_centers
+
+    def poi_slice(lo, hi):
+        if diff:            # differential bins: the sim cells whose centres fall in the bin
+            return int(np.searchsorted(centers, lo)), int(np.searchsorted(centers, hi, side='right'))
+        return _find_pt_slice_edges(qv.pt_bin_edges, lo, hi)
+
+    out, jacs, ref_sel, cuts = {}, {}, {}, {}
     for X, lab in zip('AB', labels):
         rpid, eta, rpt = ref[lab]
         if is_charged(rpid.get('species')):
@@ -274,13 +290,10 @@ def prepare_vn2_gap_poi_2d(qv, params):
             if not ok:
                 raise ValueError(f"reference species {rpid!r} not in the container")
         Qn_cut, jac = cut_qvectors(qv, eta[0], eta[1])
-        plo, phi_ = _find_pt_slice_edges(qv.pt_bin_edges, poi_pt[0], poi_pt[1])
         rlo, rhi = _find_pt_slice_edges(qv.pt_bin_edges, rpt[0], rpt[1])
-        out[f'p_{X}'] = poi_cf * Qn_cut[:, poi_idx, :, plo:phi_].sum(axis=(1, 3))
         out[f'Q_{X}'] = rcf * Qn_cut[:, ridx, :, rlo:rhi].sum(axis=(1, 3))
-        jacs[X] = jac
+        cuts[X], jacs[X] = Qn_cut, jac
         ref_sel[X] = (list(ridx), rcf, rlo, rhi)
-    plo, phi_ = _find_pt_slice_edges(qv.pt_bin_edges, poi_pt[0], poi_pt[1])
 
     def cross(idx, factor, lo, hi):
         if not idx or hi <= lo:
@@ -288,18 +301,27 @@ def prepare_vn2_gap_poi_2d(qv, params):
         return _compute_dq0_cross_species(qv, jacs['A'], jacs['B'], idx,
                                           np.sqrt(factor), lo, hi)
 
-    # POI in A with the reference in B (and B with A): common particles are
-    # the POI species that are also reference species, in the common pT range.
-    # The term is symmetric in A <-> B; both orderings use the same windows.
-    terms = []
-    for X, Y in (('A', 'B'), ('B', 'A')):
-        ridx, rcf, rlo, rhi = ref_sel[Y]
-        common = [i for i in poi_idx if i in ridx]
-        terms.append(cross(common, poi_cf * rcf, max(plo, rlo), min(phi_, rhi)))
+    p = {'A': [], 'B': []}
+    d_pQ = []
+    for blo, bhi in pt_bins:
+        plo, phi_ = poi_slice(blo, bhi)
+        for X in 'AB':
+            p[X].append(poi_cf * cuts[X][:, poi_idx, :, plo:phi_].sum(axis=(1, 3)))
+        # POI in A with the reference in B (and B with A): common particles
+        # are the POI species that are also reference species, in the common
+        # pT range.  Symmetric in A <-> B.
+        terms = []
+        for Y in ('B', 'A'):
+            ridx, rcf, rlo, rhi = ref_sel[Y]
+            common = [i for i in poi_idx if i in ridx]
+            terms.append(cross(common, poi_cf * rcf, max(plo, rlo), min(phi_, rhi)))
+        d_pQ.append(0.5 * (terms[0] + terms[1]))
+    out['p_A'] = np.stack(p['A'], axis=-1)        # (n_events, n_harm, n_bins)
+    out['p_B'] = np.stack(p['B'], axis=-1)
+    out['d_pQ'] = np.stack(d_pQ, axis=-1)          # (n_events, n_bins)
     ia, cfa, la, ha = ref_sel['A']
     ib, cfb, lb, hb = ref_sel['B']
     common_ref = [i for i in ia if i in ib]
-    out['d_pQ'] = 0.5 * (terms[0] + terms[1])
     out['d_QQ'] = cross(common_ref, cfa * cfb, max(la, lb), min(ha, hb))
     return out
 
@@ -317,20 +339,26 @@ def prepare_vn2_gap_poi_3d(container, params):
     if min(ea1, eb1) > max(ea0, eb0) + 1e-9:
         raise ValueError("vn2_gap_poi on a 3D grid needs disjoint subevents")
     poi = _unit_weights(container.select(poi_pid))
+    pt_bins, _ = _poi_pt_bins(params, poi_pt)
     out = {}
     for X, lab in zip('AB', labels):
         rpid, eta, rpt = ref[lab]
         rgrid = _unit_weights(container.select(rpid))
-        out[f'p_{X}'] = poi.acceptance(eta[0], eta[1], poi_pt[0], poi_pt[1])
+        out[f'p_{X}'] = np.stack([poi.acceptance(eta[0], eta[1], lo, hi) for lo, hi in pt_bins], axis=-1)
         out[f'Q_{X}'] = rgrid.acceptance(eta[0], eta[1], rpt[0], rpt[1])
-    out['d_pQ'] = np.zeros(out['p_A'].shape[0])
-    out['d_QQ'] = np.zeros(out['p_A'].shape[0])
+    n_ev = out['Q_A'].shape[0]
+    out['d_pQ'] = np.zeros((n_ev, len(pt_bins)))
+    out['d_QQ'] = np.zeros(n_ev)
     return out
 
 
 def _wrap_vn2_gap_poi(data, w):
-    return compute_vn2_gap_poi(data['p_A'], data['p_B'], data['Q_A'], data['Q_B'],
-                               data['d_pQ'], data['d_QQ'], w)
+    """(n_harm-1) values for one POI window, or harmonic-major
+    (h-1)*n_bins + b for pT bins."""
+    n_bins = data['p_A'].shape[-1]
+    cols = [compute_vn2_gap_poi(data['p_A'][..., b], data['p_B'][..., b], data['Q_A'], data['Q_B'],
+                                data['d_pQ'][:, b], data['d_QQ'], w) for b in range(n_bins)]
+    return np.stack(cols, axis=1).ravel()
 
 
 # ── v_n{2}, v_n{4} of a particle of interest (analysis.correlators) ─────────

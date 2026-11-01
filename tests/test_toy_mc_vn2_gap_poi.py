@@ -73,7 +73,7 @@ def record(species='p + pbar', sub_a=A, sub_b=B, ref_species=None):
                 centrality={'classes': ['0-100%'], 'eta': [{'min': -3.9, 'max': -3.0}, {'min': 3.0, 'max': 3.9}]})
 
 
-def particle_level(events, h=2, poi_slot=PROTON):
+def particle_level(events, h=2, poi_slot=PROTON, poi_pt=POI_PT):
     """Brute force: POI in A x reference in B, plus B x A, over the reference v_n{2}ab."""
     num_d = den_d = num_c = den_c = 0.0
     for ev in events:
@@ -82,8 +82,8 @@ def particle_level(events, h=2, poi_slot=PROTON):
             if slot is not None:
                 sel &= ev['species_idx'] == slot
             return np.exp(1j * h * ev['phi'][sel]).sum(), sel.sum()
-        pA, mA = q(A, POI_PT, poi_slot)
-        pB, mB = q(B, POI_PT, poi_slot)
+        pA, mA = q(A, poi_pt, poi_slot)
+        pB, mB = q(B, poi_pt, poi_slot)
         QA, MA = q(A, REF_PT)
         QB, MB = q(B, REF_PT)
         num_d += (pA * np.conj(QB)).real + (pB * np.conj(QA)).real
@@ -138,6 +138,20 @@ def test_truth():
     truth = prof * np.sqrt(np.mean(s ** 2))
     v, e = evaluate(record(), grid=fx['ms'], cent_method='simple')
     check('3D ~ truth', abs(v[0] - truth) < max(4 * e[0], 0.004), f'{v[0]:.4f}+-{e[0]:.4f} vs {truth:.4f}')
+
+
+def test_pt_differential_3d():
+    """Two-subevent v2{2}(pT): POI in each pT bin vs the integrated reference."""
+    fx = _fx()
+    edges = [0.2, 0.6, 1.0, 1.4, 2.0]
+    for species, slot in (('p + pbar', PROTON), ('charged', None)):
+        rec = record(species=species)
+        rec['dimensionality'] = 'differential_pT'
+        rec['kinematic_range']['pT'] = {'min': edges[0], 'max': edges[-1], 'bins': edges}
+        check(f'{species} v2(pT) key', resolve(rec)['compute'] == 'vn2_gap_poi')
+        v, _ = evaluate(rec, grid=fx['ms'], cent_method='simple', with_jackknife=False)
+        ref = [particle_level(fx['events'], poi_slot=slot, poi_pt=(lo, hi)) for lo, hi in zip(edges, edges[1:])]
+        check(f'3D {species} v2(pT) == particle level', np.allclose(v, ref, atol=1e-9), f'{np.round(v, 4)} vs {np.round(ref, 4)}')
 
 
 def test_overlapping_subevents_refused_3d():
