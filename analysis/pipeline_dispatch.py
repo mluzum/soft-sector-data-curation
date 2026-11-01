@@ -18,7 +18,7 @@ from analysis.observables_2d import (
     compute_vn2_ep_diff_pT,
     compute_vn3_ep,
     _core_vn2_sp_diff,
-    compute_vn2_sp_diff_means,
+    compute_vn2_sp_diff_means, _core_vn2_sp_diff_means,
     compute_vn2_single_per_cent_bin,
     compute_vn2_single_mor,
     compute_vn2_subevent_per_cent,
@@ -1177,60 +1177,226 @@ def _window_inv_cosh(eta_min, eta_max):
     return num / den if den > 0 else 1.0
 
 
-def _sp_reference_2d(qv, eta_win):
-    """Charged-summed density-weighted Q-vector + N for a 2D window."""
-    Qn_cut, jac = cut_qvectors(qv, eta_win[0], eta_win[1])
-    lo, hi = 0, None                      # full pT unless overridden later
-    return Qn_cut, jac
+
+
+# ── scalar-product / event-plane differential v_n of a particle of interest ──
+#
+# POI: the record's species in the record's acceptance, narrowed by each
+# differential bin.  Reference: charged hadrons in the reference windows --
+# the comparison override `sp_ref_eta`, else the record's flow_reference
+# (uniform, mirrored or segmented per bin), else the record's own window --
+# with the reference block's pT, else the record's.  Self-correlations:
+# |Q_ref|^2 loses Sum w_ref^2 (`dQ0_ref`), and Re<q_poi Q_ref*> loses the
+# particles that are in both samples (`dQ_cross`).
+#
+# Until November 2026 the 2D prepare ignored the species and the
+# flow_reference and subtracted Sum w instead of Sum w^2 from |Q_ref|^2;
+# the 3D prepare took the reference from the species-selected grid (an
+# identified-only reference) and, for a uniform declared reference that
+# overlaps the POI (STAR's TPC halves), kept the POI's own particles in
+# the numerator.
+
+def _sp_bins(params):
+    """(var, POI bins, record eta, record pT); a record without
+    differential bins is one bin, its pT range."""
+    sk = params.get('single_range', {})
+    eta = tuple(sk.get('eta', (-1, 1)))
+    pt = tuple(sk.get('pT', (0.1, 10)))
+    var = params.get('differential_var') or 'pT'
+    bins = [tuple(b) for b in (params.get('differential_bins') or [])]
+    if not bins:
+        var, bins = 'pT', [pt]
+    return var, bins, eta, pt
+
+
+def _sp_ref_windows(bins, var, eta, pt, params):
+    """Per POI bin: (reference eta windows, reference pT), or None when the
+    bin has no reference (left NaN, reported unavailable)."""
+    override = params.get('sp_ref_eta')
+    if override is not None:
+        if (isinstance(override, (list, tuple)) and len(override) == 2
+                and all(isinstance(x, (list, tuple)) for x in override)):
+            wins = [(float(a), float(b)) for a, b in override]
+        else:
+            wins = [tuple(float(x) for x in override)]
+        return [(wins, tuple(params.get('sp_ref_pt', pt)))] * len(bins)
+    fr = params.get('flow_reference')
+    if not fr:
+        return [([eta], pt)] * len(bins)
+    out = []
+    for lo_b, hi_b in bins:
+        p_lo, p_hi = (lo_b, hi_b) if var == 'eta' else eta
+        ref = _ref_segment_for(fr, p_lo, p_hi)
+        windows = [tuple(w) for w in (ref.get('eta') or [])]
+        if ref.get('mirror') and windows:
+            # "the subevent on the opposite side of midrapidity": the
+            # declared window taken on the side opposite the POI bin; a bin
+            # straddling eta = 0 gets both images.
+            lo_w, hi_w = windows[0]
+            if p_lo < 0 < p_hi:
+                windows = [(-hi_w, -lo_w), (lo_w, hi_w)]
+            elif p_hi > 0:
+                windows = [(-hi_w, -lo_w)]
+            else:
+                windows = [(lo_w, hi_w)]
+        out.append((windows, tuple(ref.get('pT') or pt)) if windows else None)
+    return out
+
+
+def _sp_poi_box(b, bins, var, eta, pt):
+    lo_b, hi_b = bins[b]
+    return ((lo_b, hi_b), pt) if var == 'eta' else (eta, (lo_b, hi_b))
+
+
+def _sp_assemble(specs, ref_of, poi_of, shared_of, n_ev, H):
+    """Arrays for _wrap_vn2_sp_diff from per-bin pieces.  ref_of(spec) ->
+    (q, n, dq0); poi_of(b) -> (q, n); shared_of(b, spec) -> (n_ev,)."""
+    nb = len(specs)
+    q_poi = np.full((n_ev, H, nb), np.nan, complex)
+    n_poi = np.full((n_ev, nb), np.nan)
+    dq_cross = np.full((n_ev, nb), np.nan)
+    uniform = all(sp == specs[0] for sp in specs) and specs[0] is not None
+    cache = {}
+
+    def ref(spec):
+        key = (tuple(spec[0]), spec[1])
+        if key not in cache:
+            cache[key] = ref_of(spec)
+        return cache[key]
+    if uniform:
+        q_ref, n_ref, dq0_ref = ref(specs[0])
+    else:
+        q_ref = np.full((n_ev, H, nb), np.nan, complex)
+        n_ref = np.full((n_ev, nb), np.nan)
+        dq0_ref = np.full((n_ev, nb), np.nan)
+    for b, spec in enumerate(specs):
+        q_poi[:, :, b], n_poi[:, b] = poi_of(b)
+        if spec is None:
+            continue
+        if not uniform:
+            q_ref[:, :, b], n_ref[:, b], dq0_ref[:, b] = ref(spec)
+        dq_cross[:, b] = shared_of(b, spec)
+    return {'q_poi': q_poi, 'n_poi': n_poi, 'q_ref': q_ref, 'n_ref': n_ref,
+            'dQ0_ref': dq0_ref, 'dQ_cross': dq_cross}
 
 
 def prepare_vn2_sp_diff_2d(qv, params):
-    """Per-bin POI vectors + integrated reference for scalar-product diff."""
-    sk = params.get('single_range', {})
-    eta = sk.get('eta', (-1, 1))
-    zH = qv.Qn.shape[2]
-    nb = max(len(params.get('differential_bins') or []), 1)
-    if eta[0] is None or eta[1] is None or nb == 0:
-        return {'q_poi': np.full((qv.n_events, zH, nb), np.nan),
+    """2D: POI and reference from the species axis, Jacobian weights.
+
+    On the boost-invariant container every particle lies in every eta
+    window with the window's weight, so the POI-reference diagonal is
+    Sum w_poi w_ref over the particles of both samples (common species,
+    common pT cells), with the samples' charge factors."""
+    var, bins, eta, pt = _sp_bins(params)
+    if eta[0] is None or eta[1] is None:
+        nb, H = len(bins), qv.Qn.shape[2]
+        return {'q_poi': np.full((qv.n_events, H, nb), np.nan, complex),
                 'n_poi': np.full((qv.n_events, nb), np.nan),
-                'q_ref': np.full((qv.n_events, zH), np.nan),
+                'q_ref': np.full((qv.n_events, H), np.nan, complex),
                 'n_ref': np.full(qv.n_events, np.nan)}
-    var = params.get('differential_var', 'pT')
-    bins = params['differential_bins']
+    pid = _poi_species(params)
+    pdg_ids = getattr(qv, 'pdg_ids', None)
+    if is_charged(pid.get('species')):
+        poi_idx, poi_cf = charged_species_indices(pdg_ids)
+    else:
+        poi_idx, poi_cf, found = _get_species_selection(pid, qv)
+        if not found:
+            raise ValueError(f"species {pid.get('species')!r} not in the container")
+        if poi_idx is None:
+            poi_idx = list(range(qv.Qn.shape[1]))
+    ref_idx, ref_cf = charged_species_indices(pdg_ids)
+    poi_idx, ref_idx = list(poi_idx), list(ref_idx)
+    common = [i for i in poi_idx if i in ref_idx]
+    q0 = qv.Qn[:, :, 0, :].real
+    norm = (2.0 * qv.rap_max * qv.nsamples)[:, None, None]
+    centers = qv.pt_centers
 
-    Qn_ref, jac_ref = cut_qvectors(qv, eta[0], eta[1])
-    q_ref = sum_over_species_pt(Qn_ref)
-    n_ref = q_ref[:, 0].real
+    def weights(windows):
+        jac = sum(_make_jacobian_list(centers, qv.masses, lo, hi) for lo, hi in windows)
+        return jac[None, :, :] / norm                      # (n_ev, n_species, n_pt)
 
-    # The POI bin is a SUBSET of the reference window (same eta acceptance,
-    # restricted in pT), and 2D boost invariance means every eta window is
-    # the same particle set anyway -- so the shared set is never empty here.
-    # In the weighted picture the diagonal of Re<Q_poi Q_ref*> is
-    # sum_i w_i^2 over the POI bin, i.e. exactly dmq.
-    from analysis.observables_2d import _compute_dmq_full
-    dmq_full = _compute_dmq_full(qv, jac_ref)
+    def qsum(idx, w, sl, cf):
+        return cf * np.einsum('esp,eshp->eh', w[:, idx, sl], qv.Qn[:, idx, :, sl])
 
-    q_poi = np.full((qv.n_events, zH, len(bins)), np.nan, complex)
-    n_poi = np.full((qv.n_events, len(bins)), np.nan)
-    dq_cross = np.full((qv.n_events, len(bins)), np.nan)
-    for b, (lo_b, hi_b) in enumerate(bins):
-        if var == 'pT':
-            lo, hi = _find_pt_slice_edges(qv.pt_bin_edges, lo_b, hi_b)
-            Qn_c = Qn_ref[:, :, :, lo:hi]
-            dmq = dmq_full[:, lo:hi].sum(axis=1)
-        else:                              # eta-differential: re-cut window
-            Qn_c, jac_c = cut_qvectors(qv, lo_b, hi_b)
-            plo, phi = _find_pt_slice_edges(qv.pt_bin_edges,
-                                            *sk.get('pT', (0.1, 10)))
-            Qn_c = Qn_c[:, :, :, plo:phi]
-            dmq_c = _compute_dmq_full(qv, jac_c)[:, plo:phi]
-            dmq = dmq_c.sum(axis=1)
-        s_pt = sum_over_species_pt(Qn_c)
-        q_poi[:, :, b] = s_pt
-        n_poi[:, b] = s_pt[:, 0].real
-        dq_cross[:, b] = dmq
-    return {'q_poi': q_poi, 'n_poi': n_poi, 'q_ref': q_ref, 'n_ref': n_ref,
-            'dQ_cross': dq_cross}
+    def poi_slice(lo, hi, differential):
+        if differential:    # the sim cells whose centres fall in the bin
+            return int(np.searchsorted(centers, lo)), int(np.searchsorted(centers, hi, side='right'))
+        return _find_pt_slice_edges(qv.pt_bin_edges, lo, hi)
+
+    boxes = []
+    for b in range(len(bins)):
+        (e_lo, e_hi), (p_lo, p_hi) = _sp_poi_box(b, bins, var, eta, pt)
+        boxes.append((weights([(e_lo, e_hi)]), poi_slice(p_lo, p_hi, var == 'pT')))
+
+    def poi_of(b):
+        w, (lo, hi) = boxes[b]
+        sl = slice(lo, hi)
+        return qsum(poi_idx, w, sl, poi_cf), poi_cf * (w[:, poi_idx, sl] * q0[:, poi_idx, sl]).sum(axis=(1, 2))
+
+    def ref_parts(spec):
+        windows, rpt = spec
+        w = weights(windows)
+        lo, hi = _find_pt_slice_edges(qv.pt_bin_edges, rpt[0], rpt[1])
+        return w, lo, hi
+
+    def ref_of(spec):
+        w, lo, hi = ref_parts(spec)
+        sl = slice(lo, hi)
+        n = ref_cf * (w[:, ref_idx, sl] * q0[:, ref_idx, sl]).sum(axis=(1, 2))
+        dq0 = ref_cf ** 2 * (w[:, ref_idx, sl] ** 2 * q0[:, ref_idx, sl]).sum(axis=(1, 2))
+        return qsum(ref_idx, w, sl, ref_cf), n, dq0
+
+    def shared_of(b, spec):
+        wp, (plo, phi_) = boxes[b]
+        wr, rlo, rhi = ref_parts(spec)
+        lo, hi = max(plo, rlo), min(phi_, rhi)
+        if not common or hi <= lo:
+            return np.zeros(qv.n_events)
+        sl = slice(lo, hi)
+        return poi_cf * ref_cf * (wp[:, common, sl] * wr[:, common, sl] * q0[:, common, sl]).sum(axis=(1, 2))
+
+    specs = _sp_ref_windows(bins, var, eta, pt, params)
+    return _sp_assemble(specs, ref_of, poi_of, shared_of, qv.n_events, qv.Qn.shape[2])
+
+
+def prepare_vn2_sp_diff_3d(container, params):
+    """3D: receives the unselected container (selects_species); POI and
+    reference are selected from it on unit weights.  The diagonal is the
+    count of POI particles inside the reference (cells common to the POI
+    box and a reference window), or zero for a POI outside the charged
+    reference (Lambda, K0_S, ...)."""
+    pid = _poi_species(params)
+    poi = _unit_weights(container.select(pid))
+    ref = _unit_weights(container.select({'species': 'charged'}))
+    var, bins, eta, pt = _sp_bins(params)
+    H, n_ev, nb = ref.Qn.shape[-1], ref.n_events, len(bins)
+    if (getattr(poi, 'pt_integrated', False) or getattr(ref, 'pt_integrated', False)
+            or eta[0] is None or eta[1] is None):
+        return {'q_poi': np.full((n_ev, H, nb), np.nan, complex),
+                'n_poi': np.full((n_ev, nb), np.nan),
+                'q_ref': np.full((n_ev, H), np.nan, complex),
+                'n_ref': np.full(n_ev, np.nan)}
+    overlap = _poi_within_charged(container, pid)
+
+    def poi_of(b):
+        (e_lo, e_hi), (p_lo, p_hi) = _sp_poi_box(b, bins, var, eta, pt)
+        q = poi.acceptance(e_lo, e_hi, p_lo, p_hi)
+        return q, q[:, 0].real
+
+    def ref_of(spec):
+        windows, rpt = spec
+        q = sum(ref.acceptance(lo, hi, rpt[0], rpt[1]) for lo, hi in windows)
+        return q, q[:, 0].real, q[:, 0].real
+
+    def shared_of(b, spec):
+        if not overlap:
+            return np.zeros(n_ev)
+        poi_eta, poi_pt = _sp_poi_box(b, bins, var, eta, pt)
+        sh = _shared_count(poi, poi_eta, poi_pt, spec[0], spec[1])
+        return np.zeros(n_ev) if sh is None else sh
+
+    specs = _sp_ref_windows(bins, var, eta, pt, params)
+    return _sp_assemble(specs, ref_of, poi_of, shared_of, n_ev, H)
 
 
 def prepare_vn2_ep_diff_3d(grid, params):
@@ -1315,80 +1481,6 @@ def prepare_vn2_single_3d_ep(grid, params):
 
 def _wrap_vn2_ep(data, w):
     return compute_vn2_ep(data['Qn'], w)
-
-
-def prepare_vn2_sp_diff_3d(grid, params):
-    if getattr(grid, 'pt_integrated', False):
-        H = grid.Qn.shape[-1]
-        nb = max(len(params.get('differential_bins') or []), 1)
-        nan = np.full((grid.n_events, H, nb), np.nan)
-        return {'q_poi': nan, 'q_ref': np.full((grid.n_events, H), np.nan),
-                'n_poi': np.full((grid.n_events, nb), np.nan),
-                'n_ref': np.full(grid.n_events, np.nan)}
-    sk = params.get('single_range', {})
-    eta = sk.get('eta', (-1, 1))
-    pt = sk.get('pT', (0.1, 10))
-    bins = params.get('differential_bins') or []
-    var = params.get('differential_var', 'pT')
-    H = grid.Qn.shape[-1]
-    nb = max(len(bins), 1)
-    if not bins or eta[0] is None:
-        return {'q_poi': np.full((grid.n_events, H, nb), np.nan),
-                'q_ref': np.full((grid.n_events, H), np.nan),
-                'n_poi': np.full((grid.n_events, nb), np.nan),
-                'n_ref': np.full(grid.n_events, np.nan)}
-    # Reference window: record acceptance by default; an explicit
-    # params['sp_ref_*'] override (comparison-only, e.g. BBC reference
-    # for JETSCAPE) replaces it.  POI always follows the record bins.
-    # sp_ref_eta may be one (lo, hi) window or a list of windows (their
-    # Q-vectors are summed, e.g. both BBC sides).
-    #
-    # Otherwise the record's own `flow_reference` block decides.  It can
-    # supply a per-bin reference: a mirrored one (the "sub-event on the
-    # opposite side of midrapidity" construction, which also guarantees
-    # the reference shares no particles with the POI) or a different
-    # reference per eta range via `segments`, for publications that merge
-    # two analysis methods into one series.
-    fr = params.get('flow_reference')
-    q_ref, n_ref, per_bin, dq_spec = _sp_reference_for_bins(
-        grid, bins, var, eta, pt, params, fr)
-    # per_bin -> the builder already returned the (n_ev, n_bins) counts;
-    # a uniform reference instead returns a spec tuple to expand per bin.
-    if per_bin:
-        dq_cross = dq_spec
-    elif isinstance(dq_spec, tuple):
-        _e, _p, _wins, _rpt = dq_spec
-        dq_cross = np.full((grid.n_events, len(bins)), np.nan)
-        for _b, (_lo, _hi) in enumerate(bins):
-            _pe = (_lo, _hi) if var == 'eta' else (_e[0], _e[1])
-            _pp = (_p[0], _p[1]) if var == 'eta' else (_lo, _hi)
-            _sh = _shared_count(grid, _pe, _pp, _wins, _rpt)
-            dq_cross[:, _b] = 0.0 if _sh is None else _sh
-    else:
-        dq_cross = None
-    q_poi = np.full((grid.n_events, H, len(bins)), np.nan, complex)
-    n_poi = np.full((grid.n_events, len(bins)), np.nan)
-    # No reference declared: the reference defaults to the record's own
-    # acceptance, so the POI bin lies entirely inside the reference and the
-    # diagonal is N_poi itself.  Only in that case may it be filled in
-    # directly -- with a declared reference the count is geometric and must
-    # come from _shared_count, which is ZERO for a disjoint reference.
-    same_window_default = (dq_cross is None
-                           and params.get('flow_reference') is None
-                           and params.get('sp_ref_eta') is None)
-    if same_window_default:
-        dq_cross = np.full((grid.n_events, len(bins)), np.nan)
-    for b, (lo_b, hi_b) in enumerate(bins):
-        if var == 'pT':
-            qq = grid.acceptance(eta[0], eta[1], lo_b, hi_b)
-        else:
-            qq = grid.acceptance(lo_b, hi_b, pt[0], pt[1])
-        q_poi[:, :, b] = qq
-        n_poi[:, b] = qq[:, 0].real
-        if same_window_default:
-            dq_cross[:, b] = n_poi[:, b]
-    return {'q_poi': q_poi, 'n_poi': n_poi, 'q_ref': q_ref, 'n_ref': n_ref,
-            'q_ref_per_bin': per_bin, 'dQ_cross': dq_cross}
 
 
 def _odd_windows(windows):
@@ -1540,119 +1632,21 @@ def _shared_count(grid, poi_eta, poi_pt, ref_windows, ref_pt):
     return acc
 
 
-def _sp_reference_for_bins(grid, bins, var, eta, pt, params, fr):
-    """Build the SP reference Q-vectors for a differential record.
-
-    Returns (q_ref, n_ref, per_bin).  When the reference depends on the
-    differential bin (mirrored, or segmented by |eta|) the arrays carry a
-    trailing bin axis, (n_events, H, n_bins) / (n_events, n_bins), and
-    per_bin is True.  A bin for which no reference can be built is left
-    as NaN rather than raising, so it is reported as unavailable.
-    """
-    H = grid.Qn.shape[-1]
-    n_ev = grid.n_events
-    override = params.get('sp_ref_eta')
-    if override is not None:
-        if (isinstance(override, (list, tuple)) and len(override) == 2
-                and all(isinstance(x, (list, tuple)) for x in override)):
-            re_windows = [(float(a), float(b)) for a, b in override]
-        else:
-            re_windows = [tuple(float(x) for x in override)]
-        acc = None
-        for (wlo, whi) in re_windows:
-            _q = grid.acceptance(wlo, whi, params.get('sp_ref_pt', pt)[0],
-                                 params.get('sp_ref_pt', pt)[1])
-            acc = _q if acc is None else acc + _q
-        # Reference is shared by every bin, so the shared count is computed
-        # per bin by the caller; signal "uniform" with per_bin=False.
-        return acc, acc[:, 0].real, False, (eta, pt, re_windows,
-                                            params.get('sp_ref_pt', pt))
-
-    if not fr:
-        acc = grid.acceptance(eta[0], eta[1], pt[0], pt[1])
-        return acc, acc[:, 0].real, False, None
-
-    def _acc(windows, pt_win):
-        acc = None
-        for (wlo, whi) in windows or []:
-            _q = grid.acceptance(wlo, whi, pt_win[0], pt_win[1])
-            acc = _q if acc is None else acc + _q
-        return acc
-
-    needs_per_bin = any(_ref_segment_for(fr, lo, hi).get('mirror')
-                        for lo, hi in bins) or bool(fr.get('segments'))
-    if not needs_per_bin:
-        ref = fr
-        acc = _acc(ref['eta'], ref.get('pT') or pt)
-        if acc is None:
-            z = np.full((n_ev, H), np.nan, complex)
-            return z, np.full(n_ev, np.nan), False, None
-        return acc, acc[:, 0].real, False, None
-
-    q_ref = np.full((n_ev, H, len(bins)), np.nan, complex)
-    n_ref = np.full((n_ev, len(bins)), np.nan)
-    dq_cross = np.full((n_ev, len(bins)), np.nan)
-    # Two phases on purpose: build every reference window first, then the
-    # shared counts.  Keeps the two kinds of grid query separable, and a
-    # bin straddling midrapidity really does share particles with a
-    # mirrored sub-event (|eta| >= 0.1), which is exactly what phase 2
-    # has to account for.
-    win_per_bin = []
-    for b, (lo_b, hi_b) in enumerate(bins):
-        ref = _ref_segment_for(fr, lo_b, hi_b)
-        windows = ref['eta']
-        if ref.get('mirror'):
-            # "the subevent on the opposite side of midrapidity was used":
-            # the reference is the SAME sub-event window as declared, but
-            # taken on the side opposite the particle of interest.  For a
-            # POI bin entirely at eta>0 that is the negated window; for one
-            # at eta<0 it is the window as given.  A bin straddling eta=0
-            # gets both images.
-            lo_w, hi_w = windows[0]
-            if lo_b < 0 < hi_b:
-                # Bin straddles midrapidity: take both images of the
-                # sub-event, so the reference still avoids the bin's own
-                # particles on either side.
-                windows = [(-hi_w, -lo_w), (lo_w, hi_w)]
-            elif hi_b > 0:
-                windows = [(-hi_w, -lo_w)]
-            else:
-                windows = [(lo_w, hi_w)]
-        pt_win = ref.get('pT') or pt
-        acc = _acc(windows, pt_win)
-        if acc is None:
-            win_per_bin.append(None)   # leave NaN: bin reported unavailable
-            continue
-        q_ref[:, :, b] = acc
-        n_ref[:, b] = acc[:, 0].real
-        win_per_bin.append((windows, pt_win))
-    for b, (lo_b, hi_b) in enumerate(bins):
-        if win_per_bin[b] is None:
-            continue
-        windows, pt_win = win_per_bin[b]
-        poi_eta = (lo_b, hi_b) if var == 'eta' else (eta[0], eta[1])
-        poi_pt = (pt[0], pt[1]) if var == 'eta' else (lo_b, hi_b)
-        sh = _shared_count(grid, poi_eta, poi_pt, windows, pt_win)
-        # None means the intersection is EMPTY -> a disjoint reference
-        # contributes exactly 0, which is not the same as "unknown".
-        dq_cross[:, b] = 0.0 if sh is None else sh
-    return q_ref, n_ref, True, dq_cross
-
-
 def _wrap_vn2_sp_diff(data, w):
-    # n_ref removes the reference's own auto-correlation from |Q_ref|^2;
-    # dQ_cross removes the POI/reference diagonal from the numerator.
-    # Both default to the no-correction behaviour when absent, which is
-    # only correct for a disjoint reference.
+    # dQ0_ref (Sum w^2; = n_ref on unit weights) removes the reference's own
+    # auto-correlation from |Q_ref|^2; dQ_cross removes the POI/reference
+    # diagonal from the numerator.
     return _core_vn2_sp_diff(data['q_poi'], data['n_poi'],
                              data['q_ref'], w,
                              dQ_cross=data.get('dQ_cross'),
-                             n_ref=data.get('n_ref'))
+                             n_ref=data.get('dQ0_ref', data.get('n_ref')))
 
 
 def _wrap_vn2_sp_diff_means(data, w):
-    return compute_vn2_sp_diff_means(data['q_poi'], data['n_poi'],
-                                     data['q_ref'], data['n_ref'], w)
+    return _core_vn2_sp_diff_means(data['q_poi'], data['n_poi'],
+                                   data['q_ref'], data['n_ref'], w,
+                                   dQ_cross=data.get('dQ_cross'),
+                                   dQ0_ref=data.get('dQ0_ref'))
 
 def _q_window_2d(qv, eta_lo, eta_hi, pt_lo, pt_hi, species_idx,
                  charge_factor):
@@ -2040,6 +2034,7 @@ PIPELINE_DISPATCH = {
         "prepare_data_3d": prepare_vn2_sp_diff_3d,
         "n_obs_per_cent": None,
         "description": "scalar-product differential v_n(pT){SP}",
+        "selects_species": True,
     },
     "vn2_sp_diff_pT_means": {
         "core_fn": _wrap_vn2_sp_diff_means,
@@ -2047,6 +2042,7 @@ PIPELINE_DISPATCH = {
         "prepare_data_3d": prepare_vn2_sp_diff_3d,
         "n_obs_per_cent": None,
         "description": "scalar-product differential v_n(pT){SP}, JETSCAPE pair-normalized form",
+        "selects_species": True,
     },
     "vn2_sp_diff_eta": {
         "core_fn": _wrap_vn2_sp_diff,
@@ -2054,6 +2050,7 @@ PIPELINE_DISPATCH = {
         "prepare_data_3d": prepare_vn2_sp_diff_3d,
         "n_obs_per_cent": None,
         "description": "scalar-product differential v_n(eta){SP}",
+        "selects_species": True,
     },
     "vn2_sp_diff_eta_means": {
         "core_fn": _wrap_vn2_sp_diff_means,
@@ -2061,6 +2058,7 @@ PIPELINE_DISPATCH = {
         "prepare_data_3d": prepare_vn2_sp_diff_3d,
         "n_obs_per_cent": None,
         "description": "scalar-product differential v_n(eta){SP}, JETSCAPE pair-normalized form",
+        "selects_species": True,
     },
     "v1_odd_sp_diff_eta": {
         "core_fn": _wrap_v1_odd,

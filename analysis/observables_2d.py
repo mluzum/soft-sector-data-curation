@@ -652,7 +652,7 @@ def compute_vn2_sp_diff(Q_poi_bins, n_poi_bins, q_ref, w):
 
 
 def _core_vn2_sp_diff_means(q_poi_bins, n_poi_bins, q_ref, n_ref, w,
-                            dQ_cross=None):
+                            dQ_cross=None, dQ0_ref=None):
     """Scalar-product differential, JETSCAPE pair-normalized form.
 
     Verbatim plain-mean version of JETSCAPE's calculate_vn_diff_SP
@@ -666,6 +666,9 @@ def _core_vn2_sp_diff_means(q_poi_bins, n_poi_bins, q_ref, n_ref, w,
     carry a trailing bin axis when the reference varies per differential
     bin (mirrored sub-event, or per-|eta|-segment reference).
     Returns (n_harm-1)*n_bins flattened, harmonic-major.
+    Weighted particles (2D Jacobian weights): dQ0_ref = Sum w^2 replaces
+    N_ref as the self-term, and the shared diagonal dQ_cross comes out of
+    both <Re[Q_poi.Q_ref*]> and <N_poi.N_ref>.
     """
     per_bin = q_ref.ndim == 3
     n_harm = q_ref.shape[1]
@@ -673,16 +676,17 @@ def _core_vn2_sp_diff_means(q_poi_bins, n_poi_bins, q_ref, n_ref, w,
     out = np.full((n_harm - 1, n_bins), np.nan)
     if w.sum() < 2:
         return out.ravel()
+    self_ref = n_ref if dQ0_ref is None else np.asarray(dQ0_ref, dtype=float)
     # Broadcast the reference multiplicity against (n_events, n_harm,
     # n_bins) for C, and against (n_events, n_bins) for M2.
     if per_bin:
-        n_ref_3d = n_ref[:, None, :]          # (n_ev, 1, n_bins)
+        n_ref_3d = self_ref[:, None, :]       # (n_ev, 1, n_bins)
         n_ref_2d = n_ref                      # (n_ev, n_bins)
     else:
-        n_ref_3d = n_ref[:, None]             # (n_ev, 1, 1)
+        n_ref_3d = self_ref[:, None]          # (n_ev, 1, 1)
         n_ref_2d = n_ref[:, None]             # (n_ev, 1)
     n2ref = np.abs(q_ref) ** 2 - n_ref_3d
-    N2ref = n_ref * (n_ref - 1.0)
+    N2ref = n_ref * n_ref - self_ref
     N2ref = N2ref[:, None, :] if per_bin else N2ref[:, None]
     wq = w[:, None, None] if per_bin else w[:, None]
     C = (np.sum(wq * n2ref, axis=0) /
@@ -700,7 +704,10 @@ def _core_vn2_sp_diff_means(q_poi_bins, n_poi_bins, q_ref, n_ref, w,
             if dq.ndim == 1:
                 dq = dq[:, None]
             M1 = M1 - np.sum(w[:, None] * dq, axis=0)
-        M2 = np.sum(w[:, None] * (n_poi_bins * n_ref_2d), axis=0)
+        pairs = n_poi_bins * n_ref_2d
+        if dQ_cross is not None:
+            pairs = pairs - dq
+        M2 = np.sum(w[:, None] * pairs, axis=0)
         out[h - 1, :] = M1 / np.maximum(M2, 1e-30) / np.sqrt(np.maximum(ch,
                                                                         1e-30))
     return out.ravel()

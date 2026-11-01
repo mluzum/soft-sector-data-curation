@@ -968,7 +968,11 @@ def main():
                         diff_bins = params['differential_bins']
                         # Prepare full multi-bin data once (NOT per-bin).
                         # The diff core function returns (n_harm * n_bins,).
-                        data_dict = prepare_fn(qv, params)
+                        try:
+                            data_dict = prepare_fn(qv, params)
+                        except Exception as e:
+                            print(f"    Skipping: 2D diff prepare failed: {e}")
+                            continue
                         bin_labels = [f"{diff_var} {lo:.2f}-{hi:.2f}" for lo, hi in diff_bins]
                         dispatch_data_list.append({
                             'data_dict': data_dict,
@@ -983,7 +987,11 @@ def main():
                             'hepdata_file': params.get('hepdata_file', '?'),
                         })
                     else:
-                        data_dict = prepare_fn(qv, params)
+                        try:
+                            data_dict = prepare_fn(qv, params)
+                        except Exception as e:
+                            print(f"    Skipping: 2D prepare failed: {e}")
+                            continue
                         dispatch_data_list.append({
                             'data_dict': data_dict,
                             'cent_w': cent_w,

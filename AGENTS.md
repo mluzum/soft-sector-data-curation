@@ -208,6 +208,19 @@ bias-corrected central value θ̂ = Nθ − (N−1)θ̄.
   species, v_n{4}(pT) was (v' v^3)^(1/4) with an unbalanced four-particle
   term, v_n{4} ignored the record's pT window, and 3D v_n{2}(pT)
   correlated each bin with itself.
+- **Scalar product / event plane, differential** (`vn2_sp_diff_*`, which
+  also serve event_plane records that declare a `flow_reference`): the
+  POI is the record species per bin; the reference is charged hadrons in
+  the `flow_reference` windows (mirrored or segmented per bin; default the
+  record window), pT from the reference block.  |Q_ref|^2 loses Sum w^2
+  (`dQ0_ref`), Re<q_poi Q_ref*> the particles in both samples (2D:
+  Sum w_poi w_ref; 3D: the POI count inside the reference, zero for a POI
+  outside it).  `selects_species`; tests/test_toy_mc_sp_poi.py.  Until
+  November 2026 2D ignored the species and the reference and subtracted
+  Sum w (charged v2(pT) ~1.6x too high, or ~1e30), and 3D used an
+  identified-only reference (identified records gave 0) and kept the
+  POI's own particles for a reference overlapping it (STAR TPC halves).
+  The integrated `vn2_sp` 3D prepare still ignores `flow_reference`.
 - **Charge factors**:
   - 2D JETSCAPE containers hold positive charges only, so charged
     quantities take ×2, and self-correlation terms take ×CF², consistently;

@@ -226,49 +226,13 @@ def test_flow_reference_from_record():
 def test_mirror_reference_window_selection():
     """A mirrored reference must land on the side OPPOSITE the POI bin."""
     print('test_mirror_reference_window_selection')
-    from analysis.pipeline_dispatch import _sp_reference_for_bins
-    import numpy as np
-
-    class _G:
-        n_events = 4
-        Qn = np.zeros((4, 4, 3, 3), complex)
-
-        def __init__(self):
-            self.log = []
-
-        def acceptance(self, a, b, c, d):
-            self.log.append((round(a, 3), round(b, 3)))
-            z = np.zeros((4, 3), complex)
-            z[:, 0] = 1.0
-            return z
+    from analysis.pipeline_dispatch import _sp_ref_windows
 
     fr = {'eta': [(0.1, 3.0)], 'mirror': True, 'segments': []}
     bins = [(-4.59, -3.9), (0.31, 0.76), (-0.2, 0.4), (3.9, 4.6)]
-    g = _G()
-    q, n, per_bin, _dq = _sp_reference_for_bins(g, bins, 'eta', (0, 6),
-                                           (0.075, 3.645), {}, fr)
-    check('per-bin reference requested', per_bin is True)
-    check('q_ref carries a bin axis', q.shape == (4, 3, 4), f'{q.shape}')
-    # Group the acceptance calls by bin: a bin straddling eta=0 takes two
-    # sub-event images, so there are more calls than bins.  The builder
-    # runs two phases -- every reference window first, then the POI/ref
-    # shared counts -- so only the leading run of calls is reference
-    # windows.  The trailing entries are the intersection queries, and they
-    # are non-empty only for the straddling bin (a mirrored sub-event
-    # starts at |eta|=0.1, so it necessarily overlaps the part of that bin
-    # beyond 0.1 -- a real cost of binning across midrapidity).
-    n_ref_calls = sum(2 if lo < 0 < hi else 1 for lo, hi in bins)
-    per = {}
-    i = 0
-    for lo, hi in bins:
-        n_win = 2 if lo < 0 < hi else 1
-        per[(lo, hi)] = g.log[i:i + n_win]
-        i += n_win
-    check('every bin requested exactly one reference window set', i == n_ref_calls,
-          f'{i} vs {n_ref_calls}')
-    check('shared-count queries follow the reference queries',
-          len(g.log) > n_ref_calls,
-          f'{len(g.log)} total vs {n_ref_calls} reference')
+    specs = _sp_ref_windows(bins, 'eta', (0, 6), (0.075, 3.645), {'flow_reference': fr})
+    check('one reference per bin', len(specs) == len(bins), f'{len(specs)}')
+    per = {b: sp[0] for b, sp in zip(bins, specs)}
     # negative POI -> positive sub-event; positive POI -> negative sub-event
     check('negative POI bin uses the positive sub-event',
           per[(-4.59, -3.9)] == [(0.1, 3.0)], f'{per[(-4.59, -3.9)]}')
@@ -283,20 +247,11 @@ def test_mirror_reference_window_selection():
     # one side of midrapidity that is strict eta disjointness.  A bin that
     # CONTAINS eta=0 cannot achieve it: the sub-event starts at |eta|=0.1,
     # so the mirror image necessarily overlaps the part of the bin beyond
-    # 0.1.  The shared region is then confined to the near-midrapidity
-    # core, which is a real (and quantified) cost of a bin that straddles
-    # the symmetry point -- not something the reference choice can fix.
+    # 0.1 (the shared particles are then subtracted as self-correlation).
     for (lo, hi), wins in per.items():
         if lo < 0 < hi:
-            ov = sum(max(0.0, min(hi, rhi) - max(lo, rlo))
-                     for rlo, rhi in wins)
-            edge = max((min(hi, rhi) for rlo, rhi in wins if rhi > lo),
-                       default=0.0)
-            # Sharing cannot escape the bin, and is confined to the
-            # near-midrapidity part of it (the sub-event starts at
-            # |eta|=0.1, so a bin reaching 0.4 on one side unavoidably
-            # shares 0.1-0.4).  Quantified, not asserted away: the fraction
-            # is reported so a regression in the sub-event window shows up.
+            ov = sum(max(0.0, min(hi, rhi) - max(lo, rlo)) for rlo, rhi in wins)
+            edge = max((min(hi, rhi) for rlo, rhi in wins if rhi > lo), default=0.0)
             check(f'straddling bin ({lo},{hi}) shares only near eta=0',
                   edge <= max(abs(lo), abs(hi)) + 1e-9,
                   f'sharing reaches |eta|={edge:.2f}')
@@ -306,26 +261,17 @@ def test_mirror_reference_window_selection():
             check(f'reference disjoint from POI bin ({lo},{hi})',
                   all(rhi <= lo + 1e-9 or rlo >= hi - 1e-9
                       for rlo, rhi in wins), f'{wins}')
+    # pT-differential: the POI eta window (not the pT bin) picks the side
+    specs = _sp_ref_windows([(0.5, 1.0), (1.0, 2.0)], 'pT', (0.2, 0.8), (0.5, 2.0),
+                            {'flow_reference': fr})
+    check('pT bins at eta > 0 use the negative sub-event',
+          all(sp[0] == [(-3.0, -0.1)] for sp in specs), f'{specs}')
 
 
 def test_segment_selection_by_overlap():
     """Bins straddling a segment boundary pick the larger-overlap segment."""
     print('test_segment_selection_by_overlap')
-    from analysis.pipeline_dispatch import _sp_reference_for_bins
-    import numpy as np
-
-    class _G:
-        n_events = 4
-        Qn = np.zeros((4, 4, 3, 3), complex)
-
-        def __init__(self):
-            self.log = []
-
-        def acceptance(self, a, b, c, d):
-            self.log.append((round(a, 3), round(b, 3)))
-            z = np.zeros((4, 3), complex)
-            z[:, 0] = 1.0
-            return z
+    from analysis.pipeline_dispatch import _sp_ref_windows
 
     segs = [
         {'applies_to_eta': (0.0, 1.8), 'eta': [(-3.2, -2.05), (2.05, 3.2)],
@@ -334,19 +280,16 @@ def test_segment_selection_by_overlap():
          'pT': None},
     ]
     fr = {'eta': [], 'mirror': False, 'segments': segs}
-    # 1.455-2.365 straddles the 1.8 crossover.
-    bins = [(0.155, 0.535), (1.455, 2.365), (3.9, 4.59)]
-    g = _G()
-    q, n, per_bin, _dq = _sp_reference_for_bins(g, bins, 'eta', (0, 6),
-                                           (0.075, 3.645), {}, fr)
-    check('segmented reference is per-bin', per_bin is True)
+    # 1.455-2.365 straddles the 1.8 crossover; 5.6-6.0 is matched by no segment.
+    bins = [(0.155, 0.535), (1.455, 2.365), (3.9, 4.59), (5.6, 6.0)]
+    specs = _sp_ref_windows(bins, 'eta', (0, 6), (0.075, 3.645), {'flow_reference': fr})
     check('small-|eta| bin uses the two-sided octagon reference',
-          g.log[0] == (-3.2, -2.05) and g.log[1] == (2.05, 3.2),
-          f'{g.log[0:2]}')
+          specs[0][0] == [(-3.2, -2.05), (2.05, 3.2)], f'{specs[0]}')
     check('straddling bin uses the mirrored hit-based reference',
-          g.log[2] == (-3.0, -0.1), f'{g.log[2]}')
-    check('no crash on a bin matched by no segment',
-          q.shape == (4, 3, 3), f'{q.shape}')
+          specs[1][0] == [(-3.0, -0.1)], f'{specs[1]}')
+    check('reference pT defaults to the record pT', specs[1][1] == (0.075, 3.645), f'{specs[1]}')
+    check('a bin matched by no segment has no reference (NaN, not a crash)',
+          specs[3] is None, f'{specs[3]}')
 
 
 def test_per_bin_reference_core_equivalence():
