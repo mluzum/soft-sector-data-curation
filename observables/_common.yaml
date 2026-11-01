@@ -46,6 +46,16 @@ particle_id:
       required: false
       description: True when species is explicitly an antiparticle.
       example: false
+    charge_average:
+      type: boolean
+      required: false
+      description: >
+        True when the measurement is the AVERAGE of the particle and its
+        antiparticle, e.g. charged hadrons (h+ + h-)/2 or (pi+ + pi-)/2;
+        give species as the sum ("charged", "pi+ + pi-").  Absolute
+        quantities (yields, spectra) are then half of the sum; normalized
+        ones are unaffected.
+      example: true
 
 kinematic_range:
   description: >

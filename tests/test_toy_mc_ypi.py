@@ -90,6 +90,21 @@ def test_window_is_not_true_rapidity():
     assert abs(rapidity_window_extent(0.25, M_PI, *YWIN, M_PI) - 1.2) < 1e-12
 
 
+def test_charge_average():
+    """particle_id.charge_average ((h+ + h-)/2): half of the charged sum."""
+    fx = _fx()
+    for grid in (False, True):
+        bins = [snap_window(fx['grid'].pt_edges, lo, hi) for lo, hi in BINS] if grid else BINS
+        kw = dict(grid=fx['grid']) if grid else dict(qv=fx['qv'])
+        rec = record('charged', bins)
+        avg = dict(rec, particle_id=dict(species='charged', charge_average=True))
+        a, _ = evaluate(rec, cent_method='simple', with_jackknife=False, **kw)
+        b, _ = evaluate(avg, cent_method='simple', with_jackknife=False, **kw)
+        ok = np.allclose(b, 0.5 * a)
+        results.append(ok)
+        print(f"  {'PASS' if ok else 'FAIL'} charge average = half the charged sum ({'3D' if grid else '2D'})")
+
+
 def test_refused_elsewhere():
     from analysis.dispatcher import resolve
     rec = record('charged', BINS)
@@ -109,6 +124,7 @@ if __name__ == '__main__':
     run('p + pbar', [2], grid=False)
     run('charged', None, grid=True)
     run('p + pbar', [2], grid=True)
+    test_charge_average()
     test_refused_elsewhere()
     print(f'\n{sum(results)}/{len(results)} passed')
     sys.exit(0 if all(results) else 1)

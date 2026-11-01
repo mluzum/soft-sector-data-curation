@@ -2100,6 +2100,35 @@ for _key, _entry in PIPELINE_DISPATCH.items():
         _entry['prepare_data_3d'] = _on_unit_weights(_entry['prepare_data_3d'])
 
 
+def _with_charge_average(entry):
+    """Absolute quantities of a charge average ((h+ + h-)/2, particle_id.
+    charge_average) are half of the sum the species selection returns."""
+    def tag(prepare):
+        if prepare is None:
+            return None
+
+        def wrapped(container, params):
+            d = prepare(container, params)
+            if isinstance(d, dict):
+                d['_charge_average'] = bool(params.get('charge_average'))
+            return d
+        wrapped.__name__, wrapped.__doc__ = prepare.__name__, prepare.__doc__
+        return wrapped
+    core = entry['core_fn']
+
+    def core_fn(data, w):
+        out = core(data, w)
+        return out * 0.5 if isinstance(data, dict) and data.get('_charge_average') else out
+    core_fn.__name__, core_fn.__doc__ = core.__name__, core.__doc__
+    entry['prepare_data_2d'] = tag(entry.get('prepare_data_2d'))
+    entry['prepare_data_3d'] = tag(entry.get('prepare_data_3d'))
+    entry['core_fn'] = core_fn
+
+
+for _key in ABSOLUTE_KEYS:
+    _with_charge_average(PIPELINE_DISPATCH[_key])
+
+
 def get_pipeline_entry(registered_key):
     """Look up a registered key in PIPELINE_DISPATCH.
 

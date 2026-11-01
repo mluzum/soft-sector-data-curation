@@ -634,6 +634,9 @@ def extract_measurement_params(exp_rec):
     diff_var, diff_bins, diff_fixed = extract_differential_bins(exp_rec)
 
     return {
+        # Average of particle and antiparticle, e.g. (h+ + h-)/2: absolute
+        # quantities are half of the sum (pipeline_dispatch._with_charge_average).
+        'charge_average': bool((exp_rec.get('particle_id') or {}).get('charge_average')),
         'harmonic': exp_rec.get('harmonic', 1),
         'harmonics': exp_rec.get('harmonics'),
         'particles': particles,
