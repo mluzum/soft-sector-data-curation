@@ -95,6 +95,12 @@ def main():
             # Raw plain numbers that fit NEITHER pattern (Npart centers,
             # eta/pT values under a *Centrality-named header, ...) are
             # unresolvable by construction - skip, don't flag.
+            # A raw point outside its listed class IS a mismatch when every raw
+            # entry is a plausible percentile (0-100): reversed or invented
+            # classes of point-valued tables (STAR 2017211, ATLAS 1728935)
+            # used to pass as "unresolvable".
+            centers = [parse_center(v) for v in raw_cent]
+            percentiles = all(c is not None and 0.0 <= c <= 100.0 for c in centers)
             bad = []
             resolvable = True
             for pos, (raw_v, listed) in enumerate(zip(raw_cent, classes)):
@@ -105,9 +111,14 @@ def main():
                         bad.append(pos)
                 elif rr is None:
                     rc = parse_center(raw_v)
-                    if rc is None or lr is None or not (lr[0] - 1e-9 <= rc <= lr[1] + 1e-9):
+                    if rc is None or lr is None:
                         resolvable = False
                         break
+                    if not (lr[0] - 1e-9 <= rc <= lr[1] + 1e-9):
+                        if not percentiles:
+                            resolvable = False
+                            break
+                        bad.append(pos)
                 else:
                     bad.append(pos)
             if not resolvable:
