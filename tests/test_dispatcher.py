@@ -440,6 +440,21 @@ def test_load_experimental_total_error():
     assert np.allclose(e, want), (e, want)
 
 
+def test_fractional_centrality_edges():
+    """Fractional class edges stay fractional (they were truncated to int)."""
+    record = {'harmonic': 2, 'kinematic_range': {'eta': {'min': -0.8, 'max': 0.8}},
+              'centrality': {'classes': ['0.15-0.2%', '5-11.25%', '0-5%'],
+                             'estimator': {'name': 'V0M', 'observable': 'amplitude'},
+                             'eta': [{'min': -3.7, 'max': 5.1}]}}
+    edges = extract_measurement_params(record)['cent_edges']
+    assert edges == [(0.15, 0.2), (5.0, 11.25), (0.0, 5.0)], edges
+    from analysis.weights import cent_weights
+    import numpy as np
+    mult = np.arange(20000, 0, -1).astype(float)          # event i at (i+0.5)/200 %
+    w = cent_weights('simple', mult, edges)
+    assert w[:, 0].sum() == 10 and w[:, 1].sum() == 1250 and w[:, 2].sum() == 1000, w.sum(axis=0)
+
+
 if __name__ == '__main__':
     tests = [fn for fn in dir() if fn.startswith('test_')]
     n_pass = 0

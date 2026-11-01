@@ -627,13 +627,17 @@ def extract_measurement_params(exp_rec):
     cent_pt_raw = cent.get('pT') or {}
     cent_pT_range = (cent_pt_raw.get('min'), cent_pt_raw.get('max'))
     cent_classes = cent.get('classes', [])
+    # Percentile edges as floats: classes such as 0.15-0.2% or 5-11.25%
+    # are common (ALICE, ATLAS, CMS fine bins).  Until November 2026 they
+    # were truncated to integers, so 0.15-0.2% became an empty 0-0% bin and
+    # 5-11.25% became 5-11%.
     cent_edges = []
     for c in cent_classes:
         parts = c.replace('%', '').split('-')
         try:
-            cent_edges.append((int(float(parts[0])), int(float(parts[1]))))
+            cent_edges.append((float(parts[0]), float(parts[1])))
         except (ValueError, IndexError):
-            cent_edges.append((0, 100))  # fallback: MB
+            cent_edges.append((0.0, 100.0))  # fallback: MB
 
     # Flag a centrality.classes that is not centrality.  The record is still
     # returned (so schema validation and export see it) but the pipeline must
