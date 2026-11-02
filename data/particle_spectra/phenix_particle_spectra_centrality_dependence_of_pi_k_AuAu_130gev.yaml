@@ -1,23 +1,15 @@
----
 observable_type: particle_spectra
 inspire_id: '568437'
 version: 1
 hepdata_file: Table1.yaml
-hepdata_table_label: 'Transverse momentum spectra for PI+ in the midrapidity range for the centrality region 0 to 5 PCT. Errors
-  are combined statistical and systematics.
-
-  '
-qualifiers:
-  centrality: 0 TO 5 PCT
-  etarap: -0.35 TO 0.35
-  re: AU AU --> PI+ X
-  sqrt(s): '130.0'
+dv_index: 0
+hepdata_table_label: Transverse momentum spectra for pi+, 0-5%
 collision_system:
   energy_gev: 130.0
   reaction: AU AU --> PI+ X
 centrality:
   classes:
-  - 0.0-5.0%
+  - 0-5%
   estimator:
     name: BBC
     observable: amplitude
@@ -30,521 +22,46 @@ centrality:
 particle_id:
   species: pi+
 kinematic_range:
-  pT:
-    min: 0.2
-    max: 2.3000000000000003
-    bins:
-    - 0.2
-    - 0.3
-    - 0.4
-    - 0.5
-    - 0.6000000000000001
-    - 0.7
-    - 0.8
-    - 0.925
-    - 1.1
-    - 1.2999999999999998
-    - 1.5
-    - 1.7000000000000002
-    - 1.9
-    - 2.1
-    - 2.3000000000000003
-  eta:
+  y:
     min: -0.35
     max: 0.35
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '568437'
-version: 1
-hepdata_file: Table10.yaml
-hepdata_table_label: 'Transverse momentum spectra for K- in the midrapidity range for the centrality region 15 to 30 PCT.
-  Errors are combined statistical and systematics.
-
-  '
-qualifiers:
-  centrality: 15 TO 30 PCT
-  etarap: -0.35 TO 0.35
-  re: AU AU --> K- X
-  sqrt(s): '130.0'
-collision_system:
-  energy_gev: 130.0
-  reaction: AU AU --> K- X
-centrality:
-  classes:
-  - 15.0-30.0%
-  estimator:
-    name: BBC
-    observable: amplitude
-    detector: BBC
-  eta:
-  - min: -3.9
-    max: -3.0
-  - min: 3.0
-    max: 3.9
-particle_id:
-  species: pi+
-kinematic_range:
   pT:
-    min: 0.4
-    max: 1.6999999999999997
-    bins:
-    - 0.4
-    - 0.5
-    - 0.6000000000000001
-    - 0.7
-    - 0.8
-    - 0.8999999999999999
+    min: 0.2
+    max: 2.25
+    points:
+    - 0.25
+    - 0.35
+    - 0.45
+    - 0.55
+    - 0.65
+    - 0.75
+    - 0.85
     - 1.0
-    - 1.1
     - 1.2
-    - 1.3
     - 1.4
-    - 1.5
     - 1.6
-    - 1.6999999999999997
-  eta:
-    min: -0.35
-    max: 0.35
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '568437'
-version: 1
-hepdata_file: Table11.yaml
-hepdata_table_label: 'Transverse momentum spectra for P in the midrapidity range for the centrality region 15 to 30 PCT. Errors
-  are combined statistical and systematics.
-
-  '
-qualifiers:
-  centrality: 15 TO 30 PCT
-  etarap: -0.35 TO 0.35
-  re: AU AU --> P X
-  sqrt(s): '130.0'
-collision_system:
-  energy_gev: 130.0
-  reaction: AU AU --> P X
-centrality:
-  classes:
-  - 15.0-30.0%
-  estimator:
-    name: BBC
-    observable: amplitude
-    detector: BBC
-  eta:
-  - min: -3.9
-    max: -3.0
-  - min: 3.0
-    max: 3.9
-particle_id:
-  species: pi+
-kinematic_range:
-  pT:
-    min: 0.5
-    max: 3.55
-    bins:
-    - 0.5
-    - 0.6000000000000001
-    - 0.7
-    - 0.8
-    - 0.925
-    - 1.1
-    - 1.2999999999999998
-    - 1.5
-    - 1.7000000000000002
-    - 1.9
-    - 2.1
-    - 2.3125
-    - 2.55
-    - 2.8
-    - 3.05
-    - 3.3
-    - 3.55
-  eta:
-    min: -0.35
-    max: 0.35
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '568437'
-version: 1
-hepdata_file: Table12.yaml
-hepdata_table_label: 'Transverse momentum spectra for PBAR in the midrapidity range for the centrality region 15 to 30 PCT.
-  Errors are combined statistical and systematics.
-
-  '
-qualifiers:
-  centrality: 15 TO 30 PCT
-  etarap: -0.35 TO 0.35
-  re: AU AU --> PBAR X
-  sqrt(s): '130.0'
-collision_system:
-  energy_gev: 130.0
-  reaction: AU AU --> PBAR X
-centrality:
-  classes:
-  - 15.0-30.0%
-  estimator:
-    name: BBC
-    observable: amplitude
-    detector: BBC
-  eta:
-  - min: -3.9
-    max: -3.0
-  - min: 3.0
-    max: 3.9
-particle_id:
-  species: pbar
-kinematic_range:
-  pT:
-    min: 0.5
-    max: 3.8
-    bins:
-    - 0.5
-    - 0.6000000000000001
-    - 0.7
-    - 0.8
-    - 0.925
-    - 1.1
-    - 1.2999999999999998
-    - 1.5
-    - 1.7000000000000002
-    - 1.9
-    - 2.1
-    - 2.3125
-    - 2.55
-    - 2.8
-    - 3.05
-    - 3.3
-    - 3.55
-    - 3.8
-  eta:
-    min: -0.35
-    max: 0.35
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '568437'
-version: 1
-hepdata_file: Table13.yaml
-hepdata_table_label: 'Transverse momentum spectra for PI+ in the midrapidity range for the centrality region 60 to 92 PCT.
-  Errors are combined statistical and systematics.
-
-  '
-qualifiers:
-  centrality: 60 TO 92 PCT
-  etarap: -0.35 TO 0.35
-  re: AU AU --> PI+ X
-  sqrt(s): '130.0'
-collision_system:
-  energy_gev: 130.0
-  reaction: AU AU --> PI+ X
-centrality:
-  classes:
-  - 60.0-92.0%
-  estimator:
-    name: BBC
-    observable: amplitude
-    detector: BBC
-  eta:
-  - min: -3.9
-    max: -3.0
-  - min: 3.0
-    max: 3.9
-particle_id:
-  species: pi+
-kinematic_range:
-  pT:
-    min: 0.2
-    max: 2.2
-    bins:
-    - 0.2
-    - 0.3
-    - 0.4
-    - 0.5
-    - 0.6000000000000001
-    - 0.675
-    - 0.8
-    - 1.05
-    - 1.4
     - 1.8
+    - 2.0
     - 2.2
-  eta:
-    min: -0.35
-    max: 0.35
-observable: dN_dpT_dy
+    point_window: 0.1
+observable: invariant_yield
 value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '568437'
-version: 1
-hepdata_file: Table14.yaml
-hepdata_table_label: 'Transverse momentum spectra for PI- in the midrapidity range for the centrality region 60 to 92 PCT.
-  Errors are combined statistical and systematics.
-
-  '
-qualifiers:
-  centrality: 60 TO 92 PCT
-  etarap: -0.35 TO 0.35
-  re: AU AU --> PI- X
-  sqrt(s): '130.0'
-collision_system:
-  energy_gev: 130.0
-  reaction: AU AU --> PI- X
-centrality:
-  classes:
-  - 60.0-92.0%
-  estimator:
-    name: BBC
-    observable: amplitude
-    detector: BBC
-  eta:
-  - min: -3.9
-    max: -3.0
-  - min: 3.0
-    max: 3.9
-particle_id:
-  species: pi+
-kinematic_range:
-  pT:
-    min: 0.2
-    max: 2.2
-    bins:
-    - 0.2
-    - 0.3
-    - 0.4
-    - 0.5
-    - 0.625
-    - 0.8
-    - 1.05
-    - 1.4
-    - 1.8
-    - 2.2
-  eta:
-    min: -0.35
-    max: 0.35
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '568437'
-version: 1
-hepdata_file: Table15.yaml
-hepdata_table_label: 'Transverse momentum spectra for K+ in the midrapidity range for the centrality region 60 to 92 PCT.
-  Errors are combined statistical and systematics.
-
-  '
-qualifiers:
-  centrality: 60 TO 92 PCT
-  etarap: -0.35 TO 0.35
-  re: AU AU --> K+ X
-  sqrt(s): '130.0'
-collision_system:
-  energy_gev: 130.0
-  reaction: AU AU --> K+ X
-centrality:
-  classes:
-  - 60.0-92.0%
-  estimator:
-    name: BBC
-    observable: amplitude
-    detector: BBC
-  eta:
-  - min: -3.9
-    max: -3.0
-  - min: 3.0
-    max: 3.9
-particle_id:
-  species: pi+
-kinematic_range:
-  pT:
-    min: 0.393925
-    max: 1.7757
-    bins:
-    - 0.393925
-    - 0.493925
-    - 0.618925
-    - 0.793925
-    - 1.0348125
-    - 1.3757000000000001
-    - 1.7757
-  eta:
-    min: -0.35
-    max: 0.35
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '568437'
-version: 1
-hepdata_file: Table16.yaml
-hepdata_table_label: 'Transverse momentum spectra for K- in the midrapidity range for the centrality region 60 to 92 PCT.
-  Errors are combined statistical and systematics.
-
-  '
-qualifiers:
-  centrality: 60 TO 92 PCT
-  etarap: -0.35 TO 0.35
-  re: AU AU --> K- X
-  sqrt(s): '130.0'
-collision_system:
-  energy_gev: 130.0
-  reaction: AU AU --> K- X
-centrality:
-  classes:
-  - 60.0-92.0%
-  estimator:
-    name: BBC
-    observable: amplitude
-    detector: BBC
-  eta:
-  - min: -3.9
-    max: -3.0
-  - min: 3.0
-    max: 3.9
-particle_id:
-  species: pi+
-kinematic_range:
-  pT:
-    min: 0.39320900000000003
-    max: 1.77283
-    bins:
-    - 0.39320900000000003
-    - 0.493209
-    - 0.618209
-    - 0.793209
-    - 1.0330195
-    - 1.37283
-    - 1.77283
-  eta:
-    min: -0.35
-    max: 0.35
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '568437'
-version: 1
-hepdata_file: Table17.yaml
-hepdata_table_label: 'Transverse momentum spectra for P in the midrapidity range for the centrality region 60 to 92 PCT. Errors
-  are combined statistical and systematics.
-
-  '
-qualifiers:
-  centrality: 60 TO 92 PCT
-  etarap: -0.35 TO 0.35
-  re: AU AU --> P X
-  sqrt(s): '130.0'
-collision_system:
-  energy_gev: 130.0
-  reaction: AU AU --> P X
-centrality:
-  classes:
-  - 60.0-92.0%
-  estimator:
-    name: BBC
-    observable: amplitude
-    detector: BBC
-  eta:
-  - min: -3.9
-    max: -3.0
-  - min: 3.0
-    max: 3.9
-particle_id:
-  species: pi+
-kinematic_range:
-  pT:
-    min: 0.4703010000000001
-    max: 3.15771
-    bins:
-    - 0.4703010000000001
-    - 0.620301
-    - 0.795301
-    - 1.0382555
-    - 1.38121
-    - 1.78121
-    - 2.19446
-    - 2.65771
-    - 3.15771
-  eta:
-    min: -0.35
-    max: 0.35
-observable: dN_dpT_dy
-value_type: invariant_yield
----
-observable_type: particle_spectra
-inspire_id: '568437'
-version: 1
-hepdata_file: Table18.yaml
-hepdata_table_label: 'Transverse momentum spectra for PBAR in the midrapidity range for the centrality region 60 to 92 PCT.
-  Errors are combined statistical and systematics.
-
-  '
-qualifiers:
-  centrality: 60 TO 92 PCT
-  etarap: -0.35 TO 0.35
-  re: AU AU --> PBAR X
-  sqrt(s): '130.0'
-collision_system:
-  energy_gev: 130.0
-  reaction: AU AU --> PBAR X
-centrality:
-  classes:
-  - 60.0-92.0%
-  estimator:
-    name: BBC
-    observable: amplitude
-    detector: BBC
-  eta:
-  - min: -3.9
-    max: -3.0
-  - min: 3.0
-    max: 3.9
-particle_id:
-  species: pbar
-kinematic_range:
-  pT:
-    min: 0.47039899999999996
-    max: 3.1586
-    bins:
-    - 0.47039899999999996
-    - 0.6203989999999999
-    - 0.795399
-    - 1.0384995
-    - 1.3816
-    - 1.7816
-    - 2.1951
-    - 2.6586
-    - 3.1586
-  eta:
-    min: -0.35
-    max: 0.35
-observable: dN_dpT_dy
-value_type: invariant_yield
+notes:
+  value: K. Adcox et al. (PHENIX), PRL 88, 242301 (2002), arXiv:nucl-ex/0112006. 1/(2 pi pT N) d2N/(dpT dy) of pi+, 0-5%,
+    midrapidity (central arms, |eta| < 0.35; |y| < 0.35 here); pT points. Errors as tabulated.
 ---
 observable_type: particle_spectra
 inspire_id: '568437'
 version: 1
 hepdata_file: Table2.yaml
-hepdata_table_label: 'Transverse momentum spectra for PI- in the midrapidity range for the centrality region 0 to 5 PCT. Errors
-  are combined statistical and systematics.
-
-  '
-qualifiers:
-  centrality: 0 TO 5 PCT
-  etarap: -0.35 TO 0.35
-  re: AU AU --> PI- X
-  sqrt(s): '130.0'
+dv_index: 0
+hepdata_table_label: Transverse momentum spectra for pi-, 0-5%
 collision_system:
   energy_gev: 130.0
   reaction: AU AU --> PI- X
 centrality:
   classes:
-  - 0.0-5.0%
+  - 0-5%
   estimator:
     name: BBC
     observable: amplitude
@@ -555,52 +72,48 @@ centrality:
   - min: 3.0
     max: 3.9
 particle_id:
-  species: pi+
+  species: pi-
 kinematic_range:
-  pT:
-    min: 0.2
-    max: 2.3000000000000003
-    bins:
-    - 0.2
-    - 0.3
-    - 0.4
-    - 0.5
-    - 0.6000000000000001
-    - 0.7
-    - 0.8
-    - 0.925
-    - 1.1
-    - 1.2999999999999998
-    - 1.5
-    - 1.7000000000000002
-    - 1.9
-    - 2.1
-    - 2.3000000000000003
-  eta:
+  y:
     min: -0.35
     max: 0.35
-observable: dN_dpT_dy
+  pT:
+    min: 0.2
+    max: 2.25
+    points:
+    - 0.25
+    - 0.35
+    - 0.45
+    - 0.55
+    - 0.65
+    - 0.75
+    - 0.85
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+    - 2.0
+    - 2.2
+    point_window: 0.1
+observable: invariant_yield
 value_type: invariant_yield
+notes:
+  value: K. Adcox et al. (PHENIX), PRL 88, 242301 (2002), arXiv:nucl-ex/0112006. 1/(2 pi pT N) d2N/(dpT dy) of pi-, 0-5%,
+    midrapidity (central arms, |eta| < 0.35; |y| < 0.35 here); pT points. Errors as tabulated.
 ---
 observable_type: particle_spectra
 inspire_id: '568437'
 version: 1
 hepdata_file: Table3.yaml
-hepdata_table_label: 'Transverse momentum spectra for K+ in the midrapidity range for the centrality region 0 to 5 PCT. Errors
-  are combined statistical and systematics.
-
-  '
-qualifiers:
-  centrality: 0 TO 5 PCT
-  etarap: -0.35 TO 0.35
-  re: AU AU --> K+ X
-  sqrt(s): '130.0'
+dv_index: 0
+hepdata_table_label: Transverse momentum spectra for K+, 0-5%
 collision_system:
   energy_gev: 130.0
   reaction: AU AU --> K+ X
 centrality:
   classes:
-  - 0.0-5.0%
+  - 0-5%
   estimator:
     name: BBC
     observable: amplitude
@@ -611,51 +124,47 @@ centrality:
   - min: 3.0
     max: 3.9
 particle_id:
-  species: pi+
+  species: K+
 kinematic_range:
-  pT:
-    min: 0.4
-    max: 1.6999999999999997
-    bins:
-    - 0.4
-    - 0.5
-    - 0.6000000000000001
-    - 0.7
-    - 0.8
-    - 0.8999999999999999
-    - 1.0
-    - 1.1
-    - 1.2
-    - 1.3
-    - 1.4
-    - 1.5
-    - 1.6
-    - 1.6999999999999997
-  eta:
+  y:
     min: -0.35
     max: 0.35
-observable: dN_dpT_dy
+  pT:
+    min: 0.4
+    max: 1.7
+    points:
+    - 0.45
+    - 0.55
+    - 0.65
+    - 0.75
+    - 0.85
+    - 0.95
+    - 1.05
+    - 1.15
+    - 1.25
+    - 1.35
+    - 1.45
+    - 1.55
+    - 1.65
+    point_window: 0.1
+observable: invariant_yield
 value_type: invariant_yield
+notes:
+  value: K. Adcox et al. (PHENIX), PRL 88, 242301 (2002), arXiv:nucl-ex/0112006. 1/(2 pi pT N) d2N/(dpT dy) of K+, 0-5%, midrapidity
+    (central arms, |eta| < 0.35; |y| < 0.35 here); pT points. Errors as tabulated.
 ---
 observable_type: particle_spectra
 inspire_id: '568437'
 version: 1
 hepdata_file: Table4.yaml
-hepdata_table_label: 'Transverse momentum spectra for K- in the midrapidity range for the centrality region 0 to 5 PCT. Errors
-  are combined statistical and systematics.
-
-  '
-qualifiers:
-  centrality: 0 TO 5 PCT
-  etarap: -0.35 TO 0.35
-  re: AU AU --> K- X
-  sqrt(s): '130.0'
+dv_index: 0
+hepdata_table_label: Transverse momentum spectra for K-, 0-5%
 collision_system:
   energy_gev: 130.0
   reaction: AU AU --> K- X
 centrality:
   classes:
-  - 0.0-5.0%
+  - 0-5%
   estimator:
     name: BBC
     observable: amplitude
@@ -666,51 +175,47 @@ centrality:
   - min: 3.0
     max: 3.9
 particle_id:
-  species: pi+
+  species: K-
 kinematic_range:
-  pT:
-    min: 0.4
-    max: 1.6999999999999997
-    bins:
-    - 0.4
-    - 0.5
-    - 0.6000000000000001
-    - 0.7
-    - 0.8
-    - 0.8999999999999999
-    - 1.0
-    - 1.1
-    - 1.2
-    - 1.3
-    - 1.4
-    - 1.5
-    - 1.6
-    - 1.6999999999999997
-  eta:
+  y:
     min: -0.35
     max: 0.35
-observable: dN_dpT_dy
+  pT:
+    min: 0.4
+    max: 1.7
+    points:
+    - 0.45
+    - 0.55
+    - 0.65
+    - 0.75
+    - 0.85
+    - 0.95
+    - 1.05
+    - 1.15
+    - 1.25
+    - 1.35
+    - 1.45
+    - 1.55
+    - 1.65
+    point_window: 0.1
+observable: invariant_yield
 value_type: invariant_yield
+notes:
+  value: K. Adcox et al. (PHENIX), PRL 88, 242301 (2002), arXiv:nucl-ex/0112006. 1/(2 pi pT N) d2N/(dpT dy) of K-, 0-5%, midrapidity
+    (central arms, |eta| < 0.35; |y| < 0.35 here); pT points. Errors as tabulated.
 ---
 observable_type: particle_spectra
 inspire_id: '568437'
 version: 1
 hepdata_file: Table5.yaml
-hepdata_table_label: 'Transverse momentum spectra for P in the midrapidity range for the centrality region 0 to 5 PCT. Errors
-  are combined statistical and systematics.
-
-  '
-qualifiers:
-  centrality: 0 TO 5 PCT
-  etarap: -0.35 TO 0.35
-  re: AU AU --> P X
-  sqrt(s): '130.0'
+dv_index: 0
+hepdata_table_label: Transverse momentum spectra for p, 0-5%
 collision_system:
   energy_gev: 130.0
   reaction: AU AU --> P X
 centrality:
   classes:
-  - 0.0-5.0%
+  - 0-5%
   estimator:
     name: BBC
     observable: amplitude
@@ -721,55 +226,51 @@ centrality:
   - min: 3.0
     max: 3.9
 particle_id:
-  species: pi+
+  species: p
 kinematic_range:
-  pT:
-    min: 0.5
-    max: 3.8
-    bins:
-    - 0.5
-    - 0.6000000000000001
-    - 0.7
-    - 0.8
-    - 0.925
-    - 1.1
-    - 1.2999999999999998
-    - 1.5
-    - 1.7000000000000002
-    - 1.9
-    - 2.1
-    - 2.3125
-    - 2.55
-    - 2.8
-    - 3.05
-    - 3.3
-    - 3.55
-    - 3.8
-  eta:
+  y:
     min: -0.35
     max: 0.35
-observable: dN_dpT_dy
+  pT:
+    min: 0.5
+    max: 3.725
+    points:
+    - 0.55
+    - 0.65
+    - 0.75
+    - 0.85
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+    - 2.0
+    - 2.2
+    - 2.425
+    - 2.675
+    - 2.925
+    - 3.175
+    - 3.425
+    - 3.675
+    point_window: 0.1
+observable: invariant_yield
 value_type: invariant_yield
+notes:
+  value: K. Adcox et al. (PHENIX), PRL 88, 242301 (2002), arXiv:nucl-ex/0112006. 1/(2 pi pT N) d2N/(dpT dy) of p, 0-5%, midrapidity
+    (central arms, |eta| < 0.35; |y| < 0.35 here); pT points. Errors as tabulated.
 ---
 observable_type: particle_spectra
 inspire_id: '568437'
 version: 1
 hepdata_file: Table6.yaml
-hepdata_table_label: 'Transverse momentum spectra for PBAR in the midrapidity range for the centrality region 0 to 5 PCT.
-  Errors are combined statistical and systematics.
-
-  '
-qualifiers:
-  centrality: 0 TO 5 PCT
-  etarap: -0.35 TO 0.35
-  re: AU AU --> PBAR X
-  sqrt(s): '130.0'
+dv_index: 0
+hepdata_table_label: Transverse momentum spectra for pbar, 0-5%
 collision_system:
   energy_gev: 130.0
   reaction: AU AU --> PBAR X
 centrality:
   classes:
-  - 0.0-5.0%
+  - 0-5%
   estimator:
     name: BBC
     observable: amplitude
@@ -782,53 +283,49 @@ centrality:
 particle_id:
   species: pbar
 kinematic_range:
-  pT:
-    min: 0.5
-    max: 3.8
-    bins:
-    - 0.5
-    - 0.6000000000000001
-    - 0.7
-    - 0.8
-    - 0.925
-    - 1.1
-    - 1.2999999999999998
-    - 1.5
-    - 1.7000000000000002
-    - 1.9
-    - 2.1
-    - 2.3125
-    - 2.55
-    - 2.8
-    - 3.05
-    - 3.3
-    - 3.55
-    - 3.8
-  eta:
+  y:
     min: -0.35
     max: 0.35
-observable: dN_dpT_dy
+  pT:
+    min: 0.5
+    max: 3.725
+    points:
+    - 0.55
+    - 0.65
+    - 0.75
+    - 0.85
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+    - 2.0
+    - 2.2
+    - 2.425
+    - 2.675
+    - 2.925
+    - 3.175
+    - 3.425
+    - 3.675
+    point_window: 0.1
+observable: invariant_yield
 value_type: invariant_yield
+notes:
+  value: K. Adcox et al. (PHENIX), PRL 88, 242301 (2002), arXiv:nucl-ex/0112006. 1/(2 pi pT N) d2N/(dpT dy) of pbar, 0-5%,
+    midrapidity (central arms, |eta| < 0.35; |y| < 0.35 here); pT points. Errors as tabulated.
 ---
 observable_type: particle_spectra
 inspire_id: '568437'
 version: 1
 hepdata_file: Table7.yaml
-hepdata_table_label: 'Transverse momentum spectra for PI+ in the midrapidity range for the centrality region 15 to 30 PCT.
-  Errors are combined statistical and systematics.
-
-  '
-qualifiers:
-  centrality: 15 TO 30 PCT
-  etarap: -0.35 TO 0.35
-  re: AU AU --> PI+ X
-  sqrt(s): '130.0'
+dv_index: 0
+hepdata_table_label: Transverse momentum spectra for pi+, 15-30%
 collision_system:
   energy_gev: 130.0
   reaction: AU AU --> PI+ X
 centrality:
   classes:
-  - 15.0-30.0%
+  - 15-30%
   estimator:
     name: BBC
     observable: amplitude
@@ -841,50 +338,46 @@ centrality:
 particle_id:
   species: pi+
 kinematic_range:
-  pT:
-    min: 0.2
-    max: 2.3000000000000003
-    bins:
-    - 0.2
-    - 0.3
-    - 0.4
-    - 0.5
-    - 0.6000000000000001
-    - 0.7
-    - 0.8
-    - 0.925
-    - 1.1
-    - 1.2999999999999998
-    - 1.5
-    - 1.7000000000000002
-    - 1.9
-    - 2.1
-    - 2.3000000000000003
-  eta:
+  y:
     min: -0.35
     max: 0.35
-observable: dN_dpT_dy
+  pT:
+    min: 0.2
+    max: 2.25
+    points:
+    - 0.25
+    - 0.35
+    - 0.45
+    - 0.55
+    - 0.65
+    - 0.75
+    - 0.85
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+    - 2.0
+    - 2.2
+    point_window: 0.1
+observable: invariant_yield
 value_type: invariant_yield
+notes:
+  value: K. Adcox et al. (PHENIX), PRL 88, 242301 (2002), arXiv:nucl-ex/0112006. 1/(2 pi pT N) d2N/(dpT dy) of pi+, 15-30%,
+    midrapidity (central arms, |eta| < 0.35; |y| < 0.35 here); pT points. Errors as tabulated.
 ---
 observable_type: particle_spectra
 inspire_id: '568437'
 version: 1
 hepdata_file: Table8.yaml
-hepdata_table_label: 'Transverse momentum spectra for PI- in the midrapidity range for the centrality region 15 to 30 PCT.
-  Errors are combined statistical and systematics.
-
-  '
-qualifiers:
-  centrality: 15 TO 30 PCT
-  etarap: -0.35 TO 0.35
-  re: AU AU --> PI- X
-  sqrt(s): '130.0'
+dv_index: 0
+hepdata_table_label: Transverse momentum spectra for pi-, 15-30%
 collision_system:
   energy_gev: 130.0
   reaction: AU AU --> PI- X
 centrality:
   classes:
-  - 15.0-30.0%
+  - 15-30%
   estimator:
     name: BBC
     observable: amplitude
@@ -895,52 +388,259 @@ centrality:
   - min: 3.0
     max: 3.9
 particle_id:
-  species: pi+
+  species: pi-
 kinematic_range:
-  pT:
-    min: 0.2
-    max: 2.3000000000000003
-    bins:
-    - 0.2
-    - 0.3
-    - 0.4
-    - 0.5
-    - 0.6000000000000001
-    - 0.7
-    - 0.8
-    - 0.925
-    - 1.1
-    - 1.2999999999999998
-    - 1.5
-    - 1.7000000000000002
-    - 1.9
-    - 2.1
-    - 2.3000000000000003
-  eta:
+  y:
     min: -0.35
     max: 0.35
-observable: dN_dpT_dy
+  pT:
+    min: 0.2
+    max: 2.25
+    points:
+    - 0.25
+    - 0.35
+    - 0.45
+    - 0.55
+    - 0.65
+    - 0.75
+    - 0.85
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+    - 2.0
+    - 2.2
+    point_window: 0.1
+observable: invariant_yield
 value_type: invariant_yield
+notes:
+  value: K. Adcox et al. (PHENIX), PRL 88, 242301 (2002), arXiv:nucl-ex/0112006. 1/(2 pi pT N) d2N/(dpT dy) of pi-, 15-30%,
+    midrapidity (central arms, |eta| < 0.35; |y| < 0.35 here); pT points. Errors as tabulated.
 ---
 observable_type: particle_spectra
 inspire_id: '568437'
 version: 1
 hepdata_file: Table9.yaml
-hepdata_table_label: 'Transverse momentum spectra for K+ in the midrapidity range for the centrality region 15 to 30 PCT.
-  Errors are combined statistical and systematics.
-
-  '
-qualifiers:
-  centrality: 15 TO 30 PCT
-  etarap: -0.35 TO 0.35
-  re: AU AU --> K+ X
-  sqrt(s): '130.0'
+dv_index: 0
+hepdata_table_label: Transverse momentum spectra for K+, 15-30%
 collision_system:
   energy_gev: 130.0
   reaction: AU AU --> K+ X
 centrality:
   classes:
-  - 15.0-30.0%
+  - 15-30%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: K+
+kinematic_range:
+  y:
+    min: -0.35
+    max: 0.35
+  pT:
+    min: 0.4
+    max: 1.7
+    points:
+    - 0.45
+    - 0.55
+    - 0.65
+    - 0.75
+    - 0.85
+    - 0.95
+    - 1.05
+    - 1.15
+    - 1.25
+    - 1.35
+    - 1.45
+    - 1.55
+    - 1.65
+    point_window: 0.1
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: K. Adcox et al. (PHENIX), PRL 88, 242301 (2002), arXiv:nucl-ex/0112006. 1/(2 pi pT N) d2N/(dpT dy) of K+, 15-30%,
+    midrapidity (central arms, |eta| < 0.35; |y| < 0.35 here); pT points. Errors as tabulated.
+---
+observable_type: particle_spectra
+inspire_id: '568437'
+version: 1
+hepdata_file: Table10.yaml
+dv_index: 0
+hepdata_table_label: Transverse momentum spectra for K-, 15-30%
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> K- X
+centrality:
+  classes:
+  - 15-30%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: K-
+kinematic_range:
+  y:
+    min: -0.35
+    max: 0.35
+  pT:
+    min: 0.4
+    max: 1.7
+    points:
+    - 0.45
+    - 0.55
+    - 0.65
+    - 0.75
+    - 0.85
+    - 0.95
+    - 1.05
+    - 1.15
+    - 1.25
+    - 1.35
+    - 1.45
+    - 1.55
+    - 1.65
+    point_window: 0.1
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: K. Adcox et al. (PHENIX), PRL 88, 242301 (2002), arXiv:nucl-ex/0112006. 1/(2 pi pT N) d2N/(dpT dy) of K-, 15-30%,
+    midrapidity (central arms, |eta| < 0.35; |y| < 0.35 here); pT points. Errors as tabulated.
+---
+observable_type: particle_spectra
+inspire_id: '568437'
+version: 1
+hepdata_file: Table11.yaml
+dv_index: 0
+hepdata_table_label: Transverse momentum spectra for p, 15-30%
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> P X
+centrality:
+  classes:
+  - 15-30%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: p
+kinematic_range:
+  y:
+    min: -0.35
+    max: 0.35
+  pT:
+    min: 0.5
+    max: 3.475
+    points:
+    - 0.55
+    - 0.65
+    - 0.75
+    - 0.85
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+    - 2.0
+    - 2.2
+    - 2.425
+    - 2.675
+    - 2.925
+    - 3.175
+    - 3.425
+    point_window: 0.1
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: K. Adcox et al. (PHENIX), PRL 88, 242301 (2002), arXiv:nucl-ex/0112006. 1/(2 pi pT N) d2N/(dpT dy) of p, 15-30%,
+    midrapidity (central arms, |eta| < 0.35; |y| < 0.35 here); pT points. Errors as tabulated.
+---
+observable_type: particle_spectra
+inspire_id: '568437'
+version: 1
+hepdata_file: Table12.yaml
+dv_index: 0
+hepdata_table_label: Transverse momentum spectra for pbar, 15-30%
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> PBAR X
+centrality:
+  classes:
+  - 15-30%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: pbar
+kinematic_range:
+  y:
+    min: -0.35
+    max: 0.35
+  pT:
+    min: 0.5
+    max: 3.725
+    points:
+    - 0.55
+    - 0.65
+    - 0.75
+    - 0.85
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+    - 2.0
+    - 2.2
+    - 2.425
+    - 2.675
+    - 2.925
+    - 3.175
+    - 3.425
+    - 3.675
+    point_window: 0.1
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: K. Adcox et al. (PHENIX), PRL 88, 242301 (2002), arXiv:nucl-ex/0112006. 1/(2 pi pT N) d2N/(dpT dy) of pbar, 15-30%,
+    midrapidity (central arms, |eta| < 0.35; |y| < 0.35 here); pT points. Errors as tabulated.
+---
+observable_type: particle_spectra
+inspire_id: '568437'
+version: 1
+hepdata_file: Table13.yaml
+dv_index: 0
+hepdata_table_label: Transverse momentum spectra for pi+, 60-92%
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> PI+ X
+centrality:
+  classes:
+  - 60-92%
   estimator:
     name: BBC
     observable: amplitude
@@ -953,26 +653,253 @@ centrality:
 particle_id:
   species: pi+
 kinematic_range:
-  pT:
-    min: 0.4
-    max: 1.6999999999999997
-    bins:
-    - 0.4
-    - 0.5
-    - 0.6000000000000001
-    - 0.7
-    - 0.8
-    - 0.8999999999999999
-    - 1.0
-    - 1.1
-    - 1.2
-    - 1.3
-    - 1.4
-    - 1.5
-    - 1.6
-    - 1.6999999999999997
-  eta:
+  y:
     min: -0.35
     max: 0.35
-observable: dN_dpT_dy
+  pT:
+    min: 0.225
+    max: 2.025
+    points:
+    - 0.25
+    - 0.35
+    - 0.45
+    - 0.55
+    - 0.65
+    - 0.7
+    - 0.9
+    - 1.2
+    - 1.6
+    - 2.0
+    point_window: 0.05
+observable: invariant_yield
 value_type: invariant_yield
+notes:
+  value: K. Adcox et al. (PHENIX), PRL 88, 242301 (2002), arXiv:nucl-ex/0112006. 1/(2 pi pT N) d2N/(dpT dy) of pi+, 60-92%,
+    midrapidity (central arms, |eta| < 0.35; |y| < 0.35 here); pT points. Errors as tabulated.
+---
+observable_type: particle_spectra
+inspire_id: '568437'
+version: 1
+hepdata_file: Table14.yaml
+dv_index: 0
+hepdata_table_label: Transverse momentum spectra for pi-, 60-92%
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> PI- X
+centrality:
+  classes:
+  - 60-92%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: pi-
+kinematic_range:
+  y:
+    min: -0.35
+    max: 0.35
+  pT:
+    min: 0.2
+    max: 2.05
+    points:
+    - 0.25
+    - 0.35
+    - 0.45
+    - 0.55
+    - 0.7
+    - 0.9
+    - 1.2
+    - 1.6
+    - 2.0
+    point_window: 0.1
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: K. Adcox et al. (PHENIX), PRL 88, 242301 (2002), arXiv:nucl-ex/0112006. 1/(2 pi pT N) d2N/(dpT dy) of pi-, 60-92%,
+    midrapidity (central arms, |eta| < 0.35; |y| < 0.35 here); pT points. Errors as tabulated.
+---
+observable_type: particle_spectra
+inspire_id: '568437'
+version: 1
+hepdata_file: Table15.yaml
+dv_index: 0
+hepdata_table_label: Transverse momentum spectra for K+, 60-92%
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> K+ X
+centrality:
+  classes:
+  - 60-92%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: K+
+kinematic_range:
+  y:
+    min: -0.35
+    max: 0.35
+  pT:
+    min: 0.3939
+    max: 1.6257
+    points:
+    - 0.443925
+    - 0.543925
+    - 0.693925
+    - 0.893925
+    - 1.1757
+    - 1.5757
+    point_window: 0.1
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: K. Adcox et al. (PHENIX), PRL 88, 242301 (2002), arXiv:nucl-ex/0112006. 1/(2 pi pT N) d2N/(dpT dy) of K+, 60-92%,
+    midrapidity (central arms, |eta| < 0.35; |y| < 0.35 here); pT points. Errors as tabulated.
+---
+observable_type: particle_spectra
+inspire_id: '568437'
+version: 1
+hepdata_file: Table16.yaml
+dv_index: 0
+hepdata_table_label: Transverse momentum spectra for K-, 60-92%
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> K- X
+centrality:
+  classes:
+  - 60-92%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: K-
+kinematic_range:
+  y:
+    min: -0.35
+    max: 0.35
+  pT:
+    min: 0.3932
+    max: 1.6228
+    points:
+    - 0.443209
+    - 0.543209
+    - 0.693209
+    - 0.893209
+    - 1.17283
+    - 1.57283
+    point_window: 0.1
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: K. Adcox et al. (PHENIX), PRL 88, 242301 (2002), arXiv:nucl-ex/0112006. 1/(2 pi pT N) d2N/(dpT dy) of K-, 60-92%,
+    midrapidity (central arms, |eta| < 0.35; |y| < 0.35 here); pT points. Errors as tabulated.
+---
+observable_type: particle_spectra
+inspire_id: '568437'
+version: 1
+hepdata_file: Table17.yaml
+dv_index: 0
+hepdata_table_label: Transverse momentum spectra for p, 60-92%
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> P X
+centrality:
+  classes:
+  - 60-92%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: p
+kinematic_range:
+  y:
+    min: -0.35
+    max: 0.35
+  pT:
+    min: 0.4703
+    max: 2.9827
+    points:
+    - 0.545301
+    - 0.695301
+    - 0.895301
+    - 1.18121
+    - 1.58121
+    - 1.98121
+    - 2.40771
+    - 2.90771
+    point_window: 0.15
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: K. Adcox et al. (PHENIX), PRL 88, 242301 (2002), arXiv:nucl-ex/0112006. 1/(2 pi pT N) d2N/(dpT dy) of p, 60-92%,
+    midrapidity (central arms, |eta| < 0.35; |y| < 0.35 here); pT points. Errors as tabulated.
+---
+observable_type: particle_spectra
+inspire_id: '568437'
+version: 1
+hepdata_file: Table18.yaml
+dv_index: 0
+hepdata_table_label: Transverse momentum spectra for pbar, 60-92%
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> PBAR X
+centrality:
+  classes:
+  - 60-92%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: pbar
+kinematic_range:
+  y:
+    min: -0.35
+    max: 0.35
+  pT:
+    min: 0.4704
+    max: 2.9836
+    points:
+    - 0.545399
+    - 0.695399
+    - 0.895399
+    - 1.1816
+    - 1.5816
+    - 1.9816
+    - 2.4086
+    - 2.9086
+    point_window: 0.15
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: K. Adcox et al. (PHENIX), PRL 88, 242301 (2002), arXiv:nucl-ex/0112006. 1/(2 pi pT N) d2N/(dpT dy) of pbar, 60-92%,
+    midrapidity (central arms, |eta| < 0.35; |y| < 0.35 here); pT points. Errors as tabulated.
