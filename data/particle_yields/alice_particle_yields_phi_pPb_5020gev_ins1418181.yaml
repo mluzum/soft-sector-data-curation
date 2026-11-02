@@ -1,0 +1,143 @@
+observable_type: particle_yields
+inspire_id: '1418181'
+version: 1
+hepdata_file: Table1.yaml
+dv_index: 0
+hepdata_table_label: <dNch/deta_lab> vs V0A class (Table1.yaml)
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> CHARGED X
+  frame: lab
+  rapidity_shift: -0.465
+  forward_beam: Pb
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-20%
+  - 20-40%
+  - 40-60%
+  - 60-80%
+  - 80-100%
+  estimator:
+    name: V0A
+    observable: amplitude
+    detector: V0A
+  eta:
+  - min: 2.8
+    max: 5.1
+  notes: V0A amplitude, 2.8 < eta_lab < 5.1 (Pb-going side).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.0
+    max: 100.0
+observable: dNch_deta
+value_type: dNch_deta
+table_rows:
+- 0
+- 1
+- 2
+- 4
+- 5
+- 6
+- 7
+notes:
+  value: J. Adam et al. (ALICE), EPJC 76 (2016) 245, arXiv:1601.07868. <dNch/deta_lab> at |eta_lab| < 0.5 per V0A class; lab
+    frame.
+---
+observable_type: particle_yields
+inspire_id: '1418181'
+version: 1
+hepdata_file: Table1.yaml
+dv_index: 0
+hepdata_table_label: <dNch/deta_lab> vs V0A class (Table1.yaml)
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> CHARGED X
+  frame: lab
+  rapidity_shift: -0.465
+  forward_beam: Pb
+centrality:
+  classes:
+  - 0-20%
+  estimator:
+    name: V0A
+    observable: amplitude
+    detector: V0A
+  eta:
+  - min: 2.8
+    max: 5.1
+  notes: V0A amplitude, 2.8 < eta_lab < 5.1 (Pb-going side).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.0
+    max: 100.0
+observable: dNch_deta
+value_type: dNch_deta
+table_rows:
+- 3
+notes:
+  value: J. Adam et al. (ALICE), EPJC 76 (2016) 245, arXiv:1601.07868. <dNch/deta_lab> at |eta_lab| < 0.5 per V0A class; lab
+    frame.
+---
+observable_type: particle_yields
+inspire_id: '1418181'
+version: 1
+hepdata_file: Table18.yaml
+dv_index: 0
+hepdata_table_label: dN/dy of phi vs V0A class (Table18.yaml)
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> PHI X
+  frame: nn_cms
+  rapidity_shift: -0.465
+  forward_beam: Pb
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-20%
+  - 20-40%
+  - 40-60%
+  - 60-80%
+  - 80-100%
+  estimator:
+    name: V0A
+    observable: amplitude
+    detector: V0A
+  eta:
+  - min: 3.265
+    max: 5.565
+  notes: V0A amplitude, 2.8 < eta_lab < 5.1 (Pb-going side), here in the nn_cms frame.
+particle_id:
+  species: phi
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.0
+    max: 100.0
+value_type: dN_dy
+table_rows:
+- 0
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+notes:
+  value: J. Adam et al. (ALICE), EPJC 76 (2016) 245, arXiv:1601.07868. dN/dy of phi vs V0A class, -0.5 < y_cms < 0, all pT
+    (extrapolated); the NSD row left out.
+observable: dN_dy
