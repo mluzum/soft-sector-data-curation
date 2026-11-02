@@ -1,0 +1,52 @@
+observable_type: particle_yields
+inspire_id: '919733'
+version: 1
+hepdata_file: Table1.yaml
+dv_index: 0
+hepdata_table_label: dNch/deta at eta = 0 vs centrality (Table1.yaml)
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 85-90%
+  - 80-85%
+  - 75-80%
+  - 70-75%
+  - 65-70%
+  - 60-65%
+  - 55-60%
+  - 50-55%
+  - 45-50%
+  - 40-45%
+  - 35-40%
+  - 30-35%
+  - 25-30%
+  - 20-25%
+  - 15-20%
+  - 10-15%
+  - 5-10%
+  - 0-5%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.0
+    max: 100.0
+observable: dNch_deta
+value_type: dNch_deta
+notes:
+  value: S. Chatrchyan et al. (CMS), JHEP 08 (2011) 141, arXiv:1107.4800, Table 1. dNch/deta of charged hadrons at eta = 0
+    (|eta| < 0.5 used) vs centrality, HF centrality, pixel tracklets. Errors as tabulated.
