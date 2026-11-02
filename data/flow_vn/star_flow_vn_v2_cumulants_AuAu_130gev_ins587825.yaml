@@ -1,0 +1,3474 @@
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table7.yaml
+dv_index: 0
+hepdata_table_label: v2 event plane (full events) vs centrality (Table7.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 53-77%
+  - 41-53%
+  - 31-41%
+  - 24-31%
+  - 16-24%
+  - 10-16%
+  - 5-10%
+  - 0-5%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.3
+    max: 1.3
+  pT:
+    min: 0.1
+    max: 2.0
+harmonic: 2
+value_type: conventional $v_{2}$
+dimensionality: integrated
+method: event_plane
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.3
+    max: 1.3
+  pT:
+    min: 0.1
+    max: 2.0
+  notes: Full-event TPC event plane, |eta| < 1.3, 0.1 < pT < 2 GeV/c, the particle of interest removed.
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs centrality, event
+    plane (full events); computed with the scalar-product estimator; classes from Table I (n_ch/n_max bins). Errors: statistical
+    (the lower error includes the estimated non-flow).'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table7.yaml
+dv_index: 2
+hepdata_table_label: v2 v2{4} vs centrality (Table7.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 53-77%
+  - 41-53%
+  - 31-41%
+  - 24-31%
+  - 16-24%
+  - 10-16%
+  - 5-10%
+  - 0-5%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.3
+    max: 1.3
+  pT:
+    min: 0.1
+    max: 2.0
+harmonic: 2
+value_type: 4-th order cumulant $v_{2}$ from the genetating function
+dimensionality: integrated
+method: cumulant
+cumulant_order: 4
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs centrality, v2{4};
+    reference particles |eta| < 1.3, 0.1 < pT < 2 GeV/c; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table8a.yaml
+dv_index: 0
+hepdata_table_label: v2 event plane (full events) vs eta, 53-77% (Table8a.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 53-77%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.275
+    max: 1.275
+    bin_ranges:
+    - - -1.275
+      - -1.025
+    - - -1.025
+      - -0.8
+    - - -0.8
+      - -0.6
+    - - -0.6
+      - -0.4
+    - - -0.4
+      - -0.2
+    - - -0.2
+      - 0.0
+    - - 0.0
+      - 0.2
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.025
+    - - 1.025
+      - 1.275
+  pT:
+    min: 0.1
+    max: 2.0
+harmonic: 2
+value_type: $v_{2}$ from stand event plane method
+dimensionality: differential_eta
+method: event_plane
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.3
+    max: 1.3
+  pT:
+    min: 0.1
+    max: 2.0
+  notes: Full-event TPC event plane, |eta| < 1.3, 0.1 < pT < 2 GeV/c, the particle of interest removed.
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs eta, 53-77%, event
+    plane (full events); computed with the scalar-product estimator; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table8a.yaml
+dv_index: 1
+hepdata_table_label: v2 v2{2} vs eta, 53-77% (Table8a.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 53-77%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.275
+    max: 1.275
+    bin_ranges:
+    - - -1.275
+      - -1.025
+    - - -1.025
+      - -0.8
+    - - -0.8
+      - -0.6
+    - - -0.6
+      - -0.4
+    - - -0.4
+      - -0.2
+    - - -0.2
+      - 0.0
+    - - 0.0
+      - 0.2
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.025
+    - - 1.025
+      - 1.275
+  pT:
+    min: 0.1
+    max: 2.0
+harmonic: 2
+value_type: $v_{2}$ from 2nd order cumulant method
+dimensionality: differential_eta
+method: cumulant
+cumulant_order: 2
+flow_reference:
+  pT:
+    min: 0.1
+    max: 2.0
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs eta, 53-77%, v2{2};
+    reference particles |eta| < 1.3, 0.1 < pT < 2 GeV/c; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table8a.yaml
+dv_index: 2
+hepdata_table_label: v2 v2{4} vs eta, 53-77% (Table8a.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 53-77%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.275
+    max: 1.275
+    bin_ranges:
+    - - -1.275
+      - -1.025
+    - - -1.025
+      - -0.8
+    - - -0.8
+      - -0.6
+    - - -0.6
+      - -0.4
+    - - -0.4
+      - -0.2
+    - - -0.2
+      - 0.0
+    - - 0.0
+      - 0.2
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.025
+    - - 1.025
+      - 1.275
+  pT:
+    min: 0.1
+    max: 2.0
+harmonic: 2
+value_type: $v_{2}$ from 4th order cumulant method
+dimensionality: differential_eta
+method: cumulant
+cumulant_order: 4
+flow_reference:
+  pT:
+    min: 0.1
+    max: 2.0
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs eta, 53-77%, v2{4};
+    reference particles |eta| < 1.3, 0.1 < pT < 2 GeV/c; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table8b.yaml
+dv_index: 0
+hepdata_table_label: v2 event plane (full events) vs eta, 41-53% (Table8b.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 41-53%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.275
+    max: 1.275
+    bin_ranges:
+    - - -1.275
+      - -1.025
+    - - -1.025
+      - -0.8
+    - - -0.8
+      - -0.6
+    - - -0.6
+      - -0.4
+    - - -0.4
+      - -0.2
+    - - -0.2
+      - 0.0
+    - - 0.0
+      - 0.2
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.025
+    - - 1.025
+      - 1.275
+  pT:
+    min: 0.1
+    max: 2.0
+harmonic: 2
+value_type: $v_{2}$ from stand event plane method
+dimensionality: differential_eta
+method: event_plane
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.3
+    max: 1.3
+  pT:
+    min: 0.1
+    max: 2.0
+  notes: Full-event TPC event plane, |eta| < 1.3, 0.1 < pT < 2 GeV/c, the particle of interest removed.
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs eta, 41-53%, event
+    plane (full events); computed with the scalar-product estimator; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table8b.yaml
+dv_index: 1
+hepdata_table_label: v2 v2{2} vs eta, 41-53% (Table8b.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 41-53%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.275
+    max: 1.275
+    bin_ranges:
+    - - -1.275
+      - -1.025
+    - - -1.025
+      - -0.8
+    - - -0.8
+      - -0.6
+    - - -0.6
+      - -0.4
+    - - -0.4
+      - -0.2
+    - - -0.2
+      - 0.0
+    - - 0.0
+      - 0.2
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.025
+    - - 1.025
+      - 1.275
+  pT:
+    min: 0.1
+    max: 2.0
+harmonic: 2
+value_type: $v_{2}$ from 2nd order cumulant method
+dimensionality: differential_eta
+method: cumulant
+cumulant_order: 2
+flow_reference:
+  pT:
+    min: 0.1
+    max: 2.0
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs eta, 41-53%, v2{2};
+    reference particles |eta| < 1.3, 0.1 < pT < 2 GeV/c; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table8b.yaml
+dv_index: 2
+hepdata_table_label: v2 v2{4} vs eta, 41-53% (Table8b.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 41-53%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.275
+    max: 1.275
+    bin_ranges:
+    - - -1.275
+      - -1.025
+    - - -1.025
+      - -0.8
+    - - -0.8
+      - -0.6
+    - - -0.6
+      - -0.4
+    - - -0.4
+      - -0.2
+    - - -0.2
+      - 0.0
+    - - 0.0
+      - 0.2
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.025
+    - - 1.025
+      - 1.275
+  pT:
+    min: 0.1
+    max: 2.0
+harmonic: 2
+value_type: $v_{2}$ from 4th order cumulant method
+dimensionality: differential_eta
+method: cumulant
+cumulant_order: 4
+flow_reference:
+  pT:
+    min: 0.1
+    max: 2.0
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs eta, 41-53%, v2{4};
+    reference particles |eta| < 1.3, 0.1 < pT < 2 GeV/c; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table8c.yaml
+dv_index: 0
+hepdata_table_label: v2 event plane (full events) vs eta, 31-41% (Table8c.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 31-41%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.275
+    max: 1.275
+    bin_ranges:
+    - - -1.275
+      - -1.025
+    - - -1.025
+      - -0.8
+    - - -0.8
+      - -0.6
+    - - -0.6
+      - -0.4
+    - - -0.4
+      - -0.2
+    - - -0.2
+      - 0.0
+    - - 0.0
+      - 0.2
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.025
+    - - 1.025
+      - 1.275
+  pT:
+    min: 0.1
+    max: 2.0
+harmonic: 2
+value_type: $v_{2}$ from stand event plane method
+dimensionality: differential_eta
+method: event_plane
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.3
+    max: 1.3
+  pT:
+    min: 0.1
+    max: 2.0
+  notes: Full-event TPC event plane, |eta| < 1.3, 0.1 < pT < 2 GeV/c, the particle of interest removed.
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs eta, 31-41%, event
+    plane (full events); computed with the scalar-product estimator; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table8c.yaml
+dv_index: 1
+hepdata_table_label: v2 v2{2} vs eta, 31-41% (Table8c.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 31-41%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.275
+    max: 1.275
+    bin_ranges:
+    - - -1.275
+      - -1.025
+    - - -1.025
+      - -0.8
+    - - -0.8
+      - -0.6
+    - - -0.6
+      - -0.4
+    - - -0.4
+      - -0.2
+    - - -0.2
+      - 0.0
+    - - 0.0
+      - 0.2
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.025
+    - - 1.025
+      - 1.275
+  pT:
+    min: 0.1
+    max: 2.0
+harmonic: 2
+value_type: $v_{2}$ from 2nd order cumulant method
+dimensionality: differential_eta
+method: cumulant
+cumulant_order: 2
+flow_reference:
+  pT:
+    min: 0.1
+    max: 2.0
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs eta, 31-41%, v2{2};
+    reference particles |eta| < 1.3, 0.1 < pT < 2 GeV/c; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table8c.yaml
+dv_index: 2
+hepdata_table_label: v2 v2{4} vs eta, 31-41% (Table8c.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 31-41%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.275
+    max: 1.275
+    bin_ranges:
+    - - -1.275
+      - -1.025
+    - - -1.025
+      - -0.8
+    - - -0.8
+      - -0.6
+    - - -0.6
+      - -0.4
+    - - -0.4
+      - -0.2
+    - - -0.2
+      - 0.0
+    - - 0.0
+      - 0.2
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.025
+    - - 1.025
+      - 1.275
+  pT:
+    min: 0.1
+    max: 2.0
+harmonic: 2
+value_type: $v_{2}$ from 4th order cumulant method
+dimensionality: differential_eta
+method: cumulant
+cumulant_order: 4
+flow_reference:
+  pT:
+    min: 0.1
+    max: 2.0
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs eta, 31-41%, v2{4};
+    reference particles |eta| < 1.3, 0.1 < pT < 2 GeV/c; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table8d.yaml
+dv_index: 0
+hepdata_table_label: v2 event plane (full events) vs eta, 24-31% (Table8d.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 24-31%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.275
+    max: 1.275
+    bin_ranges:
+    - - -1.275
+      - -1.025
+    - - -1.025
+      - -0.8
+    - - -0.8
+      - -0.6
+    - - -0.6
+      - -0.4
+    - - -0.4
+      - -0.2
+    - - -0.2
+      - 0.0
+    - - 0.0
+      - 0.2
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.025
+    - - 1.025
+      - 1.275
+  pT:
+    min: 0.1
+    max: 2.0
+harmonic: 2
+value_type: $v_{2}$ from stand event plane method
+dimensionality: differential_eta
+method: event_plane
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.3
+    max: 1.3
+  pT:
+    min: 0.1
+    max: 2.0
+  notes: Full-event TPC event plane, |eta| < 1.3, 0.1 < pT < 2 GeV/c, the particle of interest removed.
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs eta, 24-31%, event
+    plane (full events); computed with the scalar-product estimator; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table8d.yaml
+dv_index: 1
+hepdata_table_label: v2 v2{2} vs eta, 24-31% (Table8d.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 24-31%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.275
+    max: 1.275
+    bin_ranges:
+    - - -1.275
+      - -1.025
+    - - -1.025
+      - -0.8
+    - - -0.8
+      - -0.6
+    - - -0.6
+      - -0.4
+    - - -0.4
+      - -0.2
+    - - -0.2
+      - 0.0
+    - - 0.0
+      - 0.2
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.025
+    - - 1.025
+      - 1.275
+  pT:
+    min: 0.1
+    max: 2.0
+harmonic: 2
+value_type: $v_{2}$ from 2nd order cumulant method
+dimensionality: differential_eta
+method: cumulant
+cumulant_order: 2
+flow_reference:
+  pT:
+    min: 0.1
+    max: 2.0
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs eta, 24-31%, v2{2};
+    reference particles |eta| < 1.3, 0.1 < pT < 2 GeV/c; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table8d.yaml
+dv_index: 2
+hepdata_table_label: v2 v2{4} vs eta, 24-31% (Table8d.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 24-31%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.275
+    max: 1.275
+    bin_ranges:
+    - - -1.275
+      - -1.025
+    - - -1.025
+      - -0.8
+    - - -0.8
+      - -0.6
+    - - -0.6
+      - -0.4
+    - - -0.4
+      - -0.2
+    - - -0.2
+      - 0.0
+    - - 0.0
+      - 0.2
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.025
+    - - 1.025
+      - 1.275
+  pT:
+    min: 0.1
+    max: 2.0
+harmonic: 2
+value_type: $v_{2}$ from 4th order cumulant method
+dimensionality: differential_eta
+method: cumulant
+cumulant_order: 4
+flow_reference:
+  pT:
+    min: 0.1
+    max: 2.0
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs eta, 24-31%, v2{4};
+    reference particles |eta| < 1.3, 0.1 < pT < 2 GeV/c; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table8e.yaml
+dv_index: 0
+hepdata_table_label: v2 event plane (full events) vs eta, 16-24% (Table8e.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 16-24%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.275
+    max: 1.275
+    bin_ranges:
+    - - -1.275
+      - -1.025
+    - - -1.025
+      - -0.8
+    - - -0.8
+      - -0.6
+    - - -0.6
+      - -0.4
+    - - -0.4
+      - -0.2
+    - - -0.2
+      - 0.0
+    - - 0.0
+      - 0.2
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.025
+    - - 1.025
+      - 1.275
+  pT:
+    min: 0.1
+    max: 2.0
+harmonic: 2
+value_type: $v_{2}$ from stand event plane method
+dimensionality: differential_eta
+method: event_plane
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.3
+    max: 1.3
+  pT:
+    min: 0.1
+    max: 2.0
+  notes: Full-event TPC event plane, |eta| < 1.3, 0.1 < pT < 2 GeV/c, the particle of interest removed.
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs eta, 16-24%, event
+    plane (full events); computed with the scalar-product estimator; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table8e.yaml
+dv_index: 1
+hepdata_table_label: v2 v2{2} vs eta, 16-24% (Table8e.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 16-24%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.275
+    max: 1.275
+    bin_ranges:
+    - - -1.275
+      - -1.025
+    - - -1.025
+      - -0.8
+    - - -0.8
+      - -0.6
+    - - -0.6
+      - -0.4
+    - - -0.4
+      - -0.2
+    - - -0.2
+      - 0.0
+    - - 0.0
+      - 0.2
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.025
+    - - 1.025
+      - 1.275
+  pT:
+    min: 0.1
+    max: 2.0
+harmonic: 2
+value_type: $v_{2}$ from 2nd order cumulant method
+dimensionality: differential_eta
+method: cumulant
+cumulant_order: 2
+flow_reference:
+  pT:
+    min: 0.1
+    max: 2.0
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs eta, 16-24%, v2{2};
+    reference particles |eta| < 1.3, 0.1 < pT < 2 GeV/c; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table8e.yaml
+dv_index: 2
+hepdata_table_label: v2 v2{4} vs eta, 16-24% (Table8e.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 16-24%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.275
+    max: 1.275
+    bin_ranges:
+    - - -1.275
+      - -1.025
+    - - -1.025
+      - -0.8
+    - - -0.8
+      - -0.6
+    - - -0.6
+      - -0.4
+    - - -0.4
+      - -0.2
+    - - -0.2
+      - 0.0
+    - - 0.0
+      - 0.2
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.025
+    - - 1.025
+      - 1.275
+  pT:
+    min: 0.1
+    max: 2.0
+harmonic: 2
+value_type: $v_{2}$ from 4th order cumulant method
+dimensionality: differential_eta
+method: cumulant
+cumulant_order: 4
+flow_reference:
+  pT:
+    min: 0.1
+    max: 2.0
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs eta, 16-24%, v2{4};
+    reference particles |eta| < 1.3, 0.1 < pT < 2 GeV/c; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table8f.yaml
+dv_index: 0
+hepdata_table_label: v2 event plane (full events) vs eta, 10-16% (Table8f.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 10-16%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.275
+    max: 1.275
+    bin_ranges:
+    - - -1.275
+      - -1.025
+    - - -1.025
+      - -0.8
+    - - -0.8
+      - -0.6
+    - - -0.6
+      - -0.4
+    - - -0.4
+      - -0.2
+    - - -0.2
+      - 0.0
+    - - 0.0
+      - 0.2
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.025
+    - - 1.025
+      - 1.275
+  pT:
+    min: 0.1
+    max: 2.0
+harmonic: 2
+value_type: $v_{2}$ from stand event plane method
+dimensionality: differential_eta
+method: event_plane
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.3
+    max: 1.3
+  pT:
+    min: 0.1
+    max: 2.0
+  notes: Full-event TPC event plane, |eta| < 1.3, 0.1 < pT < 2 GeV/c, the particle of interest removed.
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs eta, 10-16%, event
+    plane (full events); computed with the scalar-product estimator; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table8f.yaml
+dv_index: 1
+hepdata_table_label: v2 v2{2} vs eta, 10-16% (Table8f.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 10-16%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.275
+    max: 1.275
+    bin_ranges:
+    - - -1.275
+      - -1.025
+    - - -1.025
+      - -0.8
+    - - -0.8
+      - -0.6
+    - - -0.6
+      - -0.4
+    - - -0.4
+      - -0.2
+    - - -0.2
+      - 0.0
+    - - 0.0
+      - 0.2
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.025
+    - - 1.025
+      - 1.275
+  pT:
+    min: 0.1
+    max: 2.0
+harmonic: 2
+value_type: $v_{2}$ from 2nd order cumulant method
+dimensionality: differential_eta
+method: cumulant
+cumulant_order: 2
+flow_reference:
+  pT:
+    min: 0.1
+    max: 2.0
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs eta, 10-16%, v2{2};
+    reference particles |eta| < 1.3, 0.1 < pT < 2 GeV/c; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table8f.yaml
+dv_index: 2
+hepdata_table_label: v2 v2{4} vs eta, 10-16% (Table8f.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 10-16%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.275
+    max: 1.275
+    bin_ranges:
+    - - -1.275
+      - -1.025
+    - - -1.025
+      - -0.8
+    - - -0.8
+      - -0.6
+    - - -0.6
+      - -0.4
+    - - -0.4
+      - -0.2
+    - - -0.2
+      - 0.0
+    - - 0.0
+      - 0.2
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.025
+    - - 1.025
+      - 1.275
+  pT:
+    min: 0.1
+    max: 2.0
+harmonic: 2
+value_type: $v_{2}$ from 4th order cumulant method
+dimensionality: differential_eta
+method: cumulant
+cumulant_order: 4
+flow_reference:
+  pT:
+    min: 0.1
+    max: 2.0
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs eta, 10-16%, v2{4};
+    reference particles |eta| < 1.3, 0.1 < pT < 2 GeV/c; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table8g.yaml
+dv_index: 0
+hepdata_table_label: v2 event plane (full events) vs eta, 5-10% (Table8g.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 5-10%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.275
+    max: 1.275
+    bin_ranges:
+    - - -1.275
+      - -1.025
+    - - -1.025
+      - -0.8
+    - - -0.8
+      - -0.6
+    - - -0.6
+      - -0.4
+    - - -0.4
+      - -0.2
+    - - -0.2
+      - 0.0
+    - - 0.0
+      - 0.2
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.025
+    - - 1.025
+      - 1.275
+  pT:
+    min: 0.1
+    max: 2.0
+harmonic: 2
+value_type: $v_{2}$ from stand event plane method
+dimensionality: differential_eta
+method: event_plane
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.3
+    max: 1.3
+  pT:
+    min: 0.1
+    max: 2.0
+  notes: Full-event TPC event plane, |eta| < 1.3, 0.1 < pT < 2 GeV/c, the particle of interest removed.
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs eta, 5-10%, event
+    plane (full events); computed with the scalar-product estimator; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table8g.yaml
+dv_index: 1
+hepdata_table_label: v2 v2{2} vs eta, 5-10% (Table8g.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 5-10%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.275
+    max: 1.275
+    bin_ranges:
+    - - -1.275
+      - -1.025
+    - - -1.025
+      - -0.8
+    - - -0.8
+      - -0.6
+    - - -0.6
+      - -0.4
+    - - -0.4
+      - -0.2
+    - - -0.2
+      - 0.0
+    - - 0.0
+      - 0.2
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.025
+    - - 1.025
+      - 1.275
+  pT:
+    min: 0.1
+    max: 2.0
+harmonic: 2
+value_type: $v_{2}$ from 2nd order cumulant method
+dimensionality: differential_eta
+method: cumulant
+cumulant_order: 2
+flow_reference:
+  pT:
+    min: 0.1
+    max: 2.0
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs eta, 5-10%, v2{2};
+    reference particles |eta| < 1.3, 0.1 < pT < 2 GeV/c; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table8g.yaml
+dv_index: 2
+hepdata_table_label: v2 v2{4} vs eta, 5-10% (Table8g.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 5-10%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.275
+    max: 1.275
+    bin_ranges:
+    - - -1.275
+      - -1.025
+    - - -1.025
+      - -0.8
+    - - -0.8
+      - -0.6
+    - - -0.6
+      - -0.4
+    - - -0.4
+      - -0.2
+    - - -0.2
+      - 0.0
+    - - 0.0
+      - 0.2
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.025
+    - - 1.025
+      - 1.275
+  pT:
+    min: 0.1
+    max: 2.0
+harmonic: 2
+value_type: $v_{2}$ from 4th order cumulant method
+dimensionality: differential_eta
+method: cumulant
+cumulant_order: 4
+flow_reference:
+  pT:
+    min: 0.1
+    max: 2.0
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs eta, 5-10%, v2{4};
+    reference particles |eta| < 1.3, 0.1 < pT < 2 GeV/c; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table8h.yaml
+dv_index: 0
+hepdata_table_label: v2 event plane (full events) vs eta, 0-5% (Table8h.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.275
+    max: 1.275
+    bin_ranges:
+    - - -1.275
+      - -1.025
+    - - -1.025
+      - -0.8
+    - - -0.8
+      - -0.6
+    - - -0.6
+      - -0.4
+    - - -0.4
+      - -0.2
+    - - -0.2
+      - 0.0
+    - - 0.0
+      - 0.2
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.025
+    - - 1.025
+      - 1.275
+  pT:
+    min: 0.1
+    max: 2.0
+harmonic: 2
+value_type: $v_{2}$ from stand event plane method
+dimensionality: differential_eta
+method: event_plane
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.3
+    max: 1.3
+  pT:
+    min: 0.1
+    max: 2.0
+  notes: Full-event TPC event plane, |eta| < 1.3, 0.1 < pT < 2 GeV/c, the particle of interest removed.
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs eta, 0-5%, event
+    plane (full events); computed with the scalar-product estimator; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table8h.yaml
+dv_index: 1
+hepdata_table_label: v2 v2{2} vs eta, 0-5% (Table8h.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.275
+    max: 1.275
+    bin_ranges:
+    - - -1.275
+      - -1.025
+    - - -1.025
+      - -0.8
+    - - -0.8
+      - -0.6
+    - - -0.6
+      - -0.4
+    - - -0.4
+      - -0.2
+    - - -0.2
+      - 0.0
+    - - 0.0
+      - 0.2
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.025
+    - - 1.025
+      - 1.275
+  pT:
+    min: 0.1
+    max: 2.0
+harmonic: 2
+value_type: $v_{2}$ from 2nd order cumulant method
+dimensionality: differential_eta
+method: cumulant
+cumulant_order: 2
+flow_reference:
+  pT:
+    min: 0.1
+    max: 2.0
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs eta, 0-5%, v2{2};
+    reference particles |eta| < 1.3, 0.1 < pT < 2 GeV/c; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table8h.yaml
+dv_index: 2
+hepdata_table_label: v2 v2{4} vs eta, 0-5% (Table8h.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.275
+    max: 1.275
+    bin_ranges:
+    - - -1.275
+      - -1.025
+    - - -1.025
+      - -0.8
+    - - -0.8
+      - -0.6
+    - - -0.6
+      - -0.4
+    - - -0.4
+      - -0.2
+    - - -0.2
+      - 0.0
+    - - 0.0
+      - 0.2
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.025
+    - - 1.025
+      - 1.275
+  pT:
+    min: 0.1
+    max: 2.0
+harmonic: 2
+value_type: $v_{2}$ from 4th order cumulant method
+dimensionality: differential_eta
+method: cumulant
+cumulant_order: 4
+flow_reference:
+  pT:
+    min: 0.1
+    max: 2.0
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs eta, 0-5%, v2{4};
+    reference particles |eta| < 1.3, 0.1 < pT < 2 GeV/c; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table9a.yaml
+dv_index: 0
+hepdata_table_label: v2 event plane (full events) vs pT, 53-77% (Table9a.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 53-77%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.3
+    max: 1.3
+  pT:
+    min: 0.075
+    max: 3.58
+    bin_ranges:
+    - - 0.075
+      - 0.225
+    - - 0.225
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.035
+    - - 2.035
+      - 2.375
+    - - 2.375
+      - 2.78
+    - - 2.78
+      - 3.18
+    - - 3.18
+      - 3.58
+harmonic: 2
+value_type: $v_{2}$ from stand event plane method
+dimensionality: differential_pT
+method: event_plane
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.3
+    max: 1.3
+  pT:
+    min: 0.1
+    max: 2.0
+  notes: Full-event TPC event plane, |eta| < 1.3, 0.1 < pT < 2 GeV/c, the particle of interest removed.
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs pT, 53-77%, event
+    plane (full events); computed with the scalar-product estimator; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table9a.yaml
+dv_index: 1
+hepdata_table_label: v2 v2{2} vs pT, 53-77% (Table9a.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 53-77%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.3
+    max: 1.3
+  pT:
+    min: 0.075
+    max: 3.58
+    bin_ranges:
+    - - 0.075
+      - 0.225
+    - - 0.225
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.035
+    - - 2.035
+      - 2.375
+    - - 2.375
+      - 2.78
+    - - 2.78
+      - 3.18
+    - - 3.18
+      - 3.58
+harmonic: 2
+value_type: $v_{2}$ from 2nd order cumulant method
+dimensionality: differential_pT
+method: cumulant
+cumulant_order: 2
+flow_reference:
+  pT:
+    min: 0.1
+    max: 2.0
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs pT, 53-77%, v2{2};
+    reference particles |eta| < 1.3, 0.1 < pT < 2 GeV/c; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table9a.yaml
+dv_index: 2
+hepdata_table_label: v2 v2{4} vs pT, 53-77% (Table9a.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 53-77%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.3
+    max: 1.3
+  pT:
+    min: 0.075
+    max: 3.58
+    bin_ranges:
+    - - 0.075
+      - 0.225
+    - - 0.225
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.035
+    - - 2.035
+      - 2.375
+    - - 2.375
+      - 2.78
+    - - 2.78
+      - 3.18
+    - - 3.18
+      - 3.58
+harmonic: 2
+value_type: $v_{2}$ from 4th order cumulant method
+dimensionality: differential_pT
+method: cumulant
+cumulant_order: 4
+flow_reference:
+  pT:
+    min: 0.1
+    max: 2.0
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs pT, 53-77%, v2{4};
+    reference particles |eta| < 1.3, 0.1 < pT < 2 GeV/c; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table9b.yaml
+dv_index: 0
+hepdata_table_label: v2 event plane (full events) vs pT, 41-53% (Table9b.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 41-53%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.3
+    max: 1.3
+  pT:
+    min: 0.075
+    max: 3.58
+    bin_ranges:
+    - - 0.075
+      - 0.225
+    - - 0.225
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.035
+    - - 2.035
+      - 2.375
+    - - 2.375
+      - 2.78
+    - - 2.78
+      - 3.18
+    - - 3.18
+      - 3.58
+harmonic: 2
+value_type: $v_{2}$ from stand event plane method
+dimensionality: differential_pT
+method: event_plane
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.3
+    max: 1.3
+  pT:
+    min: 0.1
+    max: 2.0
+  notes: Full-event TPC event plane, |eta| < 1.3, 0.1 < pT < 2 GeV/c, the particle of interest removed.
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs pT, 41-53%, event
+    plane (full events); computed with the scalar-product estimator; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table9b.yaml
+dv_index: 1
+hepdata_table_label: v2 v2{2} vs pT, 41-53% (Table9b.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 41-53%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.3
+    max: 1.3
+  pT:
+    min: 0.075
+    max: 3.58
+    bin_ranges:
+    - - 0.075
+      - 0.225
+    - - 0.225
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.035
+    - - 2.035
+      - 2.375
+    - - 2.375
+      - 2.78
+    - - 2.78
+      - 3.18
+    - - 3.18
+      - 3.58
+harmonic: 2
+value_type: $v_{2}$ from 2nd order cumulant method
+dimensionality: differential_pT
+method: cumulant
+cumulant_order: 2
+flow_reference:
+  pT:
+    min: 0.1
+    max: 2.0
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs pT, 41-53%, v2{2};
+    reference particles |eta| < 1.3, 0.1 < pT < 2 GeV/c; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table9b.yaml
+dv_index: 2
+hepdata_table_label: v2 v2{4} vs pT, 41-53% (Table9b.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 41-53%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.3
+    max: 1.3
+  pT:
+    min: 0.075
+    max: 3.58
+    bin_ranges:
+    - - 0.075
+      - 0.225
+    - - 0.225
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.035
+    - - 2.035
+      - 2.375
+    - - 2.375
+      - 2.78
+    - - 2.78
+      - 3.18
+    - - 3.18
+      - 3.58
+harmonic: 2
+value_type: $v_{2}$ from 4th order cumulant method
+dimensionality: differential_pT
+method: cumulant
+cumulant_order: 4
+flow_reference:
+  pT:
+    min: 0.1
+    max: 2.0
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs pT, 41-53%, v2{4};
+    reference particles |eta| < 1.3, 0.1 < pT < 2 GeV/c; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table9c.yaml
+dv_index: 0
+hepdata_table_label: v2 event plane (full events) vs pT, 31-41% (Table9c.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 31-41%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.3
+    max: 1.3
+  pT:
+    min: 0.075
+    max: 3.58
+    bin_ranges:
+    - - 0.075
+      - 0.225
+    - - 0.225
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.035
+    - - 2.035
+      - 2.375
+    - - 2.375
+      - 2.78
+    - - 2.78
+      - 3.18
+    - - 3.18
+      - 3.58
+harmonic: 2
+value_type: $v_{2}$ from stand event plane method
+dimensionality: differential_pT
+method: event_plane
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.3
+    max: 1.3
+  pT:
+    min: 0.1
+    max: 2.0
+  notes: Full-event TPC event plane, |eta| < 1.3, 0.1 < pT < 2 GeV/c, the particle of interest removed.
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs pT, 31-41%, event
+    plane (full events); computed with the scalar-product estimator; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table9c.yaml
+dv_index: 1
+hepdata_table_label: v2 v2{2} vs pT, 31-41% (Table9c.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 31-41%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.3
+    max: 1.3
+  pT:
+    min: 0.075
+    max: 3.58
+    bin_ranges:
+    - - 0.075
+      - 0.225
+    - - 0.225
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.035
+    - - 2.035
+      - 2.375
+    - - 2.375
+      - 2.78
+    - - 2.78
+      - 3.18
+    - - 3.18
+      - 3.58
+harmonic: 2
+value_type: $v_{2}$ from 2nd order cumulant method
+dimensionality: differential_pT
+method: cumulant
+cumulant_order: 2
+flow_reference:
+  pT:
+    min: 0.1
+    max: 2.0
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs pT, 31-41%, v2{2};
+    reference particles |eta| < 1.3, 0.1 < pT < 2 GeV/c; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table9c.yaml
+dv_index: 2
+hepdata_table_label: v2 v2{4} vs pT, 31-41% (Table9c.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 31-41%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.3
+    max: 1.3
+  pT:
+    min: 0.075
+    max: 3.58
+    bin_ranges:
+    - - 0.075
+      - 0.225
+    - - 0.225
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.035
+    - - 2.035
+      - 2.375
+    - - 2.375
+      - 2.78
+    - - 2.78
+      - 3.18
+    - - 3.18
+      - 3.58
+harmonic: 2
+value_type: $v_{2}$ from 4th order cumulant method
+dimensionality: differential_pT
+method: cumulant
+cumulant_order: 4
+flow_reference:
+  pT:
+    min: 0.1
+    max: 2.0
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs pT, 31-41%, v2{4};
+    reference particles |eta| < 1.3, 0.1 < pT < 2 GeV/c; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table9d.yaml
+dv_index: 0
+hepdata_table_label: v2 event plane (full events) vs pT, 24-31% (Table9d.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 24-31%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.3
+    max: 1.3
+  pT:
+    min: 0.075
+    max: 3.58
+    bin_ranges:
+    - - 0.075
+      - 0.225
+    - - 0.225
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.035
+    - - 2.035
+      - 2.375
+    - - 2.375
+      - 2.78
+    - - 2.78
+      - 3.18
+    - - 3.18
+      - 3.58
+harmonic: 2
+value_type: $v_{2}$ from stand event plane method
+dimensionality: differential_pT
+method: event_plane
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.3
+    max: 1.3
+  pT:
+    min: 0.1
+    max: 2.0
+  notes: Full-event TPC event plane, |eta| < 1.3, 0.1 < pT < 2 GeV/c, the particle of interest removed.
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs pT, 24-31%, event
+    plane (full events); computed with the scalar-product estimator; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table9d.yaml
+dv_index: 1
+hepdata_table_label: v2 v2{2} vs pT, 24-31% (Table9d.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 24-31%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.3
+    max: 1.3
+  pT:
+    min: 0.075
+    max: 3.58
+    bin_ranges:
+    - - 0.075
+      - 0.225
+    - - 0.225
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.035
+    - - 2.035
+      - 2.375
+    - - 2.375
+      - 2.78
+    - - 2.78
+      - 3.18
+    - - 3.18
+      - 3.58
+harmonic: 2
+value_type: $v_{2}$ from 2nd order cumulant method
+dimensionality: differential_pT
+method: cumulant
+cumulant_order: 2
+flow_reference:
+  pT:
+    min: 0.1
+    max: 2.0
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs pT, 24-31%, v2{2};
+    reference particles |eta| < 1.3, 0.1 < pT < 2 GeV/c; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table9d.yaml
+dv_index: 2
+hepdata_table_label: v2 v2{4} vs pT, 24-31% (Table9d.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 24-31%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.3
+    max: 1.3
+  pT:
+    min: 0.075
+    max: 3.58
+    bin_ranges:
+    - - 0.075
+      - 0.225
+    - - 0.225
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.035
+    - - 2.035
+      - 2.375
+    - - 2.375
+      - 2.78
+    - - 2.78
+      - 3.18
+    - - 3.18
+      - 3.58
+harmonic: 2
+value_type: $v_{2}$ from 4th order cumulant method
+dimensionality: differential_pT
+method: cumulant
+cumulant_order: 4
+flow_reference:
+  pT:
+    min: 0.1
+    max: 2.0
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs pT, 24-31%, v2{4};
+    reference particles |eta| < 1.3, 0.1 < pT < 2 GeV/c; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table9e.yaml
+dv_index: 0
+hepdata_table_label: v2 event plane (full events) vs pT, 16-24% (Table9e.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 16-24%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.3
+    max: 1.3
+  pT:
+    min: 0.075
+    max: 3.58
+    bin_ranges:
+    - - 0.075
+      - 0.225
+    - - 0.225
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.035
+    - - 2.035
+      - 2.375
+    - - 2.375
+      - 2.78
+    - - 2.78
+      - 3.18
+    - - 3.18
+      - 3.58
+harmonic: 2
+value_type: $v_{2}$ from stand event plane method
+dimensionality: differential_pT
+method: event_plane
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.3
+    max: 1.3
+  pT:
+    min: 0.1
+    max: 2.0
+  notes: Full-event TPC event plane, |eta| < 1.3, 0.1 < pT < 2 GeV/c, the particle of interest removed.
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs pT, 16-24%, event
+    plane (full events); computed with the scalar-product estimator; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table9e.yaml
+dv_index: 1
+hepdata_table_label: v2 v2{2} vs pT, 16-24% (Table9e.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 16-24%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.3
+    max: 1.3
+  pT:
+    min: 0.075
+    max: 3.58
+    bin_ranges:
+    - - 0.075
+      - 0.225
+    - - 0.225
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.035
+    - - 2.035
+      - 2.375
+    - - 2.375
+      - 2.78
+    - - 2.78
+      - 3.18
+    - - 3.18
+      - 3.58
+harmonic: 2
+value_type: $v_{2}$ from 2nd order cumulant method
+dimensionality: differential_pT
+method: cumulant
+cumulant_order: 2
+flow_reference:
+  pT:
+    min: 0.1
+    max: 2.0
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs pT, 16-24%, v2{2};
+    reference particles |eta| < 1.3, 0.1 < pT < 2 GeV/c; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table9e.yaml
+dv_index: 2
+hepdata_table_label: v2 v2{4} vs pT, 16-24% (Table9e.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 16-24%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.3
+    max: 1.3
+  pT:
+    min: 0.075
+    max: 3.58
+    bin_ranges:
+    - - 0.075
+      - 0.225
+    - - 0.225
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.035
+    - - 2.035
+      - 2.375
+    - - 2.375
+      - 2.78
+    - - 2.78
+      - 3.18
+    - - 3.18
+      - 3.58
+harmonic: 2
+value_type: $v_{2}$ from 4th order cumulant method
+dimensionality: differential_pT
+method: cumulant
+cumulant_order: 4
+flow_reference:
+  pT:
+    min: 0.1
+    max: 2.0
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs pT, 16-24%, v2{4};
+    reference particles |eta| < 1.3, 0.1 < pT < 2 GeV/c; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table9f.yaml
+dv_index: 0
+hepdata_table_label: v2 event plane (full events) vs pT, 10-16% (Table9f.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 10-16%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.3
+    max: 1.3
+  pT:
+    min: 0.075
+    max: 3.58
+    bin_ranges:
+    - - 0.075
+      - 0.225
+    - - 0.225
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.035
+    - - 2.035
+      - 2.375
+    - - 2.375
+      - 2.78
+    - - 2.78
+      - 3.18
+    - - 3.18
+      - 3.58
+harmonic: 2
+value_type: $v_{2}$ from stand event plane method
+dimensionality: differential_pT
+method: event_plane
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.3
+    max: 1.3
+  pT:
+    min: 0.1
+    max: 2.0
+  notes: Full-event TPC event plane, |eta| < 1.3, 0.1 < pT < 2 GeV/c, the particle of interest removed.
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs pT, 10-16%, event
+    plane (full events); computed with the scalar-product estimator; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table9f.yaml
+dv_index: 1
+hepdata_table_label: v2 v2{2} vs pT, 10-16% (Table9f.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 10-16%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.3
+    max: 1.3
+  pT:
+    min: 0.075
+    max: 3.58
+    bin_ranges:
+    - - 0.075
+      - 0.225
+    - - 0.225
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.035
+    - - 2.035
+      - 2.375
+    - - 2.375
+      - 2.78
+    - - 2.78
+      - 3.18
+    - - 3.18
+      - 3.58
+harmonic: 2
+value_type: $v_{2}$ from 2nd order cumulant method
+dimensionality: differential_pT
+method: cumulant
+cumulant_order: 2
+flow_reference:
+  pT:
+    min: 0.1
+    max: 2.0
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs pT, 10-16%, v2{2};
+    reference particles |eta| < 1.3, 0.1 < pT < 2 GeV/c; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table9f.yaml
+dv_index: 2
+hepdata_table_label: v2 v2{4} vs pT, 10-16% (Table9f.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 10-16%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.3
+    max: 1.3
+  pT:
+    min: 0.075
+    max: 3.58
+    bin_ranges:
+    - - 0.075
+      - 0.225
+    - - 0.225
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.035
+    - - 2.035
+      - 2.375
+    - - 2.375
+      - 2.78
+    - - 2.78
+      - 3.18
+    - - 3.18
+      - 3.58
+harmonic: 2
+value_type: $v_{2}$ from 4th order cumulant method
+dimensionality: differential_pT
+method: cumulant
+cumulant_order: 4
+flow_reference:
+  pT:
+    min: 0.1
+    max: 2.0
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs pT, 10-16%, v2{4};
+    reference particles |eta| < 1.3, 0.1 < pT < 2 GeV/c; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table9g.yaml
+dv_index: 0
+hepdata_table_label: v2 event plane (full events) vs pT, 5-10% (Table9g.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 5-10%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.3
+    max: 1.3
+  pT:
+    min: 0.075
+    max: 3.58
+    bin_ranges:
+    - - 0.075
+      - 0.225
+    - - 0.225
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.035
+    - - 2.035
+      - 2.375
+    - - 2.375
+      - 2.78
+    - - 2.78
+      - 3.18
+    - - 3.18
+      - 3.58
+harmonic: 2
+value_type: $v_{2}$ from stand event plane method
+dimensionality: differential_pT
+method: event_plane
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.3
+    max: 1.3
+  pT:
+    min: 0.1
+    max: 2.0
+  notes: Full-event TPC event plane, |eta| < 1.3, 0.1 < pT < 2 GeV/c, the particle of interest removed.
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs pT, 5-10%, event
+    plane (full events); computed with the scalar-product estimator; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table9g.yaml
+dv_index: 1
+hepdata_table_label: v2 v2{2} vs pT, 5-10% (Table9g.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 5-10%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.3
+    max: 1.3
+  pT:
+    min: 0.075
+    max: 3.58
+    bin_ranges:
+    - - 0.075
+      - 0.225
+    - - 0.225
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.035
+    - - 2.035
+      - 2.375
+    - - 2.375
+      - 2.78
+    - - 2.78
+      - 3.18
+    - - 3.18
+      - 3.58
+harmonic: 2
+value_type: $v_{2}$ from 2nd order cumulant method
+dimensionality: differential_pT
+method: cumulant
+cumulant_order: 2
+flow_reference:
+  pT:
+    min: 0.1
+    max: 2.0
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs pT, 5-10%, v2{2};
+    reference particles |eta| < 1.3, 0.1 < pT < 2 GeV/c; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table9g.yaml
+dv_index: 2
+hepdata_table_label: v2 v2{4} vs pT, 5-10% (Table9g.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 5-10%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.3
+    max: 1.3
+  pT:
+    min: 0.075
+    max: 3.58
+    bin_ranges:
+    - - 0.075
+      - 0.225
+    - - 0.225
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.035
+    - - 2.035
+      - 2.375
+    - - 2.375
+      - 2.78
+    - - 2.78
+      - 3.18
+    - - 3.18
+      - 3.58
+harmonic: 2
+value_type: $v_{2}$ from 4th order cumulant method
+dimensionality: differential_pT
+method: cumulant
+cumulant_order: 4
+flow_reference:
+  pT:
+    min: 0.1
+    max: 2.0
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs pT, 5-10%, v2{4};
+    reference particles |eta| < 1.3, 0.1 < pT < 2 GeV/c; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table9h.yaml
+dv_index: 0
+hepdata_table_label: v2 event plane (full events) vs pT, 0-5% (Table9h.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.3
+    max: 1.3
+  pT:
+    min: 0.075
+    max: 3.58
+    bin_ranges:
+    - - 0.075
+      - 0.225
+    - - 0.225
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.035
+    - - 2.035
+      - 2.375
+    - - 2.375
+      - 2.78
+    - - 2.78
+      - 3.18
+    - - 3.18
+      - 3.58
+harmonic: 2
+value_type: $v_{2}$ from stand event plane method
+dimensionality: differential_pT
+method: event_plane
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.3
+    max: 1.3
+  pT:
+    min: 0.1
+    max: 2.0
+  notes: Full-event TPC event plane, |eta| < 1.3, 0.1 < pT < 2 GeV/c, the particle of interest removed.
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs pT, 0-5%, event
+    plane (full events); computed with the scalar-product estimator; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table9h.yaml
+dv_index: 1
+hepdata_table_label: v2 v2{2} vs pT, 0-5% (Table9h.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.3
+    max: 1.3
+  pT:
+    min: 0.075
+    max: 3.58
+    bin_ranges:
+    - - 0.075
+      - 0.225
+    - - 0.225
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.035
+    - - 2.035
+      - 2.375
+    - - 2.375
+      - 2.78
+    - - 2.78
+      - 3.18
+    - - 3.18
+      - 3.58
+harmonic: 2
+value_type: $v_{2}$ from 2nd order cumulant method
+dimensionality: differential_pT
+method: cumulant
+cumulant_order: 2
+flow_reference:
+  pT:
+    min: 0.1
+    max: 2.0
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs pT, 0-5%, v2{2};
+    reference particles |eta| < 1.3, 0.1 < pT < 2 GeV/c; classes from Table I (n_ch/n_max bins). Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '587825'
+version: 1
+hepdata_file: Table9h.yaml
+dv_index: 2
+hepdata_table_label: v2 v2{4} vs pT, 0-5% (Table9h.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity n_ch in |eta| < 0.75 (n_ch/n_max bins, Table I).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.3
+    max: 1.3
+  pT:
+    min: 0.075
+    max: 3.58
+    bin_ranges:
+    - - 0.075
+      - 0.225
+    - - 0.225
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.035
+    - - 2.035
+      - 2.375
+    - - 2.375
+      - 2.78
+    - - 2.78
+      - 3.18
+    - - 3.18
+      - 3.58
+harmonic: 2
+value_type: $v_{2}$ from 4th order cumulant method
+dimensionality: differential_pT
+method: cumulant
+cumulant_order: 4
+flow_reference:
+  pT:
+    min: 0.1
+    max: 2.0
+notes:
+  value: 'C. Adler et al. (STAR), PRC 66, 034904 (2002), arXiv:nucl-ex/0206001. v2 of charged particles vs pT, 0-5%, v2{4};
+    reference particles |eta| < 1.3, 0.1 < pT < 2 GeV/c; classes from Table I (n_ch/n_max bins). Errors: statistical.'
