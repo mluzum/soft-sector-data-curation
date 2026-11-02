@@ -95,7 +95,10 @@ def test_pipeline():
         v2 = find("data/flow_vn", lambda d: str((d.get("collision_system") or {}).get("reaction")) == "AU AU --> CHARGED X"
                   and d.get("value_type") == "v2{2}" and d.get("dimensionality") == "integrated"
                   and abs(float((d.get("collision_system") or {}).get("energy_gev") or 0) - 200) < 1)
-        nch = find("data/particle_yields", lambda d: "AU" in str((d.get("collision_system") or {}).get("reaction")).upper()
+        # an Au+Au record (the toy package simulates Au+Au only; until November 2026 "AU" anywhere in
+        # the reaction also matched Cu+Au, picked once a re-curation removed the earlier Au+Au file)
+        nch = find("data/particle_yields", lambda d: str((d.get("collision_system") or {}).get("reaction")).upper()
+                   .replace(" ", "").startswith("AUAU")
                    and abs(float((d.get("collision_system") or {}).get("energy_gev") or 0) - 200) < 1
                    and str(d.get("observable")).lower() in ("dnch_deta", "nch", "dn_dy")
                    and str((d.get("particle_id") or {}).get("species")) == "charged"
