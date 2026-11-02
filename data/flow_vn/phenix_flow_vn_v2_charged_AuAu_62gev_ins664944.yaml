@@ -1,0 +1,143 @@
+observable_type: flow_vn
+inspire_id: '664944'
+version: 1
+hepdata_file: ppg047f2a.yaml
+dv_index: 0
+hepdata_table_label: v2{2}(pT) of charged hadrons, 0-20%, 62.4 GeV, cumulant method (ppg047f2a.yaml)
+collision_system:
+  energy_gev: 62.4
+  reaction: AU AU --> X
+particle_id:
+  species: charged
+value_type: $v_2$
+method: cumulant
+cumulant_order: 2
+harmonic: 2
+centrality:
+  classes:
+  - 0-20%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+  notes: BBC charge (62.4 GeV); with the ZDC energy at 130 and 200 GeV.
+dimensionality: differential_pT
+kinematic_range:
+  eta:
+    min: -0.35
+    max: 0.35
+  pT:
+    min: 0.3
+    max: 5.0
+    bin_ranges:
+    - - 0.3
+      - 0.4
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0
+    - - 1.0
+      - 1.25
+    - - 1.25
+      - 1.5
+    - - 1.5
+      - 2.0
+    - - 2.0
+      - 2.5
+    - - 2.5
+      - 3.0
+    - - 3.0
+      - 4.0
+    - - 4.0
+      - 5.0
+notes:
+  value: 'S. S. Adler et al. (PHENIX), PRL 94, 232302 (2005), nucl-ex/0411040. v2{2}(pT) of charged hadrons, 0-20%, 62.4 GeV,
+    cumulant method. |eta| < 0.35, BBC centrality; two-particle cumulant corrected for the PHENIX acceptance; the reference
+    particles are not stated (here the record acceptance). Errors: stat and sys.'
+hepdata_corrections:
+  energy: HEPData describes Fig. 2 as 200 GeV; the paper's Fig. 2 (caption and text) is 62.4 GeV
+---
+observable_type: flow_vn
+inspire_id: '664944'
+version: 1
+hepdata_file: ppg047f2a.yaml
+dv_index: 1
+hepdata_table_label: v2{2}(pT) of charged hadrons, 20-40%, 62.4 GeV, cumulant method (ppg047f2a.yaml)
+collision_system:
+  energy_gev: 62.4
+  reaction: AU AU --> X
+particle_id:
+  species: charged
+value_type: $v_2$
+method: cumulant
+cumulant_order: 2
+harmonic: 2
+centrality:
+  classes:
+  - 20-40%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+  notes: BBC charge (62.4 GeV); with the ZDC energy at 130 and 200 GeV.
+dimensionality: differential_pT
+kinematic_range:
+  eta:
+    min: -0.35
+    max: 0.35
+  pT:
+    min: 0.3
+    max: 5.0
+    bin_ranges:
+    - - 0.3
+      - 0.4
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0
+    - - 1.0
+      - 1.25
+    - - 1.25
+      - 1.5
+    - - 1.5
+      - 2.0
+    - - 2.0
+      - 2.5
+    - - 2.5
+      - 3.0
+    - - 3.0
+      - 4.0
+    - - 4.0
+      - 5.0
+notes:
+  value: 'S. S. Adler et al. (PHENIX), PRL 94, 232302 (2005), nucl-ex/0411040. v2{2}(pT) of charged hadrons, 20-40%, 62.4
+    GeV, cumulant method. |eta| < 0.35, BBC centrality; two-particle cumulant corrected for the PHENIX acceptance; the reference
+    particles are not stated (here the record acceptance). Errors: stat and sys.'
+hepdata_corrections:
+  energy: HEPData describes Fig. 2 as 200 GeV; the paper's Fig. 2 (caption and text) is 62.4 GeV
