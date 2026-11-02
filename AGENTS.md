@@ -192,6 +192,15 @@ Fields that change dispatch:
   from bins of one unit of the estimator multiplicity (STAR's
   centrality-bin-width correction); refused, since the pipeline computes
   over the whole class.
+- `centrality.combined_from: analysis_classes`: class values averaged from
+  narrower percentile classes (`analysis_classes`, or
+  `analysis_class_width`: ALICE 1%), weighted by `combination_weight`
+  (yield of the record's species in its acceptance | charged_yield |
+  events).  `analysis/cent_combine.py`: the observable is computed per
+  sub-class and the values averaged, inside the jackknife; sub-classes
+  must tile each class.  run_pipeline wraps the entry's core when tagging
+  it (`_tag_entries`), the toy harness likewise;
+  tests/test_toy_mc_cent_combine.py.
 - A dependence on a lower pT cut (`p_T,min` axis, e.g. ALICE SC and v_n
   vs pT_min): one integrated record per point, pT [pT_min, max] and
   `table_rows: [j]`; audit_metadata checks the pairing.

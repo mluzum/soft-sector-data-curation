@@ -583,7 +583,9 @@ def _cent_mult_3d(grid, cent_eta_ranges):
     return m
 
 
-def _combined_raw_factory(data, cw, entry, n_cent, min_weight=0.01):
+def _combined_raw_factory(data, cw, entry, n_cent, min_weight=0.01, groups=None):
+    from analysis.cent_combine import class_weights
+
     def _combined_raw(mask):
         dm = _mask_dict(data, mask)
         # Excluded bins (total weight below min_weight) emit NaN of the SAME
@@ -592,7 +594,7 @@ def _combined_raw_factory(data, cw, entry, n_cent, min_weight=0.01):
         out = []
         ref_len = None
         for ic in range(n_cent):
-            w = cw[mask][:, ic] if cw.ndim == 2 else cw[mask]
+            w = class_weights(cw[mask], ic, groups) if cw.ndim == 2 else cw[mask]
             if np.sum(w) < min_weight:
                 out.append(None)  # placeholder; filled below
                 continue
@@ -688,6 +690,7 @@ def evaluate(record, qv=None, grid=None, with_jackknife=True,
         # Apply charge-symmetry / species selection once, up front, so the
         # 3D prepares read grid.charge_factor consistently with run_pipeline.
         from analysis.pipeline_dispatch import container_for_prepare
+        grid_unselected = grid
         grid = container_for_prepare(grid, params, entry)
         data = entry['prepare_data_3d'](grid, params)
         n_events = grid.n_events
@@ -714,7 +717,18 @@ def evaluate(record, qv=None, grid=None, with_jackknife=True,
                           anchor_cent=anchor['anchor_cent'])
 
     n_cent = len(edges)
-    _combined_raw = _combined_raw_factory(data, cw, entry, n_cent, min_weight)
+    groups = None
+    plan = params.get('cent_combine')
+    if plan:                     # classes combined from sub-classes, as run_pipeline
+        from analysis.cent_combine import prepare_yield, wrap_core
+        cw = cent_weights(cent_method, mult, plan['sub_edges'], n_ref=anchor['n_ref'],
+                          efficiency=eff, anchor_cent=anchor['anchor_cent'])
+        yd = prepare_yield(qv if qv is not None else grid_unselected, params, plan['weight'],
+                           qv is not None)
+        data = {'obs': data, 'yield': yd}
+        entry = dict(entry, core_fn=wrap_core(entry['core_fn'], min_weight))
+        groups = plan['groups']
+    _combined_raw = _combined_raw_factory(data, cw, entry, n_cent, min_weight, groups)
 
     if not with_jackknife:
         raw = _combined_raw(np.ones(n_events, bool))

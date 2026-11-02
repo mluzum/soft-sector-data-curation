@@ -164,20 +164,39 @@ centrality:
         The class values combine values measured in narrower bins of the
         estimator: unit_multiplicity, bins of one unit of its multiplicity
         (STAR's centrality-bin-width correction, e.g. RefMult);
-        analysis_classes, the narrower percentile classes listed in
-        `analysis_classes` (e.g. PHENIX 0-50% from 10% classes, weighted by
-        the particle multiplicity; the weighting goes in the notes).  The
-        pipeline computes over the whole class, so such records are
-        refused until the combination is implemented.
+        analysis_classes, narrower percentile classes (`analysis_classes`
+        or `analysis_class_width`), averaged with `combination_weight`
+        (e.g. ALICE 1% bins weighted by the charged-particle yield, PHENIX
+        0-50% from 10% classes weighted by the particle's multiplicity).
+        analysis_classes are computed per sub-class and combined
+        (analysis/cent_combine.py); unit_multiplicity is refused (the
+        pipeline computes over the whole class).
       example: "unit_multiplicity"
+    analysis_class_width:
+      type: float
+      required: false
+      description: >
+        With combined_from analysis_classes: the width (percent) of the
+        sub-classes tiling every class (ALICE: 1.0), instead of listing
+        them in `analysis_classes`.
+      example: 1.0
+    combination_weight:
+      type: string
+      required: false
+      allowed: [yield, charged_yield, events]
+      description: >
+        With combined_from analysis_classes: the weight of each sub-class
+        value.  yield (default): the yield of the record's species in its
+        acceptance; charged_yield: of charged particles in that acceptance;
+        events: the number of events (a plain average for equal widths).
+      example: "charged_yield"
     analysis_classes:
       type: list
       required: false
       description: >
         Finer centrality bins used during analysis before merging into
-        the reported `classes`.  Present only when the published bins
-        are a recombination of narrower bins (e.g. 1% or 2.5% wide).
-        Enables exact reproduction of the rebinning step.
+        the reported `classes` (with combined_from analysis_classes).
+        Each class must be tiled exactly by the sub-classes inside it.
       items:
         type: string
         example: "0-0.5%"

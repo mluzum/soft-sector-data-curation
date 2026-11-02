@@ -254,6 +254,8 @@ def _get_sim_frame(cfg, reaction, energy):
 from analysis.frames import to_container_frame  # noqa: E402
 from analysis.species import species_unavailable  # noqa: E402
 from analysis.reactions import system_key  # noqa: E402
+from analysis.cent_combine import (class_weights, prepare_yield as prepare_combination_yield,  # noqa: E402
+                                   wrap_core as wrap_combined_core)
 
 
 def _record_anchor(params, mult, anchor, args, event_weights=None):
@@ -889,12 +891,39 @@ def main():
             cent_data = None
             processed_rec_list = []
 
+            def _setup_combination(params, container, mult, rec_anchor, rec_eff, is_2d_):
+                # Classes combined from narrower analysis classes: weights of
+                # the sub-classes and the yield that weights them
+                # (analysis.cent_combine); the entries are wrapped on tagging.
+                plan = params.get('cent_combine')
+                if not plan:
+                    return
+                W_sub = cent_weights(
+                    args.cent_method, mult, plan['sub_edges'],
+                    n_ref=rec_anchor['n_ref'], efficiency=rec_eff,
+                    anchor_cent=rec_anchor['anchor_cent'])
+                params['_combine_rt'] = {
+                    'cent_w': W_sub,
+                    'yield': prepare_combination_yield(container, params, plan['weight'], is_2d_)}
+                params['cent_valid'] = np.array(
+                    [W_sub[:, g].sum() >= args.min_cent_weight for g in plan['groups']])
+
             def _tag_entries():
                 # Dispatch entries are appended only after their record is
                 # (and a record may add none), so an untagged entry belongs
                 # to the last processed record.
                 for _d in dispatch_data_list:
-                    _d.setdefault('rec_idx', len(processed_rec_list) - 1)
+                    if 'rec_idx' in _d:
+                        continue
+                    _d['rec_idx'] = len(processed_rec_list) - 1
+                    rt = params_list[-1].get('_combine_rt') if params_list else None
+                    if rt is None:
+                        continue
+                    inner = _d.get('core_fn') or get_pipeline_entry(_d['dispatch_key'])['core_fn']
+                    _d['core_fn'] = wrap_combined_core(inner, args.min_cent_weight)
+                    _d['data_dict'] = {'obs': _d['data_dict'], 'yield': rt['yield']}
+                    _d['cent_w'] = rt['cent_w']
+                    _d['combine_groups'] = params_list[-1]['cent_combine']['groups']
 
             for fpath, rec in rec_list:
                 _tag_entries()
@@ -1036,6 +1065,7 @@ def main():
                     params['cent_valid'] = cent_w.sum(axis=0) >= args.min_cent_weight
                     params['cent_partial'] = cent_bins_partial(
                         cent_edges, rec_anchor['anchor_cent'])
+                    _setup_combination(params, qv, cent_mult, rec_anchor, rec_eff, True)
                 else:
                     # 3D: compute cent_mult per-record from cent_eta_ranges
                     # Use the grid's accumulated Q₀ (summed over all pT) in
@@ -1133,6 +1163,7 @@ def main():
                             cent_edges, rec_anchor['anchor_cent'])
                     else:
                         params['cent_partial'] = np.zeros(cent_w_3d.shape[1], dtype=bool)
+                    _setup_combination(params, qv, cent_mult_3d, rec_anchor, rec_eff, False)
 
                     if is_diff:
                         diff_bins = params['differential_bins']
@@ -1293,7 +1324,8 @@ def main():
                         n_bins = qd.get('n_bins', 1)
                         data_masked = _mask_dict(qd['data_dict'], mask)
                         for ic in range(n_cent):
-                            w = combine_weights(qd['cent_w'], group_event_weights)[mask, ic]
+                            w = class_weights(combine_weights(qd['cent_w'], group_event_weights)[mask],
+                                              ic, qd.get('combine_groups'))
                             if w.sum() < args.min_cent_weight:
                                 continue
                             vals = core_fn(data_masked, w)
@@ -1345,7 +1377,7 @@ def main():
                 for qd in dispatch_data_list:
                     raw = qd.get('core_fn') or get_pipeline_entry(qd['dispatch_key'])['core_fn']
                     try:
-                        lv = len(np.atleast_1d(raw(_mask_dict(qd['data_dict'], np.ones(n_events,dtype=bool)), qd['cent_w'][:,0])))
+                        lv = len(np.atleast_1d(raw(_mask_dict(qd['data_dict'], np.ones(n_events,dtype=bool)), class_weights(qd['cent_w'], 0, qd.get('combine_groups')))))
                     except Exception as e:
                         lv = f'ERR {e}'
                     rec0 = qd.get('hepdata_file','?')
@@ -1393,7 +1425,7 @@ def main():
                 src = f'{vt_suffix}/{hf}'
                 noref = qd.get('dispatch_key') in AMPLITUDE_FALLBACK_KEYS
                 for ic in range(qd['n_cent']):
-                    w = qd['cent_w'][:, ic]
+                    w = class_weights(qd['cent_w'], ic, qd.get('combine_groups'))
                     if w.sum() < args.min_cent_weight:
                         continue
                     dk = qd['dispatch_key']

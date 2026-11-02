@@ -14,6 +14,7 @@ import numpy as np
 import yaml
 
 from analysis.species import is_charged, species_known
+from analysis.cent_combine import combination_plan
 
 
 _PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -416,11 +417,15 @@ def resolve(record):
             f"{record.get('value_type')!r} classes come from spectator "
             f"neutrons ({est.get('detector')}); a model without spectators "
             f"cannot form that centrality")
-    if isinstance(cent, dict) and cent.get("combined_from"):
+    if isinstance(cent, dict) and cent.get("combined_from") == "unit_multiplicity":
         raise ValueError(
             f"{record.get('value_type')!r} combines values measured in "
-            f"{cent['combined_from']} bins; the pipeline computes over the "
-            f"whole centrality class")
+            f"unit-multiplicity bins; the pipeline computes over the whole "
+            f"centrality class")
+    # Classes averaged from narrower percentile classes (ALICE 1%, PHENIX
+    # 10%): computed per sub-class and combined (analysis.cent_combine);
+    # sub-classes that do not tile every class are refused.
+    combination_plan(cent)
 
     # A species the simulations cannot provide (heavy flavour, quarkonia,
     # leptons, photons, eta, resonances, ...) would compute as zero, not be
@@ -657,6 +662,13 @@ def load_record(record_path, value_type_substring, dimensionality=None):
     return candidates[0] if candidates else None
 
 
+def _plan_or_none(cent):
+    try:
+        return combination_plan(cent)
+    except ValueError:
+        return None
+
+
 def extract_measurement_params(exp_rec):
     """Read ALL measurement parameters from a curated flow_vn record.
 
@@ -765,6 +777,9 @@ def extract_measurement_params(exp_rec):
         'cent_classes': cent_classes,
         'cent_classes_suspicious': cent_suspicious,
         'cent_edges': cent_edges,
+        # sub-classes of classes combined from narrower ones (None if not);
+        # an invalid plan is refused by resolve()
+        'cent_combine': _plan_or_none(cent),
         'cent_estimator': cent.get('estimator', {}),
         'hepdata_file': exp_rec.get('hepdata_file', ''),
         'value_table': exp_rec.get('value_table'),
