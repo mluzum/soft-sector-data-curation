@@ -22,13 +22,14 @@ Records: v2, v3, v4 of each species, EP (Figs. 1-2, appendix: 0-50%,
 0-10%, 30-50%, 10% classes to 60%) and 2PC (Fig. 1, 0-50%), pT points
 (0.2 GeV/c windows; the two highest EP points sit in wider bins).  EP is
 computed with the scalar-product estimator, 2PC as the scalar product with
-the RXN reference.  The 0-50% and 30-50% records (multiplicity-weighted
-averages of 10% classes: centrality.combined_from analysis_classes) are
-written to --staged OUT, not to data/.  Not curated: v4{Psi_2}
-(mixed-harmonic, no computation) and the blast-wave fit parameters (Fig. 4).
+the RXN reference.  The 0-50% and 30-50% records are averages of the 10%
+classes weighted by the yield of the species (centrality.combined_from
+analysis_classes, combination_weight yield: the species' yield over the
+record's pT range).  Not curated: v4{Psi_2} (mixed-harmonic, no
+computation) and the blast-wave fit parameters (Fig. 4).
 
 Run from the repository root:
-    python scripts/curate_phenix_pid_vn_auau200.py [--staged OUT.yaml]
+    python scripts/curate_phenix_pid_vn_auau200.py
 """
 import argparse
 import collections
@@ -48,16 +49,14 @@ RXN = {'detector': 'RXN', 'eta': [{'min': -2.8, 'max': -1.0}, {'min': 1.0, 'max'
 SPECIES = {r'\pi^{\pm}': 'pi+ + pi-', 'K^{\\pm}': 'K+ + K-', r'p\bar{p}': 'p + pbar'}
 WINDOW = 0.2
 COMBINED = {'0-50%': ['0-10%', '10-20%', '20-30%', '30-40%', '40-50%'], '30-50%': ['30-40%', '40-50%']}
-STAGING = ('PHENIX averages v_n of narrower classes weighted by the multiplicity of the selected particle '
-           '(centrality.combined_from analysis_classes); the pipeline computes over the whole class.')
+COMBINED_NOTE = ('; averaged from the 10% classes weighted by the yield of the species (the paper: "weighted by '
+                 'the multiplicity of the selected particle")')
 
 
 def main():
-    ap = argparse.ArgumentParser(description=__doc__.split('\n')[0])
-    ap.add_argument('--staged', help='write the combined-class records here (a staging collection)')
-    staged_out = ap.parse_args().staged
+    argparse.ArgumentParser(description=__doc__.split('\n')[0]).parse_args()
     sub = [x for x in yaml.safe_load_all(open(os.path.join(RAW, 'submission.yaml'))) if x and 'data_file' in x]
-    public, staged = [], []
+    public = []
     for x in sub:
         hf = x['data_file']
         if hf.startswith('Fig4'):
@@ -94,22 +93,15 @@ def main():
                                     f'({WINDOW} GeV/c windows). Errors: statistical, pT-uncorrelated and '
                                     'pT-correlated systematic.'}}
             if cls in COMBINED:
-                d['centrality'].update({'combined_from': 'analysis_classes', 'analysis_classes': COMBINED[cls]})
-                d['staging_reason'] = STAGING
-                staged.append(d)
-            else:
-                public.append(d)
+                d['centrality'].update({'combined_from': 'analysis_classes', 'analysis_classes': COMBINED[cls],
+                                        'combination_weight': 'yield'})
+                d['notes']['value'] = d['notes']['value'].replace('. Errors:', COMBINED_NOTE + '. Errors:')
+            public.append(d)
     out = 'data/flow_vn/phenix_flow_vn_higher-order_anisotropic_flow_coefficients_200gev.yaml'
     with open(out, 'w') as fh:
         yaml.safe_dump_all(public, fh, sort_keys=False, default_flow_style=False, width=120)
     print(f'{out}: {len(public)} records;', dict(collections.Counter(
         (d['particle_id']['species'], d['centrality']['classes'][0]) for d in public)))
-    if staged_out:
-        os.makedirs(os.path.dirname(staged_out) or '.', exist_ok=True)
-        with open(staged_out, 'w') as fh:
-            yaml.safe_dump_all(staged, fh, sort_keys=False, default_flow_style=False, width=120)
-        print(f'{staged_out}: {len(staged)} records;', dict(collections.Counter(
-            (d['method'], d['centrality']['classes'][0]) for d in staged)))
 
 
 if __name__ == '__main__':
