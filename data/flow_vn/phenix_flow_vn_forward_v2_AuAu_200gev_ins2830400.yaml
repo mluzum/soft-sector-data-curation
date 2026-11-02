@@ -1,0 +1,72 @@
+observable_type: flow_vn
+inspire_id: '2830400'
+version: 1
+hepdata_file: fig10.2.yaml
+dv_index: 0
+hepdata_table_label: v2(pT) of charged hadrons, 0-70% (fig10.2.yaml)
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-70%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+particle_id:
+  species: charged
+harmonic: 2
+value_type: $v_2$
+dimensionality: differential_pT
+kinematic_range:
+  eta:
+    min: -2.0
+    max: 2.0
+  pT:
+    min: 1.0
+    max: 4.0
+    bin_ranges:
+    - - 1.0
+      - 1.25
+    - - 1.25
+      - 1.5
+    - - 1.5
+      - 1.75
+    - - 1.75
+      - 2.0
+    - - 2.0
+      - 2.5
+    - - 2.5
+      - 3.0
+    - - 3.0
+      - 4.0
+method: event_plane
+particles: AB
+eta_gap: 2.4
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.0
+        max: -1.2
+      pT:
+        min: 0.0
+        max: 100.0
+  B:
+    kinematic_range:
+      eta:
+        min: 1.2
+        max: 2.0
+      pT:
+        min: 0.0
+        max: 100.0
+notes:
+  value: 'N. J. Abdulameer et al. (PHENIX), PRC 112, 034902 (2025), arXiv:2409.12715, Fig. 10b. v2(pT) of charged hadrons
+    at 1.2 < |eta| < 2.0, 0-70%, relative to the FVTX event plane of the opposite arm; computed as the two-subevent correlation
+    (reference window 1.2 < |eta| < 2.0, all pT). Errors: stat and sys.'
