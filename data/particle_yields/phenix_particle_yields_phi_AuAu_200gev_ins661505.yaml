@@ -1,0 +1,81 @@
+observable_type: particle_yields
+inspire_id: '661505'
+version: 1
+hepdata_file: ppg016fig5.yaml
+dv_index: 0
+hepdata_table_label: phi dN/dy vs centrality (ppg016fig5.yaml)
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> PHI X
+centrality:
+  classes:
+  - 0-10%
+  - 10-40%
+  - 40-92%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+  notes: BBC charge with the ZDC energy.
+particle_id:
+  species: phi
+kinematic_range:
+  y:
+    min: -0.35
+    max: 0.35
+  pT:
+    min: 0.0
+    max: 100.0
+observable: dN_dy
+value_type: dN_dy
+table_rows:
+- 0
+- 1
+- 2
+notes:
+  value: 'S. S. Adler et al. (PHENIX), PRC 72, 014903 (2005), nucl-ex/0410012, Table V. phi dN/dy at mid-rapidity (|y| < 0.35
+    used) from exponential fits in mT. Errors: stat and sys.'
+---
+observable_type: particle_yields
+inspire_id: '661505'
+version: 1
+hepdata_file: ppg016fig5.yaml
+dv_index: 0
+hepdata_table_label: phi dN/dy vs centrality (ppg016fig5.yaml)
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> PHI X
+centrality:
+  classes:
+  - 0-92%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.0
+  - min: 3.0
+    max: 3.9
+  notes: BBC charge with the ZDC energy.
+particle_id:
+  species: phi
+kinematic_range:
+  y:
+    min: -0.35
+    max: 0.35
+  pT:
+    min: 0.0
+    max: 100.0
+observable: dN_dy
+value_type: dN_dy
+table_rows:
+- 3
+notes:
+  value: 'S. S. Adler et al. (PHENIX), PRC 72, 014903 (2005), nucl-ex/0410012, Table V. phi dN/dy at mid-rapidity (|y| < 0.35
+    used) from exponential fits in mT. Errors: stat and sys.'
