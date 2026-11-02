@@ -1,0 +1,154 @@
+observable_type: flow_vn
+inspire_id: '631713'
+version: 1
+hepdata_file: fig2_v2EP.yaml
+dv_index: 0
+hepdata_table_label: $v_2\{EP_2\}$ vs pT, 0-80% (fig2_v2EP.yaml)
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.2
+    max: 1.2
+  pT:
+    min: 0.15
+    max: 6.15
+    bin_ranges:
+    - - 0.15
+      - 0.3
+    - - 0.3
+      - 0.45
+    - - 0.45
+      - 0.6
+    - - 0.6
+      - 0.75
+    - - 0.75
+      - 0.9
+    - - 0.9
+      - 1.05
+    - - 1.05
+      - 1.2
+    - - 1.2
+      - 1.35
+    - - 1.35
+      - 1.5
+    - - 1.5
+      - 1.65
+    - - 1.65
+      - 1.8
+    - - 1.8
+      - 1.95
+    - - 1.95
+      - 2.1
+    - - 2.1
+      - 2.25
+    - - 2.25
+      - 2.4
+    - - 2.4
+      - 2.55
+    - - 2.55
+      - 2.7
+    - - 2.7
+      - 2.85
+    - - 2.85
+      - 3.15
+    - - 3.15
+      - 3.45
+    - - 3.45
+      - 3.75
+    - - 3.75
+      - 4.05
+    - - 4.05
+      - 4.35
+    - - 4.35
+      - 4.65
+    - - 4.65
+      - 4.95
+    - - 4.95
+      - 5.25
+    - - 5.25
+      - 6.15
+harmonic: 2
+value_type: $v_2\{EP_2\}$
+dimensionality: differential_pT
+value_scale: 100.0
+method: event_plane
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.2
+    max: 1.2
+  pT:
+    min: 0.15
+    max: 100.0
+  notes: Second-harmonic TPC event plane, |eta| < 1.2, pT > 0.15 GeV/c (upper limit not stated).
+notes:
+  value: 'J. Adams et al. (STAR), PRL 92, 062301 (2004), arXiv:nucl-ex/0310029. $v_2\{EP_2\}$ of charged particles vs pT,
+    0-80%, TPC second-harmonic event plane, computed with the scalar-product estimator; tabulated in percent. Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '631713'
+version: 1
+hepdata_file: fig3.yaml
+dv_index: 0
+hepdata_table_label: $v_2\{EP_2\}$ vs centrality (fig3.yaml)
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  - 60-70%
+  - 70-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.2
+    max: 1.2
+  pT:
+    min: 0.15
+    max: 100.0
+harmonic: 2
+value_type: $v_2\{EP_2\}$
+dimensionality: integrated
+value_scale: 100.0
+method: event_plane
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.2
+    max: 1.2
+  pT:
+    min: 0.15
+    max: 100.0
+  notes: Second-harmonic TPC event plane, |eta| < 1.2, pT > 0.15 GeV/c (upper limit not stated).
+notes:
+  value: 'J. Adams et al. (STAR), PRL 92, 062301 (2004), arXiv:nucl-ex/0310029. $v_2\{EP_2\}$ of charged particles vs centrality,
+    TPC second-harmonic event plane, computed with the scalar-product estimator; tabulated in percent. Errors: statistical.'
