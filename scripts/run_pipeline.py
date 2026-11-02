@@ -128,26 +128,11 @@ def _pin_mismatch(entry, doc):
 
 
 def _normalize_reaction(reaction):
-    """Map full HEPData reaction strings to abbreviated config keys."""
-    upp = reaction.upper()
-    for prefix, abbr in [
-        ("AU AU", "Au Au"),
-        ("PB PB", "Pb Pb"),
-        ("P PB", "p Pb"),
-        ("XE XE", "Xe Xe"),
-        ("AU+AU", "Au Au"),
-        ("NE-NE", "Ne-Ne"),
-        ("P+P", "p p"),
-        ("RU+RU", "Ru Ru"),
-        ("RU RU", "Ru Ru"),
-        ("RURU", "Ru Ru"),
-        ("ZR+ZR", "Zr Zr"),
-        ("ZR ZR", "Zr Zr"),
-        ("ZRZR", "Zr Zr"),
-    ]:
-        if upp.startswith(prefix):
-            return abbr
-    return reaction
+    """Config key of a reaction ('Au Au', 'd Au', '3He Au', ...):
+    analysis.reactions.system_key.  (Until November 2026 a prefix list:
+    'D AU', 'DEUT AU', 'CU CU', 'AuAu', ... stayed unnormalized, missed their
+    configured simulation and fell back to the Au+Au 200 GeV proxy.)"""
+    return system_key(reaction)
 
 
 def _det_matches(det, det_match):
@@ -204,11 +189,14 @@ def _record_matches(rec, spec, fpath=None):
     return any(spec in h.lower() for h in hay if h)
 
 
-def _get_sim_path(cfg, sim_type, reaction, energy, fallback=True):
+def _get_sim_path(cfg, sim_type, reaction, energy, fallback=False):
     """Look up simulation data path for a collision system.
 
     sim_type: '2d' or '3d'
-    Falls back to AuAu 200 GeV as proxy when fallback=True.
+    fallback=True (--sim-proxy): the Au+Au 200 GeV simulation stands in for a
+    system without one.  Off by default: until November 2026 it was on, and
+    every record of an unconfigured system (Cu+Cu, d+Au spelled 'D AU', ...)
+    was computed on Au+Au 200 GeV with a one-line note.
     """
     norm = _normalize_reaction(reaction)
     paths = cfg.get(sim_type, {}).get(norm, {})
@@ -265,6 +253,7 @@ def _get_sim_frame(cfg, reaction, energy):
 
 from analysis.frames import to_container_frame  # noqa: E402
 from analysis.species import species_unavailable  # noqa: E402
+from analysis.reactions import system_key  # noqa: E402
 
 
 def _record_anchor(params, mult, anchor, args, event_weights=None):
@@ -476,6 +465,9 @@ def main():
                         help="YAML manifest of records to compute (overrides directory scan)")
     parser.add_argument("--reaction", default=None,
                         help="Filter by reaction pattern (regex, e.g. 'AU AU')")
+    parser.add_argument("--sim-proxy", action="store_true",
+                        help="use the Au+Au 200 GeV simulation for a collision system "
+                             "without one in the config (--sim 2d|3d; off by default)")
     parser.add_argument("--energy", type=float, default=None,
                         help="Filter by collision energy in GeV")
     parser.add_argument("--value-type-regex", default=None,
@@ -825,7 +817,7 @@ def main():
                 sim_path = str(sim_pkg.data_root)
             else:
                 # Look up sim path
-                sim_path = _get_sim_path(cfg, args.sim, reaction, energy)
+                sim_path = _get_sim_path(cfg, args.sim, reaction, energy, fallback=args.sim_proxy)
                 if args.sim_path:
                     sim_path = args.sim_path
                 elif args.sim == "3d" and args.sim_3d_path:

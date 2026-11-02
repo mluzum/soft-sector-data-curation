@@ -203,7 +203,11 @@ observable type via `DISPATCH_TABLE_BY_TYPE`, to a compute key.
   class.
 
 `run_pipeline.py` groups records by collision system, loads the container
-once per group, builds the centrality weights, and runs one block
+once per group (the config key of a reaction string, 'AU AU', 'D AU',
+'^3He Au', ...: `analysis.reactions.system_key`; a system without a
+configured simulation is skipped, the Au+Au 200 GeV proxy only with
+`--sim-proxy`; until November 2026 the proxy was the default and 'D AU'
+records missed the configured d+Au simulation), builds the centrality weights, and runs one block
 jackknife over all observables. It writes values, errors, the full
 covariance, labels and the experimental points (also aligned with the
 labels).

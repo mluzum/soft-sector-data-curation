@@ -32,7 +32,11 @@ def record_frame(rec):
 
 
 def _beam(b):
-    return str(b or '').strip().lower()
+    """Nucleus name, case- and spelling-insensitive ('3He', 'He3', '^3He';
+    'd', 'DEUT'): analysis.reactions."""
+    from analysis.reactions import _NUCLEI
+    k = str(b or '').strip().replace('^', '')
+    return _NUCLEI.get(k.upper(), k).lower()
 
 
 def to_container_frame(rec, container):
