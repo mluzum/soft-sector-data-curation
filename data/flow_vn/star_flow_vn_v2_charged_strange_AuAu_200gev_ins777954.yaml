@@ -1,0 +1,1957 @@
+observable_type: flow_vn
+inspire_id: '777954'
+version: 1
+hepdata_file: fig3.yaml
+dv_index: 1
+hepdata_table_label: v2 of charged vs eta, 10-40%, EP (fig3.yaml)
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -4.1
+    max: 4.1
+    bin_ranges:
+    - - -4.1
+      - -4.0
+    - - -4.0
+      - -3.9
+    - - -3.9
+      - -3.8
+    - - -3.8
+      - -3.7
+    - - -3.7
+      - -3.6
+    - - -3.6
+      - -3.5
+    - - -3.5
+      - -3.4
+    - - -3.4
+      - -3.3
+    - - -3.3
+      - -3.2
+    - - -3.2
+      - -3.1
+    - - -3.1
+      - -3.0
+    - - -3.0
+      - -2.9
+    - - -2.9
+      - -2.8
+    - - -2.8
+      - -2.7
+    - - -2.7
+      - -2.6
+    - - -1.1
+      - -1.0
+    - - -1.0
+      - -0.9
+    - - -0.9
+      - -0.8
+    - - -0.8
+      - -0.7
+    - - -0.7
+      - -0.6
+    - - -0.6
+      - -0.5
+    - - -0.5
+      - -0.4
+    - - -0.4
+      - -0.3
+    - - -0.3
+      - -0.2
+    - - -0.2
+      - -0.1
+    - - -0.1
+      - 0.0
+    - - 0.0
+      - 0.1
+    - - 0.1
+      - 0.2
+    - - 0.2
+      - 0.3
+    - - 0.3
+      - 0.4
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0
+    - - 1.0
+      - 1.1
+    - - 2.6
+      - 2.7
+    - - 2.7
+      - 2.8
+    - - 2.8
+      - 2.9
+    - - 2.9
+      - 3.0
+    - - 3.0
+      - 3.1
+    - - 3.1
+      - 3.2
+    - - 3.2
+      - 3.3
+    - - 3.3
+      - 3.4
+    - - 3.4
+      - 3.5
+    - - 3.5
+      - 3.6
+    - - 3.6
+      - 3.7
+    - - 3.7
+      - 3.8
+    - - 3.8
+      - 3.9
+    - - 3.9
+      - 4.0
+    - - 4.0
+      - 4.1
+  pT:
+    min: 0.15
+    max: 2.0
+harmonic: 2
+value_type: $v_{2}(\%)$
+dimensionality: differential_eta
+value_scale: 100.0
+method: event_plane
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: 1.0
+  pT:
+    min: 0.15
+    max: 2.0
+  notes: TPC event plane, |eta| < 1, 0.15 < pT < 2 GeV/c, the particle of interest removed.
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 77, 054901 (2008), arXiv:0801.3466. v2 of charged vs eta, 10-40%, TPC event plane,
+    computed with the scalar-product estimator; FTPC points use the TPC plane; tabulated in percent. Errors: stat.'
+---
+observable_type: flow_vn
+inspire_id: '777954'
+version: 1
+hepdata_file: fig4_ep.yaml
+dv_index: 0
+hepdata_table_label: v2 of charged vs pT, 10-40%, EP (fig4_ep.yaml)
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.1667
+    max: 7.306
+    bin_ranges:
+    - - 0.1667
+      - 0.3519
+    - - 0.3519
+      - 0.5435
+    - - 0.5435
+      - 0.7423
+    - - 0.7423
+      - 0.9421
+    - - 0.9421
+      - 1.142
+    - - 1.142
+      - 1.342
+    - - 1.342
+      - 1.5419
+    - - 1.5419
+      - 1.752
+    - - 1.752
+      - 2.0309
+    - - 2.0309
+      - 2.4506
+    - - 2.4506
+      - 2.9531
+    - - 2.9531
+      - 3.4563
+    - - 3.4563
+      - 4.0335
+    - - 4.0335
+      - 4.8721
+    - - 4.8721
+      - 6.0255
+    - - 6.0255
+      - 7.306
+harmonic: 2
+value_type: $v_{2}(\%)$
+dimensionality: differential_pT
+value_scale: 100.0
+method: event_plane
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: 1.0
+  pT:
+    min: 0.15
+    max: 2.0
+  notes: TPC event plane, |eta| < 1, 0.15 < pT < 2 GeV/c, the particle of interest removed.
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 77, 054901 (2008), arXiv:0801.3466. v2 of charged vs pT, 10-40%, TPC event plane,
+    computed with the scalar-product estimator; tabulated in percent. Errors: stat.'
+---
+observable_type: flow_vn
+inspire_id: '777954'
+version: 1
+hepdata_file: fig4_4p.yaml
+dv_index: 0
+hepdata_table_label: v2 of charged vs pT, 10-40%, 4 (fig4_4p.yaml)
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.2194
+    max: 6.279
+    bin_ranges:
+    - - 0.2194
+      - 0.4416
+    - - 0.4416
+      - 0.6652
+    - - 0.6652
+      - 0.8901
+    - - 0.8901
+      - 1.1152
+    - - 1.1152
+      - 1.3404
+    - - 1.3404
+      - 1.5654
+    - - 1.5654
+      - 1.7903
+    - - 1.7903
+      - 2.0153
+    - - 2.0153
+      - 2.2403
+    - - 2.2403
+      - 2.4654
+    - - 2.4654
+      - 2.6907
+    - - 2.6907
+      - 2.9162
+    - - 2.9162
+      - 3.1844
+    - - 3.1844
+      - 3.5662
+    - - 3.5662
+      - 4.0187
+    - - 4.0187
+      - 4.4715
+    - - 4.4715
+      - 4.9245
+    - - 4.9245
+      - 5.3774
+    - - 5.3774
+      - 5.8289
+    - - 5.8289
+      - 6.279
+harmonic: 2
+value_type: $v_{2}(\%)$
+dimensionality: differential_pT
+value_scale: 100.0
+method: cumulant
+cumulant_order: 4
+flow_reference:
+  pT:
+    min: 0.15
+    max: 2.0
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 77, 054901 (2008), arXiv:0801.3466. v2 of charged vs pT, 10-40%, four-particle cumulant;
+    tabulated in percent. Errors: stat.'
+---
+observable_type: flow_vn
+inspire_id: '777954'
+version: 1
+hepdata_file: fig4_ep80.yaml
+dv_index: 0
+hepdata_table_label: v2 of charged vs pT, 0-80%, EP (fig4_ep80.yaml)
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 6.0
+    bin_ranges:
+    - - 0.2
+      - 0.3
+    - - 0.3
+      - 0.4
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0
+    - - 1.0
+      - 1.1
+    - - 1.1
+      - 1.2
+    - - 1.2
+      - 1.3
+    - - 1.3
+      - 1.4
+    - - 1.4
+      - 1.5
+    - - 1.5
+      - 1.6
+    - - 1.6
+      - 1.7
+    - - 1.7
+      - 1.8
+    - - 1.8
+      - 1.9
+    - - 1.9
+      - 2.0
+    - - 2.0
+      - 2.1
+    - - 2.1
+      - 2.2
+    - - 2.2
+      - 2.3
+    - - 2.3
+      - 2.4
+    - - 2.4
+      - 2.5
+    - - 2.5
+      - 2.6
+    - - 2.6
+      - 2.7
+    - - 2.7
+      - 2.8
+    - - 2.8
+      - 2.9
+    - - 2.9
+      - 3.0
+    - - 3.0
+      - 3.1
+    - - 3.1
+      - 3.2
+    - - 3.2
+      - 3.3
+    - - 3.3
+      - 3.4
+    - - 3.4
+      - 3.5
+    - - 3.5
+      - 3.6
+    - - 3.6
+      - 3.7
+    - - 3.7
+      - 3.8
+    - - 3.8
+      - 3.9
+    - - 3.9
+      - 4.1
+    - - 4.1
+      - 4.5
+    - - 4.5
+      - 5.0
+    - - 5.0
+      - 5.5
+    - - 5.5
+      - 6.0
+harmonic: 2
+value_type: $v_{2}{EP}$($\%$)
+dimensionality: differential_pT
+value_scale: 100.0
+method: event_plane
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: 1.0
+  pT:
+    min: 0.15
+    max: 2.0
+  notes: TPC event plane, |eta| < 1, 0.15 < pT < 2 GeV/c, the particle of interest removed.
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 77, 054901 (2008), arXiv:0801.3466. v2 of charged vs pT, 0-80%, TPC event plane,
+    computed with the scalar-product estimator; tabulated in percent. Errors: stat.'
+---
+observable_type: flow_vn
+inspire_id: '777954'
+version: 1
+hepdata_file: fig5_ep.yaml
+dv_index: 0
+hepdata_table_label: v2 of charged vs centrality, EP (fig5_ep.yaml)
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 70-80%
+  - 60-70%
+  - 50-60%
+  - 40-50%
+  - 30-40%
+  - 20-30%
+  - 10-20%
+  - 5-10%
+  - 0-5%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.15
+    max: 2.0
+harmonic: 2
+value_type: $v_{2}(\%)$
+dimensionality: integrated
+value_scale: 100.0
+method: event_plane
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: 1.0
+  pT:
+    min: 0.15
+    max: 2.0
+  notes: TPC event plane, |eta| < 1, 0.15 < pT < 2 GeV/c, the particle of interest removed.
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 77, 054901 (2008), arXiv:0801.3466. v2 of charged vs centrality, TPC event plane,
+    computed with the scalar-product estimator; tabulated in percent. Errors: stat.'
+---
+observable_type: flow_vn
+inspire_id: '777954'
+version: 1
+hepdata_file: fig5_4p.yaml
+dv_index: 0
+hepdata_table_label: v2 of charged vs centrality, 4 (fig5_4p.yaml)
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 60-70%
+  - 50-60%
+  - 40-50%
+  - 30-40%
+  - 20-30%
+  - 10-20%
+  - 5-10%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.15
+    max: 2.0
+harmonic: 2
+value_type: $v_{2}(\%)$
+dimensionality: integrated
+value_scale: 100.0
+method: cumulant
+cumulant_order: 4
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 77, 054901 (2008), arXiv:0801.3466. v2 of charged vs centrality, four-particle cumulant;
+    tabulated in percent. Errors: stat.'
+---
+observable_type: flow_vn
+inspire_id: '777954'
+version: 1
+hepdata_file: fig6_kshort_ep.yaml
+dv_index: 0
+hepdata_table_label: v2 of K0_S vs pT, 10-40%, EP (fig6_kshort_ep.yaml)
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: K0_S
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.2209
+    max: 4.3742
+    bin_ranges:
+    - - 0.2209
+      - 0.4133
+    - - 0.4133
+      - 0.6058
+    - - 0.6058
+      - 0.8002
+    - - 0.8002
+      - 0.9967
+    - - 0.9967
+      - 1.1947
+    - - 1.1947
+      - 1.3939
+    - - 1.3939
+      - 1.5934
+    - - 1.5934
+      - 1.793
+    - - 1.793
+      - 1.9927
+    - - 1.9927
+      - 2.1925
+    - - 2.1925
+      - 2.3923
+    - - 2.3923
+      - 2.5923
+    - - 2.5923
+      - 2.8316
+    - - 2.8316
+      - 3.1713
+    - - 3.1713
+      - 3.5736
+    - - 3.5736
+      - 3.975
+    - - 3.975
+      - 4.3742
+harmonic: 2
+value_type: $K_{S}^{0}$ $v_{2}$(EP)
+dimensionality: differential_pT
+method: event_plane
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: 1.0
+  pT:
+    min: 0.15
+    max: 2.0
+  notes: TPC event plane, |eta| < 1, 0.15 < pT < 2 GeV/c, the particle of interest removed.
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 77, 054901 (2008), arXiv:0801.3466. v2 of K0_S vs pT, 10-40%, TPC event plane, computed
+    with the scalar-product estimator. Errors: stat.'
+---
+observable_type: flow_vn
+inspire_id: '777954'
+version: 1
+hepdata_file: fig6_kshort_etasub.yaml
+dv_index: 0
+hepdata_table_label: v2 of K0_S vs pT, 10-40%, etasub (fig6_kshort_etasub.yaml)
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: K0_S
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.2209
+    max: 4.8837
+    bin_ranges:
+    - - 0.2209
+      - 0.4133
+    - - 0.4133
+      - 0.6058
+    - - 0.6058
+      - 0.8002
+    - - 0.8002
+      - 0.9967
+    - - 0.9967
+      - 1.1947
+    - - 1.1947
+      - 1.3939
+    - - 1.3939
+      - 1.5934
+    - - 1.5934
+      - 1.793
+    - - 1.793
+      - 1.9927
+    - - 1.9927
+      - 2.1925
+    - - 2.1925
+      - 2.3923
+    - - 2.3923
+      - 2.5923
+    - - 2.5923
+      - 2.8316
+    - - 2.8316
+      - 3.1713
+    - - 3.1713
+      - 3.5736
+    - - 3.5736
+      - 3.975
+    - - 3.975
+      - 4.411
+    - - 4.411
+      - 4.8837
+harmonic: 2
+value_type: $K_{S}^{0}$ $v_{2}$($\eta$-sub)
+dimensionality: differential_pT
+method: event_plane
+particles: AB
+eta_gap: 0.15
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -1.0
+        max: -0.075
+      pT:
+        min: 0.15
+        max: 2.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.075
+        max: 1.0
+      pT:
+        min: 0.15
+        max: 2.0
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 77, 054901 (2008), arXiv:0801.3466. v2 of K0_S vs pT, 10-40%, eta-subevent event
+    plane (the opposite hemisphere), computed as the two-subevent correlation. Errors: stat.'
+---
+observable_type: flow_vn
+inspire_id: '777954'
+version: 1
+hepdata_file: fig6_lambda_ep.yaml
+dv_index: 0
+hepdata_table_label: v2 of Lambda + Lambdabar vs pT, 10-40%, EP (fig6_lambda_ep.yaml)
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.4169
+    max: 4.879
+    bin_ranges:
+    - - 0.4169
+      - 0.613
+    - - 0.613
+      - 0.808
+    - - 0.808
+      - 1.0034
+    - - 1.0034
+      - 1.1998
+    - - 1.1998
+      - 1.3967
+    - - 1.3967
+      - 1.5953
+    - - 1.5953
+      - 1.7944
+    - - 1.7944
+      - 1.9937
+    - - 1.9937
+      - 2.1932
+    - - 2.1932
+      - 2.3928
+    - - 2.3928
+      - 2.5925
+    - - 2.5925
+      - 2.8308
+    - - 2.8308
+      - 3.1692
+    - - 3.1692
+      - 3.5704
+    - - 3.5704
+      - 3.9712
+    - - 3.9712
+      - 4.4068
+    - - 4.4068
+      - 4.879
+harmonic: 2
+value_type: $\Lambda+\bar{\Lambda}$ $v_{2}$(EP)
+dimensionality: differential_pT
+method: event_plane
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: 1.0
+  pT:
+    min: 0.15
+    max: 2.0
+  notes: TPC event plane, |eta| < 1, 0.15 < pT < 2 GeV/c, the particle of interest removed.
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 77, 054901 (2008), arXiv:0801.3466. v2 of Lambda + Lambdabar vs pT, 10-40%, TPC
+    event plane, computed with the scalar-product estimator. Errors: stat.'
+---
+observable_type: flow_vn
+inspire_id: '777954'
+version: 1
+hepdata_file: fig6_lambda_etasub.yaml
+dv_index: 0
+hepdata_table_label: v2 of Lambda + Lambdabar vs pT, 10-40%, etasub (fig6_lambda_etasub.yaml)
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.4169
+    max: 4.879
+    bin_ranges:
+    - - 0.4169
+      - 0.613
+    - - 0.613
+      - 0.808
+    - - 0.808
+      - 1.0034
+    - - 1.0034
+      - 1.1998
+    - - 1.1998
+      - 1.3967
+    - - 1.3967
+      - 1.5953
+    - - 1.5953
+      - 1.7944
+    - - 1.7944
+      - 1.9937
+    - - 1.9937
+      - 2.1932
+    - - 2.1932
+      - 2.3928
+    - - 2.3928
+      - 2.5925
+    - - 2.5925
+      - 2.8308
+    - - 2.8308
+      - 3.1692
+    - - 3.1692
+      - 3.5704
+    - - 3.5704
+      - 3.9712
+    - - 3.9712
+      - 4.4068
+    - - 4.4068
+      - 4.879
+harmonic: 2
+value_type: $\Lambda+\bar{\Lambda}$ $v_{2}$($\eta$-sub)
+dimensionality: differential_pT
+method: event_plane
+particles: AB
+eta_gap: 0.15
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -1.0
+        max: -0.075
+      pT:
+        min: 0.15
+        max: 2.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.075
+        max: 1.0
+      pT:
+        min: 0.15
+        max: 2.0
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 77, 054901 (2008), arXiv:0801.3466. v2 of Lambda + Lambdabar vs pT, 10-40%, eta-subevent
+    event plane (the opposite hemisphere), computed as the two-subevent correlation. Errors: stat.'
+---
+observable_type: flow_vn
+inspire_id: '777954'
+version: 1
+hepdata_file: fig7_cascade_0_10.yaml
+dv_index: 0
+hepdata_table_label: v2 of Xi- + Xibar+ vs pT, 0-10%, EP (fig7_cascade_0_10.yaml)
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: Xi- + Xibar+
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.6061
+    max: 5.4904
+    bin_ranges:
+    - - 0.6061
+      - 1.0802
+    - - 1.0802
+      - 1.5557
+    - - 1.5557
+      - 2.059
+    - - 2.059
+      - 2.6029
+    - - 2.6029
+      - 3.2859
+    - - 3.2859
+      - 4.2899
+    - - 4.2899
+      - 5.4904
+harmonic: 2
+value_type: $\Xi^{-}+\bar{\Xi}^{+}$ $v_{2}${EP}
+dimensionality: differential_pT
+method: event_plane
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: 1.0
+  pT:
+    min: 0.15
+    max: 2.0
+  notes: TPC event plane, |eta| < 1, 0.15 < pT < 2 GeV/c, the particle of interest removed.
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 77, 054901 (2008), arXiv:0801.3466. v2 of Xi- + Xibar+ vs pT, 0-10%, TPC event plane,
+    computed with the scalar-product estimator. Errors: stat.'
+---
+observable_type: flow_vn
+inspire_id: '777954'
+version: 1
+hepdata_file: fig7_cascade_0_80.yaml
+dv_index: 0
+hepdata_table_label: v2 of Xi- + Xibar+ vs pT, 0-80%, EP (fig7_cascade_0_80.yaml)
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: Xi- + Xibar+
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.5815
+    max: 5.0051
+    bin_ranges:
+    - - 0.5815
+      - 0.8636
+    - - 0.8636
+      - 1.1039
+    - - 1.1039
+      - 1.303
+    - - 1.303
+      - 1.502
+    - - 1.502
+      - 1.7003
+    - - 1.7003
+      - 1.8985
+    - - 1.8985
+      - 2.0975
+    - - 2.0975
+      - 2.3187
+    - - 2.3187
+      - 2.5896
+    - - 2.5896
+      - 3.0021
+    - - 3.0021
+      - 3.8451
+    - - 3.8451
+      - 5.0051
+harmonic: 2
+value_type: $\Xi^{-}+\bar{\Xi}^{+}$ $v_{2}${EP}
+dimensionality: differential_pT
+method: event_plane
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: 1.0
+  pT:
+    min: 0.15
+    max: 2.0
+  notes: TPC event plane, |eta| < 1, 0.15 < pT < 2 GeV/c, the particle of interest removed.
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 77, 054901 (2008), arXiv:0801.3466. v2 of Xi- + Xibar+ vs pT, 0-80%, TPC event plane,
+    computed with the scalar-product estimator. Errors: stat.'
+---
+observable_type: flow_vn
+inspire_id: '777954'
+version: 1
+hepdata_file: fig7_cascade_10_40.yaml
+dv_index: 0
+hepdata_table_label: v2 of Xi- + Xibar+ vs pT, 10-40%, EP (fig7_cascade_10_40.yaml)
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: Xi- + Xibar+
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.6057
+    max: 4.5509
+    bin_ranges:
+    - - 0.6057
+      - 1.0788
+    - - 1.0788
+      - 1.508
+    - - 1.508
+      - 1.8946
+    - - 1.8946
+      - 2.3222
+    - - 2.3222
+      - 2.8769
+    - - 2.8769
+      - 3.6489
+    - - 3.6489
+      - 4.5509
+harmonic: 2
+value_type: $\Xi^{-}+\bar{\Xi}^{+}$ $v_{2}${EP}
+dimensionality: differential_pT
+method: event_plane
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: 1.0
+  pT:
+    min: 0.15
+    max: 2.0
+  notes: TPC event plane, |eta| < 1, 0.15 < pT < 2 GeV/c, the particle of interest removed.
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 77, 054901 (2008), arXiv:0801.3466. v2 of Xi- + Xibar+ vs pT, 10-40%, TPC event
+    plane, computed with the scalar-product estimator. Errors: stat.'
+---
+observable_type: flow_vn
+inspire_id: '777954'
+version: 1
+hepdata_file: fig7_cascade_40_80.yaml
+dv_index: 0
+hepdata_table_label: v2 of Xi- + Xibar+ vs pT, 40-80%, EP (fig7_cascade_40_80.yaml)
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 40-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: Xi- + Xibar+
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.7026
+    max: 4.5935
+    bin_ranges:
+    - - 0.7026
+      - 1.0365
+    - - 1.0365
+      - 1.3027
+    - - 1.3027
+      - 1.5015
+    - - 1.5015
+      - 1.7002
+    - - 1.7002
+      - 1.9418
+    - - 1.9418
+      - 2.3166
+    - - 2.3166
+      - 2.8698
+    - - 2.8698
+      - 3.6582
+    - - 3.6582
+      - 4.5935
+harmonic: 2
+value_type: $\Xi^{-}+\bar{\Xi}^{+}$ $v_{2}${EP}
+dimensionality: differential_pT
+method: event_plane
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: 1.0
+  pT:
+    min: 0.15
+    max: 2.0
+  notes: TPC event plane, |eta| < 1, 0.15 < pT < 2 GeV/c, the particle of interest removed.
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 77, 054901 (2008), arXiv:0801.3466. v2 of Xi- + Xibar+ vs pT, 40-80%, TPC event
+    plane, computed with the scalar-product estimator. Errors: stat.'
+---
+observable_type: flow_vn
+inspire_id: '777954'
+version: 1
+hepdata_file: fig7_kshort.yaml
+dv_index: 0
+hepdata_table_label: v2 of K0_S vs pT, 0-80%, EP (fig7_kshort.yaml)
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: K0_S
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.221
+    max: 6.8995
+    bin_ranges:
+    - - 0.221
+      - 0.413
+    - - 0.413
+      - 0.605
+    - - 0.605
+      - 0.7995
+    - - 0.7995
+      - 0.996
+    - - 0.996
+      - 1.194
+    - - 1.194
+      - 1.3935
+    - - 1.3935
+      - 1.5925
+    - - 1.5925
+      - 1.792
+    - - 1.792
+      - 1.992
+    - - 1.992
+      - 2.192
+    - - 2.192
+      - 2.392
+    - - 2.392
+      - 2.592
+    - - 2.592
+      - 2.8305
+    - - 2.8305
+      - 3.17
+    - - 3.17
+      - 3.5725
+    - - 3.5725
+      - 3.9745
+    - - 3.9745
+      - 4.4115
+    - - 4.4115
+      - 5.014
+    - - 5.014
+      - 5.8865
+    - - 5.8865
+      - 6.8995
+harmonic: 2
+value_type: $K_{S}^{0}$ $v_{2}${EP}
+dimensionality: differential_pT
+method: event_plane
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: 1.0
+  pT:
+    min: 0.15
+    max: 2.0
+  notes: TPC event plane, |eta| < 1, 0.15 < pT < 2 GeV/c, the particle of interest removed.
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 77, 054901 (2008), arXiv:0801.3466. v2 of K0_S vs pT, 0-80%, TPC event plane, computed
+    with the scalar-product estimator. Errors: stat and syst.'
+---
+observable_type: flow_vn
+inspire_id: '777954'
+version: 1
+hepdata_file: fig7_kshort.yaml
+dv_index: 1
+hepdata_table_label: v2 of K0_S vs pT, 40-80%, EP (fig7_kshort.yaml)
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 40-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: K0_S
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.221
+    max: 5.8865
+    bin_ranges:
+    - - 0.221
+      - 0.413
+    - - 0.413
+      - 0.605
+    - - 0.605
+      - 0.7995
+    - - 0.7995
+      - 0.996
+    - - 0.996
+      - 1.194
+    - - 1.194
+      - 1.3935
+    - - 1.3935
+      - 1.5925
+    - - 1.5925
+      - 1.792
+    - - 1.792
+      - 1.992
+    - - 1.992
+      - 2.192
+    - - 2.192
+      - 2.392
+    - - 2.392
+      - 2.592
+    - - 2.592
+      - 2.8305
+    - - 2.8305
+      - 3.17
+    - - 3.17
+      - 3.5725
+    - - 3.5725
+      - 3.9745
+    - - 3.9745
+      - 4.4115
+    - - 4.4115
+      - 5.014
+    - - 5.014
+      - 5.8865
+harmonic: 2
+value_type: $K_{S}^{0}$ $v_{2}${EP}
+dimensionality: differential_pT
+table_rows:
+- 0
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+- 8
+- 9
+- 10
+- 11
+- 12
+- 13
+- 14
+- 15
+- 16
+- 17
+- 18
+method: event_plane
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: 1.0
+  pT:
+    min: 0.15
+    max: 2.0
+  notes: TPC event plane, |eta| < 1, 0.15 < pT < 2 GeV/c, the particle of interest removed.
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 77, 054901 (2008), arXiv:0801.3466. v2 of K0_S vs pT, 40-80%, TPC event plane, computed
+    with the scalar-product estimator. Errors: stat and syst.'
+---
+observable_type: flow_vn
+inspire_id: '777954'
+version: 1
+hepdata_file: fig7_kshort.yaml
+dv_index: 2
+hepdata_table_label: v2 of K0_S vs pT, 10-40%, EP (fig7_kshort.yaml)
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: K0_S
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.221
+    max: 6.8995
+    bin_ranges:
+    - - 0.221
+      - 0.413
+    - - 0.413
+      - 0.605
+    - - 0.605
+      - 0.7995
+    - - 0.7995
+      - 0.996
+    - - 0.996
+      - 1.194
+    - - 1.194
+      - 1.3935
+    - - 1.3935
+      - 1.5925
+    - - 1.5925
+      - 1.792
+    - - 1.792
+      - 1.992
+    - - 1.992
+      - 2.192
+    - - 2.192
+      - 2.392
+    - - 2.392
+      - 2.592
+    - - 2.592
+      - 2.8305
+    - - 2.8305
+      - 3.17
+    - - 3.17
+      - 3.5725
+    - - 3.5725
+      - 3.9745
+    - - 3.9745
+      - 4.4115
+    - - 4.4115
+      - 5.014
+    - - 5.014
+      - 5.8865
+    - - 5.8865
+      - 6.8995
+harmonic: 2
+value_type: $K_{S}^{0}$ $v_{2}${EP}
+dimensionality: differential_pT
+method: event_plane
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: 1.0
+  pT:
+    min: 0.15
+    max: 2.0
+  notes: TPC event plane, |eta| < 1, 0.15 < pT < 2 GeV/c, the particle of interest removed.
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 77, 054901 (2008), arXiv:0801.3466. v2 of K0_S vs pT, 10-40%, TPC event plane, computed
+    with the scalar-product estimator. Errors: stat and syst.'
+---
+observable_type: flow_vn
+inspire_id: '777954'
+version: 1
+hepdata_file: fig7_kshort.yaml
+dv_index: 3
+hepdata_table_label: v2 of K0_S vs pT, 0-10%, EP (fig7_kshort.yaml)
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: K0_S
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.221
+    max: 5.8865
+    bin_ranges:
+    - - 0.221
+      - 0.413
+    - - 0.413
+      - 0.605
+    - - 0.605
+      - 0.7995
+    - - 0.7995
+      - 0.996
+    - - 0.996
+      - 1.194
+    - - 1.194
+      - 1.3935
+    - - 1.3935
+      - 1.5925
+    - - 1.5925
+      - 1.792
+    - - 1.792
+      - 1.992
+    - - 1.992
+      - 2.192
+    - - 2.192
+      - 2.392
+    - - 2.392
+      - 2.592
+    - - 2.592
+      - 2.8305
+    - - 2.8305
+      - 3.17
+    - - 3.17
+      - 3.5725
+    - - 3.5725
+      - 3.9745
+    - - 3.9745
+      - 4.4115
+    - - 4.4115
+      - 5.014
+    - - 5.014
+      - 5.8865
+harmonic: 2
+value_type: $K_{S}^{0}$ $v_{2}${EP}
+dimensionality: differential_pT
+table_rows:
+- 0
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+- 8
+- 9
+- 10
+- 11
+- 12
+- 13
+- 14
+- 15
+- 16
+- 17
+- 18
+method: event_plane
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: 1.0
+  pT:
+    min: 0.15
+    max: 2.0
+  notes: TPC event plane, |eta| < 1, 0.15 < pT < 2 GeV/c, the particle of interest removed.
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 77, 054901 (2008), arXiv:0801.3466. v2 of K0_S vs pT, 0-10%, TPC event plane, computed
+    with the scalar-product estimator. Errors: stat and syst.'
+---
+observable_type: flow_vn
+inspire_id: '777954'
+version: 1
+hepdata_file: fig7_lambda.yaml
+dv_index: 0
+hepdata_table_label: v2 of Lambda + Lambdabar vs pT, 0-80%, EP (fig7_lambda.yaml)
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.4175
+    max: 5.716
+    bin_ranges:
+    - - 0.4175
+      - 0.6125
+    - - 0.6125
+      - 0.807
+    - - 0.807
+      - 1.0025
+    - - 1.0025
+      - 1.199
+    - - 1.199
+      - 1.396
+    - - 1.396
+      - 1.5945
+    - - 1.5945
+      - 1.7935
+    - - 1.7935
+      - 1.993
+    - - 1.993
+      - 2.1925
+    - - 2.1925
+      - 2.392
+    - - 2.392
+      - 2.592
+    - - 2.592
+      - 2.8305
+    - - 2.8305
+      - 3.1685
+    - - 3.1685
+      - 3.569
+    - - 3.569
+      - 3.97
+    - - 3.97
+      - 4.4045
+    - - 4.4045
+      - 4.998
+    - - 4.998
+      - 5.716
+harmonic: 2
+value_type: $\Lambda+\bar{\Lambda}$ $v_{2}${EP}
+dimensionality: differential_pT
+method: event_plane
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: 1.0
+  pT:
+    min: 0.15
+    max: 2.0
+  notes: TPC event plane, |eta| < 1, 0.15 < pT < 2 GeV/c, the particle of interest removed.
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 77, 054901 (2008), arXiv:0801.3466. v2 of Lambda + Lambdabar vs pT, 0-80%, TPC event
+    plane, computed with the scalar-product estimator. Errors: stat and syst.'
+---
+observable_type: flow_vn
+inspire_id: '777954'
+version: 1
+hepdata_file: fig7_lambda.yaml
+dv_index: 1
+hepdata_table_label: v2 of Lambda + Lambdabar vs pT, 40-80%, EP (fig7_lambda.yaml)
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 40-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.4175
+    max: 5.716
+    bin_ranges:
+    - - 0.4175
+      - 0.6125
+    - - 0.6125
+      - 0.807
+    - - 0.807
+      - 1.0025
+    - - 1.0025
+      - 1.199
+    - - 1.199
+      - 1.396
+    - - 1.396
+      - 1.5945
+    - - 1.5945
+      - 1.7935
+    - - 1.7935
+      - 1.993
+    - - 1.993
+      - 2.1925
+    - - 2.1925
+      - 2.392
+    - - 2.392
+      - 2.592
+    - - 2.592
+      - 2.8305
+    - - 2.8305
+      - 3.1685
+    - - 3.1685
+      - 3.569
+    - - 3.569
+      - 3.97
+    - - 3.97
+      - 4.4045
+    - - 4.4045
+      - 4.998
+    - - 4.998
+      - 5.716
+harmonic: 2
+value_type: $\Lambda+\bar{\Lambda}$ $v_{2}${EP}
+dimensionality: differential_pT
+method: event_plane
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: 1.0
+  pT:
+    min: 0.15
+    max: 2.0
+  notes: TPC event plane, |eta| < 1, 0.15 < pT < 2 GeV/c, the particle of interest removed.
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 77, 054901 (2008), arXiv:0801.3466. v2 of Lambda + Lambdabar vs pT, 40-80%, TPC
+    event plane, computed with the scalar-product estimator. Errors: stat and syst.'
+---
+observable_type: flow_vn
+inspire_id: '777954'
+version: 1
+hepdata_file: fig7_lambda.yaml
+dv_index: 2
+hepdata_table_label: v2 of Lambda + Lambdabar vs pT, 10-40%, EP (fig7_lambda.yaml)
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.4175
+    max: 5.716
+    bin_ranges:
+    - - 0.4175
+      - 0.6125
+    - - 0.6125
+      - 0.807
+    - - 0.807
+      - 1.0025
+    - - 1.0025
+      - 1.199
+    - - 1.199
+      - 1.396
+    - - 1.396
+      - 1.5945
+    - - 1.5945
+      - 1.7935
+    - - 1.7935
+      - 1.993
+    - - 1.993
+      - 2.1925
+    - - 2.1925
+      - 2.392
+    - - 2.392
+      - 2.592
+    - - 2.592
+      - 2.8305
+    - - 2.8305
+      - 3.1685
+    - - 3.1685
+      - 3.569
+    - - 3.569
+      - 3.97
+    - - 3.97
+      - 4.4045
+    - - 4.4045
+      - 4.998
+    - - 4.998
+      - 5.716
+harmonic: 2
+value_type: $\Lambda+\bar{\Lambda}$ $v_{2}${EP}
+dimensionality: differential_pT
+method: event_plane
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: 1.0
+  pT:
+    min: 0.15
+    max: 2.0
+  notes: TPC event plane, |eta| < 1, 0.15 < pT < 2 GeV/c, the particle of interest removed.
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 77, 054901 (2008), arXiv:0801.3466. v2 of Lambda + Lambdabar vs pT, 10-40%, TPC
+    event plane, computed with the scalar-product estimator. Errors: stat and syst.'
+---
+observable_type: flow_vn
+inspire_id: '777954'
+version: 1
+hepdata_file: fig7_lambda.yaml
+dv_index: 3
+hepdata_table_label: v2 of Lambda + Lambdabar vs pT, 0-10%, EP (fig7_lambda.yaml)
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.4175
+    max: 5.716
+    bin_ranges:
+    - - 0.4175
+      - 0.6125
+    - - 0.6125
+      - 0.807
+    - - 0.807
+      - 1.0025
+    - - 1.0025
+      - 1.199
+    - - 1.199
+      - 1.396
+    - - 1.396
+      - 1.5945
+    - - 1.5945
+      - 1.7935
+    - - 1.7935
+      - 1.993
+    - - 1.993
+      - 2.1925
+    - - 2.1925
+      - 2.392
+    - - 2.392
+      - 2.592
+    - - 2.592
+      - 2.8305
+    - - 2.8305
+      - 3.1685
+    - - 3.1685
+      - 3.569
+    - - 3.569
+      - 3.97
+    - - 3.97
+      - 4.4045
+    - - 4.4045
+      - 4.998
+    - - 4.998
+      - 5.716
+harmonic: 2
+value_type: $\Lambda+\bar{\Lambda}$ $v_{2}${EP}
+dimensionality: differential_pT
+method: event_plane
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: 1.0
+  pT:
+    min: 0.15
+    max: 2.0
+  notes: TPC event plane, |eta| < 1, 0.15 < pT < 2 GeV/c, the particle of interest removed.
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 77, 054901 (2008), arXiv:0801.3466. v2 of Lambda + Lambdabar vs pT, 0-10%, TPC event
+    plane, computed with the scalar-product estimator. Errors: stat and syst.'
+---
+observable_type: flow_vn
+inspire_id: '777954'
+version: 1
+hepdata_file: fig7_omega_0_10.yaml
+dv_index: 0
+hepdata_table_label: v2 of Omega- + Omegabar+ vs pT, 0-10%, EP (fig7_omega_0_10.yaml)
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: Omega- + Omegabar+
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.9354
+    max: 4.1686
+    bin_ranges:
+    - - 0.9354
+      - 1.69
+    - - 1.69
+      - 2.3999
+    - - 2.3999
+      - 2.9748
+    - - 2.9748
+      - 3.5343
+    - - 3.5343
+      - 4.1686
+harmonic: 2
+value_type: $\Omega^{-}+\bar{\Omega}^{+}$ $v_{2}${EP}
+dimensionality: differential_pT
+method: event_plane
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: 1.0
+  pT:
+    min: 0.15
+    max: 2.0
+  notes: TPC event plane, |eta| < 1, 0.15 < pT < 2 GeV/c, the particle of interest removed.
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 77, 054901 (2008), arXiv:0801.3466. v2 of Omega- + Omegabar+ vs pT, 0-10%, TPC event
+    plane, computed with the scalar-product estimator. Errors: stat.'
+---
+observable_type: flow_vn
+inspire_id: '777954'
+version: 1
+hepdata_file: fig7_omega_0_80.yaml
+dv_index: 0
+hepdata_table_label: v2 of Omega- + Omegabar+ vs pT, 0-80%, EP (fig7_omega_0_80.yaml)
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+particle_id:
+  species: Omega- + Omegabar+
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.9642
+    max: 4.5344
+    bin_ranges:
+    - - 0.9642
+      - 1.6941
+    - - 1.6941
+      - 2.3938
+    - - 2.3938
+      - 3.0157
+    - - 3.0157
+      - 3.7133
+    - - 3.7133
+      - 4.5344
+harmonic: 2
+value_type: $\Omega^{-}+\bar{\Omega}^{+}$ $v_{2}{EP}$
+dimensionality: differential_pT
+method: event_plane
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: 1.0
+  pT:
+    min: 0.15
+    max: 2.0
+  notes: TPC event plane, |eta| < 1, 0.15 < pT < 2 GeV/c, the particle of interest removed.
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 77, 054901 (2008), arXiv:0801.3466. v2 of Omega- + Omegabar+ vs pT, 0-80%, TPC event
+    plane, computed with the scalar-product estimator. Errors: stat.'
