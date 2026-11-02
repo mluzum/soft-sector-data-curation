@@ -264,6 +264,7 @@ def _get_sim_frame(cfg, reaction, energy):
 
 
 from analysis.frames import to_container_frame  # noqa: E402
+from analysis.species import species_unavailable  # noqa: E402
 
 
 def _record_anchor(params, mult, anchor, args, event_weights=None):
@@ -931,6 +932,13 @@ def main():
                           f"{params['cent_classes']} is not a set of "
                           f"centrality percentile bins -- refusing to bin on "
                           f"it (record needs curation)")
+                    continue
+                # A species the container cannot provide: skip, rather than
+                # compute zero or (3D without species grids) charged hadrons.
+                why = species_unavailable(rec.get('particle_id'), qv)
+                if why:
+                    print(f"  Skipping {rec.get('value_type','?')} from "
+                          f"{rec.get('hepdata_file','?')}: {why}")
                     continue
                 # Comparison-only centrality-detector override (curation untouched).
                 if cent_override:

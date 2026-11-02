@@ -154,6 +154,43 @@ def test_spectra_3d_bins_off_the_grid():
         assert_close(f"spectra {lo}-{hi} 3D, coarse grid", vals[b], ref, 0.06)
 
 
+def test_yield_rapidity_window_3d():
+    """dN/dy of an identified species in a rapidity window on a per-species
+    3D grid: the eta window of the species' mass per pT cell.  A mixture
+    (charged) has no single mass: NaN.  (Until Nov 2026 every rapidity-window
+    yield was 0 on 3D containers.)"""
+    from analysis.qvector import MultiSpeciesGrid
+    from analysis.toy_mc import SPECIES_MASSES
+    fx = _fx()
+    grids = {}
+    for idx, pdg in ((0, 211), (2, 2212)):
+        evs = []
+        for ev in fx['events']:
+            m = ev['species_idx'] == idx
+            evs.append({k: (v[m] if isinstance(v, np.ndarray) and v.shape[:1] == m.shape else v)
+                        for k, v in ev.items()})
+        grids[pdg] = make_qgrid_data(evs, {'cfg': fx['cfg']}, n_eta=120, n_pt=60)
+    msg = MultiSpeciesGrid(grids)
+    for sp, idx, pdg in (('pi+ + pi-', 0, 211), ('p + pbar', 2, 2212)):
+        rec = record_yield(species=sp, cent_classes=('0-100%',))
+        rec['kinematic_range'] = {'y': {'min': -0.5, 'max': 0.5}, 'pT': {'min': 0.0, 'max': 100.0}}
+        vals, _ = evaluate(rec, grid=msg, cent_method='simple')
+        m = SPECIES_MASSES[idx]
+        n = 0
+        for ev in fx['events']:
+            s = ev['species_idx'] == idx
+            mt = np.sqrt(ev['pt'][s] ** 2 + m ** 2)
+            pz = ev['pt'][s] * np.sinh(ev['eta'][s])
+            y = np.arcsinh(pz / mt)
+            n += np.count_nonzero(np.abs(y) < 0.5)
+        ref = 2.0 * n / len(fx['events']) / 1.0          # x2: charge symmetry
+        assert_close(f"dN/dy |y| < 0.5 {sp} 3D", vals[0], ref, 0.03)
+    rec = record_yield(species='charged', cent_classes=('0-100%',))
+    rec['kinematic_range'] = {'y': {'min': -0.5, 'max': 0.5}, 'pT': {'min': 0.0, 'max': 100.0}}
+    vals, _ = evaluate(rec, grid=msg, cent_method='simple')
+    assert np.isnan(vals[0]), vals
+
+
 def test_spectra_dN_dpT_form():
     """value_type dN_dpT_dy: d2N/(dpT dy) of the bin, the counts over the
     bin width and the window (2 pi pT_c x the invariant yield)."""

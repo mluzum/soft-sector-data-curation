@@ -139,6 +139,11 @@ Fields that change dispatch:
   is refused (`analysis.species.species_known`) instead of computing zero.
   pi0 and K0_S come from isospin, (pi+ + pi-)/2 and (K+ + K-)/2, unless
   the container has an explicit 111 / 310 axis (`species._ISOSPIN`).
+  A species the container lacks (phi, Omega, Lambda on 2D JETSCAPE; any
+  identified species on a 3D grid without species grids) is skipped by
+  run_pipeline and the toy harness (`species.species_unavailable`):
+  until November 2026 it computed zero, or (3D) charged hadrons, and
+  'Lambda' read the proton axis x 2.
 - `particle_id.charge_average`: the measurement is (h+ + h-)/2 (or
   (pi+ + pi-)/2, ...); absolute quantities are half of the sum.
 - Ratio records link `numerator_record` / `denominator_record` (path, with
@@ -266,7 +271,9 @@ near c_4 = 0, ratios) the correction is unstable (zr96c2 dp0001, v2{4}
   uniform in eta, uniform in pT^2, i.e. constant invariant yield).
   `acceptance()` snaps to whole cells; it is fine for ratios like v_n but
   not for yields, which use the fractional overlap too (dN/deta windows
-  off the grid, e.g. shifted p+Pb windows).
+  off the grid, e.g. shifted p+Pb windows).  A rapidity window (dN/dy,
+  no eta) takes the species' mass per pT cell (`acceptance_rapidity`);
+  a mixture (charged) gives NaN.  Until November 2026 it gave 0 on 3D.
 - **Charge-scaled 3D grids**: normalized observables (flow, correlations,
   mean pT and its fluctuations) are computed on unit weights
   (`pipeline_dispatch._unit_weights`); only `ABSOLUTE_KEYS` keep the
@@ -309,7 +316,10 @@ near c_4 = 0, ratios) the correction is unstable (zr96c2 dp0001, v2{4}
   Sum w (charged v2(pT) ~1.6x too high, or ~1e30), and 3D used an
   identified-only reference (identified records gave 0) and kept the
   POI's own particles for a reference overlapping it (STAR TPC halves).
-  The integrated `vn2_sp` 3D prepare still ignores `flow_reference`.
+  The integrated `vn2_sp` uses the differential prepares with one bin
+  (the record's pT) and keeps its normalization; until November 2026 its
+  3D prepare took all pT and ignored the species and `flow_reference`,
+  and its 2D reference took the record's pT.
   A forward-detector reference (FCal, HF, BBC, EPD, RXN, Octagon) states
   `pT: {min: 0.0, max: 100.0}`; without it the reference takes the
   record's pT (until November 2026 ATLAS v_n(eta) at 4 < pT < 8 GeV had a
@@ -318,7 +328,10 @@ near c_4 = 0, ratios) the correction is unstable (zr96c2 dp0001, v2{4}
 - **Charge factors**:
   - 2D JETSCAPE containers hold positive charges only, so charged
     quantities take ×2, and self-correlation terms take ×CF², consistently;
-  - containers with `pdg_ids` resolve exact charges;
+  - containers with `pdg_ids`, and 3D species grids (`MultiSpeciesGrid`),
+    resolve exact charges; a positives-only set gives pbar from p by
+    charge symmetry (until November 2026 3D summed both charges and
+    then applied x2);
   - `QGridData.positives_only=False` for grids that already hold all
     charged hadrons.
 - **Centrality order**: the sort is by descending multiplicity. The first

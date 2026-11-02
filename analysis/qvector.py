@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
 import numpy as np
 
-from analysis.species import resolve_species, is_charged, CHARGED_PDGS
+from analysis.species import resolve_species, resolve_species_on_axis, is_charged, CHARGED_PDGS
 
 
 def _snap_searchsorted(edges, lo, hi, tol=1e-9):
@@ -505,22 +505,24 @@ class MultiSpeciesGrid:
             out.mass = None
             return out
 
-        # Specific identified species
-        if pdgs is None:
-            warnings.warn(f"Species '{species}' unknown; using combined")
-            out = base
-            out.charge_factor = 1.0
-            return out
-        available_pdgs = [p for p in pdgs if p in self.grids]
-        if not available_pdgs:
+        # Specific identified species: exact charges when the grids hold
+        # both (no charge-symmetry factor), else the charge-symmetry factor;
+        # isospin estimates for pi0 / K0_S (as on a 2D PDG axis).  (Until
+        # November 2026 both charges were summed AND scaled by the factor.)
+        # run_pipeline skips records whose species is not among the grids
+        # (species_unavailable); the combined fallback remains for callers.
+        pdg_list = list(self.grids)
+        idx, cf_axis, found = resolve_species_on_axis(species, pdg_list)
+        if not found or not idx:
             warnings.warn(f"Species '{species}' not in sim grids; using combined")
             out = base
             out.charge_factor = 1.0
             return out
-        out = self._sum_pdgs(available_pdgs)
-        out = _scale_grid(out, cf)
-        out.charge_factor = cf
-        out.mass = SPECIES_MASS.get(pdgs[0], None)
+        sel = [pdg_list[i] for i in idx]
+        out = self._sum_pdgs(sel)
+        out = _scale_grid(out, cf_axis)
+        out.charge_factor = cf_axis
+        out.mass = SPECIES_MASS.get(sel[0], None)
         return out
 
     def _sum_pdgs(self, pdgs):

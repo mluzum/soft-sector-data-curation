@@ -41,7 +41,8 @@ _SPECIES_TABLE = {
     'pbar':               ([2], [-2212], 1.0),
     'Sigma+ + Sigmabar-': ([3], [3212, -3212], 2.0),
     'Xi- + Xibar+':       ([4], [3312, -3312], 2.0),
-    'Lambda':             ([2], [3122], 2.0),
+    # (Until November 2026 'Lambda' read the proton axis x 2; Lambda comes
+    # from a container with a PDG axis or grid, _PDG_SETS.)
     'PHI < K- K+ >':      ([1], [321, -321], 2.0),
     'K*(892)0 < PI- K+ > + AK*(892)0 < PI+ K- >': ([1], [321, -321], 2.0),
 }
@@ -141,6 +142,12 @@ def resolve_species_on_axis(species_str, pdg_ids):
         return None, 1.0, False
 
     indices = [pos[p] for p in wanted if p in pos]
+    if not indices and not any(p < 0 for p in pdg_ids):
+        # A positives-only axis (no antiparticle anywhere): a negative
+        # species by charge symmetry from its conjugate (pbar from p).
+        conj = [-p for p in wanted if -p in pos]
+        if conj and len(conj) == len(wanted):
+            return [pos[p] for p in conj], 1.0, True
     if not indices:
         return [], 1.0, False
 
@@ -187,3 +194,28 @@ def species_known(species_str):
 def is_charged(species_str):
     """True for the 'charged' aggregate (explicit charged Q-vector OR sum)."""
     return str(species_str).lower() == 'charged'
+
+
+def species_unavailable(particle_id, container):
+    """Why ``container`` cannot provide the record's species, or None.
+
+    The record is then skipped (run_pipeline, the toy harness) instead of
+    computing zero (a species absent from the axis) or another species (a
+    3D grid without species falls back to its combined charged grid).
+    'charged' and no species are always available.
+    """
+    species = (particle_id or {}).get('species') if isinstance(particle_id, dict) else particle_id
+    if species is None or is_charged(species):
+        return None
+    grids = getattr(container, 'grids', None)
+    if grids is not None:                                  # MultiSpeciesGrid
+        idx, _cf, found = resolve_species_on_axis(species, list(grids))
+        return None if found and idx else f"species {species!r} not among the grids' PDGs {sorted(grids)}"
+    if hasattr(container, 'eta_edges'):                    # plain QGridData: one combined grid
+        return f"species {species!r}: the 3D container has no species grids"
+    pdg_ids = getattr(container, 'pdg_ids', None)
+    idx, _cf, found = resolve_species_on_axis(species, pdg_ids)
+    n = getattr(container, 'n_species', None)
+    if not found or not idx or (n is not None and max(idx) >= n):
+        return f"species {species!r} not on the container's species axis"
+    return None

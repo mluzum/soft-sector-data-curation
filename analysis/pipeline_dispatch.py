@@ -742,9 +742,18 @@ def prepare_yield_3d(grid, params):
     """
     sk = params.get('single_range', {})
     eta = sk.get('eta', (-1, 1))
-    if eta[0] is None or eta[1] is None:
-        return {'Q0': np.zeros(grid.n_events), 'delta_eta': 1.0}
     pt = sk.get('pT', (0.1, 10))
+    if eta[0] is None or eta[1] is None:
+        # A rapidity window (dN/dy of an identified species): per pT cell,
+        # the eta window of the species' mass (grid.mass, set by the species
+        # selection).  A mixture (charged hadrons) has no single mass: NaN.
+        # (Until November 2026 every rapidity-window yield was 0 on 3D.)
+        y = sk.get('y') or (None, None)
+        mass = getattr(grid, 'mass', None)
+        if y[0] is None or y[1] is None or mass is None:
+            return {'Q0': np.full(grid.n_events, np.nan), 'delta_eta': 1.0}
+        Q0 = grid.acceptance_rapidity(y[0], y[1], float(mass), pt[0], pt[1])[:, 0].real / grid.nsamples
+        return {'Q0': Q0, 'delta_eta': y[1] - y[0]}
     # Cells cut by the window count by overlap (a window off the grid --
     # e.g. a lab-frame window shifted into the container frame -- would
     # otherwise snap to whole cells while dividing by its own width).
@@ -1840,72 +1849,28 @@ def _q_window_2d(qv, eta_lo, eta_hi, pt_lo, pt_hi, species_idx,
     return q, n, dq0
 
 
-def prepare_vn2_sp_2d(qv, params):
-    """2D scalar-product / event-plane prepare.
-
-    The POI Q-vectors are taken in the record's acceptance.  If the record
-    declares a separate ``flow_reference`` (EPD, ZDC, or the two TPC
-    halves), its eta windows are used; otherwise the reference is the POI
-    sample itself (``same_window=True``).
-    """
-    sk = params.get('single_range', {})
-    eta = sk.get('eta', (-1, 1))
-    pt = sk.get('pT', (0.1, 10))
-    z = np.full((qv.n_events, qv.Qn.shape[2]), np.nan, complex)
-    if eta[0] is None or eta[1] is None:
-        return {'q_poi': z, 'q_ref': z, 'n_poi': np.full(qv.n_events, np.nan),
-                'n_ref': np.full(qv.n_events, np.nan), 'same_window': True}
-
-    species_idx, cf, found = _get_species_selection(
-        params.get('particle_id'), qv)
-    if not found:
-        return {'q_poi': z, 'q_ref': z, 'n_poi': np.full(qv.n_events, np.nan),
-                'n_ref': np.full(qv.n_events, np.nan), 'same_window': True}
-
-    q_poi, n_poi, dq_poi = _q_window_2d(
-        qv, eta[0], eta[1], pt[0], pt[1], species_idx, cf)
-    fr = params.get('flow_reference')
-    ref_eta = fr.get('eta') if isinstance(fr, dict) else None
-    if not ref_eta:
-        return {'q_poi': q_poi, 'q_ref': q_poi.copy(),
-                'n_poi': n_poi, 'n_ref': n_poi.copy(),
-                'dQ0_poi': dq_poi, 'dQ0_ref': dq_poi.copy(),
-                'same_window': True}
-
-    # Reference is a separate sample (EPD/ZDC or the two TPC halves).
-    ref_idx, ref_cf = charged_species_indices(getattr(qv, 'pdg_ids', None))
-    q_ref = np.zeros_like(q_poi)
-    n_ref = np.zeros_like(n_poi)
-    dq_ref = np.zeros_like(dq_poi)
-    for lo, hi in ref_eta:
-        q, n, dq = _q_window_2d(qv, lo, hi, pt[0], pt[1], ref_idx, ref_cf)
-        q_ref += q
-        n_ref += n
-        dq_ref += dq
-    return {'q_poi': q_poi, 'q_ref': q_ref, 'n_poi': n_poi,
-            'n_ref': n_ref, 'dQ0_poi': dq_poi, 'dQ0_ref': dq_ref,
-            'same_window': False}
-
-
-def prepare_vn2_sp_3d(grid, params):
-    """Density-weighted flow vectors for the scalar-product observable.
-
-    Works for both regular grids and pt_integrated species grids.
-    """
-    sk = params.get('single_range', {})
-    eta = sk.get('eta', (-1, 1))
-    z = np.full((grid.n_events, grid.Qn.shape[-1]), np.nan, complex)
-    if eta[0] is None or eta[1] is None:
-        return {'q_poi': z, 'q_ref': z, 'n_ref': np.full(grid.n_events,
-                                                          np.nan)}
-    q = grid.acceptance(eta[0], eta[1], 0.0, 1e9)   # unit weights already
-    # The reference defaults to the record's own acceptance, so every POI
-    # particle is also a reference particle: the diagonal is N_poi itself.
-    # (compute_vn2_sp's same_window=True already encodes this; passing
-    # dQ_cross too keeps the two paths consistent.)
-    return {'q_poi': q, 'q_ref': q.copy(),
-            'n_poi': q[:, 0].real, 'n_ref': q[:, 0].real,
-            'dQ_cross': q[:, 0].real}
+def _sp_integrated(prepare_diff):
+    """Integrated v_n{SP} prepare from the differential one with a single
+    bin, the record's pT window (_sp_bins): the POI is the record species
+    in the record acceptance, the reference charged hadrons in the
+    flow_reference windows with the reference pT (default: the record
+    window), the diagonal the particles in both.  compute_vn2_sp keeps its
+    normalization, <Q_poi Q_ref*> / (<M_poi> sqrt(<|Q_ref|^2> - Sum w^2)).
+    (Until November 2026 the 3D prepare took the record's eta window at all
+    pT, ignoring the pT window, species and flow_reference, and the 2D
+    reference took the record's pT.)"""
+    def prepare(container, params):
+        d = prepare_diff(container, params)
+        out = {'q_poi': d['q_poi'][:, :, 0], 'n_poi': d['n_poi'][:, 0],
+               'q_ref': d['q_ref'], 'n_ref': d['n_ref'], 'same_window': False}
+        if d.get('dQ0_ref') is not None:
+            out['dQ0_ref'] = d['dQ0_ref']
+        if d.get('dQ_cross') is not None:
+            out['dQ_cross'] = d['dQ_cross'][:, 0]
+        return out
+    prepare.__name__ = prepare_diff.__name__.replace('_diff', '')
+    prepare.__doc__ = _sp_integrated.__doc__
+    return prepare
 
 
 def _wrap_vn2_sp(data, w):
@@ -1915,6 +1880,7 @@ def _wrap_vn2_sp(data, w):
     return compute_vn2_sp(
         data['q_poi'], data['q_ref'], data['n_poi'], data['n_ref'], w,
         same_window=bool(data.get('same_window', True)),
+        dQ_cross=data.get('dQ_cross'),
         dQ0_poi=data.get('dQ0_poi'), dQ0_ref=data.get('dQ0_ref'))
 
 
@@ -2276,10 +2242,11 @@ PIPELINE_DISPATCH = {
     },
     "vn2_sp": {
         "core_fn": _wrap_vn2_sp,
-        "prepare_data_2d": prepare_vn2_sp_2d,
-        "prepare_data_3d": prepare_vn2_sp_3d,
+        "prepare_data_2d": _sp_integrated(prepare_vn2_sp_diff_2d),
+        "prepare_data_3d": _sp_integrated(prepare_vn2_sp_diff_3d),
         "n_obs_per_cent": 5,
         "description": "scalar-product v_n{SP} (JETSCAPE3D convention)",
+        "selects_species": True,
     },
     "pT_fluct": {
         "core_fn": _wrap_pT_fluct,

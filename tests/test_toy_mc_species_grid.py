@@ -155,41 +155,51 @@ def test_mean_pt_species():
 
 
 def test_scalar_product_recovers_flow():
-    """SP estimator recovers the injected v2 (0.05), same-window (tests
-    the overlap subtraction) and disjoint POI/reference (tests the App. M
-    <MA> normalization: the old <MB> form would be ~6x off here)."""
+    """SP estimator: same window (tests the overlap subtraction) recovers the
+    injected v2 (0.05); disjoint POI and reference (tests the App. M <MA>
+    normalization: the old <MB> form would be ~2x off here) equals the
+    particle-level estimator from the event lists, and the injected v2
+    within 3 block-jackknife errors.  (A disjoint reference of ~40
+    particles resolves v2 = 0.05 only to ~25% with 1200 events.)"""
+    from analysis.toy_mc import ref_Qn
     fx = _fx()
+    e = get_pipeline_entry('vn2_sp')
 
-    def run(poi_eta, ref_eta, same_window):
-        base = dict(
+    def rec(eta):
+        return dict(
             observable_type='flow_vn', method='scalar_product',
             harmonic=2, dimensionality='integrated', value_type='v2{SP}',
             hepdata_file='t.yaml', inspire_id='0', version=1,
-            kinematic_range=dict(eta=dict(min=poi_eta[0], max=poi_eta[1]),
+            kinematic_range=dict(eta=dict(min=eta[0], max=eta[1]),
                                  pT=dict(min=0.2, max=3.0)),
             centrality=dict(classes=['0-100%'],
                             eta=[{'min': -3.9, 'max': -3.0},
-                                 {'min': 3.0, 'max': 3.9}]),
-        )
-        e = get_pipeline_entry('vn2_sp')
-        d_poi = e['prepare_data_3d'](fx['combined'],
-                                     extract_measurement_params(base))
-        ref_rec = dict(base)
-        ref_rec['kinematic_range']['eta'] = {'min': ref_eta[0],
-                                             'max': ref_eta[1]}
-        d_ref = e['prepare_data_3d'](fx['combined'],
-                                     extract_measurement_params(ref_rec))
-        from analysis.observables_2d import compute_vn2_sp
-        w = np.ones(fx['combined'].n_events)
-        got = float(compute_vn2_sp(d_poi['q_poi'], d_ref['q_ref'],
-                                   d_poi['n_poi'], d_ref['n_ref'], w,
-                                   same_window=same_window)[1])
-        return got
+                                 {'min': 3.0, 'max': 3.9}]))
 
-    assert_close("v2{SP} same-window (injected 0.05)",
-                 run((-0.4, 0.4), (-0.4, 0.4), True), 0.05, 0.15)
-    assert_close("v2{SP} disjoint (injected 0.05)",
-                 run((-0.4, 0.4), (0.5, 1.0), False), 0.05, 0.25)
+    from analysis.observables_2d import compute_vn2_sp
+    w = np.ones(fx['combined'].n_events)
+    poi, ref = (-0.4, 0.4), (0.6, 1.2)              # on the grid's cell edges
+    d = e['prepare_data_3d'](fx['combined'], extract_measurement_params(rec(poi)))
+    same = float(compute_vn2_sp(d['q_poi'], d['q_ref'], d['n_poi'], d['n_ref'], w, same_window=True)[1])
+    assert_close("v2{SP} same-window (injected 0.05)", same, 0.05, 0.15)
+
+    rr = rec(poi)
+    rr['flow_reference'] = {'eta': [{'min': ref[0], 'max': ref[1]}], 'pT': {'min': 0.2, 'max': 3.0}}
+    d = e['prepare_data_3d'](fx['combined'], extract_measurement_params(rr))
+    got = float(e['core_fn'](d, w)[1])
+    qp, mp, _ = ref_Qn(fx['events'], 2, eta_range=poi, pt_range=(0.2, 3.0))
+    qr, mr, _ = ref_Qn(fx['events'], 2, eta_range=ref, pt_range=(0.2, 3.0))
+
+    def est(sel):
+        num = np.mean((qp[sel] * np.conj(qr[sel])).real)
+        return num / (np.mean(mp[sel]) * np.sqrt(np.mean(np.abs(qr[sel]) ** 2) - np.mean(mr[sel])))
+    want = est(np.ones(len(qp), bool))
+    assert_close("v2{SP} disjoint = particle-level estimator", got, want, 1e-6)
+    blocks = np.arange(len(qp)) % 20
+    jk = np.array([est(blocks != b) for b in range(20)])
+    err = np.sqrt(19 / 20 * np.sum((jk - jk.mean()) ** 2))
+    print(f"  disjoint v2{{SP}} = {got:.4f} +- {err:.4f} (injected 0.05)")
+    assert abs(got - 0.05) < 3 * err, (got, err)
 
 
 if __name__ == '__main__':

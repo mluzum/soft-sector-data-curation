@@ -672,6 +672,10 @@ def evaluate(record, qv=None, grid=None, with_jackknife=True,
     params = extract_measurement_params(record)
     key = resolve(record)['compute']
     params['_layout_key'] = key
+    from analysis.species import species_unavailable
+    why = species_unavailable(record.get('particle_id'), qv if qv is not None else grid)
+    if why:                      # run_pipeline skips such records
+        raise ValueError(why)
     entry = get_pipeline_entry(key)
     if entry is None:
         raise ValueError(f"no pipeline entry for {key}")
