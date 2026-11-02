@@ -17,8 +17,9 @@ From the paper (Secs. II-IV):
 Records: v3{TPC} and v3{FTPC} vs eta (Tables 5-10), vs pT (Tables 13-18,
 and 0-5% from Table 26), vs centrality (Table 19: the first and fourth
 columns; HEPData labels both "TPC", the fourth holds the FTPC values of
-Fig. 8), and v2{TPC}(pT) (Tables 23-25); event_plane computed with the
-scalar-product estimator; points with windows.  Columns in percent ("(%)",
+Fig. 8), and v2{TPC}(pT) (Tables 23-25); v{TPC} vs pT and centrality as
+two subevents (particles AB, scripts/eta_sub.py), vs eta with the mirrored
+reference, v{FTPC} with the scalar-product estimator; points with windows.  Columns in percent ("(%)",
 "*100") carry value_scale 100.  Not curated: the wide-Gaussian fit
 parameters and v3 (Tables 1-4, 11-12, 19 col. 2), the |Delta eta| > 1
 two-particle v3 (Table 19 col. 3: pairs, not two windows), v3^2 vs
@@ -30,8 +31,12 @@ Run from the repository root:  python scripts/curate_star_v3_auau200.py
 import collections
 import os
 import re
+import sys
 
 import yaml
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from scripts.eta_sub import as_eta_sub  # noqa: E402
 
 RAW = 'hepdata_raw/records/ins1210062/HEPData-ins1210062-v1-yaml'
 CITE = 'L. Adamczyk et al. (STAR), PRC 88, 014904 (2013), arXiv:1301.2187'
@@ -64,6 +69,8 @@ def record(hf, i, desc, h, n, ref, classes, kr, dim, what, rows=None):
          'flow_reference': dict(REFS[ref]),
          'notes': {'value': f'{CITE}. v{n}{{{ref}}} {what}; computed with the scalar-product estimator. Errors: '
                             'statistical (systematic uncertainties only in the paper).'}}
+    if ref == 'TPC':                  # eta-sub: two subevents unless eta-differential
+        as_eta_sub(d, 0.05, 1.0, EP_PT)
     if rows is not None:
         d['table_rows'] = rows
     if re.search(r'\(\s*%\s*\)|\*\s*100', h):          # 'v_3(TPC) (%)', 'v_3*100 (TPC)'
@@ -115,7 +122,8 @@ def main():
     with open(out, 'w') as fh:
         yaml.safe_dump_all(docs, fh, sort_keys=False, default_flow_style=False, width=120)
     print(f'{out}: {len(docs)} records;', dict(collections.Counter(
-        (d['harmonic'], d['dimensionality'], d['flow_reference']['detector']) for d in docs)))
+        (d['harmonic'], d['dimensionality'], (d.get('flow_reference') or {}).get('detector', 'eta-sub AB'))
+        for d in docs)))
 
 
 if __name__ == '__main__':

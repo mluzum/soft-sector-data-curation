@@ -48,9 +48,13 @@ Run from the repository root:  python scripts/curate_star_v2_auau200_2005.py
 import collections
 import os
 import re
+import sys
 
 import numpy as np
 import yaml
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from scripts.eta_sub import as_eta_sub  # noqa: E402
 
 RAW = 'hepdata_raw/records/ins660793/HEPData-ins660793-v1-yaml'
 CITE = 'J. Adams et al. (STAR), PRC 72, 014904 (2005), arXiv:nucl-ex/0409033'
@@ -208,6 +212,10 @@ def main():
                                f'({sub[hf].get("location", "")})', scale(dv, r),
                                r if r != list(range(len(classes_all))) else None))
     out = 'data/flow_vn/star_flow_vn_azimuthal_anisotropy_AuAu_200gev_660793.yaml'
+    for d in docs:                    # eta subevents: two subevents (scripts/eta_sub.py)
+        fr = d.get('flow_reference') or {}
+        if fr.get('mirror') and fr.get('eta') == [{'min': 0.0, 'max': 1.3}]:
+            as_eta_sub(d, 0.0, 1.3, fr['pT'])
     with open(out, 'w') as fh:
         yaml.safe_dump_all(docs, fh, sort_keys=False, default_flow_style=False, width=120)
     print(f'{out}: {len(docs)} records;',

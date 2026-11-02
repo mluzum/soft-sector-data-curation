@@ -17,9 +17,9 @@ From the paper:
 Records: v2(pT) of phi, Xi, Omega (Tables 1-8; value_scale = the
 correction factor, which undoes it: the measured, yield-weighted v2,
 without the Glauber factor), pi, p, K (Tables 9-13, 16-18) and Lambda
-(Table 20), species from the HEPData keywords; eta-subevent reference
-mirrored 0.05 < |eta| < 1, event-plane pT 0.15-2 GeV/c assumed (not
-stated); |y| < 1 computed in |eta| < 1; pT points.  Staged (--staged OUT):
+(Table 20), species from the HEPData keywords; eta-subevent plane as two
+subevents 0.05 < |eta| < 1 (scripts/eta_sub.py), event-plane pT 0.15-2
+GeV/c assumed (not stated); |y| < 1 computed in |eta| < 1; pT points.  Staged (--staged OUT):
 Tables 14, 15, 19 (no species in HEPData; likely K0_S and Lambda).  Not
 curated: v2(phi)/v2(p) (Tables 21-23).  The old records called phi, Xi,
 Omega 'charged' and pi+-, p+pbar 'pi+', 'pbar'.  HEPData labels Table 13
@@ -32,8 +32,12 @@ import argparse
 import collections
 import glob
 import os
+import sys
 
 import yaml
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from scripts.eta_sub import as_eta_sub  # noqa: E402
 
 RAW = glob.glob('hepdata_raw/records/ins1383879/HEPData-ins1383879-v*-yaml')[0]
 VERSION = int(RAW.rsplit('-v', 1)[1].split('-')[0])
@@ -99,6 +103,7 @@ def main():
                                'computed with the scalar-product estimator; pT points'
                                + (f'; the published Glauber event-bias correction ({corr}) undone by value_scale'
                                   if corr else '') + '. Errors: statistical and systematic.'}
+        as_eta_sub(d, 0.05, 1.0, REF['pT'])
         if sp is None:
             d['staging_reason'] = 'HEPData names no species for this table (likely K0_S or Lambda).'
             staged.append(d)

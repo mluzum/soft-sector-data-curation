@@ -46,21 +46,33 @@ harmonic: 2
 method: event_plane
 value_type: v2
 dimensionality: differential_pT
-flow_reference:
-  detector: TPC
-  mirror: true
-  eta:
-  - min: 0.05
-    max: 1.0
-  pT:
-    min: 0.15
-    max: 2.0
-  notes: eta-subevent plane from the opposite TPC half (|Delta eta| > 0.1); event-plane pT 0.15-2 GeV/c assumed (not stated).
 value_scale: 1.002
 notes:
   value: 'L. Adamczyk et al. (STAR), PRL 116, 062301 (2016), arXiv:1507.05247. v2(pT) of phi, 0-30%, |y| < 1 (computed in
-    |eta| < 1), eta-subevent plane; computed with the scalar-product estimator; pT points; the published Glauber event-bias
-    correction (1.002) undone by value_scale. Errors: statistical and systematic.'
+    |eta| < 1), eta-subevent plane; computed as the two-subevent v_n (the particle in one half, the charged reference in the
+    other); pT points; the published Glauber event-bias correction (1.002) undone by value_scale. Errors: statistical and
+    systematic.'
+  subevents: 'eta-sub event plane: the particle in one subevent, the plane of the other (0.05 < |eta| < 1.0; reference pT
+    0.15-2.0 GeV/c).'
+particles: AB
+eta_gap: 0.1
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -1.0
+        max: -0.05
+      pT:
+        min: 0.15
+        max: 2.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.05
+        max: 1.0
+      pT:
+        min: 0.15
+        max: 2.0
 ---
 observable_type: flow_vn
 inspire_id: '1383879'
@@ -110,21 +122,33 @@ harmonic: 2
 method: event_plane
 value_type: v2
 dimensionality: differential_pT
-flow_reference:
-  detector: TPC
-  mirror: true
-  eta:
-  - min: 0.05
-    max: 1.0
-  pT:
-    min: 0.15
-    max: 2.0
-  notes: eta-subevent plane from the opposite TPC half (|Delta eta| > 0.1); event-plane pT 0.15-2 GeV/c assumed (not stated).
 value_scale: 1.053
 notes:
   value: 'L. Adamczyk et al. (STAR), PRL 116, 062301 (2016), arXiv:1507.05247. v2(pT) of phi, 30-80%, |y| < 1 (computed in
-    |eta| < 1), eta-subevent plane; computed with the scalar-product estimator; pT points; the published Glauber event-bias
-    correction (1.053) undone by value_scale. Errors: statistical and systematic.'
+    |eta| < 1), eta-subevent plane; computed as the two-subevent v_n (the particle in one half, the charged reference in the
+    other); pT points; the published Glauber event-bias correction (1.053) undone by value_scale. Errors: statistical and
+    systematic.'
+  subevents: 'eta-sub event plane: the particle in one subevent, the plane of the other (0.05 < |eta| < 1.0; reference pT
+    0.15-2.0 GeV/c).'
+particles: AB
+eta_gap: 0.1
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -1.0
+        max: -0.05
+      pT:
+        min: 0.15
+        max: 2.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.05
+        max: 1.0
+      pT:
+        min: 0.15
+        max: 2.0
 ---
 observable_type: flow_vn
 inspire_id: '1383879'
@@ -175,21 +199,33 @@ harmonic: 2
 method: event_plane
 value_type: v2
 dimensionality: differential_pT
-flow_reference:
-  detector: TPC
-  mirror: true
-  eta:
-  - min: 0.05
-    max: 1.0
-  pT:
-    min: 0.15
-    max: 2.0
-  notes: eta-subevent plane from the opposite TPC half (|Delta eta| > 0.1); event-plane pT 0.15-2 GeV/c assumed (not stated).
 value_scale: 1.019
 notes:
   value: 'L. Adamczyk et al. (STAR), PRL 116, 062301 (2016), arXiv:1507.05247. v2(pT) of Xi- + Xibar+, 0-30%, |y| < 1 (computed
-    in |eta| < 1), eta-subevent plane; computed with the scalar-product estimator; pT points; the published Glauber event-bias
-    correction (1.019) undone by value_scale. Errors: statistical and systematic.'
+    in |eta| < 1), eta-subevent plane; computed as the two-subevent v_n (the particle in one half, the charged reference in
+    the other); pT points; the published Glauber event-bias correction (1.019) undone by value_scale. Errors: statistical
+    and systematic.'
+  subevents: 'eta-sub event plane: the particle in one subevent, the plane of the other (0.05 < |eta| < 1.0; reference pT
+    0.15-2.0 GeV/c).'
+particles: AB
+eta_gap: 0.1
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -1.0
+        max: -0.05
+      pT:
+        min: 0.15
+        max: 2.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.05
+        max: 1.0
+      pT:
+        min: 0.15
+        max: 2.0
 ---
 observable_type: flow_vn
 inspire_id: '1383879'
@@ -239,21 +275,33 @@ harmonic: 2
 method: event_plane
 value_type: v2
 dimensionality: differential_pT
-flow_reference:
-  detector: TPC
-  mirror: true
-  eta:
-  - min: 0.05
-    max: 1.0
-  pT:
-    min: 0.15
-    max: 2.0
-  notes: eta-subevent plane from the opposite TPC half (|Delta eta| > 0.1); event-plane pT 0.15-2 GeV/c assumed (not stated).
 value_scale: 1.054
 notes:
   value: 'L. Adamczyk et al. (STAR), PRL 116, 062301 (2016), arXiv:1507.05247. v2(pT) of Xi- + Xibar+, 30-80%, |y| < 1 (computed
-    in |eta| < 1), eta-subevent plane; computed with the scalar-product estimator; pT points; the published Glauber event-bias
-    correction (1.054) undone by value_scale. Errors: statistical and systematic.'
+    in |eta| < 1), eta-subevent plane; computed as the two-subevent v_n (the particle in one half, the charged reference in
+    the other); pT points; the published Glauber event-bias correction (1.054) undone by value_scale. Errors: statistical
+    and systematic.'
+  subevents: 'eta-sub event plane: the particle in one subevent, the plane of the other (0.05 < |eta| < 1.0; reference pT
+    0.15-2.0 GeV/c).'
+particles: AB
+eta_gap: 0.1
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -1.0
+        max: -0.05
+      pT:
+        min: 0.15
+        max: 2.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.05
+        max: 1.0
+      pT:
+        min: 0.15
+        max: 2.0
 ---
 observable_type: flow_vn
 inspire_id: '1383879'
@@ -298,21 +346,33 @@ harmonic: 2
 method: event_plane
 value_type: v2
 dimensionality: differential_pT
-flow_reference:
-  detector: TPC
-  mirror: true
-  eta:
-  - min: 0.05
-    max: 1.0
-  pT:
-    min: 0.15
-    max: 2.0
-  notes: eta-subevent plane from the opposite TPC half (|Delta eta| > 0.1); event-plane pT 0.15-2 GeV/c assumed (not stated).
 value_scale: 1.068
 notes:
   value: 'L. Adamczyk et al. (STAR), PRL 116, 062301 (2016), arXiv:1507.05247. v2(pT) of Omega- + Omegabar+, 0-30%, |y| <
-    1 (computed in |eta| < 1), eta-subevent plane; computed with the scalar-product estimator; pT points; the published Glauber
-    event-bias correction (1.068) undone by value_scale. Errors: statistical and systematic.'
+    1 (computed in |eta| < 1), eta-subevent plane; computed as the two-subevent v_n (the particle in one half, the charged
+    reference in the other); pT points; the published Glauber event-bias correction (1.068) undone by value_scale. Errors:
+    statistical and systematic.'
+  subevents: 'eta-sub event plane: the particle in one subevent, the plane of the other (0.05 < |eta| < 1.0; reference pT
+    0.15-2.0 GeV/c).'
+particles: AB
+eta_gap: 0.1
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -1.0
+        max: -0.05
+      pT:
+        min: 0.15
+        max: 2.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.05
+        max: 1.0
+      pT:
+        min: 0.15
+        max: 2.0
 ---
 observable_type: flow_vn
 inspire_id: '1383879'
@@ -357,21 +417,33 @@ harmonic: 2
 method: event_plane
 value_type: v2
 dimensionality: differential_pT
-flow_reference:
-  detector: TPC
-  mirror: true
-  eta:
-  - min: 0.05
-    max: 1.0
-  pT:
-    min: 0.15
-    max: 2.0
-  notes: eta-subevent plane from the opposite TPC half (|Delta eta| > 0.1); event-plane pT 0.15-2 GeV/c assumed (not stated).
 value_scale: 1.067
 notes:
   value: 'L. Adamczyk et al. (STAR), PRL 116, 062301 (2016), arXiv:1507.05247. v2(pT) of Omega- + Omegabar+, 30-80%, |y| <
-    1 (computed in |eta| < 1), eta-subevent plane; computed with the scalar-product estimator; pT points; the published Glauber
-    event-bias correction (1.067) undone by value_scale. Errors: statistical and systematic.'
+    1 (computed in |eta| < 1), eta-subevent plane; computed as the two-subevent v_n (the particle in one half, the charged
+    reference in the other); pT points; the published Glauber event-bias correction (1.067) undone by value_scale. Errors:
+    statistical and systematic.'
+  subevents: 'eta-sub event plane: the particle in one subevent, the plane of the other (0.05 < |eta| < 1.0; reference pT
+    0.15-2.0 GeV/c).'
+particles: AB
+eta_gap: 0.1
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -1.0
+        max: -0.05
+      pT:
+        min: 0.15
+        max: 2.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.05
+        max: 1.0
+      pT:
+        min: 0.15
+        max: 2.0
 ---
 observable_type: flow_vn
 inspire_id: '1383879'
@@ -421,21 +493,33 @@ harmonic: 2
 method: event_plane
 value_type: v2
 dimensionality: differential_pT
-flow_reference:
-  detector: TPC
-  mirror: true
-  eta:
-  - min: 0.05
-    max: 1.0
-  pT:
-    min: 0.15
-    max: 2.0
-  notes: eta-subevent plane from the opposite TPC half (|Delta eta| > 0.1); event-plane pT 0.15-2 GeV/c assumed (not stated).
 value_scale: 1.028
 notes:
   value: 'L. Adamczyk et al. (STAR), PRL 116, 062301 (2016), arXiv:1507.05247. v2(pT) of phi, 0-80%, |y| < 1 (computed in
-    |eta| < 1), eta-subevent plane; computed with the scalar-product estimator; pT points; the published Glauber event-bias
-    correction (1.028) undone by value_scale. Errors: statistical and systematic.'
+    |eta| < 1), eta-subevent plane; computed as the two-subevent v_n (the particle in one half, the charged reference in the
+    other); pT points; the published Glauber event-bias correction (1.028) undone by value_scale. Errors: statistical and
+    systematic.'
+  subevents: 'eta-sub event plane: the particle in one subevent, the plane of the other (0.05 < |eta| < 1.0; reference pT
+    0.15-2.0 GeV/c).'
+particles: AB
+eta_gap: 0.1
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -1.0
+        max: -0.05
+      pT:
+        min: 0.15
+        max: 2.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.05
+        max: 1.0
+      pT:
+        min: 0.15
+        max: 2.0
 ---
 observable_type: flow_vn
 inspire_id: '1383879'
@@ -481,21 +565,33 @@ harmonic: 2
 method: event_plane
 value_type: v2
 dimensionality: differential_pT
-flow_reference:
-  detector: TPC
-  mirror: true
-  eta:
-  - min: 0.05
-    max: 1.0
-  pT:
-    min: 0.15
-    max: 2.0
-  notes: eta-subevent plane from the opposite TPC half (|Delta eta| > 0.1); event-plane pT 0.15-2 GeV/c assumed (not stated).
 value_scale: 1.177
 notes:
   value: 'L. Adamczyk et al. (STAR), PRL 116, 062301 (2016), arXiv:1507.05247. v2(pT) of Omega- + Omegabar+, 0-80%, |y| <
-    1 (computed in |eta| < 1), eta-subevent plane; computed with the scalar-product estimator; pT points; the published Glauber
-    event-bias correction (1.177) undone by value_scale. Errors: statistical and systematic.'
+    1 (computed in |eta| < 1), eta-subevent plane; computed as the two-subevent v_n (the particle in one half, the charged
+    reference in the other); pT points; the published Glauber event-bias correction (1.177) undone by value_scale. Errors:
+    statistical and systematic.'
+  subevents: 'eta-sub event plane: the particle in one subevent, the plane of the other (0.05 < |eta| < 1.0; reference pT
+    0.15-2.0 GeV/c).'
+particles: AB
+eta_gap: 0.1
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -1.0
+        max: -0.05
+      pT:
+        min: 0.15
+        max: 2.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.05
+        max: 1.0
+      pT:
+        min: 0.15
+        max: 2.0
 ---
 observable_type: flow_vn
 inspire_id: '1383879'
@@ -546,19 +642,31 @@ harmonic: 2
 method: event_plane
 value_type: v2
 dimensionality: differential_pT
-flow_reference:
-  detector: TPC
-  mirror: true
-  eta:
-  - min: 0.05
-    max: 1.0
-  pT:
-    min: 0.15
-    max: 2.0
-  notes: eta-subevent plane from the opposite TPC half (|Delta eta| > 0.1); event-plane pT 0.15-2 GeV/c assumed (not stated).
 notes:
   value: 'L. Adamczyk et al. (STAR), PRL 116, 062301 (2016), arXiv:1507.05247. v2(pT) of pi+ + pi-, 0-80%, |y| < 1 (computed
-    in |eta| < 1), eta-subevent plane; computed with the scalar-product estimator; pT points. Errors: statistical and systematic.'
+    in |eta| < 1), eta-subevent plane; computed as the two-subevent v_n (the particle in one half, the charged reference in
+    the other); pT points. Errors: statistical and systematic.'
+  subevents: 'eta-sub event plane: the particle in one subevent, the plane of the other (0.05 < |eta| < 1.0; reference pT
+    0.15-2.0 GeV/c).'
+particles: AB
+eta_gap: 0.1
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -1.0
+        max: -0.05
+      pT:
+        min: 0.15
+        max: 2.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.05
+        max: 1.0
+      pT:
+        min: 0.15
+        max: 2.0
 ---
 observable_type: flow_vn
 inspire_id: '1383879'
@@ -609,19 +717,31 @@ harmonic: 2
 method: event_plane
 value_type: v2
 dimensionality: differential_pT
-flow_reference:
-  detector: TPC
-  mirror: true
-  eta:
-  - min: 0.05
-    max: 1.0
-  pT:
-    min: 0.15
-    max: 2.0
-  notes: eta-subevent plane from the opposite TPC half (|Delta eta| > 0.1); event-plane pT 0.15-2 GeV/c assumed (not stated).
 notes:
   value: 'L. Adamczyk et al. (STAR), PRL 116, 062301 (2016), arXiv:1507.05247. v2(pT) of p + pbar, 0-80%, |y| < 1 (computed
-    in |eta| < 1), eta-subevent plane; computed with the scalar-product estimator; pT points. Errors: statistical and systematic.'
+    in |eta| < 1), eta-subevent plane; computed as the two-subevent v_n (the particle in one half, the charged reference in
+    the other); pT points. Errors: statistical and systematic.'
+  subevents: 'eta-sub event plane: the particle in one subevent, the plane of the other (0.05 < |eta| < 1.0; reference pT
+    0.15-2.0 GeV/c).'
+particles: AB
+eta_gap: 0.1
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -1.0
+        max: -0.05
+      pT:
+        min: 0.15
+        max: 2.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.05
+        max: 1.0
+      pT:
+        min: 0.15
+        max: 2.0
 ---
 observable_type: flow_vn
 inspire_id: '1383879'
@@ -672,19 +792,31 @@ harmonic: 2
 method: event_plane
 value_type: v2
 dimensionality: differential_pT
-flow_reference:
-  detector: TPC
-  mirror: true
-  eta:
-  - min: 0.05
-    max: 1.0
-  pT:
-    min: 0.15
-    max: 2.0
-  notes: eta-subevent plane from the opposite TPC half (|Delta eta| > 0.1); event-plane pT 0.15-2 GeV/c assumed (not stated).
 notes:
   value: 'L. Adamczyk et al. (STAR), PRL 116, 062301 (2016), arXiv:1507.05247. v2(pT) of pi+ + pi-, 0-30%, |y| < 1 (computed
-    in |eta| < 1), eta-subevent plane; computed with the scalar-product estimator; pT points. Errors: statistical and systematic.'
+    in |eta| < 1), eta-subevent plane; computed as the two-subevent v_n (the particle in one half, the charged reference in
+    the other); pT points. Errors: statistical and systematic.'
+  subevents: 'eta-sub event plane: the particle in one subevent, the plane of the other (0.05 < |eta| < 1.0; reference pT
+    0.15-2.0 GeV/c).'
+particles: AB
+eta_gap: 0.1
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -1.0
+        max: -0.05
+      pT:
+        min: 0.15
+        max: 2.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.05
+        max: 1.0
+      pT:
+        min: 0.15
+        max: 2.0
 ---
 observable_type: flow_vn
 inspire_id: '1383879'
@@ -735,19 +867,31 @@ harmonic: 2
 method: event_plane
 value_type: v2
 dimensionality: differential_pT
-flow_reference:
-  detector: TPC
-  mirror: true
-  eta:
-  - min: 0.05
-    max: 1.0
-  pT:
-    min: 0.15
-    max: 2.0
-  notes: eta-subevent plane from the opposite TPC half (|Delta eta| > 0.1); event-plane pT 0.15-2 GeV/c assumed (not stated).
 notes:
   value: 'L. Adamczyk et al. (STAR), PRL 116, 062301 (2016), arXiv:1507.05247. v2(pT) of p + pbar, 0-30%, |y| < 1 (computed
-    in |eta| < 1), eta-subevent plane; computed with the scalar-product estimator; pT points. Errors: statistical and systematic.'
+    in |eta| < 1), eta-subevent plane; computed as the two-subevent v_n (the particle in one half, the charged reference in
+    the other); pT points. Errors: statistical and systematic.'
+  subevents: 'eta-sub event plane: the particle in one subevent, the plane of the other (0.05 < |eta| < 1.0; reference pT
+    0.15-2.0 GeV/c).'
+particles: AB
+eta_gap: 0.1
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -1.0
+        max: -0.05
+      pT:
+        min: 0.15
+        max: 2.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.05
+        max: 1.0
+      pT:
+        min: 0.15
+        max: 2.0
 ---
 observable_type: flow_vn
 inspire_id: '1383879'
@@ -798,22 +942,34 @@ harmonic: 2
 method: event_plane
 value_type: v2
 dimensionality: differential_pT
-flow_reference:
-  detector: TPC
-  mirror: true
-  eta:
-  - min: 0.05
-    max: 1.0
-  pT:
-    min: 0.15
-    max: 2.0
-  notes: eta-subevent plane from the opposite TPC half (|Delta eta| > 0.1); event-plane pT 0.15-2 GeV/c assumed (not stated).
 hepdata_corrections:
   centrality: HEPData labels Table 13 (K) 30.0-80.0; its v2 (0.007, 0.021, 0.040 vs 0.022, 0.046, 0.076 in Table 18, K 30-80%)
     and its place after the 0-30% pi and p tables make it 0-30%
 notes:
   value: 'L. Adamczyk et al. (STAR), PRL 116, 062301 (2016), arXiv:1507.05247. v2(pT) of K+ + K-, 0-30%, |y| < 1 (computed
-    in |eta| < 1), eta-subevent plane; computed with the scalar-product estimator; pT points. Errors: statistical and systematic.'
+    in |eta| < 1), eta-subevent plane; computed as the two-subevent v_n (the particle in one half, the charged reference in
+    the other); pT points. Errors: statistical and systematic.'
+  subevents: 'eta-sub event plane: the particle in one subevent, the plane of the other (0.05 < |eta| < 1.0; reference pT
+    0.15-2.0 GeV/c).'
+particles: AB
+eta_gap: 0.1
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -1.0
+        max: -0.05
+      pT:
+        min: 0.15
+        max: 2.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.05
+        max: 1.0
+      pT:
+        min: 0.15
+        max: 2.0
 ---
 observable_type: flow_vn
 inspire_id: '1383879'
@@ -864,19 +1020,31 @@ harmonic: 2
 method: event_plane
 value_type: v2
 dimensionality: differential_pT
-flow_reference:
-  detector: TPC
-  mirror: true
-  eta:
-  - min: 0.05
-    max: 1.0
-  pT:
-    min: 0.15
-    max: 2.0
-  notes: eta-subevent plane from the opposite TPC half (|Delta eta| > 0.1); event-plane pT 0.15-2 GeV/c assumed (not stated).
 notes:
   value: 'L. Adamczyk et al. (STAR), PRL 116, 062301 (2016), arXiv:1507.05247. v2(pT) of pi+ + pi-, 30-80%, |y| < 1 (computed
-    in |eta| < 1), eta-subevent plane; computed with the scalar-product estimator; pT points. Errors: statistical and systematic.'
+    in |eta| < 1), eta-subevent plane; computed as the two-subevent v_n (the particle in one half, the charged reference in
+    the other); pT points. Errors: statistical and systematic.'
+  subevents: 'eta-sub event plane: the particle in one subevent, the plane of the other (0.05 < |eta| < 1.0; reference pT
+    0.15-2.0 GeV/c).'
+particles: AB
+eta_gap: 0.1
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -1.0
+        max: -0.05
+      pT:
+        min: 0.15
+        max: 2.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.05
+        max: 1.0
+      pT:
+        min: 0.15
+        max: 2.0
 ---
 observable_type: flow_vn
 inspire_id: '1383879'
@@ -927,19 +1095,31 @@ harmonic: 2
 method: event_plane
 value_type: v2
 dimensionality: differential_pT
-flow_reference:
-  detector: TPC
-  mirror: true
-  eta:
-  - min: 0.05
-    max: 1.0
-  pT:
-    min: 0.15
-    max: 2.0
-  notes: eta-subevent plane from the opposite TPC half (|Delta eta| > 0.1); event-plane pT 0.15-2 GeV/c assumed (not stated).
 notes:
   value: 'L. Adamczyk et al. (STAR), PRL 116, 062301 (2016), arXiv:1507.05247. v2(pT) of p + pbar, 30-80%, |y| < 1 (computed
-    in |eta| < 1), eta-subevent plane; computed with the scalar-product estimator; pT points. Errors: statistical and systematic.'
+    in |eta| < 1), eta-subevent plane; computed as the two-subevent v_n (the particle in one half, the charged reference in
+    the other); pT points. Errors: statistical and systematic.'
+  subevents: 'eta-sub event plane: the particle in one subevent, the plane of the other (0.05 < |eta| < 1.0; reference pT
+    0.15-2.0 GeV/c).'
+particles: AB
+eta_gap: 0.1
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -1.0
+        max: -0.05
+      pT:
+        min: 0.15
+        max: 2.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.05
+        max: 1.0
+      pT:
+        min: 0.15
+        max: 2.0
 ---
 observable_type: flow_vn
 inspire_id: '1383879'
@@ -990,19 +1170,31 @@ harmonic: 2
 method: event_plane
 value_type: v2
 dimensionality: differential_pT
-flow_reference:
-  detector: TPC
-  mirror: true
-  eta:
-  - min: 0.05
-    max: 1.0
-  pT:
-    min: 0.15
-    max: 2.0
-  notes: eta-subevent plane from the opposite TPC half (|Delta eta| > 0.1); event-plane pT 0.15-2 GeV/c assumed (not stated).
 notes:
   value: 'L. Adamczyk et al. (STAR), PRL 116, 062301 (2016), arXiv:1507.05247. v2(pT) of K+ + K-, 30-80%, |y| < 1 (computed
-    in |eta| < 1), eta-subevent plane; computed with the scalar-product estimator; pT points. Errors: statistical and systematic.'
+    in |eta| < 1), eta-subevent plane; computed as the two-subevent v_n (the particle in one half, the charged reference in
+    the other); pT points. Errors: statistical and systematic.'
+  subevents: 'eta-sub event plane: the particle in one subevent, the plane of the other (0.05 < |eta| < 1.0; reference pT
+    0.15-2.0 GeV/c).'
+particles: AB
+eta_gap: 0.1
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -1.0
+        max: -0.05
+      pT:
+        min: 0.15
+        max: 2.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.05
+        max: 1.0
+      pT:
+        min: 0.15
+        max: 2.0
 ---
 observable_type: flow_vn
 inspire_id: '1383879'
@@ -1060,17 +1252,28 @@ harmonic: 2
 method: event_plane
 value_type: v2
 dimensionality: differential_pT
-flow_reference:
-  detector: TPC
-  mirror: true
-  eta:
-  - min: 0.05
-    max: 1.0
-  pT:
-    min: 0.15
-    max: 2.0
-  notes: eta-subevent plane from the opposite TPC half (|Delta eta| > 0.1); event-plane pT 0.15-2 GeV/c assumed (not stated).
 notes:
   value: 'L. Adamczyk et al. (STAR), PRL 116, 062301 (2016), arXiv:1507.05247. v2(pT) of Lambda + Lambdabar, 30-80%, |y| <
-    1 (computed in |eta| < 1), eta-subevent plane; computed with the scalar-product estimator; pT points. Errors: statistical
-    and systematic.'
+    1 (computed in |eta| < 1), eta-subevent plane; computed as the two-subevent v_n (the particle in one half, the charged
+    reference in the other); pT points. Errors: statistical and systematic.'
+  subevents: 'eta-sub event plane: the particle in one subevent, the plane of the other (0.05 < |eta| < 1.0; reference pT
+    0.15-2.0 GeV/c).'
+particles: AB
+eta_gap: 0.1
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -1.0
+        max: -0.05
+      pT:
+        min: 0.15
+        max: 2.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.05
+        max: 1.0
+      pT:
+        min: 0.15
+        max: 2.0

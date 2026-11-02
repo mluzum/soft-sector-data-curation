@@ -19,10 +19,10 @@ From the paper:
 
 Records: one per series of Figs. 1 (minimum bias) and 2 (centrality), a
 series per species and identification method; pT points (0.1 GeV/c
-windows).  method event_plane with the TPC eta-sub reference (both halves
-0.15 < |eta| < 1 here; the opposite one per particle in the paper), pT of
+windows).  method event_plane with the TPC eta-sub plane as two subevents
+(0.15 < |eta| < 1, scripts/eta_sub.py), pT of
 the plane tracks 0.15-2 GeV/c assumed (STAR's standard of the time);
-computed with the scalar-product estimator.  Not curated: v4 (relative to
+computed as the two-subevent v_n.  Not curated: v4 (relative to
 the second-harmonic plane), v4/v2^2, the anti-baryon/baryon ratios, v2/n_q
 and v2/(n_q eps) scalings, data/fit and the 200/62.4 ratios.
 
@@ -31,8 +31,12 @@ Run from the repository root:  python scripts/curate_star_pid_v2_62gev.py
 import collections
 import os
 import re
+import sys
 
 import yaml
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from scripts.eta_sub import as_eta_sub  # noqa: E402
 
 RAW = 'hepdata_raw/records/ins741917/HEPData-ins741917-v1-yaml'
 CITE = 'B. I. Abelev et al. (STAR), PRC 75, 054906 (2007), arXiv:nucl-ex/0701010'
@@ -94,6 +98,8 @@ def main():
                                 'estimates in separate tables).')},
         })
     out = 'data/flow_vn/star_flow_vn_mass_quark-number_and_sqrt_s_62gev.yaml'
+    for d in docs:                    # eta-sub event plane: two subevents (scripts/eta_sub.py)
+        as_eta_sub(d, 0.15, 1.0, d['flow_reference']['pT'])
     with open(out, 'w') as fh:
         yaml.safe_dump_all(docs, fh, sort_keys=False, default_flow_style=False, width=120)
     print(f'{out}: {len(docs)} records;', dict(collections.Counter((d['centrality']['classes'][0], d['particle_id']['species']) for d in docs)))

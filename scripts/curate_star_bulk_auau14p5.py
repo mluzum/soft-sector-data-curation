@@ -35,8 +35,12 @@ import argparse
 import collections
 import glob
 import os
+import sys
 
 import yaml
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from scripts.eta_sub import as_eta_sub  # noqa: E402
 
 RAW = glob.glob('hepdata_raw/records/ins1748776/HEPData-ins1748776-v*-yaml')[0]
 VERSION = int(RAW.rsplit('-v', 1)[1].split('-')[0])
@@ -130,7 +134,7 @@ def main():
                   'flow_reference': dict(EP_REF),
                   'notes': note(f'v2(pT) of charged hadrons, |eta| < 1, {cls}, eta-subevent plane; computed with '
                                 'the scalar-product estimator; pT points')})
-        docs['flow'].append(d)
+        docs['flow'].append(as_eta_sub(d, 0.05, 1.0, EP_REF['pT']))
     for k in 'abc':                                                   # v2{2}, v2{4}, v2{BBC} (pT)
         hf = f'figure15{k}.yaml'
         t = load(hf)

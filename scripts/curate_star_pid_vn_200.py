@@ -20,8 +20,8 @@ Records: every v_n(pT) column of Figs. 1-4 (particles and antiparticles
 separately, and summed, 0-80%; per class for Figs. 3-4) and the
 integrated v_n of pi, K, p vs centrality (Fig. 8; classes from the
 tabulated centres; 0.2 < pT < 2 GeV/c).  event_plane with the TPC eta-sub
-reference (both hemispheres here), computed with the scalar-product
-estimator; |y| < 1 computed in |eta| < 1 (rapidity windows are implemented
+reference as two subevents (scripts/eta_sub.py), computed as the two-subevent
+v_n; |y| < 1 computed in |eta| < 1 (rapidity windows are implemented
 for spectra only).  pT points (0.1 GeV/c windows).  The particle -
 antiparticle differences (Delta v_n) are not curated.
 
@@ -30,8 +30,12 @@ Run from the repository root:  python scripts/curate_star_pid_vn_200.py
 import collections
 import os
 import re
+import sys
 
 import yaml
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from scripts.eta_sub import as_eta_sub  # noqa: E402
 
 RAW = 'hepdata_raw/records/ins2051708/HEPData-ins2051708-v2-yaml'
 CITE = 'M. S. Abdallah et al. (STAR), PRC 105, 064911 (2022), arXiv:2203.07204'
@@ -99,6 +103,8 @@ def main():
             if dim == 'integrated' and rows != list(range(len(iv['values']))):
                 docs[-1]['table_rows'] = rows
     out = 'data/flow_vn/star_flow_vn_centrality_and_transverse_momentum_dependence_200gev.yaml'
+    for d in docs:                    # eta-sub event plane: two subevents (scripts/eta_sub.py)
+        as_eta_sub(d, 0.05, 1.0, d['flow_reference']['pT'])
     with open(out, 'w') as fh:
         yaml.safe_dump_all(docs, fh, sort_keys=False, default_flow_style=False, width=120)
     print(f'{out}: {len(docs)} records;', dict(collections.Counter((d['harmonic'], d['dimensionality']) for d in docs)))

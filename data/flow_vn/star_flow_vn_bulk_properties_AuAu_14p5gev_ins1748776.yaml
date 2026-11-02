@@ -46,20 +46,31 @@ harmonic: 2
 method: event_plane
 value_type: v2(EtaSub)
 dimensionality: differential_pT
-flow_reference:
-  detector: TPC
-  mirror: true
-  eta:
-  - min: 0.05
-    max: 1.0
-  pT:
-    min: 0.2
-    max: 2.0
-  notes: eta-subevent plane from the opposite TPC subevent (gap 0.1); event-plane pT 0.2-2 GeV/c assumed (not stated; STAR
-    BES v2, PRC 86, 054908).
 notes:
   value: 'J. Adam et al. (STAR), PRC 101, 024905 (2020), arXiv:1908.03585. v2(pT) of charged hadrons, |eta| < 1, 0-5%, eta-subevent
-    plane; computed with the scalar-product estimator; pT points. Errors: statistical and systematic.'
+    plane; computed as the two-subevent v_n (the particle in one half, the charged reference in the other); pT points. Errors:
+    statistical and systematic.'
+  subevents: 'eta-sub event plane: the particle in one subevent, the plane of the other (0.05 < |eta| < 1.0; reference pT
+    0.2-2.0 GeV/c).'
+particles: AB
+eta_gap: 0.1
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -1.0
+        max: -0.05
+      pT:
+        min: 0.2
+        max: 2.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.05
+        max: 1.0
+      pT:
+        min: 0.2
+        max: 2.0
 ---
 observable_type: flow_vn
 inspire_id: '1748776'
@@ -109,20 +120,31 @@ harmonic: 2
 method: event_plane
 value_type: v2(EtaSub)
 dimensionality: differential_pT
-flow_reference:
-  detector: TPC
-  mirror: true
-  eta:
-  - min: 0.05
-    max: 1.0
-  pT:
-    min: 0.2
-    max: 2.0
-  notes: eta-subevent plane from the opposite TPC subevent (gap 0.1); event-plane pT 0.2-2 GeV/c assumed (not stated; STAR
-    BES v2, PRC 86, 054908).
 notes:
   value: 'J. Adam et al. (STAR), PRC 101, 024905 (2020), arXiv:1908.03585. v2(pT) of charged hadrons, |eta| < 1, 10-20%, eta-subevent
-    plane; computed with the scalar-product estimator; pT points. Errors: statistical and systematic.'
+    plane; computed as the two-subevent v_n (the particle in one half, the charged reference in the other); pT points. Errors:
+    statistical and systematic.'
+  subevents: 'eta-sub event plane: the particle in one subevent, the plane of the other (0.05 < |eta| < 1.0; reference pT
+    0.2-2.0 GeV/c).'
+particles: AB
+eta_gap: 0.1
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -1.0
+        max: -0.05
+      pT:
+        min: 0.2
+        max: 2.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.05
+        max: 1.0
+      pT:
+        min: 0.2
+        max: 2.0
 ---
 observable_type: flow_vn
 inspire_id: '1748776'
@@ -172,20 +194,31 @@ harmonic: 2
 method: event_plane
 value_type: v2(EtaSub)
 dimensionality: differential_pT
-flow_reference:
-  detector: TPC
-  mirror: true
-  eta:
-  - min: 0.05
-    max: 1.0
-  pT:
-    min: 0.2
-    max: 2.0
-  notes: eta-subevent plane from the opposite TPC subevent (gap 0.1); event-plane pT 0.2-2 GeV/c assumed (not stated; STAR
-    BES v2, PRC 86, 054908).
 notes:
   value: 'J. Adam et al. (STAR), PRC 101, 024905 (2020), arXiv:1908.03585. v2(pT) of charged hadrons, |eta| < 1, 20-30%, eta-subevent
-    plane; computed with the scalar-product estimator; pT points. Errors: statistical and systematic.'
+    plane; computed as the two-subevent v_n (the particle in one half, the charged reference in the other); pT points. Errors:
+    statistical and systematic.'
+  subevents: 'eta-sub event plane: the particle in one subevent, the plane of the other (0.05 < |eta| < 1.0; reference pT
+    0.2-2.0 GeV/c).'
+particles: AB
+eta_gap: 0.1
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -1.0
+        max: -0.05
+      pT:
+        min: 0.2
+        max: 2.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.05
+        max: 1.0
+      pT:
+        min: 0.2
+        max: 2.0
 ---
 observable_type: flow_vn
 inspire_id: '1748776'
@@ -235,20 +268,31 @@ harmonic: 2
 method: event_plane
 value_type: v2(EtaSub)
 dimensionality: differential_pT
-flow_reference:
-  detector: TPC
-  mirror: true
-  eta:
-  - min: 0.05
-    max: 1.0
-  pT:
-    min: 0.2
-    max: 2.0
-  notes: eta-subevent plane from the opposite TPC subevent (gap 0.1); event-plane pT 0.2-2 GeV/c assumed (not stated; STAR
-    BES v2, PRC 86, 054908).
 notes:
   value: 'J. Adam et al. (STAR), PRC 101, 024905 (2020), arXiv:1908.03585. v2(pT) of charged hadrons, |eta| < 1, 30-40%, eta-subevent
-    plane; computed with the scalar-product estimator; pT points. Errors: statistical and systematic.'
+    plane; computed as the two-subevent v_n (the particle in one half, the charged reference in the other); pT points. Errors:
+    statistical and systematic.'
+  subevents: 'eta-sub event plane: the particle in one subevent, the plane of the other (0.05 < |eta| < 1.0; reference pT
+    0.2-2.0 GeV/c).'
+particles: AB
+eta_gap: 0.1
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -1.0
+        max: -0.05
+      pT:
+        min: 0.2
+        max: 2.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.05
+        max: 1.0
+      pT:
+        min: 0.2
+        max: 2.0
 ---
 observable_type: flow_vn
 inspire_id: '1748776'
@@ -298,20 +342,31 @@ harmonic: 2
 method: event_plane
 value_type: v2(EtaSub)
 dimensionality: differential_pT
-flow_reference:
-  detector: TPC
-  mirror: true
-  eta:
-  - min: 0.05
-    max: 1.0
-  pT:
-    min: 0.2
-    max: 2.0
-  notes: eta-subevent plane from the opposite TPC subevent (gap 0.1); event-plane pT 0.2-2 GeV/c assumed (not stated; STAR
-    BES v2, PRC 86, 054908).
 notes:
   value: 'J. Adam et al. (STAR), PRC 101, 024905 (2020), arXiv:1908.03585. v2(pT) of charged hadrons, |eta| < 1, 40-50%, eta-subevent
-    plane; computed with the scalar-product estimator; pT points. Errors: statistical and systematic.'
+    plane; computed as the two-subevent v_n (the particle in one half, the charged reference in the other); pT points. Errors:
+    statistical and systematic.'
+  subevents: 'eta-sub event plane: the particle in one subevent, the plane of the other (0.05 < |eta| < 1.0; reference pT
+    0.2-2.0 GeV/c).'
+particles: AB
+eta_gap: 0.1
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -1.0
+        max: -0.05
+      pT:
+        min: 0.2
+        max: 2.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.05
+        max: 1.0
+      pT:
+        min: 0.2
+        max: 2.0
 ---
 observable_type: flow_vn
 inspire_id: '1748776'
@@ -361,20 +416,31 @@ harmonic: 2
 method: event_plane
 value_type: v2(EtaSub)
 dimensionality: differential_pT
-flow_reference:
-  detector: TPC
-  mirror: true
-  eta:
-  - min: 0.05
-    max: 1.0
-  pT:
-    min: 0.2
-    max: 2.0
-  notes: eta-subevent plane from the opposite TPC subevent (gap 0.1); event-plane pT 0.2-2 GeV/c assumed (not stated; STAR
-    BES v2, PRC 86, 054908).
 notes:
   value: 'J. Adam et al. (STAR), PRC 101, 024905 (2020), arXiv:1908.03585. v2(pT) of charged hadrons, |eta| < 1, 50-60%, eta-subevent
-    plane; computed with the scalar-product estimator; pT points. Errors: statistical and systematic.'
+    plane; computed as the two-subevent v_n (the particle in one half, the charged reference in the other); pT points. Errors:
+    statistical and systematic.'
+  subevents: 'eta-sub event plane: the particle in one subevent, the plane of the other (0.05 < |eta| < 1.0; reference pT
+    0.2-2.0 GeV/c).'
+particles: AB
+eta_gap: 0.1
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -1.0
+        max: -0.05
+      pT:
+        min: 0.2
+        max: 2.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.05
+        max: 1.0
+      pT:
+        min: 0.2
+        max: 2.0
 ---
 observable_type: flow_vn
 inspire_id: '1748776'

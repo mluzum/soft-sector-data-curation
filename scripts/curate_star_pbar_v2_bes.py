@@ -15,8 +15,8 @@ statistical, systematic (asymmetric) and a global systematic.
 
 Records: v2(pT) of p and of pbar at 7.7, 11.5, 27 and 39 GeV (Fig. 1),
 0-80%; pT points as tabulated (0.1 GeV/c windows).  method event_plane
-with the TPC eta-sub reference (both hemispheres 0.05 < |eta| < 1 here),
-computed with the scalar-product estimator.  Not curated: the p - pbar
+with the TPC eta-sub plane as two subevents (0.05 < |eta| < 1, scripts/eta_sub.py),
+computed as the two-subevent v_n.  Not curated: the p - pbar
 differences, v2 vs m_T - m_0 and its n_q scaling (the PRC data re-plotted),
 the particle-antiparticle differences vs energy.
 
@@ -24,8 +24,12 @@ Run from the repository root:  python scripts/curate_star_pbar_v2_bes.py
 """
 import os
 import re
+import sys
 
 import yaml
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from scripts.eta_sub import as_eta_sub  # noqa: E402
 
 RAW = 'hepdata_raw/records/ins1210463/HEPData-ins1210463-v1-yaml'
 CITE = 'L. Adamczyk et al. (STAR), PRL 110, 142301 (2013), arXiv:1301.2347'
@@ -74,6 +78,8 @@ def main():
                                     'systematic.')},
             })
     out = 'data/flow_vn/star_flow_vn_p_pbar_v2_AuAu_7.7-39gev_ins1210463.yaml'
+    for d in docs:                    # eta-sub event plane: two subevents (scripts/eta_sub.py)
+        as_eta_sub(d, 0.05, 1.0, d['flow_reference']['pT'])
     with open(out, 'w') as fh:
         yaml.safe_dump_all(docs, fh, sort_keys=False, default_flow_style=False, width=120)
     print(f'{out}: {len(docs)} records;', [(d['collision_system']['energy_gev'], d['particle_id']['species'],
