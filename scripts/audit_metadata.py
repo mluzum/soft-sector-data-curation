@@ -296,7 +296,10 @@ def _extra_checks(doc, raw, sel_dv, sel_q, desc, flag):
             if e and e < 30 and rec_e and float(rec_e) > 1000:
                 e *= 1000.0                    # '2.76', '5.02': TeV without a unit
             if e and rec_e and abs(e - float(rec_e)) > 0.01 * e:
-                flag("error", f"energy qualifier {v!r} -> {e:g} GeV, record {rec_e} GeV")
+                e_fixed = (doc.get("hepdata_corrections") or {}).get("energy")
+                flag("warning" if e_fixed else "error",
+                     f"energy qualifier {v!r} -> {e:g} GeV, record {rec_e} GeV"
+                     + (f" (corrected: {e_fixed})" if e_fixed else ""))
         if k in ("re", "reaction"):
             b = _beams(v)
             if b and _beams(rec_r) and set(b) != set(_beams(rec_r)):
