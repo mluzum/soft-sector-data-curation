@@ -1178,25 +1178,29 @@ def compute_vn2_gap_poi(p_A, p_B, Q_A, Q_B, d_pQ, d_QQ, event_weights):
 
     Returns (n_harm-1,) harmonic-major v_1..v_{N-1} (v_2 at index 1), like
     vn2_gap.  A negative c_n gives sign(c_n) sqrt|c_n| in the denominator.
+    No POI-reference pairs (a pT bin beyond the container's range) or no
+    reference pairs give NaN (until November 2026: 0).
     """
     n_harm = Q_A.shape[1]
-    out = np.zeros(n_harm - 1)
+    out = np.full(n_harm - 1, np.nan)
     if np.sum(event_weights) <= 0:
         return out
     mA, mB = p_A[:, 0].real, p_B[:, 0].real
     MA, MB = Q_A[:, 0].real, Q_B[:, 0].real
     den_d = np.average(mA * MB + mB * MA - 2.0 * d_pQ, weights=event_weights)
     den_c = np.average(MA * MB - d_QQ, weights=event_weights)
+    if not den_d > 0 or not den_c > 0:
+        return out
     for h in range(1, n_harm):
         num_d = np.average(np.real(p_A[:, h] * np.conj(Q_B[:, h]))
                            + np.real(p_B[:, h] * np.conj(Q_A[:, h])) - 2.0 * d_pQ,
                            weights=event_weights)
         num_c = np.average(np.real(Q_A[:, h] * np.conj(Q_B[:, h])) - d_QQ,
                            weights=event_weights)
-        d = num_d / max(den_d, 1e-60)
-        c = num_c / max(den_c, 1e-60)
+        d = num_d / den_d
+        c = num_c / den_c
         root = np.sign(c) * np.sqrt(abs(c))
-        out[h - 1] = d / root if root != 0 else 0.0
+        out[h - 1] = d / root if root != 0 else np.nan
     return out
 
 

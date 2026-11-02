@@ -112,7 +112,8 @@ Fields that change dispatch:
 - Two-subevent v_n{2} (`particles: AB`) of an identified species: computed
   by `vn2_gap_poi`, the particle of interest (record species, top-level
   pT) in one subevent with the reference (`subevents.<X>.particle_id`,
-  default charged) in the other, over the reference v_n{2}ab.  Its 3D
+  default charged) in the other, over the reference v_n{2}ab.  A pT bin
+  without POI pairs gives NaN (until November 2026: 0).  Its 3D
   prepare receives the unselected container (`selects_species`,
   `pipeline_dispatch.container_for_prepare`).
 - `observable_type: radial_flow` (`analysis/radial_flow.py`, key

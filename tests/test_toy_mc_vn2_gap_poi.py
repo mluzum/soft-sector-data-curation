@@ -154,6 +154,18 @@ def test_pt_differential_3d():
         check(f'3D {species} v2(pT) == particle level', np.allclose(v, ref, atol=1e-9), f'{np.round(v, 4)} vs {np.round(ref, 4)}')
 
 
+def test_empty_pt_bin_nan():
+    """A pT bin beyond the container's range has no POI pairs: NaN, not 0."""
+    fx = _fx()
+    edges = [0.2, 1.0, 20.0, 30.0]
+    rec = record(species='charged')
+    rec['dimensionality'] = 'differential_pT'
+    rec['kinematic_range']['pT'] = {'min': edges[0], 'max': edges[-1], 'bins': edges}
+    for name, kw in (('3D', dict(grid=fx['ms'])), ('2D', dict(qv=fx['qv']))):
+        v, _ = evaluate(rec, cent_method='simple', with_jackknife=False, **kw)
+        check(f'{name} empty bin NaN, filled bins finite', np.isfinite(v[0]) and np.isnan(v[-1]), str(np.round(v, 4)))
+
+
 def test_overlapping_subevents_refused_3d():
     fx = _fx()
     rec = record(sub_a=(-0.6, 1.0), sub_b=(-1.0, 0.0))
