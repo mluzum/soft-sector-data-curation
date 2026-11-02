@@ -125,6 +125,35 @@ centrality:
       required: false
       description: Width, in percent, of the windows around `points`.
       example: 2.0
+    actual_classes:
+      type: list
+      required: false
+      description: >
+        The actual percentile range of each listed class, in the same
+        order, when it differs from the nominal label: STAR's isobar classes
+        are integer Ntrk cuts, so label 40-50% is 39.89-49.86% in Ru+Ru and
+        40.16-50.07% in Zr+Zr (arXiv:2109.00131 Table III).  Model classes
+        are assigned with these; the labels stay nominal.
+      items:
+        type: string
+        example: "39.89-49.86%"
+    normalization:
+      type: object
+      required: false
+      description: >
+        Experiment-defined percentile normalization: the events with
+        estimator count >= estimator_threshold hold fraction_above of the
+        total (STAR isobars: Ntrk >= 50 holds F50 of a Case-3 Glauber
+        total).  The model estimator is Poisson(efficiency x N) in the
+        estimator acceptance (centrality.eta, centrality.pT), and the
+        simulation's coverage is f = fraction_above / <P(Ntrk >=
+        threshold)> (analysis.weights.threshold_anchor) instead of the
+        sigma_inel anchor.
+      fields:
+        estimator_threshold: {type: float, required: true, example: 50}
+        fraction_above: {type: float, required: true, example: 0.4712}
+        efficiency: {type: float, required: false, example: 0.87}
+        notes: {type: string, required: false}
     combined_from:
       type: string
       required: false

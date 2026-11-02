@@ -40,10 +40,18 @@ optional_fields:
       False for detector-level quantities that are not corrected for
       tracking efficiency and acceptance (e.g. STAR's mean number of
       reconstructed tracks <N_trk^offline>).  A model gives true particle
-      numbers, so such records are not dispatched until a detector-response
-      model is supplied; ratios between systems remain usable.  Absent or
+      numbers, so such records are not dispatched unless they state a
+      detector_efficiency; ratios between systems remain usable.  Absent or
       true for corrected yields.
     example: false
+  detector_efficiency:
+    type: float
+    required: false
+    description: >
+      For efficiency_corrected: false: the detection efficiency the model
+      quantity is multiplied by (STAR isobar <N_trk^offline>: 0.87, TPC
+      85-90%); the record is then computed as efficiency x N.
+    example: 0.87
   measured_quantity:
     type: string
     required: false

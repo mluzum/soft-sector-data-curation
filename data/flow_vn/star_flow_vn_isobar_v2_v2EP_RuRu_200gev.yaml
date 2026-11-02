@@ -27,6 +27,24 @@ centrality:
   pT:
     min: 0.2
     max: 100.0
+  actual_classes:
+  - 70.04-79.93%
+  - 60.29-70.04%
+  - 49.86-60.29%
+  - 39.89-49.86%
+  - 30.08-39.89%
+  - 19.96-30.08%
+  - 9.94-19.96%
+  - 5.01-9.94%
+  - 0-5.01%
+  normalization:
+    estimator_threshold: 50
+    fraction_above: 0.4712
+    efficiency: 0.87
+    notes: 'STAR classes (arXiv:2109.00131 Table III): integer Ntrk cuts, actual ranges per system; percentiles of a Case-3
+      Glauber total in which Ntrk >= 50 holds fraction_above (F50 derived by the isobar analysis from HEPData Fig. 2, reproducing
+      Table III to < 0.1 percentile; not published by STAR). Efficiency 0.87: TPC 85-90%, occupancy dependent (STAR parameters
+      unpublished).'
 particle_id:
   species: charged
 kinematic_range:

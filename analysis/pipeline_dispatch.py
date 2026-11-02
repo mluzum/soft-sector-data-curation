@@ -2350,7 +2350,9 @@ for _key, _entry in PIPELINE_DISPATCH.items():
 
 def _with_charge_average(entry):
     """Absolute quantities of a charge average ((h+ + h-)/2, particle_id.
-    charge_average) are half of the sum the species selection returns."""
+    charge_average) are half of the sum the species selection returns; a
+    detector-level one (efficiency_corrected: false with detector_efficiency)
+    is efficiency x the corrected quantity."""
     def tag(prepare):
         if prepare is None:
             return None
@@ -2359,6 +2361,7 @@ def _with_charge_average(entry):
             d = prepare(container, params)
             if isinstance(d, dict):
                 d['_charge_average'] = bool(params.get('charge_average'))
+                d['_detector_efficiency'] = float(params.get('detector_efficiency') or 1.0)
             return d
         wrapped.__name__, wrapped.__doc__ = prepare.__name__, prepare.__doc__
         return wrapped
@@ -2366,7 +2369,11 @@ def _with_charge_average(entry):
 
     def core_fn(data, w):
         out = core(data, w)
-        return out * 0.5 if isinstance(data, dict) and data.get('_charge_average') else out
+        if not isinstance(data, dict):
+            return out
+        # (h+ + h-)/2, and a detector-level quantity: efficiency x N.
+        factor = (0.5 if data.get('_charge_average') else 1.0) * data.get('_detector_efficiency', 1.0)
+        return out * factor if factor != 1.0 else out
     core_fn.__name__, core_fn.__doc__ = core.__name__, core.__doc__
     entry['prepare_data_2d'] = tag(entry.get('prepare_data_2d'))
     entry['prepare_data_3d'] = tag(entry.get('prepare_data_3d'))

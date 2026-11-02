@@ -392,7 +392,11 @@ def resolve(record):
     # and flow relative to the spectator plane cannot be formed from a
     # model's particles; refuse them with the reason instead of returning
     # a plausible number of a different quantity.
-    if record.get("efficiency_corrected") is False:
+    # A detector-level yield with a stated detector efficiency is computed
+    # as efficiency x N (pipeline_dispatch: absolute quantities).
+    if record.get("efficiency_corrected") is False and not (
+            record.get("detector_efficiency")
+            and record.get("observable_type") in ("particle_yields", "particle_spectra")):
         raise ValueError(
             f"{record.get('value_type')!r} is detector-level (not corrected "
             f"for efficiency); it needs a detector-response model")
@@ -693,8 +697,16 @@ def extract_measurement_params(exp_rec):
     # are common (ALICE, ATLAS, CMS fine bins).  Until November 2026 they
     # were truncated to integers, so 0.15-0.2% became an empty 0-0% bin and
     # 5-11.25% became 5-11%.
+    # Per-system actual percentile ranges (STAR integer-Ntrk classes: label
+    # 40-50%, actual 39.89-49.86% in Ru+Ru) assign the model's classes; the
+    # labels stay nominal.
+    actual = cent.get('actual_classes')
+    if actual:
+        if len(actual) != len(cent_classes):
+            raise ValueError(f"centrality.actual_classes has {len(actual)} entries for "
+                             f"{len(cent_classes)} classes")
     cent_edges = []
-    for c in cent_classes:
+    for c in (actual or cent_classes):
         parts = c.replace('%', '').split('-')
         try:
             cent_edges.append((float(parts[0]), float(parts[1])))
@@ -762,6 +774,10 @@ def extract_measurement_params(exp_rec):
         # gap of those two-particle terms
         'normalized': bool(exp_rec.get('normalized')),
         'normalization_eta_gap': exp_rec.get('normalization_eta_gap'),
+        # Experiment-defined centrality normalization (threshold_anchor) and
+        # a detector efficiency for detector-level yields.
+        'cent_normalization': cent.get('normalization'),
+        'detector_efficiency': exp_rec.get('detector_efficiency'),
         # Asymmetric systems: frame of the record's windows (lab / nn_cms),
         # the centre-of-mass rapidity in the lab, and the +eta beam.
         'frame': (exp_rec.get('collision_system') or {}).get('frame'),

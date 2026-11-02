@@ -353,6 +353,9 @@ def main():
 
     # 2. Extract ALL measurement parameters from the record
     p = extract_measurement_params(exp_rec)
+    if p.get('cent_normalization'):
+        raise SystemExit("this record defines its centrality normalization (centrality.normalization); "
+                         "compute it with scripts/run_pipeline.py, which applies it")
     harmonic = p['harmonic']
     is_subevent = p['particles'] is not None
     sr = p['subevent_ranges']

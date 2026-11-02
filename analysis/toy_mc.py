@@ -693,13 +693,20 @@ def evaluate(record, qv=None, grid=None, with_jackknife=True,
 
     anchor = resolve_anchor(cent_anchor if cent_anchor is not None else 1.0,
                             n_events)
+    eff = 1.0
+    norm = params.get('cent_normalization')
+    if norm:                     # experiment-defined normalization, as run_pipeline
+        from analysis.weights import threshold_anchor
+        eff = float(norm.get('efficiency', 1.0))
+        anchor = threshold_anchor(mult, cent_method, float(norm['estimator_threshold']),
+                                  float(norm['fraction_above']), efficiency=eff)
     edges = params['cent_edges'] or [(0, 100)]
     # Listed order is preserved (helper sorts internally as needed).
     if cent_method == 'simple':
         cw = cent_weights('simple', mult, edges, n_ref=anchor['n_ref'])
     else:
         cw = cent_weights('poisson', mult, edges,
-                          efficiency=1.0,
+                          efficiency=eff,
                           anchor_cent=anchor['anchor_cent'])
 
     n_cent = len(edges)

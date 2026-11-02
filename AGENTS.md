@@ -161,6 +161,16 @@ Fields that change dispatch:
   (`centrality_classes_suspicious`); a record without
   `collision_system.energy_gev` matches no simulation group and is not
   public (`test_public_records`).
+- `centrality.actual_classes` (per-system actual ranges of the nominal
+  labels) assign the model classes; `centrality.normalization`
+  {estimator_threshold, fraction_above, efficiency} replaces the group's
+  sigma_inel anchor for that record: f = fraction_above / <P(Ntrk >=
+  threshold)>, Ntrk = Poisson(efficiency x N) in the estimator acceptance
+  (`weights.threshold_anchor`, run_pipeline `_record_anchor`).  STAR
+  isobars (1914564, 2822399): Table III ranges, F50 = 0.4712 (Ru), 0.4590
+  (Zr), efficiency 0.87 (scripts/curate_star_isobar_centrality.py).
+- `efficiency_corrected: false` with `detector_efficiency` (yields,
+  spectra) is computed as efficiency x N; without it, refused.
 - `centrality.combined_from: unit_multiplicity`: class values combined
   from bins of one unit of the estimator multiplicity (STAR's
   centrality-bin-width correction); refused, since the pipeline computes
@@ -209,7 +219,9 @@ Centrality (`analysis/weights.py`):
 - bins beyond the anchor get zero weight, and bins below `--min-cent-weight`
   are dropped from the output;
 - Poisson weights are each event's probability to land in a class, with
-  edges from the total-cross-section CDF (1-f) + f * F_sim; rows are NOT
+  edges from the total-cross-section CDF (1-f) + f * F_sim (the integer
+  count at an edge split in proportion, so classes cover exactly their
+  percentile range); rows are NOT
   renormalized, so a class's summed weight is n_ref x width whatever other
   classes the record lists (until November 2026 single-class records gave
   every event weight 1).

@@ -264,6 +264,24 @@ def _get_sim_frame(cfg, reaction, energy):
 
 
 from analysis.frames import to_container_frame  # noqa: E402
+
+
+def _record_anchor(params, mult, anchor, args, event_weights=None):
+    """(anchor, efficiency) for one record: the group's anchor, or the
+    experiment-defined normalization the record states
+    (centrality.normalization: estimator_threshold, fraction_above,
+    efficiency -- STAR's isobar classes, analysis.weights.threshold_anchor)."""
+    norm = params.get('cent_normalization')
+    if not norm:
+        return anchor, args.poisson_efficiency
+    from analysis.weights import threshold_anchor
+    eff = float(norm.get('efficiency', 1.0))
+    a = threshold_anchor(mult, args.cent_method, float(norm['estimator_threshold']),
+                         float(norm['fraction_above']), efficiency=eff, event_weights=event_weights)
+    print(f"    Centrality normalization: {norm['fraction_above']} of the total above "
+          f"{norm['estimator_threshold']} (efficiency {eff}): p = {a['p_above']:.4f}, "
+          f"f = {a['f']:.4f}, anchor_cent = {a['anchor_cent']:.2f}%")
+    return a, eff
 from analysis.pipeline_dispatch import (
     get_pipeline_entry, PTCUTS, container_for_prepare, SINGLE_ROW_KEYS,
 )
@@ -1005,14 +1023,16 @@ def main():
                                         else 0.0),
                                 pt_max=cent_pt[1])
                             cent_mult += cent_partial
+                    rec_anchor, rec_eff = _record_anchor(params, cent_mult, anchor, args,
+                                                         group_event_weights)
                     cent_w = cent_weights(
                         args.cent_method, cent_mult, cent_edges,
-                        n_ref=anchor['n_ref'],
-                        efficiency=args.poisson_efficiency,
-                        anchor_cent=anchor['anchor_cent'])
+                        n_ref=rec_anchor['n_ref'],
+                        efficiency=rec_eff,
+                        anchor_cent=rec_anchor['anchor_cent'])
                     params['cent_valid'] = cent_w.sum(axis=0) >= args.min_cent_weight
                     params['cent_partial'] = cent_bins_partial(
-                        cent_edges, anchor['anchor_cent'])
+                        cent_edges, rec_anchor['anchor_cent'])
                 else:
                     # 3D: compute cent_mult per-record from cent_eta_ranges
                     # Use the grid's accumulated Q₀ (summed over all pT) in
@@ -1079,8 +1099,14 @@ def main():
                         continue
 
                     cent_mult_3d = np.zeros(n_events, dtype=np.float64)
+                    # the estimator's pT window (STAR Ntrk: pT > 0.2 GeV/c);
+                    # until November 2026 every pT was counted
+                    c_pt = params.get('cent_pT_range') or (None, None)
+                    c_lo = c_pt[0] if c_pt[0] is not None else 0.0
+                    c_hi = c_pt[1] if c_pt[1] is not None else 1e9
                     for emin, emax in cent_eta_ranges:
-                        cent_mult_3d += qv.acceptance(emin, emax, 0.0, 1e9)[:, 0].real
+                        cent_mult_3d += qv.acceptance_fractional(emin, emax, c_lo, c_hi)[:, 0].real \
+                            if hasattr(qv, 'acceptance_fractional') else qv.acceptance(emin, emax, c_lo, c_hi)[:, 0].real
                     # Rank by TABLE-scale multiplicity (per-run means): the
                     # loader scales Q by nsamples (nevents) for cumulant-scale
                     # consistency, but centrality sorting must use the
@@ -1091,15 +1117,17 @@ def main():
                     # path needs the physical per-run mean as its base too.
                     cent_mult_3d = cent_mult_3d / np.maximum(
                         np.asarray(qv.nsamples, dtype=np.float64), 1e-30)
+                    rec_anchor, rec_eff = _record_anchor(params, cent_mult_3d, anchor, args,
+                                                         group_event_weights)
                     cent_w_3d = cent_weights(
                         args.cent_method, cent_mult_3d, cent_edges,
-                        n_ref=anchor['n_ref'],
-                        efficiency=args.poisson_efficiency,
-                        anchor_cent=anchor['anchor_cent'])
+                        n_ref=rec_anchor['n_ref'],
+                        efficiency=rec_eff,
+                        anchor_cent=rec_anchor['anchor_cent'])
                     params['cent_valid'] = cent_w_3d.sum(axis=0) >= args.min_cent_weight
                     if cent_w_3d.shape[1] == len(cent_edges):
                         params['cent_partial'] = cent_bins_partial(
-                            cent_edges, anchor['anchor_cent'])
+                            cent_edges, rec_anchor['anchor_cent'])
                     else:
                         params['cent_partial'] = np.zeros(cent_w_3d.shape[1], dtype=bool)
 

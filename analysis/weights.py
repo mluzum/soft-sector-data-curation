@@ -116,6 +116,43 @@ def resolve_anchor(spec, n_sim):
     return {'f': f, 'n_ref': n_ref, 'anchor_cent': 100.0 * f}
 
 
+def threshold_anchor(event_var, method, threshold, fraction_above, efficiency=1.0,
+                     event_weights=None):
+    """Coverage of the simulation when the experiment defines its percentiles
+    by the fraction of ITS total that lies above an estimator threshold.
+
+    STAR's isobar classes (arXiv:2109.00131, Sec. III) are fractions of a
+    Glauber total normalized so that the events with Ntrk >= 50 hold
+    F50 of it, not fractions of the true inelastic cross section.  The
+    model reproduces that by requiring the same: with the model estimator
+    count Ntrk = Poisson(efficiency x N) ('poisson') or efficiency x N
+    ('simple'), and p = <P(Ntrk_i >= threshold)> over the simulated events,
+    the coverage is f = fraction_above / p (n_ref = n_sim / f).  The class
+    edges then follow from the usual anchored weights; no sigma_inel is
+    needed.  f > 1 (the simulation holds fewer events above the threshold
+    than the experiment's fraction) is clamped to 1 with a warning.
+
+    Returns resolve_anchor's dict (f, n_ref, anchor_cent) plus 'p_above'.
+    """
+    x = float(efficiency) * np.asarray(event_var, dtype=float)
+    if method == 'poisson':
+        p_ev = scipy.stats.poisson.sf(math.ceil(threshold) - 1, x)       # P(N >= threshold)
+    else:
+        p_ev = (x >= threshold).astype(float)
+    w = np.ones_like(x) if event_weights is None else np.asarray(event_weights, dtype=float)
+    p = float(np.sum(w * p_ev) / np.sum(w))
+    if p <= 0:
+        raise ValueError(f'no simulated event reaches the estimator threshold {threshold}')
+    f = float(fraction_above) / p
+    if f > 1.0:
+        warnings.warn(f'threshold anchor: fraction_above {fraction_above} > the simulated fraction above '
+                      f'{threshold} ({p:.4f}); clamping f = 1', stacklevel=2)
+        f = 1.0
+    out = resolve_anchor(f, len(x))
+    out['p_above'] = p
+    return out
+
+
 def cent_bins_partial(cent_edges, anchor_cent):
     """Flag centrality bins that straddle the anchor (partial coverage).
 
@@ -368,14 +405,27 @@ def poisson_cdf_cent_weights(Q0ch, centbins, efficiency=1.0, anchor_cent=100.0):
     def cdf(M):
         return scipy.stats.poisson.cdf(M, Q0ch_eff) if M >= 0 else np.zeros(nev)
 
+    def below(target):
+        """Per-event probability of a count below the edge where the mean
+        CDF equals ``target``.  The integer count at the edge is split in
+        proportion -- a count uniform within its unit, Ntrk + U(-1/2, 1/2)
+        -- so a class covers exactly its percentile range.  (Until November
+        2026 edges snapped to whole counts: at Ntrk ~ 50 a class could be off
+        by a few tenths of a percentile.)"""
+        if target <= 0.0:
+            return np.zeros(nev)
+        if target >= 1.0:
+            return np.ones(nev)
+        M = _find_cdf_crossing(Q0ch_eff, target, 0, max_search)
+        c_hi, c_lo = cdf(M), cdf(M - 1)
+        m_hi, m_lo = c_hi.mean(), c_lo.mean()
+        phi = (target - m_lo) / (m_hi - m_lo) if m_hi > m_lo else 1.0
+        return c_lo + min(max(phi, 0.0), 1.0) * (c_hi - c_lo)
+
     for ibin, (cmin, cmax) in enumerate(centbins):
         lo = sim_target(1.0 - cmax / 100.0)
         hi = sim_target(1.0 - cmin / 100.0)
         if hi <= lo:
             continue                     # beyond the coverage: no weight
-        # Edge at sim-CDF 0 (the coverage boundary) counts every outcome above -1
-        Mlo = _find_cdf_crossing(Q0ch_eff, lo, 0, max_search) if lo > 0 else -1
-        # The 0% edge takes the whole upper tail (not cdf(max_search))
-        upper = 1.0 if hi >= 1.0 else cdf(_find_cdf_crossing(Q0ch_eff, hi, 0, max_search))
-        weights[:, ibin] = upper - cdf(Mlo)
+        weights[:, ibin] = below(hi) - below(lo)
     return weights
