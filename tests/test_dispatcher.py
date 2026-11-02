@@ -525,6 +525,22 @@ def test_asymmetric_frame_and_spectator_estimator():
         assert 'spectator' in str(e), e
 
 
+def test_eta_sub_event_plane_two_subevents():
+    """STAR eta-sub event plane declared as subevents (method event_plane,
+    particles AB): the two-subevent correlation (vn2_gap_poi for an
+    identified POI, vn2_gap for charged), not the single-set amplitude."""
+    sub = {'A': {'kinematic_range': {'eta': {'min': -1.0, 'max': -0.05}, 'pT': {'min': 0.15, 'max': 5.0}}},
+           'B': {'kinematic_range': {'eta': {'min': 0.05, 'max': 1.0}, 'pT': {'min': 0.15, 'max': 5.0}}}}
+    rec = {'observable_type': 'flow_vn', 'method': 'event_plane', 'harmonic': 2, 'particles': 'AB',
+           'subevents': sub, 'particle_id': {'species': 'p'}, 'dimensionality': 'differential_pT',
+           'kinematic_range': {'eta': {'min': -1.0, 'max': 1.0}, 'pT': {'min': 0.2, 'max': 2.0, 'bins': [0.2, 1.0, 2.0]}},
+           'centrality': {'classes': ['0-10%'], 'eta': [{'min': -0.5, 'max': 0.5}]}}
+    assert resolve(rec)['compute'] == 'vn2_gap_poi', resolve(rec)['compute']
+    ch = dict(rec, particle_id={'species': 'charged'}, dimensionality='integrated',
+              kinematic_range={'eta': {'min': -1.0, 'max': 1.0}, 'pT': {'min': 0.15, 'max': 2.0}})
+    assert resolve(ch)['compute'] in ('vn2_gap', 'vn2_gap_poi'), resolve(ch)['compute']
+
+
 if __name__ == '__main__':
     tests = [fn for fn in dir() if fn.startswith('test_')]
     n_pass = 0

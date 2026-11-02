@@ -274,7 +274,9 @@ def _extra_checks(doc, raw, sel_dv, sel_q, desc, flag):
             except (TypeError, ValueError):
                 pass
         scale = float(doc.get("value_scale") or 1.0)
-        if vals and "%" not in units and "*100" not in header.replace(" ", "") \
+        # (three points at least: with two the median is the larger one --
+        # a peripheral Omega at 19.6 GeV, v2 = 0.66 +- 0.11, STAR 1395151)
+        if len(vals) >= 3 and "%" not in units and "*100" not in header.replace(" ", "") \
                 and not re.search(r"\(\s*%\s*\)", header) \
                 and sorted(vals)[len(vals) // 2] / scale > 0.5:
             flag("error", f"median |value| {sorted(vals)[len(vals) // 2]:.3g}: percent without a unit "
