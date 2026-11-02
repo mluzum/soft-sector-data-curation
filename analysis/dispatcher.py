@@ -276,7 +276,7 @@ def centrality_classes_suspicious(classes):
     0-100, or unparseable labels are flagged.
     """
     classes = list(classes or [])
-    if len(classes) < 2:
+    if not classes:
         return False
     spans = []
     for c in classes:
@@ -288,8 +288,13 @@ def centrality_classes_suspicious(classes):
         except ValueError:
             return True
         spans.append((lo, hi))
-    if any(hi > 100.0 or lo < 0.0 for lo, hi in spans):
+    if any(hi > 100.0 or lo < 0.0 or hi <= lo for lo, hi in spans):
         return True
+    # A single label must be a percentile bin too: 'MB' (minimum bias) is
+    # not a centrality class of the model's events (until November 2026
+    # one-class lists were not checked, and 'MB' records passed as public).
+    if len(spans) < 2:
+        return False
     srt = sorted(spans)
     if any(srt[i][1] > srt[i + 1][0] + 1e-9 for i in range(len(srt) - 1)):
         return True

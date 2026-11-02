@@ -156,6 +156,11 @@ Fields that change dispatch:
   put the light projectile at +eta (tests/test_frames.py).
 - `centrality.estimator.observable: spectator_neutrons` (ALICE ZNA): refused,
   models have no spectators.
+- Centrality labels that are not percentile bins (a lone `MB` too: minimum
+  bias is no class of the model's events) are refused
+  (`centrality_classes_suspicious`); a record without
+  `collision_system.energy_gev` matches no simulation group and is not
+  public (`test_public_records`).
 - `centrality.combined_from: unit_multiplicity`: class values combined
   from bins of one unit of the estimator multiplicity (STAR's
   centrality-bin-width correction); refused, since the pipeline computes

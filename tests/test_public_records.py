@@ -28,6 +28,12 @@ from analysis.ratios import resolve_link, side_record  # noqa: E402
 def problem(doc):
     """None if computable end to end, else what is missing."""
     try:
+        energy = float((doc.get('collision_system') or {}).get('energy_gev') or 0)
+    except (TypeError, ValueError):
+        energy = 0.0
+    if energy <= 0:
+        return 'no collision energy (collision_system.energy_gev): no simulation group matches it'
+    try:
         resolve(doc)
     except ValueError as e:
         return f'not dispatchable: {e}'
