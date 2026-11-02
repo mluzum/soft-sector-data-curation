@@ -13,7 +13,8 @@ From the paper (Secs. II-III, Table I):
   plane (3.8 < |eta| < 5.2);
 - errors: statistical and systematic.
 
-Records (public): the spectra (54), <pT> vs centrality (classes from the
+Records (public): the spectra (108: the TPC dE/dx and the TOF pT ranges
+of each table as separate records), <pT> vs centrality (classes from the
 <N_part> of Fig. 17), v2{eta-sub}(pT) of six classes (Fig. 16 top), v2{2}(pT)
 and v2{4}(pT) of 10-20, 20-30, 30-40% (Fig. 15), and v2{eta-sub}(eta) of six
 classes and 10-40% (Figs. 16 bottom, 19).  The pT window of the integrated
@@ -83,13 +84,26 @@ def main():
     for stem, sp in SPECIES.items():                                  # spectra
         hf = f'{stem}.yaml'
         t = load(hf)
+        iv = t['independent_variables'][0]
+        pts = [float(v['value']) for v in iv['values']]
+        # The table joins two pT sequences, the TPC dE/dx points (0.05 GeV/c
+        # bins) and then the TOF points (0.1 GeV/c), overlapping at low pT:
+        # one record per monotonic segment.
+        breaks = [0] + [j for j in range(1, len(pts)) if pts[j] < pts[j - 1]] + [len(pts)]
+        segments = [list(range(a, b)) for a, b in zip(breaks[:-1], breaks[1:])]
         for i, dv in enumerate(t['dependent_variables']):
             cls = dv['qualifiers'][0]['value']
-            d = base('particle_spectra', hf, i, f"{dv['header']['name']} {cls}", [cls], sp)
-            d.update({'kinematic_range': {'y': {'min': -0.1, 'max': 0.1}, 'pT': points(t['independent_variables'][0])},
-                      'observable': 'invariant_yield', 'value_type': 'invariant_yield',
-                      'notes': note(f'1/(2 pi pT) d2N/(dpT dy) of {sp}, |y| < 0.1, {cls}; pT points')})
-            docs['spectra'].append(d)
+            for k, rows in enumerate(segments):
+                pid = ('TPC dE/dx', 'TOF')[k] if len(segments) == 2 else f'segment {k}'
+                seg = {'values': [iv['values'][j] for j in rows]}
+                d = base('particle_spectra', hf, i, f"{dv['header']['name']} {cls} ({pid})", [cls], sp)
+                d.update({'kinematic_range': {'y': {'min': -0.1, 'max': 0.1}, 'pT': points(seg)},
+                          'observable': 'invariant_yield', 'value_type': 'invariant_yield',
+                          'notes': note(f'1/(2 pi pT) d2N/(dpT dy) of {sp}, |y| < 0.1, {cls}; {pid} '
+                                        'identification (the table joins the TPC and TOF ranges); pT points')})
+                if len(segments) > 1:
+                    d['table_rows'] = rows
+                docs['spectra'].append(d)
     for k, sp in FIG8.items():                                        # <pT>, dN/dy
         for fig, otype in (('figure8', 'mean_pT'), ('figure9', 'particle_yields')):
             hf = f'{fig}{k}.yaml'
