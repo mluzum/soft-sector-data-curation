@@ -18,10 +18,11 @@ From the paper:
 
 Records: one per particle species, energy and centrality, from the table
 with the most pT points; pT points as tabulated (mean pT of each bin,
-0.1 GeV/c windows).  method event_plane with the TPC eta-sub reference --
-both hemispheres 0.05 < |eta| < 1 here (STAR takes the one opposite each
-particle; a model without non-flow differs only by decorrelation); the
-pipeline computes it with the scalar-product estimator.  Not curated: the
+0.1 GeV/c windows).  method event_plane with the eta-sub subevents
+(particles AB: -1 < eta < -0.05 and 0.05 < eta < 1, reference tracks 0.15
+< pT < 5 GeV/c, unit weights here), computed as the two-subevent v2 of
+the particle against the charged reference in the opposite half.  Not
+curated: the
 same data re-plotted for selected particles (truncated pT ranges, Figs. 13,
 19), v2 vs m_T - m, particle-antiparticle differences, the energy
 dependence of those differences, and the (+,-) event-plane variants.
@@ -93,13 +94,14 @@ def main():
                                 'pT': {'min': round(pts[0] - WINDOW / 2, 4), 'max': round(pts[-1] + WINDOW / 2, 4),
                                        'points': pts, 'point_window': WINDOW}},
             'harmonic': 2, 'method': 'event_plane', 'value_type': 'v2', 'dimensionality': 'differential_pT',
-            'flow_reference': {'detector': 'TPC', 'eta': [{'min': -1.0, 'max': -0.05}, {'min': 0.05, 'max': 1.0}],
-                               'pT': {'min': 0.15, 'max': 5.0},
-                               'notes': 'eta-sub event plane: TPC tracks of the hemisphere opposite the particle, '
-                                        'gap +-0.05, pT weighted (both hemispheres here).'},
-            'notes': {'value': (f'{CITE}. v2(pT) of {sp} from the eta-sub event plane, |eta| < 1; pT points '
-                                f'(mean pT of each bin, {WINDOW} GeV/c windows). Computed with the scalar-product '
-                                'estimator. Errors: statistical, systematic and a global (non-flow) systematic.'
+            'particles': 'AB', 'eta_gap': 0.1,
+            'subevents': {'A': {'kinematic_range': {'eta': {'min': -1.0, 'max': -0.05}, 'pT': {'min': 0.15, 'max': 5.0}}},
+                          'B': {'kinematic_range': {'eta': {'min': 0.05, 'max': 1.0}, 'pT': {'min': 0.15, 'max': 5.0}}}},
+            'notes': {'value': (f'{CITE}. v2(pT) of {sp} from the eta-sub event plane (the particle in one TPC '
+                                'half, the plane of tracks with 0.15 < pT < 5 GeV/c from the other, gap 0.1, pT '
+                                'weighted), |eta| < 1; pT points (mean pT of each bin, '
+                                f'{WINDOW} GeV/c windows). Computed as the two-subevent v2 (unit weights). Errors: '
+                                'statistical, systematic and a global (non-flow) systematic.'
                                 + (' Table rows equal to their own pT, without errors (a HEPData copy error), '
                                    'left out.' if table_rows else ''))},
         })
