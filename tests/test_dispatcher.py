@@ -447,9 +447,14 @@ def test_load_experimental_total_error():
         path = os.path.join(tmp, 't.yaml')
         yaml.safe_dump(table, open(path, 'w'))
         v, e = load_experimental({'inspire_id': '0', 'version': 1, 'hepdata_file': 't.yaml', 'value_table': path})
+        # errors_excluded: a component contained in another one (ALICE
+        # 'syst. uncorr.' inside 'syst.') is not added again
+        _, e2 = load_experimental({'inspire_id': '0', 'version': 1, 'hepdata_file': 't.yaml', 'value_table': path,
+                                   'errors_excluded': ['sys']})
     assert list(v) == [1.0, 2.0, 4.0, 1.0], v
     want = [np.hypot(0.3, 0.4), 0.3, np.hypot(0.2, 0.3), 0.2]
     assert np.allclose(e, want), (e, want)
+    assert np.allclose(e2, [0.3, 0.3, np.hypot(0.2, 0.3), 0.2]), e2
 
 
 def test_fractional_centrality_edges():

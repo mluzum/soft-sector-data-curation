@@ -836,7 +836,7 @@ def _classify_particle_spectra(f):
     # A spectra file often has many dep_vars (one per centrality bin)
     species = guess_species(f)
     fields = {
-        "observable": "dN_dpT_dy",
+        "observable": "invariant_yield",
         "value_type": "invariant_yield",
         "hepdata_file": f["filename"],
         "particle_id": {"species": species},

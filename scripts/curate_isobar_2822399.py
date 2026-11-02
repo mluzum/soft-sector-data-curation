@@ -122,7 +122,7 @@ def main():
                     "pT": {"min": edges[0], "max": edges[-1], "bins": edges},
                     "y": {"min": -0.5, "max": 0.5},
                 },
-                "observable": "dN_dpT_dy",
+                "observable": "invariant_yield",
                 "value_type": "invariant_yield",
                 "dv_index": dv_index,
             })

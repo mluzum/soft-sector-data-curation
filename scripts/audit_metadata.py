@@ -42,7 +42,7 @@ CENT_MAP = {
 }
 
 # Qualifier names that carry a centrality label/value.
-CENT_KEYS = {"centrality", "centrality [%]", "centrality (%)", "cent"}
+CENT_KEYS = {"centrality", "centrality [%]", "centrality (%)", "cent", "multiplicity class"}
 # Qualifier names that carry a pT selection.
 PT_KEYS = {"pt", "p_t", "p t", "$p_t$", "$p_{t}$", "transverse momentum"}
 # Qualifier names that carry an eta/y selection.
@@ -237,6 +237,22 @@ def _extra_checks(doc, raw, sel_dv, sel_q, desc, flag):
     # 2026-11-02).
     if otype == "mean_pT" and n0 > 1 and (name0.startswith(("p_t", "pt")) or "transversemomentum" in name0):
         flag("error", "mean_pT of a pT-binned table: the bin centre, not a measurement")
+    labels = {str(e.get("label")) for v in (sel_dv or {}).get("values", []) for e in v.get("errors") or []}
+    for lab in doc.get("errors_excluded") or []:
+        if lab not in labels:
+            flag("error", f"errors_excluded {lab!r} is not an error label of the table ({sorted(labels)})")
+    # Spectrum form: the invariant yield carries 1/(2 pi pT) (or E d3N/dp3);
+    # d2N/(dpT dy) does not.  The pipeline computes the form value_type names.
+    if otype == "particle_spectra":
+        vt = doc.get("value_type", "invariant_yield")
+        if doc.get("observable") and doc.get("observable") != vt:
+            flag("error", f"observable {doc.get('observable')!r} differs from value_type {vt!r}")
+        h = header.upper().replace(" ", "")
+        inv = bool(re.search(r"2\*?\\?PI|E\*?D3|INVARIANT", h))
+        if h and vt == "invariant_yield" and not inv and re.search(r"D2?\(?N", h):
+            flag("error", f"header {header!r} has no 1/(2 pi pT): d2N/(dpT dy), value_type dN_dpT_dy")
+        if vt in ("dN_dpT_dy", "d2N_dpT_dy") and inv:
+            flag("error", f"header {header!r} is an invariant yield; value_type {vt!r}")
     if otype == "flow_vn":
         if _NOT_VN.search(header) or _NOT_VN.search(str(doc.get("value_type", ""))):
             flag("error", f"header {header!r} is not a flow coefficient")

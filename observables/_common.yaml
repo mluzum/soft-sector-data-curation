@@ -61,6 +61,15 @@ hepdata_corrections:
   type: object
   required: false
 
+errors_excluded:
+  description: >
+    Labels of HEPData error components that are part of another component
+    and are not added again (e.g. ALICE 'syst. uncorr.', the
+    centrality-uncorrelated part of 'syst.').  load_experimental adds the
+    other components in quadrature; audit_metadata checks the labels exist.
+  type: array
+  required: false
+
 particle_id:
   description: >
     Identified-particle specification.  For unidentified charged particles

@@ -935,12 +935,33 @@ def _partial_counts(counts, edges, lo, hi):
     return out
 
 
+# Spectrum forms (particle_spectra value_type): the invariant yield
+# 1/(2 pi pT) d2N/(dpT dy), or d2N/(dpT dy) itself.
+SPECTRUM_FORMS = {'invariant_yield': 'invariant', 'dN_dpT_dy': 'dN_dpT', 'd2N_dpT_dy': 'dN_dpT'}
+
+
+def _spectrum_form(prepare):
+    """Tag the prepared data with the record's spectrum form."""
+    def wrapped(container, params):
+        d = prepare(container, params)
+        if isinstance(d, dict):
+            d['_spectrum_form'] = SPECTRUM_FORMS.get(params.get('value_type') or 'invariant_yield', 'invariant')
+        return d
+    wrapped.__name__, wrapped.__doc__ = prepare.__name__, prepare.__doc__
+    return wrapped
+
+
 def _wrap_spectra(data, w):
     if data.get('Q0_pt') is None:
         return np.array([])
-    return compute_spectra_invariant_yield(
+    out = compute_spectra_invariant_yield(
         data['Q0_pt'], data['pt_centers'], data['pt_widths'],
         data['delta_eta'], w)
+    if data.get('_spectrum_form') == 'dN_dpT':
+        # d2N/(dpT dy) = 2 pi pT_c x the invariant yield of the bin
+        # (exactly: the counts over the bin width and the window).
+        out = out * 2.0 * np.pi * data['pt_centers']
+    return out
 
 
 # ── Mean-pT prepare + wrapper ───────────────────────────────────────────────
@@ -2153,10 +2174,10 @@ PIPELINE_DISPATCH = {
     },
     "spectra_invariant_yield": {
         "core_fn": _wrap_spectra,
-        "prepare_data_2d": prepare_spectra_2d,
-        "prepare_data_3d": prepare_spectra_3d,
+        "prepare_data_2d": _spectrum_form(prepare_spectra_2d),
+        "prepare_data_3d": _spectrum_form(prepare_spectra_3d),
         "n_obs_per_cent": None,
-        "description": "Invariant yield dN/(2π pT dpT dη)",
+        "description": "Invariant yield dN/(2π pT dpT dη), or d2N/(dpT dy) (value_type dN_dpT_dy)",
     },
     "mean_pt": {
         "core_fn": _wrap_mean_pt,

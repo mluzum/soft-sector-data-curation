@@ -431,6 +431,14 @@ def resolve(record):
             f"species {species!r} is not produced by the pipeline "
             f"(analysis.species lists the supported ones)")
 
+    # Spectra: the invariant yield or d2N/(dpT dy) (value_type); another
+    # form would be compared with the invariant yield.
+    if record.get("observable_type") == "particle_spectra" and record.get(
+            "value_type", "invariant_yield") not in ("invariant_yield", "dN_dpT_dy", "d2N_dpT_dy"):
+        raise ValueError(
+            f"particle_spectra value_type {record.get('value_type')!r}: the pipeline computes "
+            f"'invariant_yield' (1/(2 pi pT) d2N/(dpT dy)) or 'dN_dpT_dy'")
+
     # Directed flow.  Rapidity-odd v1 needs an eta-odd reference (windows at
     # eta < 0 weighted -1) and a sign convention; the even-harmonic
     # machinery would return ~0 or an unrelated number.  Rapidity-even v1
@@ -765,6 +773,8 @@ def extract_measurement_params(exp_rec):
         'table_rows': ([int(r) for r in exp_rec['table_rows']]
                        if exp_rec.get('table_rows') is not None else None),
         'value_scale': exp_rec.get('value_scale'),
+        # error components contained in another one (not added again)
+        'errors_excluded': exp_rec.get('errors_excluded'),
         # radial_flow: the quantity, the [pT] reference range, and the
         # multiplicity at fixed value of which deviations are taken
         'quantity': exp_rec.get('quantity'),
@@ -1042,7 +1052,8 @@ def load_experimental(params):
                     row_ok = False
                     break
                 acc_val += val * scale
-                acc_err += _point_error(v.get("errors") or [], val) * scale
+                acc_err += _point_error(v.get("errors") or [], val,
+                                        params.get('errors_excluded')) * scale
             if not row_ok:
                 continue
             values.append(acc_val / len(series))
@@ -1065,12 +1076,17 @@ def _error_size(x, val):
     return abs(_safe_float(x))
 
 
-def _point_error(errs, val):
+def _point_error(errs, val, excluded=None):
     """Total error of a HEPData point: all components (statistical and every
     systematic one) in quadrature; an asymmetric component enters as the mean
-    of its two sides."""
+    of its two sides.  ``excluded``: labels of components that are part of
+    another one (a record's errors_excluded, e.g. ALICE 'syst. uncorr.', the
+    centrality-uncorrelated part of 'syst.')."""
     total = 0.0
+    excluded = set(excluded or ())
     for e in errs:
+        if e.get('label') in excluded:
+            continue
         if 'symerror' in e:
             size = _error_size(e['symerror'], val)
         elif 'asymerror' in e:

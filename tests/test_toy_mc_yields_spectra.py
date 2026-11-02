@@ -154,6 +154,32 @@ def test_spectra_3d_bins_off_the_grid():
         assert_close(f"spectra {lo}-{hi} 3D, coarse grid", vals[b], ref, 0.06)
 
 
+def test_spectra_dN_dpT_form():
+    """value_type dN_dpT_dy: d2N/(dpT dy) of the bin, the counts over the
+    bin width and the window (2 pi pT_c x the invariant yield)."""
+    fx = _fx()
+    cf = species_charge_factor('charged')
+    for name, kw in (('2D', dict(qv=fx['qv'])), ('3D', dict(grid=fx['grid']))):
+        eta = ETA if name == '2D' else snap_window(fx['grid'].eta_edges, *ETA)
+        bins = BINS if name == '2D' else [snap_window(fx['grid'].pt_edges, lo, hi) for lo, hi in BINS]
+        rec = record_spectra(eta=eta, bins=bins, cent_classes=('0-100%',))
+        inv, _ = evaluate(rec, cent_method='simple', **kw)
+        rec['value_type'] = 'dN_dpT_dy'
+        vals, _ = evaluate(rec, cent_method='simple', **kw)
+        for b, (lo, hi) in enumerate(bins):
+            ref = ref_spectra(fx['events'], lo, hi, eta) * cf * 2 * np.pi * (lo + hi) / 2
+            assert_close(f"dN/dpT {lo:.3f}-{hi:.3f} {name}", vals[b], ref, SPECTRA_TOL[b])
+            assert abs(vals[b] - inv[b] * 2 * np.pi * (lo + hi) / 2) <= 1e-12 * abs(vals[b])
+    from analysis.dispatcher import resolve
+    rec['value_type'] = 'E d3N/dp3'
+    try:
+        resolve(rec)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError('an unknown spectrum form was not refused')
+
+
 # ── mean pT ─────────────────────────────────────────────────────────────────
 
 def test_mean_pt_2d():
