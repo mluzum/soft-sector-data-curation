@@ -232,6 +232,11 @@ def _extra_checks(doc, raw, sel_dv, sel_q, desc, flag):
     name0 = re.sub(r"\\(rm|mathrm|text|it)|[${}\\ ]", "", _indep_name(iv0).lower()) if iv0 else ""
     if n0 > 1 and _is_pt_cut_axis(name0):
         _check_pt_cut_point(doc, iv0, flag)
+    # A <pT> column next to v_n in a pT-binned table is the bin's mean pT,
+    # not a measurement (PHENIX tables; 46 such records were public until
+    # 2026-11-02).
+    if otype == "mean_pT" and n0 > 1 and (name0.startswith(("p_t", "pt")) or "transversemomentum" in name0):
+        flag("error", "mean_pT of a pT-binned table: the bin centre, not a measurement")
     if otype == "flow_vn":
         if _NOT_VN.search(header) or _NOT_VN.search(str(doc.get("value_type", ""))):
             flag("error", f"header {header!r} is not a flow coefficient")
