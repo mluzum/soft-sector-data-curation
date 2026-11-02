@@ -1,0 +1,111 @@
+observable_type: particle_yields
+inspire_id: '624566'
+version: 1
+hepdata_file: tab1_xi.yaml
+dv_index: 0
+hepdata_table_label: dN/dy of Xi- vs centrality, exponential fit (tab1_xi.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-10%
+  - 10-25%
+  - 25-75%
+  estimator:
+    name: h-
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: Negative-particle multiplicity in |eta| < 0.5 (charged multiplicity used here).
+particle_id:
+  species: Xi-
+kinematic_range:
+  y:
+    min: -0.75
+    max: 0.75
+  pT:
+    min: 0.0
+    max: 100.0
+observable: dN_dy
+value_type: dN_dy
+notes:
+  value: 'J. Adams et al. (STAR), PRL 92, 182301 (2004), arXiv:nucl-ex/0307024, Table I. dN/dy of Xi- at |y| < 0.75 from an
+    exponential fit in m_T (the measured range holds ~75% (Xi) and ~66% (Omega) of the yield); classes from the h- values.
+    Errors: statistical and pT-dependent systematic (10% pT-independent not included).'
+---
+observable_type: particle_yields
+inspire_id: '624566'
+version: 1
+hepdata_file: tab1_axi.yaml
+dv_index: 0
+hepdata_table_label: dN/dy of Xibar+ vs centrality, exponential fit (tab1_axi.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-10%
+  - 10-25%
+  - 25-75%
+  estimator:
+    name: h-
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: Negative-particle multiplicity in |eta| < 0.5 (charged multiplicity used here).
+particle_id:
+  species: Xibar+
+kinematic_range:
+  y:
+    min: -0.75
+    max: 0.75
+  pT:
+    min: 0.0
+    max: 100.0
+observable: dN_dy
+value_type: dN_dy
+notes:
+  value: 'J. Adams et al. (STAR), PRL 92, 182301 (2004), arXiv:nucl-ex/0307024, Table I. dN/dy of Xibar+ at |y| < 0.75 from
+    an exponential fit in m_T (the measured range holds ~75% (Xi) and ~66% (Omega) of the yield); classes from the h- values.
+    Errors: statistical and pT-dependent systematic (10% pT-independent not included).'
+---
+observable_type: particle_yields
+inspire_id: '624566'
+version: 1
+hepdata_file: tab1_om.yaml
+dv_index: 0
+hepdata_table_label: dN/dy of Omega- + Omegabar+ vs centrality, exponential fit (tab1_om.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    name: h-
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: Negative-particle multiplicity in |eta| < 0.5 (charged multiplicity used here).
+particle_id:
+  species: Omega- + Omegabar+
+kinematic_range:
+  y:
+    min: -0.75
+    max: 0.75
+  pT:
+    min: 0.0
+    max: 100.0
+observable: dN_dy
+value_type: dN_dy
+notes:
+  value: 'J. Adams et al. (STAR), PRL 92, 182301 (2004), arXiv:nucl-ex/0307024, Table I. dN/dy of Omega- + Omegabar+ at |y|
+    < 0.75 from an exponential fit in m_T (the measured range holds ~75% (Xi) and ~66% (Omega) of the yield); classes from
+    the h- values. Errors: statistical and pT-dependent systematic (10% pT-independent not included).'
