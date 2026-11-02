@@ -256,7 +256,7 @@ def _extra_checks(doc, raw, sel_dv, sel_q, desc, flag):
     if otype == "flow_vn":
         if _NOT_VN.search(header) or _NOT_VN.search(str(doc.get("value_type", ""))):
             flag("error", f"header {header!r} is not a flow coefficient")
-        elif "/" in header.replace("GeV/c", ""):
+        elif "/" in re.sub(r"GeV/\$?c\$?", "", header):
             flag("warning", f"header {header!r} looks like a ratio")
         dim = doc.get("dimensionality", "integrated")
         if n0 > 1 and not _is_pt_cut_axis(name0) and (name0.startswith(("p_t", "pt")) or "transversemomentum" in name0) and dim != "differential_pT":
