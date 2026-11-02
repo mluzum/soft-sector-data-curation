@@ -64,14 +64,14 @@ def test_compute_flow_vn_dry_run():
 
 
 def test_compute_flow_vn_dry_run_single():
-    """Dry-run a single-acceptance v₂{2} record (ALICE 1666817)."""
+    """Dry-run a single-acceptance v₂{4} record (ALICE 1666817)."""
     script = os.path.join(SCRIPTS_DIR, 'compute_flow_vn.py')
     record = os.path.join(os.path.dirname(__file__), '..', 'data', 'flow_vn',
-                          'alice_flow_vn_energy_dependence_and_fluctuations_PbPb_2760_5020gev.yaml')
+                          'alice_flow_vn_energy_dependence_PbPb_2760_5020gev_ins1666817.yaml')
     result = subprocess.run(
         [sys.executable, script,
          '--record', record,
-         '--value-type', 'v_2{2}',
+         '--value-type', 'v24', '--dimensionality', 'integrated',
          '--dry-run'],
         capture_output=True, text=True, cwd=os.path.dirname(SCRIPTS_DIR),
     )
