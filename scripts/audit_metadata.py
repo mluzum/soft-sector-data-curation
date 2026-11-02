@@ -203,8 +203,8 @@ def _same_centres(classes, bins):
 
 
 def _is_pt_cut_axis(name):
-    """A table axis of lower pT cuts ('p_T,min'), not pT bins."""
-    return bool(re.match(r"p_?t,?min|ptmin|p_t\^?min|minimump_?t", name))
+    """A table axis of lower pT cuts ('p_T,min', ATLAS 'p_{T,0}'), not pT bins."""
+    return bool(re.match(r"p_?t,?min|ptmin|p_t\^?min|minimump_?t|p_?t,0", name))
 
 
 def _check_pt_cut_point(doc, iv, flag):
