@@ -52,6 +52,15 @@ collision_system:
         whose V0A at 2.8 < eta_lab < 5.1 is on the Pb-going side).
       example: "Pb"
 
+hepdata_corrections:
+  description: >
+    Deliberate departures from the HEPData table's own labels, each with its
+    reason (e.g. centrality: "HEPData labels this table 30-80%; its values
+    and position make it 0-30%").  audit_metadata reports such a mismatch as
+    a warning instead of an error.
+  type: object
+  required: false
+
 particle_id:
   description: >
     Identified-particle specification.  For unidentified charged particles

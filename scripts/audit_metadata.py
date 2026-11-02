@@ -359,10 +359,15 @@ def audit_doc(path, doc):
                 flag("warning", f"centrality-named qualifier has non-class "
                                 f"value {v!r}")
     if dv_cent is not None:
+        corrected = (doc.get("hepdata_corrections") or {}).get("centrality")
         if cur_classes and dv_cent not in [_norm_cent(c)
                                            for c in cur_classes]:
-            flag("error", f"selected DV centrality {dv_cent!r} not in "
-                          f"curated classes {cur_classes}")
+            if corrected:       # a documented HEPData labelling error
+                flag("warning", f"selected DV centrality {dv_cent!r} corrected to "
+                                f"{cur_classes} (hepdata_corrections: {corrected[:60]})")
+            else:
+                flag("error", f"selected DV centrality {dv_cent!r} not in "
+                              f"curated classes {cur_classes}")
         elif not cur_classes:
             flag("error", f"selected DV centrality {dv_cent!r} but curated "
                           f"centrality empty")
