@@ -1,20 +1,12 @@
----
 observable_type: particle_yields
 inspire_id: '1243863'
 version: 1
 hepdata_file: Table22.yaml
-hepdata_table_label: 'Total integrated mid-rapidity yields for K0Short in the rapidity range -0.5<y<0.5 for different centrality
-  intervals. For each centrality interval, the fraction of yield extrapolated in the region pT<0.4 GeV/c (ExtFrac) is also
-  reported.
-
-  '
-qualifiers:
-  re: PB PB --> K0S X
-  sqrt(s)/nucleon: '2760.0'
-  yrap: -0.5-0.5
+dv_index: 0
+hepdata_table_label: dN/dy of K0_S vs centrality (Table22.yaml)
 collision_system:
   energy_gev: 2760.0
-  reaction: PB PB --> K0S X
+  reaction: PB PB --> K0_S X
 centrality:
   classes:
   - 0-5%
@@ -36,28 +28,24 @@ centrality:
 particle_id:
   species: K0_S
 kinematic_range:
-  eta:
-    min: -0.8
-    max: 0.8
+  y:
+    min: -0.5
+    max: 0.5
   pT:
-    min: 0.15
-    max: 50
+    min: 0.0
+    max: 100.0
 observable: dN_dy
 value_type: dN_dy
+notes:
+  value: 'B. Abelev et al. (ALICE), PRL 111, 222301 (2013), arXiv:1307.5530. dN/dy of K0_S vs centrality, |y| < 0.5, the spectrum
+    extrapolated below 0.4 GeV/c. Errors: stat and sys.'
 ---
 observable_type: particle_yields
 inspire_id: '1243863'
 version: 1
 hepdata_file: Table23.yaml
-hepdata_table_label: 'Total integrated mid-rapidity yields for LAMBDA in the rapidity range -0.5<y<0.5 for different centrality
-  intervals. For each centrality interval, the fraction of yield extrapolated in the region pT<0.6 GeV/c (ExtFrac) is also
-  reported.
-
-  '
-qualifiers:
-  re: PB PB --> LAMBDA X
-  sqrt(s)/nucleon: '2760.0'
-  yrap: -0.5-0.5
+dv_index: 0
+hepdata_table_label: dN/dy of Lambda vs centrality (Table23.yaml)
 collision_system:
   energy_gev: 2760.0
   reaction: PB PB --> LAMBDA X
@@ -82,11 +70,14 @@ centrality:
 particle_id:
   species: Lambda
 kinematic_range:
-  eta:
-    min: -0.8
-    max: 0.8
+  y:
+    min: -0.5
+    max: 0.5
   pT:
-    min: 0.15
-    max: 50
+    min: 0.0
+    max: 100.0
 observable: dN_dy
 value_type: dN_dy
+notes:
+  value: 'B. Abelev et al. (ALICE), PRL 111, 222301 (2013), arXiv:1307.5530. dN/dy of Lambda vs centrality, |y| < 0.5, the
+    spectrum extrapolated below 0.6 GeV/c; corrected for the feed-down from Xi- and Xi0. Errors: stat and sys.'
