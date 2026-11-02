@@ -454,7 +454,10 @@ def audit_doc(path, doc):
                         "qualifier or independent variable")
 
     # ---- pT qualifier -------------------------------------------------
-    for q in entry["raw"]["qualifiers"]:
+    # The selected DV's qualifiers (a table's DVs may differ in pT window,
+    # PHENIX PPG124 Fig. 11); hepdata_corrections.pT: a stated departure.
+    pt_fixed = (doc.get("hepdata_corrections") or {}).get("pT")
+    for q in [sel_q]:
         for k, v in q.items():
             if k in PT_KEYS:
                 r = _num_range(v)
@@ -466,8 +469,9 @@ def audit_doc(path, doc):
                     flag("warning", f"open-ended pT qualifier {v!r}; curated "
                                     f"max {cur_r[1] if cur_r else None} assumed")
                 elif cur_r != r:
-                    flag("error", f"pT qualifier {v!r} -> {r}, "
-                                  f"curated={cur_r}")
+                    flag("warning" if pt_fixed else "error",
+                         f"pT qualifier {v!r} -> {r}, curated={cur_r}"
+                         + (f" (corrected: {pt_fixed})" if pt_fixed else ""))
             if k in ETA_KEYS:
                 r = _num_range(v)
                 cur = (doc.get("kinematic_range") or {}).get("eta") or {}
