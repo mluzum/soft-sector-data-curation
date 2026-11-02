@@ -85,7 +85,10 @@ def _git_commit(path: Path) -> str:
                               capture_output=True, text=True, timeout=10)
         if head.returncode != 0:
             return ""
-        dirty = subprocess.run(["git", "-C", str(path), "status", "--porcelain",
+        # --no-optional-locks: plain `git status` may take .git/index.lock to
+        # refresh the index; many concurrent pipeline processes on NFS left
+        # stale locks that blocked later checkouts (isobar campaign, 2026-11-02).
+        dirty = subprocess.run(["git", "--no-optional-locks", "-C", str(path), "status", "--porcelain",
                                 "--untracked-files=no"],
                                capture_output=True, text=True, timeout=10)
         return head.stdout.strip() + ("+dirty" if dirty.stdout.strip() else "")
