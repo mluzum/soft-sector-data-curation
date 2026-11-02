@@ -488,11 +488,12 @@ def resolve(record):
             method = "scalar_product"
             order = None
     # An event plane from the opposite subevent (STAR eta-sub: the POI in
-    # one TPC half, the plane from the other) declared as subevents
-    # (particles: AB): the two-subevent correlation, v_POI = <u_A Q_B*> /
-    # sqrt(<Q_A Q_B*>), the event-plane result at low resolution (as the SP
-    # estimator serves full-reference event-plane records).
-    elif method == "event_plane" and particles == "AB":
+    # one TPC half, the plane from the other), or a scalar product of the
+    # two subevents (ALICE p-Pb), declared as subevents (particles: AB):
+    # the two-subevent correlation, v_POI = <u_A Q_B*> / sqrt(<Q_A Q_B*>),
+    # the event-plane result at low resolution (as the SP estimator serves
+    # full-reference event-plane records).
+    elif method in ("event_plane", "scalar_product") and particles == "AB":
         method, order = "cumulant", 2
     key = (method, order, particles, dim)
     entry = DISPATCH_TABLE.get(key)

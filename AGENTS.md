@@ -104,8 +104,9 @@ Fields that change dispatch:
   ~0.  Rapidity-even v1 is not implemented.
 - `kinematic_range.y.mass`: a rapidity window with one assumed mass (PHOBOS
   y_pi), spectra only.
-- `method: event_plane` with `particles: AB` (STAR's eta-sub event plane:
-  the particle in one TPC half, the plane from the other): the
+- `method: event_plane` or `scalar_product` with `particles: AB` (STAR's
+  eta-sub event plane: the particle in one TPC half, the plane from the
+  other; ALICE's two-subevent scalar product): the
   two-subevent correlation below, the event-plane result at low
   resolution.
 - Two-subevent v_n{2} (`particles: AB`) of an identified species: computed

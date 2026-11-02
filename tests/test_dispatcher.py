@@ -539,6 +539,8 @@ def test_eta_sub_event_plane_two_subevents():
     ch = dict(rec, particle_id={'species': 'charged'}, dimensionality='integrated',
               kinematic_range={'eta': {'min': -1.0, 'max': 1.0}, 'pT': {'min': 0.15, 'max': 2.0}})
     assert resolve(ch)['compute'] in ('vn2_gap', 'vn2_gap_poi'), resolve(ch)['compute']
+    sp = dict(rec, method='scalar_product')        # ALICE p-Pb v2{SP}: POI in a, reference in b
+    assert resolve(sp)['compute'] == 'vn2_gap_poi', resolve(sp)['compute']
 
 
 if __name__ == '__main__':
