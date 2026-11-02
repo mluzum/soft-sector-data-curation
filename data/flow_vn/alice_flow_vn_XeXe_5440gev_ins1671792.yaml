@@ -1,0 +1,2252 @@
+observable_type: flow_vn
+inspire_id: '1671792'
+version: 1
+hepdata_file: data1.yaml
+dv_index: 0
+hepdata_table_label: v$_{2}\{2\,|\Delta\eta| >1\}$ vs centrality, 0.2 < pT < 3 GeV/c, Xe Xe 5440 GeV (data1.yaml)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  - 60-70%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 3.0
+harmonic: 2
+value_type: v$_{2}\{2\,|\Delta\eta| >1\}$
+dimensionality: integrated
+method: cumulant
+cumulant_order: 2
+particles: AB
+eta_gap: 1.0
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -0.8
+        max: -0.5
+      pT:
+        min: 0.2
+        max: 3.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.5
+        max: 0.8
+      pT:
+        min: 0.2
+        max: 3.0
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 784 (2018) 82, arXiv:1805.01832. v2 of charged particles vs centrality, 0.2 < pT
+    < 3 GeV/c, |eta| < 0.8, Xe Xe 5440 GeV, two-particle cumulant with |Delta eta| > 1, as subevents -0.8 < eta < -0.5, 0.5
+    < eta < 0.8; classes from the tabulated centres. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '1671792'
+version: 1
+hepdata_file: data1.yaml
+dv_index: 1
+hepdata_table_label: v$_{2}\{2\,|\Delta\eta| >2\}$ vs centrality, 0.2 < pT < 3 GeV/c, Xe Xe 5440 GeV (data1.yaml)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  - 60-70%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 3.0
+harmonic: 2
+value_type: v$_{2}\{2\,|\Delta\eta| >2\}$
+dimensionality: integrated
+method: scalar_product
+flow_reference:
+  detector: V0A
+  eta:
+  - min: 2.8
+    max: 5.1
+  pT:
+    min: 0.0
+    max: 100.0
+  notes: Q_n of the V0A (2.8 < eta < 5.1), channel amplitudes as weights; normalized with the V0C and the TPC (three subevents).
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 784 (2018) 82, arXiv:1805.01832. v2 of charged particles vs centrality, 0.2 < pT
+    < 3 GeV/c, |eta| < 0.8, Xe Xe 5440 GeV, scalar product with the V0A (|Delta eta| > 2), computed with the scalar-product
+    estimator; classes from the tabulated centres. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '1671792'
+version: 1
+hepdata_file: data1.yaml
+dv_index: 2
+hepdata_table_label: v$_{3}\{2\,|\Delta\eta| >1\}$ vs centrality, 0.2 < pT < 3 GeV/c, Xe Xe 5440 GeV (data1.yaml)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 3.0
+harmonic: 3
+value_type: v$_{3}\{2\,|\Delta\eta| >1\}$
+dimensionality: integrated
+table_rows:
+- 0
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+method: cumulant
+cumulant_order: 2
+particles: AB
+eta_gap: 1.0
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -0.8
+        max: -0.5
+      pT:
+        min: 0.2
+        max: 3.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.5
+        max: 0.8
+      pT:
+        min: 0.2
+        max: 3.0
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 784 (2018) 82, arXiv:1805.01832. v3 of charged particles vs centrality, 0.2 < pT
+    < 3 GeV/c, |eta| < 0.8, Xe Xe 5440 GeV, two-particle cumulant with |Delta eta| > 1, as subevents -0.8 < eta < -0.5, 0.5
+    < eta < 0.8; classes from the tabulated centres. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '1671792'
+version: 1
+hepdata_file: data1.yaml
+dv_index: 3
+hepdata_table_label: v$_{3}\{2\,|\Delta\eta| >2\}$ vs centrality, 0.2 < pT < 3 GeV/c, Xe Xe 5440 GeV (data1.yaml)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 3.0
+harmonic: 3
+value_type: v$_{3}\{2\,|\Delta\eta| >2\}$
+dimensionality: integrated
+table_rows:
+- 0
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+method: scalar_product
+flow_reference:
+  detector: V0A
+  eta:
+  - min: 2.8
+    max: 5.1
+  pT:
+    min: 0.0
+    max: 100.0
+  notes: Q_n of the V0A (2.8 < eta < 5.1), channel amplitudes as weights; normalized with the V0C and the TPC (three subevents).
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 784 (2018) 82, arXiv:1805.01832. v3 of charged particles vs centrality, 0.2 < pT
+    < 3 GeV/c, |eta| < 0.8, Xe Xe 5440 GeV, scalar product with the V0A (|Delta eta| > 2), computed with the scalar-product
+    estimator; classes from the tabulated centres. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '1671792'
+version: 1
+hepdata_file: data1.yaml
+dv_index: 4
+hepdata_table_label: v$_{4}\{2\,|\Delta\eta| >1\}$ vs centrality, 0.2 < pT < 3 GeV/c, Xe Xe 5440 GeV (data1.yaml)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 3.0
+harmonic: 4
+value_type: v$_{4}\{2\,|\Delta\eta| >1\}$
+dimensionality: integrated
+table_rows:
+- 0
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+method: cumulant
+cumulant_order: 2
+particles: AB
+eta_gap: 1.0
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -0.8
+        max: -0.5
+      pT:
+        min: 0.2
+        max: 3.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.5
+        max: 0.8
+      pT:
+        min: 0.2
+        max: 3.0
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 784 (2018) 82, arXiv:1805.01832. v4 of charged particles vs centrality, 0.2 < pT
+    < 3 GeV/c, |eta| < 0.8, Xe Xe 5440 GeV, two-particle cumulant with |Delta eta| > 1, as subevents -0.8 < eta < -0.5, 0.5
+    < eta < 0.8; classes from the tabulated centres. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '1671792'
+version: 1
+hepdata_file: data1.yaml
+dv_index: 5
+hepdata_table_label: v$_{2}\{4\}$ vs centrality, 0.2 < pT < 3 GeV/c, Xe Xe 5440 GeV (data1.yaml)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  - 60-70%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 3.0
+harmonic: 2
+value_type: v$_{2}\{4\}$
+dimensionality: integrated
+method: cumulant
+cumulant_order: 4
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 784 (2018) 82, arXiv:1805.01832. v2 of charged particles vs centrality, 0.2 < pT
+    < 3 GeV/c, |eta| < 0.8, Xe Xe 5440 GeV, 4-particle cumulant (no gap); classes from the tabulated centres. Errors: stat
+    and sys.'
+---
+observable_type: flow_vn
+inspire_id: '1671792'
+version: 1
+hepdata_file: data1.yaml
+dv_index: 7
+hepdata_table_label: v$_{2}\{6\}$ vs centrality, 0.2 < pT < 3 GeV/c, Xe Xe 5440 GeV (data1.yaml)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 3.0
+harmonic: 2
+value_type: v$_{2}\{6\}$
+dimensionality: integrated
+table_rows:
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+method: cumulant
+cumulant_order: 6
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 784 (2018) 82, arXiv:1805.01832. v2 of charged particles vs centrality, 0.2 < pT
+    < 3 GeV/c, |eta| < 0.8, Xe Xe 5440 GeV, 6-particle cumulant (no gap); classes from the tabulated centres. Errors: stat
+    and sys.'
+---
+observable_type: flow_vn
+inspire_id: '1671792'
+version: 1
+hepdata_file: data1.yaml
+dv_index: 8
+hepdata_table_label: v$_{2}\{8\}$ vs centrality, 0.2 < pT < 3 GeV/c, Xe Xe 5440 GeV (data1.yaml)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 3.0
+harmonic: 2
+value_type: v$_{2}\{8\}$
+dimensionality: integrated
+table_rows:
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+method: cumulant
+cumulant_order: 8
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 784 (2018) 82, arXiv:1805.01832. v2 of charged particles vs centrality, 0.2 < pT
+    < 3 GeV/c, |eta| < 0.8, Xe Xe 5440 GeV, 8-particle cumulant (no gap); classes from the tabulated centres. Errors: stat
+    and sys.'
+---
+observable_type: flow_vn
+inspire_id: '1671792'
+version: 1
+hepdata_file: data2.yaml
+dv_index: 0
+hepdata_table_label: v$_{2}\{2\,|\Delta\eta| >2\}$ vs centrality, 0.2 < pT < 3 GeV/c, Pb Pb 5020 GeV (data2.yaml)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  - 60-70%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 3.0
+harmonic: 2
+value_type: v$_{2}\{2\,|\Delta\eta| >2\}$
+dimensionality: integrated
+method: scalar_product
+flow_reference:
+  detector: V0A
+  eta:
+  - min: 2.8
+    max: 5.1
+  pT:
+    min: 0.0
+    max: 100.0
+  notes: Q_n of the V0A (2.8 < eta < 5.1), channel amplitudes as weights; normalized with the V0C and the TPC (three subevents).
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 784 (2018) 82, arXiv:1805.01832. v2 of charged particles vs centrality, 0.2 < pT
+    < 3 GeV/c, |eta| < 0.8, Pb Pb 5020 GeV, scalar product with the V0A (|Delta eta| > 2), computed with the scalar-product
+    estimator; classes from the tabulated centres. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '1671792'
+version: 1
+hepdata_file: data2.yaml
+dv_index: 1
+hepdata_table_label: v$_{3}\{2\,|\Delta\eta| >2\}$ vs centrality, 0.2 < pT < 3 GeV/c, Pb Pb 5020 GeV (data2.yaml)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 3.0
+harmonic: 3
+value_type: v$_{3}\{2\,|\Delta\eta| >2\}$
+dimensionality: integrated
+table_rows:
+- 0
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+method: scalar_product
+flow_reference:
+  detector: V0A
+  eta:
+  - min: 2.8
+    max: 5.1
+  pT:
+    min: 0.0
+    max: 100.0
+  notes: Q_n of the V0A (2.8 < eta < 5.1), channel amplitudes as weights; normalized with the V0C and the TPC (three subevents).
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 784 (2018) 82, arXiv:1805.01832. v3 of charged particles vs centrality, 0.2 < pT
+    < 3 GeV/c, |eta| < 0.8, Pb Pb 5020 GeV, scalar product with the V0A (|Delta eta| > 2), computed with the scalar-product
+    estimator; classes from the tabulated centres. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '1671792'
+version: 1
+hepdata_file: data3.yaml
+dv_index: 0
+hepdata_table_label: v$_{2}\{2\,|\Delta\eta| >2\}$ vs centrality, 0.2 < pT < 3 GeV/c, Xe Xe 5440 GeV (data3.yaml)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 0-1%
+  - 1-2%
+  - 2-3%
+  - 3-4%
+  - 4-5%
+  - 5-6%
+  - 6-7%
+  - 7-8%
+  - 8-9%
+  - 9-10%
+  - 10-11%
+  - 11-12%
+  - 12-13%
+  - 13-14%
+  - 14-15%
+  - 15-16%
+  - 16-17%
+  - 17-18%
+  - 18-19%
+  - 19-20%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 3.0
+harmonic: 2
+value_type: v$_{2}\{2\,|\Delta\eta| >2\}$
+dimensionality: integrated
+method: scalar_product
+flow_reference:
+  detector: V0A
+  eta:
+  - min: 2.8
+    max: 5.1
+  pT:
+    min: 0.0
+    max: 100.0
+  notes: Q_n of the V0A (2.8 < eta < 5.1), channel amplitudes as weights; normalized with the V0C and the TPC (three subevents).
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 784 (2018) 82, arXiv:1805.01832. v2 of charged particles vs centrality, 0.2 < pT
+    < 3 GeV/c, |eta| < 0.8, Xe Xe 5440 GeV, scalar product with the V0A (|Delta eta| > 2), computed with the scalar-product
+    estimator; classes from the tabulated centres. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '1671792'
+version: 1
+hepdata_file: data3.yaml
+dv_index: 1
+hepdata_table_label: v$_{3}\{2\,|\Delta\eta| >2\}$ vs centrality, 0.2 < pT < 3 GeV/c, Xe Xe 5440 GeV (data3.yaml)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 0-1%
+  - 1-2%
+  - 2-3%
+  - 3-4%
+  - 4-5%
+  - 5-6%
+  - 6-7%
+  - 7-8%
+  - 8-9%
+  - 9-10%
+  - 10-11%
+  - 11-12%
+  - 12-13%
+  - 13-14%
+  - 14-15%
+  - 15-16%
+  - 16-17%
+  - 17-18%
+  - 18-19%
+  - 19-20%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 3.0
+harmonic: 3
+value_type: v$_{3}\{2\,|\Delta\eta| >2\}$
+dimensionality: integrated
+method: scalar_product
+flow_reference:
+  detector: V0A
+  eta:
+  - min: 2.8
+    max: 5.1
+  pT:
+    min: 0.0
+    max: 100.0
+  notes: Q_n of the V0A (2.8 < eta < 5.1), channel amplitudes as weights; normalized with the V0C and the TPC (three subevents).
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 784 (2018) 82, arXiv:1805.01832. v3 of charged particles vs centrality, 0.2 < pT
+    < 3 GeV/c, |eta| < 0.8, Xe Xe 5440 GeV, scalar product with the V0A (|Delta eta| > 2), computed with the scalar-product
+    estimator; classes from the tabulated centres. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '1671792'
+version: 1
+hepdata_file: data4.yaml
+dv_index: 0
+hepdata_table_label: v$_{2}\{2\,|\Delta\eta| >2\}$ vs centrality, 0.2 < pT < 3 GeV/c, Pb Pb 5020 GeV (data4.yaml)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-1%
+  - 1-2%
+  - 2-3%
+  - 3-4%
+  - 4-5%
+  - 5-6%
+  - 6-7%
+  - 7-8%
+  - 8-9%
+  - 9-10%
+  - 10-11%
+  - 11-12%
+  - 12-13%
+  - 13-14%
+  - 14-15%
+  - 15-16%
+  - 16-17%
+  - 17-18%
+  - 18-19%
+  - 19-20%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 3.0
+harmonic: 2
+value_type: v$_{2}\{2\,|\Delta\eta| >2\}$
+dimensionality: integrated
+method: scalar_product
+flow_reference:
+  detector: V0A
+  eta:
+  - min: 2.8
+    max: 5.1
+  pT:
+    min: 0.0
+    max: 100.0
+  notes: Q_n of the V0A (2.8 < eta < 5.1), channel amplitudes as weights; normalized with the V0C and the TPC (three subevents).
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 784 (2018) 82, arXiv:1805.01832. v2 of charged particles vs centrality, 0.2 < pT
+    < 3 GeV/c, |eta| < 0.8, Pb Pb 5020 GeV, scalar product with the V0A (|Delta eta| > 2), computed with the scalar-product
+    estimator; classes from the tabulated centres. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '1671792'
+version: 1
+hepdata_file: data4.yaml
+dv_index: 1
+hepdata_table_label: v$_{3}\{2\,|\Delta\eta| >2\}$ vs centrality, 0.2 < pT < 3 GeV/c, Pb Pb 5020 GeV (data4.yaml)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-1%
+  - 1-2%
+  - 2-3%
+  - 3-4%
+  - 4-5%
+  - 5-6%
+  - 6-7%
+  - 7-8%
+  - 8-9%
+  - 9-10%
+  - 10-11%
+  - 11-12%
+  - 12-13%
+  - 13-14%
+  - 14-15%
+  - 15-16%
+  - 16-17%
+  - 17-18%
+  - 18-19%
+  - 19-20%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 3.0
+harmonic: 3
+value_type: v$_{3}\{2\,|\Delta\eta| >2\}$
+dimensionality: integrated
+method: scalar_product
+flow_reference:
+  detector: V0A
+  eta:
+  - min: 2.8
+    max: 5.1
+  pT:
+    min: 0.0
+    max: 100.0
+  notes: Q_n of the V0A (2.8 < eta < 5.1), channel amplitudes as weights; normalized with the V0C and the TPC (three subevents).
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 784 (2018) 82, arXiv:1805.01832. v3 of charged particles vs centrality, 0.2 < pT
+    < 3 GeV/c, |eta| < 0.8, Pb Pb 5020 GeV, scalar product with the V0A (|Delta eta| > 2), computed with the scalar-product
+    estimator; classes from the tabulated centres. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '1671792'
+version: 1
+hepdata_file: data5.yaml
+dv_index: 0
+hepdata_table_label: v$_{2}\{2\,|\Delta\eta| >2\}$ (0-5%) vs pT, 0-5%, Xe Xe 5440 GeV (data5.yaml)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 10.0
+    bin_ranges:
+    - - 0.2
+      - 0.3
+    - - 0.3
+      - 0.4
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0375
+    - - 1.0375
+      - 1.25
+    - - 1.25
+      - 1.5
+    - - 1.5
+      - 1.75
+    - - 1.75
+      - 2.0
+    - - 2.0
+      - 2.25
+    - - 2.25
+      - 2.5625
+    - - 2.5625
+      - 3.0
+    - - 3.0
+      - 3.5
+    - - 3.5
+      - 4.125
+    - - 4.125
+      - 5.0
+    - - 5.0
+      - 6.25
+    - - 6.25
+      - 8.0
+    - - 8.0
+      - 10.0
+harmonic: 2
+value_type: v$_{2}\{2\,|\Delta\eta| >2\}$ (0-5%)
+dimensionality: differential_pT
+method: scalar_product
+flow_reference:
+  detector: V0A
+  eta:
+  - min: 2.8
+    max: 5.1
+  pT:
+    min: 0.0
+    max: 100.0
+  notes: Q_n of the V0A (2.8 < eta < 5.1), channel amplitudes as weights; normalized with the V0C and the TPC (three subevents).
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 784 (2018) 82, arXiv:1805.01832. v2 of charged particles vs pT, 0-5%, |eta| < 0.8,
+    Xe Xe 5440 GeV, scalar product with the V0A (|Delta eta| > 2), computed with the scalar-product estimator. Errors: stat
+    and sys.'
+---
+observable_type: flow_vn
+inspire_id: '1671792'
+version: 1
+hepdata_file: data5.yaml
+dv_index: 1
+hepdata_table_label: v$_{2}\{2\,|\Delta\eta| >2\}$ (5-10%) vs pT, 5-10%, Xe Xe 5440 GeV (data5.yaml)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 5-10%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 10.0
+    bin_ranges:
+    - - 0.2
+      - 0.3
+    - - 0.3
+      - 0.4
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0375
+    - - 1.0375
+      - 1.25
+    - - 1.25
+      - 1.5
+    - - 1.5
+      - 1.75
+    - - 1.75
+      - 2.0
+    - - 2.0
+      - 2.25
+    - - 2.25
+      - 2.5625
+    - - 2.5625
+      - 3.0
+    - - 3.0
+      - 3.5
+    - - 3.5
+      - 4.125
+    - - 4.125
+      - 5.0
+    - - 5.0
+      - 6.25
+    - - 6.25
+      - 8.0
+    - - 8.0
+      - 10.0
+harmonic: 2
+value_type: v$_{2}\{2\,|\Delta\eta| >2\}$ (5-10%)
+dimensionality: differential_pT
+method: scalar_product
+flow_reference:
+  detector: V0A
+  eta:
+  - min: 2.8
+    max: 5.1
+  pT:
+    min: 0.0
+    max: 100.0
+  notes: Q_n of the V0A (2.8 < eta < 5.1), channel amplitudes as weights; normalized with the V0C and the TPC (three subevents).
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 784 (2018) 82, arXiv:1805.01832. v2 of charged particles vs pT, 5-10%, |eta| < 0.8,
+    Xe Xe 5440 GeV, scalar product with the V0A (|Delta eta| > 2), computed with the scalar-product estimator. Errors: stat
+    and sys.'
+---
+observable_type: flow_vn
+inspire_id: '1671792'
+version: 1
+hepdata_file: data5.yaml
+dv_index: 2
+hepdata_table_label: v$_{2}\{2\,|\Delta\eta| >2\}$ (10-20%) vs pT, 10-20%, Xe Xe 5440 GeV (data5.yaml)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 10-20%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 10.0
+    bin_ranges:
+    - - 0.2
+      - 0.3
+    - - 0.3
+      - 0.4
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0375
+    - - 1.0375
+      - 1.25
+    - - 1.25
+      - 1.5
+    - - 1.5
+      - 1.75
+    - - 1.75
+      - 2.0
+    - - 2.0
+      - 2.25
+    - - 2.25
+      - 2.5625
+    - - 2.5625
+      - 3.0
+    - - 3.0
+      - 3.5
+    - - 3.5
+      - 4.125
+    - - 4.125
+      - 5.0
+    - - 5.0
+      - 6.25
+    - - 6.25
+      - 8.0
+    - - 8.0
+      - 10.0
+harmonic: 2
+value_type: v$_{2}\{2\,|\Delta\eta| >2\}$ (10-20%)
+dimensionality: differential_pT
+method: scalar_product
+flow_reference:
+  detector: V0A
+  eta:
+  - min: 2.8
+    max: 5.1
+  pT:
+    min: 0.0
+    max: 100.0
+  notes: Q_n of the V0A (2.8 < eta < 5.1), channel amplitudes as weights; normalized with the V0C and the TPC (three subevents).
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 784 (2018) 82, arXiv:1805.01832. v2 of charged particles vs pT, 10-20%, |eta| < 0.8,
+    Xe Xe 5440 GeV, scalar product with the V0A (|Delta eta| > 2), computed with the scalar-product estimator. Errors: stat
+    and sys.'
+---
+observable_type: flow_vn
+inspire_id: '1671792'
+version: 1
+hepdata_file: data5.yaml
+dv_index: 3
+hepdata_table_label: v$_{2}\{2\,|\Delta\eta| >2\}$ (20-30%) vs pT, 20-30%, Xe Xe 5440 GeV (data5.yaml)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 20-30%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 10.0
+    bin_ranges:
+    - - 0.2
+      - 0.3
+    - - 0.3
+      - 0.4
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0375
+    - - 1.0375
+      - 1.25
+    - - 1.25
+      - 1.5
+    - - 1.5
+      - 1.75
+    - - 1.75
+      - 2.0
+    - - 2.0
+      - 2.25
+    - - 2.25
+      - 2.5625
+    - - 2.5625
+      - 3.0
+    - - 3.0
+      - 3.5
+    - - 3.5
+      - 4.125
+    - - 4.125
+      - 5.0
+    - - 5.0
+      - 6.25
+    - - 6.25
+      - 8.0
+    - - 8.0
+      - 10.0
+harmonic: 2
+value_type: v$_{2}\{2\,|\Delta\eta| >2\}$ (20-30%)
+dimensionality: differential_pT
+method: scalar_product
+flow_reference:
+  detector: V0A
+  eta:
+  - min: 2.8
+    max: 5.1
+  pT:
+    min: 0.0
+    max: 100.0
+  notes: Q_n of the V0A (2.8 < eta < 5.1), channel amplitudes as weights; normalized with the V0C and the TPC (three subevents).
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 784 (2018) 82, arXiv:1805.01832. v2 of charged particles vs pT, 20-30%, |eta| < 0.8,
+    Xe Xe 5440 GeV, scalar product with the V0A (|Delta eta| > 2), computed with the scalar-product estimator. Errors: stat
+    and sys.'
+---
+observable_type: flow_vn
+inspire_id: '1671792'
+version: 1
+hepdata_file: data5.yaml
+dv_index: 4
+hepdata_table_label: v$_{2}\{2\,|\Delta\eta| >2\}$ (30-40%) vs pT, 30-40%, Xe Xe 5440 GeV (data5.yaml)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 30-40%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 10.0
+    bin_ranges:
+    - - 0.2
+      - 0.3
+    - - 0.3
+      - 0.4
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0375
+    - - 1.0375
+      - 1.25
+    - - 1.25
+      - 1.5
+    - - 1.5
+      - 1.75
+    - - 1.75
+      - 2.0
+    - - 2.0
+      - 2.25
+    - - 2.25
+      - 2.5625
+    - - 2.5625
+      - 3.0
+    - - 3.0
+      - 3.5
+    - - 3.5
+      - 4.125
+    - - 4.125
+      - 5.0
+    - - 5.0
+      - 6.25
+    - - 6.25
+      - 8.0
+    - - 8.0
+      - 10.0
+harmonic: 2
+value_type: v$_{2}\{2\,|\Delta\eta| >2\}$ (30-40%)
+dimensionality: differential_pT
+method: scalar_product
+flow_reference:
+  detector: V0A
+  eta:
+  - min: 2.8
+    max: 5.1
+  pT:
+    min: 0.0
+    max: 100.0
+  notes: Q_n of the V0A (2.8 < eta < 5.1), channel amplitudes as weights; normalized with the V0C and the TPC (three subevents).
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 784 (2018) 82, arXiv:1805.01832. v2 of charged particles vs pT, 30-40%, |eta| < 0.8,
+    Xe Xe 5440 GeV, scalar product with the V0A (|Delta eta| > 2), computed with the scalar-product estimator. Errors: stat
+    and sys.'
+---
+observable_type: flow_vn
+inspire_id: '1671792'
+version: 1
+hepdata_file: data5.yaml
+dv_index: 5
+hepdata_table_label: v$_{2}\{2\,|\Delta\eta| >2\}$ (40-50%) vs pT, 40-50%, Xe Xe 5440 GeV (data5.yaml)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 40-50%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 10.0
+    bin_ranges:
+    - - 0.2
+      - 0.3
+    - - 0.3
+      - 0.4
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0375
+    - - 1.0375
+      - 1.25
+    - - 1.25
+      - 1.5
+    - - 1.5
+      - 1.75
+    - - 1.75
+      - 2.0
+    - - 2.0
+      - 2.25
+    - - 2.25
+      - 2.5625
+    - - 2.5625
+      - 3.0
+    - - 3.0
+      - 3.5
+    - - 3.5
+      - 4.125
+    - - 4.125
+      - 5.0
+    - - 5.0
+      - 6.25
+    - - 6.25
+      - 8.0
+    - - 8.0
+      - 10.0
+harmonic: 2
+value_type: v$_{2}\{2\,|\Delta\eta| >2\}$ (40-50%)
+dimensionality: differential_pT
+method: scalar_product
+flow_reference:
+  detector: V0A
+  eta:
+  - min: 2.8
+    max: 5.1
+  pT:
+    min: 0.0
+    max: 100.0
+  notes: Q_n of the V0A (2.8 < eta < 5.1), channel amplitudes as weights; normalized with the V0C and the TPC (three subevents).
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 784 (2018) 82, arXiv:1805.01832. v2 of charged particles vs pT, 40-50%, |eta| < 0.8,
+    Xe Xe 5440 GeV, scalar product with the V0A (|Delta eta| > 2), computed with the scalar-product estimator. Errors: stat
+    and sys.'
+---
+observable_type: flow_vn
+inspire_id: '1671792'
+version: 1
+hepdata_file: data5.yaml
+dv_index: 6
+hepdata_table_label: v$_{2}\{2\,|\Delta\eta| >2\}$ (50-60%) vs pT, 50-60%, Xe Xe 5440 GeV (data5.yaml)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 50-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 10.0
+    bin_ranges:
+    - - 0.2
+      - 0.3
+    - - 0.3
+      - 0.4
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0375
+    - - 1.0375
+      - 1.25
+    - - 1.25
+      - 1.5
+    - - 1.5
+      - 1.75
+    - - 1.75
+      - 2.0
+    - - 2.0
+      - 2.25
+    - - 2.25
+      - 2.5625
+    - - 2.5625
+      - 3.0
+    - - 3.0
+      - 3.5
+    - - 3.5
+      - 4.125
+    - - 4.125
+      - 5.0
+    - - 5.0
+      - 6.25
+    - - 6.25
+      - 8.0
+    - - 8.0
+      - 10.0
+harmonic: 2
+value_type: v$_{2}\{2\,|\Delta\eta| >2\}$ (50-60%)
+dimensionality: differential_pT
+method: scalar_product
+flow_reference:
+  detector: V0A
+  eta:
+  - min: 2.8
+    max: 5.1
+  pT:
+    min: 0.0
+    max: 100.0
+  notes: Q_n of the V0A (2.8 < eta < 5.1), channel amplitudes as weights; normalized with the V0C and the TPC (three subevents).
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 784 (2018) 82, arXiv:1805.01832. v2 of charged particles vs pT, 50-60%, |eta| < 0.8,
+    Xe Xe 5440 GeV, scalar product with the V0A (|Delta eta| > 2), computed with the scalar-product estimator. Errors: stat
+    and sys.'
+---
+observable_type: flow_vn
+inspire_id: '1671792'
+version: 1
+hepdata_file: data5.yaml
+dv_index: 7
+hepdata_table_label: v$_{2}\{2\,|\Delta\eta| >2\}$ (60-70%) vs pT, 60-70%, Xe Xe 5440 GeV (data5.yaml)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 60-70%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 8.0
+    bin_ranges:
+    - - 0.2
+      - 0.3
+    - - 0.3
+      - 0.4
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0375
+    - - 1.0375
+      - 1.25
+    - - 1.25
+      - 1.5
+    - - 1.5
+      - 1.75
+    - - 1.75
+      - 2.0
+    - - 2.0
+      - 2.25
+    - - 2.25
+      - 2.5625
+    - - 2.5625
+      - 3.0
+    - - 3.0
+      - 3.5
+    - - 3.5
+      - 4.125
+    - - 4.125
+      - 5.0
+    - - 5.0
+      - 6.25
+    - - 6.25
+      - 8.0
+harmonic: 2
+value_type: v$_{2}\{2\,|\Delta\eta| >2\}$ (60-70%)
+dimensionality: differential_pT
+table_rows:
+- 0
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+- 8
+- 9
+- 10
+- 11
+- 12
+- 13
+- 14
+- 15
+- 16
+- 17
+- 18
+- 19
+method: scalar_product
+flow_reference:
+  detector: V0A
+  eta:
+  - min: 2.8
+    max: 5.1
+  pT:
+    min: 0.0
+    max: 100.0
+  notes: Q_n of the V0A (2.8 < eta < 5.1), channel amplitudes as weights; normalized with the V0C and the TPC (three subevents).
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 784 (2018) 82, arXiv:1805.01832. v2 of charged particles vs pT, 60-70%, |eta| < 0.8,
+    Xe Xe 5440 GeV, scalar product with the V0A (|Delta eta| > 2), computed with the scalar-product estimator. Errors: stat
+    and sys.'
+---
+observable_type: flow_vn
+inspire_id: '1671792'
+version: 1
+hepdata_file: data6.yaml
+dv_index: 0
+hepdata_table_label: v$_{3}\{2\,|\Delta\eta| >2\}$ (0-5%) vs pT, 0-5%, Xe Xe 5440 GeV (data6.yaml)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 7.75
+    bin_ranges:
+    - - 0.2
+      - 0.3
+    - - 0.3
+      - 0.4
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0375
+    - - 1.0375
+      - 1.25
+    - - 1.25
+      - 1.5
+    - - 1.5
+      - 1.75
+    - - 1.75
+      - 2.0
+    - - 2.0
+      - 2.25
+    - - 2.25
+      - 2.5625
+    - - 2.5625
+      - 3.0
+    - - 3.0
+      - 3.5
+    - - 3.5
+      - 4.125
+    - - 4.125
+      - 5.0
+    - - 5.0
+      - 6.25
+    - - 6.25
+      - 7.75
+harmonic: 3
+value_type: v$_{3}\{2\,|\Delta\eta| >2\}$ (0-5%)
+dimensionality: differential_pT
+method: scalar_product
+flow_reference:
+  detector: V0A
+  eta:
+  - min: 2.8
+    max: 5.1
+  pT:
+    min: 0.0
+    max: 100.0
+  notes: Q_n of the V0A (2.8 < eta < 5.1), channel amplitudes as weights; normalized with the V0C and the TPC (three subevents).
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 784 (2018) 82, arXiv:1805.01832. v3 of charged particles vs pT, 0-5%, |eta| < 0.8,
+    Xe Xe 5440 GeV, scalar product with the V0A (|Delta eta| > 2), computed with the scalar-product estimator. Errors: stat
+    and sys.'
+---
+observable_type: flow_vn
+inspire_id: '1671792'
+version: 1
+hepdata_file: data6.yaml
+dv_index: 1
+hepdata_table_label: v$_{3}\{2\,|\Delta\eta| >2\}$ (5-10%) vs pT, 5-10%, Xe Xe 5440 GeV (data6.yaml)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 5-10%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 7.75
+    bin_ranges:
+    - - 0.2
+      - 0.3
+    - - 0.3
+      - 0.4
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0375
+    - - 1.0375
+      - 1.25
+    - - 1.25
+      - 1.5
+    - - 1.5
+      - 1.75
+    - - 1.75
+      - 2.0
+    - - 2.0
+      - 2.25
+    - - 2.25
+      - 2.5625
+    - - 2.5625
+      - 3.0
+    - - 3.0
+      - 3.5
+    - - 3.5
+      - 4.125
+    - - 4.125
+      - 5.0
+    - - 5.0
+      - 6.25
+    - - 6.25
+      - 7.75
+harmonic: 3
+value_type: v$_{3}\{2\,|\Delta\eta| >2\}$ (5-10%)
+dimensionality: differential_pT
+method: scalar_product
+flow_reference:
+  detector: V0A
+  eta:
+  - min: 2.8
+    max: 5.1
+  pT:
+    min: 0.0
+    max: 100.0
+  notes: Q_n of the V0A (2.8 < eta < 5.1), channel amplitudes as weights; normalized with the V0C and the TPC (three subevents).
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 784 (2018) 82, arXiv:1805.01832. v3 of charged particles vs pT, 5-10%, |eta| < 0.8,
+    Xe Xe 5440 GeV, scalar product with the V0A (|Delta eta| > 2), computed with the scalar-product estimator. Errors: stat
+    and sys.'
+---
+observable_type: flow_vn
+inspire_id: '1671792'
+version: 1
+hepdata_file: data6.yaml
+dv_index: 2
+hepdata_table_label: v$_{3}\{2\,|\Delta\eta| >2\}$ (10-20%) vs pT, 10-20%, Xe Xe 5440 GeV (data6.yaml)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 10-20%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 7.75
+    bin_ranges:
+    - - 0.2
+      - 0.3
+    - - 0.3
+      - 0.4
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0375
+    - - 1.0375
+      - 1.25
+    - - 1.25
+      - 1.5
+    - - 1.5
+      - 1.75
+    - - 1.75
+      - 2.0
+    - - 2.0
+      - 2.25
+    - - 2.25
+      - 2.5625
+    - - 2.5625
+      - 3.0
+    - - 3.0
+      - 3.5
+    - - 3.5
+      - 4.125
+    - - 4.125
+      - 5.0
+    - - 5.0
+      - 6.25
+    - - 6.25
+      - 7.75
+harmonic: 3
+value_type: v$_{3}\{2\,|\Delta\eta| >2\}$ (10-20%)
+dimensionality: differential_pT
+method: scalar_product
+flow_reference:
+  detector: V0A
+  eta:
+  - min: 2.8
+    max: 5.1
+  pT:
+    min: 0.0
+    max: 100.0
+  notes: Q_n of the V0A (2.8 < eta < 5.1), channel amplitudes as weights; normalized with the V0C and the TPC (three subevents).
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 784 (2018) 82, arXiv:1805.01832. v3 of charged particles vs pT, 10-20%, |eta| < 0.8,
+    Xe Xe 5440 GeV, scalar product with the V0A (|Delta eta| > 2), computed with the scalar-product estimator. Errors: stat
+    and sys.'
+---
+observable_type: flow_vn
+inspire_id: '1671792'
+version: 1
+hepdata_file: data6.yaml
+dv_index: 3
+hepdata_table_label: v$_{3}\{2\,|\Delta\eta| >2\}$ (20-30%) vs pT, 20-30%, Xe Xe 5440 GeV (data6.yaml)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 20-30%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 7.75
+    bin_ranges:
+    - - 0.2
+      - 0.3
+    - - 0.3
+      - 0.4
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0375
+    - - 1.0375
+      - 1.25
+    - - 1.25
+      - 1.5
+    - - 1.5
+      - 1.75
+    - - 1.75
+      - 2.0
+    - - 2.0
+      - 2.25
+    - - 2.25
+      - 2.5625
+    - - 2.5625
+      - 3.0
+    - - 3.0
+      - 3.5
+    - - 3.5
+      - 4.125
+    - - 4.125
+      - 5.0
+    - - 5.0
+      - 6.25
+    - - 6.25
+      - 7.75
+harmonic: 3
+value_type: v$_{3}\{2\,|\Delta\eta| >2\}$ (20-30%)
+dimensionality: differential_pT
+method: scalar_product
+flow_reference:
+  detector: V0A
+  eta:
+  - min: 2.8
+    max: 5.1
+  pT:
+    min: 0.0
+    max: 100.0
+  notes: Q_n of the V0A (2.8 < eta < 5.1), channel amplitudes as weights; normalized with the V0C and the TPC (three subevents).
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 784 (2018) 82, arXiv:1805.01832. v3 of charged particles vs pT, 20-30%, |eta| < 0.8,
+    Xe Xe 5440 GeV, scalar product with the V0A (|Delta eta| > 2), computed with the scalar-product estimator. Errors: stat
+    and sys.'
+---
+observable_type: flow_vn
+inspire_id: '1671792'
+version: 1
+hepdata_file: data6.yaml
+dv_index: 4
+hepdata_table_label: v$_{3}\{2\,|\Delta\eta| >2\}$ (30-40%) vs pT, 30-40%, Xe Xe 5440 GeV (data6.yaml)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 30-40%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 7.75
+    bin_ranges:
+    - - 0.2
+      - 0.3
+    - - 0.3
+      - 0.4
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0375
+    - - 1.0375
+      - 1.25
+    - - 1.25
+      - 1.5
+    - - 1.5
+      - 1.75
+    - - 1.75
+      - 2.0
+    - - 2.0
+      - 2.25
+    - - 2.25
+      - 2.5625
+    - - 2.5625
+      - 3.0
+    - - 3.0
+      - 3.5
+    - - 3.5
+      - 4.125
+    - - 4.125
+      - 5.0
+    - - 5.0
+      - 6.25
+    - - 6.25
+      - 7.75
+harmonic: 3
+value_type: v$_{3}\{2\,|\Delta\eta| >2\}$ (30-40%)
+dimensionality: differential_pT
+method: scalar_product
+flow_reference:
+  detector: V0A
+  eta:
+  - min: 2.8
+    max: 5.1
+  pT:
+    min: 0.0
+    max: 100.0
+  notes: Q_n of the V0A (2.8 < eta < 5.1), channel amplitudes as weights; normalized with the V0C and the TPC (three subevents).
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 784 (2018) 82, arXiv:1805.01832. v3 of charged particles vs pT, 30-40%, |eta| < 0.8,
+    Xe Xe 5440 GeV, scalar product with the V0A (|Delta eta| > 2), computed with the scalar-product estimator. Errors: stat
+    and sys.'
+---
+observable_type: flow_vn
+inspire_id: '1671792'
+version: 1
+hepdata_file: data6.yaml
+dv_index: 5
+hepdata_table_label: v$_{3}\{2\,|\Delta\eta| >2\}$ (40-50%) vs pT, 40-50%, Xe Xe 5440 GeV (data6.yaml)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 40-50%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 7.75
+    bin_ranges:
+    - - 0.2
+      - 0.3
+    - - 0.3
+      - 0.4
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0375
+    - - 1.0375
+      - 1.25
+    - - 1.25
+      - 1.5
+    - - 1.5
+      - 1.75
+    - - 1.75
+      - 2.0
+    - - 2.0
+      - 2.25
+    - - 2.25
+      - 2.5625
+    - - 2.5625
+      - 3.0
+    - - 3.0
+      - 3.5
+    - - 3.5
+      - 4.125
+    - - 4.125
+      - 5.0
+    - - 5.0
+      - 6.25
+    - - 6.25
+      - 7.75
+harmonic: 3
+value_type: v$_{3}\{2\,|\Delta\eta| >2\}$ (40-50%)
+dimensionality: differential_pT
+method: scalar_product
+flow_reference:
+  detector: V0A
+  eta:
+  - min: 2.8
+    max: 5.1
+  pT:
+    min: 0.0
+    max: 100.0
+  notes: Q_n of the V0A (2.8 < eta < 5.1), channel amplitudes as weights; normalized with the V0C and the TPC (three subevents).
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 784 (2018) 82, arXiv:1805.01832. v3 of charged particles vs pT, 40-50%, |eta| < 0.8,
+    Xe Xe 5440 GeV, scalar product with the V0A (|Delta eta| > 2), computed with the scalar-product estimator. Errors: stat
+    and sys.'
+---
+observable_type: flow_vn
+inspire_id: '1671792'
+version: 1
+hepdata_file: data6.yaml
+dv_index: 6
+hepdata_table_label: v$_{3}\{2\,|\Delta\eta| >2\}$ (50-60%) vs pT, 50-60%, Xe Xe 5440 GeV (data6.yaml)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 50-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 6.25
+    bin_ranges:
+    - - 0.2
+      - 0.3
+    - - 0.3
+      - 0.4
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0375
+    - - 1.0375
+      - 1.25
+    - - 1.25
+      - 1.5
+    - - 1.5
+      - 1.75
+    - - 1.75
+      - 2.0
+    - - 2.0
+      - 2.25
+    - - 2.25
+      - 2.5625
+    - - 2.5625
+      - 3.0
+    - - 3.0
+      - 3.5
+    - - 3.5
+      - 4.125
+    - - 4.125
+      - 5.0
+    - - 5.0
+      - 6.25
+harmonic: 3
+value_type: v$_{3}\{2\,|\Delta\eta| >2\}$ (50-60%)
+dimensionality: differential_pT
+table_rows:
+- 0
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+- 8
+- 9
+- 10
+- 11
+- 12
+- 13
+- 14
+- 15
+- 16
+- 17
+- 18
+method: scalar_product
+flow_reference:
+  detector: V0A
+  eta:
+  - min: 2.8
+    max: 5.1
+  pT:
+    min: 0.0
+    max: 100.0
+  notes: Q_n of the V0A (2.8 < eta < 5.1), channel amplitudes as weights; normalized with the V0C and the TPC (three subevents).
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 784 (2018) 82, arXiv:1805.01832. v3 of charged particles vs pT, 50-60%, |eta| < 0.8,
+    Xe Xe 5440 GeV, scalar product with the V0A (|Delta eta| > 2), computed with the scalar-product estimator. Errors: stat
+    and sys.'
