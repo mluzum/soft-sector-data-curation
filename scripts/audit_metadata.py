@@ -42,7 +42,7 @@ CENT_MAP = {
 }
 
 # Qualifier names that carry a centrality label/value.
-CENT_KEYS = {"centrality", "centrality [%]", "centrality (%)", "cent", "multiplicity class"}
+CENT_KEYS = {"centrality", "centrality [%]", "centrality (%)", "cent", "multiplicity class", "muliplicity class"}
 # Qualifier names that carry a pT selection.
 PT_KEYS = {"pt", "p_t", "p t", "$p_t$", "$p_{t}$", "transverse momentum"}
 # Qualifier names that carry an eta/y selection.
