@@ -123,6 +123,11 @@ Fields that change dispatch:
   tests/test_toy_mc_radial_flow.py.
 - `value_scale`: a factor the tabulated values carry (1000 for "x 10^3");
   load_experimental divides by it.
+- `particle_spectra` `value_type`: `invariant_yield` (1/(2 pi pT)
+  d2N/(dpT dy)) or `dN_dpT_dy` (d2N/(dpT dy), ALICE 1759506); anything
+  else is refused.  audit_metadata checks it against the header.
+- `errors_excluded`: error labels contained in another component (ALICE
+  'syst. uncorr.' inside 'syst.'), not added again by load_experimental.
 - `table_rows`: the table rows a record holds (ascending).  For tables
   whose rows overlap as classes (0-1% and 0-5% in one ATLAS table), one
   record per non-overlapping set; the loader and the audits honour it.
