@@ -166,7 +166,9 @@ Fields that change dispatch:
   {estimator_threshold, fraction_above, efficiency} replaces the group's
   sigma_inel anchor for that record: f = fraction_above / <P(Ntrk >=
   threshold)>, Ntrk = Poisson(efficiency x N) in the estimator acceptance
-  (`weights.threshold_anchor`, run_pipeline `_record_anchor`).  STAR
+  (`weights.threshold_anchor`, run_pipeline `_record_anchor`).  f > 1 (a
+  low-multiplicity model) is kept: its most peripheral events fall beyond
+  100%; the record's own anchor is written as record_* attrs.  STAR
   isobars (1914564, 2822399): Table III ranges, F50 = 0.4712 (Ru), 0.4590
   (Zr), efficiency 0.87 (scripts/curate_star_isobar_centrality.py).
 - `efficiency_corrected: false` with `detector_efficiency` (yields,

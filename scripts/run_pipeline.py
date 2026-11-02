@@ -280,7 +280,10 @@ def _record_anchor(params, mult, anchor, args, event_weights=None):
                          float(norm['fraction_above']), efficiency=eff, event_weights=event_weights)
     print(f"    Centrality normalization: {norm['fraction_above']} of the total above "
           f"{norm['estimator_threshold']} (efficiency {eff}): p = {a['p_above']:.4f}, "
-          f"f = {a['f']:.4f}, anchor_cent = {a['anchor_cent']:.2f}%")
+          f"f = {a['f']:.4f}, anchor_cent = {a['anchor_cent']:.2f}%"
+          + (" (model multiplicity below the experiment's: its most peripheral events lie beyond 100%)"
+             if a['f'] > 1 else ''))
+    params['record_anchor'] = {k: a[k] for k in ('f', 'n_ref', 'anchor_cent', 'p_above')}
     return a, eff
 from analysis.pipeline_dispatch import (
     get_pipeline_entry, PTCUTS, container_for_prepare, SINGLE_ROW_KEYS,
@@ -1485,6 +1488,11 @@ def main():
                     rec_grp.create_dataset('cent_partial', data=partial)
                 rec_grp.attrs['cent_edges'] = str(params.get('cent_edges', []))
                 rec_grp.attrs['cent_classes'] = str(params.get('cent_classes', []))
+                # A record with its own normalization has its own anchor
+                # (the group attrs hold the sigma_inel one).
+                if params.get('record_anchor') is not None:
+                    for k, v in params['record_anchor'].items():
+                        rec_grp.attrs[f'record_{k}'] = float(v)
 
             # The same experimental points aligned with `labels` (for
             # emulator tables).  A record's points fill its labels only when

@@ -129,10 +129,15 @@ def threshold_anchor(event_var, method, threshold, fraction_above, efficiency=1.
     ('simple'), and p = <P(Ntrk_i >= threshold)> over the simulated events,
     the coverage is f = fraction_above / p (n_ref = n_sim / f).  The class
     edges then follow from the usual anchored weights; no sigma_inel is
-    needed.  f > 1 (the simulation holds fewer events above the threshold
-    than the experiment's fraction) is clamped to 1 with a warning.
+    needed.  f > 1 is legitimate here and is NOT clamped: a model whose
+    multiplicity is low (fewer events above the threshold than the
+    experiment's fraction) has n_ref < n_sim, its most peripheral events
+    fall beyond 100%, and the listed classes stay defined -- exactly what
+    the experiment's procedure does to such a model.  (Until 2026-11-02 f
+    was clamped to 1, which replaced the normalization by n_ref = n_sim at
+    low-multiplicity design points: <N> 40-50% off by up to 80%, zr96c2.)
 
-    Returns resolve_anchor's dict (f, n_ref, anchor_cent) plus 'p_above'.
+    Returns dict f, n_ref, anchor_cent (= 100 f, may exceed 100), p_above.
     """
     x = float(efficiency) * np.asarray(event_var, dtype=float)
     if method == 'poisson':
@@ -144,13 +149,7 @@ def threshold_anchor(event_var, method, threshold, fraction_above, efficiency=1.
     if p <= 0:
         raise ValueError(f'no simulated event reaches the estimator threshold {threshold}')
     f = float(fraction_above) / p
-    if f > 1.0:
-        warnings.warn(f'threshold anchor: fraction_above {fraction_above} > the simulated fraction above '
-                      f'{threshold} ({p:.4f}); clamping f = 1', stacklevel=2)
-        f = 1.0
-    out = resolve_anchor(f, len(x))
-    out['p_above'] = p
-    return out
+    return {'f': f, 'n_ref': len(x) / f, 'anchor_cent': 100.0 * f, 'p_above': p}
 
 
 def cent_bins_partial(cent_edges, anchor_cent):
@@ -395,8 +394,10 @@ def poisson_cdf_cent_weights(Q0ch, centbins, efficiency=1.0, anchor_cent=100.0):
     if anchor_cent <= 0:
         raise ValueError(f"anchor_cent must be > 0, got {anchor_cent}")
     f = anchor_cent / 100.0
-    if not 0.0 < f <= 1.0:
-        raise ValueError(f"anchor_cent={anchor_cent} out of (0, 100]")
+    # f > 1 only from an experiment-defined normalization (threshold_anchor):
+    # the simulation's most peripheral events then lie beyond 100%.
+    if not f > 0.0:
+        raise ValueError(f"anchor_cent={anchor_cent} must be positive")
 
     def sim_target(frac):
         """Total-cross-section CDF value -> the simulated events' CDF value."""

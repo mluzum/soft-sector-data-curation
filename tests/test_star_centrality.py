@@ -53,6 +53,23 @@ def test_threshold_anchor_poisson():
     w = cent_weights('poisson', m, [(0.0, 100 * F)], efficiency=eff, anchor_cent=a['anchor_cent'])[:, 0]
     check('class 0-100F weight = sum P(N >= thr)', abs(w.sum() / (len(m) * p) - 1) < 1e-6,
           f'{w.sum():.2f} vs {len(m) * p:.2f}')
+    # a low-multiplicity model: fewer events above the threshold than F,
+    # f > 1 -- not clamped (n_ref < n_sim); the 0-100F class still holds
+    # exactly the events above the threshold, and 0-80% is filled.
+    low = 0.5 * m
+    a2 = threshold_anchor(low, 'poisson', thr, F, efficiency=eff)
+    p2 = np.mean(scipy.stats.poisson.sf(thr - 1, eff * low))
+    check('f > 1 kept (no clamp)', a2['f'] > 1 and abs(a2['f'] - F / p2) < 1e-12, f"{a2['f']:.4f}")
+    w2 = cent_weights('poisson', low, [(0.0, 100 * F), (0.0, 80.0)], efficiency=eff,
+                      anchor_cent=a2['anchor_cent'])
+    check('f > 1: class 0-100F weight = sum P(N >= thr)', abs(w2[:, 0].sum() / (len(m) * p2) - 1) < 1e-6,
+          f'{w2[:, 0].sum():.2f} vs {len(m) * p2:.2f}')
+    check('f > 1: 0-80% holds 0.8 n_ref', abs(w2[:, 1].sum() / (0.8 * a2['n_ref']) - 1) < 1e-6,
+          f"{w2[:, 1].sum():.1f} vs {0.8 * a2['n_ref']:.1f}")
+    s2 = threshold_anchor(low, 'simple', thr, F, efficiency=eff)
+    ws = cent_weights('simple', eff * low, [(0.0, 100 * F)], n_ref=s2['n_ref'])[:, 0]
+    check('f > 1 simple: class 0-100F = events above threshold',
+          abs(ws.sum() - np.sum(eff * low >= thr)) <= 1, f'{ws.sum():.0f}')
     try:
         threshold_anchor(m, 'poisson', 1e6, 0.5)
         check('unreachable threshold refused', False)
