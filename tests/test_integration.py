@@ -24,7 +24,7 @@ SCRIPTS_DIR = os.path.join(os.path.dirname(__file__), '..', 'scripts')
 PHENIX_RECORD = os.path.join(
     os.path.dirname(__file__),
     '..', 'data', 'flow_vn',
-    'phenix_flow_vn_multi-particle_azimuthal_correlations_200gev.yaml',
+    'phenix_flow_vn_fvtx_v2_v3_subevents_AuAu_200gev_ins1670164.yaml',
 )
 
 
@@ -64,12 +64,14 @@ def test_compute_flow_vn_dry_run():
 
 
 def test_compute_flow_vn_dry_run_single():
-    """Dry-run the single-acceptance v₂{2} record."""
+    """Dry-run a single-acceptance v₂{2} record (ALICE 1666817)."""
     script = os.path.join(SCRIPTS_DIR, 'compute_flow_vn.py')
+    record = os.path.join(os.path.dirname(__file__), '..', 'data', 'flow_vn',
+                          'alice_flow_vn_energy_dependence_and_fluctuations_PbPb_2760_5020gev.yaml')
     result = subprocess.run(
         [sys.executable, script,
-         '--record', PHENIX_RECORD,
-         '--value-type', 'v_2${2}',
+         '--record', record,
+         '--value-type', 'v_2{2}',
          '--dry-run'],
         capture_output=True, text=True, cwd=os.path.dirname(SCRIPTS_DIR),
     )

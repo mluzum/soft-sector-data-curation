@@ -93,7 +93,7 @@ def main():
         dv = t['dependent_variables'][0]
         classes, rows, n_iv = classes_rows(t, dv)
         d = {'observable_type': 'flow_vn', **base(hf, 0, dv, classes), 'harmonic': n, 'method': 'cumulant', **fields,
-             'value_type': dv['header']['name'], 'dimensionality': 'integrated',
+             'value_type': dv['header']['name'].strip('$'), 'dimensionality': 'integrated',
              'notes': {'value': f'{CITE}. {what} of FVTX tracks (no momentum; pT > 0.3 GeV/c assumed), BBC '
                                 'centrality. Errors: stat. and syst.'}}
         if fields.get('particles'):

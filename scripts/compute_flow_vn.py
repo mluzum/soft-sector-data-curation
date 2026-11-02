@@ -3,7 +3,7 @@
 
 Usage:
   python scripts/compute_flow_vn.py \\
-    --record data/flow_vn/phenix_flow_vn_multi-particle_azimuthal_correlations_200gev.yaml \\
+    --record data/flow_vn/phenix_flow_vn_fvtx_v2_v3_subevents_AuAu_200gev_ins1670164.yaml \\
     --value-type v_2{2}ab \\
     --sim-path /path/to/QnsAu/ \\
     --method poisson

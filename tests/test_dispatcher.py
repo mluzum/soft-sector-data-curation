@@ -172,7 +172,7 @@ def test_load_record_found():
     record_path = os.path.join(
         os.path.dirname(__file__),
         '..', 'data', 'flow_vn',
-        'phenix_flow_vn_multi-particle_azimuthal_correlations_200gev.yaml',
+        'phenix_flow_vn_fvtx_v2_v3_subevents_AuAu_200gev_ins1670164.yaml',
     )
     value_type = 'v_2${2}ab'
     rec = load_record(record_path, value_type)
@@ -187,7 +187,7 @@ def test_load_record_not_found():
     record_path = os.path.join(
         os.path.dirname(__file__),
         '..', 'data', 'flow_vn',
-        'phenix_flow_vn_multi-particle_azimuthal_correlations_200gev.yaml',
+        'phenix_flow_vn_fvtx_v2_v3_subevents_AuAu_200gev_ins1670164.yaml',
     )
     rec = load_record(record_path, 'nonexistent_value_type')
     assert rec is None
@@ -197,11 +197,11 @@ def test_load_record_returns_first_match():
     record_path = os.path.join(
         os.path.dirname(__file__),
         '..', 'data', 'flow_vn',
-        'phenix_flow_vn_multi-particle_azimuthal_correlations_200gev.yaml',
+        'phenix_flow_vn_fvtx_v2_v3_subevents_AuAu_200gev_ins1670164.yaml',
     )
     rec = load_record(record_path, 'v_2')
     assert rec is not None
-    # Should find v_2${2} first (appears before v_2${2}ab in the file)
+    # the first record matching 'v_2' (v_2${2}ab: the single-acceptance v_2${2} is staged)
     vt = rec.get('value_type', '')
     assert 'v_2' in vt
 
@@ -342,7 +342,7 @@ def test_phenix_record_full_extraction():
     record_path = os.path.join(
         os.path.dirname(__file__),
         '..', 'data', 'flow_vn',
-        'phenix_flow_vn_multi-particle_azimuthal_correlations_200gev.yaml',
+        'phenix_flow_vn_fvtx_v2_v3_subevents_AuAu_200gev_ins1670164.yaml',
     )
     rec = load_record(record_path, 'v_2${2}ab')
     assert rec is not None
@@ -358,16 +358,16 @@ def test_phenix_record_full_extraction():
     assert params['eta_gap'] == 2.0
 
     # Subevent kinematic ranges
-    assert params['subevent_ranges']['A']['eta'] == (1.0, 3.0)
-    assert params['subevent_ranges']['A']['pT'] == (0.2, 20)
-    assert params['subevent_ranges']['B']['eta'] == (-3.0, -1.0)
-    assert params['subevent_ranges']['B']['pT'] == (0.2, 20)
+    assert params['subevent_ranges']['A']['eta'] == (-3.0, -1.0)
+    assert params['subevent_ranges']['A']['pT'] == (0.3, 100.0)
+    assert params['subevent_ranges']['B']['eta'] == (1.0, 3.0)
+    assert params['subevent_ranges']['B']['pT'] == (0.3, 100.0)
 
     # Centrality
     assert len(params['cent_classes']) == 90
     assert params['cent_classes'][0] == '0-1%'
     assert params['cent_classes'][-1] == '89-90%'
-    assert params['cent_eta_ranges'] == [(-3.9, -3.0), (3.0, 3.9)]
+    assert params['cent_eta_ranges'] == [(-3.9, -3.1), (3.1, 3.9)]
     assert params['cent_estimator']['detector'] == 'BBC'
 
     # Link to raw data
