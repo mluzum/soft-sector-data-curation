@@ -21,9 +21,18 @@ non-overlapping classes and one per nested class, through table_rows).  EP recor
 reference (both halves for the full-FCal v_n(pT); the opposite half,
 mirror, for v_n(|eta|), computed at eta > 0), computed with the scalar-
 product estimator.  2PC records: cumulant order 2, POI pT_b points
-(0.1 GeV windows), reference pT_a (flow_reference.pT), pair gap recorded
-as eta_gap.  Not curated: the resolution and chi tables, correlation functions,
-v_nn(pT_a, pT_b), v_n and v_nn vs n, v_1,1 and the fitted v_1.
+(0.1 GeV windows), reference pT_a (flow_reference.pT), pair gap as
+eta_gap (applied on 3D containers).  Rapidity-even v1 (Table 90, Fig. 21;
+Sec. VI): ATLAS fits v_1,1(pT_a, pT_b), 2 < |Delta eta| < 5, pT_a < 6 and
+pT_b < 10 GeV, as v1(pT_a) v1(pT_b) - c pT_a pT_b, v1 a cubic spline
+through 15 nodes (0.5, 0.7, 0.9, 1.1, 1.3, 1.5, 2.0, 2.5, 3.0, 3.5, 4.5,
+5.5, 6.5, 7.5, 9.0 GeV), 0-50%; Table 90 samples the spline every 0.1 GeV
+(correlated points), so the records hold its values at the nodes
+(table_rows), in windows to the midpoints between nodes (0.4 below the
+first, 10 GeV above the last); v1_even factorization without the c term,
+sign positive at 3-5 GeV (the paper: v1 crosses zero at 1 GeV and peaks at
+4-5 GeV).  Not curated: the resolution and chi tables, correlation
+functions, v_nn(pT_a, pT_b), v_n and v_nn vs n, v_1,1.
 
 Run from the repository root:  python scripts/curate_atlas_vn_pbpb_2760.py
 """
@@ -157,12 +166,40 @@ def main():
                                                      'points': pts, 'point_window': WINDOW}},
                           'method': 'cumulant', 'cumulant_order': 2, 'dimensionality': 'differential_pT', 'eta_gap': 2.0,
                           'flow_reference': {'pT': {'min': alo, 'max': ahi},
-                                             'notes': 'Two-particle correlations, 2 < |Delta eta| < 5 (no pair gap in '
-                                                      'the computation).'},
+                                             'notes': 'Two-particle correlations, 2 < |Delta eta| < 5 (the pair gap, '
+                                                      'eta_gap, is applied on 3D containers).'},
                           'notes': {'value': f'{CITE}. v_{n}(pT_b) = v_nn(pT_a, pT_b)/v_n(pT_a), reference {alo:g} < '
                                              f'pT_a < {ahi:g} GeV; pT_b points ({WINDOW} GeV windows). Errors as '
                                              'tabulated.'}})
             docs.append(d)
+    # rapidity-even v1 from the two-component fit (Table 90), at the 15 spline nodes
+    nodes = [0.5, 0.7, 0.9, 1.1, 1.3, 1.5, 2.0, 2.5, 3.0, 3.5, 4.5, 5.5, 6.5, 7.5, 9.0]
+    edges = [0.4] + [round(0.5 * (a + b), 4) for a, b in zip(nodes[:-1], nodes[1:])] + [10.0]
+    windows = [[a, b] for a, b in zip(edges[:-1], edges[1:])]
+    t = yaml.safe_load(open(os.path.join(RAW, 'Table90.yaml')))
+    xs = [float(v['value']) for v in t['independent_variables'][0]['values']]
+    node_rows = [min(range(len(xs)), key=lambda j: abs(xs[j] - p)) for p in nodes]
+    assert all(abs(xs[j] - p) < 1e-6 for j, p in zip(node_rows, nodes)), 'nodes not on the table grid'
+    for i, dv in enumerate(t['dependent_variables']):
+        q = {qq['name']: qq.get('value') for qq in dv.get('qualifiers', [])}
+        assert str(q['DETARAP']) == '2.0-5.0', q
+        d = base('Table90.yaml', i, 1, q['CENTRALITY'], f"v_1(fit) vs pT at the 15 fit nodes, {q['CENTRALITY']}% "
+                                                       '(Table90.yaml)')
+        d.update({'value_type': dv['header']['name'], 'table_rows': node_rows,
+                  'kinematic_range': {'eta': {'min': -2.5, 'max': 2.5},
+                                      'pT': {'min': edges[0], 'max': edges[-1], 'bin_ranges': windows}},
+                  'method': 'cumulant', 'cumulant_order': 2, 'dimensionality': 'differential_pT', 'eta_gap': 2.0,
+                  'v1_even': {'fit': 'factorization', 'sign_convention': {'pT': {'min': 3.0, 'max': 5.0},
+                                                                          'sign': 'positive'},
+                              'momentum_conservation': (
+                                  'subtracted: ATLAS fits v_1,1 = v1(pT_a) v1(pT_b) - c pT_a pT_b, 2 < |Delta eta| < '
+                                  '5, pT_a < 6 and pT_b < 10 GeV, v1 a cubic spline through 15 nodes; a model '
+                                  'without that correlation is compared through its own factorized v_1,1')},
+                  'notes': {'value': f'{CITE}, Fig. 21, Table 90. Rapidity-even v1 from the two-component fit of '
+                                     f"v_1,1, {q['CENTRALITY']}%, at the 15 spline nodes (the table samples the "
+                                     'spline every 0.1 GeV), in windows to the midpoints between nodes; positive at '
+                                     'high pT as published. Errors: the fit uncertainty (stat and sys), as tabulated.'}})
+        docs.append(d)
     out = 'data/flow_vn/atlas_flow_vn_azimuthal_anisotropy_PbPb_2760gev.yaml'
     with open(out, 'w') as fh:
         yaml.safe_dump_all(docs, fh, sort_keys=False, default_flow_style=False, width=120)
