@@ -28,8 +28,10 @@ the numbers of pairs W behind each element:
   - the overall sign is open (Psi_1 -> Psi_1 + pi): the record's
     sign_convention fixes the sign of v1 in a pT window (positive at high
     pT, where the experiments define it), or the record tabulates |v1|.
-A non-positive leading eigenvalue (no dipole correlation resolved) or a
-zero sign-window value, or a fit that does not converge, gives NaN.
+A non-positive leading eigenvalue (no dipole correlation resolved), a
+zero sign-window value, or a fit that does not converge gives NaN.  Grid
+bins without pairs (beyond the container's pT range) leave the fit; their
+targets are NaN.
 """
 import numpy as np
 
@@ -84,14 +86,25 @@ def v1_from_matrix(V, grid, targets, sign_bin=None, sign=1.0, absolute=False, we
     V = np.asarray(V, dtype=float)
     W = np.ones_like(V) if weights is None else np.asarray(weights, dtype=float)
     out = np.full(len(targets), np.nan)
+    # grid bins without pairs (beyond the container's pT range: ATLAS fits
+    # v_1,1 to 10 GeV) leave the fit; their targets give NaN, the others are
+    # what the fit on the remaining bins gives
+    grid = [g for g in grid if W[g, g] > 0 and np.isfinite(V[g, g])]
+    while grid and not np.all(np.isfinite(V[np.ix_(grid, grid)])):
+        bad = np.argmax((~np.isfinite(V[np.ix_(grid, grid)])).sum(axis=1))
+        grid = grid[:bad] + grid[bad + 1:]
+    if len(grid) < (1 if absolute else 2):
+        return out
     v1g = rank1_fit(V[np.ix_(grid, grid)], W[np.ix_(grid, grid)])
     if not np.all(np.isfinite(v1g)):
         return out
 
     def proj(t):
-        w = W[t, grid]
+        w, v = W[t, grid], V[t, grid]
+        if not np.all(np.isfinite(v)):
+            return np.nan
         den = float(w @ (v1g ** 2))
-        return float((w * V[t, grid]) @ v1g) / den if den > 0 else np.nan
+        return float((w * v) @ v1g) / den if den > 0 else np.nan
 
     vals = np.array([proj(t) for t in targets])
     if absolute:

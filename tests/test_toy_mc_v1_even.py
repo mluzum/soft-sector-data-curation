@@ -13,6 +13,8 @@ Checks:
     sign_convention (positive at high pT), the opposite convention flips it;
   - an integrated window: |v1| (absolute) and the signed value projected on
     a fit grid (fit_pT_bins) equal the input;
+  - bins without pairs (beyond the container's pT range) give NaN and leave
+    the rest of the fit unchanged;
   - records without a sign convention, or of another fit, are refused.
 Run: python3 tests/test_toy_mc_v1_even.py
 """
@@ -117,6 +119,16 @@ def test_fit():
     grad = ((W * (V - np.outer(got, got))) @ got)
     check('noisy matrix: weighted least-squares stationary point', np.abs(grad).max() < 1e-9 * np.abs(W @ got ** 2).max())
     check('no positive eigenvalue: NaN', np.all(np.isnan(v1_from_matrix(-np.outer(v, v), range(5), range(5), 4))))
+
+
+def test_empty_bins():
+    """Bins beyond the container's pT range (ATLAS fits v_1,1 to 10 GeV) leave
+    the fit: their v1 is NaN, the other bins equal the fit without them."""
+    v_in, _ = run(rec(), '3d', jk=False)
+    v_out, _ = run(rec(BINS + [[5.0, 7.0], [7.0, 10.0]]), '3d', jk=False)
+    check('empty high-pT bins: NaN there, the rest unchanged',
+          np.all(np.isnan(v_out[-2:])) and np.allclose(v_out[:-2], v_in, rtol=1e-12),
+          f'{np.round(v_out, 4)}')
 
 
 def test_dispatch():
