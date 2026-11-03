@@ -21,10 +21,10 @@ and > 1 GeV/c and v4{2} for the three ranges (sqrt(<v_n^2>), Tables 22, 28,
 18, 24, 30), computed as the cumulants of the acceptance (the unfolding
 removes the finite-multiplicity resolution, as the cumulants'
 self-correlation removal does); the classes from the <N_part> of Table 1.
-Staged (--staged OUT): <v_n>, sigma(v_n), sigma(v_n)/<v_n> (Tables 2-10:
-moments of the |v_n| distribution), v_n{6}/v_n{4}, v_n{8}/v_n{4} (Tables
-38, 41, 46, 49: ratios of cumulant orders) and the unfolded p(v_n) (Tables
-52-201).  Not curated: Glauber values and eccentricities (Tables 1,
+v_n{6}/v_n{4} and v_n{8}/v_n{4} (Tables 38, 41, 46, 49) as combinations of
+those cumulants from the same events (cumulant_combination).  Staged
+(--staged OUT): <v_n>, sigma(v_n), sigma(v_n)/<v_n> (Tables 2-10: moments of
+the |v_n| distribution) and the unfolded p(v_n) (Tables 52-201).  Not curated: Glauber values and eccentricities (Tables 1,
 11-13), v_n(EP) of Ref. [PRC 86, 014907] and its ratios (Tables 14-31),
 sqrt(<v2^2>) and sqrt(<v3^2>) at pT > 0.5 where the calc v{2} repeats them,
 Bessel-Gaussian fit parameters and the F estimators (Tables 32-35, 37, 40,
@@ -132,12 +132,13 @@ def main():
                                                              'width): not computed'})
                 staged.append(d)
             else:
-                order = int(re.search(r'\{(\d)\}', h).group(1))
-                d = base(hf, i, h, n, order, classes, pt,
-                         f'{h} of charged particles vs centrality, |eta| < 2.5, {win}. Errors: total.', rows,
-                         len(classes_all))
-                d['staging_reason'] = 'ratio of v_n cumulant orders: not computed'
-                staged.append(d)
+                a, b = (int(x) for x in re.findall(r'\{(\d)\}', h))
+                d = base(hf, i, h, n, max(a, b), classes, pt,
+                         f'{h} of charged particles vs centrality, |eta| < 2.5, {win}. From the moments of the '
+                         'unfolded distribution; computed from the cumulants of the same events. Errors: total.',
+                         rows, len(classes_all))
+                d['cumulant_combination'] = {'kind': 'ratio', 'orders': [a, b]}
+                public.append(d)
     for k in range(52, 202):
         hf = f'Table{k}.yaml'
         t = load(hf)

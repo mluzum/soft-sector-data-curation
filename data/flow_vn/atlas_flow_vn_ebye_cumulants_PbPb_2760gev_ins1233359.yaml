@@ -1154,3 +1154,499 @@ kinematic_range:
 notes:
   value: 'G. Aad et al. (ATLAS), JHEP 11 (2013) 183, arXiv:1305.2942. v4{2} = sqrt(<v4^2>) of charged particles vs centrality
     (FCal), |eta| < 2.5, pT > 1 GeV/c. From the unfolded event-by-event v_n distribution. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '1233359'
+version: 1
+hepdata_file: Table38.yaml
+dv_index: 0
+hepdata_table_label: V2(calc){6} / V2(calc){4} of charged particles vs centrality, |eta| < 2 (Table38.yaml)
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+particle_id:
+  species: charged
+value_type: V2(calc){6} / V2(calc){4}
+method: cumulant
+cumulant_order: 6
+harmonic: 2
+centrality:
+  classes:
+  - 65-70%
+  - 60-65%
+  - 55-60%
+  - 50-55%
+  - 45-50%
+  - 40-45%
+  - 35-40%
+  - 30-35%
+  - 25-30%
+  - 20-25%
+  - 15-20%
+  - 10-15%
+  - 5-10%
+  - 4-5%
+  - 3-4%
+  - 2-3%
+  - 1-2%
+  - 0-1%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+dimensionality: integrated
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 100.0
+notes:
+  value: 'G. Aad et al. (ATLAS), JHEP 11 (2013) 183, arXiv:1305.2942. V2(calc){6} / V2(calc){4} of charged particles vs centrality,
+    |eta| < 2.5, pT > 0.5 GeV/c. From the moments of the unfolded distribution; computed from the cumulants of the same events.
+    Errors: total.'
+cumulant_combination:
+  kind: ratio
+  orders:
+  - 6
+  - 4
+---
+observable_type: flow_vn
+inspire_id: '1233359'
+version: 1
+hepdata_file: Table38.yaml
+dv_index: 1
+hepdata_table_label: V2(calc){8} / V2(calc){4} of charged particles vs centrality, |eta| < 2 (Table38.yaml)
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+particle_id:
+  species: charged
+value_type: V2(calc){8} / V2(calc){4}
+method: cumulant
+cumulant_order: 8
+harmonic: 2
+centrality:
+  classes:
+  - 65-70%
+  - 60-65%
+  - 55-60%
+  - 50-55%
+  - 45-50%
+  - 40-45%
+  - 35-40%
+  - 30-35%
+  - 25-30%
+  - 20-25%
+  - 15-20%
+  - 10-15%
+  - 5-10%
+  - 4-5%
+  - 3-4%
+  - 2-3%
+  - 1-2%
+  - 0-1%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+dimensionality: integrated
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 100.0
+notes:
+  value: 'G. Aad et al. (ATLAS), JHEP 11 (2013) 183, arXiv:1305.2942. V2(calc){8} / V2(calc){4} of charged particles vs centrality,
+    |eta| < 2.5, pT > 0.5 GeV/c. From the moments of the unfolded distribution; computed from the cumulants of the same events.
+    Errors: total.'
+cumulant_combination:
+  kind: ratio
+  orders:
+  - 8
+  - 4
+---
+observable_type: flow_vn
+inspire_id: '1233359'
+version: 1
+hepdata_file: Table41.yaml
+dv_index: 0
+hepdata_table_label: V3(calc){6} / V3(calc){4} of charged particles vs centrality, |eta| < 2 (Table41.yaml)
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+particle_id:
+  species: charged
+value_type: V3(calc){6} / V3(calc){4}
+method: cumulant
+cumulant_order: 6
+harmonic: 3
+centrality:
+  classes:
+  - 65-70%
+  - 60-65%
+  - 55-60%
+  - 50-55%
+  - 45-50%
+  - 40-45%
+  - 35-40%
+  - 30-35%
+  - 25-30%
+  - 20-25%
+  - 15-20%
+  - 10-15%
+  - 5-10%
+  - 4-5%
+  - 3-4%
+  - 2-3%
+  - 1-2%
+  - 0-1%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+dimensionality: integrated
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 100.0
+notes:
+  value: 'G. Aad et al. (ATLAS), JHEP 11 (2013) 183, arXiv:1305.2942. V3(calc){6} / V3(calc){4} of charged particles vs centrality,
+    |eta| < 2.5, pT > 0.5 GeV/c. From the moments of the unfolded distribution; computed from the cumulants of the same events.
+    Errors: total.'
+cumulant_combination:
+  kind: ratio
+  orders:
+  - 6
+  - 4
+---
+observable_type: flow_vn
+inspire_id: '1233359'
+version: 1
+hepdata_file: Table41.yaml
+dv_index: 1
+hepdata_table_label: V3(calc){8} / V3(calc){4} of charged particles vs centrality, |eta| < 2 (Table41.yaml)
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+particle_id:
+  species: charged
+value_type: V3(calc){8} / V3(calc){4}
+method: cumulant
+cumulant_order: 8
+harmonic: 3
+centrality:
+  classes:
+  - 65-70%
+  - 60-65%
+  - 55-60%
+  - 50-55%
+  - 45-50%
+  - 40-45%
+  - 35-40%
+  - 30-35%
+  - 25-30%
+  - 20-25%
+  - 15-20%
+  - 10-15%
+  - 5-10%
+  - 4-5%
+  - 3-4%
+  - 2-3%
+  - 1-2%
+  - 0-1%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+dimensionality: integrated
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 100.0
+notes:
+  value: 'G. Aad et al. (ATLAS), JHEP 11 (2013) 183, arXiv:1305.2942. V3(calc){8} / V3(calc){4} of charged particles vs centrality,
+    |eta| < 2.5, pT > 0.5 GeV/c. From the moments of the unfolded distribution; computed from the cumulants of the same events.
+    Errors: total.'
+cumulant_combination:
+  kind: ratio
+  orders:
+  - 8
+  - 4
+---
+observable_type: flow_vn
+inspire_id: '1233359'
+version: 1
+hepdata_file: Table46.yaml
+dv_index: 0
+hepdata_table_label: V2(calc){6} / V2(calc){4} of charged particles vs centrality, |eta| < 2 (Table46.yaml)
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+particle_id:
+  species: charged
+value_type: V2(calc){6} / V2(calc){4}
+method: cumulant
+cumulant_order: 6
+harmonic: 2
+centrality:
+  classes:
+  - 65-70%
+  - 60-65%
+  - 55-60%
+  - 50-55%
+  - 45-50%
+  - 40-45%
+  - 35-40%
+  - 30-35%
+  - 25-30%
+  - 20-25%
+  - 15-20%
+  - 10-15%
+  - 5-10%
+  - 4-5%
+  - 3-4%
+  - 2-3%
+  - 1-2%
+  - 0-1%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+dimensionality: integrated
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 1.0
+notes:
+  value: 'G. Aad et al. (ATLAS), JHEP 11 (2013) 183, arXiv:1305.2942. V2(calc){6} / V2(calc){4} of charged particles vs centrality,
+    |eta| < 2.5, pT 0.5-1 GeV/c. From the moments of the unfolded distribution; computed from the cumulants of the same events.
+    Errors: total.'
+cumulant_combination:
+  kind: ratio
+  orders:
+  - 6
+  - 4
+---
+observable_type: flow_vn
+inspire_id: '1233359'
+version: 1
+hepdata_file: Table46.yaml
+dv_index: 1
+hepdata_table_label: V2(calc){8} / V2(calc){4} of charged particles vs centrality, |eta| < 2 (Table46.yaml)
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+particle_id:
+  species: charged
+value_type: V2(calc){8} / V2(calc){4}
+method: cumulant
+cumulant_order: 8
+harmonic: 2
+centrality:
+  classes:
+  - 65-70%
+  - 60-65%
+  - 55-60%
+  - 50-55%
+  - 45-50%
+  - 40-45%
+  - 35-40%
+  - 30-35%
+  - 25-30%
+  - 20-25%
+  - 15-20%
+  - 10-15%
+  - 5-10%
+  - 4-5%
+  - 3-4%
+  - 2-3%
+  - 1-2%
+  - 0-1%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+dimensionality: integrated
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 1.0
+notes:
+  value: 'G. Aad et al. (ATLAS), JHEP 11 (2013) 183, arXiv:1305.2942. V2(calc){8} / V2(calc){4} of charged particles vs centrality,
+    |eta| < 2.5, pT 0.5-1 GeV/c. From the moments of the unfolded distribution; computed from the cumulants of the same events.
+    Errors: total.'
+cumulant_combination:
+  kind: ratio
+  orders:
+  - 8
+  - 4
+---
+observable_type: flow_vn
+inspire_id: '1233359'
+version: 1
+hepdata_file: Table49.yaml
+dv_index: 0
+hepdata_table_label: V2(calc){6} / V2(calc){4} of charged particles vs centrality, |eta| < 2 (Table49.yaml)
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+particle_id:
+  species: charged
+value_type: V2(calc){6} / V2(calc){4}
+method: cumulant
+cumulant_order: 6
+harmonic: 2
+centrality:
+  classes:
+  - 65-70%
+  - 60-65%
+  - 55-60%
+  - 50-55%
+  - 45-50%
+  - 40-45%
+  - 35-40%
+  - 30-35%
+  - 25-30%
+  - 20-25%
+  - 15-20%
+  - 10-15%
+  - 5-10%
+  - 4-5%
+  - 3-4%
+  - 2-3%
+  - 1-2%
+  - 0-1%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+dimensionality: integrated
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 1.0
+    max: 100.0
+notes:
+  value: 'G. Aad et al. (ATLAS), JHEP 11 (2013) 183, arXiv:1305.2942. V2(calc){6} / V2(calc){4} of charged particles vs centrality,
+    |eta| < 2.5, pT > 1 GeV/c. From the moments of the unfolded distribution; computed from the cumulants of the same events.
+    Errors: total.'
+cumulant_combination:
+  kind: ratio
+  orders:
+  - 6
+  - 4
+---
+observable_type: flow_vn
+inspire_id: '1233359'
+version: 1
+hepdata_file: Table49.yaml
+dv_index: 1
+hepdata_table_label: V2(calc){8} / V2(calc){4} of charged particles vs centrality, |eta| < 2 (Table49.yaml)
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+particle_id:
+  species: charged
+value_type: V2(calc){8} / V2(calc){4}
+method: cumulant
+cumulant_order: 8
+harmonic: 2
+centrality:
+  classes:
+  - 65-70%
+  - 60-65%
+  - 55-60%
+  - 50-55%
+  - 45-50%
+  - 40-45%
+  - 35-40%
+  - 30-35%
+  - 25-30%
+  - 20-25%
+  - 15-20%
+  - 10-15%
+  - 5-10%
+  - 4-5%
+  - 3-4%
+  - 2-3%
+  - 1-2%
+  - 0-1%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+dimensionality: integrated
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 1.0
+    max: 100.0
+notes:
+  value: 'G. Aad et al. (ATLAS), JHEP 11 (2013) 183, arXiv:1305.2942. V2(calc){8} / V2(calc){4} of charged particles vs centrality,
+    |eta| < 2.5, pT > 1 GeV/c. From the moments of the unfolded distribution; computed from the cumulants of the same events.
+    Errors: total.'
+cumulant_combination:
+  kind: ratio
+  orders:
+  - 8
+  - 4
