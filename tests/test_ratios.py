@@ -8,7 +8,8 @@ independent samples the ratio equals numerator/denominator within errors
 and its error matches the propagation of the two independent errors; a
 detector-level side is computed only when the ratio declares
 efficiency_cancels; a spectator-plane side is refused; a side is computed
-at the ratio's centrality classes when its own table is binned otherwise.
+at the ratio's centrality classes (and, for a ratio vs pT, in its bins) when
+its own table is binned otherwise, and the ratio's points align per bin.
 
 Run: python3 tests/test_ratios.py
 """
@@ -27,7 +28,7 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "tests"))
 
 from analysis.dispatcher import iter_records, resolve  # noqa: E402
-from analysis.ratios import at_ratio_classes, joint_jackknife, label_key, resolve_link, side_record  # noqa: E402
+from analysis.ratios import at_ratio_bins, at_ratio_classes, joint_jackknife, label_key, resolve_link, side_record  # noqa: E402
 
 results = []
 
@@ -102,6 +103,22 @@ def test_unit():
             ok = True
         check(f"refused: {name}", ok)
 
+    diff = {"dimensionality": "differential_pT", "table_rows": [1, 2],
+            "kinematic_range": {"pT": {"min": 0.2, "max": 3.0, "bins": [0.2, 0.5, 1.0, 2.0, 3.0]}}}
+    got = at_ratio_bins(copy.deepcopy(diff), {"kinematic_range": {"pT": {"min": 0.2, "max": 2.0,
+                                                                         "bin_ranges": [[0.2, 1.0], [1.0, 2.0]]}}})
+    check("differential side in the ratio's bins, its min/max kept",
+          got["kinematic_range"]["pT"] == {"min": 0.2, "max": 3.0, "bin_ranges": [[0.2, 1.0], [1.0, 2.0]]}
+          and "table_rows" not in got)
+    check("ratio without bins: side unchanged",
+          at_ratio_bins(copy.deepcopy(diff), {"kinematic_range": {"pT": {"min": 0.2, "max": 3.0}}}) == diff)
+    try:
+        at_ratio_bins(copy.deepcopy(diff), {"kinematic_range": {"pT": {"bins": [2.0, 4.0]}}})
+        ok = False
+    except ValueError:
+        ok = True
+    check("refused: ratio bins outside the side's acceptance", ok)
+
 
 def test_pipeline():
     import h5py
@@ -144,7 +161,26 @@ def test_pipeline():
                    and abs(float((d.get("collision_system") or {}).get("energy_gev") or 0) - 200) < 1 and adjacent(d))
         cl = sorted(edges(c) for c in v2c[2]["centrality"]["classes"])
         coarse = [f"{cl[0][0]:g}-{cl[2][1]:g}%"]          # three of the side's classes merged
+        def pt_bins(d):
+            from analysis.dispatcher import axis_bins
+            return axis_bins((d.get("kinematic_range") or {}).get("pT"))
+        v2pt = find("data/flow_vn", lambda d: str((d.get("collision_system") or {}).get("reaction")) == "AU AU --> CHARGED X"
+                    and d.get("dimensionality") == "differential_pT" and d.get("harmonic") == 2
+                    and str((d.get("particle_id") or {}).get("species")) == "charged"
+                    and len(d["centrality"]["classes"]) == 1 and "points" not in d["centrality"]
+                    and abs(float((d.get("collision_system") or {}).get("energy_gev") or 0) - 200) < 1
+                    and len(pt_bins(d)) >= 3 and pt_bins(d)[0][1] == pt_bins(d)[1][0])
+        b = pt_bins(v2pt[2])
+        coarse_pt = [[b[0][0], b[1][1]], list(b[2])]              # bins 0+1 merged, bin 2
+        own = {k: v2pt[2][k] for k in ("inspire_id", "version", "hepdata_file", "value_type", "dv_index",
+                                       "dv_average", "table_rows", "value_scale", "kinematic_range", "centrality")
+               if k in v2pt[2]}
+        own["_record_file"] = v2pt[0]
         recs = [ratio_record("v2_ratio", v2, v2),
+                ratio_record("v2pt_ratio_coarse", v2pt, v2pt, centrality=v2pt[2]["centrality"],
+                             kinematic_range={"eta": v2pt[2]["kinematic_range"].get("eta"),
+                                              "pT": {"min": b[0][0], "max": b[2][1], "bin_ranges": coarse_pt}}),
+                ratio_record("v2pt_own_table", v2pt, v2pt, **own),
                 ratio_record("v2_ratio_coarse", v2c, v2c, centrality={"classes": coarse}),
                 ratio_record("v2_ratio_points", v2, v2, centrality={"classes": coarse}),
                 ratio_record("nch_ratio_cancels", (det_path, 0), (det_path, 0), efficiency_cancels=True),
@@ -173,14 +209,29 @@ def test_pipeline():
             g = f["ratios"]
             labels = [x.decode() for x in g["labels"][:]]
             v, e = g["values"][:], g["errors"][:]
+            ev = g["exp_values"][:]
+            side_ok = np.isfinite(g["numerator_values"][:])   # a bin without particles is NaN on the sides
         check("ratios computed for v2 and the efficiency-cancelling N_ch",
               any(l.startswith("v2_ratio") for l in labels) and any(l.startswith("nch_ratio_cancels") for l in labels))
+        cls = v2pt[2]["centrality"]["classes"][0]
+        want = [f"pT {lo:.2f}-{hi:.2f} {cls}" for lo, hi in coarse_pt]
+        check(f"pT-differential ratio computed in the ratio's bins {want}",
+              [l.split(" | ", 1)[1].split(" ", 1)[1] for l in labels if l.startswith("v2pt_ratio_coarse")] == want)
+        from analysis.dispatcher import extract_measurement_params, load_experimental
+        params = extract_measurement_params(v2pt[2])
+        params["record_file"] = v2pt[0]
+        table, _ = load_experimental(params)
+        got = ev[[i for i, l in enumerate(labels) if l.split(" | ")[0] == own["value_type"]]]
+        check(f"experimental points aligned per pT bin ({len(got)} of {len(table)} bins, {os.path.basename(v2pt[0])})",
+              len(got) == len(table) and np.allclose(got, np.asarray(table, float), equal_nan=True))
         check("point-valued side at other classes skipped",
               "skip v2_ratio_points: side with point-valued centrality" in r.stdout)
         check(f"coarse-class ratio computed at its own class {coarse} ({os.path.basename(v2c[0])})",
               sorted(l.split()[-1] for l in labels if l.startswith("v2_ratio_coarse")) == coarse)
-        check(f"self-ratio (same sample both sides) is exactly 1 with zero error ({len(v)} observables)",
-              len(v) > 0 and np.allclose(v, 1, atol=1e-12) and np.allclose(e, 0, atol=1e-12))
+        check(f"self-ratio (same sample both sides) is exactly 1 with zero error ({int(side_ok.sum())} "
+              f"observables; {int((~side_ok).sum())} empty toy bins NaN on both sides)",
+              side_ok.sum() > 0 and np.allclose(v[side_ok], 1, atol=1e-12) and np.allclose(e[side_ok], 0, atol=1e-12)
+              and np.all(np.isnan(v[~side_ok])))
 
         ind_out = os.path.join(tmp, "ind.h5")
         r = run(0, 1, ind_out)

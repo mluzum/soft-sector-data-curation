@@ -159,7 +159,10 @@ Fields that change dispatch:
   5.02 TeV' over 'Pb+Pb 2.76 TeV', the two sides on two packages).  Each side
   is computed at the ratio's centrality classes (`ratios.at_ratio_classes`:
   ALICE's ratio tables are binned otherwise than its v_n tables; table_rows
-  dropped, a point-valued side refused, combined_from must tile).
+  dropped, a point-valued side refused, combined_from must tile) and, when
+  differential, in the ratio's bins (`at_ratio_bins`: binning keys replaced,
+  the side's min/max kept, since they may set the reference); compute_ratios
+  aligns the ratio's points per class and bin.
 - Symmetric cumulants (`correlation_type: symmetric_cumulant`, key
   `sc_mn`): two harmonics only, and `normalized` is required (true: NSC =
   SC / (<v_m^2><v_n^2>)); `normalization_eta_gap` takes the denominator

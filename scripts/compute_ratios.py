@@ -16,7 +16,8 @@ one package (e.g. Ru-like and Zr-like nuclear parameters of an A=96
 campaign) or two different packages (e.g. Xe+Xe over Pb+Pb, or Pb+Pb at
 5.02 TeV over Pb+Pb at 2.76 TeV for an energy_ratio).  Each side is computed
 at the ratio record's centrality classes (analysis.ratios.at_ratio_classes:
-a ratio table may be binned otherwise than its sides' tables).  Each ratio is
+a ratio table may be binned otherwise than its sides' tables) and, when
+differential, in the ratio's bins (at_ratio_bins).  Each ratio is
 formed per centrality class and bin, with a joint block jackknife over both
 samples (analysis/ratios.py).  A detector-level side is computed as the
 corrected quantity when the ratio declares efficiency_cancels: true.
@@ -25,7 +26,8 @@ planes, detector-level distributions) are listed with the reason.
 
 Output (HDF5, group "ratios"): values, errors, covariance, labels
 ("<ratio value_type> | <quantity>"), exp_values, exp_errors (the ratio
-record's points aligned by centrality class), ratio_record (index into the
+record's points aligned by centrality class and, for a ratio vs pT or
+eta, by bin), ratio_record (index into the
 records list), numerator_values / denominator_values (each side's own
 full-sample values), and the provenance of both runs.
 """
@@ -47,9 +49,10 @@ import yaml
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from analysis.dispatcher import (extract_measurement_params, iter_records,  # noqa: E402
+from analysis.dispatcher import (axis_bins, extract_measurement_params, iter_records,  # noqa: E402
                                  load_experimental, record_roots)
-from analysis.ratios import collection_base, joint_jackknife, label_key, resolve_link, side_record  # noqa: E402
+from analysis.ratios import (bin_label, collection_base, differential_var, joint_jackknife,  # noqa: E402
+                             label_key, resolve_link, side_record)
 
 
 def select_ratio_records(a):
@@ -127,8 +130,12 @@ def read_side(path):
     return by_rec, prov
 
 
-def experimental(ratio):
-    """{centrality class: (value, error)} of the ratio record's own table."""
+def experimental(ratio, var=None):
+    """{(bin, centrality class): (value, error)} of the ratio record's own table.
+
+    bin is '' for a ratio vs centrality; for a differential ratio (var 'pT'
+    or 'eta', from its sides) the bin label of run_pipeline, one class.
+    """
     try:
         params = extract_measurement_params(ratio)
         params["record_file"] = ratio.get("_record_file")
@@ -136,9 +143,24 @@ def experimental(ratio):
     except Exception:          # noqa: BLE001 -- a ratio without a readable table has no points
         return {}
     classes = (ratio.get("centrality") or {}).get("classes") or []
-    if vals is None or len(vals) != len(classes):
+    bins = axis_bins((ratio.get("kinematic_range") or {}).get(var)) if var else []
+    if vals is None:
         return {}
-    return {c: (float(v), float(e)) for c, v, e in zip(classes, vals, errs)}
+    if bins:
+        if len(classes) != 1 or len(vals) != len(bins):
+            return {}
+        keys = [(bin_label(var, lo, hi), classes[0]) for lo, hi in bins]
+    else:
+        if len(vals) != len(classes):
+            return {}
+        keys = [("", c) for c in classes]
+    return {k: (float(v), float(e)) for k, v, e in zip(keys, vals, errs)}
+
+
+def exp_key(label, differential):
+    """(bin, class) of a side's label key '<compute key> [<var> <lo>-<hi>] <class>'."""
+    parts = label.split()
+    return (" ".join(parts[1:-1]) if differential else ""), parts[-1]
 
 
 def main():
@@ -177,10 +199,11 @@ def main():
             skipped.append((r.get("value_type"), "no numerator/denominator records linked"))
             continue
         try:
-            sides = {}
+            sides, var = {}, None
             for side, link in (("num", r["numerator_record"]), ("den", r["denominator_record"])):
                 path, idx, doc = resolve_link(link, collection_base(r.get("_record_file")))
                 rec = side_record(doc, r)
+                var = var or differential_var(rec)
                 if rec != doc:      # computed as the corrected quantity: pin a modified copy
                     path = str(work / f"{side}_{len(entries[side])}.yaml")
                     with open(path, "w") as fh:
@@ -191,7 +214,7 @@ def main():
         except ValueError as e:
             skipped.append((r.get("value_type"), str(e)))
             continue
-        ratios.append((f, r, sides))
+        ratios.append((f, r, sides, var))
     for vt, why in skipped:
         print(f"skip {vt}: {why}")
     if not ratios:
@@ -209,10 +232,10 @@ def main():
               f"block k, which is right only for independent samples")
 
     labels, rec_idx, nf, nr, df, dr, nv, dv, ev, ee = [], [], [], [], [], [], [], [], [], []
-    for i, (f, r, sides) in enumerate(ratios):
+    for i, (f, r, sides, var) in enumerate(ratios):
         n_side = {k: (fu, rep, v) for k, fu, rep, v in num.get(sides["num"], [])}
         d_side = {k: (fu, rep, v) for k, fu, rep, v in den.get(sides["den"], [])}
-        exp = experimental(r)
+        exp = experimental(r, var)
         common = [k for k in n_side if k in d_side]
         if not common:
             print(f"skip {r.get('value_type')}: no quantity computed on both sides")
@@ -222,8 +245,8 @@ def main():
             rec_idx.append(i)
             nf.append(n_side[k][0]); nr.append(n_side[k][1]); nv.append(n_side[k][2])
             df.append(d_side[k][0]); dr.append(d_side[k][1]); dv.append(d_side[k][2])
-            cent = k.split()[-1]
-            ev.append(exp.get(cent, (np.nan, np.nan))[0]); ee.append(exp.get(cent, (np.nan, np.nan))[1])
+            x = exp.get(exp_key(k, bool(var)), (np.nan, np.nan))
+            ev.append(x[0]); ee.append(x[1])
     corr, err, cov = joint_jackknife(np.array(nf), np.array(nr).T, np.array(df), np.array(dr).T)
 
     with h5py.File(a.output, "w") as h:
@@ -237,7 +260,7 @@ def main():
         g.create_dataset("ratio_record", data=np.array(rec_idx, int))
         g.create_dataset("numerator_values", data=np.array(nv, float))
         g.create_dataset("denominator_values", data=np.array(dv, float))
-        g.create_dataset("records", data=[f"{f}|{r.get('value_type')}" for f, r, _ in ratios],
+        g.create_dataset("records", data=[f"{f}|{r.get('value_type')}" for f, r, *_ in ratios],
                          dtype=h5py.string_dtype())
         g.attrs["n_jk_blocks"] = a.n_jk_blocks
         g.attrs["skipped"] = json.dumps(skipped)

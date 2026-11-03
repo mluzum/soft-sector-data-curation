@@ -254,9 +254,11 @@ python scripts/compute_ratios.py \
     --ratio-type energy_ratio --output energy_ratios.h5
 ```
 
-Each side is computed at the ratio record's centrality classes, which may
-differ from the binning of the side's own table (ALICE's 5.02/2.76 TeV
-ratios of v_n are in other classes than its v_n tables).
+Each side is computed at the ratio record's centrality classes and, for a
+ratio vs pT or eta, in the ratio's bins, which may differ from the binning
+of the side's own table (ALICE's 5.02/2.76 TeV ratios of v_n are in other
+classes and pT bins than its v_n tables).  The ratio's experimental points
+are aligned per class and bin.
 
 Each side is an ordinary pipeline run that stores its jackknife replicates
 (`run_pipeline.py --save-jackknife-replicates`).  The ratio's error is a

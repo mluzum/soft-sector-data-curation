@@ -20,7 +20,7 @@ import os
 import numpy as np
 import yaml
 
-from analysis.dispatcher import resolve
+from analysis.dispatcher import axis_bins, resolve
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -62,7 +62,8 @@ def resolve_link(link, base=None):
 def side_record(doc, ratio):
     """The record to compute for one side of `ratio`; raises ValueError if it cannot be.
 
-    The side is computed at the ratio's centrality classes (at_ratio_classes).
+    The side is computed at the ratio's centrality classes (at_ratio_classes)
+    and, when differential, in the ratio's bins (at_ratio_bins).
 
     A detector-level side (efficiency_corrected: false) is computed as the
     corresponding corrected quantity when the ratio declares
@@ -74,6 +75,7 @@ def side_record(doc, ratio):
             raise ValueError('detector-level side and the ratio does not declare efficiency_cancels')
         del doc['efficiency_corrected']
     at_ratio_classes(doc, ratio)
+    at_ratio_bins(doc, ratio)
     resolve(doc)                       # raises with the reason when not dispatchable
     return doc
 
@@ -106,6 +108,46 @@ def at_ratio_classes(doc, ratio):
     from analysis.cent_combine import combination_plan
     combination_plan(cent)             # raises when the sub-classes do not tile the classes
     return doc
+
+
+BINNING_KEYS = ('bins', 'bin_ranges', 'points', 'point_window')
+
+
+def differential_var(doc):
+    """'pT' or 'eta' for a differential record, else None."""
+    return {'differential_pT': 'pT', 'differential_eta': 'eta'}.get(doc.get('dimensionality'))
+
+
+def at_ratio_bins(doc, ratio):
+    """Compute a differential side in the ratio's bins (in place).
+
+    A ratio vs pT (or eta) states its bins in kinematic_range; the sides'
+    tables may be binned otherwise (ALICE 1666817: v3{2} ratio in 9 bins,
+    the 5.02 TeV v3{2}(pT) in 21).  Only the binning keys are replaced: the
+    side's min/max stay (they may define the reference acceptance) and must
+    contain the ratio's bins.  table_rows of the side is dropped.
+    """
+    var = differential_var(doc)
+    raxis = ((ratio.get('kinematic_range') or {}).get(var) or {}) if var else {}
+    want = axis_bins(raxis)
+    axis = (doc.get('kinematic_range') or {}).get(var)
+    if not want or not isinstance(axis, dict) or axis_bins(axis) == want:
+        return doc
+    lo, hi = axis.get('min'), axis.get('max')
+    if (lo is not None and min(b[0] for b in want) < float(lo) - 1e-9) or \
+            (hi is not None and max(b[1] for b in want) > float(hi) + 1e-9):
+        raise ValueError(f'ratio {var} bins {want[0]}..{want[-1]} outside the side acceptance [{lo}, {hi}]')
+    for k in BINNING_KEYS:
+        axis.pop(k, None)
+        if k in raxis:
+            axis[k] = copy.deepcopy(raxis[k])
+    doc.pop('table_rows', None)
+    return doc
+
+
+def bin_label(var, lo, hi):
+    """The differential part of a pipeline label (run_pipeline: '<var> <lo>-<hi>')."""
+    return f'{var} {lo:.2f}-{hi:.2f}'
 
 
 def label_key(label):
