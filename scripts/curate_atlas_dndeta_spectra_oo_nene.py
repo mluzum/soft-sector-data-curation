@@ -17,10 +17,12 @@ From the paper (Secs. 1, 3, 4):
 - errors: statistical and systematic.
 
 Public:
-- dn/deta(eta), 0.25-wide eta bins, every centrality column, pT > 270 MeV
-  (0.27-5 GeV) and extrapolated (0-5 GeV);
-- dn/deta at |eta| < 0.5 vs centrality, and <pT> at |eta| < 0.5 vs
-  centrality, both thresholds;
+- dn/deta(eta) and dn/dy_pi(y_pi), 0.25-wide bins, every centrality
+  column, pT > 270 MeV (0.27-5 GeV) and extrapolated (0-5 GeV);
+- <pT>(eta) and <pT>(y_pi) per class (dimensionality differential_eta,
+  differential_y), both thresholds;
+- dn/deta, dn/dy_pi and <pT> at |eta| < 0.5 or |y_pi| < 0.5 vs centrality,
+  both thresholds;
 - pT spectra at |eta| < 0.5, 1.5 < |eta| < 2.25 and |y_pi| < 0.5
   (kinematic_range.y.mass 0.13957); the two-sided forward window is
   computed on the positive side (symmetric systems, as 1093733's mirrored
@@ -34,11 +36,8 @@ three spectra integrate to their dn/deta, dn/dy_pi within 0.4%), their
 ratio to the 1.5 < |eta| < 2.25 spectra tends to 1.500 at high pT where
 y_pi -> eta (1.001 at mid-rapidity), and |y_pi| < 0.5 over them is 1.43 x
 ATLAS's tabulated mid / forward y_pi ratio (a rapidity-width normalization,
-probably; reported by the O+O converter session); dn/dy_pi (a rapidity with an assumed mass is
-implemented for spectra only), <pT>(eta) and <pT>(y_pi) per class (the
-<pT> core is integrated only), their Ne+Ne / O+O ratios, the spectra
-ratios to 70-80% and mid / forward (ratios within one system: no
-computation).
+probably; reported by the O+O converter session); the spectra ratios to
+70-80% and mid / forward (ratios within one system: no computation).
 
 Run from the repository root:  python scripts/curate_atlas_dndeta_spectra_oo_nene.py [--staged OUT]
 """
@@ -130,7 +129,7 @@ def main():
         refs[key] = f'{OUT[otype]}#{len(out[otype])}'
         out[otype].append(d)
 
-    # dn/deta(eta) per class, and dn/dy_pi(y_pi) (staged)
+    # dn/deta(eta) and dn/dy_pi(y_pi) per class
     for var in ('deta', 'dypi'):
         for system in SYS:
             for thr in PT:
@@ -150,17 +149,11 @@ def main():
                     d.update({'centrality': cent(c), 'kinematic_range': kr,
                               'observable': 'dNch_deta' if var == 'deta' else 'dNch_dy',
                               'value_type': 'dNch_deta' if var == 'deta' else 'dNch_dy',
-                              'dimensionality': 'differential_eta' if var == 'deta' else None,
+                              'dimensionality': 'differential_eta' if var == 'deta' else 'differential_y',
                               'notes': note('Figs. 13, 17', f'Per-event {what} of primary charged particles vs '
                                             f'{"eta" if var == "deta" else "y_pi (pion mass)"}, {c}, '
                                             f'{SYS[system][0]} 5.36 TeV, {PT_TXT[thr]}')})
-                    if var == 'deta':
-                        add('particle_yields', d, ('dndeta', system, thr, c))
-                    else:
-                        d.pop('dimensionality')
-                        d['staging_reason'] = ('dn/dy_pi: a rapidity window with an assumed mass is implemented for '
-                                               'spectra only')
-                        staged.append(d)
+                    add('particle_yields', d, (var, system, thr, c))
     # dn/deta, dn/dy_pi and <pT> at midrapidity vs centrality
     for what in ('dN_deta', 'dN_dypi', 'MeanpT_vs_eta', 'MeanpT_vs_ypi'):
         for system in SYS:
@@ -181,13 +174,8 @@ def main():
                 obs = 'mean_pT' if mean else ('dNch_dy' if ypi else 'dNch_deta')
                 d.update({'centrality': cent(classes), 'kinematic_range': kr, 'observable': obs, 'value_type': obs,
                           'notes': note('Figs. 18, 19', f'{label}; {PT_TXT[thr]}')})
-                if ypi:
-                    d['staging_reason'] = ('a rapidity window with an assumed mass (y_pi) is implemented for '
-                                           'spectra only')
-                    staged.append(d)
-                else:
-                    add(otype, d, ('centdep', what, system, thr))
-    # <pT>(eta), <pT>(y_pi) per class: staged
+                add(otype, d, ('centdep', what, system, thr))
+    # <pT>(eta), <pT>(y_pi) per class
     for what in ('MeanpT_vs_eta', 'MeanpT_vs_ypi'):
         for system in SYS:
             for thr in PT:
@@ -204,9 +192,8 @@ def main():
                         kr['y']['mass'] = PION
                     d.update({'centrality': cent(c), 'kinematic_range': kr, 'observable': 'mean_pT',
                               'value_type': 'mean_pT', 'dimensionality': f'differential_{axis}',
-                              'notes': note('Figs. 14, 17', f'<pT> vs {axis}, {c}, {SYS[system][0]}, {PT_TXT[thr]}'),
-                              'staging_reason': '<pT> vs eta or y_pi: the <pT> core is integrated only'})
-                    staged.append(d)
+                              'notes': note('Figs. 14, 17', f'<pT> vs {axis}, {c}, {SYS[system][0]}, {PT_TXT[thr]}')})
+                    add('mean_pT', d, (what, system, thr, c))
     # spectra
     for kind in WINDOWS:
         for system in SYS:
@@ -234,20 +221,31 @@ def main():
                     add('particle_spectra', d, ('spectra', kind, system, c))
     # Ne+Ne / O+O ratios
     ratios = out['observable_ratios']
+    names = {'dN_deta': 'dn/deta', 'dN_dypi': 'dn/dy_pi', 'MeanpT_vs_eta': '<pT>', 'MeanpT_vs_ypi': '<pT>'}
     for thr in PT:
-        hf = f'dN_deta_NeNe_to_OO_ratio_pT{thr}MeV.yaml'
-        for i, dv in enumerate(load(hf)['dependent_variables']):
-            c = quals(dv)['Centrality']
-            num = out['particle_yields'][int(refs[('dndeta', 'NeNe', thr, c)].split('#')[1])]
-            ratios.append(ratio_of(num, None, refs[('dndeta', 'NeNe', thr, c)], refs[('dndeta', 'OO', thr, c)], hf, i,
-                                   f'dn/deta Ne+Ne/O+O, {c}, pT > {thr} MeV',
-                                   {'dimensionality': 'differential_eta',
-                                    'notes': note('Fig. 15', f'dn/deta(eta) in Ne+Ne over O+O, {c}, {PT_TXT[thr]}')}))
-        for what, otype in (('dN_deta', 'particle_yields'), ('MeanpT_vs_eta', 'mean_pT')):
+        # per class: dn/deta(eta), dn/dy_pi(y_pi), <pT>(eta), <pT>(y_pi)
+        for what, otype, key, dim in (('dN_deta', 'particle_yields', 'deta', 'differential_eta'),
+                                      ('dN_dypi', 'particle_yields', 'dypi', 'differential_y'),
+                                      ('MeanpT_vs_eta', 'mean_pT', 'MeanpT_vs_eta', 'differential_eta'),
+                                      ('MeanpT_vs_ypi', 'mean_pT', 'MeanpT_vs_ypi', 'differential_y')):
+            hf = f'{what}_NeNe_to_OO_ratio_pT{thr}MeV.yaml'
+            axis = 'eta' if dim.endswith('eta') else 'y_pi'
+            for i, dv in enumerate(load(hf)['dependent_variables']):
+                c = quals(dv)['Centrality']
+                num_ref = refs[(key, 'NeNe', thr, c)]
+                num = out[otype][int(num_ref.split('#')[1])]
+                lab = f'{names[what]}({axis}) Ne+Ne/O+O, {c}, pT > {thr} MeV'
+                ratios.append(ratio_of(num, None, num_ref, refs[(key, 'OO', thr, c)], hf, i, lab,
+                                       {'dimensionality': dim,
+                                        'notes': note('Figs. 15, 17', f'{names[what]}({axis}) in Ne+Ne over O+O, {c}, '
+                                                      f'{PT_TXT[thr]}')}))
+        # at mid-rapidity vs centrality
+        for what in ('dN_deta', 'dN_dypi', 'MeanpT_vs_eta', 'MeanpT_vs_ypi'):
+            otype = 'mean_pT' if what.startswith('Mean') else 'particle_yields'
             hf = f'{what}_NeNe_to_OO_ratio_centdep_midrapidity_pT{thr}MeV.yaml'
             num_ref = refs[('centdep', what, 'NeNe', thr)]
             num = out[otype][int(num_ref.split('#')[1])]
-            lab = ('<pT>' if otype == 'mean_pT' else 'dn/deta') + f' at |eta| < 0.5, Ne+Ne/O+O, pT > {thr} MeV'
+            lab = f'{names[what]} at |{"y_pi" if what.endswith("ypi") else "eta"}| < 0.5, Ne+Ne/O+O, pT > {thr} MeV'
             ratios.append(ratio_of(num, None, num_ref, refs[('centdep', what, 'OO', thr)], hf, 0, lab,
                                    {'notes': note('Figs. 18, 19', f'{lab} vs centrality; {PT_TXT[thr]}')}))
     for kind in WINDOWS:
@@ -270,14 +268,12 @@ def main():
             r = ratio_of(num, None, num_ref, refs[('spectra', kind, 'OO', c)], hf, i, lab,
                          {'notes': note('Fig. 12', f'{lab} ({window(kind)[2]})')})
             ratios.append(r)
-    # ratios staged: dn/dy_pi, <pT>(eta, y_pi), spectra to 70-80%, mid / forward
+    # ratios staged: spectra to 70-80% and mid / forward (within one system)
     for hf in sorted(os.listdir(RAW)):
         if not hf.endswith('.yaml') or hf == 'submission.yaml':
             continue
         within = 'cent_to_70_80' in hf or 'mid_eta_to_forward' in hf or 'mid_ypi_to_forward' in hf
-        other = ('NeNe_to_OO' in hf and not hf.startswith('pT_spectra')
-                 and ('ypi' in hf or ('MeanpT' in hf and 'centdep' not in hf)))
-        if not (within or other):
+        if not within:
             continue
         t = load(hf)
         for i, dv in enumerate(t['dependent_variables']):
@@ -286,18 +282,14 @@ def main():
                            'hepdata_file': hf, 'dv_index': i,
                            'hepdata_table_label': f"{dv['header']['name']}, {q.get('Centrality', '')} ({hf})",
                            'collision_system': {'energy_gev': 5360.0,
-                                                'reaction': 'Ne+Ne and O+O' if 'NeNe_to_OO' in hf else
-                                                SYS['NeNe' if '_NeNe' in hf else 'OO'][1]},
+                                                'reaction': SYS['NeNe' if '_NeNe' in hf else 'OO'][1]},
                            'observable': dv['header']['name'], 'value_type': dv['header']['name'],
-                           'ratio_type': 'quantity_ratio' if within else 'system_ratio',
-                           'numerator': ('Ne+Ne' if not within else
-                                         ('the centrality class' if 'cent_to_70_80' in hf else 'mid-rapidity')),
-                           'denominator': ('O+O' if not within else
-                                           ('70-80%' if 'cent_to_70_80' in hf else 'forward rapidity')),
+                           'ratio_type': 'quantity_ratio',
+                           'numerator': 'the centrality class' if 'cent_to_70_80' in hf else 'mid-rapidity',
+                           'denominator': '70-80%' if 'cent_to_70_80' in hf else 'forward rapidity',
                            'notes': note('Figs. 12, 16', f"{dv['header']['name']}, {q}"),
                            'staging_reason': ('a ratio within one system (to 70-80%, or mid- to forward '
-                                              'rapidity): no computation' if within else
-                                              'its sides are staged (y_pi yields, <pT> vs eta or y_pi)')})
+                                              'rapidity): no computation')})
     for otype, path in OUT.items():
         with open(path, 'w') as fh:
             yaml.safe_dump_all(out[otype], fh, sort_keys=False, default_flow_style=False, width=120)
