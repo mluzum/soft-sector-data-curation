@@ -65,6 +65,80 @@ def distinct_sum(S, harmonics, roles):
     return total
 
 
+_SYM_TYPES = {}
+
+
+def _symmetric_types(m):
+    """Set partitions of 2m members (m with +h, m with -h) aggregated by
+    block type: {(sorted ((n_plus, n_minus) per block)): summed Moebius
+    coefficient}.  A block of a single sample contributes S((n_plus -
+    n_minus) h, 0, n_plus + n_minus), so partitions of one type give the same
+    product (8 members: 4140 partitions, a few dozen types)."""
+    if m not in _SYM_TYPES:
+        types = {}
+        for part in set_partitions(list(range(2 * m))):
+            coef = 1
+            key = []
+            for b in part:
+                coef *= (-1) ** (len(b) - 1) * factorial(len(b) - 1)
+                a = sum(1 for x in b if x < m)
+                key.append((a, len(b) - a))
+            key = tuple(sorted(key))
+            types[key] = types.get(key, 0) + coef
+        _SYM_TYPES[m] = {k: c for k, c in types.items() if c != 0}
+    return _SYM_TYPES[m]
+
+
+def symmetric_distinct_sum(S, h, m):
+    """Sum over 2m distinct particles of one (reference) sample of
+    prod w_i exp(i h (phi_1 + .. + phi_m - phi_{m+1} - .. - phi_2m)): the
+    numerator of <2m>_{h..h,-h..-h} (h = 0: the weighted 2m-tuple count).
+    Exact for any particle weights; S(k, 0, p) = sum w^p e^{i k phi}."""
+    total = 0.0
+    for key, coef in _symmetric_types(m).items():
+        term = coef
+        for a, b in key:
+            term = term * S((a - b) * h, 0, a + b)
+        total = total + term
+    return total
+
+
+def reference_cumulant_arrays(S, n_harm, order):
+    """Per-event numerators and denominators of <2>, <4>, ..., <order> of one
+    reference sample for harmonics 1..n_harm-1: N2, D2, N4, D4, (N6, D6, N8,
+    D8).  The single-particle sums at k h beyond the stored harmonics are 0:
+    the terms they enter are self-correlations of k coinciding particles
+    (k >= 2), suppressed by powers of 1/M_eff (cf. _note_missing_q2n)."""
+    out = {}
+    hs = range(1, n_harm)
+    for m in range(1, order // 2 + 1):
+        out[f'N{2 * m}'] = np.stack([symmetric_distinct_sum(S, h, m) for h in hs], axis=1)
+        out[f'D{2 * m}'] = np.real(symmetric_distinct_sum(S, 0, m))
+    return out
+
+
+def reference_cumulants(arrays, w, order):
+    """c_n{2}, ..., c_n{order} for harmonics 1..N-1 from reference_cumulant_arrays."""
+    w = np.asarray(w, dtype=float)
+    k = {2 * m: _avg(arrays[f'N{2 * m}'], arrays[f'D{2 * m}'], w) for m in range(1, order // 2 + 1)}
+    c = {2: k[2]}
+    if order >= 4:
+        c[4] = k[4] - 2.0 * k[2] ** 2
+    if order >= 6:
+        c[6] = k[6] - 9.0 * k[4] * k[2] + 12.0 * k[2] ** 3
+    if order >= 8:
+        c[8] = k[8] - 16.0 * k[6] * k[2] - 18.0 * k[4] ** 2 + 144.0 * k[4] * k[2] ** 2 - 144.0 * k[2] ** 4
+    return c
+
+
+def vn_from_cumulant(c, order):
+    """v_n{order} with the sign convention of the cores: sign(c) |c / norm|^(1/k)
+    for the expected sign (v{2}: +c2; v{4}: -c4; v{6}: +c6/4; v{8}: -c8/33)."""
+    norm = {2: 1.0, 4: -1.0, 6: 4.0, 8: -33.0}[order]
+    x = c / norm
+    return np.sign(x) * np.abs(x) ** (1.0 / order)
+
+
 def correlator_arrays(S, n_harm, order, which=('poi', 'ref')):
     """Per-event numerators and denominators for harmonics 1..n_harm-1.
 

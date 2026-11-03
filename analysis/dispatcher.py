@@ -367,6 +367,55 @@ def reference_status(record):
     return 'assumed' if prov and str(prov).startswith('assumed') else 'curated'
 
 
+# ── combinations of cumulant orders (v_n{6}/v_n{4}, differences, gamma1) ──
+
+COMBINATION_KINDS = {'ratio': 2, 'difference': 2, 'gamma1': 3}
+COMBINATION_ENTRY = {
+    'compute': 'vn_cumulant_combination',
+    'requires': [],
+    'description': 'a combination of v_n{2k} of several orders (ratio, difference, skewness '
+                   'estimate gamma1) from the same events',
+}
+
+
+def combination_terms(record):
+    """The per-order sub-records of a ``cumulant_combination`` record.
+
+    ``cumulant_combination``: kind ratio (v{a}/v{b}) | difference (v{a} -
+    v{b}) | gamma1 (-6 sqrt2 v{4}^2 (v{4} - v{6}) / (v{2}^2 - v{4}^2)^{3/2},
+    orders [2, 4, 6]); ``orders``; optional ``scale`` (a factor on the
+    result, e.g. 1/11); optional ``two_particle``: {particles, subevents,
+    eta_gap} for the v{2} term (ALICE's gamma1 uses v2{2, |Delta eta| > 1}).
+    Each term is the record itself as a single-order cumulant record (its
+    acceptance, species, centrality), so it computes with the existing
+    v_n{2k} keys.  Returns [(order, sub_record)].
+    """
+    import copy
+    comb = record.get('cumulant_combination')
+    if not isinstance(comb, dict):
+        raise ValueError('cumulant_combination must be a mapping')
+    kind = comb.get('kind')
+    if kind not in COMBINATION_KINDS:
+        raise ValueError(f"cumulant_combination.kind {kind!r}: one of {sorted(COMBINATION_KINDS)}")
+    orders = [int(k) for k in (comb.get('orders') or ([2, 4, 6] if kind == 'gamma1' else []))]
+    if len(orders) != COMBINATION_KINDS[kind] or any(k not in (2, 4, 6, 8) for k in orders):
+        raise ValueError(f"cumulant_combination {kind}: orders {orders} (orders 2, 4, 6, 8)")
+    if kind == 'gamma1' and orders != [2, 4, 6]:
+        raise ValueError("cumulant_combination gamma1 takes orders [2, 4, 6]")
+    if record.get('dimensionality', 'integrated') != 'integrated':
+        raise ValueError("cumulant_combination is implemented for integrated records")
+    out = []
+    for k in orders:
+        sub = copy.deepcopy({key: v for key, v in record.items() if key != 'cumulant_combination'})
+        sub.update(method='cumulant', cumulant_order=k, value_type=f"v{record.get('harmonic', 2)}{{{k}}}")
+        for key in ('particles', 'subevents', 'eta_gap'):
+            sub.pop(key, None)
+        if k == 2 and isinstance(comb.get('two_particle'), dict):
+            sub.update(copy.deepcopy(comb['two_particle']))
+        out.append((k, sub))
+    return out
+
+
 def resolve(record):
     """Look up dispatch entry for a record, validate required fields.
 
@@ -379,6 +428,13 @@ def resolve(record):
     Returns the entry dict with keys: compute, requires, description.
     Raises ValueError if no match or missing fields.
     """
+    # A declared combination of cumulant orders (v2{6}/v2{4}, ...) is formed
+    # from its terms, each an ordinary v_n{2k} record.
+    if record.get('cumulant_combination') is not None:
+        for _k, sub in combination_terms(record):
+            resolve(sub)
+        return dict(COMBINATION_ENTRY)
+
     # Refuse a ratio of flow coefficients rather than return a coefficient
     # that the record does not claim.  A silent substitution here is worse
     # than a visible failure: the value is plausible and the label is wrong.
@@ -749,7 +805,17 @@ def extract_measurement_params(exp_rec):
     dim = exp_rec.get('dimensionality', 'integrated')
     diff_var, diff_bins, diff_fixed = extract_differential_bins(exp_rec)
 
+    combination = None
+    if exp_rec.get('cumulant_combination') is not None:
+        comb = exp_rec['cumulant_combination']
+        combination = {'kind': comb.get('kind'), 'scale': float(comb.get('scale', 1.0)),
+                       'terms': [{'order': k, 'key': resolve(sub)['compute'],
+                                  'params': extract_measurement_params(sub)}
+                                 for k, sub in combination_terms(exp_rec)]}
+
     return {
+        # terms of a combination of cumulant orders (None if not)
+        'cumulant_combination': combination,
         # Average of particle and antiparticle, e.g. (h+ + h-)/2: absolute
         # quantities are half of the sum (pipeline_dispatch._with_charge_average).
         'charge_average': bool((exp_rec.get('particle_id') or {}).get('charge_average')),

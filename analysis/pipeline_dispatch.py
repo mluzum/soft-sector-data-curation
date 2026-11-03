@@ -1915,81 +1915,82 @@ def _wrap_vn2_sp(data, w):
         dQ0_poi=data.get('dQ0_poi'), dQ0_ref=data.get('dQ0_ref'))
 
 
-def prepare_vn6_single_3d(grid, params):
-    """Unit-weight Q-vectors up to harmonic 3n for v_n{6}."""
-    sk = params.get('single_range', {})
-    eta = sk.get('eta', (-1, 1))
-    pt = sk.get('pT', (0.1, 10))
-    h = int(params.get('harmonic', 2))
-    if 3 * h >= grid.Qn.shape[-1]:
-        # (until November 2026 this returned None and the core then
-        # crashed the whole group's jackknife)
-        raise ValueError(f"v_{h}{{6}} needs Q_{3 * h}; the container stores harmonics below "
-                         f"{grid.Qn.shape[-1]}")
-    q = grid.acceptance(eta[0], eta[1], pt[0], pt[1])
-    return {'Q1': q, 'Q2': q.copy(), 'Q3': q.copy(), 'Q4': q.copy()}
+# ── v_n{6}, v_n{8}: exact distinct-particle sums (analysis.correlators) ───────
+#
+# <2k> over distinct particles of one sample from the single-particle sums
+# S(h, 0, p) = sum w^p e^{ih phi}: 2D containers with their window weights
+# (Jacobians), 3D grids with unit weights.  Harmonics beyond the stored
+# ones enter only self-correlation terms of coinciding particles (relative
+# order 1/M_eff): they are dropped with a note, as for v_n{4}.  (Until
+# November 2026 the 2D cores required an integer multiplicity, which the
+# weighted M = sum w never is: <6> and <8> were set to 0, so c{6} was
+# 3 v^6 instead of 4 v^6 without fluctuations and of either sign with them;
+# the 3D prepares refused, or before that returned None.)
+
+def _ref_sample_2d(qv, params):
+    pdg_ids = getattr(qv, 'pdg_ids', None)
+    pid = _poi_species(params)
+    if is_charged(pid.get('species')):
+        idx, _ = charged_species_indices(pdg_ids)
+    else:
+        idx, _, found = _get_species_selection(pid, qv)
+        if not found:
+            raise ValueError(f"species {pid.get('species')!r} not in the container")
+        if idx is None:
+            idx = list(range(qv.Qn.shape[1]))
+    (eta, pt), _bins, _diff = _cumulant_windows(params)
+    lo, hi = _find_pt_slice_edges(qv.pt_bin_edges, pt[0], pt[1])
+    return {'idx': list(idx), 'pt': (lo, hi), 'jac': _make_jacobian_list(qv.pt_centers, qv.masses, eta[0], eta[1])}
 
 
-def prepare_vn8_single_3d(grid, params):
-    """Unit-weight Q-vectors up to harmonic 4n for v_n{8}."""
-    sk = params.get('single_range', {})
-    eta = sk.get('eta', (-1, 1))
-    pt = sk.get('pT', (0.1, 10))
-    h = int(params.get('harmonic', 2))
-    if 4 * h >= grid.Qn.shape[-1]:
-        raise ValueError(f"v_{h}{{8}} needs Q_{4 * h}; the container stores harmonics below "
-                         f"{grid.Qn.shape[-1]}")
-    q = grid.acceptance(eta[0], eta[1], pt[0], pt[1])
-    return {'Q1': q}
+def _note_missing_multi(S, order, n_harm, h):
+    from analysis.correlators import _NOTED
+    missing = [j for j in range(2, order // 2 + 1) if j * h >= n_harm]
+    key = ('multi', order, n_harm, h)
+    if missing and key not in _NOTED:
+        _NOTED.add(key)
+        w1, w2 = np.real(S(0, 0, 1)), np.real(S(0, 0, 2))
+        ok = w2 > 0
+        m_eff = float(np.median(w1[ok] ** 2 / w2[ok])) if ok.any() else float('nan')
+        print(f"  note: v_{h}{{{order}}}: Q_{{{', '.join(str(j * h) for j in missing)}}} not stored (harmonics < "
+              f"{n_harm}); the self-correlation terms of {', '.join(map(str, missing))} coinciding particles "
+              f"(relative order 1/M_eff, median M_eff = {m_eff:.3g}) are dropped")
 
 
-def prepare_vn6_single_2d(qv, params):
-    """Build Q-vectors for v_n{6} on the 2D path.
-
-    The Jacobian (correct) particle weights ARE applied via cut_qvectors;
-    only the higher-weight-power self-correlation corrections (w^2, w^3, ...
-    terms, suppressed by powers of 1/M) are neglected.  Missing harmonics
-    are zero-padded with a warning.
-    """
-    import warnings
-    sk = params.get('single_range', {})
-    eta = sk.get('eta', (-1, 1))
-    pt = sk.get('pT', (0.15, 3.0))
-    h = int(params.get('harmonic', 2))
-    if 3 * h >= qv.n_harmonics:
-        warnings.warn(
-            f"v_n{{{h}}}{{6}} needs harmonic {3*h}; 2D data has "
-            f"{qv.n_harmonics} slots.  Zero-padding (self-correlation "
-            f"negligible at heavy-ion M).", UserWarning, stacklevel=2)
-    Qn_cut, jac = cut_qvectors(qv, eta[0], eta[1])
-    lo, hi = _find_pt_slice_edges(qv.pt_bin_edges, *sk.get('pT',(0.1,10)))
-    Qn_pt = Qn_cut[:, :, :, lo:hi].sum(axis=3)
-    Qn = Qn_pt.sum(axis=1)
-    return {'Q1': Qn}
+def _prepare_multi(order, dim):
+    def prepare(container, params):
+        from analysis.correlators import Container2D, Container3D, reference_cumulant_arrays
+        h = int(params.get('harmonic', 2))
+        if dim == '2d':
+            ref = _ref_sample_2d(container, params)
+            S = Container2D(container, ref, ref)
+            n_harm = container.Qn.shape[2]
+        else:
+            (eta, pt), _bins, _diff = _cumulant_windows(params)
+            win = (eta[0], eta[1], pt[0], pt[1])
+            S = Container3D(container, win, container, win, True)
+            n_harm = container.Qn.shape[-1]
+        if h >= n_harm:
+            raise ValueError(f"v_{h}{{{order}}}: harmonic {h} is not stored")
+        _note_missing_multi(S, order, n_harm, h)
+        return reference_cumulant_arrays(S, n_harm, order)
+    prepare.__name__ = f'prepare_vn{order}_single_{dim}'
+    return prepare
 
 
-def prepare_vn8_single_2d(qv, params):
-    """Build Q-vectors for v_n{8} on the 2D path.
+def _core_multi(order):
+    def core(data, w):
+        from analysis.correlators import reference_cumulants, vn_from_cumulant
+        return vn_from_cumulant(reference_cumulants(data, w, order)[order], order)
+    return core
 
-    Correct Jacobian weights are applied via cut_qvectors; only the
-    higher-weight-power self-correlation corrections (suppressed by 1/M)
-    are neglected.  Missing harmonics are zero-padded with a warning.
-    """
-    import warnings
-    sk = params.get('single_range', {})
-    eta = sk.get('eta', (-1, 1))
-    pt = sk.get('pT', (0.15, 3.0))
-    h = int(params.get('harmonic', 2))
-    if 4 * h >= qv.n_harmonics:
-        warnings.warn(
-            f"v_n{{{h}}}{{8}} needs harmonic {4*h}; 2D data has "
-            f"{qv.n_harmonics} slots.  Zero-padding.", UserWarning,
-            stacklevel=2)
-    Qn_cut, jac = cut_qvectors(qv, eta[0], eta[1])
-    lo, hi = _find_pt_slice_edges(qv.pt_bin_edges, *sk.get('pT',(0.1,10)))
-    Qn_pt = Qn_cut[:, :, :, lo:hi].sum(axis=3)
-    Qn = Qn_pt.sum(axis=1)
-    return {'Q1': Qn}
+
+prepare_vn6_single_2d = _prepare_multi(6, '2d')
+prepare_vn6_single_3d = _prepare_multi(6, '3d')
+prepare_vn8_single_2d = _prepare_multi(8, '2d')
+prepare_vn8_single_3d = _prepare_multi(8, '3d')
+_core_vn6_exact = _core_multi(6)
+_core_vn8_exact = _core_multi(8)
 
 
 def prepare_dET_2d(qv, params):
@@ -2190,18 +2191,18 @@ PIPELINE_DISPATCH = {
         "description": "Mean transverse momentum ⟨pT⟩",
     },
     "vn8_single": {
-        "core_fn": lambda data, w: _core_vn8_single(data['Q1'], w),
+        "core_fn": _core_vn8_exact,
         "prepare_data_2d": prepare_vn8_single_2d,
         "prepare_data_3d": prepare_vn8_single_3d,
         "n_obs_per_cent": 2,
-        "description": "v_n{8} integrated (self-correlation corrections neglected, ~1/M suppressed)",
+        "description": "v_n{8} integrated (exact distinct-particle sums; missing harmonics: 1/M_eff terms dropped)",
     },
     "vn6_single": {
-        "core_fn": lambda data, w: _core_vn6_single(data['Q1'], w),
+        "core_fn": _core_vn6_exact,
         "prepare_data_2d": prepare_vn6_single_2d,
         "prepare_data_3d": prepare_vn6_single_3d,
         "n_obs_per_cent": 2,
-        "description": "v_n{6} integrated (self-correlation corrections neglected, ~1/M suppressed)",
+        "description": "v_n{6} integrated (exact distinct-particle sums; missing harmonics: 1/M_eff terms dropped)",
     },
     "vn2_sp_diff_pT": {
         "core_fn": _wrap_vn2_sp_diff,
@@ -2316,6 +2317,63 @@ PIPELINE_DISPATCH = {
 }
 
 
+# ── combinations of cumulant orders ──────────────────────────────────────────
+#
+# A record with ``cumulant_combination`` (dispatcher.combination_terms) is
+# computed from its terms, each an ordinary v_n{2k} record run through its own
+# prepare and core on the same events: the combination is formed inside the
+# jackknife, so its error carries the correlation of the orders.
+
+def _combination_value(kind, v, scale):
+    if kind == 'ratio':
+        out = v[0] / v[1]
+    elif kind == 'difference':
+        out = v[0] - v[1]
+    else:                                  # gamma1: v{2}, v{4}, v{6}
+        v2, v4, v6 = v
+        den = v2 ** 2 - v4 ** 2
+        out = -6.0 * np.sqrt(2.0) * v4 ** 2 * (v4 - v6) / den ** 1.5 if den > 0 else np.nan
+    return out * scale
+
+
+def _prepare_combination(dim):
+    def prepare(container, params):
+        comb = params['cumulant_combination']
+        terms = []
+        for t in comb['terms']:
+            entry = PIPELINE_DISPATCH[t['key']]
+            fn = entry[f'prepare_data_{dim}']
+            c = container if dim == '2d' else container_for_prepare(container, t['params'], entry)
+            terms.append(fn(c, t['params']))
+        # metadata ride along (the jackknife masks only per-event arrays)
+        return {'terms': terms, 'keys': [t['key'] for t in comb['terms']], 'kind': comb['kind'],
+                'scale': comb['scale'], 'harmonic': int(params.get('harmonic', 2))}
+    prepare.__name__ = f'prepare_cumulant_combination_{dim}'
+    return prepare
+
+
+def _core_cumulant_combination(data, w):
+    """One value: the combination of the terms' v_n{2k} (harmonic-major
+    cores, the record's harmonic at index n - 1)."""
+    h = data['harmonic']
+    vals = []
+    for key, d in zip(data['keys'], data['terms']):
+        out = np.atleast_1d(PIPELINE_DISPATCH[key]['core_fn'](d, w))
+        vals.append(float(out[h - 1]) if len(out) >= h else np.nan)
+    return np.array([_combination_value(data['kind'], vals, data['scale'])])
+
+
+PIPELINE_DISPATCH['vn_cumulant_combination'] = {
+    "core_fn": _core_cumulant_combination,
+    "prepare_data_2d": _prepare_combination('2d'),
+    "prepare_data_3d": _prepare_combination('3d'),
+    # receives the unselected container; each term selects its own
+    "selects_species": True,
+    "n_obs_per_cent": 1,
+    "description": "v_n{2k} combination (ratio, difference, gamma1) of several orders",
+}
+
+
 # Quantities that count particles; every other key is normalized.
 ABSOLUTE_KEYS = {'yield_dNch_deta', 'yield_dNch_deta_per_eta', 'spectra_invariant_yield', 'dET_deta'}
 
@@ -2348,6 +2406,7 @@ def _unit_weights(grid):
 SINGLE_ROW_KEYS = frozenset({
     'vn2_ep', 'vn3_ep', 'mean_pt', 'yield_dNch_deta', 'yield_dNch_deta_per_eta',
     'spectra_invariant_yield', 'dET_deta', 'sc_mn', 'nac_mn', 'radial_flow',
+    'vn_cumulant_combination',
 })
 
 

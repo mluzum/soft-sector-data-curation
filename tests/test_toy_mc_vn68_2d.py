@@ -1,14 +1,16 @@
-"""Robustness tests: limited-harmonic and unit-weight 2D paths for v{6}/{8}.
+"""v{6}/v{8} on 2D containers: exact weighted distinct-particle sums.
 
 User requirement: scripts must be robust regardless of simulation source.
-  - Missing high harmonics (needed only for self-correlation subtraction)
-    default to zero with a warning (suppressed by 1/M, negligible at
-    heavy-ion multiplicity).
-  - Missing weighted-cumulant formulas default to the unit-weight
-    simplified expressions with a warning.
-Both defaults are exercised here.
+  - The 2D window weights (Jacobians) enter exactly (analysis.correlators
+    reference_cumulant_arrays); until November 2026 the cores required an
+    integer multiplicity and so dropped <6> and <8> on every weighted
+    container (v{6} = (3/4)^(1/6) v without fluctuations).
+  - Missing high harmonics enter only self-correlation terms of coinciding
+    particles (relative order 1/M_eff): dropped with a printed note.
 Run: python3 tests/test_toy_mc_vn68_2d.py
 """
+import contextlib
+import io
 import os
 import sys
 import warnings
@@ -44,62 +46,44 @@ def _record(order):
                                    {'min': 3.0, 'max': 3.9}]}}
 
 
-def test_vn6_2d_limited_harmonics():
-    """Production-like 2D data (6 slots, Q0..Q5) -> v{6} via zero-padding."""
-    events, qv = _make_qv(n_harm=6)
-    rec = _record(6)
-    assert resolve(rec)['compute'] == 'vn6_single'
+def _run(n_harm, order, n_events=2000):
+    events, qv = _make_qv(n_harm=n_harm, n_events=n_events)
+    rec = _record(order)
+    assert resolve(rec)['compute'] == f'vn{order}_single'
     params = extract_measurement_params(rec)
-    entry = get_pipeline_entry('vn6_single')
-    with warnings.catch_warnings(record=True) as caught:
-        warnings.simplefilter("always")
+    entry = get_pipeline_entry(f'vn{order}_single')
+    out = io.StringIO()
+    with contextlib.redirect_stdout(out):
         d = entry['prepare_data_2d'](qv, params)
-        raw = np.atleast_1d(entry['core_fn'](d, np.ones(qv.n_events)))
-    got = raw[1] if len(raw) > 1 else np.nan
-    warned = any('padding' in str(w.message) or 'self-corr' in str(w.message)
-                 for w in caught)
-    print(f"  info: v2{{6}} (2D, 6 slots) = {got:.4f} (injected 0.05), "
-          f"warning issued: {warned}")
-    # Self-correlation omission is O(1/M^5)-suppressed at high order --
-    # generous tolerance, but must be a sane finite number near truth.
-    assert np.isfinite(got) and abs(got - 0.05) < 0.02
-    assert warned, "expected a warning about missing harmonics"
-    print("  PASS  vn6 2D limited-harmonic + warning")
+    raw = np.atleast_1d(entry['core_fn'](d, np.ones(qv.n_events)))
+    return (raw[1] if len(raw) > 1 else np.nan), out.getvalue()
+
+
+def test_vn6_2d_limited_harmonics():
+    """Production-like 2D data (6 slots, Q0..Q5): Q6 missing -> note."""
+    got, printed = _run(6, 6)
+    print(f"  info: v2{{6}} (2D, 6 slots) = {got:.4f} (injected 0.05)")
+    assert np.isfinite(got) and abs(got - 0.05) < 0.004
+    assert 'not stored' in printed, "expected a note about missing harmonics"
+    print("  PASS  vn6 2D limited-harmonic + note")
 
 
 def test_vn8_2d_full_harmonics():
-    """2D with 9 slots -> v{8} works exactly (no padding needed)."""
-    events, qv = _make_qv(n_harm=9)
-    rec = _record(8)
-    assert resolve(rec)['compute'] == 'vn8_single'
-    params = extract_measurement_params(rec)
-    entry = get_pipeline_entry('vn8_single')
-    d = entry['prepare_data_2d'](qv, params)
-    raw = np.atleast_1d(entry['core_fn'](d, np.ones(qv.n_events)))
-    got = raw[1] if len(raw) > 1 else np.nan
+    """2D with 9 slots -> v{8} exact."""
+    got, printed = _run(9, 8)
     print(f"  info: v2{{8}} (2D, 9 slots) = {got:.4f} (injected 0.05)")
-    assert np.isfinite(got) and abs(got - 0.05) < 0.02
+    assert np.isfinite(got) and abs(got - 0.05) < 0.004
+    assert 'not stored' not in printed
     print("  PASS  vn8 2D full-harmonic")
 
 
-def test_vn8_2d_limited_harmonics_graceful():
-    """2D with 6 slots -> v{8} may return NaN (insufficient info) but must
-    NOT crash; the missing-harmonic warning fires."""
-    events, qv = _make_qv(n_harm=6, n_events=1500)
-    rec = _record(8)
-    params = extract_measurement_params(rec)
-    entry = get_pipeline_entry('vn8_single')
-    with warnings.catch_warnings(record=True) as caught:
-        warnings.simplefilter("always")
-        d = entry['prepare_data_2d'](qv, params)
-        raw = np.atleast_1d(entry['core_fn'](d, np.ones(qv.n_events)))
-    warned = any('padding' in str(w.message) or 'self-corr' in str(w.message)
-                 for w in caught)
-    print(f"  info: v2{{8}} (2D, 6 slots) = {raw[1] if len(raw)>1 else 'n/a'} "
-          f"(NaN acceptable: insufficient harmonics), warned={warned}")
-    assert warned
-    # No crash = pass; value may be NaN by design.
-    print("  PASS  vn8 2D limited-harmonic graceful")
+def test_vn8_2d_limited_harmonics():
+    """2D with 6 slots: Q6, Q8 missing -> note, value still near truth."""
+    got, printed = _run(6, 8, n_events=1500)
+    print(f"  info: v2{{8}} (2D, 6 slots) = {got:.4f} (injected 0.05)")
+    assert np.isfinite(got) and abs(got - 0.05) < 0.005
+    assert 'not stored' in printed
+    print("  PASS  vn8 2D limited-harmonic + note")
 
 
 if __name__ == '__main__':

@@ -184,6 +184,11 @@ def _zero_pad_harmonics(q_vec, min_slots):
 def _core_vn6_single(Q1, event_weights=None, _pad=True):
     """Core v_n{6} single-acceptance, no jackknife.
 
+    Not used by the pipeline since November 2026 (exact weighted distinct-
+    particle sums, pipeline_dispatch._prepare_multi): it needs unit weights and
+    an integer multiplicity, and averages <6> (<8>) over events unweighted
+    while <2>, <4> are weighted by their tuple counts.
+
     c_n{6} = <6>_corr - 9 <2><4>_corr + 12 <2>^3,  v_n{6}=(c_n{6}/4)^(1/6)
     where <6>_corr is the exact direct-Q 6-particle correlator
     (Bilandzic/Snellings/Voloshin PRC 83, 044913 -- verified against
@@ -272,6 +277,11 @@ def _core_vn6_single(Q1, event_weights=None, _pad=True):
 
 def _core_vn8_single(Q1, event_weights=None, _pad=True):
     """Core v_n{8} single-acceptance, no jackknife.
+
+    Not used by the pipeline since November 2026 (exact weighted distinct-
+    particle sums, pipeline_dispatch._prepare_multi): it needs unit weights and
+    an integer multiplicity, and averages <6> (<8>) over events unweighted
+    while <2>, <4> are weighted by their tuple counts.
 
     c_n{8} = <8>_corr - 16<6><2> - 18<4>_corr^2 + 144<4>_corr<2>^2
              - 144<2>^4 ,   v_n{8} = (-c_n{8}/33)^(1/8).

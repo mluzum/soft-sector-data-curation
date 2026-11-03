@@ -176,10 +176,10 @@ The adapter imports numpy and its own readers, never this repository.
   species grid binned in rapidity gives `y_edges` instead of `eta_edges`
   (§1).  `Qn`, `sum_pt`, `sum_ET` are sums over the oversamples of each
   event, `nsamples` their number; `sum_ET` is Σ E sinθ = Σ E/cosh η.
-  Harmonics the container does not store: v_n{2} of such n gives NaN,
-  v_n{4} drops the Q_2n self-correlation terms (of relative order 1/M_eff,
-  with a printed note), v_n{6}, v_n{8} and SC(m,n) needing them are
-  skipped.
+  Harmonics the container does not store: v_n{2} of such n gives NaN;
+  v_n{4}, v_n{6}, v_n{8} drop the self-correlation terms that need Q_2n,
+  Q_3n, Q_4n (of relative order 1/M_eff, with a printed note); SC(m,n)
+  needing Q_{m+n} is skipped.
 
 Anything else goes under `meta`; `meta['event_ids']` (one id per event, in
 container order) makes the jackknife blocks follow the event ids (block b:

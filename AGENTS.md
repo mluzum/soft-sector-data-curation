@@ -324,9 +324,24 @@ near c_4 = 0, ratios) the correction is unstable (zr96c2 dp0001, v2{4}
   (relative order 1/M_eff, M_eff = (sum w)^2/sum w^2); a container that
   does not store it drops them with a printed note (v3{4} on 2D JETSCAPE
   containers, n <= 5, M_eff ~ 2e4: < 1% of c3{4}).  SC(m,n), a small
-  difference, refuses a missing Q_{m+n} instead; so do v_n{6} and v_n{8}
-  (until November 2026 their 3D prepares returned None and the core then
-  crashed the group's jackknife; tests/test_missing_harmonics.py).
+  difference, refuses a missing Q_{m+n} instead.  v_n{6} and v_n{8} are
+  exact weighted distinct-particle sums on 2D and 3D
+  (`correlators.reference_cumulant_arrays`; set partitions aggregated by
+  block type), every order weighted by its tuple count; harmonics beyond
+  the stored ones enter only coincidence terms and are dropped with a note.
+  Until November 2026 the 2D cores required an integer multiplicity, which
+  the weighted M never is, so <6> and <8> were 0 (v{6} = (3/4)^(1/6) v
+  without fluctuations, either sign with them); the 3D core averaged <6>
+  over events unweighted; and a 3D prepare without Q_3n returned None,
+  crashing the group's jackknife (tests/test_toy_mc_vn68_2d.py,
+  tests/test_missing_harmonics.py).
+- **Combinations of cumulant orders** (`cumulant_combination`: ratio,
+  difference with optional `scale`, gamma1 = -6 sqrt2 v{4}^2 (v{4} - v{6}) /
+  (v{2}^2 - v{4}^2)^{3/2}; `two_particle` for a gapped v{2} term): computed
+  by `vn_cumulant_combination` from its terms, each the record as an
+  ordinary v_n{2k} record (`dispatcher.combination_terms`), on the same
+  events inside the jackknife; one value per class (`SINGLE_ROW_KEYS`);
+  tests/test_toy_mc_cumulant_combination.py.
 - **Symmetric cumulants** (`sc_mn`, `analysis.correlators.sc_arrays`):
   SC(m,n) = <<4>>_{m,n,-m,-n} - <<2>>_m <<2>>_n over distinct particles
   (2D Jacobian weights or 3D unit weights), event weights the numbers of

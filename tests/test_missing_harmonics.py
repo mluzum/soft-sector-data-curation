@@ -1,11 +1,12 @@
 """Records needing a harmonic the 3D container does not store.
 
 A container with n_harm = 4 (slots 0..3: counts and n = 1..3, as the O+O
-JETSCAPE-framework QnVector output): v_n{6} and v_n{8} are refused by their
-prepares (until November 2026 the prepare returned None and the core then
-crashed the whole group's jackknife), SC(m, n) with m + n > 3 is refused,
-v2{4} is computed with the Q_4 self-correlation terms dropped (a printed
-note), and a v_n{2} record of a harmonic the container lacks gives NaN.
+JETSCAPE-framework QnVector output): v2{4}, v2{6} and v2{8} are computed
+with the self-correlation terms that need Q_4, Q_6, Q_8 dropped (relative
+order 1/M_eff, a printed note; until November 2026 the v_n{6,8} 3D prepare
+returned None and the core then crashed the group's jackknife), SC(m, n)
+with m + n > 3 is refused, and a v_n{2} record of a harmonic the container
+lacks gives NaN.
 Run: python3 tests/test_missing_harmonics.py
 """
 import os
@@ -46,14 +47,12 @@ def rec(order, harmonic=2):
     return r
 
 
-def test_vn6_vn8_refused():
-    for key, order in (('vn6_single', 6), ('vn8_single', 8)):
-        try:
-            get_pipeline_entry(key)['prepare_data_3d'](grid(), extract_measurement_params(rec(order)))
-            ok = False
-        except ValueError:
-            ok = True
-        check(f'v2{{{order}}} refused without Q_{order}', ok)
+def test_vn6_vn8_computed():
+    v4 = evaluate(rec(4), grid=grid(), cent_method='simple', with_jackknife=False)[0][0]
+    for order in (6, 8):
+        v, _ = evaluate(rec(order), grid=grid(), cent_method='simple', with_jackknife=False)
+        check(f'v2{{{order}}} computed without Q_{order} (close to v2{{4}})',
+              np.isfinite(v[0]) and abs(v[0] / v4 - 1) < 0.1, f'{v[0]:.4f} vs {v4:.4f}')
 
 
 def test_sc_refused():
