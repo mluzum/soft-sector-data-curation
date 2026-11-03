@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Curate STAR rapidity-even v1 in Au+Au at 7.7-200 GeV, INSPIRE 1669807 (staged only).
+"""Curate STAR rapidity-even v1 in Au+Au at 7.7-200 GeV, INSPIRE 1669807.
 
 J. Adam et al. (STAR), "Beam energy dependence of rapidity-even dipolar
 flow in Au+Au collisions", PLB 784 (2018) 26, arXiv:1804.08647.
@@ -13,18 +13,24 @@ From the paper:
   v11 = v1(pTa) v1(pTb) - K pTa pTb (K: global momentum conservation);
 - errors: stat and syst (v11: total).
 
-Every record is staged (--staged OUT): v11 vs pTb for five pTa windows,
-0-5% at 200 GeV (Table 1: a pair coefficient, not a flow coefficient);
-v1^even(pT), 0-10%, eight energies (Table 2); |v1^even| vs centrality at
-0.4 < pT < 0.7 GeV/c (Table 3a; the third energy is 27 GeV in HEPData,
-19.6 GeV in the caption); v1^even and v3 vs energy at 0.4 < pT < 0.7
-GeV/c (Table 4, one record per energy; the class is 10-20% in HEPData,
-0-10% in the caption).  Rapidity-even v1 from the momentum-conservation fit
-is not implemented; pT points carry no bin edges (midpoints here).  Not
+Public (v1_even: the factorization of the model's v11, the fit without its
+momentum-conservation term K, which the models lack; analysis/v1_even.py):
+- v1^even(pT), 0-10%, eight energies (Table 2), sign: positive at 1.5 <
+  pT < 2.2 GeV/c, as published (the fit leaves the overall sign open);
+- |v1^even| vs centrality at 0.4 < pT < 0.7 GeV/c at 200 and 39 GeV
+  (Table 3a), absolute, fitted on the Table 2 pT grid of that energy (the
+  paper: "obtained via fits").
+pT points carry no bin edges: edges at the midpoints (the first at 0.2).
+Staged (--staged OUT): v11 vs pTb for five pTa windows, 0-5% at 200 GeV
+(Table 1: the pair coefficient includes the momentum-conservation term);
+Table 3a at the third energy (27 GeV in HEPData, 19.6 GeV in the caption);
+v1^even and v3 vs energy at 0.4 < pT < 0.7 GeV/c (Table 4, one record per
+energy; the class is 10-20% in HEPData, 0-10% in the caption).  Not
 curated: K vs <N_ch> (Table 3b, a fit parameter).  The old public record
 read Table 1 as v2 with reaction 'unknown'.
 
 Run from the repository root:  python scripts/curate_star_v1_even_bes.py --staged OUT.yaml
+(writes OUT_PUBLIC)
 """
 import argparse
 import glob
@@ -40,8 +46,10 @@ REFMULT = {'estimator': {'name': 'RefMult', 'observable': 'Nch', 'detector': 'TP
            'eta': [{'min': -0.5, 'max': 0.5}]}
 ETA = {'min': -1.0, 'max': 1.0}
 OLD = 'data/flow_vn/star_flow_vn_beam_energy_dependence_of_rapidity-even_200gev.yaml'
-EVEN = ('rapidity-even v1 from a simultaneous fit of v11(pTa, pTb) = v1(pTa) v1(pTb) - K pTa pTb (global momentum '
-        'conservation): not implemented')
+OUT_PUBLIC = 'data/flow_vn/star_flow_vn_v1_even_AuAu_7_200gev_ins1669807.yaml'
+SIGN = {'pT': {'min': 1.5, 'max': 2.2}, 'sign': 'positive'}
+MC = ('subtracted: the experiment fitted v11 = v1(pTa) v1(pTb) - K pTa pTb (global momentum conservation) and '
+      'reports v1; a model without that correlation is compared through its own factorized v11')
 BLANK = ('', '-', '--', 'none')
 
 
@@ -61,7 +69,8 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n')[0])
     ap.add_argument('--staged', help='write the staged records here (a staging collection)')
     staged_out = ap.parse_args().staged
-    staged = []
+    staged, public = [], []
+    grids = {}
     # Table 1: v11 vs pTb for pTa windows, 0-5% at 200 GeV
     t = yaml.safe_load(open(os.path.join(RAW, 'table1.yaml')))
     x = [float(v['value']) for v in t['independent_variables'][0]['values']]
@@ -76,8 +85,9 @@ def main():
                   'flow_reference': {'pT': {'min': a, 'max': b}, 'notes': 'The pTa window (the other pair member).'},
                   'notes': {'value': f'{CITE}, Fig. 1. v11 = <cos(phi_a - phi_b)> vs pTb for {a:g} < pTa < {b:g} GeV/c, '
                                      '0-5%, |eta| < 1, |Delta eta| > 0.7; pTb points at their mean (edges: midpoints).'},
-                  'staging_reason': 'two-particle Fourier coefficient v11(pTa, pTb), not a flow coefficient: no '
-                                    'computation; pTb bin edges not given'})
+                  'staging_reason': 'two-particle Fourier coefficient v11(pTa, pTb) including the '
+                                    'momentum-conservation term -K pTa pTb, which the models lack (the fitted v1^even '
+                                    'is public); pTb bin edges not given'})
         staged.append(d)
     # Table 2: v1^even(pT), 0-10%, per energy
     t = yaml.safe_load(open(os.path.join(RAW, 'table2.yaml')))
@@ -90,13 +100,15 @@ def main():
         d = base('table2.yaml', i, f'v1^even(pT), 0-10%, {e:g} GeV', e)
         d.update({'value_type': h, 'centrality': {'classes': ['0-10%'], **REFMULT}, 'dimensionality': 'differential_pT',
                   'kinematic_range': {'eta': dict(ETA), 'pT': {'min': bins[0][0], 'max': bins[-1][1], 'bin_ranges': bins}},
+                  'v1_even': {'fit': 'factorization', 'momentum_conservation': MC, 'sign_convention': SIGN},
                   'notes': {'value': f'{CITE}, Fig. 2. v1^even(pT), 0-10%, {e:g} GeV, |eta| < 1, from the fit of '
-                                     'v11 (|Delta eta| > 0.7); pT points at their mean (edges: midpoints). Errors: stat '
-                                     'and syst.'},
-                  'staging_reason': EVEN + '; pT bin edges not given'})
+                                     'v11 (|Delta eta| > 0.7) with the momentum-conservation term; pT points at their '
+                                     'mean (edges: midpoints); positive at high pT as published. Errors: stat and '
+                                     'syst.'}})
         if rows != list(range(len(x))):
             d['table_rows'] = rows
-        staged.append(d)
+        grids[e] = bins
+        public.append(d)
     # Table 3a: |v1^even| vs centrality at 0.4-0.7 GeV/c
     t = yaml.safe_load(open(os.path.join(RAW, 'table3_a.yaml')))
     c = [float(v['value']) for v in t['independent_variables'][0]['values']]
@@ -113,13 +125,19 @@ def main():
         d = base('table3_a.yaml', i, f'|v1^even| vs centrality, 0.4-0.7 GeV/c, {e:g} GeV', e)
         d.update({'value_type': h, 'centrality': {'classes': [cls_all[j] for j in rows], **REFMULT},
                   'dimensionality': 'integrated', 'kinematic_range': {'eta': dict(ETA), 'pT': {'min': 0.4, 'max': 0.7}},
-                  'notes': {'value': f'{CITE}, Fig. 3a. pT-weighted |v1^even| at 0.4 < pT < 0.7 GeV/c vs centrality, '
-                                     f'{e:g} GeV (HEPData; the caption lists 200, 39 and 19.6 GeV). Errors: stat and '
-                                     'syst.'},
-                  'staging_reason': EVEN})
+                  'v1_even': {'fit': 'factorization', 'momentum_conservation': MC, 'absolute': True,
+                              'fit_pT_bins': grids[e]},
+                  'notes': {'value': f'{CITE}, Fig. 3a. |v1^even| at 0.4 < pT < 0.7 GeV/c vs centrality, '
+                                     f'{e:g} GeV (HEPData; the caption lists 200, 39 and 19.6 GeV), from the fit of '
+                                     'v11 (|Delta eta| > 0.7); fitted here on the Table 2 pT grid of that energy. '
+                                     'Errors: stat and syst.'}})
         if rows != list(range(len(c))):
             d['table_rows'] = rows
-        staged.append(d)
+        if i == 2:          # 27 GeV in HEPData, 19.6 GeV in the caption
+            d['staging_reason'] = 'the energy is ambiguous (27 GeV in HEPData, 19.6 GeV in the caption)'
+            staged.append(d)
+        else:
+            public.append(d)
     # Table 4: v1^even and v3 vs energy at 0.4-0.7 GeV/c, one record per energy
     t = yaml.safe_load(open(os.path.join(RAW, 'table4.yaml')))
     es = [float(v['value']) for v in t['independent_variables'][0]['values']]
@@ -135,10 +153,11 @@ def main():
                       'notes': {'value': f"{CITE}, Fig. 4. {'v3' if n == 3 else '|v1^even|'} at 0.4 < pT < 0.7 GeV/c, "
                                          f'{e:g} GeV, from the pair correlations (|Delta eta| > 0.7); class 10-20% in '
                                          'HEPData, 0-10% in the caption. Errors: stat and syst.'},
-                      'staging_reason': ('the class is ambiguous (10-20% in HEPData, 0-10% in the caption)'
-                                         if n == 3 else EVEN + '; the class is ambiguous (10-20% in HEPData, 0-10% in '
-                                                               'the caption)')})
+                      'staging_reason': 'the class is ambiguous (10-20% in HEPData, 0-10% in the caption)'})
             staged.append(d)
+    with open(OUT_PUBLIC, 'w') as fh:
+        yaml.safe_dump_all(public, fh, sort_keys=False, default_flow_style=False, width=120)
+    print(f'{OUT_PUBLIC}: {len(public)} records')
     if os.path.exists(OLD):
         assert all(str(x['inspire_id']) == '1669807' for x in yaml.safe_load_all(open(OLD)) if x), OLD
         os.remove(OLD)
