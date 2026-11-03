@@ -14,7 +14,7 @@ The pipeline reads those fields and applies the record's exact cuts to the
 simulation. A model is then compared with the data on the same footing,
 record by record, for any selection of measurements.
 
-- **5,337 records** from 127 publications (STAR, PHENIX, BRAHMS, PHOBOS,
+- **5,374 records** from 127 publications (STAR, PHENIX, BRAHMS, PHOBOS,
   ALICE, ATLAS, CMS, LHCb), built from the HEPData tables in `hepdata_raw/`.
   **Every record can be computed from a simulation and compared with its
   data by the tools here**: it dispatches to a computation, its centrality
