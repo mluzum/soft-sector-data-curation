@@ -172,6 +172,15 @@ class QVectorData:
         return obj
 
 
+def _summed_area(Q):
+    """S[e, a, p, h] = sum of Q[e, :a, :p, h], complex128, shape (n, A+1, P+1, H)."""
+    n, A, P, H = Q.shape
+    S = np.zeros((n, A + 1, P + 1, H), dtype=np.complex128)
+    np.cumsum(Q, axis=1, dtype=np.complex128, out=S[:, 1:, 1:, :])
+    np.cumsum(S[:, 1:, 1:, :], axis=2, out=S[:, 1:, 1:, :])
+    return S
+
+
 def _overlap_fractions(edges, lo, hi, measure=None):
     """Fraction of each cell [edges[i], edges[i+1]] inside [lo, hi], in the
     variable itself, or in measure(variable) -- e.g. pT**2 for a spectrum,
@@ -344,12 +353,86 @@ class QGridData:
             pi = (0, self.Qn.shape[2])
         else:
             pi = _snap_searchsorted(self.pt_edges, pt_min, pt_max)
+        return self._window_sum(ei[0], ei[1], pi[0], pi[1])
+
+    # Summed-area table of Qn over (axis, pT), complex128 with a zero first
+    # row and column: a window sum is four lookups instead of a pass over
+    # its cells (a 3D run on 40k O+O events spent ~85% of its time in
+    # window sums).  Built lazily, once the direct sums on this Qn have
+    # covered a grid's worth of cells (so a grid queried a few times, e.g.
+    # a jackknife replicate, never pays for it); kept for this Qn object
+    # (a new Qn, as on a masked copy, starts over).  Memory: ~2x the
+    # complex64 Qn while the grid lives; set summed_area_tables = False to
+    # sum directly.  Window sums from the table agree with direct sums to
+    # rounding (~1e-16 of the grid totals).
+    summed_area_tables = True
+
+    def _window_sum(self, e0, e1, p0, p1):
+        """Sum of Qn over cells [e0:e1, p0:p1] -> (n_events, n_harm) complex128."""
+        Q = self.Qn
+        n_ev, n_h = Q.shape[0], Q.shape[3]
+        # slice semantics: indices beyond the grid clip to it
+        e0, e1 = (min(max(int(i), 0), Q.shape[1]) for i in (e0, e1))
+        p0, p1 = (min(max(int(i), 0), Q.shape[2]) for i in (p0, p1))
+        if e1 <= e0 or p1 <= p0:
+            return np.zeros((n_ev, n_h), dtype=np.complex128)
+        cache = self.__dict__.get('_sat_cache')
+        if cache is None or cache['Qn'] is not Q:
+            cache = {'Qn': Q, 'table': None, 'work': 0}
+            self._sat_cache = cache
+        S = cache['table']
+        if S is None and self.summed_area_tables:
+            cache['work'] += (e1 - e0) * (p1 - p0)
+            if cache['work'] > Q.shape[1] * Q.shape[2]:
+                S = cache['table'] = _summed_area(Q)
+        if S is not None:
+            return S[:, e1, p1] - S[:, e0, p1] - S[:, e1, p0] + S[:, e0, p0]
         # accumulate in double precision: Qn may be stored as complex64
-        return self.Qn[:, ei[0]:ei[1], pi[0]:pi[1], :].sum(axis=(1, 2), dtype=np.complex128)
+        return Q[:, e0:e1, p0:p1, :].sum(axis=(1, 2), dtype=np.complex128)
+
+    def _separable_sum(self, fe, fp):
+        """Sum of Qn x fe[axis] x fp[pT] -> (n_events, n_harm): the whole cells
+        (fraction exactly 1, contiguous) from window sums, the at most two
+        partial cells per axis as weighted strips; einsum on the bounding
+        box otherwise."""
+        def split(f):
+            nz = np.nonzero(f)[0]
+            if not len(nz):
+                return None
+            full = np.nonzero(f == 1.0)[0]
+            if len(full) and full[-1] - full[0] + 1 != len(full):
+                return 'box', nz[0], nz[-1] + 1
+            part = [i for i in nz if f[i] != 1.0]
+            if len(part) > 2:
+                return 'box', nz[0], nz[-1] + 1
+            return ('ok', (int(full[0]), int(full[-1]) + 1) if len(full) else (0, 0), part)
+        se, sp = split(fe), split(fp)
+        n_ev, n_h = self.Qn.shape[0], self.Qn.shape[3]
+        if se is None or sp is None:
+            return np.zeros((n_ev, n_h), dtype=np.complex128)
+        if se[0] == 'box' or sp[0] == 'box':
+            nze, nzp = np.nonzero(fe)[0], np.nonzero(fp)[0]
+            e0, e1, p0, p1 = nze[0], nze[-1] + 1, nzp[0], nzp[-1] + 1
+            return np.einsum('ijkh,j,k->ih', self.Qn[:, e0:e1, p0:p1, :], fe[e0:e1], fp[p0:p1],
+                             dtype=np.complex128)
+        (e0, e1), pe = se[1], se[2]
+        (p0, p1), pp = sp[1], sp[2]
+        out = self._window_sum(e0, e1, p0, p1)                 # whole x whole
+        for j in pe:                                           # partial eta rows x every pT cell
+            out = out + fe[j] * np.einsum('ikh,k->ih', self.Qn[:, j, :, :], fp, dtype=np.complex128)
+        for k in pp:                                           # whole eta cells x partial pT cells
+            out = out + fp[k] * self._window_sum(e0, e1, k, k + 1)
+        return out
 
     def _weighted(self, W):
-        """Sum of Qn over the cells with weights W (n_axis, n_pt) -> (n_events, n_harm)."""
-        return np.einsum('ijkh,jk->ih', self.Qn, W)
+        """Sum of Qn over the cells with weights W (n_axis, n_pt) -> (n_events, n_harm),
+        on the bounding box of the nonzero weights."""
+        rows, cols = np.nonzero(W.any(axis=1))[0], np.nonzero(W.any(axis=0))[0]
+        if not len(rows) or not len(cols):
+            return np.zeros((self.Qn.shape[0], self.Qn.shape[3]), dtype=np.complex128)
+        r0, r1, c0, c1 = rows[0], rows[-1] + 1, cols[0], cols[-1] + 1
+        return np.einsum('ijkh,jk->ih', self.Qn[:, r0:r1, c0:c1, :], W[r0:r1, c0:c1],
+                         dtype=np.complex128)
 
     def poi_acceptance(self, eta_min, eta_max, pt_min=0.0, pt_max=1e9):
         """Q of a particle of interest in an eta-pT window: acceptance() on
@@ -458,7 +541,7 @@ class QGridData:
             fp = np.ones(self.Qn.shape[2])
         else:
             fp = _overlap_fractions(self.pt_edges, pt_min, pt_max, _pt_squared)
-        return np.einsum('ijkh,j,k->ih', self.Qn, fe, fp)
+        return self._separable_sum(fe, fp)
 
     def acceptance_rapidity(self, y_min, y_max, assumed_mass, pt_min=0.0, pt_max=1e9):
         """Sum Q-vectors over a window in rapidity computed with one assumed
