@@ -35,28 +35,48 @@ def collection_base(record_file):
     return os.path.dirname(os.path.dirname(os.path.dirname(p)))
 
 
+_DOCS = {}
+
+
+def _record_docs(full):
+    """The documents of a record file, parsed once per (path, mtime, size):
+    the 642 links of ATLAS 3170344's ratios point into two 240-document files
+    (re-parsing each per link took over ten minutes)."""
+    from analysis.dispatcher import yaml_load_all
+    st = os.stat(full)
+    key = (full, st.st_mtime_ns, st.st_size)
+    if key not in _DOCS:
+        if len(_DOCS) >= 64:
+            _DOCS.clear()
+        with open(full) as fh:
+            docs = list(yaml_load_all(fh))
+        for d in docs:
+            if d is not None:
+                d['_record_file'] = full        # resolves a relative value_table
+        _DOCS[key] = docs
+    return _DOCS[key]
+
+
 def resolve_link(link, base=None):
     """(absolute path, document index, document) of a ratio link; raises ValueError.
 
     Relative links ("data/<type>/<file>[#<doc>]") resolve against `base`
-    (collection_base of the ratio record), default this repository."""
+    (collection_base of the ratio record), default this repository.  The
+    document is a copy (the parsed file is cached)."""
     path, _, idx = str(link).partition('#')
     full = path if os.path.isabs(path) else os.path.join(base or ROOT, path)
     if not os.path.isfile(full):
         raise ValueError(f'no record file {path}')
-    docs = list(yaml.safe_load_all(open(full)))
-    for d in docs:
-        if d is not None:
-            d['_record_file'] = full        # resolves a relative value_table
+    docs = _record_docs(os.path.abspath(full))
     if idx:
         i = int(idx)
         if i >= len(docs) or docs[i] is None:
             raise ValueError(f'{path} has no document {i}')
-        return full, i, docs[i]
+        return full, i, copy.deepcopy(docs[i])
     real = [i for i, d in enumerate(docs) if d is not None]
     if len(real) != 1:
         raise ValueError(f'{path} holds {len(real)} documents; link one with "#<index>"')
-    return full, real[0], docs[real[0]]
+    return full, real[0], copy.deepcopy(docs[real[0]])
 
 
 def side_record(doc, ratio):
