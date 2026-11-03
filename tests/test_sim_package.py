@@ -375,6 +375,26 @@ def test_campaign_driver_and_collector():
               and np.isnan(dvals[2, 0]))
         n_rows = sum(1 for _ in open(Path(tmp) / "long.csv")) - 1
         check("collect: long CSV", n_rows == int(np.isfinite(vals).sum()))
+        with h5py.File(table, "r") as f:
+            sel = f["observables/selected"][:]
+            why = [x.decode() for x in f["observables/rejected_by"][:]]
+            undef = f["observables/undefined_fraction"][:]
+            ratio = f["observables/median_error_ratio"][:]
+            crit = dict(f["observables/selected"].attrs)
+        expect = np.isfinite(vals).all(axis=0) & np.isfinite(expv)
+        check("collect: selection = defined in every run, with data; reasons recorded",
+              sel.shape == (len(keys),) and np.array_equal(sel, expect)
+              and all((w == "") == s for w, s in zip(why, sel)) and crit["max_undefined"] == 0.0)
+        check("collect: precision summary", undef.shape == ratio.shape == (len(keys),)
+              and np.isfinite(ratio[sel]).all())
+        r2 = subprocess.run([sys.executable, "scripts/collect_campaign.py", str(out), "--output", str(table),
+                             "--max-error-ratio", "1e-9"], cwd=ROOT, capture_output=True, text=True)
+        with h5py.File(table, "r") as f:
+            sel2 = f["observables/selected"][:]
+            vals2 = f["values"][:]
+        check("collect: a tight error ratio rejects every observable as noise, values unchanged",
+              r2.returncode == 0 and not sel2.any() and np.array_equal(vals2, vals, equal_nan=True)
+              and "noise" in r2.stdout)
 
 
 if __name__ == "__main__":

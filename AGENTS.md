@@ -55,7 +55,10 @@ data_validation/jetscape_bayes/   record <-> JETSCAPE model matching layer (test
 - Simulations:
   - `run_pipeline.py`: records → simulation → HDF5.
   - `compute_flow_vn.py`: one record.
-  - `check_sim_package.py`, `run_campaign.py`, `collect_campaign.py`.
+  - `check_sim_package.py`, `run_campaign.py`, `collect_campaign.py` (runs x
+    observables, plus a per-observable model-precision summary and a
+    selection for emulator training, `analysis/observable_selection.py`:
+    whole observables only, values unchanged).
   - `compute_ratios.py`: observable_ratios records from two simulation sets
     (linked numerator/denominator records, joint jackknife; `analysis/ratios.py`).
   - `plot_comparison.py`.

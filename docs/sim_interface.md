@@ -234,6 +234,25 @@ or record corrections computes only what changed.  `--ignore-code-changes`
 keeps outputs made with older code.  `collect_campaign.py` writes runs × observables (`values`, `errors`),
 the aligned experimental points and the design parameters.
 
+For emulator training it also summarizes each observable's model
+precision across the runs (`observables/undefined_fraction`,
+`median_rel_error`, `median_error_ratio` = model error / experimental
+error) and writes a selection, `observables/selected` with
+`observables/rejected_by`.  Selection is by whole observable, never by
+point: an emulator needs every observable at every design point, and
+dropping the points where the model is sparse would bias the training set
+toward high-multiplicity regions of parameter space.  By default an
+observable undefined in any run (no pairs, no particles) or without an
+experimental point is rejected; `--max-error-ratio R` also rejects those
+whose median model error exceeds R times the experimental error
+(`--max-rel-error`, `--max-undefined`, `--keep-without-data` adjust the
+rest).  Values are not changed: the per-point jackknife errors belong in
+the emulator (as heteroscedastic noise) and in the likelihood.
+
+```bash
+python scripts/collect_campaign.py runs/ --output table.h5 --max-error-ratio 0.5
+```
+
 ### Ratios between systems
 
 `observable_ratios` records (e.g. v₂{2} in Ru+Ru over Zr+Zr) name their

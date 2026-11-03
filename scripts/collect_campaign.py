@@ -21,7 +21,17 @@ Reads every ``*.h5`` written by run_campaign.py (or run_pipeline.py) in
   (the experimental points aligned by run_pipeline; NaN where it could not
   align them);
 - ``design/parameter_names``, ``design/values`` (n_runs, n_par): the
-  package's design table, NaN for runs without a row.
+  package's design table, NaN for runs without a row;
+- the model precision of each observable across the runs
+  (analysis/observable_selection.py): ``observables/undefined_fraction``,
+  ``observables/median_rel_error`` (|error/value|),
+  ``observables/median_error_ratio`` (model error / experimental error), and
+  a selection for emulator training, whole observables only:
+  ``observables/selected`` and ``observables/rejected_by`` (undefined |
+  no_data | noise | rel_noise), the criteria in the attrs of
+  ``observables/selected``.  ``--max-undefined`` (default 0: an observable
+  undefined in any run is rejected), ``--keep-without-data``,
+  ``--max-error-ratio``, ``--max-rel-error``.  Values are not changed.
 
 Per-run covariances stay in the run files.  Runs made with different
 pipeline options (other than the design point and variant) are refused
@@ -97,6 +107,15 @@ def main():
     ap.add_argument("--replicates", action="store_true",
                     help="also stack the jackknife replicates (runs need --save-jackknife-replicates "
                          "and one block count and rule)")
+    sel = ap.add_argument_group("observable selection (observables/selected; values are not changed)")
+    sel.add_argument("--max-undefined", type=float, default=0.0,
+                     help="reject an observable undefined (NaN) in more than this fraction of runs (default 0)")
+    sel.add_argument("--keep-without-data", action="store_true",
+                     help="keep observables without an experimental point")
+    sel.add_argument("--max-error-ratio", type=float, default=None,
+                     help="reject an observable whose median model error / experimental error exceeds this")
+    sel.add_argument("--max-rel-error", type=float, default=None,
+                     help="reject an observable whose median |model error / value| exceeds this")
     a = ap.parse_args()
 
     files = sorted(p for p in Path(a.in_dir).glob("*.h5"))
@@ -167,6 +186,11 @@ def main():
         except (OSError, KeyError, ValueError) as e:
             print(f"warning: no design table ({e})", file=sys.stderr)
 
+    from analysis.observable_selection import CRITERIA, quality, select
+    q = quality(vals, errs, exp_v, exp_e)
+    selected, rejected_by = select(q, max_undefined=a.max_undefined, require_data=not a.keep_without_data,
+                                   max_error_ratio=a.max_error_ratio, max_rel_error=a.max_rel_error)
+
     str_dt = h5py.string_dtype()
     with h5py.File(a.output, "w") as f:
         f.attrs["source_dir"] = str(Path(a.in_dir).resolve())
@@ -190,6 +214,14 @@ def main():
         f.create_dataset("observables/exp_errors", data=np.asarray(exp_e, float))
         f.create_dataset("design/parameter_names", data=par_names, dtype=str_dt)
         f.create_dataset("design/values", data=par_vals)
+        for k in ("undefined_fraction", "median_rel_error", "median_error_ratio"):
+            f.create_dataset(f"observables/{k}", data=q[k])
+        ds = f.create_dataset("observables/selected", data=selected)
+        f.create_dataset("observables/rejected_by", data=list(rejected_by), dtype=str_dt)
+        ds.attrs["max_undefined"] = a.max_undefined
+        ds.attrs["require_data"] = not a.keep_without_data
+        ds.attrs["max_error_ratio"] = np.nan if a.max_error_ratio is None else a.max_error_ratio
+        ds.attrs["max_rel_error"] = np.nan if a.max_rel_error is None else a.max_rel_error
 
     if a.csv:
         with open(a.csv, "w", newline="") as fh:
@@ -212,6 +244,9 @@ def main():
               f"(max {int(missing.max())} missing)")
     if par_names:
         print(f"  design: {len(par_names)} parameters")
+    counts = {c: int((rejected_by == c).sum()) for c in CRITERIA if (rejected_by == c).any()}
+    print(f"  selected {int(selected.sum())}/{n_obs} observables for emulation"
+          + (f" (rejected: {', '.join(f'{c} {n}' for c, n in counts.items())})" if counts else ""))
 
 
 if __name__ == "__main__":
