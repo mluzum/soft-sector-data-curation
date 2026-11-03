@@ -13,6 +13,16 @@ import os
 import numpy as np
 import yaml
 
+# libyaml's parser when installed (~8x faster on the record files; the same
+# Python constructors, so the same documents -- checked on every record
+# file and every HEPData table they read)
+_YAML_LOADER = getattr(yaml, "CSafeLoader", yaml.SafeLoader)
+
+
+def yaml_load_all(f):
+    """yaml.safe_load_all with the C loader when available."""
+    return yaml.load_all(f, Loader=_YAML_LOADER)
+
 from analysis.species import is_charged, species_known
 from analysis.cent_combine import combination_plan
 
@@ -742,7 +752,7 @@ def load_record(record_path, value_type_substring, dimensionality=None):
     whose dimensionality field matches exactly.
     """
     with open(record_path) as f:
-        docs = list(yaml.safe_load_all(f))
+        docs = list(yaml_load_all(f))
     candidates = []
     for doc in docs:
         if doc is None:
@@ -1141,7 +1151,7 @@ def load_experimental(params):
     )
     try:
         with open(raw_file) as f:
-            raw = yaml.safe_load(f)
+            raw = yaml.load(f, Loader=_YAML_LOADER)
         dv_idx = int(params.get('dv_index', 0) or 0)
         dv_avg = params.get('dv_average', None)
         if dv_avg:
@@ -1242,7 +1252,7 @@ def iter_records(record_dir, value_type_filter=None):
             continue
         fpath = os.path.join(record_dir, fname)
         with open(fpath) as f:
-            docs = list(yaml.safe_load_all(f))
+            docs = list(yaml_load_all(f))
         for doc in docs:
             if doc is None:
                 continue
