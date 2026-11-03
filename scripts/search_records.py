@@ -61,8 +61,9 @@ def matches(doc, args):
     cs = doc.get("collision_system", {})
 
     if args.reaction:
-        pattern = args.reaction.replace("*", ".*")
-        if not re.search(pattern, _safe_str(cs.get("reaction", "")), re.IGNORECASE):
+        # a regex as given (until November 2026 every '*' became '.*', so a
+        # quantifier such as '^\s*O' turned into '^\s.*O' and matched nothing)
+        if not re.search(args.reaction, _safe_str(cs.get("reaction", "")), re.IGNORECASE):
             return False
 
     if args.energy is not None:
@@ -217,7 +218,7 @@ def generate_manifest(matches_list, output_path):
     print("Edit 'select: true/false' for each record to include/exclude.")
 
 
-def main():
+def build_parser():
     parser = argparse.ArgumentParser(
         description="Search curated records and generate observable manifests")
     parser.add_argument("--type", default="flow_vn",
@@ -244,7 +245,11 @@ def main():
                         help="Just print the count, no details")
     parser.add_argument("--output", "-o", default=None,
                         help="Write manifest to this YAML file (otherwise print table)")
+    return parser
 
+
+def main():
+    parser = build_parser()
     args = parser.parse_args()
 
     from analysis.dispatcher import record_roots

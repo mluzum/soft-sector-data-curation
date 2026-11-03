@@ -89,6 +89,15 @@ def main():
               'is stale' in out['stale'].stdout and fp(out['stale']).get('n_records') == 0,
               out['stale'].stdout[-500:])
 
+    # --reaction is a regex as given (a '*' used to become '.*')
+    from scripts.search_records import build_parser, matches
+    doc = {'collision_system': {'reaction': 'O O --> CHARGED X'}}
+
+    def ns(r):
+        return build_parser().parse_args(['--reaction', r, '--include-undispatchable'])
+    check("search_records --reaction: a regex quantifier '\\s*' is kept",
+          matches(doc, ns(r'^\s*O\s+O\s')) and not matches(doc, ns(r'^\s*AU')))
+
     failed = [n for n, ok in results if not ok]
     print(f'\n{len(results) - len(failed)}/{len(results)} passed')
     sys.exit(1 if failed else 0)
