@@ -17,10 +17,11 @@ From the paper:
 Records (public): v2{2}, v2{4}, v2{6}, v2{8} vs centrality (Fig. 2),
 computed as the cumulants of the record acceptance (the unfolding removes
 the finite-multiplicity resolution, as the cumulants' self-correlation
-removal does).  Staged (--staged OUT): v2{6}/v2{4}, v2{8}/v2{4},
-v2{8}/v2{6} (Fig. 3) and gamma1^exp (Fig. 4): ratios of cumulant orders
-are not computed; the unfolded p(v2) in 15-20, 30-35, 55-60% (Fig. 1: an
-event-by-event distribution, not computed).  Not curated: elliptic-power
+removal does); v2{6}/v2{4}, v2{8}/v2{4}, v2{8}/v2{6} (Fig. 3) and
+gamma1^exp (Fig. 4) as combinations of those cumulants from the same
+events (cumulant_combination).  Staged (--staged OUT): the unfolded p(v2)
+in 15-20, 30-35, 55-60% (Fig. 1: an event-by-event distribution, not
+computed).  Not curated: elliptic-power
 fit parameters (Fig. 5).  The old public record had v2{2} only; the 14 old
 staged ones were typed as fluctuations at 0 GeV.
 
@@ -42,9 +43,12 @@ HF = {'estimator': {'name': 'HF', 'observable': 'ET', 'detector': 'HF'},
 KR = {'eta': {'min': -1.0, 'max': 1.0}, 'pT': {'min': 0.3, 'max': 3.0}}
 OLD = 'data/flow_vn/cms_flow_vn_non_gaussian_elliptic_flow_fluctuations_PbPb_5020gev.yaml'
 OUT = 'data/flow_vn/cms_flow_vn_v2_cumulants_unfolded_PbPb_5020gev_ins1636197.yaml'
-# staged tables: description and the first cumulant order involved (the record's cumulant_order)
-STAGED = {'fig3_v26_v24.yaml': ('v2{6}/v2{4}', 6), 'fig3_v28_v24.yaml': ('v2{8}/v2{4}', 8),
-          'fig3_v28_v26.yaml': ('v2{8}/v2{6}', 8), 'fig4_g1e.yaml': ('gamma1^exp from v2{4}, v2{6}, v2{8}', 4)}
+# combinations of cumulant orders (cumulant_combination: from the same events)
+STAGED = {'fig3_v26_v24.yaml': ('v2{6}/v2{4}', {'kind': 'ratio', 'orders': [6, 4]}),
+          'fig3_v28_v24.yaml': ('v2{8}/v2{4}', {'kind': 'ratio', 'orders': [8, 4]}),
+          'fig3_v28_v26.yaml': ('v2{8}/v2{6}', {'kind': 'ratio', 'orders': [8, 6]}),
+          'fig4_g1e.yaml': ('gamma1^exp = -6 sqrt2 v2{4}^2 (v2{4} - v2{6}) / (v2{2}^2 - v2{4}^2)^(3/2) (Eq. 3)',
+                            {'kind': 'gamma1'})}
 BLANK = ('', '-', '--', 'none')
 
 
@@ -74,11 +78,12 @@ def main():
         classes = [f"{float(iv['values'][j]['low']):g}-{float(iv['values'][j]['high']):g}%" for j in rows]
         h = dv['header']['name']
         if hf in STAGED:
-            what, order = STAGED[hf]
-            d = base(hf, h, classes, order, f'{what} of charged particles vs centrality, |eta| < 1, 0.3 < pT < 3 '
-                                            'GeV/c. From the moments of the unfolded p(v2).')
-            d['staging_reason'] = 'ratio of v2 cumulant orders (or the skewness estimate built from them): not computed'
-            staged.append(d)
+            what, comb = STAGED[hf]
+            d = base(hf, h, classes, max(comb.get('orders') or [6]),
+                     f'{what} of charged particles vs centrality, |eta| < 1, 0.3 < pT < 3 GeV/c (HF centrality). '
+                     'From the moments of the unfolded p(v2); computed from the cumulants of the same events.')
+            d['cumulant_combination'] = dict(comb)
+            public.append(d)
         else:
             order = int(re.search(r'\{(\d)\}', h).group(1))
             d = base(hf, h, classes, order, f'v2{{{order}}} of charged particles vs centrality, |eta| < 1, 0.3 < pT < 3 '
