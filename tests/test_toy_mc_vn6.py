@@ -3,7 +3,7 @@
 Checks:
   - fixed injected v2 -> v2{6} recovers it (within JK/statistical tolerance)
   - event-wise fluctuating v2 -> ordering v2{6} <= v2{4} <= v2{2}
-  - no-flow -> NaN (c6<=0), matching standard conventions
+  - no flow -> a signed value at the statistical floor
 Run: python3 tests/test_toy_mc_vn6.py
 """
 import os
@@ -46,7 +46,10 @@ def test_fixed_flow_recovery():
 
 
 def test_fluctuating_ordering():
-    cfg = ToyGenConfig(n_events=600, mult_mean=1200, mult_sigma=100,
+    # v{6} = v{4} for these fluctuations: the ordering test needs the
+    # statistical spread of v{6} - v{4} below its 1e-3 tolerance (600 events
+    # gave +2e-3 once every order was weighted by its tuple count)
+    cfg = ToyGenConfig(n_events=3000, mult_mean=1200, mult_sigma=100,
                        seed=12, flow={2: dict(kind='const', value=0.06)},
                        fluctuate={2: 0.02})
     events, truth = generate_events(cfg)
