@@ -632,7 +632,14 @@ def prepare_vn2_single_3d(grid, params):
 def prepare_vn2_gap_3d(grid, params):
     """Returns {Qn_A, Qn_B, dQ_cross} from a QGridData for v_n{2}ab.
 
-    Disjoint η ranges → no shared particles → dQ_cross = 0.
+    Each subevent sum enters the correlation linearly, so a window that
+    cuts a cell takes the cell with its overlap fraction (uniform in eta):
+    ALICE's |Delta eta| > 1.4 subevents, -0.8 < eta < -0.7 and 0.7 < eta <
+    0.8, are half a cell of a 0.2-wide grid (until November 2026 whole cells
+    by edge snapping: the first window took the cell [-0.8, -0.6], the
+    second none, and v2 was 0).  The particles of a cell inside both
+    windows are expected self-pairs, sum f_A f_B Q0 (dQ_cross; zero for
+    disjoint windows).  Windows on cell edges are unchanged.
     """
     sr = params.get('subevent_ranges', {})
     if len(sr) < 2:
@@ -644,9 +651,15 @@ def prepare_vn2_gap_3d(grid, params):
         eB = sr[labels[1]]['eta']
     pt = params.get('single_range', {}).get('pT', (0.1, 10))
     pt0, pt1 = pt[0], pt[1]
-    Qn_A = grid.acceptance(eA[0], eA[1], pt0, pt1)
-    Qn_B = grid.acceptance(eB[0], eB[1], pt0, pt1)
-    dQ_cross = np.zeros(grid.n_events, dtype=np.float64)
+    Qn_A = grid.acceptance_fractional(eA[0], eA[1], pt0, pt1)
+    Qn_B = grid.acceptance_fractional(eB[0], eB[1], pt0, pt1)
+    WA = grid.window_weights(eA[0], eA[1], pt0, pt1, fractional=True)
+    WB = grid.window_weights(eB[0], eB[1], pt0, pt1, fractional=True)
+    shared = WA * WB
+    if shared.any():
+        dQ_cross = np.einsum('ijk,jk->i', grid.Qn[..., 0].real, shared)
+    else:
+        dQ_cross = np.zeros(grid.n_events, dtype=np.float64)
     return {'Qn_A': Qn_A, 'Qn_B': Qn_B, 'dQ_cross': dQ_cross}
 
 
@@ -2439,7 +2452,7 @@ PIPELINE_DISPATCH = {
 
 def _combination_value(kind, v, scale):
     if kind == 'ratio':
-        out = v[0] / v[1]
+        out = v[0] / v[1] if v[1] != 0 and np.isfinite(v[1]) else np.nan
     elif kind == 'difference':
         out = v[0] - v[1]
     else:                                  # gamma1: v{2}, v{4}, v{6}
@@ -2460,17 +2473,17 @@ def _prepare_combination(dim):
             terms.append(fn(c, t['params']))
         # metadata ride along (the jackknife masks only per-event arrays)
         return {'terms': terms, 'keys': [t['key'] for t in comb['terms']], 'kind': comb['kind'],
-                'scale': comb['scale'], 'harmonic': int(params.get('harmonic', 2))}
+                'scale': comb['scale'],
+                'harmonics': tuple(int(t['params'].get('harmonic', 2)) for t in comb['terms'])}
     prepare.__name__ = f'prepare_cumulant_combination_{dim}'
     return prepare
 
 
 def _core_cumulant_combination(data, w):
     """One value: the combination of the terms' v_n{2k} (harmonic-major
-    cores, the record's harmonic at index n - 1)."""
-    h = data['harmonic']
+    cores, each term's harmonic at index n - 1)."""
     vals = []
-    for key, d in zip(data['keys'], data['terms']):
+    for key, d, h in zip(data['keys'], data['terms'], data['harmonics']):
         out = np.atleast_1d(PIPELINE_DISPATCH[key]['core_fn'](d, w))
         vals.append(float(out[h - 1]) if len(out) >= h else np.nan)
     return np.array([_combination_value(data['kind'], vals, data['scale'])])
@@ -2483,7 +2496,7 @@ PIPELINE_DISPATCH['vn_cumulant_combination'] = {
     # receives the unselected container; each term selects its own
     "selects_species": True,
     "n_obs_per_cent": 1,
-    "description": "v_n{2k} combination (ratio, difference, gamma1) of several orders",
+    "description": "v_n{2k} combination (ratio, difference, gamma1) of several orders or harmonics",
 }
 
 

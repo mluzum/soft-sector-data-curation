@@ -1159,10 +1159,13 @@ def compute_vn2_subevent_per_cent(Qn_A, Qn_B, dQ_cross, event_weights):
     result = np.zeros(n_harm)
     MA = Qn_A[:, 0].real
     MB = Qn_B[:, 0].real
+    den_avg = np.average(MA * MB - dQ_cross, weights=event_weights)
+    if not den_avg > 0:
+        # no pairs (an empty subevent; until November 2026: 0)
+        return np.full(n_harm - 1, np.nan)
     for h in range(1, n_harm):
         num = np.real(Qn_A[:, h] * np.conj(Qn_B[:, h])) - dQ_cross
-        den = MA * MB - dQ_cross
-        r = np.average(num, weights=event_weights) / max(np.average(den, weights=event_weights), 1e-60)
+        r = np.average(num, weights=event_weights) / den_avg
         result[h] = np.sign(r) * np.sqrt(np.abs(r))
     return result[1:]
 

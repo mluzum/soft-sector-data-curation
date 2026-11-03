@@ -114,8 +114,12 @@ BINNING_KEYS = ('bins', 'bin_ranges', 'points', 'point_window')
 
 
 def differential_var(doc):
-    """'pT' or 'eta' for a differential record, else None."""
-    return {'differential_pT': 'pT', 'differential_eta': 'eta'}.get(doc.get('dimensionality'))
+    """'pT' or 'eta' for a differential record, else None: the dispatcher's
+    reading (dimensionality, or the bins of spectra and per-eta yields,
+    which carry no dimensionality)."""
+    from analysis.dispatcher import extract_differential_bins
+    var, bins, _ = extract_differential_bins(doc)
+    return var if var and len(bins) > 1 else None
 
 
 def at_ratio_bins(doc, ratio):

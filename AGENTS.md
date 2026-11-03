@@ -171,7 +171,9 @@ Fields that change dispatch:
   dropped, a point-valued side refused, combined_from must tile) and, when
   differential, in the ratio's bins (`at_ratio_bins`: binning keys replaced,
   the side's min/max kept, since they may set the reference); compute_ratios
-  aligns the ratio's points per class and bin.
+  aligns the ratio's points per class and bin (spectra and per-eta yields,
+  which carry no `dimensionality`, count as differential: the dispatcher's
+  `extract_differential_bins`).
 - Symmetric cumulants (`correlation_type: symmetric_cumulant`, key
   `sc_mn`): two harmonics only, and `normalized` is required (true: NSC =
   SC / (<v_m^2><v_n^2>)); `normalization_eta_gap` takes the denominator
@@ -357,11 +359,21 @@ near c_4 = 0, ratios) the correction is unstable (zr96c2 dp0001, v2{4}
   tests/test_missing_harmonics.py).
 - **Combinations of cumulant orders** (`cumulant_combination`: ratio,
   difference with optional `scale`, gamma1 = -6 sqrt2 v{4}^2 (v{4} - v{6}) /
-  (v{2}^2 - v{4}^2)^{3/2}; `two_particle` for a gapped v{2} term): computed
+  (v{2}^2 - v{4}^2)^{3/2}; `two_particle` for a gapped v{2} term;
+  `harmonics` for terms of different harmonics, v3{2}/v2{2} = orders [2, 2],
+  harmonics [3, 2]): computed
   by `vn_cumulant_combination` from its terms, each the record as an
   ordinary v_n{2k} record (`dispatcher.combination_terms`), on the same
-  events inside the jackknife; one value per class (`SINGLE_ROW_KEYS`);
-  tests/test_toy_mc_cumulant_combination.py.
+  events inside the jackknife; one value per class (`SINGLE_ROW_KEYS`); a
+  zero denominator gives NaN; tests/test_toy_mc_cumulant_combination.py.
+- **Two-subevent v_n{2} on 3D grids** (`prepare_vn2_gap_3d`): a subevent
+  window that cuts a cell takes it with its overlap fraction (each subevent
+  sum enters linearly), and cells inside both windows give their expected
+  self-pairs sum f_A f_B Q0; windows on cell edges are unchanged.  ALICE's
+  |Delta eta| > 1.4 subevents (0.1 wide) on a 0.2-wide O+O grid gave 0
+  until November 2026 (edge snapping: one window a whole cell, the other
+  none).  No pairs (an empty subevent) gives NaN, not 0;
+  tests/test_toy_mc_gap_subcell.py.
 - **Symmetric cumulants** (`sc_mn`, `analysis.correlators.sc_arrays`):
   SC(m,n) = <<4>>_{m,n,-m,-n} - <<2>>_m <<2>>_n over distinct particles
   (2D Jacobian weights or 3D unit weights), event weights the numbers of

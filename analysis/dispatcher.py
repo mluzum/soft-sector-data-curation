@@ -395,7 +395,10 @@ def combination_terms(record):
     v{b}) | gamma1 (-6 sqrt2 v{4}^2 (v{4} - v{6}) / (v{2}^2 - v{4}^2)^{3/2},
     orders [2, 4, 6]); ``orders``; optional ``scale`` (a factor on the
     result, e.g. 1/11); optional ``two_particle``: {particles, subevents,
-    eta_gap} for the v{2} term (ALICE's gamma1 uses v2{2, |Delta eta| > 1}).
+    eta_gap} for the v{2} term (ALICE's gamma1 uses v2{2, |Delta eta| > 1});
+    optional ``harmonics`` (ratio, difference): the harmonic of each term,
+    e.g. orders [2, 2] with harmonics [3, 2] for v3{2}/v2{2} (default the
+    record's harmonic for every term).
     Each term is the record itself as a single-order cumulant record (its
     acceptance, species, centrality), so it computes with the existing
     v_n{2k} keys.  Returns [(order, sub_record)].
@@ -414,10 +417,21 @@ def combination_terms(record):
         raise ValueError("cumulant_combination gamma1 takes orders [2, 4, 6]")
     if record.get('dimensionality', 'integrated') != 'integrated':
         raise ValueError("cumulant_combination is implemented for integrated records")
+    harmonics = comb.get('harmonics')
+    if harmonics is None:
+        harmonics = [int(record.get('harmonic', 2))] * len(orders)
+    else:
+        if kind == 'gamma1':
+            raise ValueError("cumulant_combination gamma1 takes the record's harmonic")
+        harmonics = [int(h) for h in harmonics]
+        if len(harmonics) != len(orders) or any(not 1 <= h <= 10 for h in harmonics):
+            raise ValueError(f"cumulant_combination harmonics {harmonics}: one per order, 1-10")
+    if len(set(zip(orders, harmonics))) != len(orders):
+        raise ValueError(f"cumulant_combination: identical terms (orders {orders}, harmonics {harmonics})")
     out = []
-    for k in orders:
+    for k, h in zip(orders, harmonics):
         sub = copy.deepcopy({key: v for key, v in record.items() if key != 'cumulant_combination'})
-        sub.update(method='cumulant', cumulant_order=k, value_type=f"v{record.get('harmonic', 2)}{{{k}}}")
+        sub.update(method='cumulant', cumulant_order=k, harmonic=h, value_type=f"v{h}{{{k}}}")
         for key in ('particles', 'subevents', 'eta_gap'):
             sub.pop(key, None)
         if k == 2 and isinstance(comb.get('two_particle'), dict):

@@ -7,6 +7,7 @@ Checks, on 2D and 3D containers with fluctuating v2:
   - every combination equals the formula applied to the separately
     computed v2{2}, v2{4}, v2{6}, v2{8} (machine precision);
   - gamma1 with a two-subevent v2{2} term (ALICE's v2{2, |Delta eta| > 1});
+  - a ratio of harmonics, v3{2}/v2{2} with the gap (harmonics [3, 2]);
   - the jackknife error of v2{6}/v2{4} is far below the uncorrelated
     propagation of the two errors (the orders share the events);
   - invalid combinations are refused.
@@ -98,6 +99,43 @@ def test_combinations_equal_formula():
             ok = np.all(np.isfinite(got)) and np.allclose(got, want, rtol=1e-10, atol=0)
             check(f'{kind} {name}', ok, f'{np.round(got, 5)} vs {np.round(want, 5)}')
         check(f'{kind} gamma1 uses the gap term', not np.allclose(v2gap, v[2]), f'{v2gap} vs {v[2]}')
+
+
+def _fx_v3():
+    if 'v3' not in _CACHE:
+        cfg = ToyGenConfig(n_events=1200, mult_mean=900, mult_sigma=250, seed=778,
+                           flow={2: dict(kind='const', value=0.08), 3: dict(kind='const', value=0.04)},
+                           fluctuate={2: 0.03, 3: 0.02})
+        events, truth = generate_events(cfg)
+        _CACHE['v3'] = {'2d': make_qvector_data(events, truth, n_pt=30, n_harm=7),
+                        '3d': make_qgrid_data(events, truth, n_eta=40, n_pt=30, n_harm=7, eta_half=4.0)}
+    return _CACHE['v3']
+
+
+def test_harmonic_ratio():
+    """v3{2}/v2{2} (ALICE O-O): orders [2, 2], harmonics [3, 2], both terms with the gap."""
+    comb = {'kind': 'ratio', 'orders': [2, 2], 'harmonics': [3, 2], 'two_particle': SUB}
+    for kind in ('2d', '3d'):
+        c = _fx_v3()[kind]
+
+        def ev(r):
+            return (evaluate(r, qv=c, cent_method='simple', with_jackknife=False) if kind == '2d' else
+                    evaluate(r, grid=c, cent_method='simple', with_jackknife=False))[0]
+        v3 = ev(dict(rec(2, **SUB), harmonic=3, value_type='v3'))
+        v2 = ev(rec(2, **SUB))
+        got = ev(dict(rec(2, comb=comb), harmonic=3, value_type='v3{2}/v2{2}'))
+        check(f'{kind} v3{{2}}/v2{{2}} = ratio of the separately computed gap terms',
+              np.all(np.isfinite(got)) and np.allclose(got, v3 / v2, rtol=1e-10, atol=0),
+              f'{np.round(got, 4)} vs {np.round(v3 / v2, 4)}')
+        check(f'{kind} v3{{2}}/v2{{2}} near the input 0.5', np.all(np.abs(got - 0.5) < 0.1), f'{np.round(got, 3)}')
+    for bad in ({'kind': 'ratio', 'orders': [2, 2]}, {'kind': 'ratio', 'orders': [2, 2], 'harmonics': [3]},
+                {'kind': 'gamma1', 'harmonics': [2, 2, 2]}):
+        try:
+            resolve(rec(comb=bad))
+            ok = False
+        except ValueError:
+            ok = True
+        check(f'refused {bad}', ok)
 
 
 def test_jackknife_correlation():
