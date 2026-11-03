@@ -202,7 +202,13 @@ class QGridData:
     Qn : (n_events, n_eta, n_pt, n_harm) complex
         First-power Q-vectors per grid cell.
     eta_edges : (n_eta + 1,) float
-        Pseudorapidity bin edges.
+        Pseudorapidity bin edges -- or None for a rapidity-binned grid,
+        which gives ``y_edges`` (and ``y_mass``) instead.
+    y_edges : (n_y + 1,) float or None
+        Rapidity bin edges of an identified-species grid binned in y (the
+        second axis of Qn is then y).  Exactly one of eta_edges / y_edges.
+    y_mass : float or None
+        The species mass of a rapidity-binned grid (eta <-> y per pT cell).
     pt_edges : (n_pt + 1,) float
         Transverse momentum bin edges.
     cent_mult : (n_events,) float
@@ -226,6 +232,8 @@ class QGridData:
     sum_pt: np.ndarray | None = None
     sum_pt2: np.ndarray | None = None
     sum_ET: np.ndarray | None = None
+    y_edges: np.ndarray | None = None
+    y_mass: float | None = None
     positives_only: bool = True
     """Whether the grid stores positive charges only (charge symmetry x2
     needed for 'charged' aggregates).  True for toy/converted positives-only
@@ -237,8 +245,13 @@ class QGridData:
     def __post_init__(self):
         assert self.Qn.ndim == 4, \
             f"Qn must be 4D [event, eta, pt, harmonic], got shape {self.Qn.shape}"
-        assert self.Qn.shape[1] == len(self.eta_edges) - 1, \
-            f"eta dim mismatch"
+        assert (self.eta_edges is None) != (self.y_edges is None), \
+            "a 3D grid has exactly one of eta_edges / y_edges"
+        if self.y_edges is not None:
+            assert self.y_mass is not None and self.y_mass >= 0, \
+                "a rapidity-binned grid needs its species mass (y_mass)"
+        assert self.Qn.shape[1] == len(self.axis_edges) - 1, \
+            f"eta/y dim mismatch"
         assert self.Qn.shape[2] == len(self.pt_edges) - 1, \
             f"pt dim mismatch"
         assert self.Qn.shape[0] == len(self.cent_mult) == len(self.nsamples), \
@@ -261,12 +274,30 @@ class QGridData:
     def n_harmonics(self) -> int:
         return self.Qn.shape[3]
 
+    @property
+    def rapidity_binned(self) -> bool:
+        return self.y_edges is not None
+
+    @property
+    def axis_edges(self) -> np.ndarray:
+        """Edges of the second Qn axis: eta, or y for a rapidity-binned grid."""
+        return self.y_edges if self.y_edges is not None else self.eta_edges
+
     def __add__(self, other):
         """Additive closure: Q-vectors and moments are additive across
         species on identical grids.  cent_mult/nsamples taken from self."""
         if not isinstance(other, QGridData):
             return NotImplemented
-        assert np.allclose(self.eta_edges, other.eta_edges) and \
+        if self.rapidity_binned or other.rapidity_binned:
+            # A sum of rapidity-binned grids is one grid only for one mass
+            # (p + pbar, K+ + K-): cells of different masses at the same y
+            # lie at different eta.
+            if not (self.rapidity_binned and other.rapidity_binned
+                    and abs(self.y_mass - other.y_mass) < 1e-6):
+                raise ValueError('cannot sum rapidity-binned grids of different masses '
+                                 '(or with an eta-binned grid)')
+        assert self.axis_edges.shape == other.axis_edges.shape and \
+            np.allclose(self.axis_edges, other.axis_edges) and \
             np.allclose(self.pt_edges, other.pt_edges), "grid mismatch"
 
         def _sum(a, b):
@@ -276,6 +307,7 @@ class QGridData:
 
         out = QGridData(Qn=self.Qn + other.Qn,
                         eta_edges=self.eta_edges,
+                        y_edges=self.y_edges, y_mass=self.y_mass,
                         pt_edges=self.pt_edges,
                         cent_mult=self.cent_mult.copy(),
                         nsamples=self.nsamples.copy(),
@@ -301,13 +333,117 @@ class QGridData:
         edges sometimes carry float repr noise (e.g. -4.800000000000001
         for -4.8), and without snapping searchsorted includes/excludes a
         whole 0.1 cell (found Aug 2026: alternating ±50% dN/deta bins).
+
+        On a rapidity-binned grid the eta window is mapped per pT cell with
+        the grid's mass; whole y cells count by their centre (window_weights).
         """
+        if self.rapidity_binned:
+            return self._weighted(self.window_weights(eta_min, eta_max, pt_min, pt_max))
         ei = _snap_searchsorted(self.eta_edges, eta_min, eta_max)
         if getattr(self, 'pt_integrated', False):
             pi = (0, self.Qn.shape[2])
         else:
             pi = _snap_searchsorted(self.pt_edges, pt_min, pt_max)
-        return self.Qn[:, ei[0]:ei[1], pi[0]:pi[1], :].sum(axis=(1, 2))
+        # accumulate in double precision: Qn may be stored as complex64
+        return self.Qn[:, ei[0]:ei[1], pi[0]:pi[1], :].sum(axis=(1, 2), dtype=np.complex128)
+
+    def _weighted(self, W):
+        """Sum of Qn over the cells with weights W (n_axis, n_pt) -> (n_events, n_harm)."""
+        return np.einsum('ijkh,jk->ih', self.Qn, W)
+
+    def poi_acceptance(self, eta_min, eta_max, pt_min=0.0, pt_max=1e9):
+        """Q of a particle of interest in an eta-pT window: acceptance() on
+        eta grids; on a rapidity-binned grid the fractional cell weights of
+        the mapped window (POI sums enter the POI x reference correlators
+        with weight power 1, so fractional weights keep them unbiased;
+        whole cells by centre distort the POI pT spectrum at the window
+        edges, a few % on v2 for 0.1-wide y cells)."""
+        if self.rapidity_binned:
+            return self.acceptance_fractional(eta_min, eta_max, pt_min, pt_max)
+        return self.acceptance(eta_min, eta_max, pt_min, pt_max)
+
+    def shared(self, poi, ref):
+        """Q of this grid's particles in the POI window ``poi`` that are also
+        in the reference window ``ref`` (each (eta_lo, eta_hi, pt_lo, pt_hi)):
+        the self-pair (diagonal) terms of POI x reference correlations.
+
+        Eta grids: the whole cells common to both windows.  Rapidity-binned
+        grids: the POI's fractional cell weights (poi_acceptance) times the
+        fraction of each cell inside the reference window -- the expected
+        self-pair sum, the reference coming from another (eta-binned) grid.
+        Returns (n_events, n_harm)."""
+        if not self.rapidity_binned:
+            e0, e1 = max(poi[0], ref[0]), min(poi[1], ref[1])
+            p0, p1 = max(poi[2], ref[2]), min(poi[3], ref[3])
+            if e1 <= e0 or p1 <= p0:
+                return np.zeros((self.n_events, self.Qn.shape[3]), dtype=np.complex128)
+            return self.acceptance(e0, e1, p0, p1)
+        W = self.window_weights(*poi, fractional=True) * self.window_weights(*ref, fractional=True)
+        return self._weighted(W)
+
+    def window_weights(self, lo, hi, pt_min=0.0, pt_max=1e9, var='eta', mass=None, fractional=False):
+        """Per-cell weights (n_axis, n_pt) of a window lo < var < hi, pt_min < pT < pt_max.
+
+        ``var`` is 'eta' or 'y'; a 'y' window is computed with ``mass``
+        (default: the grid's species mass).  Whole cells (``fractional``
+        False: unit-weight flow and correlation sums, whose self-correlation
+        terms need unit weights): a window in the grid's own variable by the
+        snapped edges, as acceptance(); a mapped window by the cell centre.
+        Fractional (yields, spectra): overlap fractions, uniform in the axis
+        variable and in pT**2.  On a rapidity-binned grid an eta window is
+        mapped per pT cell with the grid's mass, y = asinh(pT sinh(eta) / mT);
+        a y window of another mass goes through eta.
+        """
+        ax = self.axis_edges
+        n_ax, n_pt = len(ax) - 1, len(self.pt_edges) - 1
+        if var == 'y' and mass is None:
+            mass = self.y_mass if self.rapidity_binned else getattr(self, 'mass', None)
+            if mass is None:
+                raise ValueError('a rapidity window needs a species mass')
+        direct = (var == 'eta' and not self.rapidity_binned) or \
+                 (var == 'y' and self.rapidity_binned and abs(mass - self.y_mass) < 1e-6)
+        if getattr(self, 'pt_integrated', False):
+            if not direct:
+                raise ValueError('mapping eta <-> y needs pT-binned grids')
+            fp = np.ones(n_pt)
+        elif fractional:
+            fp = _overlap_fractions(self.pt_edges, pt_min, pt_max, _pt_squared)
+        else:
+            pi = _snap_searchsorted(self.pt_edges, pt_min, pt_max)
+            fp = np.zeros(n_pt)
+            fp[pi[0]:pi[1]] = 1.0
+
+        def axis_weights(a0, a1, snap):
+            if fractional:
+                return _overlap_fractions(ax, a0, a1)
+            w = np.zeros(n_ax)
+            if snap:
+                i = _snap_searchsorted(ax, a0, a1)
+                w[i[0]:i[1]] = 1.0
+            else:
+                c = 0.5 * (ax[:-1] + ax[1:])
+                w[(c >= a0) & (c < a1)] = 1.0
+            return w
+
+        if direct:
+            return np.outer(axis_weights(lo, hi, True), fp)
+        W = np.zeros((n_ax, n_pt))
+        for c in np.nonzero(fp)[0]:
+            if fractional:      # the centre of the part of the cell inside the window
+                pt = 0.5 * (max(self.pt_edges[c], pt_min) + min(self.pt_edges[c + 1], pt_max))
+            else:
+                pt = 0.5 * (self.pt_edges[c] + self.pt_edges[c + 1])
+            if pt <= 0:
+                continue
+            e0, e1 = lo, hi
+            if var == 'y':                                   # y of `mass` -> eta
+                mt = np.sqrt(pt ** 2 + mass ** 2)
+                e0, e1 = np.arcsinh(mt * np.sinh(e0) / pt), np.arcsinh(mt * np.sinh(e1) / pt)
+            if self.rapidity_binned:                         # eta -> y of the grid's mass
+                mt = np.sqrt(pt ** 2 + self.y_mass ** 2)
+                e0, e1 = np.arcsinh(pt * np.sinh(e0) / mt), np.arcsinh(pt * np.sinh(e1) / mt)
+            W[:, c] = fp[c] * axis_weights(e0, e1, False)
+        return W
 
     def acceptance_fractional(self, eta_min, eta_max, pt_min=0.0, pt_max=1e9):
         """Like acceptance(), but cells cut by the window count with their
@@ -315,6 +451,8 @@ class QGridData:
         yield within a cell; meant for spectra).  A window inside one cell
         gets its share of that cell instead of nothing or the whole cell.
         Returns (n_events, n_harm)."""
+        if self.rapidity_binned:
+            return self._weighted(self.window_weights(eta_min, eta_max, pt_min, pt_max, fractional=True))
         fe = _overlap_fractions(self.eta_edges, eta_min, eta_max)
         if getattr(self, 'pt_integrated', False):
             fp = np.ones(self.Qn.shape[2])
@@ -330,7 +468,12 @@ class QGridData:
         eta = asinh(mT_a sinh y / pT), mT_a = sqrt(pT^2 + m_a^2); eta cells
         count with their overlap fraction (uniform density within a cell).
         pT cells count with their overlap fraction.  Returns (n_events, n_harm).
+        On a rapidity-binned grid of the same mass the window is sliced
+        directly; of another mass it goes through eta (window_weights).
         """
+        if self.rapidity_binned:
+            return self._weighted(self.window_weights(y_min, y_max, pt_min, pt_max, var='y',
+                                                      mass=assumed_mass, fractional=True))
         if getattr(self, 'pt_integrated', False):
             raise ValueError('a mass-assumed rapidity window needs pT-binned grids')
         fp = _overlap_fractions(self.pt_edges, pt_min, pt_max, _pt_squared)
@@ -386,7 +529,8 @@ def _scale_grid(g, cf):
     if cf == 1.0:
         return g
     out = QGridData(Qn=g.Qn * cf,
-                    eta_edges=g.eta_edges, pt_edges=g.pt_edges,
+                    eta_edges=g.eta_edges, y_edges=g.y_edges, y_mass=g.y_mass,
+                    pt_edges=g.pt_edges,
                     cent_mult=g.cent_mult.copy(),
                     nsamples=g.nsamples.copy(),
                     event_weights=(g.event_weights.copy()
@@ -536,4 +680,5 @@ class MultiSpeciesGrid:
 SPECIES_MASS = {211: 0.13957, -211: 0.13957, 321: 0.49368, -321: 0.49368,
                 2212: 0.93827, -2212: 0.93827, 3122: 1.11568,
                 -3122: 1.11568, 3312: 1.32171, -3312: 1.32171,
-                3334: 1.67245, 333: 1.01946}
+                3334: 1.67245, -3334: 1.67245, 333: 1.01946,
+                111: 0.13498, 310: 0.49761, 2112: 0.93957, -2112: 0.93957, 22: 0.0}

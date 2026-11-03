@@ -237,7 +237,15 @@ Containers (`analysis/qvector.py`):
 - **QGridData (3D)**: `Qn[event, η, pT, harmonic]` on a grid. Particles are
   unit-weighted, so `dQ0 = Q0`. Disjoint subevents have no self-correlation,
   so longitudinal decorrelation is visible. `MultiSpeciesGrid.select()`
-  sums per-species grids.
+  sums per-species grids.  A species grid may be binned in rapidity
+  (`y_edges`, `y_mass`; O+O JETSCAPE-framework QnVector output):
+  `QGridData.window_weights` maps eta windows per pT cell with the mass
+  (fractional for yields, spectra, <pT>, E_T and POI sums via
+  `poi_acceptance`; whole cells by mapped centre in `acceptance()` for
+  unit-weight sums), `shared()` gives the expected POI-reference
+  self-pairs, grids of different masses are not summed, and a y grid is
+  never a reference (tests/test_toy_mc_rapidity_grid.py).  Qn may be
+  complex64; window sums accumulate in double precision.
 - **Simulation packages** (`analysis/sim_package.py`): `simulation.yaml` plus
   an external adapter returning the container arrays. `build_container`
   validates them. See docs/sim_interface.md §4.
@@ -292,7 +300,8 @@ near c_4 = 0, ratios) the correction is unstable (zr96c2 dp0001, v2{4}
   not for yields, which use the fractional overlap too (dN/deta windows
   off the grid, e.g. shifted p+Pb windows).  A rapidity window (dN/dy,
   no eta) takes the species' mass per pT cell (`acceptance_rapidity`);
-  a mixture (charged) gives NaN.  Until November 2026 it gave 0 on 3D.
+  a mixture (charged) gives NaN.  Until November 2026 it gave 0 on 3D;
+  <pT> in a rapidity window (identified species) gave 0/0 until then.
 - **Charge-scaled 3D grids**: normalized observables (flow, correlations,
   mean pT and its fluctuations) are computed on unit weights
   (`pipeline_dispatch._unit_weights`); only `ABSOLUTE_KEYS` keep the
@@ -315,7 +324,9 @@ near c_4 = 0, ratios) the correction is unstable (zr96c2 dp0001, v2{4}
   (relative order 1/M_eff, M_eff = (sum w)^2/sum w^2); a container that
   does not store it drops them with a printed note (v3{4} on 2D JETSCAPE
   containers, n <= 5, M_eff ~ 2e4: < 1% of c3{4}).  SC(m,n), a small
-  difference, refuses a missing Q_{m+n} instead.
+  difference, refuses a missing Q_{m+n} instead; so do v_n{6} and v_n{8}
+  (until November 2026 their 3D prepares returned None and the core then
+  crashed the group's jackknife; tests/test_missing_harmonics.py).
 - **Symmetric cumulants** (`sc_mn`, `analysis.correlators.sc_arrays`):
   SC(m,n) = <<4>>_{m,n,-m,-n} - <<2>>_m <<2>>_n over distinct particles
   (2D Jacobian weights or 3D unit weights), event weights the numbers of

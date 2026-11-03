@@ -47,6 +47,22 @@ only trust its rapidity distribution.
 zero self-correlation (this is what makes longitudinal-decorrelation studies
 possible).  No boost-invariance assumed.
 
+**Rapidity-binned species grids.**  An identified-species grid may be binned
+in rapidity y instead of η: it gives `y_edges` instead of `eta_edges`
+(the species mass comes from its PDG code).  A y window of that mass slices
+it directly; an η window is mapped per pT cell, y = asinh(pT sinh η / mT),
+with fractional cell weights for yields, spectra, ⟨pT⟩, E_T and particle-of-
+interest sums (whose weight enters with power 1), and with whole cells by
+their mapped centre where unit weights are needed (pT fluctuations, flow of
+the grid's own sample).  Self-pairs of a POI with the charged reference
+(an η grid) are the expected overlap, the POI weights times the fraction of
+each cell inside the reference window.  Grids of different masses are not
+summed (a record needing such a sum is skipped); a rapidity-binned grid is
+never a reference, and the `combined` charged grid is η-binned.
+
+**Precision.**  `Qn` may be stored as complex64 (half the memory); window
+sums accumulate in complex128/float64.
+
 ---
 
 ## 2. Universal input: particle lists
@@ -156,7 +172,14 @@ The adapter imports numpy and its own readers, never this repository.
 - 3D: `Qn`, `eta_edges`, `pt_edges`, `cent_mult`, `nsamples`,
   `positives_only` (required: it sets the charge factor); optional
   `event_weights`, `sum_pt`, `sum_pt2`, `sum_ET`.  Several species:
-  `{"species": {pdg: <3D dict>}, "combined": <3D dict> or None}`.
+  `{"species": {pdg: <3D dict>}, "combined": <3D dict> or None}`; a
+  species grid binned in rapidity gives `y_edges` instead of `eta_edges`
+  (§1).  `Qn`, `sum_pt`, `sum_ET` are sums over the oversamples of each
+  event, `nsamples` their number; `sum_ET` is Σ E sinθ = Σ E/cosh η.
+  Harmonics the container does not store: v_n{2} of such n gives NaN,
+  v_n{4} drops the Q_2n self-correlation terms (of relative order 1/M_eff,
+  with a printed note), v_n{6}, v_n{8} and SC(m,n) needing them are
+  skipped.
 
 Anything else goes under `meta`; `meta['event_ids']` (one id per event, in
 container order) makes the jackknife blocks follow the event ids (block b:

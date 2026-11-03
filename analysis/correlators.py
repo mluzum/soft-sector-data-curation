@@ -201,6 +201,10 @@ class Container3D:
     of the weight is 1."""
 
     def __init__(self, poi_grid, poi_win, ref_grid, ref_win, overlap):
+        if getattr(ref_grid, 'rapidity_binned', False):
+            # the POI of a rapidity-binned grid has fractional weights
+            # (poi_acceptance); a reference needs unit weights
+            raise ValueError("a rapidity-binned grid cannot be the reference sample")
         self.pg, self.pw, self.rg, self.rw, self.overlap = poi_grid, poi_win, ref_grid, ref_win, overlap
         self.cache = {}
 
@@ -219,10 +223,9 @@ class Container3D:
         if P and R:
             if not self.overlap:
                 return np.zeros(n_ev, complex)
-            e0, e1 = max(self.pw[0], self.rw[0]), min(self.pw[1], self.rw[1])
-            p0, p1 = max(self.pw[2], self.rw[2]), min(self.pw[3], self.rw[3])
-            if e1 <= e0 or p1 <= p0:
-                return np.zeros(n_ev, complex)
-            return grid.acceptance(e0, e1, p0, p1)[:, h]
-        win = self.pw if P else self.rw
-        return grid.acceptance(*win)[:, h]
+            # POI particles inside the reference window (QGridData.shared:
+            # common cells on eta grids, the expected count on y grids)
+            return grid.shared(self.pw, self.rw)[:, h]
+        if P:
+            return grid.poi_acceptance(*self.pw)[:, h]
+        return grid.acceptance(*self.rw)[:, h]

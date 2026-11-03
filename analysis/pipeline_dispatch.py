@@ -172,6 +172,20 @@ def _grid_slices(grid, eta, pt):
     return slice(ei[0], ei[1]), slice(pi_lo, pi_hi)
 
 
+def _window_sum(grid, arr, eta, pt, fractional=False):
+    """Sum a per-cell array (n_events, n_axis, n_pt) over an eta-pT window, in
+    double precision: whole cells by the snapped edges on eta grids
+    (_grid_slices).  On a rapidity-binned grid the window is mapped per pT
+    cell (QGridData.window_weights): fractional cell weights for linear sums
+    (<pT>, E_T), whole cells by centre where pair terms need unit weights
+    (pT fluctuations)."""
+    if getattr(grid, 'rapidity_binned', False):
+        return np.einsum('ijk,jk->i', arr, grid.window_weights(eta[0], eta[1], pt[0], pt[1],
+                                                               fractional=fractional))
+    se, sp_ = _grid_slices(grid, eta, pt)
+    return arr[:, se, sp_].sum(axis=(1, 2), dtype=np.float64)
+
+
 def _extract_subevent_eta(params):
     """Return (eta_min_A, eta_max_A, eta_min_B, eta_max_B) from params."""
     sr = params.get('subevent_ranges', {})
@@ -343,10 +357,17 @@ def prepare_vn2_gap_poi_3d(container, params):
     for X, lab in zip('AB', labels):
         rpid, eta, rpt = ref[lab]
         rgrid = _unit_weights(container.select(rpid))
-        out[f'p_{X}'] = np.stack([poi.acceptance(eta[0], eta[1], lo, hi) for lo, hi in pt_bins], axis=-1)
+        out[f'p_{X}'] = np.stack([poi.poi_acceptance(eta[0], eta[1], lo, hi) for lo, hi in pt_bins], axis=-1)
         out[f'Q_{X}'] = rgrid.acceptance(eta[0], eta[1], rpt[0], rpt[1])
     n_ev = out['Q_A'].shape[0]
     out['d_pQ'] = np.zeros((n_ev, len(pt_bins)))
+    if getattr(poi, 'rapidity_binned', False) and _poi_within_charged(container, poi_pid):
+        # a y cell can straddle both eta windows: the expected POI(X) x
+        # reference(other) self-pairs, averaged over the two orderings
+        (pa, ea, rpa), (pb, eb, rpb) = ref[labels[0]], ref[labels[1]]
+        for b, (lo, hi) in enumerate(pt_bins):
+            out['d_pQ'][:, b] = 0.5 * (poi.shared((ea[0], ea[1], lo, hi), (eb[0], eb[1], rpb[0], rpb[1]))[:, 0].real
+                                       + poi.shared((eb[0], eb[1], lo, hi), (ea[0], ea[1], rpa[0], rpa[1]))[:, 0].real)
     out['d_QQ'] = np.zeros(n_ev)
     return out
 
@@ -1023,17 +1044,27 @@ def prepare_mean_pt_3d(grid, params):
                 'den': np.full(grid.n_events, np.nan)}
     sk = params.get('single_range', {})
     eta = sk.get('eta', (-1, 1))
-    if eta[0] is None or eta[1] is None:
-        return {'num': z, 'den': z}
     pt = sk.get('pT', (0.1, 10))
-    se, sp_ = _grid_slices(grid, eta, pt)
-    den = grid.Qn[:, se, sp_, 0].real.sum(axis=(1, 2)) / grid.nsamples
     if getattr(grid, 'sum_pt', None) is not None:
         num_src = grid.sum_pt
     else:
         mids = 0.5 * (grid.pt_edges[:-1] + grid.pt_edges[1:])
         num_src = grid.Qn[:, :, :, 0].real * mids[np.newaxis, np.newaxis, :]
-    num = num_src[:, se, sp_].sum(axis=(1, 2)) / grid.nsamples
+    if eta[0] is None or eta[1] is None:
+        # A rapidity window (<pT> of an identified species): fractional cell
+        # weights of the window with the species' mass per pT cell; a mixture
+        # has no mass.  (Until November 2026 every rapidity window gave 0/0.)
+        y = sk.get('y') or (None, None)
+        mass = getattr(grid, 'y_mass', None) if getattr(grid, 'rapidity_binned', False) \
+            else getattr(grid, 'mass', None)
+        if y[0] is None or y[1] is None or mass is None:
+            return {'num': z, 'den': z}
+        W = grid.window_weights(y[0], y[1], pt[0], pt[1], var='y', mass=float(mass), fractional=True)
+        den = np.einsum('ijk,jk->i', grid.Qn[..., 0].real, W) / grid.nsamples
+        num = np.einsum('ijk,jk->i', num_src, W) / grid.nsamples
+        return {'num': num, 'den': den}
+    den = _window_sum(grid, grid.Qn[..., 0].real, eta, pt, fractional=True) / grid.nsamples
+    num = _window_sum(grid, num_src, eta, pt, fractional=True) / grid.nsamples
     return {'num': num, 'den': den}
 
 
@@ -1091,9 +1122,8 @@ def prepare_pT_fluct_3d(grid, params):
     if eta[0] is None or eta[1] is None:
         return {'s1': z, 's2': z, 'n': z}
     pt = sk.get('pT', (0.1, 10))
-    se, sp_ = _grid_slices(grid, eta, pt)
     ns = grid.nsamples
-    n = grid.Qn[:, se, sp_, 0].real.sum(axis=(1, 2)) / ns
+    n = _window_sum(grid, grid.Qn[..., 0].real, eta, pt) / ns
     if getattr(grid, 'sum_pt', None) is not None:
         s1_src = grid.sum_pt
     else:
@@ -1105,8 +1135,8 @@ def prepare_pT_fluct_3d(grid, params):
         mids = 0.5 * (grid.pt_edges[:-1] + grid.pt_edges[1:])
         s2_src = grid.Qn[:, :, :, 0].real \
             * (mids ** 2)[np.newaxis, np.newaxis, :]
-    s1 = s1_src[:, se, sp_].sum(axis=(1, 2)) / ns
-    s2 = s2_src[:, se, sp_].sum(axis=(1, 2)) / ns
+    s1 = _window_sum(grid, s1_src, eta, pt) / ns
+    s2 = _window_sum(grid, s2_src, eta, pt) / ns
     return {'s1': s1, 's2': s2, 'n': n}
 
 
@@ -1144,6 +1174,8 @@ def prepare_radial_flow_3d(grid, params):
     sr, spec, ref, bins, mb = _radial_flow_settings(params)
     if getattr(grid, 'pt_integrated', False):
         raise ValueError("radial_flow needs pT-binned grids")
+    if getattr(grid, 'rapidity_binned', False):
+        raise ValueError("radial_flow on a rapidity-binned grid is not implemented")
     n_ev, n_eta, n_pt = grid.Qn.shape[:3]
     c = grid.Qn[..., 0].real
     mids = 0.5 * (grid.pt_edges[:-1] + grid.pt_edges[1:])
@@ -1561,7 +1593,7 @@ def prepare_vn2_sp_diff_3d(container, params):
 
     def poi_of(b):
         (e_lo, e_hi), (p_lo, p_hi) = _sp_poi_box(b, bins, var, eta, pt)
-        q = poi.acceptance(e_lo, e_hi, p_lo, p_hi)
+        q = poi.poi_acceptance(e_lo, e_hi, p_lo, p_hi)
         return q, q[:, 0].real
 
     def ref_of(spec):
@@ -1804,11 +1836,10 @@ def _shared_count(grid, poi_eta, poi_pt, ref_windows, ref_pt):
         return None
     acc = None
     for (wlo, whi) in ref_windows or []:
-        lo = max(poi_eta[0], wlo)
-        hi = min(poi_eta[1], whi)
-        if hi <= lo:
+        if min(poi_eta[1], whi) <= max(poi_eta[0], wlo):
             continue
-        c = grid.acceptance(lo, hi, lo_pt, hi_pt)[:, 0].real
+        c = grid.shared((poi_eta[0], poi_eta[1], poi_pt[0], poi_pt[1]),
+                        (wlo, whi, ref_pt[0], ref_pt[1]))[:, 0].real
         acc = c if acc is None else acc + c
     return acc
 
@@ -1891,7 +1922,10 @@ def prepare_vn6_single_3d(grid, params):
     pt = sk.get('pT', (0.1, 10))
     h = int(params.get('harmonic', 2))
     if 3 * h >= grid.Qn.shape[-1]:
-        return None
+        # (until November 2026 this returned None and the core then
+        # crashed the whole group's jackknife)
+        raise ValueError(f"v_{h}{{6}} needs Q_{3 * h}; the container stores harmonics below "
+                         f"{grid.Qn.shape[-1]}")
     q = grid.acceptance(eta[0], eta[1], pt[0], pt[1])
     return {'Q1': q, 'Q2': q.copy(), 'Q3': q.copy(), 'Q4': q.copy()}
 
@@ -1903,7 +1937,8 @@ def prepare_vn8_single_3d(grid, params):
     pt = sk.get('pT', (0.1, 10))
     h = int(params.get('harmonic', 2))
     if 4 * h >= grid.Qn.shape[-1]:
-        return None
+        raise ValueError(f"v_{h}{{8}} needs Q_{4 * h}; the container stores harmonics below "
+                         f"{grid.Qn.shape[-1]}")
     q = grid.acceptance(eta[0], eta[1], pt[0], pt[1])
     return {'Q1': q}
 
@@ -2002,14 +2037,16 @@ def prepare_dET_3d(grid, params):
     if eta[0] is None or eta[1] is None:
         return {'sum_et': z, 'delta_eta': 1.0}
     pt = sk.get('pT', (0.1, 10))
-    se, sp_ = _grid_slices(grid, eta, pt)
     # NOTE: the incoming grid is already charge-factored by the upstream
     # grid.select() call (sum_ET carries the xCF); do NOT re-apply cf here,
     # otherwise charged dET/deta is double-counted (factor-of-2 bug).
     if getattr(grid, 'sum_ET', None) is not None:
         # exact stored E_T column
-        sum_et = grid.sum_ET[:, se, sp_].sum(axis=(1, 2)) / grid.nsamples
+        sum_et = _window_sum(grid, grid.sum_ET, eta, pt, fractional=True) / grid.nsamples
+    elif getattr(grid, 'rapidity_binned', False):
+        raise ValueError("dET/deta on a rapidity-binned grid needs its sum_ET")
     else:
+        se, sp_ = _grid_slices(grid, eta, pt)
         # no per-cell species on grids: charged-pion mass approximation
         m_pi = 0.13957
         mids = 0.5 * (grid.pt_edges[:-1] + grid.pt_edges[1:])
@@ -2018,7 +2055,7 @@ def prepare_dET_3d(grid, params):
                           + ((m_pi * np.cosh(ch)) ** 2)[np.newaxis, :,
                                                         np.newaxis])
         counts = grid.Qn[:, :, :, 0].real
-        sum_et = (counts[:, se, sp_] * ET_grid[:, se, sp_]).sum(axis=(1, 2)) \
+        sum_et = (counts[:, se, sp_] * ET_grid[:, se, sp_]).sum(axis=(1, 2), dtype=np.float64) \
             / grid.nsamples
     return {'sum_et': sum_et,
             'delta_eta': abs(eta[1] - eta[0])}

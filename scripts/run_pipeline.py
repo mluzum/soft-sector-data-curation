@@ -1268,6 +1268,9 @@ def main():
                         except Exception as e:
                             print(f"    3D prepare failed: {e} — skipping record")
                             continue
+                        if data_dict is None:
+                            print(f"    3D prepare returned nothing — skipping record")
+                            continue
                         dispatch_data_list.append({
                             'data_dict': data_dict,
                             'cent_w': cent_w_3d,

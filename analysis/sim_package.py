@@ -30,7 +30,10 @@ The adapter contract, version ``ADAPTER_API = 1``::
 - 3D: ``Qn`` (n_events, n_eta, n_pt, n_harm) complex, ``eta_edges``,
   ``pt_edges``, ``cent_mult``, ``nsamples``, ``positives_only``; optional
   ``event_weights``, ``sum_pt``, ``sum_pt2``, ``sum_ET``.  Several species:
-  ``{"species": {pdg: <3D dict>}, "combined": <3D dict> or None}``.
+  ``{"species": {pdg: <3D dict>}, "combined": <3D dict> or None}``.  A
+  species grid binned in rapidity gives ``y_edges`` instead of
+  ``eta_edges`` (its mass comes from the PDG code); the combined grid is
+  binned in eta.
 
 Anything else goes under ``meta`` (kept on the container as ``.meta``).
 Unknown top-level keys are refused, so a misspelt optional field cannot be
@@ -52,7 +55,7 @@ from pathlib import Path
 import numpy as np
 import yaml
 
-from analysis.qvector import MultiSpeciesGrid, QGridData, QVectorData
+from analysis.qvector import SPECIES_MASS, MultiSpeciesGrid, QGridData, QVectorData
 
 
 MANIFEST_NAME = "simulation.yaml"
@@ -68,6 +71,7 @@ _FIELDS_2D_OPTIONAL = ("pdg_ids", "sum_pt", "sum_pt2", "sum_mT",
 _FIELDS_3D_REQUIRED = ("Qn", "eta_edges", "pt_edges", "cent_mult",
                        "nsamples", "positives_only")
 _FIELDS_3D_OPTIONAL = ("event_weights", "sum_pt", "sum_pt2", "sum_ET")
+_FIELDS_3D_AXIS = ("eta_edges", "y_edges")       # exactly one; y_edges for species grids only
 
 
 class SimPackageError(Exception):
@@ -230,15 +234,25 @@ def _build_2d(arrays: dict, where: str) -> QVectorData:
     return QVectorData(sim_type="2d", **kw)
 
 
-def _build_3d(arrays: dict, where: str) -> QGridData:
-    kw = _take(arrays, _FIELDS_3D_REQUIRED, _FIELDS_3D_OPTIONAL, where)
+def _build_3d(arrays: dict, where: str, pdg=None) -> QGridData:
+    axis = [a for a in _FIELDS_3D_AXIS if a in arrays]
+    _check(len(axis) == 1, where, f"a 3D grid gives exactly one of eta_edges / y_edges, got {axis}")
+    axis = axis[0]
+    if axis == "y_edges":
+        _check(pdg is not None, where, "y_edges (a rapidity-binned grid) is for species grids only")
+        _check(int(pdg) in SPECIES_MASS, where, f"no mass for PDG {pdg} (needed for eta <-> y)")
+    req = tuple(f for f in _FIELDS_3D_REQUIRED if f != "eta_edges") + (axis,)
+    kw = _take(arrays, req, _FIELDS_3D_OPTIONAL, where)
     qn = _complex_qn(kw["Qn"], where)
     n_ev, n_eta, n_pt, _n_h = qn.shape
     counts = qn[..., 0]
     _check(np.all(counts.imag == 0) and np.all(counts.real >= 0), where,
            "Qn[..., 0] must hold real non-negative counts")
     kw["Qn"] = qn
-    kw["eta_edges"] = _edges(kw["eta_edges"], "eta_edges", n_eta, where)
+    kw[axis] = _edges(kw[axis], axis, n_eta, where)
+    if axis == "y_edges":
+        kw["eta_edges"] = None
+        kw["y_mass"] = float(SPECIES_MASS[int(pdg)])
     kw["pt_edges"] = _edges(kw["pt_edges"], "pt_edges", n_pt, where)
     kw["nsamples"] = _per_event(kw["nsamples"], "nsamples", n_ev, where, positive=True)
     kw["cent_mult"] = _per_event(kw["cent_mult"], "cent_mult", n_ev, where)
@@ -268,7 +282,7 @@ def build_container(arrays: dict, kind: str, where: str = "adapter"):
     elif kind == "3d" and "species" in arrays:
         _check(set(arrays) <= {"species", "combined"}, where,
                f"multi-species 3D dict takes 'species' and 'combined', got {sorted(arrays)}")
-        grids = {int(pdg): _build_3d(d, f"{where} species {pdg}")
+        grids = {int(pdg): _build_3d(d, f"{where} species {pdg}", pdg=pdg)
                  for pdg, d in arrays["species"].items()}
         comb = arrays.get("combined")
         obj = MultiSpeciesGrid(
