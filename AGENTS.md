@@ -263,7 +263,9 @@ Containers (`analysis/qvector.py`):
   unit-weight sums), `shared()` gives the expected POI-reference
   self-pairs, grids of different masses are not summed, and a y grid is
   never a reference (tests/test_toy_mc_rapidity_grid.py).  Qn may be
-  complex64; window sums accumulate in double precision.
+  complex64; window sums accumulate in double precision, from a lazily
+  built summed-area table (`summed_area_tables`; ~2x the complex64 Qn in
+  memory, keyed to the Qn object; tests/test_qgrid_window_sums.py).
 - **Simulation packages** (`analysis/sim_package.py`): `simulation.yaml` plus
   an external adapter returning the container arrays. `build_container`
   validates them. See docs/sim_interface.md §4.
