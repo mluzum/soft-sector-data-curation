@@ -31,8 +31,15 @@ yield (centrality.combined_from analysis_classes, analysis_class_width 1).
   (cumulant_combination): v2{6}/v2{4}, v2{8}/v2{4}, v2{8}/v2{6},
   (v2{4} - v2{6})/11, v2{6} - v2{8} and the skewness estimate gamma1 (Eq. 7,
   with v2{2, |Delta eta| > 1} as in the paper).
+- the ratios 5.02 / 2.76 TeV vs centrality of v_n{2, |Delta eta| > 1} (n =
+  2-4) and v2{4} (Fig. 2) as energy ratios (observable_ratios) linking the
+  two energies' records.  The ratio tables are binned otherwise than the v_n
+  tables (v3: 2% classes over 1% classes at 5.02 TeV); compute_ratios
+  computes both sides at the ratio's classes.
+Staged (--staged OUT): the same ratios vs pT (Fig. 5; compute_ratios aligns
+the experimental points per centrality class).
 Not curated: the cumulants c2{m} (Fig. 10, the v2{m} in another form), the
-ratios between energies (Figs. 2, 5), to 20-30% (Fig. 7) and v_n/v_m^(n/m)
+ratios to 20-30% (Fig. 7) and v_n/v_m^(n/m)
 (Fig. 8), all ratios of curated tables; the elliptic-power fit parameters
 and the P(v2) they define (Figs. 16, 17).  The 16 old records had no
 combination, the reference in the record window and v2{2} called v2{2}ab;
@@ -188,11 +195,61 @@ def main():
                                      + ('; computed with the scalar-product estimator' if kind == 'gap2' else '')
                                      + '. Errors: stat and sys.'}})
         public.append(d)
+    # ratios 5.02 / 2.76 TeV: vs centrality, public energy ratios linking the two energies' records;
+    # vs pT staged (compute_ratios aligns the experimental points per centrality class)
+    out = 'data/flow_vn/alice_flow_vn_energy_dependence_PbPb_2760_5020gev_ins1666817.yaml'
+    index = {d['hepdata_file']: k for k, d in enumerate(public)}
+    ratios = []
+    for hf in sorted(os.listdir(RAW)):
+        m = re.fullmatch(r'(v\d2Deta1|v24)_RatioEnergies(dif_cen\d+)?\.yaml', hf)
+        if not m:
+            continue
+        stem, diff = m.group(1), bool(m.group(2))
+        t = load(hf)
+        iv, dv = t['independent_variables'][0], t['dependent_variables'][0]
+        n = int(stem[1])
+        what = f'v{n}{{2, |Delta eta| > 1}}' if 'Deta1' in stem else 'v2{4}'
+        rows = [j for j, v in enumerate(dv['values']) if str(v['value']).strip().lower() not in ('', '-', 'none')]
+        if diff:
+            q = {qq['name']: str(qq.get('value')) for qq in dv['qualifiers']}
+            cls = q['CENTRALITY'].rstrip('%') + '%'
+            pairs = [[float(iv['values'][j]['low']), float(iv['values'][j]['high'])] for j in rows]
+            classes, kr = [cls], {'eta': {'min': -0.8, 'max': 0.8},
+                                  'pT': {'min': pairs[0][0], 'max': pairs[-1][1], 'bin_ranges': pairs}}
+            sides = (f'{stem}_502TeV{m.group(2)}.yaml', f'{stem}_276TeV{m.group(2)}.yaml')
+        else:
+            classes = [f"{float(iv['values'][j]['low']):g}-{float(iv['values'][j]['high']):g}%" for j in rows]
+            kr = {'eta': {'min': -0.8, 'max': 0.8}, 'pT': dict(PT_INT)}
+            sides = (f'{stem}_502TeV.yaml', f'{stem}_276TeV.yaml')
+        d = {'observable_type': 'observable_ratios', 'inspire_id': '1666817', 'version': VERSION, 'hepdata_file': hf,
+             'dv_index': 0, 'hepdata_table_label': f"{what} at 5.02 / 2.76 TeV{' vs pT, ' + classes[0] if diff else ''} ({hf})",
+             'collision_system': {'energy_gev': 5020.0, 'reaction': 'PB PB --> CHARGED X'},
+             'centrality': {'classes': classes, **V0M}, 'particle_id': {'species': 'charged'}, 'kinematic_range': kr,
+             'observable': f'v{n}', 'value_type': dv['header']['name'], 'ratio_type': 'energy_ratio',
+             'numerator': 'Pb+Pb 5.02 TeV', 'denominator': 'Pb+Pb 2.76 TeV',
+             'numerator_system': 'Pb+Pb 5.02 TeV', 'denominator_system': 'Pb+Pb 2.76 TeV',
+             'notes': {'value': f"{CITE}, Fig. {'5' if diff else '2'}. {what} at 5.02 over 2.76 TeV"
+                                f"{' vs pT, ' + classes[0] if diff else ' vs centrality'}, charged particles "
+                                '|eta| < 0.8, the two energies analysed alike. Errors: stat and sys.'}}
+        if all(x in index for x in sides):
+            d['numerator_record'] = f'{out}#{index[sides[0]]}'
+            d['denominator_record'] = f'{out}#{index[sides[1]]}'
+        if rows != list(range(len(iv['values']))):
+            d['table_rows'] = rows
+        if diff or 'numerator_record' not in d:
+            d['staging_reason'] = ('pT-differential ratio: compute_ratios aligns the experimental points per '
+                                   'centrality class' if diff else 'a side record is missing')
+            staged.append(d)
+        else:
+            ratios.append(d)
     for f in OLD:
         if os.path.exists(f):
             assert all(str(x['inspire_id']) == '1666817' for x in yaml.safe_load_all(open(f)) if x), f
             os.remove(f)
-    out = 'data/flow_vn/alice_flow_vn_energy_dependence_PbPb_2760_5020gev_ins1666817.yaml'
+    out_ratios = 'data/observable_ratios/alice_observable_ratios_vn_5020_over_2760_ins1666817.yaml'
+    with open(out_ratios, 'w') as fh:
+        yaml.safe_dump_all(ratios, fh, sort_keys=False, default_flow_style=False, width=120)
+    print(f'{out_ratios}: {len(ratios)} records')
     with open(out, 'w') as fh:
         yaml.safe_dump_all(public, fh, sort_keys=False, default_flow_style=False, width=120)
     print(f'{out}: {len(public)} records;', dict(collections.Counter(
