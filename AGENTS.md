@@ -387,7 +387,10 @@ near c_4 = 0, ratios) the correction is unstable (zr96c2 dp0001, v2{4}
   pairs beyond the gap are correlated (`_pair_gap_arrays_3d`): the pairs of
   eta cells i, j weighted by the fraction of their particle pairs with
   |Delta eta| > gap, exact for particles uniform within cells
-  (`QGridData.pair_gap_fractions`), self-pairs removed.  On 2D containers
+  (`QGridData.pair_gap_fractions`), self-pairs removed; per-eta-cell sums
+  over each window's own cells (`_row_sums`), F applied once, and the
+  per-event sums cached on the container by (species, windows, bins, gap):
+  they do not depend on the class.  On 2D containers
   the gap only removes self-pairs, which the distinct sums do.  Until
   November 2026 the gap was not applied on 3D.  A gap where the paper
   describes subevents either side of mid-rapidity is curated as

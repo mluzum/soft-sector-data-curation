@@ -11,6 +11,7 @@ uniform cells), self-pairs removed.  Checks:
   - short-range non-flow (collinear clones within |Delta eta| ~ 0.05) biases
     v2{2} without a gap; with |Delta eta| > 1 the input v2 is recovered, and
     the result equals a particle-level pair-gap estimator within errors;
+  - records sharing windows, bins and gap reuse the cached per-event sums;
   - a gap wider than the acceptance leaves no pairs: NaN.
 Run: python3 tests/test_toy_mc_pair_gap.py
 """
@@ -132,13 +133,32 @@ def test_nonflow():
     check(f'vs pT with |Delta eta| > 1: input recovered ({np.round(vd, 4)})', np.all(np.abs(vd - V2) < 4 * ed))
 
 
+def test_cache():
+    """Records sharing windows, bins and gap reuse the per-event sums (cached on
+    the container; the class weights come later); another gap does not."""
+    from analysis.dispatcher import extract_measurement_params
+    from analysis.pipeline_dispatch import PIPELINE_DISPATCH
+    g = fx()['flow']
+    g.__dict__.pop('_pair_gap_cache', None)
+    prep = PIPELINE_DISPATCH['vn2_single_diff_pT']['prepare_data_3d']
+    r1 = rec(1.0, diff=True)
+    r2 = dict(rec(1.0, diff=True), centrality={'classes': ['0-50%'], 'eta': r1['centrality']['eta']})
+    a = prep(g, extract_measurement_params(r1))
+    b = prep(g, extract_measurement_params(r2))
+    n1 = len(g._pair_gap_cache)
+    c = prep(g, extract_measurement_params(rec(0.5, diff=True)))
+    check('same windows and gap: one cache entry, the same sums; another gap: a new entry',
+          n1 == 1 and all(np.array_equal(a[k], b[k]) for k in a) and len(g._pair_gap_cache) == 2
+          and not np.array_equal(a['N2'], c['N2']))
+
+
 def test_no_pairs():
     v, _ = run(rec(5.0), fx()['flow'], jk=False)
     check('a gap wider than the acceptance: NaN', np.all(np.isnan(v)), f'{v}')
 
 
 if __name__ == '__main__':
-    for t in (test_fractions, test_zero_gap_limit, test_nonflow, test_no_pairs):
+    for t in (test_fractions, test_zero_gap_limit, test_nonflow, test_cache, test_no_pairs):
         print(t.__name__)
         t()
     print(f'\n{sum(results)}/{len(results)} passed')

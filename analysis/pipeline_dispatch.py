@@ -462,6 +462,26 @@ def _poi_within_charged(container, pid):
     return bool(pdgs) and all(abs(int(p)) in (211, 321, 2212) for p in pdgs)
 
 
+def _row_sums(grid, W):
+    """Per eta cell, sum over pT of Qn weighted by W (n_eta, n_pt):
+    (n_events, n_eta, n_harm) complex128.  Whole-cell windows are 0/1
+    rectangles: only their cells are summed (an einsum over the full grid
+    per bin made a 40k-event O+O run 2.8x slower); other weights by einsum
+    on their bounding box."""
+    Q = grid.Qn
+    out = np.zeros((Q.shape[0], Q.shape[1], Q.shape[3]), dtype=np.complex128)
+    rows, cols = np.nonzero(W.any(axis=1))[0], np.nonzero(W.any(axis=0))[0]
+    if not len(rows):
+        return out
+    r0, r1, c0, c1 = rows[0], rows[-1] + 1, cols[0], cols[-1] + 1
+    box = W[r0:r1, c0:c1]
+    if np.all(box == 1.0):
+        out[:, r0:r1] = Q[:, r0:r1, c0:c1, :].sum(axis=2, dtype=np.complex128)
+    else:
+        out[:, r0:r1] = np.einsum('eiph,ip->eih', Q[:, r0:r1, c0:c1, :], box, dtype=np.complex128)
+    return out
+
+
 def _pair_gap_arrays_3d(poi, ref, overlap, rw, bins, gap):
     """v_n{2} sums over pairs |Delta eta| > gap (eta_gap of a record without
     subevents: the two-particle correlation functions of ATLAS and CMS,
@@ -470,25 +490,37 @@ def _pair_gap_arrays_3d(poi, ref, overlap, rw, bins, gap):
     the fraction of their particle pairs beyond the gap
     (QGridData.pair_gap_fractions), self-pairs removed from the diagonal.
     Unit weights.  Same layout as correlator_arrays (N2p, D2p per bin; N2,
-    D2), so the v_n{2} cores serve it unchanged."""
+    D2), so the v_n{2} cores serve it unchanged.  F applied to the
+    reference once (FQ = F Q_ref*), each POI bin summed over its own cells."""
     if poi.rapidity_binned:
         raise ValueError('a pseudorapidity pair gap needs an eta-binned POI grid')
     F = ref.pair_gap_fractions(gap)
     fd = np.diag(F)
     Wr = ref.window_weights(*rw)
-    Qr = np.einsum('eiph,ip->eih', ref.Qn, Wr).astype(np.complex128)
-    Mr, Qr = Qr[..., 0].real, Qr[..., 1:]
-    out = {'N2': np.real(np.einsum('eih,ij,ejh->eh', Qr, F, np.conj(Qr))) - (Mr @ fd)[:, None],
-           'D2': np.einsum('ei,ij,ej->e', Mr, F, Mr) - Mr @ fd}
+    R = _row_sums(ref, Wr)
+    Mr, Qr = R[..., 0].real, R[..., 1:]
+    FQ = np.matmul(F, np.conj(Qr))                          # (e, i, h): sum_j F_ij Q*_jh
+    FM = Mr @ F.T                                           # (e, i): sum_j F_ij M_j
+    out = {'N2': np.real(np.einsum('eih,eih->eh', Qr, FQ)) - (Mr @ fd)[:, None],
+           'D2': np.einsum('ei,ei->e', Mr, FM) - Mr @ fd}
     n2p, d2p = [], []
     for eta, pt in bins:
         Wp = poi.window_weights(eta[0], eta[1], pt[0], pt[1])
-        P = np.einsum('eiph,ip->eih', poi.Qn, Wp).astype(np.complex128)
+        rows = np.nonzero(Wp.any(axis=1))[0]
+        if not len(rows):
+            n2p.append(np.zeros_like(out['N2']))
+            d2p.append(np.zeros_like(out['D2']))
+            continue
+        r0, r1 = rows[0], rows[-1] + 1
+        P = _row_sums(poi, Wp)[:, r0:r1]
         m, P = P[..., 0].real, P[..., 1:]
-        shared = (np.einsum('eip,ip->ei', poi.Qn[..., 0].real, Wp * Wr) if overlap
-                  else np.zeros_like(m))                     # POI particles that are reference particles
-        n2p.append(np.real(np.einsum('eih,ij,ejh->eh', P, F, np.conj(Qr))) - (shared @ fd)[:, None])
-        d2p.append(np.einsum('ei,ij,ej->e', m, F, Mr) - shared @ fd)
+        if overlap:                                         # POI particles that are reference particles
+            shared = _row_sums(poi, Wp * Wr)[:, r0:r1, 0].real
+            sfd = shared @ fd[r0:r1]
+        else:
+            sfd = np.zeros(m.shape[0])
+        n2p.append(np.real(np.einsum('eih,eih->eh', P, FQ[:, r0:r1])) - sfd[:, None])
+        d2p.append(np.einsum('ei,ei->e', m, FM[:, r0:r1]) - sfd)
     out['N2p'] = np.stack(n2p, axis=-1)
     out['D2p'] = np.stack(d2p, axis=-1)
     return out
@@ -503,14 +535,27 @@ def prepare_cumulant_poi_3d(container, params, order):
     distinct-particle sums do already."""
     from analysis.correlators import Container3D, correlator_arrays
     pid = _poi_species(params)
-    poi = _unit_weights(container.select(pid))
-    ref = _unit_weights(container.select({'species': 'charged'}))
-    overlap = _poi_within_charged(container, pid)
     (r_eta, r_pt), bins, _ = _cumulant_windows(params)
     rw = (r_eta[0], r_eta[1], r_pt[0], r_pt[1])
     gap = float(params.get('eta_gap') or 0.0)
     if order == 2 and gap > 0 and not params.get('subevent_ranges'):
-        return _pair_gap_arrays_3d(poi, ref, overlap, rw, bins, gap)
+        # The per-event sums do not depend on the class (weights come later):
+        # records sharing windows, bins and gap (ATLAS 2967110: 8 classes x
+        # 2PC/sub x v2, v3, v4) reuse them, cached on the container.
+        import json
+        key = (json.dumps(pid, sort_keys=True, default=str), tuple(map(float, rw)),
+               tuple((tuple(map(float, e)), tuple(map(float, p))) for e, p in bins), gap)
+        cache = container.__dict__.setdefault('_pair_gap_cache', {})
+        if key not in cache:
+            if len(cache) >= 32:
+                cache.clear()
+            poi = _unit_weights(container.select(pid))
+            ref = _unit_weights(container.select({'species': 'charged'}))
+            cache[key] = _pair_gap_arrays_3d(poi, ref, _poi_within_charged(container, pid), rw, bins, gap)
+        return dict(cache[key])
+    poi = _unit_weights(container.select(pid))
+    ref = _unit_weights(container.select({'species': 'charged'}))
+    overlap = _poi_within_charged(container, pid)
     n_harm = ref.Qn.shape[-1]
     out = correlator_arrays(Container3D(ref, rw, ref, rw, True), n_harm, order, which=('ref',))
     per_bin = [correlator_arrays(Container3D(poi, (eta[0], eta[1], pt[0], pt[1]), ref, rw, overlap),
@@ -1967,16 +2012,19 @@ def prepare_v1_even_3d(container, params):
     gd = np.diag(G)
     Q = grid.Qn
     W = [grid.window_weights(eta[0], eta[1], lo, hi) for lo, hi in lay['bins']]
-    q = [np.einsum('eip,ip->ei', Q[..., 1].astype(np.complex128), w) for w in W]
-    m = [np.einsum('eip,ip->ei', Q[..., 0].real.astype(float), w) for w in W]
+    rs = [_row_sums(grid, w)[..., :2] for w in W]          # per eta cell: counts, Q_1
+    q = [r[..., 1] for r in rs]
+    m = [r[..., 0].real for r in rs]
+    Gq = [np.conj(x) @ G.T for x in q]                    # sum_j G_ij q*_j
+    Gm = [x @ G.T for x in m]
     K, n_ev = len(W), Q.shape[0]
     N, D = np.zeros((n_ev, K, K)), np.zeros((n_ev, K, K))
     for k in range(K):
         for l in range(k, K):
-            n_kl = np.real(np.einsum('ei,ij,ej->e', q[k], G, np.conj(q[l])))
-            d_kl = np.einsum('ei,ij,ej->e', m[k], G, m[l])
+            n_kl = np.real(np.einsum('ei,ei->e', q[k], Gq[l]))
+            d_kl = np.einsum('ei,ei->e', m[k], Gm[l])
             # a particle in both bins is not its own pair (same cell: weight G_ii)
-            shared = np.einsum('eip,ip,i->e', Q[..., 0].real.astype(float), W[k] * W[l], gd)
+            shared = _row_sums(grid, W[k] * W[l])[..., 0].real @ gd
             n_kl, d_kl = n_kl - shared, d_kl - shared
             N[:, k, l] = N[:, l, k] = n_kl
             D[:, k, l] = D[:, l, k] = d_kl
