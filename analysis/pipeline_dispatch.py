@@ -822,6 +822,8 @@ def _yield_windows(params):
     sk = params.get('single_range') or {}
     mass = sk.get('y_mass')
     var, bins = params.get('differential_var'), params.get('differential_bins') or []
+    if bins and var is None and not mass:
+        var = 'eta'                      # bins without a named variable: eta bins (as before)
     if var in ('eta', 'y') and bins:
         return var, [(float(a), float(b)) for a, b in bins], mass
     eta = sk.get('eta') or (None, None)
