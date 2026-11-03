@@ -31,13 +31,12 @@ yield (centrality.combined_from analysis_classes, analysis_class_width 1).
   (cumulant_combination): v2{6}/v2{4}, v2{8}/v2{4}, v2{8}/v2{6},
   (v2{4} - v2{6})/11, v2{6} - v2{8} and the skewness estimate gamma1 (Eq. 7,
   with v2{2, |Delta eta| > 1} as in the paper).
-- the ratios 5.02 / 2.76 TeV vs centrality of v_n{2, |Delta eta| > 1} (n =
-  2-4) and v2{4} (Fig. 2) as energy ratios (observable_ratios) linking the
-  two energies' records.  The ratio tables are binned otherwise than the v_n
-  tables (v3: 2% classes over 1% classes at 5.02 TeV); compute_ratios
-  computes both sides at the ratio's classes.
-Staged (--staged OUT): the same ratios vs pT (Fig. 5; compute_ratios aligns
-the experimental points per centrality class).
+- the ratios 5.02 / 2.76 TeV of v_n{2, |Delta eta| > 1} (n = 2-4) vs
+  centrality with v2{4} (Fig. 2), and vs pT in 5-10%, 20-30%, 40-50% (Fig.
+  5), as energy ratios (observable_ratios) linking the two energies'
+  records.  The ratio tables are binned otherwise than the v_n tables (v3:
+  2% classes over 1% classes at 5.02 TeV; 9 pT bins over 21); compute_ratios
+  computes both sides at the ratio's classes and in its pT bins.
 Not curated: the cumulants c2{m} (Fig. 10, the v2{m} in another form), the
 ratios to 20-30% (Fig. 7) and v_n/v_m^(n/m)
 (Fig. 8), all ratios of curated tables; the elliptic-power fit parameters
@@ -195,8 +194,7 @@ def main():
                                      + ('; computed with the scalar-product estimator' if kind == 'gap2' else '')
                                      + '. Errors: stat and sys.'}})
         public.append(d)
-    # ratios 5.02 / 2.76 TeV: vs centrality, public energy ratios linking the two energies' records;
-    # vs pT staged (compute_ratios aligns the experimental points per centrality class)
+    # ratios 5.02 / 2.76 TeV vs centrality and vs pT: public energy ratios linking the two energies' records
     out = 'data/flow_vn/alice_flow_vn_energy_dependence_PbPb_2760_5020gev_ins1666817.yaml'
     index = {d['hepdata_file']: k for k, d in enumerate(public)}
     ratios = []
@@ -236,9 +234,8 @@ def main():
             d['denominator_record'] = f'{out}#{index[sides[1]]}'
         if rows != list(range(len(iv['values']))):
             d['table_rows'] = rows
-        if diff or 'numerator_record' not in d:
-            d['staging_reason'] = ('pT-differential ratio: compute_ratios aligns the experimental points per '
-                                   'centrality class' if diff else 'a side record is missing')
+        if 'numerator_record' not in d:
+            d['staging_reason'] = 'a side record is missing'
             staged.append(d)
         else:
             ratios.append(d)
