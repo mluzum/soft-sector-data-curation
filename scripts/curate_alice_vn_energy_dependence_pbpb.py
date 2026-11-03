@@ -27,9 +27,10 @@ Records (public), Pb-Pb 2.76 and 5.02 TeV:
   V0A scalar product), v2{4} (reference 0.2 < pT < 50).
 Classes wider than 1% are combined from 1% classes weighted by the charged
 yield (centrality.combined_from analysis_classes, analysis_class_width 1).
-Staged (--staged OUT): v2{6}/v2{4}, v2{8}/v2{4}, v2{8}/v2{6},
-(v2{4} - v2{6})/11, v2{6} - v2{8} and the skewness estimate gamma1 (Eq. 7)
-vs centrality (ratios and differences of cumulant orders are not computed).
+- vs centrality, combinations of cumulant orders from the same events
+  (cumulant_combination): v2{6}/v2{4}, v2{8}/v2{4}, v2{8}/v2{6},
+  (v2{4} - v2{6})/11, v2{6} - v2{8} and the skewness estimate gamma1 (Eq. 7,
+  with v2{2, |Delta eta| > 1} as in the paper).
 Not curated: the cumulants c2{m} (Fig. 10, the v2{m} in another form), the
 ratios between energies (Figs. 2, 5), to 20-30% (Fig. 7) and v_n/v_m^(n/m)
 (Fig. 8), all ratios of curated tables; the elliptic-power fit parameters
@@ -62,12 +63,14 @@ V0A_REF = {'detector': 'V0A', 'eta': [{'min': 2.8, 'max': 5.1}], 'pT': {'min': 0
 ENERGY = {'276TeV': 2760.0, '502TeV': 5020.0}
 OLD = ['data/flow_vn/alice_flow_vn_energy_dependence_and_fluctuations_PbPb_2760_5020gev.yaml',
        'data/flow_vn/alice_flow_harmonic_correlations_fluctuations_of_anisotropic_flow_PbPb_multigev.yaml']
-# staged tables: description and the first cumulant order involved (the record's cumulant_order)
-STAGED_ORDER = {'v26Overv24': 6, 'v28Overv24': 8, 'v28Overv26': 8, 'v24Minusv26': 4, 'v26Minusv28': 6,
-                'gamma1exp': 4}
-STAGED_TABLES = {'v26Overv24': 'v2{6}/v2{4}', 'v28Overv24': 'v2{8}/v2{4}', 'v28Overv26': 'v2{8}/v2{6}',
-                 'v24Minusv26': '(v2{4} - v2{6})/11', 'v26Minusv28': 'v2{6} - v2{8}',
-                 'gamma1exp': 'gamma1 estimated from v2{4}, v2{6}, v2{8} (Eq. 7)'}
+# combinations of cumulant orders (computed from the same events: cumulant_combination)
+COMBINED = {'v26Overv24': ('v2{6}/v2{4}', {'kind': 'ratio', 'orders': [6, 4]}),
+            'v28Overv24': ('v2{8}/v2{4}', {'kind': 'ratio', 'orders': [8, 4]}),
+            'v28Overv26': ('v2{8}/v2{6}', {'kind': 'ratio', 'orders': [8, 6]}),
+            'v24Minusv26': ('(v2{4} - v2{6})/11', {'kind': 'difference', 'orders': [4, 6], 'scale': 1.0 / 11.0}),
+            'v26Minusv28': ('v2{6} - v2{8}', {'kind': 'difference', 'orders': [6, 8]}),
+            'gamma1exp': ('gamma1^exp = -6 sqrt2 v2{4}^2 (v2{4} - v2{6}) / (v2{2, |Delta eta| > 1}^2 - v2{4}^2)^(3/2) '
+                          '(Eq. 7)', {'kind': 'gamma1'})}
 
 
 def load(f):
@@ -130,7 +133,7 @@ def main():
     for hf in sorted(os.listdir(RAW)):
         stem = hf[:-5]
         p = parse(stem)
-        s = re.fullmatch(r'(v26Overv24|v28Overv24|v28Overv26|v24Minusv26|v26Minusv28|gamma1exp)_(276TeV|502TeV)', stem)
+        s = re.fullmatch(r'(' + '|'.join(COMBINED) + r')_(276TeV|502TeV)', stem)
         if not p and not s:
             continue
         t = load(hf)
@@ -140,16 +143,22 @@ def main():
         if s:
             energy = ENERGY[s.group(2)]
             classes = [f"{float(v['low']):g}-{float(v['high']):g}%" for v in iv['values']]
-            d = base(hf, 0, h, energy, f'{STAGED_TABLES[s.group(1)]} vs centrality, {energy:g} GeV')
-            d.update({'centrality': centrality(classes),
+            what, comb = COMBINED[s.group(1)]
+            comb = dict(comb)
+            if comb['kind'] == 'gamma1':          # the paper's v2{2, |Delta eta| > 1}
+                comb['two_particle'] = subevents(PT_INT)
+            d = base(hf, 0, h, energy, f'{what.split(" = ")[0]} vs centrality, {energy:g} GeV')
+            cent = centrality(classes)
+            d.update({'centrality': cent,
                       'kinematic_range': {'eta': {'min': -0.8, 'max': 0.8}, 'pT': dict(PT_INT)},
-                      'harmonic': 2, 'method': 'cumulant', 'cumulant_order': STAGED_ORDER[s.group(1)],
-                      'dimensionality': 'integrated',
-                      'notes': {'value': f'{CITE}. {STAGED_TABLES[s.group(1)]} of charged particles vs centrality, '
-                                         f'|eta| < 0.8, 0.2 < pT < 3 GeV/c, {energy:g} GeV. Errors: stat and sys.'},
-                      'staging_reason': 'ratio or difference of v2 cumulant orders (or the skewness estimate built '
-                                        'from them): not computed'})
-            staged.append(d)
+                      'harmonic': 2, 'method': 'cumulant', 'cumulant_order': max(comb.get('orders') or [6]),
+                      'cumulant_combination': comb, 'dimensionality': 'integrated',
+                      'notes': {'value': f'{CITE}. {what} of charged particles vs centrality, |eta| < 0.8, 0.2 < pT < '
+                                         f'3 GeV/c, {energy:g} GeV, from the same events'
+                                         + ('; classes wider than 1% combined from 1% classes weighted by the charged '
+                                            'yield' if 'combined_from' in cent else '')
+                                         + '. Errors: stat and sys.'}})
+            public.append(d)
             continue
         kind, n, ekey, differential = p
         energy = ENERGY[ekey]
