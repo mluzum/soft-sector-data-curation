@@ -265,6 +265,10 @@ def main():
                                                 SYS['NeNe' if '_NeNe' in hf else 'OO'][1]},
                            'observable': dv['header']['name'], 'value_type': dv['header']['name'],
                            'ratio_type': 'quantity_ratio' if within else 'system_ratio',
+                           'numerator': ('Ne+Ne' if not within else
+                                         ('the centrality class' if 'cent_to_70_80' in hf else 'mid-rapidity')),
+                           'denominator': ('O+O' if not within else
+                                           ('70-80%' if 'cent_to_70_80' in hf else 'forward rapidity')),
                            'notes': note('Figs. 12, 16', f"{dv['header']['name']}, {q}"),
                            'staging_reason': ('a ratio within one system (to 70-80%, or mid- to forward '
                                               'rapidity): no computation' if within else

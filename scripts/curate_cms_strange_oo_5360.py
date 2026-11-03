@@ -69,6 +69,14 @@ def main():
              'observable': kind, 'value_type': dv['header']['name'],
              'notes': {'value': f'{CITE}. {desc.strip()} Errors: stat and sys.'},
              'staging_reason': REASON[kind] + ('; pp' if pp else '')}
+        if kind == 'R_OO':
+            d.update(value_type='R_AA', observable='R_AA', reference={'type': 'pp'},
+                     centrality={'classes': ['0-100%'], 'estimator': {'name': 'HF', 'observable': 'ET', 'detector': 'HF'},
+                                 'eta': [{'min': -5.2, 'max': -2.9}, {'min': 2.9, 'max': 5.2}],
+                                 'notes': 'Minimum bias (no centrality selection).'},
+                     source_column=dv['header']['name'])
+        if kind == 'ratio':
+            d.update(numerator='Lambda', denominator='K0_S')
         staged.append(d)
     with open(out, 'w') as fh:
         yaml.safe_dump_all(staged, fh, sort_keys=False, default_flow_style=False, width=120)
