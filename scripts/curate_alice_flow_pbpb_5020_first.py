@@ -24,9 +24,12 @@ v2{8}, v3 and v4{2, |Delta eta| > 1}; vs pT: v_n{2, |Delta eta| > 1} (n =
 (Table 9), the reference 0.2 < pT < 5 GeV/c (the integrated range; the
 paper does not state it); v2{4} in 20-30% over all pT (Table 11, one record
 per energy).  HEPData gives the 2.76 TeV energy as 2076 GeV
-(hepdata_corrections.energy).  Staged (--staged OUT): the ratios 5.02 /
-2.76 TeV (Tables 5, 6, 10; energy-ratio records are not computed, and the
-2.76 TeV v2{4}(pT) of Table 10 is not tabulated).  The 2 old records had
+(hepdata_corrections.energy).  The ratios 5.02 / 2.76 TeV of
+the integrated v_n (Tables 5, 6) are public energy ratios
+(observable_ratios, ratio_type energy_ratio) linking the two energies'
+records; compute_ratios forms them from two simulation sets.  Staged
+(--staged OUT): the ratio of v2{4}(pT) in 20-30% (Table 10: the 2.76 TeV
+side with these cuts is not tabulated).  The 2 old records had
 the ratio of Table 10 as v2{4}(pT) at 2.76 TeV and Table 11 as 20-30% v2{4}
 at 2.76 TeV.
 
@@ -49,6 +52,7 @@ V0M = {'estimator': {'name': 'V0M', 'observable': 'amplitude', 'detector': 'V0'}
 ETA = {'min': -0.8, 'max': 0.8}
 PT_INT = {'min': 0.2, 'max': 5.0}
 OUT = 'data/flow_vn/alice_flow_vn_PbPb_2760_5020gev_ins1419244.yaml'
+OUT_RATIOS = 'data/observable_ratios/alice_observable_ratios_vn_5020_over_2760_ins1419244.yaml'
 OLD = 'data/flow_vn/alice_flow_vn_anisotropic_flow_of_charged_particles_PbPb_multigev.yaml'
 ENERGY_FIX = 'HEPData SQRT(S)/NUCLEON 2076.0 for the 2.76 TeV tables (the caption and the paper: 2.76 TeV)'
 BLANK = ('', '-', '--', 'none')
@@ -142,7 +146,9 @@ def main():
                                'to pT = 0 and v2{4} of SPD tracklets. Errors: stat and sys.')
         d.pop('hepdata_corrections', None)
         public.append(d)
-    # ratios 5.02 / 2.76 TeV (staged)
+    # ratios 5.02 / 2.76 TeV: public energy ratios linking the two energies' records (Tables 5, 6);
+    # Table 10 (v2{4}(pT)) staged: its 2.76 TeV side is not tabulated
+    ratios = []
     index = {(d['hepdata_file'], d['dv_index']): k for k, d in enumerate(public)}
     links = {'Table5.yaml': ('Table1.yaml', 'Table3.yaml'), 'Table6.yaml': ('Table2.yaml', 'Table4.yaml')}
     for hf in ('Table5.yaml', 'Table6.yaml', 'Table10.yaml'):
@@ -163,26 +169,31 @@ def main():
                  'dv_index': i, 'hepdata_table_label': f'{h} ({hf})',
                  'collision_system': {'energy_gev': 5020.0, 'reaction': 'PB PB --> CHARGED X'},
                  'centrality': {'classes': classes, **V0M}, 'particle_id': {'species': 'charged'}, 'kinematic_range': kr,
-                 'observable': f'v{n}', 'value_type': h, 'ratio_type': 'system_ratio', 'numerator': 'Pb+Pb 5.02 TeV',
+                 'observable': f'v{n}', 'value_type': h, 'ratio_type': 'energy_ratio', 'numerator': 'Pb+Pb 5.02 TeV',
                  'denominator': 'Pb+Pb 2.76 TeV', 'numerator_system': 'Pb+Pb 5.02 TeV',
                  'denominator_system': 'Pb+Pb 2.76 TeV',
-                 'notes': {'value': f'{CITE}. {h}, charged particles |eta| < 0.8. Errors: stat and sys.'},
-                 'staging_reason': 'ratio between collision energies: energy-ratio records are not computed'
-                                   + ('; the 2.76 TeV v2{4}(pT) is not tabulated' if hf == 'Table10.yaml' else '')}
+                 'notes': {'value': f'{CITE}, Fig. {"2d" if hf == "Table10.yaml" else "1b, 1c"}. {h}, charged '
+                                    'particles |eta| < 0.8; the two energies analysed alike (correlated systematics '
+                                    'partly cancel). Errors: stat and sys.'}}
+            if rows != list(range(len(iv['values']))):
+                d['table_rows'] = rows
             if hf in links:
                 num, den = links[hf]
                 d['numerator_record'] = f'{OUT}#{index[(num, i)]}'
                 d['denominator_record'] = f'{OUT}#{index[(den, i)]}'
+                ratios.append(d)
             else:
                 d['numerator_record'] = f"{OUT}#{index[('Table9.yaml', 1)]}"
-            if rows != list(range(len(iv['values']))):
-                d['table_rows'] = rows
-            staged.append(d)
+                d['staging_reason'] = 'the 2.76 TeV v2{4}(pT) with these cuts (the denominator) is not tabulated'
+                staged.append(d)
     if os.path.exists(OLD):
         assert all(str(x['inspire_id']) == '1419244' for x in yaml.safe_load_all(open(OLD)) if x), OLD
         os.remove(OLD)
     with open(OUT, 'w') as fh:
         yaml.safe_dump_all(public, fh, sort_keys=False, default_flow_style=False, width=120)
+    with open(OUT_RATIOS, 'w') as fh:
+        yaml.safe_dump_all(ratios, fh, sort_keys=False, default_flow_style=False, width=120)
+    print(f'{OUT_RATIOS}: {len(ratios)} records')
     print(f'{OUT}: {len(public)} records;', dict(collections.Counter(
         (d['collision_system']['energy_gev'], d['dimensionality'], d.get('cumulant_order'), d.get('particles'))
         for d in public)))
