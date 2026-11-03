@@ -98,10 +98,19 @@ Fields that change dispatch:
   ratio of corrected ones only if it declares `efficiency_cancels: true`.
 - `flow_reference.plane: spectator`: flow relative to the spectator plane
   (ZDC/SMD), refused, because models have no spectators.
-- Directed flow (`harmonic: 1`) needs `flow_reference.odd` (an eta-odd
-  reference) and `sign_convention`: computed by `v1_odd_sp_diff_eta`
-  (3D only).  Otherwise refused: the even-harmonic machinery would return
-  ~0.  Rapidity-even v1 is not implemented.
+- Directed flow (`harmonic: 1`): rapidity-odd v1 needs `flow_reference.odd`
+  (an eta-odd reference) and `sign_convention`: computed by
+  `v1_odd_sp_diff_eta` (3D only).  Rapidity-even v1 declares `v1_even`
+  (`fit: factorization`): the experiments fit v11(pTa, pTb) = v1(pTa)
+  v1(pTb) - K pTa pTb, K from global momentum conservation, which the
+  models lack, so the model's pair matrix (distinct pairs; on 3D the
+  record's `eta_gap` between cell centres) is factorized without K
+  (`v1_even_factorization`, analysis/v1_even.py: pair-weighted rank-1 fit
+  on `fit_pT_bins`, default the record's bins, other bins projected on
+  it).  The sign is open: `sign_convention` {pT window, sign}, or
+  `absolute: true` for a tabulated |v1|.  vs centrality or pT, 2D and 3D;
+  tests/test_toy_mc_v1_even.py.  Otherwise refused: the even-harmonic
+  machinery would return ~0.
 - `kinematic_range.y.mass`: a rapidity window with one assumed mass (PHOBOS
   y_pi), spectra only.
 - `method: event_plane` or `scalar_product` with `particles: AB` (STAR's

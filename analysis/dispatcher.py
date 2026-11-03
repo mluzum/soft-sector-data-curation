@@ -503,12 +503,18 @@ def resolve(record):
     # Directed flow.  Rapidity-odd v1 needs an eta-odd reference (windows at
     # eta < 0 weighted -1) and a sign convention; the even-harmonic
     # machinery would return ~0 or an unrelated number.  Rapidity-even v1
-    # is not implemented.
+    # (v1_even) is the factorization of the model's v11 matrix: the
+    # experiments' fit without its momentum-conservation term, which the
+    # models lack (analysis/v1_even.py).
+    if record.get("observable_type") == "flow_vn" and record.get("harmonic") == 1 \
+            and record.get("v1_even") is not None:
+        _check_v1_even(record)
+        return dict(V1_EVEN_ENTRY)
     if record.get("observable_type") == "flow_vn" and record.get("harmonic") == 1:
         if not (isinstance(fr, dict) and fr.get("odd")):
             raise ValueError(
                 "directed flow (harmonic 1) needs a rapidity-odd reference "
-                "(flow_reference.odd); rapidity-even v1 is not implemented")
+                "(flow_reference.odd) or, for rapidity-even v1, v1_even")
         if record.get("dimensionality") != "differential_eta":
             raise ValueError("rapidity-odd v1 is implemented for eta-differential records")
         if not isinstance(fr.get("sign_convention"), dict):
@@ -672,6 +678,40 @@ VN2_GAP_POI_ENTRY = {
                    "reference in the other, over the reference v_n{2}ab",
 }
 
+V1_EVEN_ENTRY = {
+    "compute": "v1_even_factorization",
+    "requires": "kinematic_range.pT",
+    "description": "rapidity-even directed flow v1^even: rank-1 factorization of the v11 "
+                   "pair matrix (no momentum-conservation term), sign by convention",
+}
+
+
+def _check_v1_even(record):
+    """Refuse a v1_even block the computation cannot honour."""
+    ve = record.get("v1_even")
+    if not isinstance(ve, dict) or ve.get("fit") != "factorization":
+        raise ValueError("v1_even.fit must be 'factorization' (v11 = v1(pTa) v1(pTb), the "
+                         "momentum-conservation term subtracted by the experiment)")
+    dim = record.get("dimensionality", "integrated")
+    if dim not in ("integrated", "differential_pT"):
+        raise ValueError(f"rapidity-even v1 is implemented vs centrality and vs pT, not {dim}")
+    grid = ve.get("fit_pT_bins")
+    if grid is not None and (not isinstance(grid, list) or not all(
+            isinstance(b, (list, tuple)) and len(b) == 2 and float(b[0]) < float(b[1]) for b in grid)):
+        raise ValueError("v1_even.fit_pT_bins: a list of [lo, hi] pT bins")
+    if ve.get("absolute"):
+        return
+    sc = ve.get("sign_convention")
+    if not (isinstance(sc, dict) and isinstance(sc.get("pT"), dict)
+            and sc.get("sign") in ("positive", "negative")):
+        raise ValueError("rapidity-even v1 leaves the sign open: v1_even.sign_convention "
+                         "{pT: {min, max}, sign: positive | negative}, or absolute: true for |v1|")
+    n_grid = len(grid) if grid else max(len(axis_bins((record.get("kinematic_range") or {}).get("pT"))), 1)
+    if n_grid < 2:
+        raise ValueError("a signed v1^even needs a fit grid of two or more pT bins "
+                         "(v1_even.fit_pT_bins, or the record's own bins)")
+
+
 V1_ODD_ENTRY = {
     "compute": "v1_odd_sp_diff_eta",
     "requires": "kinematic_range.pT",
@@ -834,6 +874,8 @@ def extract_measurement_params(exp_rec):
         'differential_fixed_range': diff_fixed,
         'eta_gap': exp_rec.get('eta_gap', None),
         'has_gap': (exp_rec.get('eta_gap', 0) or 0) > 0,
+        # rapidity-even v1: fit grid, sign convention or |v1|
+        'v1_even': exp_rec.get('v1_even'),
         'flow_reference': _flow_reference(exp_rec),
         # Reference pT window (also without reference eta windows, which
         # _flow_reference requires): the cumulant keys' reference sample.

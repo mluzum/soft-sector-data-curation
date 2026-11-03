@@ -139,6 +139,21 @@ conditional_fields:
       Each term is the record as a single-order cumulant record.
       cumulant_order is the highest order involved.
     example: {kind: ratio, orders: [6, 4]}
+  v1_even:
+    type: object
+    required: false
+    description: >
+      Rapidity-even directed flow (harmonic 1) from the factorization of the
+      pair coefficient v11(pTa, pTb) = v1(pTa) v1(pTb) - K pTa pTb, whose
+      second term (global momentum conservation) the experiment fitted and
+      subtracted; models without that correlation are compared with the
+      fitted v1 directly.  fit: 'factorization'; optional fit_pT_bins (the
+      pT grid of the fitted v11 matrix, default the record's bins);
+      sign_convention {pT: {min, max}, sign: positive | negative} (the fit
+      leaves the sign open; the experiments take v1 positive at high pT), or
+      absolute: true for a tabulated |v1|; optional momentum_conservation
+      (what the experiment did with the K term, documentation).
+    example: {fit: factorization, sign_convention: {pT: {min: 1.5, max: 2.2}, sign: positive}}
   eta_gap:
     type: float
     required: false

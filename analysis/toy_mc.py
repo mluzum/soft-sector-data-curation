@@ -64,6 +64,11 @@ def vn_of_pt(pt, vn_type='const', vn_value=0.05, pt0=None):
             raise ValueError("linear profile requires pt0")
         slope = vn_value / max(pt0, 1e-9)
         out = vn_value * 0.5 + slope * pt_arr
+    elif vn_type == 'crossing':
+        # value (pT/pt0 - 1): changes sign at pt0 (rapidity-even v1)
+        if pt0 is None:
+            raise ValueError("crossing profile requires pt0")
+        out = vn_value * (pt_arr / pt0 - 1.0)
     else:
         raise ValueError(f"unknown vn_type {vn_type}")
     return out if np.ndim(pt) else float(out[0])
@@ -71,7 +76,7 @@ def vn_of_pt(pt, vn_type='const', vn_value=0.05, pt0=None):
 
 def _vn_profile_scale(flow_dict):
     """Reference scale of a flow profile (used for ebE fluct. normalisation)."""
-    if flow_dict['kind'] == 'const':
+    if flow_dict['kind'] in ('const', 'crossing'):
         return flow_dict['value']
     return float(vn_of_pt(np.array([flow_dict.get('pt0', 1.0)]),
                           'linear', flow_dict['value'],
@@ -174,8 +179,9 @@ def generate_events(cfg: ToyGenConfig):
     # ebE fluctuating magnitudes
     vn_ebe = {}
     for h in harms:
-        base = vn_of_pt(np.array([1.0]), cfg.flow[h]['kind'],
-                        cfg.flow[h]['value'], cfg.flow[h].get('pt0'))[0]
+        base = (cfg.flow[h]['value'] if cfg.flow[h]['kind'] == 'crossing' else
+                vn_of_pt(np.array([1.0]), cfg.flow[h]['kind'],
+                         cfg.flow[h]['value'], cfg.flow[h].get('pt0'))[0])
         if h in cfg.fluctuate:
             vn_ebe[h] = np.clip(
                 rng.normal(base, cfg.fluctuate[h], cfg.n_events), 0.0, 0.5)

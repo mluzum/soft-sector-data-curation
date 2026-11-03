@@ -1779,6 +1779,111 @@ def _wrap_v1_odd(data, w):
     return compute_v1_odd_sp_diff_eta(data, w)
 
 
+# ── rapidity-even v1: factorization of the v11 pair matrix (analysis.v1_even) ──
+
+def _v1_even_layout(params):
+    """The pT bins of the pair matrix and the roles of their indices:
+    {'bins': [(lo, hi)], 'grid', 'targets': index tuples, 'sign_bin', 'sign',
+    'absolute'}.  Targets: the record's bins (or its pT window); grid:
+    v1_even.fit_pT_bins (default the targets); sign: the sign_convention
+    window."""
+    ve = params.get('v1_even') or {}
+    pt = tuple((params.get('single_range') or {}).get('pT', (0.2, 3.0)))
+    targets = [tuple(map(float, b)) for b in (params.get('differential_bins') or [pt])]
+    grid = [tuple(map(float, b)) for b in (ve.get('fit_pT_bins') or targets)]
+    sc = ve.get('sign_convention') or {}
+    sign_win = (float(sc['pT']['min']), float(sc['pT']['max'])) if sc.get('pT') else None
+    bins = []
+
+    def index(b):
+        if b not in bins:
+            bins.append(b)
+        return bins.index(b)
+    g = tuple(index(b) for b in grid)
+    t = tuple(index(b) for b in targets)
+    s = index(sign_win) if (sign_win and not ve.get('absolute')) else None
+    return {'bins': bins, 'grid': g, 'targets': t, 'sign_bin': s,
+            'sign': -1.0 if sc.get('sign') == 'negative' else 1.0, 'absolute': bool(ve.get('absolute'))}
+
+
+def prepare_v1_even_2d(qv, params):
+    """Distinct-pair sums N[e, k, l] = sum cos(phi_i - phi_j), D = sum of pair
+    weights, i in pT bin k, j in bin l, on the boost-invariant container:
+    the pairs of a particle with itself (bins sharing cells) removed with
+    the Jacobian weights.  The eta gap only removes such pairs here, since
+    the correlation is flat in rapidity."""
+    from analysis.correlators import Container2D
+    lay = _v1_even_layout(params)
+    pid = _poi_species(params)
+    if is_charged(pid.get('species')):
+        idx, _ = charged_species_indices(getattr(qv, 'pdg_ids', None))
+    else:
+        idx, _, found = _get_species_selection(pid, qv)
+        if not found:
+            raise ValueError(f"species {pid.get('species')!r} not in the container")
+        idx = list(range(qv.Qn.shape[1])) if idx is None else idx
+    if qv.Qn.shape[2] < 2:
+        raise ValueError('rapidity-even v1 needs Q_1 in the container')
+    eta = tuple((params.get('single_range') or {}).get('eta', (-1, 1)))
+    jac = _make_jacobian_list(qv.pt_centers, qv.masses, eta[0], eta[1])
+    centers = qv.pt_centers
+    sets = [{'idx': list(idx), 'jac': jac,
+             'pt': (int(np.searchsorted(centers, lo)), int(np.searchsorted(centers, hi, side='right')))}
+            for lo, hi in lay['bins']]
+    K, n_ev = len(sets), qv.Qn.shape[0]
+    q = [Container2D(qv, s, s)(1, 1, 0) for s in sets]
+    m = [Container2D(qv, s, s)(0, 1, 0).real for s in sets]
+    N, D = np.zeros((n_ev, K, K)), np.zeros((n_ev, K, K))
+    for k in range(K):
+        for l in range(k, K):
+            shared = Container2D(qv, sets[k], sets[l])(0, 1, 1).real
+            N[:, k, l] = N[:, l, k] = np.real(q[k] * np.conj(q[l])) - shared
+            D[:, k, l] = D[:, l, k] = m[k] * m[l] - shared
+    return {'N': N, 'D': D, 'layout': lay}
+
+
+def prepare_v1_even_3d(container, params):
+    """Pair sums as prepare_v1_even_2d on unit-weight eta cells: pairs of
+    cells whose centres are more than eta_gap apart (no pair of a particle
+    with itself); without a gap all pairs of distinct particles.  Receives
+    the unselected container (selects_species)."""
+    lay = _v1_even_layout(params)
+    grid = _unit_weights(container.select(_poi_species(params)))
+    if getattr(grid, 'rapidity_binned', False) or getattr(grid, 'pt_integrated', False):
+        raise ValueError('rapidity-even v1 needs a pT-binned eta grid')
+    if grid.Qn.shape[-1] < 2:
+        raise ValueError('rapidity-even v1 needs Q_1 in the container')
+    eta = tuple((params.get('single_range') or {}).get('eta', (-1, 1)))
+    gap = float(params.get('eta_gap') or 0.0)
+    ax = np.asarray(grid.axis_edges, float)
+    c = 0.5 * (ax[:-1] + ax[1:])
+    G = (np.abs(c[:, None] - c[None, :]) > gap).astype(float) if gap > 0 else np.ones((len(c), len(c)))
+    Q = grid.Qn
+    W = [grid.window_weights(eta[0], eta[1], lo, hi) for lo, hi in lay['bins']]
+    q = [np.einsum('eip,ip->ei', Q[..., 1].astype(np.complex128), w) for w in W]
+    m = [np.einsum('eip,ip->ei', Q[..., 0].real.astype(float), w) for w in W]
+    K, n_ev = len(W), Q.shape[0]
+    N, D = np.zeros((n_ev, K, K)), np.zeros((n_ev, K, K))
+    for k in range(K):
+        for l in range(k, K):
+            n_kl = np.real(np.einsum('ei,ij,ej->e', q[k], G, np.conj(q[l])))
+            d_kl = np.einsum('ei,ij,ej->e', m[k], G, m[l])
+            if gap <= 0:        # a particle in both bins is not its own pair
+                shared = np.einsum('eip,ip->e', Q[..., 0].real.astype(float), W[k] * W[l])
+                n_kl, d_kl = n_kl - shared, d_kl - shared
+            N[:, k, l] = N[:, l, k] = n_kl
+            D[:, k, l] = D[:, l, k] = d_kl
+    return {'N': N, 'D': D, 'layout': lay}
+
+
+def _core_v1_even(data, w):
+    from analysis.v1_even import class_matrix, class_pairs, v1_from_matrix
+    lay = data['layout']
+    V = class_matrix(data['N'], data['D'], w)
+    return v1_from_matrix(V, list(lay['grid']), list(lay['targets']), lay['sign_bin'],
+                          lay['sign'], lay['absolute'], weights=class_pairs(data['D'], w))
+
+
 def _abs_eta_range(lo_b, hi_b):
     """Map a signed POI bin to its |eta| interval."""
     if lo_b >= 0:
@@ -2236,6 +2341,14 @@ PIPELINE_DISPATCH = {
         "description": "scalar-product differential v_n(eta){SP}, JETSCAPE pair-normalized form",
         "selects_species": True,
     },
+    "v1_even_factorization": {
+        "core_fn": _core_v1_even,
+        "prepare_data_2d": prepare_v1_even_2d,
+        "prepare_data_3d": prepare_v1_even_3d,
+        "selects_species": True,
+        "n_obs_per_cent": None,
+        "description": "rapidity-even directed flow v1^even (factorized v11 pair matrix)",
+    },
     "v1_odd_sp_diff_eta": {
         "core_fn": _wrap_v1_odd,
         "prepare_data_2d": None,        # boost-invariant 2D has no rapidity-odd flow
@@ -2406,7 +2519,7 @@ def _unit_weights(grid):
 SINGLE_ROW_KEYS = frozenset({
     'vn2_ep', 'vn3_ep', 'mean_pt', 'yield_dNch_deta', 'yield_dNch_deta_per_eta',
     'spectra_invariant_yield', 'dET_deta', 'sc_mn', 'nac_mn', 'radial_flow',
-    'vn_cumulant_combination',
+    'vn_cumulant_combination', 'v1_even_factorization',
 })
 
 
