@@ -324,7 +324,15 @@ near c_4 = 0, ratios) the correction is unstable (zr96c2 dp0001, v2{4}
   Spectra count cut cells by overlap fraction (`QGridData.acceptance_fractional`:
   uniform in eta, uniform in pT^2, i.e. constant invariant yield), all pT
   bins of a window in one pass (`QGridData.spectrum_counts`, equal to the
-  per-bin sums; one pass per bin took 6 min of a 40k-event O+O run).
+  per-bin sums; one pass per bin took 6 min of a 40k-event O+O run).  A
+  cell that a bin covers only in part is shared among its bins by a local
+  model of the class-averaged spectrum, exp(s m_T) times the window's
+  dy/deta Jacobian, slopes fitted to the neighbouring cells
+  (`analysis/spectra_shape.py`, in the spectra core: per class, inside the
+  jackknife; 2D and 3D).  Every cell keeps its count, and bins of whole
+  cells are unchanged.  Until November 2026 the share was flat in pT^2 (3D)
+  or pT (2D), and three ATLAS bins inside one 0.2 GeV cell gave sim/data
+  0.82, 1.01, 1.39; tests/test_toy_mc_spectra_subcell.py.
   `acceptance()` snaps to whole cells; it is fine for ratios like v_n but
   not for yields, which use the fractional overlap too (dN/deta windows
   off the grid, e.g. shifted p+Pb windows).  A rapidity window (dN/dy,

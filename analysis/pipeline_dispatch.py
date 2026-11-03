@@ -926,7 +926,7 @@ def prepare_spectra_2d(qv, params):
             Q0_pt[:, b] = _partial_counts(counts, pt_edges, lo, hi)
             pt_centers[b] = (lo + hi) / 2
             pt_widths[b] = hi - lo
-        return {'Q0_pt': Q0_pt, 'pt_centers': pt_centers,
+        return {'Q0_pt': Q0_pt, 'subcell': _subcell_2d(counts, pt_edges, meas_bins), 'pt_centers': pt_centers,
                 'pt_widths': pt_widths, 'delta_eta': y[1] - y[0]}
 
     if eta[0] is None or eta[1] is None:
@@ -942,7 +942,7 @@ def prepare_spectra_2d(qv, params):
             Q0_pt[:, b] = _partial_counts(counts, pt_edges, lo, hi)
             pt_centers[b] = (lo + hi) / 2
             pt_widths[b] = hi - lo
-        return {'Q0_pt': Q0_pt, 'pt_centers': pt_centers,
+        return {'Q0_pt': Q0_pt, 'subcell': _subcell_2d(counts, pt_edges, meas_bins), 'pt_centers': pt_centers,
                 'pt_widths': pt_widths, 'delta_eta': 2.0 * qv.rap_max}
 
     Qn, _ = cut_qvectors(qv, eta[0], eta[1])
@@ -955,7 +955,7 @@ def prepare_spectra_2d(qv, params):
         pt_widths[b] = hi - lo
 
     delta_eta = abs(eta[1] - eta[0])
-    return {'Q0_pt': Q0_pt, 'pt_centers': pt_centers,
+    return {'Q0_pt': Q0_pt, 'subcell': _subcell_2d(counts, pt_edges, meas_bins), 'pt_centers': pt_centers,
             'pt_widths': pt_widths, 'delta_eta': delta_eta}
 
 
@@ -975,21 +975,44 @@ def prepare_spectra_3d(grid, params):
         ymass = getattr(grid, 'mass', None)
     if ymass is not None and y[0] is not None and y[1] is not None:
         meas_bins = _extract_2d_pT_bins(params)
-        Q0_pt = grid.spectrum_counts(y[0], y[1], meas_bins, var='y', mass=float(ymass)) / grid.nsamples[:, None]
-        return {'Q0_pt': Q0_pt, 'pt_centers': np.array([(lo + hi) / 2 for lo, hi in meas_bins]),
+        Q0_pt, sub = grid.spectrum_counts(y[0], y[1], meas_bins, var='y', mass=float(ymass), parts=True)
+        return {'Q0_pt': Q0_pt / grid.nsamples[:, None], 'subcell': _per_sample(sub, grid.nsamples),
+                'pt_centers': np.array([(lo + hi) / 2 for lo, hi in meas_bins]),
                 'pt_widths': np.array([hi - lo for lo, hi in meas_bins]), 'delta_eta': y[1] - y[0]}
     if eta[0] is None or eta[1] is None:
         return {'Q0_pt': None, 'pt_centers': None, 'pt_widths': None, 'delta_eta': 1.0}
     meas_bins = _extract_2d_pT_bins(params)
     # partial cells by overlap fraction: measurement bins need not follow the
     # grid (a 0.2-0.3 bin on 0.15/0.25/0.35 cells); one pass for all bins
-    Q0_pt = grid.spectrum_counts(eta[0], eta[1], meas_bins) / grid.nsamples[:, None]
+    Q0_pt, sub = grid.spectrum_counts(eta[0], eta[1], meas_bins, parts=True)
     pt_centers = np.array([(lo + hi) / 2 for lo, hi in meas_bins])
     pt_widths = np.array([hi - lo for lo, hi in meas_bins])
 
     delta_eta = abs(eta[1] - eta[0])
-    return {'Q0_pt': Q0_pt, 'pt_centers': pt_centers,
-            'pt_widths': pt_widths, 'delta_eta': delta_eta}
+    return {'Q0_pt': Q0_pt / grid.nsamples[:, None], 'subcell': _per_sample(sub, grid.nsamples),
+            'pt_centers': pt_centers, 'pt_widths': pt_widths, 'delta_eta': delta_eta}
+
+
+def _per_sample(sub, nsamples):
+    """The per-event arrays of a spectrum_counts subcell block divided by nsamples."""
+    if sub is None:
+        return None
+    ns = np.asarray(nsamples, float)[:, None]
+    return dict(sub, cell_counts=sub['cell_counts'] / ns, part_counts=sub['part_counts'] / ns)
+
+
+def _subcell_2d(counts, edges, bins):
+    """The subcell block (analysis.spectra_shape) of _partial_counts: its
+    shares are uniform in pT (overlap / width)."""
+    from analysis.spectra_shape import partial_cells
+    e = np.asarray(edges, float)
+    pc = partial_cells(e, bins)
+    return {'cell_edges': tuple(float(x) for x in e), 'parts': tuple((c, lo, hi) for _, c, lo, hi in pc),
+            'part_bins': tuple(b for b, *_ in pc),
+            'f0': tuple((min(hi, e[c + 1]) - max(lo, e[c])) / (e[c + 1] - e[c]) for _, c, lo, hi in pc),
+            'cell_counts': counts,
+            'part_counts': (np.stack([counts[:, c] for _, c, _, _ in pc], axis=1) if pc
+                            else np.zeros((counts.shape[0], 0)))}
 
 
 def _partial_counts(counts, edges, lo, hi):
@@ -1015,23 +1038,62 @@ def _partial_counts(counts, edges, lo, hi):
 SPECTRUM_FORMS = {'invariant_yield': 'invariant', 'dN_dpT_dy': 'dN_dpT', 'd2N_dpT_dy': 'dN_dpT'}
 
 
+def _shape_mass(params):
+    """The m_T mass of the sub-cell shape (analysis.spectra_shape): an assumed
+    rapidity mass (y_pi), else the species' mass; the pion's for charged
+    hadrons and for species without one."""
+    sk = params.get('single_range') or {}
+    if sk.get('y_mass') is not None:
+        return float(sk['y_mass'])
+    from analysis.qvector import SPECIES_MASS
+    from analysis.species import resolve_species
+    pid = params.get('particle_id') or {}
+    try:
+        pdgs = resolve_species(pid.get('species'))[1] or []
+    except Exception:          # noqa: BLE001 -- unknown species: the pion
+        pdgs = []
+    masses = [SPECIES_MASS[abs(int(p))] for p in pdgs if abs(int(p)) in SPECIES_MASS]
+    return float(masses[0]) if len(set(masses)) == 1 else 0.13957
+
+
 def _spectrum_form(prepare):
     """Tag the prepared data with the record's spectrum form."""
     def wrapped(container, params):
         d = prepare(container, params)
         if isinstance(d, dict):
             d['_spectrum_form'] = SPECTRUM_FORMS.get(params.get('value_type') or 'invariant_yield', 'invariant')
+            d['shape_mass'] = _shape_mass(params)
+            # the Jacobian of a spectrum per unit eta (none for a rapidity window)
+            sk = params.get('single_range') or {}
+            eta = sk.get('eta') or (None, None)
+            d['shape_eta'] = (tuple(float(x) for x in eta)
+                              if eta[0] is not None and eta[1] is not None and sk.get('y_mass') is None else None)
         return d
     wrapped.__name__, wrapped.__doc__ = prepare.__name__, prepare.__doc__
     return wrapped
 
 
 def _wrap_spectra(data, w):
+    """The invariant yield per bin; the cells a bin covers in part are shared
+    by the class-averaged log-linear shape of the invariant yield
+    (analysis.spectra_shape), not uniformly: every cell keeps its count,
+    bins of whole cells are unchanged (until November 2026 a bin inside a
+    cell repeated the cell average)."""
     if data.get('Q0_pt') is None:
         return np.array([])
-    out = compute_spectra_invariant_yield(
-        data['Q0_pt'], data['pt_centers'], data['pt_widths'],
-        data['delta_eta'], w)
+    sub = data.get('subcell')
+    w = np.asarray(w, dtype=float)
+    if sub and sub['parts'] and w.sum() >= 2:
+        from analysis.spectra_shape import shares
+        mean = w @ data['Q0_pt'] / w.sum()
+        f = shares(sub['cell_edges'], w @ sub['cell_counts'] / w.sum(), sub['parts'],
+                   mass=data.get('shape_mass', 0.0), eta_window=data.get('shape_eta'))
+        np.add.at(mean, list(sub['part_bins']), (f - np.asarray(sub['f0'])) * (w @ sub['part_counts'] / w.sum()))
+        out = mean / (2 * np.pi * data['pt_centers'] * data['pt_widths'] * data['delta_eta'])
+    else:
+        out = compute_spectra_invariant_yield(
+            data['Q0_pt'], data['pt_centers'], data['pt_widths'],
+            data['delta_eta'], w)
     if data.get('_spectrum_form') == 'dN_dpT':
         # d2N/(dpT dy) = 2 pi pT_c x the invariant yield of the bin
         # (exactly: the counts over the bin width and the window).
