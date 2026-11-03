@@ -21,13 +21,20 @@ Public:
   (0.27-5 GeV) and extrapolated (0-5 GeV);
 - dn/deta at |eta| < 0.5 vs centrality, and <pT> at |eta| < 0.5 vs
   centrality, both thresholds;
-- pT spectra at |eta| < 0.5, 1.5 < |eta| < 2.25, |y_pi| < 0.5 and 1.5 <
-  |y_pi| < 2.25 (kinematic_range.y.mass 0.13957); the two-sided forward
-  windows are computed on the positive side (symmetric systems, as
-  1093733's mirrored v_n(|eta|));
+- pT spectra at |eta| < 0.5, 1.5 < |eta| < 2.25 and |y_pi| < 0.5
+  (kinematic_range.y.mass 0.13957); the two-sided forward window is
+  computed on the positive side (symmetric systems, as 1093733's mirrored
+  v_n(|eta|));
 - the Ne+Ne / O+O ratios of all of these (system ratios linking the two
   systems' records).
-Staged (--staged OUT): dn/dy_pi (a rapidity with an assumed mass is
+Staged (--staged OUT): the spectra at 1.5 < |y_pi| < 2.25 and their
+Ne+Ne / O+O ratios -- the HEPData tables are not consistent with ATLAS's
+own: their pT integral is 1.46 x dn/dy_pi in the same window (the other
+three spectra integrate to their dn/deta, dn/dy_pi within 0.4%), their
+ratio to the 1.5 < |eta| < 2.25 spectra tends to 1.500 at high pT where
+y_pi -> eta (1.001 at mid-rapidity), and |y_pi| < 0.5 over them is 1.43 x
+ATLAS's tabulated mid / forward y_pi ratio (a rapidity-width normalization,
+probably; reported by the O+O converter session); dn/dy_pi (a rapidity with an assumed mass is
 implemented for spectra only), <pT>(eta) and <pT>(y_pi) per class (the
 <pT> core is integrated only), their Ne+Ne / O+O ratios, the spectra
 ratios to 70-80% and mid / forward (ratios within one system: no
@@ -55,6 +62,10 @@ PT_TXT = {'270': '0.27 < pT < 5 GeV (fiducial)', '0': '0 < pT < 5 GeV (extrapola
 PION = 0.13957
 WINDOWS = {'mid_eta': ('eta', 0.0, 0.5, '|eta| < 0.5'), 'forward_eta': ('eta', 1.5, 2.25, '1.5 < |eta| < 2.25'),
            'mid_ypi': ('y', 0.0, 0.5, '|y_pi| < 0.5'), 'forward_ypi': ('y', 1.5, 2.25, '1.5 < |y_pi| < 2.25')}
+FWD_YPI = ('the HEPData spectra at 1.5 < |y_pi| < 2.25 are not consistent with ATLAS\'s own tables: their pT '
+           'integral is 1.46 x dn/dy_pi in the same window, their ratio to the 1.5 < |eta| < 2.25 spectra tends to '
+           '1.500 at high pT (1.001 at mid-rapidity), and mid / forward over them is 1.43 x the tabulated ratio '
+           '(a rapidity-width normalization, probably)')
 OUT = {'particle_yields': 'data/particle_yields/atlas_particle_yields_dNch_deta_OO_NeNe_5360gev_ins3170344.yaml',
        'mean_pT': 'data/mean_pT/atlas_mean_pT_OO_NeNe_5360gev_ins3170344.yaml',
        'particle_spectra': 'data/particle_spectra/atlas_particle_spectra_charged_OO_NeNe_5360gev_ins3170344.yaml',
@@ -216,7 +227,11 @@ def main():
                           'notes': note('Figs. 10, 11', f'Per-event (1/pT) d2n/(dpT d{"eta" if var == "eta" else "y_pi"})'
                                         f' of primary charged particles, {wtxt}, {c}, {SYS[system][0]} 5.36 TeV; '
                                         'value_scale 2 pi: the table has no 1/(2 pi)')})
-                add('particle_spectra', d, ('spectra', kind, system, c))
+                if kind == 'forward_ypi':
+                    d['staging_reason'] = FWD_YPI
+                    staged.append(d)
+                else:
+                    add('particle_spectra', d, ('spectra', kind, system, c))
     # Ne+Ne / O+O ratios
     ratios = out['observable_ratios']
     for thr in PT:
@@ -239,6 +254,16 @@ def main():
         hf = f'pT_spectra_{kind}_NeNe_to_OO_ratio.yaml'
         for i, dv in enumerate(load(hf)['dependent_variables']):
             c = quals(dv)['Centrality']
+            if kind == 'forward_ypi':
+                staged.append({'observable_type': 'observable_ratios', 'inspire_id': '3170344', 'version': VERSION,
+                               'hepdata_file': hf, 'dv_index': i,
+                               'hepdata_table_label': f'pT spectrum Ne+Ne/O+O, {WINDOWS[kind][3]}, {c} ({hf})',
+                               'collision_system': {'energy_gev': 5360.0, 'reaction': 'Ne+Ne and O+O'},
+                               'observable': 'invariant_yield', 'value_type': dv['header']['name'],
+                               'ratio_type': 'system_ratio', 'numerator': 'Ne+Ne', 'denominator': 'O+O',
+                               'notes': note('Fig. 12', f'pT spectrum Ne+Ne/O+O, {WINDOWS[kind][3]}, {c}'),
+                               'staging_reason': 'its sides are staged: ' + FWD_YPI})
+                continue
             num_ref = refs[('spectra', kind, 'NeNe', c)]
             num = out['particle_spectra'][int(num_ref.split('#')[1])]
             lab = f'pT spectrum Ne+Ne/O+O, {WINDOWS[kind][3]}, {c}'
