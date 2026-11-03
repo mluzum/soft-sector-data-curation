@@ -7,7 +7,8 @@ records.  Checks: the joint jackknife on paired replicates; a self-ratio
 independent samples the ratio equals numerator/denominator within errors
 and its error matches the propagation of the two independent errors; a
 detector-level side is computed only when the ratio declares
-efficiency_cancels; a spectator-plane side is refused.
+efficiency_cancels; a spectator-plane side is refused; a side is computed
+at the ratio's centrality classes when its own table is binned otherwise.
 
 Run: python3 tests/test_ratios.py
 """
@@ -26,7 +27,7 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "tests"))
 
 from analysis.dispatcher import iter_records, resolve  # noqa: E402
-from analysis.ratios import joint_jackknife, label_key, resolve_link, side_record  # noqa: E402
+from analysis.ratios import at_ratio_classes, joint_jackknife, label_key, resolve_link, side_record  # noqa: E402
 
 results = []
 
@@ -82,6 +83,25 @@ def test_unit():
         ok = True
     check("bad link raises", ok)
 
+    side = {"centrality": {"classes": ["0-1%", "1-2%", "2-3%", "3-4%"], "combined_from": "analysis_classes",
+                           "analysis_class_width": 1.0}, "table_rows": [0, 1, 2, 3]}
+    got = at_ratio_classes(copy.deepcopy(side), {"centrality": {"classes": ["0-2%", "2-4%"]}})
+    check("side at the ratio's classes, table_rows dropped",
+          got["centrality"]["classes"] == ["0-2%", "2-4%"] and "table_rows" not in got)
+    check("same classes: side unchanged",
+          at_ratio_classes(copy.deepcopy(side), {"centrality": {"classes": side["centrality"]["classes"]}}) == side)
+    act = {"centrality": {"classes": ["0-5%", "5-10%"], "actual_classes": ["0-5.01%", "5.01-9.94%"]}}
+    got = at_ratio_classes(copy.deepcopy(act), {"centrality": {"classes": ["5-10%"]}})
+    check("actual_classes follow a subset of classes", got["centrality"]["actual_classes"] == ["5.01-9.94%"])
+    for name, s_, r_ in (("actual_classes outside the side's classes", act, ["0-10%"]),
+                         ("sub-classes that do not tile", side, ["0-2.5%"])):
+        try:
+            at_ratio_classes(copy.deepcopy(s_), {"centrality": {"classes": r_}})
+            ok = False
+        except ValueError:
+            ok = True
+        check(f"refused: {name}", ok)
+
 
 def test_pipeline():
     import h5py
@@ -112,7 +132,21 @@ def test_pipeline():
                                   "eta": [{"min": 6.3, "max": 99.0}]}
         spec_path = os.path.join(tmp, "spectator.yaml")
         yaml.safe_dump(spec, open(spec_path, "w"))
+        def edges(c):
+            return tuple(float(x) for x in c.rstrip("%").split("-"))
+
+        def adjacent(d):            # three classes sharing edges (classes with edges, not points)
+            cl = sorted(edges(c) for c in d["centrality"]["classes"])
+            return "points" not in d["centrality"] and len(cl) >= 3 and cl[0][1] == cl[1][0] and cl[1][1] == cl[2][0]
+        v2c = find("data/flow_vn", lambda d: str((d.get("collision_system") or {}).get("reaction")) == "AU AU --> CHARGED X"
+                   and d.get("observable_type") == "flow_vn" and d.get("dimensionality") == "integrated"
+                   and d.get("method") == "cumulant" and d.get("harmonic") == 2
+                   and abs(float((d.get("collision_system") or {}).get("energy_gev") or 0) - 200) < 1 and adjacent(d))
+        cl = sorted(edges(c) for c in v2c[2]["centrality"]["classes"])
+        coarse = [f"{cl[0][0]:g}-{cl[2][1]:g}%"]          # three of the side's classes merged
         recs = [ratio_record("v2_ratio", v2, v2),
+                ratio_record("v2_ratio_coarse", v2c, v2c, centrality={"classes": coarse}),
+                ratio_record("v2_ratio_points", v2, v2, centrality={"classes": coarse}),
                 ratio_record("nch_ratio_cancels", (det_path, 0), (det_path, 0), efficiency_cancels=True),
                 ratio_record("nch_ratio_detector", (det_path, 0), (det_path, 0)),
                 ratio_record("spectator_ratio", (spec_path, 0), (spec_path, 0))]
@@ -141,6 +175,10 @@ def test_pipeline():
             v, e = g["values"][:], g["errors"][:]
         check("ratios computed for v2 and the efficiency-cancelling N_ch",
               any(l.startswith("v2_ratio") for l in labels) and any(l.startswith("nch_ratio_cancels") for l in labels))
+        check("point-valued side at other classes skipped",
+              "skip v2_ratio_points: side with point-valued centrality" in r.stdout)
+        check(f"coarse-class ratio computed at its own class {coarse} ({os.path.basename(v2c[0])})",
+              sorted(l.split()[-1] for l in labels if l.startswith("v2_ratio_coarse")) == coarse)
         check(f"self-ratio (same sample both sides) is exactly 1 with zero error ({len(v)} observables)",
               len(v) > 0 and np.allclose(v, 1, atol=1e-12) and np.allclose(e, 0, atol=1e-12))
 

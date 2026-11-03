@@ -4,7 +4,8 @@
     python scripts/compute_ratios.py \
         --num-package <dir> --num-design-point 12 [--num-variant CE] \
         --den-package <dir> --den-design-point 40 [--den-variant CE] \
-        [--reaction 'Ru\\+Ru and Zr\\+Zr'] [--value-type-regex REGEX] [--ratio-records FILE ...] \
+        [--reaction 'Ru\\+Ru and Zr\\+Zr'] [--ratio-type energy_ratio] [--value-type-regex REGEX] \
+        [--ratio-records FILE ...] \
         --output ratios.h5 [-- <extra run_pipeline.py options>]
 
 For every selected ratio record whose numerator and denominator records are
@@ -12,7 +13,10 @@ linked (numerator_record / denominator_record), the linked records are
 computed by run_pipeline.py: the numerators on the numerator simulation set,
 the denominators on the denominator set.  Both sets may be design points of
 one package (e.g. Ru-like and Zr-like nuclear parameters of an A=96
-campaign) or two different packages (e.g. Xe+Xe over Pb+Pb).  Each ratio is
+campaign) or two different packages (e.g. Xe+Xe over Pb+Pb, or Pb+Pb at
+5.02 TeV over Pb+Pb at 2.76 TeV for an energy_ratio).  Each side is computed
+at the ratio record's centrality classes (analysis.ratios.at_ratio_classes:
+a ratio table may be binned otherwise than its sides' tables).  Each ratio is
 formed per centrality class and bin, with a joint block jackknife over both
 samples (analysis/ratios.py).  A detector-level side is computed as the
 corrected quantity when the ratio declares efficiency_cancels: true.
@@ -65,6 +69,8 @@ def select_ratio_records(a):
         if a.reaction and not re.search(a.reaction, str(cs.get("reaction", "")), re.I):
             continue
         if a.energy is not None and abs(float(cs.get("energy_gev", 0) or 0) - a.energy) > 0.1:
+            continue
+        if a.ratio_type and d.get("ratio_type") != a.ratio_type:
             continue
         if a.value_type_regex and not re.search(a.value_type_regex, str(d.get("value_type", ""))):
             continue
@@ -153,6 +159,8 @@ def main():
                     help="record files to use instead of data/observable_ratios")
     ap.add_argument("--reaction", default=None, help="regex on the ratio record's reaction")
     ap.add_argument("--energy", type=float, default=None)
+    ap.add_argument("--ratio-type", default=None,
+                    help="ratio records of this ratio_type only (system_ratio, energy_ratio, ...)")
     ap.add_argument("--value-type-regex", default=None)
     ap.add_argument("--n-jk-blocks", type=int, default=20)
     ap.add_argument("--output", required=True)

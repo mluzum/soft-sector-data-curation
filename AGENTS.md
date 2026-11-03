@@ -153,7 +153,13 @@ Fields that change dispatch:
 - `particle_id.charge_average`: the measurement is (h+ + h-)/2 (or
   (pi+ + pi-)/2, ...); absolute quantities are half of the sum.
 - Ratio records link `numerator_record` / `denominator_record` (path, with
-  `#<doc>` for multi-document files); `tests/test_ratio_links.py` checks every link.
+  `#<doc>` for multi-document files); `tests/test_ratio_links.py` checks every link
+  against `numerator_system` / `denominator_system` (the nuclei, and the energy
+  when the side names one: energy ratios, `ratio_type: energy_ratio`, 'Pb+Pb
+  5.02 TeV' over 'Pb+Pb 2.76 TeV', the two sides on two packages).  Each side
+  is computed at the ratio's centrality classes (`ratios.at_ratio_classes`:
+  ALICE's ratio tables are binned otherwise than its v_n tables; table_rows
+  dropped, a point-valued side refused, combined_from must tile).
 - Symmetric cumulants (`correlation_type: symmetric_cumulant`, key
   `sc_mn`): two harmonics only, and `normalized` is required (true: NSC =
   SC / (<v_m^2><v_n^2>)); `normalization_eta_gap` takes the denominator

@@ -4,11 +4,13 @@ A link is a repository-relative path to a record file, optionally with
 "#<document index>" for multi-document files.  The linked document must
 exist, be a measurement of the ratio's quantity (same observable_type family
 is not required, e.g. a flow_vn record under a v2 ratio), and belong to the
-system the ratio names for that side.
+system the ratio names for that side (nuclei, and the energy when the side
+names one, as energy ratios do: 'Pb+Pb 5.02 TeV').
 
 Run: python3 tests/test_ratio_links.py
 """
 import os
+import re
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,7 +29,26 @@ def resolve_link(link):
 
 
 def _norm(reaction):
-    return str(reaction).replace(' ', '').upper()
+    return str(reaction).replace(' ', '').replace('+', '').upper()
+
+
+_ENERGY = re.compile(r'\s+([0-9.]+)\s*(GeV|TeV)\s*$', re.IGNORECASE)
+
+
+def side_matches(system, target):
+    """A side's system string ('Ru+Ru', 'Pb+Pb 5.02 TeV') against the linked
+    record: the nuclei in its reaction, and the energy when the string states
+    one (energy ratios link two records of the same reaction)."""
+    cs = target.get('collision_system') or {}
+    m = _ENERGY.search(system)
+    nuclei = system[:m.start()] if m else system
+    if _norm(nuclei) not in _norm(cs.get('reaction')):
+        return False
+    if m:
+        gev = float(m.group(1)) * (1000.0 if m.group(2).lower() == 'tev' else 1.0)
+        e = cs.get('energy_gev')
+        return e is not None and abs(float(e) - gev) <= 1e-3 * gev
+    return True
 
 
 def main():
@@ -44,10 +65,10 @@ def main():
             if err:
                 problems.append(f"{d.get('value_type')}: {err}")
                 continue
-            reaction = (target.get('collision_system') or {}).get('reaction')
-            if system and _norm(system) not in _norm(reaction):
+            if system and not side_matches(system, target):
+                cs = target.get('collision_system') or {}
                 problems.append(f"{d.get('value_type')}: {side} system {system} but the linked "
-                                f"record is {reaction}")
+                                f"record is {cs.get('reaction')} at {cs.get('energy_gev')} GeV")
     for p in problems:
         print('  FAIL', p)
     print(f'  {checked} links checked; {len(unlinked)} ratio records without links '

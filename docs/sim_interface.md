@@ -240,14 +240,23 @@ numerator and denominator records (`numerator_record`,
 index>`).  `scripts/compute_ratios.py` computes them from two simulation
 sets: the numerators on one, the denominators on the other.  The two sets
 are two design points of one package (e.g. Ru-like and Zr-like nuclear
-parameters) or two different packages (e.g. Xe+Xe over Pb+Pb):
+parameters) or two different packages (e.g. Xe+Xe over Pb+Pb, or one
+system at two energies for `ratio_type: energy_ratio`):
 
 ```bash
 python scripts/compute_ratios.py \
     --num-package <package> --num-design-point 12 --num-variant CE \
     --den-package <package> --den-design-point 40 --den-variant CE \
     --reaction 'Ru\+Ru and Zr\+Zr' --output ratios.h5
+python scripts/compute_ratios.py \
+    --num-package <Pb+Pb 5.02 TeV package> --num-design-point 0 \
+    --den-package <Pb+Pb 2.76 TeV package> --den-design-point 0 \
+    --ratio-type energy_ratio --output energy_ratios.h5
 ```
+
+Each side is computed at the ratio record's centrality classes, which may
+differ from the binning of the side's own table (ALICE's 5.02/2.76 TeV
+ratios of v_n are in other classes than its v_n tables).
 
 Each side is an ordinary pipeline run that stores its jackknife replicates
 (`run_pipeline.py --save-jackknife-replicates`).  The ratio's error is a

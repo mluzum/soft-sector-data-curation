@@ -62,6 +62,8 @@ def resolve_link(link, base=None):
 def side_record(doc, ratio):
     """The record to compute for one side of `ratio`; raises ValueError if it cannot be.
 
+    The side is computed at the ratio's centrality classes (at_ratio_classes).
+
     A detector-level side (efficiency_corrected: false) is computed as the
     corresponding corrected quantity when the ratio declares
     efficiency_cancels: true -- the efficiency cancels in the measured ratio.
@@ -71,7 +73,38 @@ def side_record(doc, ratio):
         if not ratio.get('efficiency_cancels'):
             raise ValueError('detector-level side and the ratio does not declare efficiency_cancels')
         del doc['efficiency_corrected']
+    at_ratio_classes(doc, ratio)
     resolve(doc)                       # raises with the reason when not dispatchable
+    return doc
+
+
+def at_ratio_classes(doc, ratio):
+    """Compute a side at the ratio's centrality classes (in place).
+
+    The ratio record states the classes of the measured ratio, and the two
+    sides' own tables may be binned otherwise (ALICE 1666817: v3{2} ratio in
+    2% classes, the 5.02 TeV v3{2} in 1% classes).  Class-specific fields of
+    the side follow: table_rows (rows of the side's own table) is dropped,
+    actual_classes is kept for classes the side lists and refused otherwise,
+    a point-valued centrality is refused, and combined_from must tile the
+    new classes (cent_combine raises otherwise).
+    """
+    want = list((ratio.get('centrality') or {}).get('classes') or [])
+    cent = doc.get('centrality')
+    if not want or not isinstance(cent, dict) or list(cent.get('classes') or []) == want:
+        return doc
+    have = list(cent.get('classes') or [])
+    if cent.get('points') is not None:
+        raise ValueError('side with point-valued centrality at classes it does not list')
+    if cent.get('actual_classes'):
+        missing = [c for c in want if c not in have]
+        if missing:
+            raise ValueError(f'side with actual_classes lacks the ratio classes {missing}')
+        cent['actual_classes'] = [cent['actual_classes'][have.index(c)] for c in want]
+    cent['classes'] = want
+    doc.pop('table_rows', None)
+    from analysis.cent_combine import combination_plan
+    combination_plan(cent)             # raises when the sub-classes do not tile the classes
     return doc
 
 
