@@ -9,7 +9,9 @@ Checks:
     of differently ordered containers do not;
   - run_pipeline.jk_event_ids: auto uses meta['event_ids'] when there is one
     id per event, contiguous ignores it, event_id requires it;
-  - run_block_jackknife with event ids: the delete-block jackknife of a mean.
+  - run_block_jackknife with event ids: the delete-block jackknife of a mean;
+  - analysis.jackknife.covariance_from_replicates (run_pipeline --covariance
+    replicates) gives the covariance exactly.
 Run: python3 tests/test_jackknife_blocks.py
 """
 import os
@@ -128,6 +130,12 @@ def test_run_block_jackknife():
     corr, err, cov = run_block_jackknife(lambda m: np.array([vals[m].mean()]), len(vals), B, event_ids=ids)
     full, rep = run_block_jackknife.last
     check('replicates kept for --save-jackknife-replicates', rep.shape == (B, 1) and np.isclose(full[0], vals.mean()))
+    # --covariance replicates: the replicates give the covariance exactly
+    from analysis.jackknife import covariance_from_replicates
+    x = rng.normal(0, 1, (3000, 5)) @ rng.normal(0, 1, (5, 5))
+    corr, err, cov = run_block_jackknife(lambda m: x[m].mean(axis=0), len(x), B, event_ids=ids)
+    check('covariance_from_replicates = the stored covariance',
+          np.allclose(covariance_from_replicates(run_block_jackknife.last[1]), cov, rtol=1e-12, atol=0))
 
 
 if __name__ == '__main__':

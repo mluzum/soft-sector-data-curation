@@ -613,6 +613,50 @@ class QGridData:
             out += fp[c] * (self.Qn[:, :, c, :] * fe[None, :, None]).sum(axis=1)
         return out
 
+    def spectrum_counts(self, lo, hi, bins, var='eta', mass=None):
+        """Q0 of a window (eta, or y with one mass) in each pT bin:
+        (n_events, n_bins), equal to acceptance_fractional(lo, hi, *bin) or
+        acceptance_rapidity(lo, hi, mass, *bin) per bin, in one pass over the
+        grid: whole pT cells of a bin from per-cell window sums, its partial
+        cells (at most two; a y window mapped at the centre of the part
+        inside the bin, as acceptance_rapidity) separately.  The 27-40 pT
+        bins of a spectrum took one pass each (ATLAS O+O: 2160 rapidity
+        windows per run).  Rapidity-binned grids: per bin."""
+        bins = [(float(a), float(b)) for a, b in bins]
+        n_ev = self.Qn.shape[0]
+        if self.rapidity_binned or getattr(self, 'pt_integrated', False):
+            f = ((lambda a, b: self.acceptance_rapidity(lo, hi, mass, a, b)) if var == 'y' else
+                 (lambda a, b: self.acceptance_fractional(lo, hi, a, b)))
+            return np.stack([f(a, b)[:, 0].real for a, b in bins], axis=1) if bins else np.zeros((n_ev, 0))
+        Q0 = self.Qn[..., 0].real
+        pe = self.pt_edges
+
+        def eta_fractions(pt):
+            if var == 'y':
+                if pt <= 0:
+                    return np.zeros(len(self.eta_edges) - 1)
+                mta = np.sqrt(pt ** 2 + float(mass) ** 2)
+                return _overlap_fractions(self.eta_edges, np.arcsinh(mta * np.sinh(lo) / pt),
+                                          np.arcsinh(mta * np.sinh(hi) / pt))
+            return fe_eta
+        fe_eta = _overlap_fractions(self.eta_edges, lo, hi) if var != 'y' else None
+        centres = 0.5 * (pe[:-1] + pe[1:])
+        if var == 'y':
+            Fe = np.stack([eta_fractions(c) for c in centres], axis=1)      # (n_eta, n_pt)
+        else:
+            Fe = np.repeat(fe_eta[:, None], len(centres), axis=1)
+        whole = np.einsum('eip,ip->ep', Q0, Fe, dtype=np.float64)           # per pT cell, whole cell
+        out = np.zeros((n_ev, len(bins)))
+        for b, (a, z) in enumerate(bins):
+            fp = _overlap_fractions(pe, a, z, _pt_squared)
+            full = np.nonzero(fp == 1.0)[0]
+            out[:, b] = whole[:, full].sum(axis=1)
+            for c in np.nonzero((fp > 0) & (fp < 1.0))[0]:
+                pt = 0.5 * (max(pe[c], a) + min(pe[c + 1], z))
+                fe = eta_fractions(pt) if var == 'y' else fe_eta
+                out[:, b] += fp[c] * (Q0[:, :, c] @ fe)
+        return out
+
     def select(self, particle_id):
         """Species selection for a plain (combined) QGridData.
 

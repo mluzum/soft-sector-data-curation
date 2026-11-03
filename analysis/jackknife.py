@@ -1,6 +1,15 @@
 import numpy as np
 
 
+def covariance_from_replicates(replicates):
+    """The delete-one-block jackknife covariance, (B-1)/B sum_b (r_b - rbar)(r_b - rbar)^T,
+    from (n_blocks, n_obs) replicates (run_pipeline jk_replicates): exactly
+    the `covariance` run_pipeline writes with --covariance full (rank <= B-1)."""
+    r = np.asarray(replicates, dtype=float)
+    d = r - r.mean(axis=0)
+    return (r.shape[0] - 1) / r.shape[0] * d.T @ d
+
+
 def jackknife_blocks(n_events, n_blocks, event_ids=None):
     """Delete-one-block masks (False = the deleted block).
 

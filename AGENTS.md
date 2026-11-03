@@ -247,8 +247,10 @@ configured simulation is skipped, the Au+Au 200 GeV proxy only with
 `--sim-proxy`; until November 2026 the proxy was the default and 'D AU'
 records missed the configured d+Au simulation), builds the centrality weights, and runs one block
 jackknife over all observables. It writes values, errors, the full
-covariance, labels and the experimental points (also aligned with the
-labels).
+covariance (or, with `--covariance replicates`, the delete-one-block
+replicates that give it exactly: `analysis.jackknife.covariance_from_replicates`;
+6788 observables: 370 MB per run as a matrix, 1 MB as replicates), labels
+and the experimental points (also aligned with the labels).
 
 Containers (`analysis/qvector.py`):
 - **QVectorData (2D)**: `Qn[event, species, harmonic, pT]`, slot 0 the counts.
@@ -320,7 +322,9 @@ near c_4 = 0, ratios) the correction is unstable (zr96c2 dp0001, v2{4}
   `run_pipeline` asserts labels == values before writing; keep that check.
 - **3D spectra and grid cells**: measurement bins need not follow the grid.
   Spectra count cut cells by overlap fraction (`QGridData.acceptance_fractional`:
-  uniform in eta, uniform in pT^2, i.e. constant invariant yield).
+  uniform in eta, uniform in pT^2, i.e. constant invariant yield), all pT
+  bins of a window in one pass (`QGridData.spectrum_counts`, equal to the
+  per-bin sums; one pass per bin took 6 min of a 40k-event O+O run).
   `acceptance()` snaps to whole cells; it is fine for ratios like v_n but
   not for yields, which use the fractional overlap too (dN/deta windows
   off the grid, e.g. shifted p+Pb windows).  A rapidity window (dN/dy,

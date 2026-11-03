@@ -13,7 +13,9 @@ formulas on a random grid with on- and off-grid window edges:
     cumulative sums), also for non-dyadic weights;
   - the table is built only after a grid's worth of direct work, and a
     copy with another Qn (a masked jackknife copy) does not reuse it;
-  - summed_area_tables = False sums directly.
+  - summed_area_tables = False sums directly;
+  - spectrum_counts (all pT bins of a window in one pass) equals the per-bin
+    sums, for eta and mass-assumed y windows and bins inside one cell.
 Run: python3 tests/test_qgrid_window_sums.py
 """
 import copy
@@ -110,6 +112,22 @@ def test_empty_windows():
               and np.all(np.abs(got - want)[~empty] <= 1e-14 * np.abs(Q[..., 0]).sum(axis=(1, 2))[~empty, None]))
 
 
+def test_spectrum_counts():
+    """One pass for all pT bins = acceptance_fractional / acceptance_rapidity per bin,
+    including bins narrower than a cell (the y window at the sub-cell centre)."""
+    g = grid(np.complex128)
+    bins = [(0.05, 0.2), (0.2, 0.21), (0.21, 0.225), (0.225, 0.3), (0.3, 0.7), (0.7, 1.33), (1.33, 2.4)]
+    worst = 0.0
+    for lo, hi, var, mass in ((-0.5, 0.5, 'eta', None), (1.5, 2.25, 'eta', None), (1.5, 2.25, 'y', 0.13957),
+                              (-0.5, 0.5, 'y', 0.13957), (-3.9, -2.1, 'y', 0.938)):
+        got = g.spectrum_counts(lo, hi, bins, var=var, mass=mass)
+        want = np.stack([(g.acceptance_rapidity(lo, hi, mass, a, b) if var == 'y' else
+                          g.acceptance_fractional(lo, hi, a, b))[:, 0].real for a, b in bins], axis=1)
+        worst = max(worst, np.abs(got - want).max() / np.abs(want).max())
+    check(f'spectrum_counts = per-bin window sums, eta and y windows, sub-cell bins (worst {worst:.1e})',
+          worst < 1e-12)
+
+
 def test_cache_rules():
     g = grid(np.complex64)
     g.acceptance(-0.5, 0.5, 0.2, 0.5)
@@ -134,7 +152,8 @@ def test_cache_rules():
 
 
 if __name__ == '__main__':
-    for t in (test_acceptance, test_fractional_and_weighted, test_empty_windows, test_cache_rules):
+    for t in (test_acceptance, test_fractional_and_weighted, test_empty_windows, test_spectrum_counts,
+              test_cache_rules):
         print(t.__name__)
         t()
     print(f'\n{sum(results)}/{len(results)} passed')

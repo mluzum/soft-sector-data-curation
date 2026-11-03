@@ -448,6 +448,12 @@ def main():
                              "the same seeds in every block at every design point of a common-random-number "
                              "campaign) or contiguous in container order.  auto: event ids when the container "
                              "has meta['event_ids'] (simulation packages), else contiguous.")
+    parser.add_argument("--covariance", choices=("full", "replicates"), default="full",
+                        help="full: store the n_obs x n_obs jackknife covariance per group (default); "
+                             "replicates: store the delete-one-block replicates instead (implies "
+                             "--save-jackknife-replicates; rank <= n_blocks - 1, so they give the "
+                             "covariance exactly: analysis.jackknife.covariance_from_replicates). "
+                             "6788 observables: 370 MB per run for the full matrix, 1 MB of replicates.")
     parser.add_argument("--save-jackknife-replicates", action="store_true",
                         help="Also store the full-sample estimates (jk_full) and "
                              "the delete-one-block replicates (jk_replicates, "
@@ -1476,13 +1482,17 @@ def main():
 
             grp.create_dataset('values', data=corr)
             grp.create_dataset('errors', data=errors)
-            grp.create_dataset('covariance', data=cov)
+            if args.covariance == 'full':
+                grp.create_dataset('covariance', data=cov)
+            else:
+                grp.attrs['covariance'] = ('not stored: analysis.jackknife.covariance_from_replicates'
+                                           '(jk_replicates)')
             # the jackknife bias estimate (diagnostic: values are the
             # full-sample estimates) and the rule that defined the blocks
             grp.create_dataset('jk_bias', data=jk_bias)
             grp.attrs['jk_block_rule'] = jk_rule
             grp.attrs['n_large_jk_bias'] = int(big.sum())
-            if args.save_jackknife_replicates:
+            if args.save_jackknife_replicates or args.covariance == 'replicates':
                 grp.create_dataset('jk_full', data=jk_full)
                 grp.create_dataset('jk_replicates', data=jk_rep)
                 grp.attrs['n_jk_blocks'] = jk_rep.shape[0]

@@ -975,25 +975,17 @@ def prepare_spectra_3d(grid, params):
         ymass = getattr(grid, 'mass', None)
     if ymass is not None and y[0] is not None and y[1] is not None:
         meas_bins = _extract_2d_pT_bins(params)
-        Q0_pt = np.zeros((grid.n_events, len(meas_bins)))
-        for b, (lo, hi) in enumerate(meas_bins):
-            Q0_pt[:, b] = grid.acceptance_rapidity(y[0], y[1], float(ymass), lo, hi)[:, 0].real / grid.nsamples
+        Q0_pt = grid.spectrum_counts(y[0], y[1], meas_bins, var='y', mass=float(ymass)) / grid.nsamples[:, None]
         return {'Q0_pt': Q0_pt, 'pt_centers': np.array([(lo + hi) / 2 for lo, hi in meas_bins]),
                 'pt_widths': np.array([hi - lo for lo, hi in meas_bins]), 'delta_eta': y[1] - y[0]}
     if eta[0] is None or eta[1] is None:
         return {'Q0_pt': None, 'pt_centers': None, 'pt_widths': None, 'delta_eta': 1.0}
     meas_bins = _extract_2d_pT_bins(params)
-    n_meas = len(meas_bins)
-    Q0_pt = np.zeros((grid.n_events, n_meas))
-    pt_centers = np.zeros(n_meas)
-    pt_widths = np.zeros(n_meas)
-    for b, (lo, hi) in enumerate(meas_bins):
-        # partial cells by overlap fraction: measurement bins need not
-        # follow the grid (a 0.2-0.3 bin on 0.15/0.25/0.35 cells)
-        Qn = grid.acceptance_fractional(eta[0], eta[1], lo, hi)
-        Q0_pt[:, b] = Qn[:, 0].real / grid.nsamples
-        pt_centers[b] = (lo + hi) / 2
-        pt_widths[b] = hi - lo
+    # partial cells by overlap fraction: measurement bins need not follow the
+    # grid (a 0.2-0.3 bin on 0.15/0.25/0.35 cells); one pass for all bins
+    Q0_pt = grid.spectrum_counts(eta[0], eta[1], meas_bins) / grid.nsamples[:, None]
+    pt_centers = np.array([(lo + hi) / 2 for lo, hi in meas_bins])
+    pt_widths = np.array([hi - lo for lo, hi in meas_bins])
 
     delta_eta = abs(eta[1] - eta[0])
     return {'Q0_pt': Q0_pt, 'pt_centers': pt_centers,

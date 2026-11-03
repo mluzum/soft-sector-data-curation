@@ -23,6 +23,23 @@ def yaml_load_all(f):
     """yaml.safe_load_all with the C loader when available."""
     return yaml.load_all(f, Loader=_YAML_LOADER)
 
+
+_TABLE_CACHE = {}
+
+
+def _load_table(path):
+    """A parsed HEPData table, cached by path (and mtime, size): the records
+    of one table (ATLAS 3170344: 27-29 classes per file) share one parse.
+    Read-only for callers."""
+    st = os.stat(path)
+    key = (os.path.abspath(path), st.st_mtime_ns, st.st_size)
+    if key not in _TABLE_CACHE:
+        if len(_TABLE_CACHE) >= 512:
+            _TABLE_CACHE.clear()
+        with open(path) as f:
+            _TABLE_CACHE[key] = yaml.load(f, Loader=_YAML_LOADER)
+    return _TABLE_CACHE[key]
+
 from analysis.species import is_charged, species_known
 from analysis.cent_combine import combination_plan
 
@@ -1164,8 +1181,7 @@ def load_experimental(params):
         params['hepdata_file'],
     )
     try:
-        with open(raw_file) as f:
-            raw = yaml.load(f, Loader=_YAML_LOADER)
+        raw = _load_table(raw_file)
         dv_idx = int(params.get('dv_index', 0) or 0)
         dv_avg = params.get('dv_average', None)
         if dv_avg:
