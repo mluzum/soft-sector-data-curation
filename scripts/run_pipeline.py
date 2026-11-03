@@ -1313,6 +1313,8 @@ def main():
                         masked[k] = v
                 return masked
 
+            warned_out_of_range = set()     # one warning per record and harmonic, not per point and replicate
+
             def build_combined_fn(dd_list):
                 def fn(mask):
                     obs = []
@@ -1366,9 +1368,14 @@ def main():
                                     # every later observable misaligns with its
                                     # label.  The block jackknife replaces NaN
                                     # with the full-sample estimate + warning.
-                                    print(f"  WARNING: {qd['dispatch_key']} {qd.get('hepdata_file','?')} "
-                                          f"harmonic={harm} n_bins={n_bins} len(vals)={len(vals)}: "
-                                          f"index {idx} out of range — emitting NaN")
+                                    wkey = (qd['dispatch_key'], qd.get('hepdata_file', '?'),
+                                            qd.get('value_type', '?'), harm)
+                                    if wkey not in warned_out_of_range:
+                                        warned_out_of_range.add(wkey)
+                                        print(f"  WARNING: {qd['dispatch_key']} {qd.get('hepdata_file','?')} "
+                                              f"harmonic={harm} n_bins={n_bins} len(vals)={len(vals)}: "
+                                              f"index {idx} out of range (harmonic not in the container?) "
+                                              f"— emitting NaN for every such value of this record")
                                     obs.append(np.nan)
                     return np.array(obs)
                 return fn

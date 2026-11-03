@@ -141,7 +141,9 @@ systems:                          # record groups the data may be compared to
   # (records in another frame are mapped into it: analysis/frames.py)
 variants: [Grad22, CE, PTB]       # or null; e.g. delta f models
 design: {file: design.csv, id_column: label}   # optional; id's trailing integer = design point
-selection:                        # optional default record selection (run_pipeline options)
+selection:                        # optional default record selection for run_campaign.py and
+                                  # check_sim_package.py, in run_pipeline option names (run_pipeline.py
+                                  # itself does not read it: its selection is its own options)
   type: [flow_vn, particle_yields, particle_spectra]
   reaction: '^(Ru\+Ru|Zr\+Zr)$'
   energy: 200
