@@ -364,7 +364,8 @@ class QGridData:
     # (a new Qn, as on a masked copy, starts over).  Memory: ~2x the
     # complex64 Qn while the grid lives; set summed_area_tables = False to
     # sum directly.  Window sums from the table agree with direct sums to
-    # rounding (~1e-16 of the grid totals).
+    # rounding (~1e-16 of the grid totals; exactly on complex64 storage,
+    # and exactly zero in a window without particles).
     summed_area_tables = True
 
     def _window_sum(self, e0, e1, p0, p1):
@@ -386,7 +387,18 @@ class QGridData:
             if cache['work'] > Q.shape[1] * Q.shape[2]:
                 S = cache['table'] = _summed_area(Q)
         if S is not None:
-            return S[:, e1, p1] - S[:, e0, p1] - S[:, e1, p0] + S[:, e0, p0]
+            out = S[:, e1, p1] - S[:, e0, p1] - S[:, e1, p0] + S[:, e0, p0]
+            # An event without particles in the window: the corner
+            # differences leave a residue ~1e-16 of the cumulative sums in the
+            # harmonic slots (complex128 storage), which q Q* - self-pairs in a
+            # nearly empty POI bin turned into -7.7e7 (O+O, 5 < pT < 5.5 GeV).
+            # The count (slot 0) is exact for integer or dyadic weights; a
+            # window whose count is below 1e-13 of the event's total (exactly
+            # 0 then, or a rounding residue for other weights) is empty and
+            # gets exactly zero, as the direct sum.
+            empty = np.abs(out[:, 0]) <= 1e-13 * np.abs(S[:, -1, -1, 0])
+            out[empty, :] = 0.0
+            return out
         # accumulate in double precision: Qn may be stored as complex64
         return Q[:, e0:e1, p0:p1, :].sum(axis=(1, 2), dtype=np.complex128)
 

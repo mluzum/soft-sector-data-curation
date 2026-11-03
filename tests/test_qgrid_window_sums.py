@@ -9,6 +9,8 @@ formulas on a random grid with on- and off-grid window edges:
     mantissas sum exactly in double precision);
   - complex128 storage: equal to rounding;
   - fractional and weighted sums equal the full einsum to rounding;
+  - a window without particles is exactly zero (no residue of the
+    cumulative sums), also for non-dyadic weights;
   - the table is built only after a grid's worth of direct work, and a
     copy with another Qn (a masked jackknife copy) does not reuse it;
   - summed_area_tables = False sums directly.
@@ -34,8 +36,9 @@ def check(name, ok, detail=''):
 
 def grid(dtype, n=300, A=40, P=25, H=4, seed=5):
     rng = np.random.default_rng(seed)
-    Q = rng.poisson(2.0, (n, A, P, H)) * np.exp(1j * rng.uniform(0, 2 * np.pi, (n, A, P, H)))
-    Q[..., 0] = rng.poisson(2.0, (n, A, P))
+    cnt = rng.poisson(2.0, (n, A, P))           # a cell without particles has no Q_n either
+    Q = np.sqrt(cnt)[..., None] * np.exp(1j * rng.uniform(0, 2 * np.pi, (n, A, P, H)))
+    Q[..., 0] = cnt
     return QGridData(Qn=Q.astype(dtype), eta_edges=np.linspace(-4, 4, A + 1), pt_edges=np.linspace(0.0, 2.5, P + 1),
                      cent_mult=np.ones(n), nsamples=np.ones(n))
 
@@ -83,6 +86,30 @@ def test_fractional_and_weighted():
     check('all-zero weights: zero sums', z.shape == (g.n_events, g.Qn.shape[3]) and not z.any())
 
 
+def test_empty_windows():
+    """A window without particles in an event is exactly zero (the table's
+    corner differences would leave ~1e-16 of the cumulative sums in the
+    harmonic slots of complex128 grids), also for non-dyadic weights."""
+    rng = np.random.default_rng(1)
+    n, A, P, H = 400, 50, 40, 4
+    for weight in (1.0, 1.0 / 3.0):
+        cnt = rng.poisson(np.where(np.arange(P) < 30, 40.0, 0.002)[None, None, :], (n, A, P)).astype(float)
+        Q = np.zeros((n, A, P, H), complex)
+        Q[..., 0] = cnt * weight
+        for h in range(1, H):
+            Q[..., h] = weight * np.sqrt(cnt) * np.exp(1j * rng.uniform(0, 2 * np.pi, (n, A, P))) * (cnt > 0)
+        g = QGridData(Qn=Q, eta_edges=np.linspace(-5, 5, A + 1), pt_edges=np.linspace(0, 10, P + 1),
+                      cent_mult=np.ones(n), nsamples=np.ones(n))
+        for _ in range(3):
+            g.acceptance(-5, 5, 0, 10)
+        w = (-2.5, 2.5, 8.0, 8.5)                  # partial in eta, particles in the rows outside it
+        got, want = g.acceptance(*w), direct(g, *w)
+        empty = want[:, 0] == 0
+        check(f'weight {weight:.3g}: empty windows exactly zero ({int(empty.sum())} events), others to rounding',
+              g._sat_cache['table'] is not None and empty.any() and not got[empty].any()
+              and np.all(np.abs(got - want)[~empty] <= 1e-14 * np.abs(Q[..., 0]).sum(axis=(1, 2))[~empty, None]))
+
+
 def test_cache_rules():
     g = grid(np.complex64)
     g.acceptance(-0.5, 0.5, 0.2, 0.5)
@@ -107,7 +134,7 @@ def test_cache_rules():
 
 
 if __name__ == '__main__':
-    for t in (test_acceptance, test_fractional_and_weighted, test_cache_rules):
+    for t in (test_acceptance, test_fractional_and_weighted, test_empty_windows, test_cache_rules):
         print(t.__name__)
         t()
     print(f'\n{sum(results)}/{len(results)} passed')
