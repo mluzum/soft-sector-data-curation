@@ -462,8 +462,45 @@ def _poi_within_charged(container, pid):
     return bool(pdgs) and all(abs(int(p)) in (211, 321, 2212) for p in pdgs)
 
 
+def _pair_gap_arrays_3d(poi, ref, overlap, rw, bins, gap):
+    """v_n{2} sums over pairs |Delta eta| > gap (eta_gap of a record without
+    subevents: the two-particle correlation functions of ATLAS and CMS,
+    2 < |Delta eta| < 5; STAR's Delta eta > 0.05 and > 1).  Per eta cell, the
+    POI (per bin) and reference Q-vectors; pairs of cells i, j weighted by
+    the fraction of their particle pairs beyond the gap
+    (QGridData.pair_gap_fractions), self-pairs removed from the diagonal.
+    Unit weights.  Same layout as correlator_arrays (N2p, D2p per bin; N2,
+    D2), so the v_n{2} cores serve it unchanged."""
+    if poi.rapidity_binned:
+        raise ValueError('a pseudorapidity pair gap needs an eta-binned POI grid')
+    F = ref.pair_gap_fractions(gap)
+    fd = np.diag(F)
+    Wr = ref.window_weights(*rw)
+    Qr = np.einsum('eiph,ip->eih', ref.Qn, Wr).astype(np.complex128)
+    Mr, Qr = Qr[..., 0].real, Qr[..., 1:]
+    out = {'N2': np.real(np.einsum('eih,ij,ejh->eh', Qr, F, np.conj(Qr))) - (Mr @ fd)[:, None],
+           'D2': np.einsum('ei,ij,ej->e', Mr, F, Mr) - Mr @ fd}
+    n2p, d2p = [], []
+    for eta, pt in bins:
+        Wp = poi.window_weights(eta[0], eta[1], pt[0], pt[1])
+        P = np.einsum('eiph,ip->eih', poi.Qn, Wp).astype(np.complex128)
+        m, P = P[..., 0].real, P[..., 1:]
+        shared = (np.einsum('eip,ip->ei', poi.Qn[..., 0].real, Wp * Wr) if overlap
+                  else np.zeros_like(m))                     # POI particles that are reference particles
+        n2p.append(np.real(np.einsum('eih,ij,ejh->eh', P, F, np.conj(Qr))) - (shared @ fd)[:, None])
+        d2p.append(np.einsum('ei,ij,ej->e', m, F, Mr) - shared @ fd)
+    out['N2p'] = np.stack(n2p, axis=-1)
+    out['D2p'] = np.stack(d2p, axis=-1)
+    return out
+
+
 def prepare_cumulant_poi_3d(container, params, order):
-    """3D: receives the unselected container (selects_species)."""
+    """3D: receives the unselected container (selects_species).  A record
+    with eta_gap and no subevents (order 2) correlates only pairs beyond the
+    gap (_pair_gap_arrays_3d; until November 2026 the gap was not applied
+    on 3D containers).  On 2D containers the gap removes only the pairs of
+    a particle with itself (the correlation is flat in rapidity), which the
+    distinct-particle sums do already."""
     from analysis.correlators import Container3D, correlator_arrays
     pid = _poi_species(params)
     poi = _unit_weights(container.select(pid))
@@ -471,6 +508,9 @@ def prepare_cumulant_poi_3d(container, params, order):
     overlap = _poi_within_charged(container, pid)
     (r_eta, r_pt), bins, _ = _cumulant_windows(params)
     rw = (r_eta[0], r_eta[1], r_pt[0], r_pt[1])
+    gap = float(params.get('eta_gap') or 0.0)
+    if order == 2 and gap > 0 and not params.get('subevent_ranges'):
+        return _pair_gap_arrays_3d(poi, ref, overlap, rw, bins, gap)
     n_harm = ref.Qn.shape[-1]
     out = correlator_arrays(Container3D(ref, rw, ref, rw, True), n_harm, order, which=('ref',))
     per_bin = [correlator_arrays(Container3D(poi, (eta[0], eta[1], pt[0], pt[1]), ref, rw, overlap),
@@ -1856,10 +1896,10 @@ def prepare_v1_even_2d(qv, params):
 
 
 def prepare_v1_even_3d(container, params):
-    """Pair sums as prepare_v1_even_2d on unit-weight eta cells: pairs of
-    cells whose centres are more than eta_gap apart (no pair of a particle
-    with itself); without a gap all pairs of distinct particles.  Receives
-    the unselected container (selects_species)."""
+    """Pair sums as prepare_v1_even_2d on unit-weight eta cells, the pairs
+    of cells i, j weighted by the fraction of their particle pairs beyond
+    eta_gap (QGridData.pair_gap_fractions); pairs of a particle with itself
+    removed.  Receives the unselected container (selects_species)."""
     lay = _v1_even_layout(params)
     grid = _unit_weights(container.select(_poi_species(params)))
     if getattr(grid, 'rapidity_binned', False) or getattr(grid, 'pt_integrated', False):
@@ -1868,9 +1908,9 @@ def prepare_v1_even_3d(container, params):
         raise ValueError('rapidity-even v1 needs Q_1 in the container')
     eta = tuple((params.get('single_range') or {}).get('eta', (-1, 1)))
     gap = float(params.get('eta_gap') or 0.0)
-    ax = np.asarray(grid.axis_edges, float)
-    c = 0.5 * (ax[:-1] + ax[1:])
-    G = (np.abs(c[:, None] - c[None, :]) > gap).astype(float) if gap > 0 else np.ones((len(c), len(c)))
+    n_ax = len(grid.axis_edges) - 1
+    G = grid.pair_gap_fractions(gap) if gap > 0 else np.ones((n_ax, n_ax))
+    gd = np.diag(G)
     Q = grid.Qn
     W = [grid.window_weights(eta[0], eta[1], lo, hi) for lo, hi in lay['bins']]
     q = [np.einsum('eip,ip->ei', Q[..., 1].astype(np.complex128), w) for w in W]
@@ -1881,9 +1921,9 @@ def prepare_v1_even_3d(container, params):
         for l in range(k, K):
             n_kl = np.real(np.einsum('ei,ij,ej->e', q[k], G, np.conj(q[l])))
             d_kl = np.einsum('ei,ij,ej->e', m[k], G, m[l])
-            if gap <= 0:        # a particle in both bins is not its own pair
-                shared = np.einsum('eip,ip->e', Q[..., 0].real.astype(float), W[k] * W[l])
-                n_kl, d_kl = n_kl - shared, d_kl - shared
+            # a particle in both bins is not its own pair (same cell: weight G_ii)
+            shared = np.einsum('eip,ip,i->e', Q[..., 0].real.astype(float), W[k] * W[l], gd)
+            n_kl, d_kl = n_kl - shared, d_kl - shared
             N[:, k, l] = N[:, l, k] = n_kl
             D[:, k, l] = D[:, l, k] = d_kl
     return {'N': N, 'D': D, 'layout': lay}

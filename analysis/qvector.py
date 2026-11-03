@@ -446,6 +446,35 @@ class QGridData:
         return np.einsum('ijkh,jk->ih', self.Qn[:, r0:r1, c0:c1, :], W[r0:r1, c0:c1],
                          dtype=np.complex128)
 
+    def pair_gap_fractions(self, gap):
+        """F[i, j]: the fraction of particle pairs, one in eta cell i and one in
+        cell j (uniform within cells), with |eta_a - eta_b| > gap.  Exact for
+        uniform densities: P(|x - y| > g) = 1 - [C(g) - C(-g)], C the CDF of
+        x - y for x, y uniform on the two cells.  The diagonal is a fraction
+        of the distinct pairs of a cell (self-pairs have Delta eta = 0).
+        Eta grids only (a rapidity-binned grid has no eta cells)."""
+        if self.rapidity_binned:
+            raise ValueError('a pseudorapidity pair gap needs an eta-binned grid')
+        e = np.asarray(self.eta_edges, dtype=float)
+        a, w = e[:-1], np.diff(e)
+        g = abs(float(gap))
+
+        def ramp(u, width):              # int_0^u clip(v, 0, width) dv
+            u = np.maximum(u, 0.0)
+            return np.where(u <= width, 0.5 * u * u, 0.5 * width * width + width * (u - width))
+
+        def cdf(t):                      # P(x_i - y_j <= t), x in cell i, y in cell j
+            ai, wi = a[:, None], w[:, None]
+            aj, wj = a[None, :], w[None, :]
+            return (ramp(aj + wj + t - ai, wi) - ramp(aj + t - ai, wi)) / (wi * wj)
+        F = np.clip(1.0 - (cdf(g) - cdf(-g)), 0.0, 1.0)
+        # exactly 0 or 1 where the cells are wholly within or beyond the gap
+        # (the CDF differences leave ~1e-16, which q Q* / m M would turn into
+        # a finite value without pairs)
+        F[F < 1e-12] = 0.0
+        F[F > 1.0 - 1e-12] = 1.0
+        return F
+
     def poi_acceptance(self, eta_min, eta_max, pt_min=0.0, pt_max=1e9):
         """Q of a particle of interest in an eta-pT window: acceptance() on
         eta grids; on a rapidity-binned grid the fractional cell weights of

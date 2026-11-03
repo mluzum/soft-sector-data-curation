@@ -103,8 +103,8 @@ Fields that change dispatch:
   `v1_odd_sp_diff_eta` (3D only).  Rapidity-even v1 declares `v1_even`
   (`fit: factorization`): the experiments fit v11(pTa, pTb) = v1(pTa)
   v1(pTb) - K pTa pTb, K from global momentum conservation, which the
-  models lack, so the model's pair matrix (distinct pairs; on 3D the
-  record's `eta_gap` between cell centres) is factorized without K
+  models lack, so the model's pair matrix (distinct pairs; on 3D only pairs
+  beyond the record's `eta_gap`, `pair_gap_fractions`) is factorized without K
   (`v1_even_factorization`, analysis/v1_even.py: pair-weighted rank-1 fit
   on `fit_pT_bins`, default the record's bins, other bins projected on
   it).  The sign is open: `sign_convention` {pT window, sign}, or
@@ -366,6 +366,18 @@ near c_4 = 0, ratios) the correction is unstable (zr96c2 dp0001, v2{4}
   ordinary v_n{2k} record (`dispatcher.combination_terms`), on the same
   events inside the jackknife; one value per class (`SINGLE_ROW_KEYS`); a
   zero denominator gives NaN; tests/test_toy_mc_cumulant_combination.py.
+- **Pair gaps** (`eta_gap` without subevents, cumulant order 2: the
+  two-particle correlation functions of ATLAS and CMS, 2 < |Delta eta| < 5;
+  STAR's Delta eta > 0.05 and > 1, pair by pair): on 3D containers only
+  pairs beyond the gap are correlated (`_pair_gap_arrays_3d`): the pairs of
+  eta cells i, j weighted by the fraction of their particle pairs with
+  |Delta eta| > gap, exact for particles uniform within cells
+  (`QGridData.pair_gap_fractions`), self-pairs removed.  On 2D containers
+  the gap only removes self-pairs, which the distinct sums do.  Until
+  November 2026 the gap was not applied on 3D.  A gap where the paper
+  describes subevents either side of mid-rapidity is curated as
+  `particles: AB` instead.  No reference pairs gives NaN;
+  tests/test_toy_mc_pair_gap.py.
 - **Two-subevent v_n{2} on 3D grids** (`prepare_vn2_gap_3d`): a subevent
   window that cuts a cell takes it with its overlap fraction (each subevent
   sum enters linearly), and cells inside both windows give their expected

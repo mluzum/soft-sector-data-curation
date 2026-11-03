@@ -213,7 +213,9 @@ def vn_poi(arrays, w, order):
         c2 = c2[:, None]
     if order == 2:
         root = np.sqrt(np.abs(c2))
-        return np.where(root > 0, d2 * np.sign(c2) / np.where(root > 0, root, 1.0), 0.0)
+        # no reference pairs (c2 undefined): NaN, not 0
+        return np.where(np.isnan(root), np.nan,
+                        np.where(root > 0, d2 * np.sign(c2) / np.where(root > 0, root, 1.0), 0.0))
     four_p = _avg(arrays['N4p'], arrays['D4p'], w)
     four = _avg(arrays['N4'], arrays['D4'], w)
     if arrays['N4p'].ndim == 3:
