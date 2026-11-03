@@ -17,8 +17,7 @@ From the paper:
 Records (OO and NeNe; classes 0-1, 1-2, 2-5, 5-10, then 5% to 50%, from the
 tabulated centres):
 - v2{2, |Delta eta| > 2}, v3{2, |Delta eta| > 2}: cumulant order 2 in
-  |eta| < 2.4, the pair gap recorded as eta_gap (not computed, as the
-  ATLAS 2967110 2PC records);
+  |eta| < 2.4, the pair gap as eta_gap (applied on 3D containers);
 - v2{4};
 - the NeNe / OO ratios of the three (system ratios).
 Staged (--staged OUT): the dijet-subtracted v2, v3 and their ratios (no
@@ -91,7 +90,7 @@ def main():
             d['notes'] = {'value': f'{CITE}, Fig. 1. {w} vs centrality, charged particles |eta| < 2.4, 0.3 < pT < 3 '
                                    f'GeV, {label} 5.36 TeV; HF E_T centrality.'
                                    + (' Two-particle correlation function averaged over |Delta eta| > 2 (pair gap, '
-                                      'recorded as eta_gap, not computed).' if order == 2 else ' Q-cumulants.')
+                                      'eta_gap, applied on 3D containers).' if order == 2 else ' Q-cumulants.')
                                    + (' Dijet correlations of 70-80% subtracted.' if sub else '')
                                    + (' No uncertainties (a line in the figure).' if sub else ' Errors: stat and sys.')}
             if sub:

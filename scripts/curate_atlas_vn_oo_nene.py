@@ -19,7 +19,7 @@ Records:
 - v_n^2PC(pT) and v_n^sub(pT), n = 2-4, O+O and Ne+Ne, 0-5% ... 60-70%
   (auxiliary Figs. 1-2; Fig. 5 repeats three of their classes): cumulant
   order 2, reference 0.5-5 GeV (flow_reference.pT), pair gap as eta_gap
-  (not computed); v_n^sub compares best with a model without non-flow;
+  (applied on 3D containers); v_n^sub compares best with a model without non-flow;
 - v_n^sub{2} (0.5 < pT < 5 GeV) and v_n{4} (two subevents) vs centrality
   (Fig. 7a; 1% classes to 5%, then 5%, from the tabulated positions -- the
   Ne+Ne points are displaced only in the figure; the v2{4} point at 68 and
@@ -46,8 +46,8 @@ FCAL = {'estimator': {'name': 'FCal', 'observable': 'ET', 'detector': 'FCal'},
         'eta': [{'min': -4.9, 'max': -3.2}, {'min': 3.2, 'max': 4.9}]}
 SYSTEMS = {'O+O': 'O O --> CHARGED X', 'Ne+Ne': 'NE NE --> CHARGED X'}
 REF_2PC = {'pT': {'min': 0.5, 'max': 5.0},
-           'notes': 'Two-particle correlations, |Delta eta| > 2, reference 0.5 < pT_a < 5 GeV (no pair gap in the '
-                    'computation).'}
+           'notes': 'Two-particle correlations, |Delta eta| > 2, reference 0.5 < pT_a < 5 GeV (the pair gap, eta_gap, is '
+                    'applied on 3D containers).'}
 SUBEVENTS = {'A': {'kinematic_range': {'eta': {'min': -2.5, 'max': 0.0}, 'pT': {'min': 0.5, 'max': 5.0}}},
              'B': {'kinematic_range': {'eta': {'min': 0.0, 'max': 2.5}, 'pT': {'min': 0.5, 'max': 5.0}}}}
 

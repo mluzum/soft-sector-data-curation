@@ -19,9 +19,8 @@ From the paper (Sec. III):
 Records: the all-events column (q_2 fraction 0-1, dv_index 2); the q_3
 tables repeat it (agreeing to 1e-4) and are not used.  method cumulant,
 order 2, pT points with 0.1 GeV windows, reference pT from
-flow_reference.pT.  The pair gap |Delta eta| > 2 is recorded as eta_gap;
-the computation has no pair gap (a model without non-flow differs by the
-longitudinal decorrelation only).  Not curated: the event-shape-selected
+flow_reference.pT.  The pair gap |Delta eta| > 2 is eta_gap, applied on 3D
+containers (on boost-invariant 2D ones it only removes self-pairs).  Not curated: the event-shape-selected
 columns (the pipeline has no q_n selection) and the v_m-v_n correlation
 tables.
 
@@ -67,7 +66,7 @@ def main():
             'dimensionality': 'differential_pT', 'eta_gap': 2.0,
             'flow_reference': {'pT': {'min': 0.5, 'max': 2.0},
                                'notes': 'Two-particle correlations, reference 0.5 < pT_b < 2 GeV, pairs with '
-                                        '2 < |Delta eta| < 5 (no pair gap in the computation).'},
+                                        '2 < |Delta eta| < 5 (the pair gap, eta_gap, is applied on 3D containers).'},
             'notes': {'value': (f'{CITE}. v_{n}(pT) of all events (the q_2 fraction 0-1 column) from two-particle '
                                 'correlations, |eta| < 2.5; pT points without edges (0.1 GeV windows). Statistical '
                                 'errors only (systematics 1-5%, Table II of the paper, not tabulated).')},

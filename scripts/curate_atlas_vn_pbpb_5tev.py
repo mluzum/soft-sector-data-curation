@@ -24,7 +24,7 @@ Records (one per table):
   ATLAS takes the opposite side per track, which in a model without
   non-flow differs only by longitudinal decorrelation);
 - 2PC v_n(pT): cumulant order 2 with the 0.5-5 GeV reference
-  (flow_reference.pT); the pair gap is recorded as eta_gap, not computed;
+  (flow_reference.pT); the pair gap is eta_gap, applied on 3D containers;
 - SP and EP v_n(|eta|): the mirrored FCal sub-event (the side opposite the
   bin), computed at eta > 0 (v_n(eta) is symmetric).
 The pipeline computes the event-plane records with the scalar-product
@@ -145,7 +145,7 @@ def main():
                 d.update({'cumulant_order': 2, 'eta_gap': 2.0,
                           'flow_reference': {'pT': {'min': 0.5, 'max': 5.0},
                                              'notes': 'Two-particle correlations, 2 < |Delta eta| < 5, reference '
-                                                      '0.5 < pT_b < 5 GeV (no pair gap in the computation).'}})
+                                                      '0.5 < pT_b < 5 GeV (the pair gap, eta_gap, is applied on 3D containers).'}})
                 how = 'two-particle correlations (2 < |Delta eta| < 5, reference 0.5 < pT_b < 5 GeV)'
             else:
                 d['flow_reference'] = {'detector': 'FCal', 'eta': FCAL_BOTH,
