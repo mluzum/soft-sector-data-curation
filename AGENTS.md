@@ -115,7 +115,15 @@ Fields that change dispatch:
   tests/test_toy_mc_v1_even.py.  Otherwise refused: the even-harmonic
   machinery would return ~0.
 - `kinematic_range.y.mass`: a rapidity window with one assumed mass (PHOBOS
-  y_pi), spectra only.
+  and ATLAS y_pi): spectra, yields (a window, or per y bin) and <pT>.
+- Per-bin yields and <pT>: eta bins (`dimensionality: differential_eta`)
+  or y bins (`differential_y`; per-bin yields need no dimensionality),
+  all bins of a record in one pass (`pipeline_dispatch._bin_sums_2d` /
+  `_bin_sums_3d`: the per-particle weights of every bin, one matrix
+  product).  Per-bin yields compute on 2D too (until November 2026: 3D
+  only); <pT> per bin until then returned the integrated value under
+  per-bin labels.  A bin without particles gives NaN;
+  tests/test_toy_mc_bins_ypi.py.
 - `method: event_plane` or `scalar_product` with `particles: AB` (STAR's
   eta-sub event plane: the particle in one TPC half, the plane from the
   other; ALICE's two-subevent scalar product): the
@@ -452,8 +460,9 @@ near c_4 = 0, ratios) the correction is unstable (zr96c2 dp0001, v2{4}
   so a column is never scaled twice.
 - **Rapidity with an assumed mass** (`kinematic_range.y.mass`, e.g. PHOBOS
   y_π): the window is converted per species and pT (2D:
-  `rapidity_window_extent`) or per pT cell (3D: `acceptance_rapidity`).
-  It is implemented for spectra only; the dispatcher refuses it elsewhere.
+  `rapidity_window_extent`) or per pT cell (3D: `acceptance_rapidity`,
+  `window_weights(var='y', mass=...)`).  Implemented for spectra, yields
+  and <pT> (`dispatcher.MASS_ASSUMED_RAPIDITY_KEYS`); refused elsewhere.
 - **Experimental errors**: `load_experimental` returns the total error, all
   HEPData components in quadrature (asymmetric: the mean of the two sides;
   `x%`: relative to the value).  Until November 2026 a third component was

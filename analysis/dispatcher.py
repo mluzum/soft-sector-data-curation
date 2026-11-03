@@ -646,7 +646,7 @@ def resolve(record):
             # whether the record has eta bin edges (differential_eta).
             if obs_type == "particle_yields":
                 kr = record.get("kinematic_range", {})
-                if len(axis_bins(kr.get("eta", {}))) > 1:
+                if len(axis_bins(kr.get("eta", {}))) > 1 or len(axis_bins(kr.get("y", {}))) > 1:
                     # Per-eta yield: needs the per-eta compute key.
                     entry = dict(entry)
                     entry["compute"] = "yield_dNch_deta_per_eta"
@@ -706,7 +706,8 @@ def resolve(record):
 
 
 # Computations that implement kinematic_range.y.mass.
-MASS_ASSUMED_RAPIDITY_KEYS = {"spectra_invariant_yield"}
+MASS_ASSUMED_RAPIDITY_KEYS = {"spectra_invariant_yield", "yield_dNch_deta", "yield_dNch_deta_per_eta",
+                              "mean_pt"}
 
 VN2_GAP_POI_ENTRY = {
     "compute": "vn2_gap_poi",
@@ -1109,11 +1110,16 @@ def extract_differential_bins(exp_rec):
     kr = exp_rec.get('kinematic_range', {}) or {}
     pT = kr.get('pT', {}) or {}
     eta = kr.get('eta', {}) or {}
+    y = kr.get('y', {}) or {}
     dim = exp_rec.get('dimensionality')
     if dim == 'differential_pT':
         return 'pT', axis_bins(pT), (eta.get('min'), eta.get('max'))
     elif dim == 'differential_eta':
         return 'eta', axis_bins(eta), (pT.get('min'), pT.get('max'))
+    elif dim == 'differential_y':
+        # bins in rapidity (kinematic_range.y; with y.mass one assumed mass:
+        # ATLAS y_pi)
+        return 'y', axis_bins(y), (pT.get('min'), pT.get('max'))
     elif dim == 'integrated' or dim is None:
         # Spectra-type records carry their measurement pT bins explicitly;
         # expose them so prepare functions see the real binning.
@@ -1133,6 +1139,9 @@ def extract_differential_bins(exp_rec):
             bins = axis_bins(eta)
             if len(bins) > 1:
                 return 'eta', bins, (pT.get('min'), pT.get('max'))
+            bins = axis_bins(y)
+            if len(bins) > 1:
+                return 'y', bins, (pT.get('min'), pT.get('max'))
         return None, [], None
     # Fallback: if kinematic_range.pT.bins exists, treat as pT-differential
     bins = axis_bins(pT)

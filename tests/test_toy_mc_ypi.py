@@ -124,16 +124,20 @@ def test_true_rapidity_identified_3d():
 
 
 def test_refused_elsewhere():
+    """Spectra, yields and <pT> implement y.mass (tests/test_toy_mc_bins_ypi.py
+    for the last two); a flow coefficient does not."""
     from analysis.dispatcher import resolve
     rec = record('charged', BINS)
-    rec.update(observable_type='particle_yields', value_type='dN_dy', observable='dN_dy')
+    rec.update(observable_type='flow_vn', value_type='v2{2}', method='cumulant', cumulant_order=2, harmonic=2,
+               dimensionality='integrated')
+    rec['kinematic_range']['eta'] = dict(min=-0.5, max=0.5)
     try:
         resolve(rec)
         ok = False
     except ValueError as e:
         ok = 'assumed mass' in str(e)
     results.append(ok)
-    print(f"  {'PASS' if ok else 'FAIL'} a yield with a mass-assumed rapidity window is refused")
+    print(f"  {'PASS' if ok else 'FAIL'} a flow coefficient with a mass-assumed rapidity window is refused")
 
 
 if __name__ == '__main__':

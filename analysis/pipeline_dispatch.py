@@ -813,6 +813,67 @@ def _wrap_vn2_gap_diff_eta(data, w):
 
 # ── Yield / multiplicity prepare + wrappers ─────────────────────────────────
 
+# ── Windows and per-bin sums for yields and <pT> (eta, or y with one mass) ──
+
+def _yield_windows(params):
+    """(var, [(lo, hi)], mass): the record's eta or y bins (differential_eta,
+    differential_y, or per-eta/y yields), else its one window; mass the
+    assumed mass of a y window (kinematic_range.y.mass), else None."""
+    sk = params.get('single_range') or {}
+    mass = sk.get('y_mass')
+    var, bins = params.get('differential_var'), params.get('differential_bins') or []
+    if var in ('eta', 'y') and bins:
+        return var, [(float(a), float(b)) for a, b in bins], mass
+    eta = sk.get('eta') or (None, None)
+    if eta[0] is not None and eta[1] is not None:
+        return 'eta', [(float(eta[0]), float(eta[1]))], None
+    y = sk.get('y') or (None, None)
+    return 'y', ([(float(y[0]), float(y[1]))] if y[0] is not None and y[1] is not None else []), mass
+
+
+def _bin_sums_3d(grid, arrays, var, windows, pt, mass):
+    """Each (n_events, n_axis, n_pt) array summed in each window with
+    fractional cell weights (QGridData.window_weights: eta windows by
+    overlap, y windows of one mass mapped per pT cell): (n_events, n_bins)
+    each, all bins in one matrix product (a pass per bin and class took
+    minutes on 40k-event grids)."""
+    W = np.stack([grid.window_weights(lo, hi, pt[0], pt[1], var=var, mass=mass, fractional=True)
+                  for lo, hi in windows]).reshape(len(windows), -1).T
+    return [np.asarray(a, dtype=float).reshape(a.shape[0], -1) @ W for a in arrays]
+
+
+def _bin_weights_2d(qv, var, windows, mass):
+    """(n_bins, n_species, n_pt) per-particle weights of each window on the
+    boost-invariant container: the dy/deta Jacobian of an eta window, the
+    true-rapidity extent of a y window of one assumed mass, or the window
+    width of a true-rapidity window; per unit of the container's rapidity."""
+    from analysis.observables_2d import _make_jacobian_list, rapidity_window_extent
+    out = []
+    for lo, hi in windows:
+        if var == 'eta':
+            j = _make_jacobian_list(qv.pt_centers, qv.masses, lo, hi)
+        elif mass is not None:
+            j = np.array([rapidity_window_extent(qv.pt_centers, m, lo, hi, float(mass)) for m in qv.masses])
+        else:
+            j = np.full((len(qv.masses), len(qv.pt_centers)), hi - lo)
+        out.append(j / (2.0 * qv.rap_max))
+    return np.stack(out)
+
+
+def _bin_sums_2d(qv, arrays, species_idx, var, windows, mass, pt):
+    """Each (n_events, n_species, n_pt) array weighted per window (whole sim
+    pT cells in the record's pT range) and divided by nsamples: (n_events,
+    n_bins) each, one matrix product."""
+    lo, hi = _find_pt_slice_edges(qv.pt_bin_edges, pt[0], pt[1])
+    W = _bin_weights_2d(qv, var, windows, mass)
+    if species_idx is not None:
+        W = W[:, species_idx, :]
+        arrays = [a[:, species_idx, :] for a in arrays]
+    W = W[:, :, lo:hi].reshape(len(windows), -1).T
+    ns = np.asarray(qv.nsamples, dtype=float)[:, None]
+    return [np.asarray(a[:, :, lo:hi], dtype=float).reshape(a.shape[0], -1) @ W / ns for a in arrays]
+
+
 def prepare_yield_2d(qv, params):
     """Extract Q0 in the eta/pT acceptance for dNch/deta.
 
@@ -828,6 +889,13 @@ def prepare_yield_2d(qv, params):
         z = np.zeros(qv.n_events)
         return {'Q0': z, 'delta_eta': 1.0}
     lo, hi = _find_pt_slice_edges(qv.pt_bin_edges, *sk.get('pT', (0.1, 10)))
+    y = sk.get('y') or (None, None)
+    if (eta[0] is None or eta[1] is None) and sk.get('y_mass') is not None and y[0] is not None:
+        # a rapidity window computed with one assumed mass (ATLAS y_pi): per
+        # species and pT, its true-rapidity extent
+        Q0 = _bin_sums_2d(qv, [qv.Qn[:, :, 0, :].real], species_idx, 'y', [tuple(y)], sk['y_mass'],
+                          sk.get('pT', (0.1, 10)))[0][:, 0] * charge_factor
+        return {'Q0': Q0, 'delta_eta': y[1] - y[0]}
     if eta[0] is None or eta[1] is None:
         # dy mode: no Jacobian; normalize by total rapidity width
         counts_raw = qv.Qn[:, :, 0, :].real
@@ -868,7 +936,7 @@ def prepare_yield_3d(grid, params):
         # selection).  A mixture (charged hadrons) has no single mass: NaN.
         # (Until November 2026 every rapidity-window yield was 0 on 3D.)
         y = sk.get('y') or (None, None)
-        mass = getattr(grid, 'mass', None)
+        mass = sk.get('y_mass') if sk.get('y_mass') is not None else getattr(grid, 'mass', None)
         if y[0] is None or y[1] is None or mass is None:
             return {'Q0': np.full(grid.n_events, np.nan), 'delta_eta': 1.0}
         Q0 = grid.acceptance_rapidity(y[0], y[1], float(mass), pt[0], pt[1])[:, 0].real / grid.nsamples
@@ -904,14 +972,30 @@ def prepare_yield_3d_per_eta(grid, params):
         return {'Q0_per_eta': np.zeros((n_events, n_eta_bins)),
                 'delta_eta_per_bin': np.zeros(n_eta_bins)}
     pt = sk.get('pT', (0.1, 10))
-    pT_lo, pT_hi = pt[0], min(pt[1], 1e9) if pt[1] else 1e9
-    Q0_per_eta = np.zeros((n_events, len(bins)))
-    delta_eta_per_bin = np.zeros(len(bins))
-    for b, (e_lo, e_hi) in enumerate(bins):
-        Q = _yield_acceptance(grid, e_lo, e_hi, pT_lo, pT_hi)
-        Q0_per_eta[:, b] = Q[:, 0].real / grid.nsamples
-        delta_eta_per_bin[b] = abs(e_hi - e_lo)
-    return {'Q0_per_eta': Q0_per_eta, 'delta_eta_per_bin': delta_eta_per_bin}
+    pt = (pt[0], min(pt[1], 1e9) if pt[1] else 1e9)
+    var, windows, mass = _yield_windows(params)
+    if var == 'y' and mass is None:
+        mass = getattr(grid, 'y_mass', None) if getattr(grid, 'rapidity_binned', False) else getattr(grid, 'mass', None)
+        if mass is None:           # true rapidity of a mixture: no single mass
+            return {'Q0_per_eta': np.full((n_events, len(windows)), np.nan),
+                    'delta_eta_per_bin': np.array([hi - lo for lo, hi in windows])}
+    # all bins in one pass (fractional cells: eta by overlap, y mapped per pT cell)
+    Q0_per_eta = _bin_sums_3d(grid, [grid.Qn[..., 0].real], var, windows, pt, mass)[0] / grid.nsamples[:, None]
+    return {'Q0_per_eta': Q0_per_eta, 'delta_eta_per_bin': np.array([abs(hi - lo) for lo, hi in windows])}
+
+
+def prepare_yield_2d_per_eta(qv, params):
+    """Per-bin dN/deta(eta) or dN/dy(y) on the boost-invariant container:
+    the Jacobian (eta bins) or true-rapidity extent (y bins of one assumed
+    mass) of every bin, one pass."""
+    var, windows, mass = _yield_windows(params)
+    species_idx, charge_factor, found = _get_species_selection(params.get('particle_id'), qv)
+    widths = np.array([abs(hi - lo) for lo, hi in windows])
+    if not found or not windows:
+        return {'Q0_per_eta': np.zeros((qv.n_events, max(len(windows), 1))), 'delta_eta_per_bin': widths}
+    sk = params.get('single_range') or {}
+    Q0 = _bin_sums_2d(qv, [qv.Qn[:, :, 0, :].real], species_idx, var, windows, mass, sk.get('pT', (0.1, 10)))[0]
+    return {'Q0_per_eta': Q0 * charge_factor, 'delta_eta_per_bin': widths}
 
 
 def _wrap_yield_per_eta(data, w):
@@ -1174,6 +1258,14 @@ def prepare_mean_pt_2d(qv, params):
     counts_raw = qv.Qn[:, :, 0, :].real
     c = counts_raw[:, species_idx, :] if species_idx is not None else counts_raw
     num_src_full = _mean_pt_moments(qv, counts_raw)
+    var, windows, mass = _yield_windows(params)
+    if (params.get('differential_var') in ('eta', 'y') and params.get('differential_bins')) \
+            or (var == 'y' and mass is not None):
+        # per eta or y bin, or a y window of one assumed mass (y_pi): the
+        # same per-particle weights in numerator and denominator
+        den, num = _bin_sums_2d(qv, [counts_raw, num_src_full], species_idx, var, windows, mass,
+                                sk.get('pT', (0.1, 10)))
+        return {'num': num, 'den': den}
     num_raw = num_src_full[:, species_idx, :] if species_idx is not None \
         else num_src_full
     if eta[0] is None or eta[1] is None:
@@ -1202,6 +1294,18 @@ def prepare_mean_pt_3d(grid, params):
     else:
         mids = 0.5 * (grid.pt_edges[:-1] + grid.pt_edges[1:])
         num_src = grid.Qn[:, :, :, 0].real * mids[np.newaxis, np.newaxis, :]
+    var, windows, mass = _yield_windows(params)
+    if (params.get('differential_var') in ('eta', 'y') and params.get('differential_bins')) \
+            or (var == 'y' and mass is not None):
+        # per eta or y bin, or a y window of one assumed mass (y_pi)
+        if var == 'y' and mass is None:
+            mass = getattr(grid, 'y_mass', None) if getattr(grid, 'rapidity_binned', False) else getattr(grid, 'mass', None)
+            if mass is None:
+                nan = np.full((grid.n_events, len(windows)), np.nan)
+                return {'num': nan, 'den': nan}
+        den, num = _bin_sums_3d(grid, [grid.Qn[..., 0].real, num_src], var, windows, pt, mass)
+        ns = np.asarray(grid.nsamples, dtype=float)[:, None]
+        return {'num': num / ns, 'den': den / ns}
     if eta[0] is None or eta[1] is None:
         # A rapidity window (<pT> of an identified species): fractional cell
         # weights of the window with the species' mass per pT cell; a mixture
@@ -1221,7 +1325,14 @@ def prepare_mean_pt_3d(grid, params):
 
 
 def _wrap_mean_pt(data, w):
-    return compute_mean_pt(data['num'], data['den'], w)
+    num, den = np.asarray(data['num']), np.asarray(data['den'])
+    if num.ndim == 2:              # per eta or y bin; a bin without particles is NaN
+        w = np.asarray(w, dtype=float)
+        if w.sum() < 2:
+            return np.full(num.shape[1], np.nan)
+        d, n = w @ den, w @ num
+        return np.where(d > 0, n / np.where(d > 0, d, 1.0), np.nan)
+    return compute_mean_pt(num, den, w)
 
 
 # ── pT-fluctuation + transverse-energy prepares ─────────────────────────────
@@ -2431,10 +2542,10 @@ PIPELINE_DISPATCH = {
     },
     "yield_dNch_deta_per_eta": {
         "core_fn": _wrap_yield_per_eta,
-        "prepare_data_2d": None,
+        "prepare_data_2d": prepare_yield_2d_per_eta,
         "prepare_data_3d": prepare_yield_3d_per_eta,
         "n_obs_per_cent": None,  # depends on n_eta bins
-        "description": "dNch/dη(eta) per-eta-bin from 3D grid (matches PHOBOS dN/dη(eta) schema)",
+        "description": "dN/deta(eta) or dN/dy(y) per bin (eta bins, or y bins of one assumed mass)",
     },
     "spectra_invariant_yield": {
         "core_fn": _wrap_spectra,
