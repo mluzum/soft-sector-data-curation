@@ -118,9 +118,9 @@ Fields that change dispatch:
   and ATLAS y_pi): spectra, yields (a window, or per y bin) and <pT>.
 - Per-bin yields and <pT>: eta bins (`dimensionality: differential_eta`)
   or y bins (`differential_y`; per-bin yields need no dimensionality),
-  all bins of a record in one pass (`pipeline_dispatch._bin_sums_2d` /
-  `_bin_sums_3d`: the per-particle weights of every bin, one matrix
-  product).  Per-bin yields compute on 2D too (until November 2026: 3D
+  all bins of a record in one pass (`pipeline_dispatch._linear_sums_2d` /
+  `_linear_sums_3d`: the per-particle weights of every bin, one matrix
+  product; a pT cell the window cuts: below).  Per-bin yields compute on 2D too (until November 2026: 3D
   only); <pT> per bin until then returned the integrated value under
   per-bin labels.  A bin without particles gives NaN;
   tests/test_toy_mc_bins_ypi.py.
@@ -344,9 +344,29 @@ near c_4 = 0, ratios) the correction is unstable (zr96c2 dp0001, v2{4}
   `acceptance()` snaps to whole cells; it is fine for ratios like v_n but
   not for yields, which use the fractional overlap too (dN/deta windows
   off the grid, e.g. shifted p+Pb windows).  A rapidity window (dN/dy,
-  no eta) takes the species' mass per pT cell (`acceptance_rapidity`);
+  no eta) takes the species' mass per pT cell (`window_weights`);
   a mixture (charged) gives NaN.  Until November 2026 it gave 0 on 3D;
   <pT> in a rapidity window (identified species) gave 0/0 until then.
+- **pT windows that cut a cell** (yields and <pT>, integrated or per bin,
+  2D and 3D; ATLAS O+O pT > 0.27 GeV on 0.2 GeV 3D cells and 0.05 GeV 2D
+  cells): `_linear_sums_2d` / `_linear_sums_3d` sum each window with the
+  cut cell at its flat share (uniform in pT^2) and attach a `pt_subcell`
+  block; the core (`_pt_subcell_corrected`) replaces the flat share by the
+  share of the spectra model above (`spectra_shape.window_shares`, all
+  windows at once; the pT-weighted share for sums of pT), per class and
+  jackknife replicate.  The share of a density applies to the whole cell's
+  count in the window: in a y window mapped onto an eta grid the count in
+  the window mapped at the part's pT carried <dy/deta>_cell /
+  <dy/deta>_part (-0.6% at y_pi pT > 0.27).  Toy, 0.2 GeV cells: 3D eta
+  windows within 0.1% of the particle level, y windows within 0.5% (each
+  cell's window mapped at its centre, as with whole cells); 2D within
+  0.35% on 0.05 GeV cells.  Until November 2026 an integrated 3D <pT> and
+  every 2D yield and <pT> snapped the window to whole cells (pT > 0.27 on
+  0.2 GeV cells: <pT> from 0.4 GeV, +16%; 2D yields -24%), and 3D yields
+  and per-bin <pT> kept the flat share (+-3%);
+  tests/test_toy_mc_pt_cut_cells.py.  dE_T/deta takes the flat share on
+  3D and whole cells on 2D (no record cuts a cell); pT fluctuations (pair
+  sums of unit weights) take whole cells.
 - **Charge-scaled 3D grids**: normalized observables (flow, correlations,
   mean pT and its fluctuations) are computed on unit weights
   (`pipeline_dispatch._unit_weights`); only `ABSOLUTE_KEYS` keep the

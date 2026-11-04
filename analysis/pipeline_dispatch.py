@@ -41,7 +41,7 @@ from analysis.observables_2d import (
     compute_nac_mn,
 )
 
-from analysis.qvector import QGridData, _snap_searchsorted
+from analysis.qvector import QGridData, _overlap_fractions, _pt_squared, _snap_searchsorted
 
 PTCUTS = np.array([
     0.0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45,
@@ -174,12 +174,15 @@ def _grid_slices(grid, eta, pt):
 
 def _window_sum(grid, arr, eta, pt, fractional=False):
     """Sum a per-cell array (n_events, n_axis, n_pt) over an eta-pT window, in
-    double precision: whole cells by the snapped edges on eta grids
-    (_grid_slices).  On a rapidity-binned grid the window is mapped per pT
-    cell (QGridData.window_weights): fractional cell weights for linear sums
-    (<pT>, E_T), whole cells by centre where pair terms need unit weights
-    (pT fluctuations)."""
-    if getattr(grid, 'rapidity_binned', False):
+    double precision.  fractional (linear sums: E_T): cells cut by the
+    window count by overlap (QGridData.window_weights: uniform in eta and in
+    pT^2; on a rapidity-binned grid the window mapped per pT cell).
+    Otherwise (pair terms that need unit weights: pT fluctuations) whole
+    cells, by the snapped edges on eta grids (_grid_slices) or by centre on
+    a rapidity-binned grid.  (Until November 2026 fractional sums on eta
+    grids snapped too: an integrated <pT> at pT > 0.27 GeV on 0.2 GeV cells
+    started at 0.4.)"""
+    if getattr(grid, 'rapidity_binned', False) or fractional:
         return np.einsum('ijk,jk->i', arr, grid.window_weights(eta[0], eta[1], pt[0], pt[1],
                                                                fractional=fractional))
     se, sp_ = _grid_slices(grid, eta, pt)
@@ -833,15 +836,173 @@ def _yield_windows(params):
     return 'y', ([(float(y[0]), float(y[1]))] if y[0] is not None and y[1] is not None else []), mass
 
 
-def _bin_sums_3d(grid, arrays, var, windows, pt, mass):
-    """Each (n_events, n_axis, n_pt) array summed in each window with
-    fractional cell weights (QGridData.window_weights: eta windows by
-    overlap, y windows of one mass mapped per pT cell): (n_events, n_bins)
-    each, all bins in one matrix product (a pass per bin and class took
-    minutes on 40k-event grids)."""
-    W = np.stack([grid.window_weights(lo, hi, pt[0], pt[1], var=var, mass=mass, fractional=True)
-                  for lo, hi in windows]).reshape(len(windows), -1).T
-    return [np.asarray(a, dtype=float).reshape(a.shape[0], -1) @ W for a in arrays]
+# ── linear window sums (yields, <pT>): cut pT cells ─────────────────────────
+#
+# A record's pT window need not follow the container's cells (ATLAS O+O
+# pT > 0.27 GeV on 0.2 GeV cells).  The prepares sum every window with the
+# cut cell at its flat share (uniform in pT^2) and attach a 'pt_subcell'
+# block; the core replaces the flat share by the share of the local model of
+# the class-averaged spectrum (analysis.spectra_shape, as for spectra; the
+# pT-weighted share for sums of pT), per class and jackknife replicate
+# (_pt_subcell_corrected).  Until November 2026 an integrated 3D <pT> and
+# every 2D yield or <pT> snapped the window to whole cells (pT > 0.27 on
+# 0.2 GeV cells: <pT> from 0.4, +16%; 2D yields -24%), and 3D yields and
+# per-bin <pT> kept the flat share (+-3% on a thermal toy).
+
+def _pt_cut(edges, pt):
+    """((lo, hi), fp, parts) of a pT window on the container's cells: the
+    window (a bound within 1e-9 of an edge on it, clipped to the cells), the
+    flat share of every cell (overlap uniform in pT^2, as
+    QGridData.window_weights) and the cells it covers only in part,
+    ((cell, lo, hi), ...)."""
+    e = np.asarray(edges, dtype=float)
+    lo = e[0] if pt[0] is None else max(float(pt[0]), e[0])
+    hi = e[-1] if pt[1] is None else min(float(pt[1]), e[-1])
+    lo, hi = (float(e[np.argmin(np.abs(e - x))]) if np.min(np.abs(e - x)) <= 1e-9 else float(x)
+              for x in (lo, hi))
+    fp = _overlap_fractions(e, lo, hi, _pt_squared)
+    return (lo, hi), fp, tuple((int(c), lo, hi) for c in np.nonzero((fp > 0.0) & (fp < 1.0))[0])
+
+
+def _subcell_block(edges, parts, cell_counts, terms, mass, var, windows):
+    """The 'pt_subcell' block of a prepare (see _pt_subcell_corrected)."""
+    return {'edges': tuple(float(x) for x in edges), 'parts': parts,
+            'cells': cell_counts[0], 'cell_counts': cell_counts[1], 'terms': terms, 'mass': float(mass),
+            'eta_windows': tuple((float(a), float(b)) for a, b in windows) if var == 'eta' else None}
+
+
+def _needed_cells(parts, n_pt):
+    """The cells whose class-averaged counts fix the shape of the cut cells."""
+    return sorted({k for c, _, _ in parts for k in (c - 1, c, c + 1) if 0 <= k < n_pt})
+
+
+def _linear_sums_3d(grid, arrays, var, windows, pt, mass, shape_mass):
+    """Window sums of per-cell arrays on a 3D grid, per event and window.
+
+    arrays: ((name, source, weight), ...), source 'count' (the grid's
+    counts) or an (n_events, n_axis, n_pt) array, weight the share of a cut
+    cell it takes ('count', or 'pT' for sums of pT).  Cells count by overlap
+    (QGridData.window_weights: eta by overlap, y windows mapped per pT
+    cell); a pT cell the window cuts enters at its flat share.  Returns
+    ({name: (n_events, n_windows)}, 'pt_subcell' block or None), divided by
+    nsamples.  One eta window on an eta grid: separable sums (the counts
+    from the summed-area tables)."""
+    n_ev, n_win = grid.n_events, len(windows)
+    ns = np.asarray(grid.nsamples, dtype=float)[:, None]
+    pt_int = getattr(grid, 'pt_integrated', False)
+    n_pt = grid.Qn.shape[2]
+    if pt_int:
+        fp, parts = np.ones(n_pt), ()
+    else:
+        pt, fp, parts = _pt_cut(grid.pt_edges, pt)
+    if not windows:
+        return {name: np.zeros((n_ev, 0)) for name, _, _ in arrays}, None
+
+    def src(a, cells=None):
+        if isinstance(a, str):
+            return grid.Qn[:, :, :, 0].real if cells is None else grid.Qn[:, :, cells, 0].real
+        return a if cells is None else a[:, :, cells]
+
+    sums = {}
+    if n_win == 1 and var == 'eta' and not grid.rapidity_binned:
+        fe = _overlap_fractions(grid.eta_edges, windows[0][0], windows[0][1])
+        ie, ip = np.nonzero(fe)[0], np.nonzero(fp)[0]
+        for name, a, _ in arrays:
+            if not len(ie) or not len(ip):
+                sums[name] = np.zeros((n_ev, 1))
+            elif isinstance(a, str):
+                sums[name] = grid._separable_sum(fe, fp)[:, :1].real / ns
+            else:
+                e0, e1, p0, p1 = ie[0], ie[-1] + 1, ip[0], ip[-1] + 1
+                sums[name] = np.einsum('ijk,j,k->i', a[:, e0:e1, p0:p1], fe[e0:e1], fp[p0:p1],
+                                       dtype=np.float64)[:, None] / ns
+        if parts:
+            W = np.outer(fe, fp)[None]
+            Wfull = np.broadcast_to(fe[None, :, None], (1, len(fe), n_pt))
+    else:
+        W = np.stack([grid.window_weights(lo, hi, pt[0], pt[1], var=var, mass=mass, fractional=True)
+                      for lo, hi in windows])
+        Wf = W.reshape(n_win, -1).T
+        for name, a, _ in arrays:
+            sums[name] = np.asarray(src(a), dtype=float).reshape(n_ev, -1) @ Wf / ns
+        if parts:   # whole cells in the window (y windows mapped at the cell centre)
+            Wfull = np.stack([grid.window_weights(lo, hi, grid.pt_edges[0], grid.pt_edges[-1], var=var,
+                                                  mass=mass, fractional=True) for lo, hi in windows])
+    if not parts:
+        return sums, None
+    cells = _needed_cells(parts, n_pt)
+    pc = [c for c, _, _ in parts]
+    cc = np.einsum('iak,wak->iwk', np.asarray(src('count', cells), dtype=float), Wfull[:, :, cells]) / ns[:, :, None]
+    terms = {}
+    for name, a, wt in arrays:
+        cols = np.asarray(src(a, pc), dtype=float)
+        terms[name] = {'weight': wt,
+                       'part': np.einsum('iap,wap->iwp', cols, Wfull[:, :, pc]) / ns[:, :, None],
+                       'flat': np.einsum('iap,wap->iw', cols, W[:, :, pc]) / ns}
+    return sums, _subcell_block(grid.pt_edges, parts, (tuple(cells), cc), terms, shape_mass, var, windows)
+
+
+def _linear_sums_2d(qv, arrays, species_idx, var, windows, mass, pt, shape_mass, scale=1.0):
+    """As _linear_sums_3d on the boost-invariant container: sources 'count'
+    or (n_events, n_species, n_pt) arrays, the per-particle weights of every
+    window (_bin_weights_2d), the selected species; sums times scale (the
+    charge factor)."""
+    n_ev, n_win = qv.n_events, len(windows)
+    ns = np.asarray(qv.nsamples, dtype=float)[:, None]
+    pt, fp, parts = _pt_cut(qv.pt_bin_edges, pt)
+    if not windows:
+        return {name: np.zeros((n_ev, 0)) for name, _, _ in arrays}, None
+    Wb = _bin_weights_2d(qv, var, windows, mass)
+
+    def src(a):
+        a = qv.Qn[:, :, 0, :].real if isinstance(a, str) else a
+        return a[:, species_idx, :] if species_idx is not None else a
+    if species_idx is not None:
+        Wb = Wb[:, species_idx, :]
+    W = (Wb * fp[None, None, :]).reshape(n_win, -1).T
+    sums = {name: np.asarray(src(a), dtype=float).reshape(n_ev, -1) @ W / ns * scale for name, a, _ in arrays}
+    if not parts:
+        return sums, None
+    cells = _needed_cells(parts, len(fp))
+    cc = np.einsum('isk,wsk->iwk', np.asarray(src('count')[:, :, cells], dtype=float), Wb[:, :, cells]) \
+        / ns[:, :, None]
+    pc = [c for c, _, _ in parts]
+    terms = {}
+    for name, a, wt in arrays:
+        part = np.einsum('isp,wsp->iwp', np.asarray(src(a)[:, :, pc], dtype=float), Wb[:, :, pc]) \
+            / ns[:, :, None] * scale
+        terms[name] = {'weight': wt, 'part': part, 'flat': part @ fp[pc]}
+    return sums, _subcell_block(qv.pt_bin_edges, parts, (tuple(cells), cc), terms, shape_mass, var, windows)
+
+
+def _pt_subcell_corrected(data, w):
+    """data with the flat share of every cut pT cell replaced by the share of
+    the class's spectrum (analysis.spectra_shape.window_shares: the local
+    model of the class-averaged spectrum in each window, fitted to the
+    neighbouring cells; the pT-weighted share for sums of pT).  Each term
+    gains sum_parts f x (the cut cell's sum in the window, whole cell) minus
+    the flat part the prepare included; data without a block, or a class
+    without weight, is returned as it is.  (The share of a rapidity
+    density applies to the whole cell's count in a mapped window, not to
+    the count in the window mapped at the part's pT: that carried a factor
+    <dy/deta>_cell / <dy/deta>_part, -0.6% at y_pi pT > 0.27 on 0.2 GeV
+    cells.)"""
+    sub = data.get('pt_subcell') if isinstance(data, dict) else None
+    w = np.asarray(w, dtype=float)
+    if not sub or not w.sum() > 0:
+        return data
+    from analysis.spectra_shape import window_shares
+    cc = np.tensordot(w, sub['cell_counts'], axes=(0, 0)) / w.sum()          # (n_windows, n_cells kept)
+    mean = np.full((cc.shape[0], len(sub['edges']) - 1), np.nan)
+    mean[:, list(sub['cells'])] = cc
+    weights = tuple(sorted({t['weight'] for t in sub['terms'].values()}))
+    f = window_shares(sub['edges'], mean, sub['parts'], sub['mass'], sub['eta_windows'], weights)
+    out = dict(data)
+    for name, t in sub['terms'].items():
+        corr = np.einsum('iwp,wp->iw', t['part'], f[t['weight']]) - t['flat']
+        x = np.asarray(data[name], dtype=float)
+        out[name] = x + (corr if x.ndim == 2 else corr[:, 0])
+    return out
 
 
 def _bin_weights_2d(qv, var, windows, mass):
@@ -862,18 +1023,11 @@ def _bin_weights_2d(qv, var, windows, mass):
     return np.stack(out)
 
 
-def _bin_sums_2d(qv, arrays, species_idx, var, windows, mass, pt):
-    """Each (n_events, n_species, n_pt) array weighted per window (whole sim
-    pT cells in the record's pT range) and divided by nsamples: (n_events,
-    n_bins) each, one matrix product."""
-    lo, hi = _find_pt_slice_edges(qv.pt_bin_edges, pt[0], pt[1])
-    W = _bin_weights_2d(qv, var, windows, mass)
-    if species_idx is not None:
-        W = W[:, species_idx, :]
-        arrays = [a[:, species_idx, :] for a in arrays]
-    W = W[:, :, lo:hi].reshape(len(windows), -1).T
-    ns = np.asarray(qv.nsamples, dtype=float)[:, None]
-    return [np.asarray(a[:, :, lo:hi], dtype=float).reshape(a.shape[0], -1) @ W / ns for a in arrays]
+def _with_subcell(d, sub):
+    """d with its 'pt_subcell' block, if any."""
+    if sub is not None:
+        d['pt_subcell'] = sub
+    return d
 
 
 def prepare_yield_2d(qv, params):
@@ -881,7 +1035,8 @@ def prepare_yield_2d(qv, params):
 
     dy-mode: when the record specifies kinematic_range.y and no eta, return
     raw (un-Jacobian-weighted) counts normalized by the rapidity width —
-    the natural dN/dy of a flat-y container.
+    the natural dN/dy of a flat-y container.  A pT cell the window cuts:
+    _linear_sums_2d.
     """
     sk = params.get('single_range', {})
     eta = sk.get('eta', (-1, 1))
@@ -890,36 +1045,19 @@ def prepare_yield_2d(qv, params):
     if not species_found:
         z = np.zeros(qv.n_events)
         return {'Q0': z, 'delta_eta': 1.0}
-    lo, hi = _find_pt_slice_edges(qv.pt_bin_edges, *sk.get('pT', (0.1, 10)))
     y = sk.get('y') or (None, None)
     if (eta[0] is None or eta[1] is None) and sk.get('y_mass') is not None and y[0] is not None:
         # a rapidity window computed with one assumed mass (ATLAS y_pi): per
         # species and pT, its true-rapidity extent
-        Q0 = _bin_sums_2d(qv, [qv.Qn[:, :, 0, :].real], species_idx, 'y', [tuple(y)], sk['y_mass'],
-                          sk.get('pT', (0.1, 10)))[0][:, 0] * charge_factor
-        return {'Q0': Q0, 'delta_eta': y[1] - y[0]}
-    if eta[0] is None or eta[1] is None:
-        # dy mode: no Jacobian; normalize by total rapidity width
-        counts_raw = qv.Qn[:, :, 0, :].real
-        if species_idx is not None:
-            counts_raw = counts_raw[:, species_idx, :]
-        Q0 = counts_raw[:, :, lo:hi].sum(axis=(1, 2)) \
-            / qv.nsamples * charge_factor
-        return {'Q0': Q0, 'delta_eta': 2.0 * qv.rap_max}
-    pt = sk.get('pT', (0.1, 10))
-    Qn, _ = cut_qvectors(qv, eta[0], eta[1])
-    if species_idx is not None:
-        Qn = Qn[:, species_idx, :, :]
-    Q0 = sum_over_species_pt(Qn[:, :, :, lo:hi])[:, 0].real * charge_factor
-    delta_eta = abs(eta[1] - eta[0])
-    return {'Q0': Q0, 'delta_eta': delta_eta}
-
-
-def _yield_acceptance(grid, eta_lo, eta_hi, pt_lo, pt_hi):
-    """Yield window on a 3D grid: fractional cell overlap when the grid
-    provides it (QGridData.acceptance_fractional), else whole cells."""
-    frac = getattr(grid, 'acceptance_fractional', None)
-    return frac(eta_lo, eta_hi, pt_lo, pt_hi) if frac is not None else grid.acceptance(eta_lo, eta_hi, pt_lo, pt_hi)
+        var, win, mass, delta = 'y', (y[0], y[1]), sk['y_mass'], y[1] - y[0]
+    elif eta[0] is None or eta[1] is None:
+        # dy mode: no Jacobian; the whole flat container over its rapidity width
+        var, win, mass, delta = 'y', (-qv.rap_max, qv.rap_max), None, 2.0 * qv.rap_max
+    else:
+        var, win, mass, delta = 'eta', (eta[0], eta[1]), None, abs(eta[1] - eta[0])
+    sums, sub = _linear_sums_2d(qv, (('Q0', 'count', 'count'),), species_idx, var, [win], mass,
+                                sk.get('pT', (0.1, 10)), _shape_mass(params), scale=charge_factor)
+    return _with_subcell({'Q0': sums['Q0'][:, 0], 'delta_eta': delta}, sub)
 
 
 def prepare_yield_3d(grid, params):
@@ -927,7 +1065,11 @@ def prepare_yield_3d(grid, params):
 
     The charge-symmetry factor is already baked into ``grid`` by
     ``MultiSpeciesGrid.select`` (grid.charge_factor), so no extra factor is
-    applied here.  A raw combined grid carries charge_factor=1.
+    applied here.  A raw combined grid carries charge_factor=1.  Cells cut
+    by the window count by overlap (a window off the grid -- e.g. a
+    lab-frame window shifted into the container frame -- would otherwise
+    snap to whole cells while dividing by its own width); a cut pT cell:
+    _linear_sums_3d.
     """
     sk = params.get('single_range', {})
     eta = sk.get('eta', (-1, 1))
@@ -941,15 +1083,11 @@ def prepare_yield_3d(grid, params):
         mass = sk.get('y_mass') if sk.get('y_mass') is not None else getattr(grid, 'mass', None)
         if y[0] is None or y[1] is None or mass is None:
             return {'Q0': np.full(grid.n_events, np.nan), 'delta_eta': 1.0}
-        Q0 = grid.acceptance_rapidity(y[0], y[1], float(mass), pt[0], pt[1])[:, 0].real / grid.nsamples
-        return {'Q0': Q0, 'delta_eta': y[1] - y[0]}
-    # Cells cut by the window count by overlap (a window off the grid --
-    # e.g. a lab-frame window shifted into the container frame -- would
-    # otherwise snap to whole cells while dividing by its own width).
-    Qn = _yield_acceptance(grid, eta[0], eta[1], pt[0], pt[1])
-    Q0 = Qn[:, 0].real / grid.nsamples
-    delta_eta = abs(eta[1] - eta[0])
-    return {'Q0': Q0, 'delta_eta': delta_eta}
+        var, win, mass, delta = 'y', (y[0], y[1]), float(mass), y[1] - y[0]
+    else:
+        var, win, mass, delta = 'eta', (eta[0], eta[1]), None, abs(eta[1] - eta[0])
+    sums, sub = _linear_sums_3d(grid, (('Q0', 'count', 'count'),), var, [win], pt, mass, _shape_mass(params))
+    return _with_subcell({'Q0': sums['Q0'][:, 0], 'delta_eta': delta}, sub)
 
 
 def prepare_yield_3d_per_eta(grid, params):
@@ -981,9 +1119,12 @@ def prepare_yield_3d_per_eta(grid, params):
         if mass is None:           # true rapidity of a mixture: no single mass
             return {'Q0_per_eta': np.full((n_events, len(windows)), np.nan),
                     'delta_eta_per_bin': np.array([hi - lo for lo, hi in windows])}
-    # all bins in one pass (fractional cells: eta by overlap, y mapped per pT cell)
-    Q0_per_eta = _bin_sums_3d(grid, [grid.Qn[..., 0].real], var, windows, pt, mass)[0] / grid.nsamples[:, None]
-    return {'Q0_per_eta': Q0_per_eta, 'delta_eta_per_bin': np.array([abs(hi - lo) for lo, hi in windows])}
+    # all bins in one pass (fractional cells: eta by overlap, y mapped per pT
+    # cell; a cut pT cell shared by the class's spectrum in the core)
+    sums, sub = _linear_sums_3d(grid, (('Q0_per_eta', 'count', 'count'),), var, windows, pt, mass,
+                                _shape_mass(params))
+    return _with_subcell({'Q0_per_eta': sums['Q0_per_eta'],
+                          'delta_eta_per_bin': np.array([abs(hi - lo) for lo, hi in windows])}, sub)
 
 
 def prepare_yield_2d_per_eta(qv, params):
@@ -996,21 +1137,25 @@ def prepare_yield_2d_per_eta(qv, params):
     if not found or not windows:
         return {'Q0_per_eta': np.zeros((qv.n_events, max(len(windows), 1))), 'delta_eta_per_bin': widths}
     sk = params.get('single_range') or {}
-    Q0 = _bin_sums_2d(qv, [qv.Qn[:, :, 0, :].real], species_idx, var, windows, mass, sk.get('pT', (0.1, 10)))[0]
-    return {'Q0_per_eta': Q0 * charge_factor, 'delta_eta_per_bin': widths}
+    sums, sub = _linear_sums_2d(qv, (('Q0_per_eta', 'count', 'count'),), species_idx, var, windows, mass,
+                                sk.get('pT', (0.1, 10)), _shape_mass(params), scale=charge_factor)
+    return _with_subcell({'Q0_per_eta': sums['Q0_per_eta'], 'delta_eta_per_bin': widths}, sub)
 
 
 def _wrap_yield_per_eta(data, w):
     """Per-bin dNch/deta(eta_i) = <Q0_per_eta[e, i]> / delta_eta[i].
 
     Returns a length-n_eta_bins array (the per-bin value, cent-averaged
-    over the events in the cent bin).
+    over the events in the cent bin); a cut pT cell shared by the class's
+    spectrum (_pt_subcell_corrected).
     """
+    data = _pt_subcell_corrected(data, w)
     return compute_yield_dNch_deta_per_eta(
         data['Q0_per_eta'], data['delta_eta_per_bin'], w)
 
 
 def _wrap_yield(data, w):
+    data = _pt_subcell_corrected(data, w)
     return compute_yield_dNch_deta(data['Q0'], data['delta_eta'], w)
 
 
@@ -1256,35 +1401,26 @@ def prepare_mean_pt_2d(qv, params):
     species_idx, _, found = _get_species_selection(params.get('particle_id'), qv)
     if not found:
         return {'num': z, 'den': z}
-    lo, hi = _find_pt_slice_edges(qv.pt_bin_edges, *sk.get('pT', (0.1, 10)))
-    counts_raw = qv.Qn[:, :, 0, :].real
-    c = counts_raw[:, species_idx, :] if species_idx is not None else counts_raw
-    num_src_full = _mean_pt_moments(qv, counts_raw)
+    num_src_full = _mean_pt_moments(qv, qv.Qn[:, :, 0, :].real)
     var, windows, mass = _yield_windows(params)
-    if (params.get('differential_var') in ('eta', 'y') and params.get('differential_bins')) \
-            or (var == 'y' and mass is not None):
-        # per eta or y bin, or a y window of one assumed mass (y_pi): the
-        # same per-particle weights in numerator and denominator
-        den, num = _bin_sums_2d(qv, [counts_raw, num_src_full], species_idx, var, windows, mass,
-                                sk.get('pT', (0.1, 10)))
-        return {'num': num, 'den': den}
-    num_raw = num_src_full[:, species_idx, :] if species_idx is not None \
-        else num_src_full
-    if eta[0] is None or eta[1] is None:
-        den = c[:, :, lo:hi].sum(axis=(1, 2)) / qv.nsamples
-        num = num_raw[:, :, lo:hi].sum(axis=(1, 2)) / qv.nsamples
-        return {'num': num, 'den': den}
-    Qn_cut, jac = cut_qvectors(qv, eta[0], eta[1])
-    jac_s = jac[species_idx, :] if species_idx is not None else jac
-    from analysis.observables_2d import _compute_weighted_moment
-    den = _compute_weighted_moment(qv, jac_s, c, lo, hi)
-    num = _compute_weighted_moment(qv, jac_s, num_raw, lo, hi)
-    return {'num': num, 'den': den}
+    per_bin = (params.get('differential_var') in ('eta', 'y') and params.get('differential_bins')) \
+        or (var == 'y' and mass is not None)
+    if not per_bin:
+        # one eta window (Jacobian weights), or dy mode: the whole flat
+        # container, uniform weights
+        var, windows, mass = (('eta', [(eta[0], eta[1])], None) if eta[0] is not None and eta[1] is not None
+                              else ('y', [(-qv.rap_max, qv.rap_max)], None))
+    # per eta or y bin, or one window: the same per-particle weights in
+    # numerator and denominator; a cut pT cell shared in the core
+    sums, sub = _linear_sums_2d(qv, (('den', 'count', 'count'), ('num', num_src_full, 'pT')), species_idx,
+                                var, windows, mass, sk.get('pT', (0.1, 10)), _shape_mass(params))
+    if per_bin:
+        return _with_subcell({'num': sums['num'], 'den': sums['den']}, sub)
+    return _with_subcell({'num': sums['num'][:, 0], 'den': sums['den'][:, 0]}, sub)
 
 
 def prepare_mean_pt_3d(grid, params):
     """Sum w*pT and Sum w from a 3D grid (sum_pt slot or bin midpoints)."""
-    z = np.zeros(grid.n_events)
     if getattr(grid, 'pt_integrated', False):
         return {'num': np.full(grid.n_events, np.nan),
                 'den': np.full(grid.n_events, np.nan)}
@@ -1297,36 +1433,34 @@ def prepare_mean_pt_3d(grid, params):
         mids = 0.5 * (grid.pt_edges[:-1] + grid.pt_edges[1:])
         num_src = grid.Qn[:, :, :, 0].real * mids[np.newaxis, np.newaxis, :]
     var, windows, mass = _yield_windows(params)
-    if (params.get('differential_var') in ('eta', 'y') and params.get('differential_bins')) \
-            or (var == 'y' and mass is not None):
-        # per eta or y bin, or a y window of one assumed mass (y_pi)
-        if var == 'y' and mass is None:
-            mass = getattr(grid, 'y_mass', None) if getattr(grid, 'rapidity_binned', False) else getattr(grid, 'mass', None)
-            if mass is None:
-                nan = np.full((grid.n_events, len(windows)), np.nan)
-                return {'num': nan, 'den': nan}
-        den, num = _bin_sums_3d(grid, [grid.Qn[..., 0].real, num_src], var, windows, pt, mass)
-        ns = np.asarray(grid.nsamples, dtype=float)[:, None]
-        return {'num': num / ns, 'den': den / ns}
-    if eta[0] is None or eta[1] is None:
-        # A rapidity window (<pT> of an identified species): fractional cell
-        # weights of the window with the species' mass per pT cell; a mixture
-        # has no mass.  (Until November 2026 every rapidity window gave 0/0.)
+    per_bin = (params.get('differential_var') in ('eta', 'y') and params.get('differential_bins')) \
+        or (var == 'y' and mass is not None)
+    if not per_bin:
+        # one eta window, or a rapidity window (<pT> of an identified
+        # species) with the species' mass per pT cell (until November 2026
+        # every rapidity window gave 0/0)
         y = sk.get('y') or (None, None)
-        mass = getattr(grid, 'y_mass', None) if getattr(grid, 'rapidity_binned', False) \
-            else getattr(grid, 'mass', None)
-        if y[0] is None or y[1] is None or mass is None:
-            return {'num': z, 'den': z}
-        W = grid.window_weights(y[0], y[1], pt[0], pt[1], var='y', mass=float(mass), fractional=True)
-        den = np.einsum('ijk,jk->i', grid.Qn[..., 0].real, W) / grid.nsamples
-        num = np.einsum('ijk,jk->i', num_src, W) / grid.nsamples
-        return {'num': num, 'den': den}
-    den = _window_sum(grid, grid.Qn[..., 0].real, eta, pt, fractional=True) / grid.nsamples
-    num = _window_sum(grid, num_src, eta, pt, fractional=True) / grid.nsamples
-    return {'num': num, 'den': den}
+        var, windows, mass = (('eta', [(eta[0], eta[1])], None) if eta[0] is not None and eta[1] is not None
+                              else ('y', [(y[0], y[1])] if y[0] is not None and y[1] is not None else [], None))
+    if var == 'y' and mass is None:
+        mass = getattr(grid, 'y_mass', None) if getattr(grid, 'rapidity_binned', False) else getattr(grid, 'mass', None)
+    if (var == 'y' and mass is None) or not windows:
+        # a mixture has no mass: NaN
+        nan = np.full((grid.n_events, len(windows)) if per_bin else grid.n_events, np.nan)
+        return {'num': nan, 'den': nan}
+    # all windows in one pass: cells by overlap (eta), or y windows mapped per
+    # pT cell; a cut pT cell shared by the class's spectrum in the core
+    # (until November 2026 an integrated eta window snapped pT to whole
+    # cells: pT > 0.27 GeV on 0.2 GeV cells started at 0.4)
+    sums, sub = _linear_sums_3d(grid, (('den', 'count', 'count'), ('num', num_src, 'pT')), var, windows, pt,
+                                None if mass is None else float(mass), _shape_mass(params))
+    if per_bin:
+        return _with_subcell({'num': sums['num'], 'den': sums['den']}, sub)
+    return _with_subcell({'num': sums['num'][:, 0], 'den': sums['den'][:, 0]}, sub)
 
 
 def _wrap_mean_pt(data, w):
+    data = _pt_subcell_corrected(data, w)
     num, den = np.asarray(data['num']), np.asarray(data['den'])
     if num.ndim == 2:              # per eta or y bin; a bin without particles is NaN
         w = np.asarray(w, dtype=float)

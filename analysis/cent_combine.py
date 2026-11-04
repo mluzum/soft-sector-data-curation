@@ -130,7 +130,13 @@ def wrap_core(core_fn, min_weight=0.0):
                 continue
             v = np.atleast_1d(np.asarray(core_fn(data['obs'], w), dtype=float))
             yd = data.get('yield')
-            y = sw if yd is None else float(np.sum(w * np.asarray(yd['Q0'], dtype=float)))
+            if yd is None:
+                y = sw
+            else:
+                # the yield the pipeline reports for the sub-class: a cut pT
+                # cell shared by the sub-class's spectrum
+                from analysis.pipeline_dispatch import _pt_subcell_corrected
+                y = float(np.sum(w * np.asarray(_pt_subcell_corrected(yd, w)['Q0'], dtype=float)))
             vals.append(v)
             ys.append(y)
         if not vals:
