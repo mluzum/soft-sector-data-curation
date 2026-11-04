@@ -271,8 +271,12 @@ reads must stay out of that set), masked once per replicate
 events: 49.8 s -> 19.1 s, 1 GB less held); tests/test_shared_prepares.py.  A
 single run uses numpy's BLAS threads, which spin without gain on these sums
 (the same O+O run: 2100% CPU, system time 4x user time; one thread,
-`OPENBLAS_NUM_THREADS=1`, 16 s at 100%); run_campaign sets one thread per
-job.
+`OPENBLAS_NUM_THREADS=1`, 16 s at 100%), and numpy madvises transparent huge
+pages on large arrays: with THP defrag `madvise` and a full page cache every
+page fault compacts memory directly (40k O+O: memory pressure 69.5% with 90
+GB available, where systemd-oomd kills at 50%, taking tmux panes with it;
+`NUMPY_MADVISE_HUGEPAGE=0`: 0.00, and 13.5 -> 6.5 min with the shared
+prepares).  run_campaign sets both for its jobs; set them for single runs.
 
 Containers (`analysis/qvector.py`):
 - **QVectorData (2D)**: `Qn[event, species, harmonic, pT]`, slot 0 the counts.

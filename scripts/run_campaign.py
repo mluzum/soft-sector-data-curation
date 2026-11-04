@@ -196,6 +196,11 @@ def main():
     env = dict(os.environ)
     for var in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS"):
         env.setdefault(var, "1")      # parallelism comes from --jobs
+    # numpy madvises transparent huge pages on large arrays; with THP defrag
+    # 'madvise' and a full page cache every page fault then compacts memory
+    # directly (O+O 40k: memory pressure 69.5% with 90 GB available, and
+    # systemd-oomd kills at 50%; with this 0.00)
+    env.setdefault("NUMPY_MADVISE_HUGEPAGE", "0")
     fingerprint = current_fingerprint(base, env)
     print(f"selection: {fingerprint['n_records']} records (fingerprint {fingerprint['records']}), "
           f"code {fingerprint['code']}")
