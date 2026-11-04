@@ -41,7 +41,7 @@ from analysis.qvector import QVectorData, QGridData, MultiSpeciesGrid
 from analysis.simulation_data import load_3d_grid, load_3d_species_grids
 from analysis.weights import (direct_cent_weights_percentile,
                                poisson_cdf_cent_weights, combine_weights,
-                               cent_weights,
+                               cent_weights, CentralityWeights,
                                resolve_anchor, cent_bins_partial)
 
 _PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -995,19 +995,34 @@ def main():
             cent_data = None
             processed_rec_list = []
 
-            def _setup_combination(params, container, mult, rec_anchor, rec_eff, is_2d_):
+            centralities = {}   # one CentralityWeights per estimator multiplicity and normalization
+
+            def _centrality(mult, rec_eff, params):
+                # The weights of the record's estimator, rebuilt inside each
+                # jackknife replicate (class edges and normalization from the
+                # events it keeps); shared by the records of one estimator.
+                import hashlib
+                norm = params.get('cent_normalization') or None
+                key = (hashlib.blake2b(np.ascontiguousarray(mult, dtype=np.float64).tobytes(),
+                                       digest_size=16).digest(), float(rec_eff),
+                       None if norm is None else (float(norm['estimator_threshold']),
+                                                  float(norm['fraction_above'])))
+                if key not in centralities:
+                    centralities[key] = CentralityWeights(
+                        args.cent_method, mult, anchor, efficiency=rec_eff,
+                        normalization=norm, event_weights=group_event_weights)
+                return centralities[key]
+
+            def _setup_combination(params, container, cw, is_2d_):
                 # Classes combined from narrower analysis classes: weights of
                 # the sub-classes and the yield that weights them
                 # (analysis.cent_combine); the entries are wrapped on tagging.
                 plan = params.get('cent_combine')
                 if not plan:
                     return
-                W_sub = cent_weights(
-                    args.cent_method, mult, plan['sub_edges'],
-                    n_ref=rec_anchor['n_ref'], efficiency=rec_eff,
-                    anchor_cent=rec_anchor['anchor_cent'])
+                W_sub = cw.weights(plan['sub_edges'], raw=True)
                 params['_combine_rt'] = {
-                    'cent_w': W_sub,
+                    'cent_w': W_sub, 'cent': (cw, tuple(map(tuple, plan['sub_edges']))),
                     'yield': prepare_combination_yield(container, params, plan['weight'], is_2d_)}
                 params['cent_valid'] = np.array(
                     [W_sub[:, g].sum() >= args.min_cent_weight for g in plan['groups']])
@@ -1028,6 +1043,7 @@ def main():
                     _d['data_dict'] = {'obs': _d['data_dict'], 'yield': rt['yield']}
                     _d['prep_key'] = None       # the wrapper is the record's own
                     _d['cent_w'] = rt['cent_w']
+                    _d['cent'] = rt['cent']
                     _d['combine_groups'] = params_list[-1]['cent_combine']['groups']
 
             for fpath, rec in rec_list:
@@ -1162,15 +1178,13 @@ def main():
                             cent_mult += cent_partial
                     rec_anchor, rec_eff = _record_anchor(params, cent_mult, anchor, args,
                                                          group_event_weights)
-                    cent_w = cent_weights(
-                        args.cent_method, cent_mult, cent_edges,
-                        n_ref=rec_anchor['n_ref'],
-                        efficiency=rec_eff,
-                        anchor_cent=rec_anchor['anchor_cent'])
+                    cw = _centrality(cent_mult, rec_eff, params)
+                    cent = (cw, tuple(map(tuple, cent_edges)))
+                    cent_w = cw.weights(cent_edges, raw=True)
                     params['cent_valid'] = cent_w.sum(axis=0) >= args.min_cent_weight
                     params['cent_partial'] = cent_bins_partial(
                         cent_edges, rec_anchor['anchor_cent'])
-                    _setup_combination(params, qv, cent_mult, rec_anchor, rec_eff, True)
+                    _setup_combination(params, qv, cw, True)
                 else:
                     # 3D: compute cent_mult per-record from cent_eta_ranges
                     # Use the grid's accumulated Q₀ (summed over all pT) in
@@ -1197,7 +1211,7 @@ def main():
                         bin_labels = [f"{diff_var} {lo:.2f}-{hi:.2f}" for lo, hi in diff_bins]
                         dispatch_data_list.append({
                             'data_dict': data_dict, 'prep_key': pkey,
-                            'cent_w': cent_w,
+                            'cent_w': cent_w, 'cent': cent,
                             'n_cent': len(cent_edges),
                             'n_bins': len(diff_bins),
                             'dispatch_key': dispatch_key,
@@ -1215,7 +1229,7 @@ def main():
                             continue
                         dispatch_data_list.append({
                             'data_dict': data_dict, 'prep_key': pkey,
-                            'cent_w': cent_w,
+                            'cent_w': cent_w, 'cent': cent,
                             'n_cent': len(cent_edges),
                             'dispatch_key': dispatch_key,
                             'harmonic': params['harmonic'],
@@ -1257,18 +1271,16 @@ def main():
                         np.asarray(qv.nsamples, dtype=np.float64), 1e-30)
                     rec_anchor, rec_eff = _record_anchor(params, cent_mult_3d, anchor, args,
                                                          group_event_weights)
-                    cent_w_3d = cent_weights(
-                        args.cent_method, cent_mult_3d, cent_edges,
-                        n_ref=rec_anchor['n_ref'],
-                        efficiency=rec_eff,
-                        anchor_cent=rec_anchor['anchor_cent'])
+                    cw = _centrality(cent_mult_3d, rec_eff, params)
+                    cent = (cw, tuple(map(tuple, cent_edges)))
+                    cent_w_3d = cw.weights(cent_edges, raw=True)
                     params['cent_valid'] = cent_w_3d.sum(axis=0) >= args.min_cent_weight
                     if cent_w_3d.shape[1] == len(cent_edges):
                         params['cent_partial'] = cent_bins_partial(
                             cent_edges, rec_anchor['anchor_cent'])
                     else:
                         params['cent_partial'] = np.zeros(cent_w_3d.shape[1], dtype=bool)
-                    _setup_combination(params, qv, cent_mult_3d, rec_anchor, rec_eff, False)
+                    _setup_combination(params, qv, cw, False)
 
                     if is_diff:
                         diff_bins = params['differential_bins']
@@ -1297,7 +1309,7 @@ def main():
                                 continue
                             dispatch_data_list.append({
                                 'data_dict': data_dict, 'prep_key': pkey,
-                                'cent_w': cent_w_3d,
+                                'cent_w': cent_w_3d, 'cent': cent,
                                 'n_cent': len(cent_edges),
                                 'n_bins': len(diff_bins),
                                 'dispatch_key': dispatch_key,
@@ -1355,7 +1367,7 @@ def main():
 
                         dispatch_data_list.append({
                             'data_dict': {'bin_data_list': bin_data_list},
-                            'cent_w': cent_w_3d,
+                            'cent_w': cent_w_3d, 'cent': cent,
                             'n_cent': len(cent_edges),
                             'n_bins': len(bin_data_list),
                             'dispatch_key': dispatch_key,
@@ -1379,7 +1391,7 @@ def main():
                             continue
                         dispatch_data_list.append({
                             'data_dict': data_dict, 'prep_key': pkey,
-                            'cent_w': cent_w_3d,
+                            'cent_w': cent_w_3d, 'cent': cent,
                             'n_cent': len(cent_edges),
                             'dispatch_key': dispatch_key,
                             'harmonic': params['harmonic'],
@@ -1398,6 +1410,16 @@ def main():
             warned_out_of_range = set()     # one warning per record and harmonic, not per point and replicate
 
             def build_combined_fn(dd_list):
+                # The classes each entry reports: those of the full sample
+                # with enough weight.  A replicate rebuilds the weights from
+                # the events it keeps; a class it leaves without weight gives
+                # NaN (the full-sample estimate, replaced by the jackknife).
+                for qd in dd_list:
+                    W = qd['cent'][0].weights(qd['cent'][1])
+                    qd['cent_inc'] = [ic for ic in range(qd['n_cent']) if
+                                      class_weights(W, ic, qd.get('combine_groups')).sum()
+                                      >= args.min_cent_weight]
+
                 def fn(mask):
                     obs = []
                     for qd, data_masked in masked_entries(dd_list, mask):
@@ -1407,12 +1429,12 @@ def main():
                             if pipe is None:
                                 continue
                             core_fn = pipe['core_fn']
-                        n_cent = qd['n_cent']
                         n_bins = qd.get('n_bins', 1)
-                        for ic in range(n_cent):
-                            w = class_weights(combine_weights(qd['cent_w'], group_event_weights)[mask],
-                                              ic, qd.get('combine_groups'))
-                            if w.sum() < args.min_cent_weight:
+                        W = qd['cent'][0].weights(qd['cent'][1], mask)
+                        for ic in qd['cent_inc']:
+                            w = class_weights(W, ic, qd.get('combine_groups'))
+                            if not w.sum() >= args.min_cent_weight:
+                                obs.extend([np.nan] * n_bins)
                                 continue
                             vals = core_fn(data_masked, w)
                             vals = np.atleast_1d(vals)

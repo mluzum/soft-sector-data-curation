@@ -312,7 +312,23 @@ Centrality (`analysis/weights.py`):
   percentile range); rows are NOT
   renormalized, so a class's summed weight is n_ref x width whatever other
   classes the record lists (until November 2026 single-class records gave
-  every event weight 1).
+  every event weight 1);
+- the class edges, and a record's `centrality.normalization`, are estimated
+  from the simulated events, so each jackknife replicate rebuilds them from
+  the events it keeps (`weights.CentralityWeights`, one per estimator
+  multiplicity, shared by its records; the anchor's f is external and
+  stays).  Until November 2026 the weights were fixed from the full
+  sample: <N> per class came out with 2-4x too small an error (toy: 3-5x
+  at 5-60%), flow ~1.0-1.1x (found by the isobar analysis, zr96c2).
+  Errors and covariances change, values do not.  With sharp edges
+  (`--cent-method simple`) a replicate also re-ranks a few kept events
+  across each edge, so the error of a quantity whose per-event noise is
+  uncorrelated with the estimator (v_n) is conservative by ~1.2 (toy, 5-10%
+  classes of 1500 events); the Poisson weights (the default) are smooth
+  and calibrated (tests/test_jackknife_centrality.py).  The Poisson edges
+  are searched from the full sample's crossings, and each edge is computed
+  once per sample (2.1 s -> 0.5 s for 40k events and 16 classes, 0.2 s per
+  replicate).
 
 Central values are the full-sample estimates; errors and the covariance
 come from a delete-block jackknife (20 blocks by default).  The jackknife

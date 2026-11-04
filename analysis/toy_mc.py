@@ -590,17 +590,20 @@ def _cent_mult_3d(grid, cent_eta_ranges):
 
 
 def _combined_raw_factory(data, cw, entry, n_cent, min_weight=0.01, groups=None):
+    """cw: (CentralityWeights, class edges), rebuilt for each mask."""
     from analysis.cent_combine import class_weights
+    centrality, edges = cw
 
     def _combined_raw(mask):
         dm = _mask_dict(data, mask)
+        W = centrality.weights(edges, mask)
         # Excluded bins (total weight below min_weight) emit NaN of the SAME
         # length as a real output so the flat cent-major layout stays aligned
         # for _extract_with_ncent.  Learn that length from the first real bin.
         out = []
         ref_len = None
         for ic in range(n_cent):
-            w = class_weights(cw[mask], ic, groups) if cw.ndim == 2 else cw[mask]
+            w = class_weights(W, ic, groups)
             if np.sum(w) < min_weight:
                 out.append(None)  # placeholder; filled below
                 continue
@@ -673,9 +676,7 @@ def evaluate(record, qv=None, grid=None, with_jackknife=True,
     """
     from analysis.dispatcher import extract_measurement_params, resolve
     from analysis.pipeline_dispatch import get_pipeline_entry
-    from analysis.weights import (direct_cent_weights_percentile,
-                                  poisson_cdf_cent_weights, resolve_anchor,
-                                  cent_weights)
+    from analysis.weights import CentralityWeights, resolve_anchor
 
     params = extract_measurement_params(record)
     key = resolve(record)['compute']
@@ -706,29 +707,21 @@ def evaluate(record, qv=None, grid=None, with_jackknife=True,
 
     anchor = resolve_anchor(cent_anchor if cent_anchor is not None else 1.0,
                             n_events)
-    eff = 1.0
     norm = params.get('cent_normalization')
-    if norm:                     # experiment-defined normalization, as run_pipeline
-        from analysis.weights import threshold_anchor
-        eff = float(norm.get('efficiency', 1.0))
-        anchor = threshold_anchor(mult, cent_method, float(norm['estimator_threshold']),
-                                  float(norm['fraction_above']), efficiency=eff)
+    # experiment-defined normalization, as run_pipeline; the class edges and
+    # the normalization are rebuilt in each jackknife replicate
+    eff = float(norm.get('efficiency', 1.0)) if norm else 1.0
+    centrality = CentralityWeights(cent_method, mult, anchor, efficiency=eff, normalization=norm)
     edges = params['cent_edges'] or [(0, 100)]
     # Listed order is preserved (helper sorts internally as needed).
-    if cent_method == 'simple':
-        cw = cent_weights('simple', mult, edges, n_ref=anchor['n_ref'])
-    else:
-        cw = cent_weights('poisson', mult, edges,
-                          efficiency=eff,
-                          anchor_cent=anchor['anchor_cent'])
+    cw = (centrality, edges)
 
     n_cent = len(edges)
     groups = None
     plan = params.get('cent_combine')
     if plan:                     # classes combined from sub-classes, as run_pipeline
         from analysis.cent_combine import prepare_yield, wrap_core
-        cw = cent_weights(cent_method, mult, plan['sub_edges'], n_ref=anchor['n_ref'],
-                          efficiency=eff, anchor_cent=anchor['anchor_cent'])
+        cw = (centrality, plan['sub_edges'])
         yd = prepare_yield(qv if qv is not None else grid_unselected, params, plan['weight'],
                            qv is not None)
         data = {'obs': data, 'yield': yd}

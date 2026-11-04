@@ -26,7 +26,7 @@ from analysis.jackknife import jackknife_error
 from analysis.qvector import QVectorData
 from analysis.weights import (direct_cent_weights_percentile,
                                poisson_cdf_cent_weights, combine_weights,
-                               cent_weights,
+                               cent_weights, CentralityWeights,
                                resolve_anchor)
 from analysis.simulation_data import load_events_3d_hdf5
 from analysis.dispatcher import load_record, extract_measurement_params, load_experimental
@@ -137,8 +137,9 @@ def compute_vn2_gap_harmonics(Qn_A, Qn_B, dQ_cross, weights):
     return result[1:]
 
 
-def jk_vn2_harmonics(Qn_ch, dQ0, weights, n_blocks=20):
-    """Block jackknife of v₂{2} through v₆{2} for a single centrality bin."""
+def jk_vn2_harmonics(Qn_ch, dQ0, weights, n_blocks=20, w_of=None):
+    """Block jackknife of v₂{2} through v₆{2} for a single centrality bin
+    (``w_of(mask)``: the bin's weights rebuilt from the kept events)."""
     n = len(Qn_ch)
     n_blocks = min(n_blocks, n)
     block_size = n // n_blocks
@@ -151,8 +152,8 @@ def jk_vn2_harmonics(Qn_ch, dQ0, weights, n_blocks=20):
         hi = n if i == n_blocks - 1 else (i + 1) * block_size
         mask = np.ones(n, dtype=bool)
         mask[lo:hi] = False
-        w_sub = weights[mask]
-        w_sub /= w_sub.sum()
+        w_sub = weights[mask] if w_of is None else w_of(mask)
+        w_sub = w_sub / w_sub.sum()
         theta_i[i] = compute_vn2_harmonics(Qn_ch[mask], dQ0[mask], w_sub)
 
     n_b = len(theta_i)
@@ -163,7 +164,7 @@ def jk_vn2_harmonics(Qn_ch, dQ0, weights, n_blocks=20):
     return corr, err
 
 
-def jk_vn2_gap_harmonics(Qn_A, Qn_B, dQ_cross, weights, n_blocks=20):
+def jk_vn2_gap_harmonics(Qn_A, Qn_B, dQ_cross, weights, n_blocks=20, w_of=None):
     """Block jackknife of v₂{2}ab through v₆{2}ab."""
     n = len(Qn_A)
     n_blocks = min(n_blocks, n)
@@ -177,8 +178,8 @@ def jk_vn2_gap_harmonics(Qn_A, Qn_B, dQ_cross, weights, n_blocks=20):
         hi = n if i == n_blocks - 1 else (i + 1) * block_size
         mask = np.ones(n, dtype=bool)
         mask[lo:hi] = False
-        w_sub = weights[mask]
-        w_sub /= w_sub.sum()
+        w_sub = weights[mask] if w_of is None else w_of(mask)
+        w_sub = w_sub / w_sub.sum()
         theta_i[i] = compute_vn2_gap_harmonics(
             Qn_A[mask], Qn_B[mask], dQ_cross[mask], w_sub)
 
@@ -237,20 +238,18 @@ def run_method(qv, cent_Q0, cent_edges, cent_edges_pct, cent_classes,
     if dQ_cross is None:
         dQ_cross = dQ0
 
+    # The class edges are rebuilt from the events each jackknife replicate
+    # keeps (CentralityWeights); optional per-event reweighting (None =>
+    # equal weighting), combined as in the batch pipeline.
+    centrality = CentralityWeights(
+        method, cent_Q0, anchor, efficiency=poisson_efficiency if method != "simple" else 1.0,
+        event_weights=event_weights)
+    weights = centrality.weights(cent_edges)
     if method == "simple":
-        weights = cent_weights(
-            "simple", cent_Q0, cent_edges, n_ref=anchor['n_ref'])
         label = f"simple percentile (anchor={anchor['anchor_cent']:.1f}%)"
     else:
-        weights = cent_weights(
-            "poisson", cent_Q0, cent_edges,
-            efficiency=poisson_efficiency, anchor_cent=anchor['anchor_cent'])
         label = (f"Poisson (eff={poisson_efficiency}, "
                  f"anchor={anchor['anchor_cent']:.1f}%)")
-
-    # Optional per-event reweighting (None ⇒ equal weighting).  Same combine
-    # used by the batch pipeline, so 2D/3D parity is preserved.
-    weights = combine_weights(weights, event_weights)
 
     ws = weights.sum(axis=0)
     total_w = ws.sum()
@@ -273,11 +272,12 @@ def run_method(qv, cent_Q0, cent_edges, cent_edges_pct, cent_classes,
         if w.sum() < min_weight:
             continue
         valid[ic] = True
-        val, err = jk_vn2_harmonics(Qn_ch, dQ0, w, n_blocks=20)
+        w_of = (lambda mask, ic=ic: centrality.weights(cent_edges, mask)[:, ic])
+        val, err = jk_vn2_harmonics(Qn_ch, dQ0, w, n_blocks=20, w_of=w_of)
         v2_vals[ic] = val
         v2_errs[ic] = err
         val_g, err_g = jk_vn2_gap_harmonics(
-            Qn_ch, Qn_ch_b, dQ_cross, w, n_blocks=20)
+            Qn_ch, Qn_ch_b, dQ_cross, w, n_blocks=20, w_of=w_of)
         v2_gap_vals[ic] = val_g
         v2_gap_errs[ic] = err_g
 

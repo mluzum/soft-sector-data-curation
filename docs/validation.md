@@ -23,6 +23,9 @@ The `tests/test_toy_mc_*.py` files cover:
   dE_T/dη, for charged hadrons and per species;
 - centrality anchors (sub-sampled cross sections) and per-event weights;
 - jackknife error calibration: the truth lies within 2σ in 12 of 12 seeds.
+- jackknife errors with the centrality edges rebuilt per replicate: the spread
+  of dN/dη and v2{2} per class over independent samples equals the mean error
+  (Poisson weights; sharp edges: v2{2} conservative by ~1.2).
 
 Known method systematics, which are kept as test tolerances:
 
