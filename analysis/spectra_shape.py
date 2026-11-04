@@ -65,28 +65,39 @@ def jacobian(mass, eta_window=None):
         else np.ones_like(np.asarray(p, float))
 
 
-def _integral(a, b, s, mref, mass, ch, weight='count'):
-    """int_a^b exp(s (m_T(p) - mref)) J(p) p x(p) dp, x = 1 ('count'), p ('pT') or
-    m_T ('mT'); vectorized over a, b, s, mref (shape S; ch broadcastable to S + (9,))."""
-    a, b, s, mref = np.broadcast_arrays(*(np.asarray(x, float) for x in (a, b, s, mref)))
+def _nodes(a, b, mref, mass, ch, weight='count'):
+    """The s-independent part of _integral: (x, c) with the integral
+    sum_nodes c exp(s x), x = m_T - mref at the Gauss-Legendre nodes of [a, b]
+    and c = their weights times J(p) p x(p) (0 for b <= a)."""
+    a, b, mref = np.broadcast_arrays(*(np.asarray(x, float) for x in (a, b, mref)))
     half, mid = 0.5 * (b - a), 0.5 * (a + b)
     p = mid[..., None] + half[..., None] * _GL_X
     m2 = float(mass) ** 2
     mt = np.sqrt(p * p + m2)
-    f = np.exp(s[..., None] * (mt - mref[..., None])) * _jac(p, ch, m2) * p
+    f = _jac(p, ch, m2) * p
     if weight == 'pT':
         f = f * p
     elif weight == 'mT':
         f = f * mt
     elif weight != 'count':
         raise ValueError(f'unknown share weight {weight!r}')
-    return np.where(b > a, half * np.sum(_GL_W * f, axis=-1), 0.0)
+    c = np.where((b > a)[..., None], half[..., None] * _GL_W * f, 0.0)
+    return mt - mref[..., None], c
+
+
+def _integral(a, b, s, mref, mass, ch, weight='count'):
+    """int_a^b exp(s (m_T(p) - mref)) J(p) p x(p) dp, x = 1 ('count'), p ('pT') or
+    m_T ('mT'); vectorized over a, b, s, mref (ch broadcastable to their shape + (9,))."""
+    x, c = _nodes(a, b, mref, mass, ch, weight)
+    return np.sum(c * np.exp(np.asarray(s, float)[..., None] * x), axis=-1)
 
 
 def _pair_slopes(e, y, mass, ch, left):
     """s of the cell pairs (left, left + 1) in every window: y (n_win, n_cells)
     cell averages (count / pT^2 width), ch (n_win, 9) or None; (n_win,
-    len(left)), bisection; 0 where a cell of the pair is empty."""
+    len(left)); 0 where a cell of the pair is empty.  The
+    quadrature nodes and the Jacobian do not depend on s: computed once
+    (per step they took ~90% of the share time of a 40k-event O+O run)."""
     left = np.asarray(left, int)
     yl, yr = y[:, left], y[:, left + 1]
     ok = np.isfinite(yl) & np.isfinite(yr) & (yl > 0) & (yr > 0)
@@ -101,16 +112,33 @@ def _pair_slopes(e, y, mass, ch, left):
     lim = 40.0 / np.maximum(np.sqrt(a2 ** 2 + m2) - np.sqrt(a0 ** 2 + m2), 1e-9)
     w1, w0 = 0.5 * (a2 ** 2 - a1 ** 2), 0.5 * (a1 ** 2 - a0 ** 2)
     chb = None if ch is None else ch[:, None, :]
+    x1, c1 = _nodes(a1, a2, ref, mass, chb)
+    x0, c0 = _nodes(a0, a1, ref, mass, chb)
+    x1, c1, x0, c0 = (np.broadcast_to(v, shape + (len(_GL_X),)) for v in (x1, c1, x0, c0))
+    t = target + np.log(w1) - np.log(w0)
 
-    def g(x):
-        return (np.log(_integral(a1, a2, x, ref, mass, chb) / w1)
-                - np.log(_integral(a0, a1, x, ref, mass, chb) / w0) - target)
+    # g(s) = log S1(s) - log S0(s) - t, S(s) = sum c exp(s x), increases with s
+    # (g' = <x>_1 - <x>_0 > 0): Newton within the bracket [-lim, lim], a
+    # bisection step where Newton leaves it (as converged as the 80-step
+    # bisection it replaces, in ~6 steps)
     lo, hi = -lim, lim
-    for _ in range(80):                   # g increases with s
-        mid = 0.5 * (lo + hi)
-        up = g(mid) < 0
-        lo, hi = np.where(up, mid, lo), np.where(up, hi, mid)
-    return np.where(ok, 0.5 * (lo + hi), 0.0)
+    v = np.zeros(shape)
+    for _ in range(200):
+        e1, e0 = c1 * np.exp(v[..., None] * x1), c0 * np.exp(v[..., None] * x0)
+        S1, S0 = e1.sum(axis=-1), e0.sum(axis=-1)
+        g = np.log(S1) - np.log(S0) - t
+        dg = (e1 * x1).sum(axis=-1) / S1 - (e0 * x0).sum(axis=-1) / S0
+        below = g < 0
+        lo, hi = np.where(below, v, lo), np.where(below | (g == 0), hi, v)
+        with np.errstate(divide='ignore', invalid='ignore'):
+            new = v - g / dg
+        new = np.where((new > lo) & (new < hi) & np.isfinite(new), new, 0.5 * (lo + hi))
+        new = np.where(g == 0, v, new)
+        done = (np.abs(new - v) <= 1e-15 * np.maximum(1.0, np.abs(v))) | ~ok
+        v = new
+        if done.all():
+            break
+    return np.where(ok, v, 0.0)
 
 
 def slopes(edges, mean_counts, mass=0.0, eta_window=None):

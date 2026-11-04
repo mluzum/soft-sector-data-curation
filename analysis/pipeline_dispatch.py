@@ -864,16 +864,31 @@ def _pt_cut(edges, pt):
     return (lo, hi), fp, tuple((int(c), lo, hi) for c in np.nonzero((fp > 0.0) & (fp < 1.0))[0])
 
 
-def _subcell_block(edges, parts, cell_counts, terms, mass, var, windows):
-    """The 'pt_subcell' block of a prepare (see _pt_subcell_corrected)."""
+def _subcell_block(edges, parts, cell_counts, terms, mass, var, windows, count_term, flat_share):
+    """The 'pt_subcell' block of a prepare (see _pt_subcell_corrected).
+
+    cell_counts: (cells, (n_events, n_windows, len(cells))), the counts of the
+    neighbours of the cut cells (a cut cell's own count is the count term's
+    'part'); flat_share: the flat share of every part when each term's flat
+    sum is that share times its 'part' (eta windows on eta grids, 2D), else
+    None and the terms carry their 'flat' sums (mapped windows)."""
     return {'edges': tuple(float(x) for x in edges), 'parts': parts,
             'cells': cell_counts[0], 'cell_counts': cell_counts[1], 'terms': terms, 'mass': float(mass),
-            'eta_windows': tuple((float(a), float(b)) for a, b in windows) if var == 'eta' else None}
+            'eta_windows': tuple((float(a), float(b)) for a, b in windows) if var == 'eta' else None,
+            'count_term': count_term, 'flat_share': flat_share}
 
 
 def _needed_cells(parts, n_pt):
     """The cells whose class-averaged counts fix the shape of the cut cells."""
     return sorted({k for c, _, _ in parts for k in (c - 1, c, c + 1) if 0 <= k < n_pt})
+
+
+def _cell_window_sums(cols, Wc):
+    """cols (n_events, n_axis, k) per-cell sums, Wc (n_windows, n_axis, k) window
+    weights -> (n_events, n_windows, k): one matrix product per cell."""
+    if not cols.shape[2]:
+        return np.zeros((cols.shape[0], Wc.shape[0], 0))
+    return np.stack([np.asarray(cols[:, :, j], dtype=float) @ Wc[:, :, j].T for j in range(cols.shape[2])], axis=2)
 
 
 def _linear_sums_3d(grid, arrays, var, windows, pt, mass, shape_mass):
@@ -930,16 +945,21 @@ def _linear_sums_3d(grid, arrays, var, windows, pt, mass, shape_mass):
                                                   mass=mass, fractional=True) for lo, hi in windows])
     if not parts:
         return sums, None
-    cells = _needed_cells(parts, n_pt)
     pc = [c for c, _, _ in parts]
-    cc = np.einsum('iak,wak->iwk', np.asarray(src('count', cells), dtype=float), Wfull[:, :, cells]) / ns[:, :, None]
+    count_term = next((name for name, a, _ in arrays if isinstance(a, str)), None)
+    cells = [c for c in _needed_cells(parts, n_pt) if count_term is None or c not in pc]
+    cc = _cell_window_sums(src('count', cells), Wfull[:, :, cells]) / ns[:, :, None]
+    # eta windows on an eta grid are separable: each term's flat part is the
+    # flat share times its whole-cell 'part' (not stored)
+    direct = var == 'eta' and not grid.rapidity_binned
     terms = {}
     for name, a, wt in arrays:
-        cols = np.asarray(src(a, pc), dtype=float)
-        terms[name] = {'weight': wt,
-                       'part': np.einsum('iap,wap->iwp', cols, Wfull[:, :, pc]) / ns[:, :, None],
-                       'flat': np.einsum('iap,wap->iw', cols, W[:, :, pc]) / ns}
-    return sums, _subcell_block(grid.pt_edges, parts, (tuple(cells), cc), terms, shape_mass, var, windows)
+        cols = src(a, pc)
+        terms[name] = {'weight': wt, 'part': _cell_window_sums(cols, Wfull[:, :, pc]) / ns[:, :, None]}
+        if not direct:      # mapped windows: the flat part is not proportional to the whole cell's
+            terms[name]['flat'] = _cell_window_sums(cols, W[:, :, pc]).sum(axis=2) / ns
+    return sums, _subcell_block(grid.pt_edges, parts, (tuple(cells), cc), terms, shape_mass, var, windows,
+                                count_term, tuple(float(fp[c]) for c in pc) if direct else None)
 
 
 def _linear_sums_2d(qv, arrays, species_idx, var, windows, mass, pt, shape_mass, scale=1.0):
@@ -963,16 +983,14 @@ def _linear_sums_2d(qv, arrays, species_idx, var, windows, mass, pt, shape_mass,
     sums = {name: np.asarray(src(a), dtype=float).reshape(n_ev, -1) @ W / ns * scale for name, a, _ in arrays}
     if not parts:
         return sums, None
-    cells = _needed_cells(parts, len(fp))
-    cc = np.einsum('isk,wsk->iwk', np.asarray(src('count')[:, :, cells], dtype=float), Wb[:, :, cells]) \
-        / ns[:, :, None]
     pc = [c for c, _, _ in parts]
-    terms = {}
-    for name, a, wt in arrays:
-        part = np.einsum('isp,wsp->iwp', np.asarray(src(a)[:, :, pc], dtype=float), Wb[:, :, pc]) \
-            / ns[:, :, None] * scale
-        terms[name] = {'weight': wt, 'part': part, 'flat': part @ fp[pc]}
-    return sums, _subcell_block(qv.pt_bin_edges, parts, (tuple(cells), cc), terms, shape_mass, var, windows)
+    count_term = next((name for name, a, _ in arrays if isinstance(a, str)), None)
+    cells = [c for c in _needed_cells(parts, len(fp)) if count_term is None or c not in pc]
+    cc = _cell_window_sums(src('count')[:, :, cells], Wb[:, :, cells]) / ns[:, :, None] * scale
+    terms = {name: {'weight': wt, 'part': _cell_window_sums(src(a)[:, :, pc], Wb[:, :, pc]) / ns[:, :, None] * scale}
+             for name, a, wt in arrays}
+    return sums, _subcell_block(qv.pt_bin_edges, parts, (tuple(cells), cc), terms, shape_mass, var, windows,
+                                count_term, tuple(float(fp[c]) for c in pc))
 
 
 def _pt_subcell_corrected(data, w):
@@ -992,14 +1010,25 @@ def _pt_subcell_corrected(data, w):
     if not sub or not w.sum() > 0:
         return data
     from analysis.spectra_shape import window_shares
-    cc = np.tensordot(w, sub['cell_counts'], axes=(0, 0)) / w.sum()          # (n_windows, n_cells kept)
-    mean = np.full((cc.shape[0], len(sub['edges']) - 1), np.nan)
-    mean[:, list(sub['cells'])] = cc
-    weights = tuple(sorted({t['weight'] for t in sub['terms'].values()}))
+    # class-averaged counts per window and cell (einsum, not BLAS: a small
+    # product per class and replicate, where threaded BLAS spent more in
+    # system time than in work); the cut cells' own counts from the count term
+    sw = w.sum()
+    terms = sub['terms']
+    n_win = next(iter(terms.values()))['part'].shape[1]
+    mean = np.full((n_win, len(sub['edges']) - 1), np.nan)
+    mean[:, list(sub['cells'])] = np.einsum('i,iwk->wk', w, sub['cell_counts']) / sw
+    if sub.get('count_term') is not None:
+        mean[:, [c for c, _, _ in sub['parts']]] = np.einsum('i,iwp->wp', w, terms[sub['count_term']]['part']) / sw
+    weights = tuple(sorted({t['weight'] for t in terms.values()}))
     f = window_shares(sub['edges'], mean, sub['parts'], sub['mass'], sub['eta_windows'], weights)
+    f0 = None if sub.get('flat_share') is None else np.asarray(sub['flat_share'], dtype=float)[None, :]
     out = dict(data)
-    for name, t in sub['terms'].items():
-        corr = np.einsum('iwp,wp->iw', t['part'], f[t['weight']]) - t['flat']
+    for name, t in terms.items():
+        if f0 is not None:
+            corr = np.einsum('iwp,wp->iw', t['part'], f[t['weight']] - f0)
+        else:
+            corr = np.einsum('iwp,wp->iw', t['part'], f[t['weight']]) - t['flat']
         x = np.asarray(data[name], dtype=float)
         out[name] = x + (corr if x.ndim == 2 else corr[:, 0])
     return out
