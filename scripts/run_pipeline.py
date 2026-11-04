@@ -374,6 +374,91 @@ def harm_major_stack(per_bin_outputs):
     return arr.T.ravel()
 
 
+# Measurement params that select the centrality classes, normalize them, or
+# label the record: no prepare reads them.  Records of one key that differ
+# only in these (one record per class of a table: ATLAS O+O <pT>(eta) and
+# dN/deta(eta), 29 classes each) share one prepared data dict.
+_PREPARE_KEY_SKIP = frozenset({
+    'cent_classes', 'cent_edges', 'cent_valid', 'cent_partial', 'cent_combine',
+    '_combine_rt', 'cent_estimator', 'cent_eta_ranges', 'cent_pT_range',
+    'cent_normalization', 'cent_classes_suspicious', 'record_anchor',
+    'hepdata_file', 'value_table', 'record_file', 'status', 'inspire_id',
+    'version', 'dv_index', 'dv_average', 'table_rows', 'value_scale',
+    'errors_excluded'})
+
+
+def _freeze(x):
+    if isinstance(x, dict):
+        return ('dict',) + tuple(sorted((str(k), _freeze(v)) for k, v in x.items()))
+    if isinstance(x, (list, tuple)):
+        return (type(x).__name__,) + tuple(_freeze(v) for v in x)
+    if isinstance(x, np.generic):
+        x = x.item()
+    if x is None or isinstance(x, (str, bool, int, float)):
+        return (type(x).__name__, x)
+    raise TypeError(type(x).__name__)
+
+
+def prepare_key(dispatch_key, params, kind):
+    """The key of a record's prepared data on one container (kind '2d' or
+    '3d'): the compute key and every measurement param a prepare may read.
+    None when a param cannot be compared (the record prepares its own)."""
+    try:
+        return (dispatch_key, kind, _freeze({k: v for k, v in params.items()
+                                             if k not in _PREPARE_KEY_SKIP}))
+    except TypeError:
+        return None
+
+
+def mask_data(d, mask):
+    """The prepared data of the events in ``mask``: every per-event array of
+    a nested dict or list (first axis n_events) masked, a 2D container
+    ('qv') copied with its masked events."""
+    if isinstance(d, list):
+        return [mask_data(item, mask) for item in d]
+    if not isinstance(d, dict):
+        return d
+    masked = {}
+    for k, v in d.items():
+        if isinstance(v, (dict, list)):
+            masked[k] = mask_data(v, mask)
+        elif isinstance(v, np.ndarray) and len(v) == len(mask):
+            masked[k] = v[mask]
+        elif k == 'qv' and hasattr(v, 'Qn'):
+            import copy
+            mv = copy.copy(v)
+            mv.Qn = v.Qn[mask].copy()
+            mv.nsamples = v.nsamples[mask].copy()
+            masked[k] = mv
+        else:
+            masked[k] = v
+    return masked
+
+
+def masked_entries(entries, mask):
+    """(entry, masked data) for each dispatch entry, in order.  Entries that
+    share their prepared data (the same 'prep_key') share one masked copy,
+    made at the first of them and released after the last, so a replicate
+    masks each prepared dict once and holds at most the copies of the
+    entries in progress."""
+    last = {}
+    for i, qd in enumerate(entries):
+        if qd.get('prep_key') is not None:
+            last[qd['prep_key']] = i
+    held = {}
+    for i, qd in enumerate(entries):
+        key = qd.get('prep_key')
+        if key is None:
+            yield qd, mask_data(qd['data_dict'], mask)
+            continue
+        if key not in held:
+            held[key] = mask_data(qd['data_dict'], mask)
+        data = held[key]
+        if last[key] == i:
+            del held[key]
+        yield qd, data
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="Batch pipeline: iterate records → sim → comparison HDF5")
@@ -894,6 +979,19 @@ def main():
             # Process each record in the group
             params_list = []
             dispatch_data_list = []
+            prepared = {}       # prepare_key -> prepared data, shared by records of one key
+
+            def _prepare_shared(prepare, params, kind):
+                # prepare() for a record, or the data of an earlier record of
+                # the same prepare_key (another centrality class of its table)
+                key = prepare_key(dispatch_key, params, kind)
+                if key is not None and key in prepared:
+                    print("    Prepared data shared with an earlier record (same key and acceptance)")
+                    return prepared[key], key
+                data = prepare()
+                if key is not None:
+                    prepared[key] = data
+                return data, key
             cent_data = None
             processed_rec_list = []
 
@@ -928,6 +1026,7 @@ def main():
                     inner = _d.get('core_fn') or get_pipeline_entry(_d['dispatch_key'])['core_fn']
                     _d['core_fn'] = wrap_combined_core(inner, args.min_cent_weight)
                     _d['data_dict'] = {'obs': _d['data_dict'], 'yield': rt['yield']}
+                    _d['prep_key'] = None       # the wrapper is the record's own
                     _d['cent_w'] = rt['cent_w']
                     _d['combine_groups'] = params_list[-1]['cent_combine']['groups']
 
@@ -1091,13 +1190,13 @@ def main():
                         # Prepare full multi-bin data once (NOT per-bin).
                         # The diff core function returns (n_harm * n_bins,).
                         try:
-                            data_dict = prepare_fn(qv, params)
+                            data_dict, pkey = _prepare_shared(lambda: prepare_fn(qv, params), params, '2d')
                         except Exception as e:
                             print(f"    Skipping: 2D diff prepare failed: {e}")
                             continue
                         bin_labels = [f"{diff_var} {lo:.2f}-{hi:.2f}" for lo, hi in diff_bins]
                         dispatch_data_list.append({
-                            'data_dict': data_dict,
+                            'data_dict': data_dict, 'prep_key': pkey,
                             'cent_w': cent_w,
                             'n_cent': len(cent_edges),
                             'n_bins': len(diff_bins),
@@ -1110,12 +1209,12 @@ def main():
                         })
                     else:
                         try:
-                            data_dict = prepare_fn(qv, params)
+                            data_dict, pkey = _prepare_shared(lambda: prepare_fn(qv, params), params, '2d')
                         except Exception as e:
                             print(f"    Skipping: 2D prepare failed: {e}")
                             continue
                         dispatch_data_list.append({
-                            'data_dict': data_dict,
+                            'data_dict': data_dict, 'prep_key': pkey,
                             'cent_w': cent_w,
                             'n_cent': len(cent_edges),
                             'dispatch_key': dispatch_key,
@@ -1190,14 +1289,14 @@ def main():
                             # arrays per bin and scramble ref windows).
                             # Found Sep 2026 while unlocking v22_pt.
                             try:
-                                data_dict = prepare_fn_3d(
-                                    container_for_prepare(qv, params, pipe_entry),
-                                    params)
+                                data_dict, pkey = _prepare_shared(
+                                    lambda: prepare_fn_3d(container_for_prepare(qv, params, pipe_entry), params),
+                                    params, '3d')
                             except Exception as e:
                                 print(f"    Skipping: 3D diff prepare failed: {e}")
                                 continue
                             dispatch_data_list.append({
-                                'data_dict': data_dict,
+                                'data_dict': data_dict, 'prep_key': pkey,
                                 'cent_w': cent_w_3d,
                                 'n_cent': len(cent_edges),
                                 'n_bins': len(diff_bins),
@@ -1269,8 +1368,9 @@ def main():
                         })
                     else:
                         try:
-                            data_dict = prepare_fn_3d(container_for_prepare(qv, params, pipe_entry),
-                                                      params)
+                            data_dict, pkey = _prepare_shared(
+                                lambda: prepare_fn_3d(container_for_prepare(qv, params, pipe_entry), params),
+                                params, '3d')
                         except Exception as e:
                             print(f"    3D prepare failed: {e} — skipping record")
                             continue
@@ -1278,7 +1378,7 @@ def main():
                             print(f"    3D prepare returned nothing — skipping record")
                             continue
                         dispatch_data_list.append({
-                            'data_dict': data_dict,
+                            'data_dict': data_dict, 'prep_key': pkey,
                             'cent_w': cent_w_3d,
                             'n_cent': len(cent_edges),
                             'dispatch_key': dispatch_key,
@@ -1295,36 +1395,12 @@ def main():
                 continue
 
             # Build combined compute function using PIPELINE_DISPATCH
-            def _mask_dict(d, mask):
-                """Apply boolean mask to all numpy arrays in a nested dict or list."""
-                if isinstance(d, list):
-                    return [_mask_dict(item, mask) for item in d]
-                if not isinstance(d, dict):
-                    return d
-                masked = {}
-                for k, v in d.items():
-                    if isinstance(v, dict):
-                        masked[k] = _mask_dict(v, mask)
-                    elif isinstance(v, list):
-                        masked[k] = [_mask_dict(item, mask) for item in v]
-                    elif isinstance(v, np.ndarray) and len(v) == len(mask):
-                        masked[k] = v[mask]
-                    elif k == 'qv' and hasattr(v, 'Qn'):
-                        import copy
-                        mv = copy.copy(v)
-                        mv.Qn = v.Qn[mask].copy()
-                        mv.nsamples = v.nsamples[mask].copy()
-                        masked[k] = mv
-                    else:
-                        masked[k] = v
-                return masked
-
             warned_out_of_range = set()     # one warning per record and harmonic, not per point and replicate
 
             def build_combined_fn(dd_list):
                 def fn(mask):
                     obs = []
-                    for qd in dd_list:
+                    for qd, data_masked in masked_entries(dd_list, mask):
                         core_fn = qd.get('core_fn')
                         if core_fn is None:
                             pipe = get_pipeline_entry(qd['dispatch_key'])
@@ -1333,7 +1409,6 @@ def main():
                             core_fn = pipe['core_fn']
                         n_cent = qd['n_cent']
                         n_bins = qd.get('n_bins', 1)
-                        data_masked = _mask_dict(qd['data_dict'], mask)
                         for ic in range(n_cent):
                             w = class_weights(combine_weights(qd['cent_w'], group_event_weights)[mask],
                                               ic, qd.get('combine_groups'))
@@ -1393,7 +1468,7 @@ def main():
                 for qd in dispatch_data_list:
                     raw = qd.get('core_fn') or get_pipeline_entry(qd['dispatch_key'])['core_fn']
                     try:
-                        lv = len(np.atleast_1d(raw(_mask_dict(qd['data_dict'], np.ones(n_events,dtype=bool)), class_weights(qd['cent_w'], 0, qd.get('combine_groups')))))
+                        lv = len(np.atleast_1d(raw(mask_data(qd['data_dict'], np.ones(n_events,dtype=bool)), class_weights(qd['cent_w'], 0, qd.get('combine_groups')))))
                     except Exception as e:
                         lv = f'ERR {e}'
                     rec0 = qd.get('hepdata_file','?')

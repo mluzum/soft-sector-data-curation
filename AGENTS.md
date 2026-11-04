@@ -260,6 +260,20 @@ replicates that give it exactly: `analysis.jackknife.covariance_from_replicates`
 6788 observables: 370 MB per run as a matrix, 1 MB as replicates), labels
 and the experimental points (also aligned with the labels).
 
+Records of one compute key that differ only in their centrality classes and
+labels (one record per class of a table: 3414 of the 6020 dispatchable
+public records reuse an earlier one's) share one prepared data dict
+(`run_pipeline.prepare_key`: every measurement param but those in
+`_PREPARE_KEY_SKIP`, which no prepare reads; a new param that a prepare
+reads must stay out of that set), masked once per replicate
+(`masked_entries`).  Cores must not modify their data dict.  Until November
+2026 each record prepared and masked its own (ATLAS O+O, 8k synthetic
+events: 49.8 s -> 19.1 s, 1 GB less held); tests/test_shared_prepares.py.  A
+single run uses numpy's BLAS threads, which spin without gain on these sums
+(the same O+O run: 2100% CPU, system time 4x user time; one thread,
+`OPENBLAS_NUM_THREADS=1`, 16 s at 100%); run_campaign sets one thread per
+job.
+
 Containers (`analysis/qvector.py`):
 - **QVectorData (2D)**: `Qn[event, species, harmonic, pT]`, slot 0 the counts.
   It is flat in rapidity over |y| < `rap_max`. An η window is applied through
