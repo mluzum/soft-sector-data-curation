@@ -431,6 +431,10 @@ def audit_doc(path, doc):
             else:
                 flag("warning", f"centrality-named qualifier has non-class "
                                 f"value {v!r}")
+    # a column named by its class ('(0-5%)', ALICE 1335350) states it too
+    head = re.sub(r"[()\s]", "", str(((sel_dv or {}).get("header") or {}).get("name", "")))
+    if dv_cent is None and "%" in head and re.fullmatch(r"[\d.]+-[\d.]+%", head):
+        dv_cent = _norm_cent(head)
     if dv_cent is not None:
         corrected = (doc.get("hepdata_corrections") or {}).get("centrality")
         if cur_classes and dv_cent not in [_norm_cent(c)
