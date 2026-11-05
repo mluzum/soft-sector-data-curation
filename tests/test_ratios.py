@@ -15,8 +15,8 @@ reference class (denominator_class) and over another window, each side
 divided by its pT-integrated yield in every replicate (side_normalization;
 the range need not start at the first bin): values and errors equal a
 direct computation from the run's replicates, a ratio of a side with itself
-is exactly 1 with zero error, and a normalization range across a bin is
-refused.
+is exactly 1 with zero error, a ratio's scale multiplies it, and a
+normalization range across a bin is refused.
 
 Run: python3 tests/test_ratios.py
 """
@@ -314,6 +314,9 @@ def test_within_system():
                              side_normalization=norm, kinematic_range=kr),
                 ratio_record("shape_rap", (paths["mid"], 0), (paths["fwd"], 0), ratio_type="rapidity_ratio",
                              centrality={"classes": ["0-10%"]}, side_normalization=norm, kinematic_range=kr),
+                ratio_record("shape_rap_half", (paths["mid"], 0), (paths["fwd"], 0), ratio_type="rapidity_ratio",
+                             centrality={"classes": ["0-10%"]}, side_normalization=norm, kinematic_range=kr,
+                             scale=0.5),
                 ratio_record("shape_self", (paths["mid"], 0), (paths["mid"], 0), ratio_type="rapidity_ratio",
                              centrality={"classes": ["0-10%"]}, side_normalization=norm, kinematic_range=kr),
                 ratio_record("shape_straddle", (paths["mid"], 0), (paths["mid"], 0), ratio_type="rapidity_ratio",
@@ -368,7 +371,7 @@ def test_within_system():
             labels = [x.decode() for x in g["labels"][:]]
             v, e, nv = g["values"][:], g["errors"][:], g["numerator_values"][:]
         got = {}
-        for name in ("shape_cent", "shape_rap", "shape_self"):
+        for name in ("shape_cent", "shape_rap", "shape_rap_half", "shape_self"):
             for i, lab in enumerate(labels):
                 if lab.startswith(name + " |"):
                     got.setdefault((name, lab.split()[-1]), []).append(i)
@@ -387,6 +390,10 @@ def test_within_system():
         idx = got.get(("shape_rap", "0-10%"), [])
         check("mid over forward window at one class: values and errors = the run's replicates",
               len(idx) == len(edges) - 1 and np.allclose(v[idx], ev, rtol=1e-10) and np.allclose(e[idx], ee, rtol=1e-8))
+        half = got.get(("shape_rap_half", "0-10%"), [])
+        check("a ratio's scale multiplies values and errors",
+              len(half) == len(idx) and np.allclose(v[half], 0.5 * v[idx], rtol=1e-12)
+              and np.allclose(e[half], 0.5 * e[idx], rtol=1e-12))
         idx = got.get(("shape_self", "0-10%"), [])
         check("a side over itself: exactly 1, zero error",
               len(idx) == len(edges) - 1 and np.allclose(v[idx], 1, atol=1e-12) and np.allclose(e[idx], 0, atol=1e-12))

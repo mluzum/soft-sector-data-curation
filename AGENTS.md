@@ -165,7 +165,9 @@ Fields that change dispatch:
   in another component (ALICE 'syst. uncorr.' inside 'syst.'), or not
   carried by the record's quantity (ATLAS 2601282 'syst, TAA': spectra
   tabulated over <T_AA>, multiplied back by value_scale = 1/<T_AA> into
-  per-event yields, which have no <T_AA> uncertainty).
+  per-event yields, which have no <T_AA> uncertainty); '<label>#<k>' names
+  the k-th component of that label (ALICE 1244523: 'sys' twice, the total
+  and its multiplicity-uncorrelated part, 'sys#2').
 - `table_rows`: the table rows a record holds (ascending).  For tables
   whose rows overlap as classes (0-1% and 0-5% in one ATLAS table), one
   record per non-overlapping set; the loader and the audits honour it.
@@ -205,7 +207,10 @@ Fields that change dispatch:
   the pipeline's invariant yield; a bin across a limit is refused).  ATLAS's
   normalization is the fiducial 0.27-5 GeV yield although its bins start at
   0.21 GeV (its ratio tables reproduced to 0.1%);
-  tests/test_ratios.py.
+  tests/test_ratios.py.  Particle ratios within one system link two
+  species' records the same way (ALICE 1244523 K/pi, p/pi vs pT and
+  integrated); a ratio's `scale` multiplies it (Lambda/K0S =
+  (Lambda + Lambdabar) / (2 K0S): 0.5).
 - Symmetric cumulants (`correlation_type: symmetric_cumulant`, key
   `sc_mn`): two harmonics only, and `normalized` is required (true: NSC =
   SC / (<v_m^2><v_n^2>)); `normalization_eta_gap` takes the denominator

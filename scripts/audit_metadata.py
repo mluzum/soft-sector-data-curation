@@ -50,7 +50,8 @@ CENT_MAP = {
 }
 
 # Qualifier names that carry a centrality label/value.
-CENT_KEYS = {"centrality", "centrality [%]", "centrality (%)", "cent", "multiplicity class", "muliplicity class"}
+CENT_KEYS = {"centrality", "centrality [%]", "centrality (%)", "cent", "multiplicity class", "muliplicity class",
+             "class", "event class"}          # ALICE p-Pb: 'class' '0.0 TO 5.0', 'EVENT CLASS' axes
 # Qualifier names that carry a pT selection.
 PT_KEYS = {"pt", "p_t", "p t", "$p_t$", "$p_{t}$", "transverse momentum"}
 # Qualifier names that carry an eta/y selection.
@@ -275,6 +276,9 @@ def _extra_checks(doc, raw, sel_dv, sel_q, desc, flag):
     if otype == "mean_pT" and n0 > 1 and (name0.startswith(("p_t", "pt")) or "transversemomentum" in name0):
         flag("error", "mean_pT of a pT-binned table: the bin centre, not a measurement")
     labels = {str(e.get("label")) for v in (sel_dv or {}).get("values", []) for e in v.get("errors") or []}
+    for v in (sel_dv or {}).get("values", []):       # 'sys#2': the second 'sys' of a point
+        names = [str(e.get("label")) for e in v.get("errors") or []]
+        labels |= {f"{n}#{k}" for n in set(names) for k in range(1, names.count(n) + 1)}
     for lab in doc.get("errors_excluded") or []:
         if lab not in labels:
             flag("error", f"errors_excluded {lab!r} is not an error label of the table ({sorted(labels)})")
@@ -410,7 +414,8 @@ def audit_doc(path, doc):
     # ---- centrality ---------------------------------------------------
     cent_iv = None
     for iv in indeps:
-        if "cent" in _indep_name(iv).lower():
+        n = _indep_name(iv).lower()
+        if "cent" in n or n in ("event class", "multiplicity class", "class"):
             cent_iv = iv
             break
     cur_classes = (doc.get("centrality") or {}).get("classes") or []

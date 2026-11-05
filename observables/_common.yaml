@@ -67,9 +67,11 @@ errors_excluded:
     a component that is part of another one (ALICE 'syst. uncorr.', the
     centrality-uncorrelated part of 'syst.'), or one that the record's
     quantity does not carry (ATLAS 'syst, TAA', the uncertainty of the
-    <T_AA> that value_scale multiplies back into a per-event yield).  The
-    other components add in quadrature; audit_metadata checks the labels
-    exist.
+    <T_AA> that value_scale multiplies back into a per-event yield).
+    '<label>#<k>' names the k-th component with that label (ALICE 1244523:
+    'sys' twice, the total and its multiplicity-uncorrelated part: 'sys#2').
+    The other components add in quadrature; audit_metadata checks the
+    labels exist.
   type: array
   required: false
 

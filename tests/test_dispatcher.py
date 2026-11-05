@@ -455,6 +455,13 @@ def test_load_experimental_total_error():
     want = [np.hypot(0.3, 0.4), 0.3, np.hypot(0.2, 0.3), 0.2]
     assert np.allclose(e, want), (e, want)
     assert np.allclose(e2, [0.3, 0.3, np.hypot(0.2, 0.3), 0.2]), e2
+    # 'sys#2': the second component labelled 'sys' (ALICE 1244523: the total
+    # and its multiplicity-uncorrelated part are both 'sys')
+    from analysis.dispatcher import _point_error
+    errs = [{'label': 'stat', 'symerror': 3.0}, {'label': 'sys', 'symerror': 4.0}, {'label': 'sys', 'symerror': 12.0}]
+    assert _point_error(errs, 1.0) == 13.0
+    assert _point_error(errs, 1.0, ['sys#2']) == 5.0
+    assert _point_error(errs, 1.0, ['sys']) == 3.0
 
 
 def test_fractional_centrality_edges():

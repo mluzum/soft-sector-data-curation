@@ -1262,11 +1262,17 @@ def _point_error(errs, val, excluded=None):
     of its two sides.  ``excluded``: a record's errors_excluded, components
     that are part of another one (ALICE 'syst. uncorr.', the
     centrality-uncorrelated part of 'syst.') or that the record's quantity
-    does not carry (ATLAS 'syst, TAA' of a per-event yield)."""
+    does not carry (ATLAS 'syst, TAA' of a per-event yield); '<label>#<k>'
+    names the k-th component with that label."""
     total = 0.0
     excluded = set(excluded or ())
+    seen = {}
     for e in errs:
-        if e.get('label') in excluded:
+        lab = e.get('label')
+        seen[lab] = seen.get(lab, 0) + 1
+        # 'sys#2': the second component labelled 'sys' (ALICE 1244523 tabulates
+        # the total and its multiplicity-uncorrelated part both as 'sys')
+        if lab in excluded or f'{lab}#{seen[lab]}' in excluded:
             continue
         if 'symerror' in e:
             size = _error_size(e['symerror'], val)

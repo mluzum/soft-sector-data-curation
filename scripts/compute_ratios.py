@@ -35,7 +35,9 @@ ratio's `denominator_class` fixes the denominator's class (each class over
 70-80%), and `side_normalization` {pT: {min, max}} divides each side's
 spectrum by its yield over that pT range, in every replicate
 (analysis.ratios.side_normalized): a ratio of spectrum shapes.
-numerator_values / denominator_values are then the normalized sides.
+numerator_values / denominator_values are then the normalized sides.  A
+ratio's `scale` multiplies numerator / denominator (ALICE's Lambda/K0S,
+(Lambda + Lambdabar) / (2 K0S): 0.5).
 
 Output (HDF5, group "ratios"): values, errors, covariance, labels
 ("<ratio value_type> | <quantity>"), exp_values, exp_errors (the ratio
@@ -297,7 +299,9 @@ def main():
             df.append(d_side[dk][0]); dr.append(d_side[dk][1]); dv.append(d_side[dk][2])
             x = exp.get(exp_key(k, bool(var)), (np.nan, np.nan))
             ev.append(x[0]); ee.append(x[1])
-    corr, err, cov = joint_jackknife(np.array(nf), np.array(nr).T, np.array(df), np.array(dr).T)
+    # a ratio record's scale (ALICE Lambda/K0S = (Lambda + Lambdabar) / (2 K0S): 0.5)
+    sc = np.array([float(ratios[i][1].get("scale") or 1.0) for i in rec_idx])
+    corr, err, cov = joint_jackknife(np.array(nf) * sc, np.array(nr).T * sc, np.array(df), np.array(dr).T)
 
     with h5py.File(a.output, "w") as h:
         g = h.create_group("ratios")
