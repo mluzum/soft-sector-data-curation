@@ -1,0 +1,4057 @@
+observable_type: flow_pT_correlations
+inspire_id: '2075412'
+version: 1
+hepdata_file: table_1.yaml
+dv_index: 0
+hepdata_table_label: rho_2, standard, Pb+Pb 5.02 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV (table_1.yaml)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 79.909-83.075%
+  - 76.9085-79.909%
+  - 74.3425-76.9085%
+  - 72.097-74.3425%
+  - 70.0975-72.097%
+  - 68.344-70.0975%
+  - 66.7465-68.344%
+  - 65.3545-66.7465%
+  - 63.977-65.3545%
+  - 61.5205-63.977%
+  - 57.4795-61.5205%
+  - 53.187-57.4795%
+  - 49.5105-53.187%
+  - 46.2855-49.5105%
+  - 43.4325-46.2855%
+  - 40.8595-43.4325%
+  - 38.4795-40.8595%
+  - 35.531-38.4795%
+  - 31.444-35.531%
+  - 27.19-31.444%
+  - 23.4455-27.19%
+  - 20.1-23.4455%
+  - 17.0835-20.1%
+  - 14.334-17.0835%
+  - 11.8355-14.334%
+  - 9.5603-11.8355%
+  - 7.4743-9.5603%
+  - 5.5701-7.4743%
+  - 3.8305-5.5701%
+  - 2.4709-3.8305%
+  - 1.6594-2.4709%
+  - 1.1202-1.6594%
+  - 0.6569-1.1202%
+  - 0.3159-0.6569%
+  - 0.1173-0.3159%
+  - 0.032-0.1173%
+  - 0.0062-0.032%
+  - 0-0.0062%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T-based classes; edges midway between the tabulated mean centralities of the Sigma E_T bins.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.75
+      pT:
+        min: 0.5
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.5
+        max: 0.5
+      pT:
+        min: 0.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.75
+        max: 2.5
+      pT:
+        min: 0.5
+        max: 5.0
+observable: rho_vn2_pT
+value_type: rho_n
+correlation_type: rho_vn2_pT
+harmonic: 2
+covariance_method: standard
+variance_terms:
+  c4: standard
+  c2: two_subevent
+ck_window: full
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, PRC 107 (2023) 054910, arXiv:2205.00039, Data from Figure 1, Panel 1. rho_2, standard, Pb+Pb
+    5.02 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV; c_k from the full window, var(v_n^2) = c_n{4} (full) + c_n{2}^2 (two subevents);
+    computed in narrow Sigma E_T bins and combined (multiplicity_baseline: FCal multiplicity). Errors: stat and syst.'
+---
+observable_type: flow_pT_correlations
+inspire_id: '2075412'
+version: 1
+hepdata_file: table_2.yaml
+dv_index: 0
+hepdata_table_label: rho_2, two-subevent, Pb+Pb 5.02 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV (table_2.yaml)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 79.909-83.075%
+  - 76.9085-79.909%
+  - 74.3425-76.9085%
+  - 72.097-74.3425%
+  - 70.0975-72.097%
+  - 68.344-70.0975%
+  - 66.7465-68.344%
+  - 65.3545-66.7465%
+  - 63.977-65.3545%
+  - 61.5205-63.977%
+  - 57.4795-61.5205%
+  - 53.187-57.4795%
+  - 49.5105-53.187%
+  - 46.2855-49.5105%
+  - 43.4325-46.2855%
+  - 40.8595-43.4325%
+  - 38.4795-40.8595%
+  - 35.531-38.4795%
+  - 31.444-35.531%
+  - 27.19-31.444%
+  - 23.4455-27.19%
+  - 20.1-23.4455%
+  - 17.0835-20.1%
+  - 14.334-17.0835%
+  - 11.8355-14.334%
+  - 9.5603-11.8355%
+  - 7.4743-9.5603%
+  - 5.5701-7.4743%
+  - 3.8305-5.5701%
+  - 2.4709-3.8305%
+  - 1.6594-2.4709%
+  - 1.1202-1.6594%
+  - 0.6569-1.1202%
+  - 0.3159-0.6569%
+  - 0.1173-0.3159%
+  - 0.032-0.1173%
+  - 0.0062-0.032%
+  - 0-0.0062%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T-based classes; edges midway between the tabulated mean centralities of the Sigma E_T bins.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.75
+      pT:
+        min: 0.5
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.5
+        max: 0.5
+      pT:
+        min: 0.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.75
+        max: 2.5
+      pT:
+        min: 0.5
+        max: 5.0
+observable: rho_vn2_pT
+value_type: rho_n
+correlation_type: rho_vn2_pT
+harmonic: 2
+covariance_method: two_subevent
+variance_terms:
+  c4: standard
+  c2: two_subevent
+ck_window: full
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, PRC 107 (2023) 054910, arXiv:2205.00039, Data from Figure 1, Panel 1. rho_2, two-subevent,
+    Pb+Pb 5.02 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV; c_k from the full window, var(v_n^2) = c_n{4} (full) + c_n{2}^2 (two subevents);
+    computed in narrow Sigma E_T bins and combined (multiplicity_baseline: FCal multiplicity). Errors: stat and syst.'
+---
+observable_type: flow_pT_correlations
+inspire_id: '2075412'
+version: 1
+hepdata_file: table_3.yaml
+dv_index: 0
+hepdata_table_label: rho_2, three-subevent, Pb+Pb 5.02 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV (table_3.yaml)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 79.909-83.075%
+  - 76.9085-79.909%
+  - 74.3425-76.9085%
+  - 72.097-74.3425%
+  - 70.0975-72.097%
+  - 68.344-70.0975%
+  - 66.7465-68.344%
+  - 65.3545-66.7465%
+  - 63.977-65.3545%
+  - 61.5205-63.977%
+  - 57.4795-61.5205%
+  - 53.187-57.4795%
+  - 49.5105-53.187%
+  - 46.2855-49.5105%
+  - 43.4325-46.2855%
+  - 40.8595-43.4325%
+  - 38.4795-40.8595%
+  - 35.531-38.4795%
+  - 31.444-35.531%
+  - 27.19-31.444%
+  - 23.4455-27.19%
+  - 20.1-23.4455%
+  - 17.0835-20.1%
+  - 14.334-17.0835%
+  - 11.8355-14.334%
+  - 9.5603-11.8355%
+  - 7.4743-9.5603%
+  - 5.5701-7.4743%
+  - 3.8305-5.5701%
+  - 2.4709-3.8305%
+  - 1.6594-2.4709%
+  - 1.1202-1.6594%
+  - 0.6569-1.1202%
+  - 0.3159-0.6569%
+  - 0.1173-0.3159%
+  - 0.032-0.1173%
+  - 0.0062-0.032%
+  - 0-0.0062%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T-based classes; edges midway between the tabulated mean centralities of the Sigma E_T bins.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.75
+      pT:
+        min: 0.5
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.5
+        max: 0.5
+      pT:
+        min: 0.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.75
+        max: 2.5
+      pT:
+        min: 0.5
+        max: 5.0
+observable: rho_vn2_pT
+value_type: rho_n
+correlation_type: rho_vn2_pT
+harmonic: 2
+covariance_method: three_subevent
+variance_terms:
+  c4: standard
+  c2: two_subevent
+ck_window: full
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, PRC 107 (2023) 054910, arXiv:2205.00039, Data from Figure 1, Panel 1. rho_2, three-subevent,
+    Pb+Pb 5.02 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV; c_k from the full window, var(v_n^2) = c_n{4} (full) + c_n{2}^2 (two subevents);
+    computed in narrow Sigma E_T bins and combined (multiplicity_baseline: FCal multiplicity). Errors: stat and syst.'
+---
+observable_type: flow_pT_correlations
+inspire_id: '2075412'
+version: 1
+hepdata_file: table_4.yaml
+dv_index: 0
+hepdata_table_label: rho_3, standard, Pb+Pb 5.02 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV (table_4.yaml)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 60.108-66.878%
+  - 54.1805-60.108%
+  - 49.504-54.1805%
+  - 45.5515-49.504%
+  - 42.1145-45.5515%
+  - 39.0505-42.1145%
+  - 35.6615-39.0505%
+  - 31.444-35.6615%
+  - 27.19-31.444%
+  - 23.4455-27.19%
+  - 20.1-23.4455%
+  - 17.0835-20.1%
+  - 14.334-17.0835%
+  - 11.8355-14.334%
+  - 9.5603-11.8355%
+  - 7.4743-9.5603%
+  - 5.5701-7.4743%
+  - 3.8305-5.5701%
+  - 2.2544-3.8305%
+  - 0.9371-2.2544%
+  - 0.191-0.9371%
+  - 0-0.191%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T-based classes; edges midway between the tabulated mean centralities of the Sigma E_T bins.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.75
+      pT:
+        min: 0.5
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.5
+        max: 0.5
+      pT:
+        min: 0.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.75
+        max: 2.5
+      pT:
+        min: 0.5
+        max: 5.0
+observable: rho_vn2_pT
+value_type: rho_n
+correlation_type: rho_vn2_pT
+harmonic: 3
+covariance_method: standard
+variance_terms:
+  c4: standard
+  c2: two_subevent
+ck_window: full
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, PRC 107 (2023) 054910, arXiv:2205.00039, Data from Figure 1, Panel 2. rho_3, standard, Pb+Pb
+    5.02 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV; c_k from the full window, var(v_n^2) = c_n{4} (full) + c_n{2}^2 (two subevents);
+    computed in narrow Sigma E_T bins and combined (multiplicity_baseline: FCal multiplicity). Errors: stat and syst.'
+---
+observable_type: flow_pT_correlations
+inspire_id: '2075412'
+version: 1
+hepdata_file: table_5.yaml
+dv_index: 0
+hepdata_table_label: rho_3, two-subevent, Pb+Pb 5.02 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV (table_5.yaml)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 60.108-66.878%
+  - 54.1805-60.108%
+  - 49.504-54.1805%
+  - 45.5515-49.504%
+  - 42.1145-45.5515%
+  - 39.0505-42.1145%
+  - 35.6615-39.0505%
+  - 31.444-35.6615%
+  - 27.19-31.444%
+  - 23.4455-27.19%
+  - 20.1-23.4455%
+  - 17.0835-20.1%
+  - 14.334-17.0835%
+  - 11.8355-14.334%
+  - 9.5603-11.8355%
+  - 7.4743-9.5603%
+  - 5.5701-7.4743%
+  - 3.8305-5.5701%
+  - 2.2544-3.8305%
+  - 0.9371-2.2544%
+  - 0.191-0.9371%
+  - 0-0.191%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T-based classes; edges midway between the tabulated mean centralities of the Sigma E_T bins.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.75
+      pT:
+        min: 0.5
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.5
+        max: 0.5
+      pT:
+        min: 0.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.75
+        max: 2.5
+      pT:
+        min: 0.5
+        max: 5.0
+observable: rho_vn2_pT
+value_type: rho_n
+correlation_type: rho_vn2_pT
+harmonic: 3
+covariance_method: two_subevent
+variance_terms:
+  c4: standard
+  c2: two_subevent
+ck_window: full
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, PRC 107 (2023) 054910, arXiv:2205.00039, Data from Figure 1, Panel 2. rho_3, two-subevent,
+    Pb+Pb 5.02 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV; c_k from the full window, var(v_n^2) = c_n{4} (full) + c_n{2}^2 (two subevents);
+    computed in narrow Sigma E_T bins and combined (multiplicity_baseline: FCal multiplicity). Errors: stat and syst.'
+---
+observable_type: flow_pT_correlations
+inspire_id: '2075412'
+version: 1
+hepdata_file: table_6.yaml
+dv_index: 0
+hepdata_table_label: rho_3, three-subevent, Pb+Pb 5.02 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV (table_6.yaml)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 60.108-66.878%
+  - 54.1805-60.108%
+  - 49.504-54.1805%
+  - 45.5515-49.504%
+  - 42.1145-45.5515%
+  - 39.0505-42.1145%
+  - 35.6615-39.0505%
+  - 31.444-35.6615%
+  - 27.19-31.444%
+  - 23.4455-27.19%
+  - 20.1-23.4455%
+  - 17.0835-20.1%
+  - 14.334-17.0835%
+  - 11.8355-14.334%
+  - 9.5603-11.8355%
+  - 7.4743-9.5603%
+  - 5.5701-7.4743%
+  - 3.8305-5.5701%
+  - 2.2544-3.8305%
+  - 0.9371-2.2544%
+  - 0.191-0.9371%
+  - 0-0.191%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T-based classes; edges midway between the tabulated mean centralities of the Sigma E_T bins.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.75
+      pT:
+        min: 0.5
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.5
+        max: 0.5
+      pT:
+        min: 0.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.75
+        max: 2.5
+      pT:
+        min: 0.5
+        max: 5.0
+observable: rho_vn2_pT
+value_type: rho_n
+correlation_type: rho_vn2_pT
+harmonic: 3
+covariance_method: three_subevent
+variance_terms:
+  c4: standard
+  c2: two_subevent
+ck_window: full
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, PRC 107 (2023) 054910, arXiv:2205.00039, Data from Figure 1, Panel 2. rho_3, three-subevent,
+    Pb+Pb 5.02 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV; c_k from the full window, var(v_n^2) = c_n{4} (full) + c_n{2}^2 (two subevents);
+    computed in narrow Sigma E_T bins and combined (multiplicity_baseline: FCal multiplicity). Errors: stat and syst.'
+---
+observable_type: flow_pT_correlations
+inspire_id: '2075412'
+version: 1
+hepdata_file: table_7.yaml
+dv_index: 0
+hepdata_table_label: rho_4, standard, Pb+Pb 5.02 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV (table_7.yaml)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 60.108-66.878%
+  - 54.1805-60.108%
+  - 49.504-54.1805%
+  - 45.5515-49.504%
+  - 42.1145-45.5515%
+  - 39.0505-42.1145%
+  - 35.6615-39.0505%
+  - 31.444-35.6615%
+  - 27.19-31.444%
+  - 23.4455-27.19%
+  - 20.1-23.4455%
+  - 17.0835-20.1%
+  - 14.334-17.0835%
+  - 11.8355-14.334%
+  - 9.5603-11.8355%
+  - 7.4743-9.5603%
+  - 5.5701-7.4743%
+  - 3.8305-5.5701%
+  - 2.2544-3.8305%
+  - 0.9371-2.2544%
+  - 0.191-0.9371%
+  - 0-0.191%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T-based classes; edges midway between the tabulated mean centralities of the Sigma E_T bins.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.75
+      pT:
+        min: 0.5
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.5
+        max: 0.5
+      pT:
+        min: 0.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.75
+        max: 2.5
+      pT:
+        min: 0.5
+        max: 5.0
+observable: rho_vn2_pT
+value_type: rho_n
+correlation_type: rho_vn2_pT
+harmonic: 4
+covariance_method: standard
+variance_terms:
+  c4: standard
+  c2: two_subevent
+ck_window: full
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, PRC 107 (2023) 054910, arXiv:2205.00039, Data from Figure 1, Panel 3. rho_4, standard, Pb+Pb
+    5.02 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV; c_k from the full window, var(v_n^2) = c_n{4} (full) + c_n{2}^2 (two subevents);
+    computed in narrow Sigma E_T bins and combined (multiplicity_baseline: FCal multiplicity). Errors: stat and syst.'
+---
+observable_type: flow_pT_correlations
+inspire_id: '2075412'
+version: 1
+hepdata_file: table_8.yaml
+dv_index: 0
+hepdata_table_label: rho_4, two-subevent, Pb+Pb 5.02 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV (table_8.yaml)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 68.7465-79.2535%
+  - 60.108-68.7465%
+  - 54.1805-60.108%
+  - 49.504-54.1805%
+  - 45.5515-49.504%
+  - 42.1145-45.5515%
+  - 39.0505-42.1145%
+  - 35.6615-39.0505%
+  - 31.444-35.6615%
+  - 27.19-31.444%
+  - 23.4455-27.19%
+  - 20.1-23.4455%
+  - 17.0835-20.1%
+  - 14.334-17.0835%
+  - 11.8355-14.334%
+  - 9.5603-11.8355%
+  - 7.4743-9.5603%
+  - 5.5701-7.4743%
+  - 3.8305-5.5701%
+  - 2.2544-3.8305%
+  - 0.9371-2.2544%
+  - 0.191-0.9371%
+  - 0-0.191%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T-based classes; edges midway between the tabulated mean centralities of the Sigma E_T bins.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.75
+      pT:
+        min: 0.5
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.5
+        max: 0.5
+      pT:
+        min: 0.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.75
+        max: 2.5
+      pT:
+        min: 0.5
+        max: 5.0
+observable: rho_vn2_pT
+value_type: rho_n
+correlation_type: rho_vn2_pT
+harmonic: 4
+covariance_method: two_subevent
+variance_terms:
+  c4: standard
+  c2: two_subevent
+ck_window: full
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, PRC 107 (2023) 054910, arXiv:2205.00039, Data from Figure 1, Panel 3. rho_4, two-subevent,
+    Pb+Pb 5.02 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV; c_k from the full window, var(v_n^2) = c_n{4} (full) + c_n{2}^2 (two subevents);
+    computed in narrow Sigma E_T bins and combined (multiplicity_baseline: FCal multiplicity). Errors: stat and syst.'
+---
+observable_type: flow_pT_correlations
+inspire_id: '2075412'
+version: 1
+hepdata_file: table_9.yaml
+dv_index: 0
+hepdata_table_label: rho_4, three-subevent, Pb+Pb 5.02 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV (table_9.yaml)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 68.7465-79.2535%
+  - 60.108-68.7465%
+  - 54.1805-60.108%
+  - 49.504-54.1805%
+  - 45.5515-49.504%
+  - 42.1145-45.5515%
+  - 39.0505-42.1145%
+  - 35.6615-39.0505%
+  - 31.444-35.6615%
+  - 27.19-31.444%
+  - 23.4455-27.19%
+  - 20.1-23.4455%
+  - 17.0835-20.1%
+  - 14.334-17.0835%
+  - 11.8355-14.334%
+  - 9.5603-11.8355%
+  - 7.4743-9.5603%
+  - 5.5701-7.4743%
+  - 3.8305-5.5701%
+  - 2.2544-3.8305%
+  - 0.9371-2.2544%
+  - 0.191-0.9371%
+  - 0-0.191%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T-based classes; edges midway between the tabulated mean centralities of the Sigma E_T bins.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.75
+      pT:
+        min: 0.5
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.5
+        max: 0.5
+      pT:
+        min: 0.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.75
+        max: 2.5
+      pT:
+        min: 0.5
+        max: 5.0
+observable: rho_vn2_pT
+value_type: rho_n
+correlation_type: rho_vn2_pT
+harmonic: 4
+covariance_method: three_subevent
+variance_terms:
+  c4: standard
+  c2: two_subevent
+ck_window: full
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, PRC 107 (2023) 054910, arXiv:2205.00039, Data from Figure 1, Panel 3. rho_4, three-subevent,
+    Pb+Pb 5.02 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV; c_k from the full window, var(v_n^2) = c_n{4} (full) + c_n{2}^2 (two subevents);
+    computed in narrow Sigma E_T bins and combined (multiplicity_baseline: FCal multiplicity). Errors: stat and syst.'
+---
+observable_type: flow_pT_correlations
+inspire_id: '2075412'
+version: 1
+hepdata_file: table_10.yaml
+dv_index: 0
+hepdata_table_label: rho_2, standard, Xe+Xe 5.44 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV (table_10.yaml)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 72.2455-81.7525%
+  - 66.3435-72.2455%
+  - 64.196-66.3435%
+  - 61.429-64.196%
+  - 58.8305-61.429%
+  - 55.937-58.8305%
+  - 51.0355-55.937%
+  - 45.8455-51.0355%
+  - 41.4945-45.8455%
+  - 37.713-41.4945%
+  - 34.346-37.713%
+  - 31.324-34.346%
+  - 28.5475-31.324%
+  - 25.104-28.5475%
+  - 20.4415-25.104%
+  - 15.673-20.4415%
+  - 11.5626-15.673%
+  - 8.0156-11.5626%
+  - 4.9367-8.0156%
+  - 2.318-4.9367%
+  - 0.6044-2.318%
+  - 0-0.6044%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T-based classes; edges midway between the tabulated mean centralities of the Sigma E_T bins.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.75
+      pT:
+        min: 0.5
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.5
+        max: 0.5
+      pT:
+        min: 0.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.75
+        max: 2.5
+      pT:
+        min: 0.5
+        max: 5.0
+observable: rho_vn2_pT
+value_type: rho_n
+correlation_type: rho_vn2_pT
+harmonic: 2
+covariance_method: standard
+variance_terms:
+  c4: standard
+  c2: two_subevent
+ck_window: full
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, PRC 107 (2023) 054910, arXiv:2205.00039, Data from Figure 1, Panel 4. rho_2, standard, Xe+Xe
+    5.44 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV; c_k from the full window, var(v_n^2) = c_n{4} (full) + c_n{2}^2 (two subevents);
+    computed in narrow Sigma E_T bins and combined (multiplicity_baseline: FCal multiplicity). Errors: stat and syst.'
+---
+observable_type: flow_pT_correlations
+inspire_id: '2075412'
+version: 1
+hepdata_file: table_11.yaml
+dv_index: 0
+hepdata_table_label: rho_2, two-subevent, Xe+Xe 5.44 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV (table_11.yaml)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 72.2455-81.7525%
+  - 66.3435-72.2455%
+  - 64.196-66.3435%
+  - 61.429-64.196%
+  - 58.8305-61.429%
+  - 55.937-58.8305%
+  - 51.0355-55.937%
+  - 45.8455-51.0355%
+  - 41.4945-45.8455%
+  - 37.713-41.4945%
+  - 34.346-37.713%
+  - 31.324-34.346%
+  - 28.5475-31.324%
+  - 25.104-28.5475%
+  - 20.4415-25.104%
+  - 15.673-20.4415%
+  - 11.5626-15.673%
+  - 8.0156-11.5626%
+  - 4.9367-8.0156%
+  - 2.318-4.9367%
+  - 0.6044-2.318%
+  - 0-0.6044%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T-based classes; edges midway between the tabulated mean centralities of the Sigma E_T bins.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.75
+      pT:
+        min: 0.5
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.5
+        max: 0.5
+      pT:
+        min: 0.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.75
+        max: 2.5
+      pT:
+        min: 0.5
+        max: 5.0
+observable: rho_vn2_pT
+value_type: rho_n
+correlation_type: rho_vn2_pT
+harmonic: 2
+covariance_method: two_subevent
+variance_terms:
+  c4: standard
+  c2: two_subevent
+ck_window: full
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, PRC 107 (2023) 054910, arXiv:2205.00039, Data from Figure 1, Panel 4. rho_2, two-subevent,
+    Xe+Xe 5.44 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV; c_k from the full window, var(v_n^2) = c_n{4} (full) + c_n{2}^2 (two subevents);
+    computed in narrow Sigma E_T bins and combined (multiplicity_baseline: FCal multiplicity). Errors: stat and syst.'
+---
+observable_type: flow_pT_correlations
+inspire_id: '2075412'
+version: 1
+hepdata_file: table_12.yaml
+dv_index: 0
+hepdata_table_label: rho_2, three-subevent, Xe+Xe 5.44 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV (table_12.yaml)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 72.2455-81.7525%
+  - 66.3435-72.2455%
+  - 64.196-66.3435%
+  - 61.429-64.196%
+  - 58.8305-61.429%
+  - 55.937-58.8305%
+  - 51.0355-55.937%
+  - 45.8455-51.0355%
+  - 41.4945-45.8455%
+  - 37.713-41.4945%
+  - 34.346-37.713%
+  - 31.324-34.346%
+  - 28.5475-31.324%
+  - 25.104-28.5475%
+  - 20.4415-25.104%
+  - 15.673-20.4415%
+  - 11.5626-15.673%
+  - 8.0156-11.5626%
+  - 4.9367-8.0156%
+  - 2.318-4.9367%
+  - 0.6044-2.318%
+  - 0-0.6044%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T-based classes; edges midway between the tabulated mean centralities of the Sigma E_T bins.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.75
+      pT:
+        min: 0.5
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.5
+        max: 0.5
+      pT:
+        min: 0.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.75
+        max: 2.5
+      pT:
+        min: 0.5
+        max: 5.0
+observable: rho_vn2_pT
+value_type: rho_n
+correlation_type: rho_vn2_pT
+harmonic: 2
+covariance_method: three_subevent
+variance_terms:
+  c4: standard
+  c2: two_subevent
+ck_window: full
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, PRC 107 (2023) 054910, arXiv:2205.00039, Data from Figure 1, Panel 4. rho_2, three-subevent,
+    Xe+Xe 5.44 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV; c_k from the full window, var(v_n^2) = c_n{4} (full) + c_n{2}^2 (two subevents);
+    computed in narrow Sigma E_T bins and combined (multiplicity_baseline: FCal multiplicity). Errors: stat and syst.'
+---
+observable_type: flow_pT_correlations
+inspire_id: '2075412'
+version: 1
+hepdata_file: table_13.yaml
+dv_index: 0
+hepdata_table_label: rho_3, standard, Xe+Xe 5.44 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV (table_13.yaml)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 50.3905-57.3575%
+  - 43.201-50.3905%
+  - 36.128-43.201%
+  - 29.9845-36.128%
+  - 24.561-29.9845%
+  - 19.421-24.561%
+  - 14.7905-19.421%
+  - 10.8123-14.7905%
+  - 7.3677-10.8123%
+  - 4.3716-7.3677%
+  - 1.8813-4.3716%
+  - 0.4084-1.8813%
+  - 0-0.4084%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T-based classes; edges midway between the tabulated mean centralities of the Sigma E_T bins.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.75
+      pT:
+        min: 0.5
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.5
+        max: 0.5
+      pT:
+        min: 0.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.75
+        max: 2.5
+      pT:
+        min: 0.5
+        max: 5.0
+observable: rho_vn2_pT
+value_type: rho_n
+correlation_type: rho_vn2_pT
+harmonic: 3
+covariance_method: standard
+variance_terms:
+  c4: standard
+  c2: two_subevent
+ck_window: full
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, PRC 107 (2023) 054910, arXiv:2205.00039, Data from Figure 1, Panel 5. rho_3, standard, Xe+Xe
+    5.44 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV; c_k from the full window, var(v_n^2) = c_n{4} (full) + c_n{2}^2 (two subevents);
+    computed in narrow Sigma E_T bins and combined (multiplicity_baseline: FCal multiplicity). Errors: stat and syst.'
+---
+observable_type: flow_pT_correlations
+inspire_id: '2075412'
+version: 1
+hepdata_file: table_14.yaml
+dv_index: 0
+hepdata_table_label: rho_3, two-subevent, Xe+Xe 5.44 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV (table_14.yaml)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 63.437-82.563%
+  - 50.3905-63.437%
+  - 43.201-50.3905%
+  - 36.128-43.201%
+  - 29.9845-36.128%
+  - 24.561-29.9845%
+  - 19.421-24.561%
+  - 14.7905-19.421%
+  - 10.8123-14.7905%
+  - 7.3677-10.8123%
+  - 4.3716-7.3677%
+  - 1.8813-4.3716%
+  - 0.4084-1.8813%
+  - 0-0.4084%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T-based classes; edges midway between the tabulated mean centralities of the Sigma E_T bins.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.75
+      pT:
+        min: 0.5
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.5
+        max: 0.5
+      pT:
+        min: 0.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.75
+        max: 2.5
+      pT:
+        min: 0.5
+        max: 5.0
+observable: rho_vn2_pT
+value_type: rho_n
+correlation_type: rho_vn2_pT
+harmonic: 3
+covariance_method: two_subevent
+variance_terms:
+  c4: standard
+  c2: two_subevent
+ck_window: full
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, PRC 107 (2023) 054910, arXiv:2205.00039, Data from Figure 1, Panel 5. rho_3, two-subevent,
+    Xe+Xe 5.44 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV; c_k from the full window, var(v_n^2) = c_n{4} (full) + c_n{2}^2 (two subevents);
+    computed in narrow Sigma E_T bins and combined (multiplicity_baseline: FCal multiplicity). Errors: stat and syst.'
+---
+observable_type: flow_pT_correlations
+inspire_id: '2075412'
+version: 1
+hepdata_file: table_15.yaml
+dv_index: 0
+hepdata_table_label: rho_3, three-subevent, Xe+Xe 5.44 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV (table_15.yaml)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 50.3905-57.3575%
+  - 43.201-50.3905%
+  - 36.128-43.201%
+  - 29.9845-36.128%
+  - 24.561-29.9845%
+  - 19.421-24.561%
+  - 14.7905-19.421%
+  - 10.8123-14.7905%
+  - 7.3677-10.8123%
+  - 4.3716-7.3677%
+  - 1.8813-4.3716%
+  - 0.4084-1.8813%
+  - 0-0.4084%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T-based classes; edges midway between the tabulated mean centralities of the Sigma E_T bins.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.75
+      pT:
+        min: 0.5
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.5
+        max: 0.5
+      pT:
+        min: 0.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.75
+        max: 2.5
+      pT:
+        min: 0.5
+        max: 5.0
+observable: rho_vn2_pT
+value_type: rho_n
+correlation_type: rho_vn2_pT
+harmonic: 3
+covariance_method: three_subevent
+variance_terms:
+  c4: standard
+  c2: two_subevent
+ck_window: full
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, PRC 107 (2023) 054910, arXiv:2205.00039, Data from Figure 1, Panel 5. rho_3, three-subevent,
+    Xe+Xe 5.44 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV; c_k from the full window, var(v_n^2) = c_n{4} (full) + c_n{2}^2 (two subevents);
+    computed in narrow Sigma E_T bins and combined (multiplicity_baseline: FCal multiplicity). Errors: stat and syst.'
+---
+observable_type: flow_pT_correlations
+inspire_id: '2075412'
+version: 1
+hepdata_file: table_16.yaml
+dv_index: 0
+hepdata_table_label: rho_4, standard, Xe+Xe 5.44 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV (table_16.yaml)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 46.172-55.6%
+  - 37.883-46.172%
+  - 31.416-37.883%
+  - 25.762-31.416%
+  - 20.4415-25.762%
+  - 15.673-20.4415%
+  - 11.5626-15.673%
+  - 8.0156-11.5626%
+  - 4.9367-8.0156%
+  - 2.318-4.9367%
+  - 0.6044-2.318%
+  - 0-0.6044%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T-based classes; edges midway between the tabulated mean centralities of the Sigma E_T bins.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.75
+      pT:
+        min: 0.5
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.5
+        max: 0.5
+      pT:
+        min: 0.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.75
+        max: 2.5
+      pT:
+        min: 0.5
+        max: 5.0
+observable: rho_vn2_pT
+value_type: rho_n
+correlation_type: rho_vn2_pT
+harmonic: 4
+covariance_method: standard
+variance_terms:
+  c4: standard
+  c2: two_subevent
+ck_window: full
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, PRC 107 (2023) 054910, arXiv:2205.00039, Data from Figure 1, Panel 6. rho_4, standard, Xe+Xe
+    5.44 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV; c_k from the full window, var(v_n^2) = c_n{4} (full) + c_n{2}^2 (two subevents);
+    computed in narrow Sigma E_T bins and combined (multiplicity_baseline: FCal multiplicity). Errors: stat and syst.'
+---
+observable_type: flow_pT_correlations
+inspire_id: '2075412'
+version: 1
+hepdata_file: table_17.yaml
+dv_index: 0
+hepdata_table_label: rho_4, two-subevent, Xe+Xe 5.44 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV (table_17.yaml)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 46.172-55.6%
+  - 37.883-46.172%
+  - 31.416-37.883%
+  - 25.762-31.416%
+  - 20.4415-25.762%
+  - 15.673-20.4415%
+  - 11.5626-15.673%
+  - 8.0156-11.5626%
+  - 4.9367-8.0156%
+  - 2.318-4.9367%
+  - 0.6044-2.318%
+  - 0-0.6044%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T-based classes; edges midway between the tabulated mean centralities of the Sigma E_T bins.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.75
+      pT:
+        min: 0.5
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.5
+        max: 0.5
+      pT:
+        min: 0.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.75
+        max: 2.5
+      pT:
+        min: 0.5
+        max: 5.0
+observable: rho_vn2_pT
+value_type: rho_n
+correlation_type: rho_vn2_pT
+harmonic: 4
+covariance_method: two_subevent
+variance_terms:
+  c4: standard
+  c2: two_subevent
+ck_window: full
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, PRC 107 (2023) 054910, arXiv:2205.00039, Data from Figure 1, Panel 6. rho_4, two-subevent,
+    Xe+Xe 5.44 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV; c_k from the full window, var(v_n^2) = c_n{4} (full) + c_n{2}^2 (two subevents);
+    computed in narrow Sigma E_T bins and combined (multiplicity_baseline: FCal multiplicity). Errors: stat and syst.'
+---
+observable_type: flow_pT_correlations
+inspire_id: '2075412'
+version: 1
+hepdata_file: table_18.yaml
+dv_index: 0
+hepdata_table_label: rho_4, three-subevent, Xe+Xe 5.44 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV (table_18.yaml)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 46.172-55.6%
+  - 37.883-46.172%
+  - 31.416-37.883%
+  - 25.762-31.416%
+  - 20.4415-25.762%
+  - 15.673-20.4415%
+  - 11.5626-15.673%
+  - 8.0156-11.5626%
+  - 4.9367-8.0156%
+  - 2.318-4.9367%
+  - 0.6044-2.318%
+  - 0-0.6044%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T-based classes; edges midway between the tabulated mean centralities of the Sigma E_T bins.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.75
+      pT:
+        min: 0.5
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.5
+        max: 0.5
+      pT:
+        min: 0.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.75
+        max: 2.5
+      pT:
+        min: 0.5
+        max: 5.0
+observable: rho_vn2_pT
+value_type: rho_n
+correlation_type: rho_vn2_pT
+harmonic: 4
+covariance_method: three_subevent
+variance_terms:
+  c4: standard
+  c2: two_subevent
+ck_window: full
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, PRC 107 (2023) 054910, arXiv:2205.00039, Data from Figure 1, Panel 6. rho_4, three-subevent,
+    Xe+Xe 5.44 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV; c_k from the full window, var(v_n^2) = c_n{4} (full) + c_n{2}^2 (two subevents);
+    computed in narrow Sigma E_T bins and combined (multiplicity_baseline: FCal multiplicity). Errors: stat and syst.'
+---
+observable_type: flow_pT_correlations
+inspire_id: '2075412'
+version: 1
+hepdata_file: table_21.yaml
+dv_index: 0
+hepdata_table_label: rho_3, combined-subevent, Pb+Pb 5.02 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV (table_21.yaml)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 60.108-66.878%
+  - 54.1805-60.108%
+  - 49.504-54.1805%
+  - 45.5515-49.504%
+  - 42.1145-45.5515%
+  - 39.0505-42.1145%
+  - 35.6615-39.0505%
+  - 31.444-35.6615%
+  - 27.19-31.444%
+  - 23.4455-27.19%
+  - 20.1-23.4455%
+  - 17.0835-20.1%
+  - 14.334-17.0835%
+  - 11.8355-14.334%
+  - 9.5603-11.8355%
+  - 7.4743-9.5603%
+  - 5.5701-7.4743%
+  - 3.8305-5.5701%
+  - 2.2544-3.8305%
+  - 0.9371-2.2544%
+  - 0.191-0.9371%
+  - 0-0.191%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T-based classes; edges midway between the tabulated mean centralities of the Sigma E_T bins.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.75
+      pT:
+        min: 0.5
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.5
+        max: 0.5
+      pT:
+        min: 0.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.75
+        max: 2.5
+      pT:
+        min: 0.5
+        max: 5.0
+observable: rho_vn2_pT
+value_type: rho_n
+correlation_type: rho_vn2_pT
+harmonic: 3
+covariance_method: combined_subevent
+variance_terms:
+  c4: standard
+  c2: two_subevent
+ck_window: full
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, PRC 107 (2023) 054910, arXiv:2205.00039, Data from Figure 2, Panel 2. rho_3, combined-subevent,
+    Pb+Pb 5.02 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV; c_k from the full window, var(v_n^2) = c_n{4} (full) + c_n{2}^2 (two subevents);
+    computed in narrow Sigma E_T bins and combined (multiplicity_baseline: FCal multiplicity). Errors: stat and syst.'
+---
+observable_type: flow_pT_correlations
+inspire_id: '2075412'
+version: 1
+hepdata_file: table_22.yaml
+dv_index: 0
+hepdata_table_label: rho_3, combined-subevent, Xe+Xe 5.44 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV (table_22.yaml)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 63.437-82.563%
+  - 50.3905-63.437%
+  - 43.201-50.3905%
+  - 36.128-43.201%
+  - 29.9845-36.128%
+  - 24.561-29.9845%
+  - 19.421-24.561%
+  - 14.7905-19.421%
+  - 10.8123-14.7905%
+  - 7.3677-10.8123%
+  - 4.3716-7.3677%
+  - 1.8813-4.3716%
+  - 0.4084-1.8813%
+  - 0-0.4084%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T-based classes; edges midway between the tabulated mean centralities of the Sigma E_T bins.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.75
+      pT:
+        min: 0.5
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.5
+        max: 0.5
+      pT:
+        min: 0.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.75
+        max: 2.5
+      pT:
+        min: 0.5
+        max: 5.0
+observable: rho_vn2_pT
+value_type: rho_n
+correlation_type: rho_vn2_pT
+harmonic: 3
+covariance_method: combined_subevent
+variance_terms:
+  c4: standard
+  c2: two_subevent
+ck_window: full
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, PRC 107 (2023) 054910, arXiv:2205.00039, Data from Figure 2, Panel 2. rho_3, combined-subevent,
+    Xe+Xe 5.44 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV; c_k from the full window, var(v_n^2) = c_n{4} (full) + c_n{2}^2 (two subevents);
+    computed in narrow Sigma E_T bins and combined (multiplicity_baseline: FCal multiplicity). Errors: stat and syst.'
+---
+observable_type: flow_pT_correlations
+inspire_id: '2075412'
+version: 1
+hepdata_file: table_23.yaml
+dv_index: 0
+hepdata_table_label: rho_4, combined-subevent, Pb+Pb 5.02 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV (table_23.yaml)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 68.7465-79.2535%
+  - 60.108-68.7465%
+  - 54.1805-60.108%
+  - 49.504-54.1805%
+  - 45.5515-49.504%
+  - 42.1145-45.5515%
+  - 39.0505-42.1145%
+  - 35.6615-39.0505%
+  - 31.444-35.6615%
+  - 27.19-31.444%
+  - 23.4455-27.19%
+  - 20.1-23.4455%
+  - 17.0835-20.1%
+  - 14.334-17.0835%
+  - 11.8355-14.334%
+  - 9.5603-11.8355%
+  - 7.4743-9.5603%
+  - 5.5701-7.4743%
+  - 3.8305-5.5701%
+  - 2.2544-3.8305%
+  - 0.9371-2.2544%
+  - 0.191-0.9371%
+  - 0-0.191%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T-based classes; edges midway between the tabulated mean centralities of the Sigma E_T bins.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.75
+      pT:
+        min: 0.5
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.5
+        max: 0.5
+      pT:
+        min: 0.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.75
+        max: 2.5
+      pT:
+        min: 0.5
+        max: 5.0
+observable: rho_vn2_pT
+value_type: rho_n
+correlation_type: rho_vn2_pT
+harmonic: 4
+covariance_method: combined_subevent
+variance_terms:
+  c4: standard
+  c2: two_subevent
+ck_window: full
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, PRC 107 (2023) 054910, arXiv:2205.00039, Data from Figure 2, Panel 3. rho_4, combined-subevent,
+    Pb+Pb 5.02 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV; c_k from the full window, var(v_n^2) = c_n{4} (full) + c_n{2}^2 (two subevents);
+    computed in narrow Sigma E_T bins and combined (multiplicity_baseline: FCal multiplicity). Errors: stat and syst.'
+---
+observable_type: flow_pT_correlations
+inspire_id: '2075412'
+version: 1
+hepdata_file: table_24.yaml
+dv_index: 0
+hepdata_table_label: rho_4, combined-subevent, Xe+Xe 5.44 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV (table_24.yaml)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 46.172-55.6%
+  - 37.883-46.172%
+  - 31.416-37.883%
+  - 25.762-31.416%
+  - 20.4415-25.762%
+  - 15.673-20.4415%
+  - 11.5626-15.673%
+  - 8.0156-11.5626%
+  - 4.9367-8.0156%
+  - 2.318-4.9367%
+  - 0.6044-2.318%
+  - 0-0.6044%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T-based classes; edges midway between the tabulated mean centralities of the Sigma E_T bins.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.75
+      pT:
+        min: 0.5
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.5
+        max: 0.5
+      pT:
+        min: 0.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.75
+        max: 2.5
+      pT:
+        min: 0.5
+        max: 5.0
+observable: rho_vn2_pT
+value_type: rho_n
+correlation_type: rho_vn2_pT
+harmonic: 4
+covariance_method: combined_subevent
+variance_terms:
+  c4: standard
+  c2: two_subevent
+ck_window: full
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, PRC 107 (2023) 054910, arXiv:2205.00039, Data from Figure 2, Panel 3. rho_4, combined-subevent,
+    Xe+Xe 5.44 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV; c_k from the full window, var(v_n^2) = c_n{4} (full) + c_n{2}^2 (two subevents);
+    computed in narrow Sigma E_T bins and combined (multiplicity_baseline: FCal multiplicity). Errors: stat and syst.'
+---
+observable_type: flow_pT_correlations
+inspire_id: '2075412'
+version: 1
+hepdata_file: table_31.yaml
+dv_index: 0
+hepdata_table_label: rho_2, three-subevent, Pb+Pb 5.02 TeV, |eta| < 2.5, 0.5 < pT < 2 GeV (table_31.yaml)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 79.909-83.075%
+  - 76.9085-79.909%
+  - 74.3425-76.9085%
+  - 72.097-74.3425%
+  - 70.0975-72.097%
+  - 68.344-70.0975%
+  - 66.7465-68.344%
+  - 65.3545-66.7465%
+  - 63.977-65.3545%
+  - 61.5205-63.977%
+  - 57.4795-61.5205%
+  - 53.187-57.4795%
+  - 49.5105-53.187%
+  - 46.2855-49.5105%
+  - 43.4325-46.2855%
+  - 40.8595-43.4325%
+  - 38.4795-40.8595%
+  - 35.531-38.4795%
+  - 31.444-35.531%
+  - 27.19-31.444%
+  - 23.4455-27.19%
+  - 20.1-23.4455%
+  - 17.0835-20.1%
+  - 14.334-17.0835%
+  - 11.8355-14.334%
+  - 9.5603-11.8355%
+  - 7.4743-9.5603%
+  - 5.5701-7.4743%
+  - 3.8305-5.5701%
+  - 2.4709-3.8305%
+  - 1.6594-2.4709%
+  - 1.1202-1.6594%
+  - 0.6569-1.1202%
+  - 0.3159-0.6569%
+  - 0.1173-0.3159%
+  - 0.032-0.1173%
+  - 0.0062-0.032%
+  - 0-0.0062%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T-based classes; edges midway between the tabulated mean centralities of the Sigma E_T bins.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 2.0
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.75
+      pT:
+        min: 0.5
+        max: 2.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.5
+        max: 0.5
+      pT:
+        min: 0.5
+        max: 2.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.75
+        max: 2.5
+      pT:
+        min: 0.5
+        max: 2.0
+observable: rho_vn2_pT
+value_type: rho_n
+correlation_type: rho_vn2_pT
+harmonic: 2
+covariance_method: three_subevent
+variance_terms:
+  c4: standard
+  c2: two_subevent
+ck_window: full
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, PRC 107 (2023) 054910, arXiv:2205.00039, Data from Figure 3, Panel 1. rho_2, three-subevent,
+    Pb+Pb 5.02 TeV, |eta| < 2.5, 0.5 < pT < 2 GeV; c_k from the full window, var(v_n^2) = c_n{4} (full) + c_n{2}^2 (two subevents);
+    computed in narrow Sigma E_T bins and combined (multiplicity_baseline: FCal multiplicity). Errors: stat and syst.'
+---
+observable_type: flow_pT_correlations
+inspire_id: '2075412'
+version: 1
+hepdata_file: table_33.yaml
+dv_index: 0
+hepdata_table_label: rho_3, combined-subevent, Pb+Pb 5.02 TeV, |eta| < 2.5, 0.5 < pT < 2 GeV (table_33.yaml)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 68.7465-79.2535%
+  - 60.108-68.7465%
+  - 54.1805-60.108%
+  - 49.504-54.1805%
+  - 45.5515-49.504%
+  - 42.1145-45.5515%
+  - 39.0505-42.1145%
+  - 35.6615-39.0505%
+  - 31.444-35.6615%
+  - 27.19-31.444%
+  - 23.4455-27.19%
+  - 20.1-23.4455%
+  - 17.0835-20.1%
+  - 14.334-17.0835%
+  - 11.8355-14.334%
+  - 9.5603-11.8355%
+  - 7.4743-9.5603%
+  - 5.5701-7.4743%
+  - 3.8305-5.5701%
+  - 2.2544-3.8305%
+  - 0.9371-2.2544%
+  - 0.191-0.9371%
+  - 0-0.191%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T-based classes; edges midway between the tabulated mean centralities of the Sigma E_T bins.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 2.0
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.75
+      pT:
+        min: 0.5
+        max: 2.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.5
+        max: 0.5
+      pT:
+        min: 0.5
+        max: 2.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.75
+        max: 2.5
+      pT:
+        min: 0.5
+        max: 2.0
+observable: rho_vn2_pT
+value_type: rho_n
+correlation_type: rho_vn2_pT
+harmonic: 3
+covariance_method: combined_subevent
+variance_terms:
+  c4: standard
+  c2: two_subevent
+ck_window: full
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, PRC 107 (2023) 054910, arXiv:2205.00039, Data from Figure 3, Panel 2. rho_3, combined-subevent,
+    Pb+Pb 5.02 TeV, |eta| < 2.5, 0.5 < pT < 2 GeV; c_k from the full window, var(v_n^2) = c_n{4} (full) + c_n{2}^2 (two subevents);
+    computed in narrow Sigma E_T bins and combined (multiplicity_baseline: FCal multiplicity). Errors: stat and syst.'
+---
+observable_type: flow_pT_correlations
+inspire_id: '2075412'
+version: 1
+hepdata_file: table_35.yaml
+dv_index: 0
+hepdata_table_label: rho_4, combined-subevent, Pb+Pb 5.02 TeV, |eta| < 2.5, 0.5 < pT < 2 GeV (table_35.yaml)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 65.3615-82.6385%
+  - 54.1805-65.3615%
+  - 49.504-54.1805%
+  - 45.5515-49.504%
+  - 42.1145-45.5515%
+  - 39.0505-42.1145%
+  - 35.6615-39.0505%
+  - 31.444-35.6615%
+  - 27.19-31.444%
+  - 23.4455-27.19%
+  - 20.1-23.4455%
+  - 17.0835-20.1%
+  - 14.334-17.0835%
+  - 11.8355-14.334%
+  - 9.5603-11.8355%
+  - 7.4743-9.5603%
+  - 5.5701-7.4743%
+  - 3.8305-5.5701%
+  - 2.2544-3.8305%
+  - 0.9371-2.2544%
+  - 0.191-0.9371%
+  - 0-0.191%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T-based classes; edges midway between the tabulated mean centralities of the Sigma E_T bins.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 2.0
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.75
+      pT:
+        min: 0.5
+        max: 2.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.5
+        max: 0.5
+      pT:
+        min: 0.5
+        max: 2.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.75
+        max: 2.5
+      pT:
+        min: 0.5
+        max: 2.0
+observable: rho_vn2_pT
+value_type: rho_n
+correlation_type: rho_vn2_pT
+harmonic: 4
+covariance_method: combined_subevent
+variance_terms:
+  c4: standard
+  c2: two_subevent
+ck_window: full
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, PRC 107 (2023) 054910, arXiv:2205.00039, Data from Figure 3, Panel 3. rho_4, combined-subevent,
+    Pb+Pb 5.02 TeV, |eta| < 2.5, 0.5 < pT < 2 GeV; c_k from the full window, var(v_n^2) = c_n{4} (full) + c_n{2}^2 (two subevents);
+    computed in narrow Sigma E_T bins and combined (multiplicity_baseline: FCal multiplicity). Errors: stat and syst.'
+---
+observable_type: flow_pT_correlations
+inspire_id: '2075412'
+version: 1
+hepdata_file: table_37.yaml
+dv_index: 0
+hepdata_table_label: rho_2, three-subevent, Xe+Xe 5.44 TeV, |eta| < 2.5, 0.5 < pT < 2 GeV (table_37.yaml)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 72.2455-81.7525%
+  - 66.3435-72.2455%
+  - 64.196-66.3435%
+  - 61.429-64.196%
+  - 58.8305-61.429%
+  - 55.937-58.8305%
+  - 51.0355-55.937%
+  - 45.8455-51.0355%
+  - 41.4945-45.8455%
+  - 37.713-41.4945%
+  - 34.346-37.713%
+  - 31.324-34.346%
+  - 28.5475-31.324%
+  - 25.104-28.5475%
+  - 20.4415-25.104%
+  - 15.673-20.4415%
+  - 11.5626-15.673%
+  - 8.0156-11.5626%
+  - 4.9367-8.0156%
+  - 2.318-4.9367%
+  - 0.6044-2.318%
+  - 0-0.6044%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T-based classes; edges midway between the tabulated mean centralities of the Sigma E_T bins.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 2.0
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.75
+      pT:
+        min: 0.5
+        max: 2.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.5
+        max: 0.5
+      pT:
+        min: 0.5
+        max: 2.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.75
+        max: 2.5
+      pT:
+        min: 0.5
+        max: 2.0
+observable: rho_vn2_pT
+value_type: rho_n
+correlation_type: rho_vn2_pT
+harmonic: 2
+covariance_method: three_subevent
+variance_terms:
+  c4: standard
+  c2: two_subevent
+ck_window: full
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, PRC 107 (2023) 054910, arXiv:2205.00039, Data from Figure 3, Panel 4. rho_2, three-subevent,
+    Xe+Xe 5.44 TeV, |eta| < 2.5, 0.5 < pT < 2 GeV; c_k from the full window, var(v_n^2) = c_n{4} (full) + c_n{2}^2 (two subevents);
+    computed in narrow Sigma E_T bins and combined (multiplicity_baseline: FCal multiplicity). Errors: stat and syst.'
+---
+observable_type: flow_pT_correlations
+inspire_id: '2075412'
+version: 1
+hepdata_file: table_39.yaml
+dv_index: 0
+hepdata_table_label: rho_2, three-subevent, Xe+Xe 5.44 TeV, |eta| < 2.5, 0.3 < pT < 2 GeV (table_39.yaml)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 72.2455-81.7525%
+  - 66.3435-72.2455%
+  - 64.196-66.3435%
+  - 61.429-64.196%
+  - 58.8305-61.429%
+  - 55.937-58.8305%
+  - 51.0355-55.937%
+  - 45.8455-51.0355%
+  - 41.4945-45.8455%
+  - 37.713-41.4945%
+  - 34.346-37.713%
+  - 31.324-34.346%
+  - 28.5475-31.324%
+  - 25.104-28.5475%
+  - 20.4415-25.104%
+  - 15.673-20.4415%
+  - 11.5626-15.673%
+  - 8.0156-11.5626%
+  - 4.9367-8.0156%
+  - 2.318-4.9367%
+  - 0.6044-2.318%
+  - 0-0.6044%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T-based classes; edges midway between the tabulated mean centralities of the Sigma E_T bins.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.3
+    max: 2.0
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.75
+      pT:
+        min: 0.3
+        max: 2.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.5
+        max: 0.5
+      pT:
+        min: 0.3
+        max: 2.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.75
+        max: 2.5
+      pT:
+        min: 0.3
+        max: 2.0
+observable: rho_vn2_pT
+value_type: rho_n
+correlation_type: rho_vn2_pT
+harmonic: 2
+covariance_method: three_subevent
+variance_terms:
+  c4: standard
+  c2: two_subevent
+ck_window: full
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, PRC 107 (2023) 054910, arXiv:2205.00039, Data from Figure 3, Panel 4. rho_2, three-subevent,
+    Xe+Xe 5.44 TeV, |eta| < 2.5, 0.3 < pT < 2 GeV; c_k from the full window, var(v_n^2) = c_n{4} (full) + c_n{2}^2 (two subevents);
+    computed in narrow Sigma E_T bins and combined (multiplicity_baseline: FCal multiplicity). Errors: stat and syst.'
+---
+observable_type: flow_pT_correlations
+inspire_id: '2075412'
+version: 1
+hepdata_file: table_40.yaml
+dv_index: 0
+hepdata_table_label: rho_3, combined-subevent, Xe+Xe 5.44 TeV, |eta| < 2.5, 0.5 < pT < 2 GeV (table_40.yaml)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 63.437-82.563%
+  - 50.3905-63.437%
+  - 43.201-50.3905%
+  - 36.128-43.201%
+  - 29.9845-36.128%
+  - 24.561-29.9845%
+  - 19.421-24.561%
+  - 14.7905-19.421%
+  - 10.8123-14.7905%
+  - 7.3677-10.8123%
+  - 4.3716-7.3677%
+  - 1.8813-4.3716%
+  - 0.4084-1.8813%
+  - 0-0.4084%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T-based classes; edges midway between the tabulated mean centralities of the Sigma E_T bins.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 2.0
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.75
+      pT:
+        min: 0.5
+        max: 2.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.5
+        max: 0.5
+      pT:
+        min: 0.5
+        max: 2.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.75
+        max: 2.5
+      pT:
+        min: 0.5
+        max: 2.0
+observable: rho_vn2_pT
+value_type: rho_n
+correlation_type: rho_vn2_pT
+harmonic: 3
+covariance_method: combined_subevent
+variance_terms:
+  c4: standard
+  c2: two_subevent
+ck_window: full
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, PRC 107 (2023) 054910, arXiv:2205.00039, Data from Figure 3, Panel 5. rho_3, combined-subevent,
+    Xe+Xe 5.44 TeV, |eta| < 2.5, 0.5 < pT < 2 GeV; c_k from the full window, var(v_n^2) = c_n{4} (full) + c_n{2}^2 (two subevents);
+    computed in narrow Sigma E_T bins and combined (multiplicity_baseline: FCal multiplicity). Errors: stat and syst.'
+---
+observable_type: flow_pT_correlations
+inspire_id: '2075412'
+version: 1
+hepdata_file: table_42.yaml
+dv_index: 0
+hepdata_table_label: rho_3, combined-subevent, Xe+Xe 5.44 TeV, |eta| < 2.5, 0.3 < pT < 2 GeV (table_42.yaml)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 50.3905-57.3575%
+  - 43.201-50.3905%
+  - 36.128-43.201%
+  - 29.9845-36.128%
+  - 24.561-29.9845%
+  - 19.421-24.561%
+  - 14.7905-19.421%
+  - 10.8123-14.7905%
+  - 7.3677-10.8123%
+  - 4.3716-7.3677%
+  - 1.8813-4.3716%
+  - 0.4084-1.8813%
+  - 0-0.4084%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T-based classes; edges midway between the tabulated mean centralities of the Sigma E_T bins.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.3
+    max: 2.0
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.75
+      pT:
+        min: 0.3
+        max: 2.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.5
+        max: 0.5
+      pT:
+        min: 0.3
+        max: 2.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.75
+        max: 2.5
+      pT:
+        min: 0.3
+        max: 2.0
+observable: rho_vn2_pT
+value_type: rho_n
+correlation_type: rho_vn2_pT
+harmonic: 3
+covariance_method: combined_subevent
+variance_terms:
+  c4: standard
+  c2: two_subevent
+ck_window: full
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, PRC 107 (2023) 054910, arXiv:2205.00039, Data from Figure 3, Panel 5. rho_3, combined-subevent,
+    Xe+Xe 5.44 TeV, |eta| < 2.5, 0.3 < pT < 2 GeV; c_k from the full window, var(v_n^2) = c_n{4} (full) + c_n{2}^2 (two subevents);
+    computed in narrow Sigma E_T bins and combined (multiplicity_baseline: FCal multiplicity). Errors: stat and syst.'
+---
+observable_type: flow_pT_correlations
+inspire_id: '2075412'
+version: 1
+hepdata_file: table_43.yaml
+dv_index: 0
+hepdata_table_label: rho_4, combined-subevent, Xe+Xe 5.44 TeV, |eta| < 2.5, 0.5 < pT < 2 GeV (table_43.yaml)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 46.172-55.6%
+  - 37.883-46.172%
+  - 31.416-37.883%
+  - 25.762-31.416%
+  - 20.4415-25.762%
+  - 15.673-20.4415%
+  - 11.5626-15.673%
+  - 8.0156-11.5626%
+  - 4.9367-8.0156%
+  - 2.318-4.9367%
+  - 0.6044-2.318%
+  - 0-0.6044%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T-based classes; edges midway between the tabulated mean centralities of the Sigma E_T bins.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 2.0
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.75
+      pT:
+        min: 0.5
+        max: 2.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.5
+        max: 0.5
+      pT:
+        min: 0.5
+        max: 2.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.75
+        max: 2.5
+      pT:
+        min: 0.5
+        max: 2.0
+observable: rho_vn2_pT
+value_type: rho_n
+correlation_type: rho_vn2_pT
+harmonic: 4
+covariance_method: combined_subevent
+variance_terms:
+  c4: standard
+  c2: two_subevent
+ck_window: full
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, PRC 107 (2023) 054910, arXiv:2205.00039, Data from Figure 3, Panel 6. rho_4, combined-subevent,
+    Xe+Xe 5.44 TeV, |eta| < 2.5, 0.5 < pT < 2 GeV; c_k from the full window, var(v_n^2) = c_n{4} (full) + c_n{2}^2 (two subevents);
+    computed in narrow Sigma E_T bins and combined (multiplicity_baseline: FCal multiplicity). Errors: stat and syst.'
+---
+observable_type: flow_pT_correlations
+inspire_id: '2075412'
+version: 1
+hepdata_file: table_45.yaml
+dv_index: 0
+hepdata_table_label: rho_4, combined-subevent, Xe+Xe 5.44 TeV, |eta| < 2.5, 0.3 < pT < 2 GeV (table_45.yaml)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 46.172-55.6%
+  - 37.883-46.172%
+  - 31.416-37.883%
+  - 25.762-31.416%
+  - 20.4415-25.762%
+  - 15.673-20.4415%
+  - 11.5626-15.673%
+  - 8.0156-11.5626%
+  - 4.9367-8.0156%
+  - 2.318-4.9367%
+  - 0.6044-2.318%
+  - 0-0.6044%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T-based classes; edges midway between the tabulated mean centralities of the Sigma E_T bins.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.3
+    max: 2.0
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.75
+      pT:
+        min: 0.3
+        max: 2.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.5
+        max: 0.5
+      pT:
+        min: 0.3
+        max: 2.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.75
+        max: 2.5
+      pT:
+        min: 0.3
+        max: 2.0
+observable: rho_vn2_pT
+value_type: rho_n
+correlation_type: rho_vn2_pT
+harmonic: 4
+covariance_method: combined_subevent
+variance_terms:
+  c4: standard
+  c2: two_subevent
+ck_window: full
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, PRC 107 (2023) 054910, arXiv:2205.00039, Data from Figure 3, Panel 6. rho_4, combined-subevent,
+    Xe+Xe 5.44 TeV, |eta| < 2.5, 0.3 < pT < 2 GeV; c_k from the full window, var(v_n^2) = c_n{4} (full) + c_n{2}^2 (two subevents);
+    computed in narrow Sigma E_T bins and combined (multiplicity_baseline: FCal multiplicity). Errors: stat and syst.'
+---
+observable_type: flow_pT_correlations
+inspire_id: '2075412'
+version: 1
+hepdata_file: table_47.yaml
+dv_index: 0
+hepdata_table_label: rho_2, three-subevent, Pb+Pb 5.02 TeV, |eta| < 1, 0.5 < pT < 5 GeV (table_47.yaml)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 79.909-83.075%
+  - 76.9085-79.909%
+  - 74.3425-76.9085%
+  - 72.097-74.3425%
+  - 70.0975-72.097%
+  - 68.344-70.0975%
+  - 66.7465-68.344%
+  - 65.3545-66.7465%
+  - 63.977-65.3545%
+  - 61.5205-63.977%
+  - 57.4795-61.5205%
+  - 53.187-57.4795%
+  - 49.5105-53.187%
+  - 46.2855-49.5105%
+  - 43.4325-46.2855%
+  - 40.8595-43.4325%
+  - 38.4795-40.8595%
+  - 35.531-38.4795%
+  - 31.444-35.531%
+  - 27.19-31.444%
+  - 23.4455-27.19%
+  - 20.1-23.4455%
+  - 17.0835-20.1%
+  - 14.334-17.0835%
+  - 11.8355-14.334%
+  - 9.5603-11.8355%
+  - 7.4743-9.5603%
+  - 5.5701-7.4743%
+  - 3.8305-5.5701%
+  - 2.4709-3.8305%
+  - 1.6594-2.4709%
+  - 1.1202-1.6594%
+  - 0.6569-1.1202%
+  - 0.3159-0.6569%
+  - 0.1173-0.3159%
+  - 0.032-0.1173%
+  - 0.0062-0.032%
+  - 0-0.0062%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T-based classes; edges midway between the tabulated mean centralities of the Sigma E_T bins.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.5
+    max: 5.0
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -1.0
+        max: -0.35
+      pT:
+        min: 0.5
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.3
+        max: 0.3
+      pT:
+        min: 0.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.35
+        max: 1.0
+      pT:
+        min: 0.5
+        max: 5.0
+observable: rho_vn2_pT
+value_type: rho_n
+correlation_type: rho_vn2_pT
+harmonic: 2
+covariance_method: three_subevent
+variance_terms:
+  c4: standard
+  c2: two_subevent
+ck_window: full
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, PRC 107 (2023) 054910, arXiv:2205.00039, Data from Figure 4, Panel 1. rho_2, three-subevent,
+    Pb+Pb 5.02 TeV, |eta| < 1, 0.5 < pT < 5 GeV; c_k from the full window, var(v_n^2) = c_n{4} (full) + c_n{2}^2 (two subevents);
+    computed in narrow Sigma E_T bins and combined (multiplicity_baseline: FCal multiplicity). Errors: stat and syst.'
+---
+observable_type: flow_pT_correlations
+inspire_id: '2075412'
+version: 1
+hepdata_file: table_49.yaml
+dv_index: 0
+hepdata_table_label: rho_3, combined-subevent, Pb+Pb 5.02 TeV, |eta| < 1, 0.5 < pT < 5 GeV (table_49.yaml)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 68.7465-79.2535%
+  - 60.108-68.7465%
+  - 54.1805-60.108%
+  - 49.504-54.1805%
+  - 45.5515-49.504%
+  - 42.1145-45.5515%
+  - 39.0505-42.1145%
+  - 35.6615-39.0505%
+  - 31.444-35.6615%
+  - 27.19-31.444%
+  - 23.4455-27.19%
+  - 20.1-23.4455%
+  - 17.0835-20.1%
+  - 14.334-17.0835%
+  - 11.8355-14.334%
+  - 9.5603-11.8355%
+  - 7.4743-9.5603%
+  - 5.5701-7.4743%
+  - 3.8305-5.5701%
+  - 2.2544-3.8305%
+  - 0.9371-2.2544%
+  - 0.191-0.9371%
+  - 0-0.191%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T-based classes; edges midway between the tabulated mean centralities of the Sigma E_T bins.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.5
+    max: 5.0
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -1.0
+        max: -0.35
+      pT:
+        min: 0.5
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.3
+        max: 0.3
+      pT:
+        min: 0.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.35
+        max: 1.0
+      pT:
+        min: 0.5
+        max: 5.0
+observable: rho_vn2_pT
+value_type: rho_n
+correlation_type: rho_vn2_pT
+harmonic: 3
+covariance_method: combined_subevent
+variance_terms:
+  c4: standard
+  c2: two_subevent
+ck_window: full
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, PRC 107 (2023) 054910, arXiv:2205.00039, Data from Figure 4, Panel 2. rho_3, combined-subevent,
+    Pb+Pb 5.02 TeV, |eta| < 1, 0.5 < pT < 5 GeV; c_k from the full window, var(v_n^2) = c_n{4} (full) + c_n{2}^2 (two subevents);
+    computed in narrow Sigma E_T bins and combined (multiplicity_baseline: FCal multiplicity). Errors: stat and syst.'
+---
+observable_type: flow_pT_correlations
+inspire_id: '2075412'
+version: 1
+hepdata_file: table_51.yaml
+dv_index: 0
+hepdata_table_label: rho_4, combined-subevent, Pb+Pb 5.02 TeV, |eta| < 1, 0.5 < pT < 5 GeV (table_51.yaml)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 68.7465-79.2535%
+  - 60.108-68.7465%
+  - 54.1805-60.108%
+  - 49.504-54.1805%
+  - 45.5515-49.504%
+  - 42.1145-45.5515%
+  - 39.0505-42.1145%
+  - 35.6615-39.0505%
+  - 31.444-35.6615%
+  - 27.19-31.444%
+  - 23.4455-27.19%
+  - 20.1-23.4455%
+  - 17.0835-20.1%
+  - 14.334-17.0835%
+  - 11.8355-14.334%
+  - 9.5603-11.8355%
+  - 7.4743-9.5603%
+  - 5.5701-7.4743%
+  - 3.8305-5.5701%
+  - 2.2544-3.8305%
+  - 0.9371-2.2544%
+  - 0.191-0.9371%
+  - 0-0.191%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T-based classes; edges midway between the tabulated mean centralities of the Sigma E_T bins.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.5
+    max: 5.0
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -1.0
+        max: -0.35
+      pT:
+        min: 0.5
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.3
+        max: 0.3
+      pT:
+        min: 0.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.35
+        max: 1.0
+      pT:
+        min: 0.5
+        max: 5.0
+observable: rho_vn2_pT
+value_type: rho_n
+correlation_type: rho_vn2_pT
+harmonic: 4
+covariance_method: combined_subevent
+variance_terms:
+  c4: standard
+  c2: two_subevent
+ck_window: full
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, PRC 107 (2023) 054910, arXiv:2205.00039, Data from Figure 4, Panel 3. rho_4, combined-subevent,
+    Pb+Pb 5.02 TeV, |eta| < 1, 0.5 < pT < 5 GeV; c_k from the full window, var(v_n^2) = c_n{4} (full) + c_n{2}^2 (two subevents);
+    computed in narrow Sigma E_T bins and combined (multiplicity_baseline: FCal multiplicity). Errors: stat and syst.'
+---
+observable_type: flow_pT_correlations
+inspire_id: '2075412'
+version: 1
+hepdata_file: table_52.yaml
+dv_index: 0
+hepdata_table_label: cov_2, three-subevent, Pb+Pb 5.02 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV (table_52.yaml)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 79.909-83.075%
+  - 76.9085-79.909%
+  - 74.3425-76.9085%
+  - 72.097-74.3425%
+  - 70.0975-72.097%
+  - 68.344-70.0975%
+  - 66.7465-68.344%
+  - 65.3545-66.7465%
+  - 63.977-65.3545%
+  - 61.5205-63.977%
+  - 57.4795-61.5205%
+  - 53.187-57.4795%
+  - 49.5105-53.187%
+  - 46.2855-49.5105%
+  - 43.4325-46.2855%
+  - 40.8595-43.4325%
+  - 38.4795-40.8595%
+  - 35.531-38.4795%
+  - 31.444-35.531%
+  - 27.19-31.444%
+  - 23.4455-27.19%
+  - 20.1-23.4455%
+  - 17.0835-20.1%
+  - 14.334-17.0835%
+  - 11.8355-14.334%
+  - 9.5603-11.8355%
+  - 7.4743-9.5603%
+  - 5.5701-7.4743%
+  - 3.8305-5.5701%
+  - 2.4709-3.8305%
+  - 1.6594-2.4709%
+  - 1.1202-1.6594%
+  - 0.5226-1.1202%
+  - 0.0963-0.5226%
+  - 0-0.0963%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T-based classes; edges midway between the tabulated mean centralities of the Sigma E_T bins.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.75
+      pT:
+        min: 0.5
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.5
+        max: 0.5
+      pT:
+        min: 0.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.75
+        max: 2.5
+      pT:
+        min: 0.5
+        max: 5.0
+observable: cov_vn2_pT
+value_type: cov_n
+correlation_type: rho_vn2_pT
+harmonic: 2
+covariance_method: three_subevent
+variance_terms:
+  c4: standard
+  c2: two_subevent
+ck_window: full
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, PRC 107 (2023) 054910, arXiv:2205.00039, Data from Figure 4, Panel 4. cov_2, three-subevent,
+    Pb+Pb 5.02 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV (GeV); c_k from the full window, var(v_n^2) = c_n{4} (full) + c_n{2}^2 (two
+    subevents); computed in narrow Sigma E_T bins and combined (multiplicity_baseline: FCal multiplicity). Errors: stat and
+    syst.'
+---
+observable_type: flow_pT_correlations
+inspire_id: '2075412'
+version: 1
+hepdata_file: table_53.yaml
+dv_index: 0
+hepdata_table_label: cov_2, three-subevent, Pb+Pb 5.02 TeV, |eta| < 1, 0.5 < pT < 5 GeV (table_53.yaml)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 79.909-83.075%
+  - 76.9085-79.909%
+  - 73.2455-76.9085%
+  - 70.0975-73.2455%
+  - 68.344-70.0975%
+  - 66.7465-68.344%
+  - 65.3545-66.7465%
+  - 63.977-65.3545%
+  - 61.5205-63.977%
+  - 57.4795-61.5205%
+  - 53.187-57.4795%
+  - 49.5105-53.187%
+  - 46.2855-49.5105%
+  - 43.4325-46.2855%
+  - 40.8595-43.4325%
+  - 38.4795-40.8595%
+  - 35.531-38.4795%
+  - 31.444-35.531%
+  - 27.19-31.444%
+  - 23.4455-27.19%
+  - 20.1-23.4455%
+  - 17.0835-20.1%
+  - 14.334-17.0835%
+  - 11.8355-14.334%
+  - 9.5603-11.8355%
+  - 7.4743-9.5603%
+  - 5.5701-7.4743%
+  - 3.8305-5.5701%
+  - 2.4709-3.8305%
+  - 1.6594-2.4709%
+  - 1.1202-1.6594%
+  - 0.5226-1.1202%
+  - 0.0963-0.5226%
+  - 0-0.0963%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T-based classes; edges midway between the tabulated mean centralities of the Sigma E_T bins.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.5
+    max: 5.0
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -1.0
+        max: -0.35
+      pT:
+        min: 0.5
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.3
+        max: 0.3
+      pT:
+        min: 0.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.35
+        max: 1.0
+      pT:
+        min: 0.5
+        max: 5.0
+observable: cov_vn2_pT
+value_type: cov_n
+correlation_type: rho_vn2_pT
+harmonic: 2
+covariance_method: three_subevent
+variance_terms:
+  c4: standard
+  c2: two_subevent
+ck_window: full
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, PRC 107 (2023) 054910, arXiv:2205.00039, Data from Figure 4, Panel 4. cov_2, three-subevent,
+    Pb+Pb 5.02 TeV, |eta| < 1, 0.5 < pT < 5 GeV (GeV); c_k from the full window, var(v_n^2) = c_n{4} (full) + c_n{2}^2 (two
+    subevents); computed in narrow Sigma E_T bins and combined (multiplicity_baseline: FCal multiplicity). Errors: stat and
+    syst.'
+---
+observable_type: flow_pT_correlations
+inspire_id: '2075412'
+version: 1
+hepdata_file: table_54.yaml
+dv_index: 0
+hepdata_table_label: cov_3, combined-subevent, Pb+Pb 5.02 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV (table_54.yaml)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 68.7465-79.2535%
+  - 60.108-68.7465%
+  - 54.1805-60.108%
+  - 49.504-54.1805%
+  - 43.933-49.504%
+  - 37.107-43.933%
+  - 29.464-37.107%
+  - 21.8645-29.464%
+  - 15.7695-21.8645%
+  - 10.7448-15.7695%
+  - 6.5653-10.7448%
+  - 3.0848-6.5653%
+  - 0.7626-3.0848%
+  - 0-0.7626%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T-based classes; edges midway between the tabulated mean centralities of the Sigma E_T bins.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.75
+      pT:
+        min: 0.5
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.5
+        max: 0.5
+      pT:
+        min: 0.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.75
+        max: 2.5
+      pT:
+        min: 0.5
+        max: 5.0
+observable: cov_vn2_pT
+value_type: cov_n
+correlation_type: rho_vn2_pT
+harmonic: 3
+covariance_method: combined_subevent
+variance_terms:
+  c4: standard
+  c2: two_subevent
+ck_window: full
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, PRC 107 (2023) 054910, arXiv:2205.00039, Data from Figure 4, Panel 5. cov_3, combined-subevent,
+    Pb+Pb 5.02 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV (GeV); c_k from the full window, var(v_n^2) = c_n{4} (full) + c_n{2}^2 (two
+    subevents); computed in narrow Sigma E_T bins and combined (multiplicity_baseline: FCal multiplicity). Errors: stat and
+    syst.'
+---
+observable_type: flow_pT_correlations
+inspire_id: '2075412'
+version: 1
+hepdata_file: table_55.yaml
+dv_index: 0
+hepdata_table_label: cov_3, combined-subevent, Pb+Pb 5.02 TeV, |eta| < 1, 0.5 < pT < 5 GeV (table_55.yaml)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 68.7465-79.2535%
+  - 60.108-68.7465%
+  - 54.1805-60.108%
+  - 47.6855-54.1805%
+  - 40.669-47.6855%
+  - 33.3875-40.669%
+  - 25.4255-33.3875%
+  - 18.6645-25.4255%
+  - 13.1495-18.6645%
+  - 8.565-13.1495%
+  - 4.7395-8.565%
+  - 1.6828-4.7395%
+  - 0-1.6828%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T-based classes; edges midway between the tabulated mean centralities of the Sigma E_T bins.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.5
+    max: 5.0
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -1.0
+        max: -0.35
+      pT:
+        min: 0.5
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.3
+        max: 0.3
+      pT:
+        min: 0.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.35
+        max: 1.0
+      pT:
+        min: 0.5
+        max: 5.0
+observable: cov_vn2_pT
+value_type: cov_n
+correlation_type: rho_vn2_pT
+harmonic: 3
+covariance_method: combined_subevent
+variance_terms:
+  c4: standard
+  c2: two_subevent
+ck_window: full
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, PRC 107 (2023) 054910, arXiv:2205.00039, Data from Figure 4, Panel 5. cov_3, combined-subevent,
+    Pb+Pb 5.02 TeV, |eta| < 1, 0.5 < pT < 5 GeV (GeV); c_k from the full window, var(v_n^2) = c_n{4} (full) + c_n{2}^2 (two
+    subevents); computed in narrow Sigma E_T bins and combined (multiplicity_baseline: FCal multiplicity). Errors: stat and
+    syst.'
+---
+observable_type: flow_pT_correlations
+inspire_id: '2075412'
+version: 1
+hepdata_file: table_56.yaml
+dv_index: 0
+hepdata_table_label: cov_4, combined-subevent, Pb+Pb 5.02 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV (table_56.yaml)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 68.7465-79.2535%
+  - 60.108-68.7465%
+  - 54.1805-60.108%
+  - 49.504-54.1805%
+  - 45.5515-49.504%
+  - 42.1145-45.5515%
+  - 39.0505-42.1145%
+  - 35.6615-39.0505%
+  - 31.444-35.6615%
+  - 25.4255-31.444%
+  - 18.6645-25.4255%
+  - 13.1495-18.6645%
+  - 8.565-13.1495%
+  - 4.7395-8.565%
+  - 1.6828-4.7395%
+  - 0-1.6828%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T-based classes; edges midway between the tabulated mean centralities of the Sigma E_T bins.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.75
+      pT:
+        min: 0.5
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.5
+        max: 0.5
+      pT:
+        min: 0.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.75
+        max: 2.5
+      pT:
+        min: 0.5
+        max: 5.0
+observable: cov_vn2_pT
+value_type: cov_n
+correlation_type: rho_vn2_pT
+harmonic: 4
+covariance_method: combined_subevent
+variance_terms:
+  c4: standard
+  c2: two_subevent
+ck_window: full
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, PRC 107 (2023) 054910, arXiv:2205.00039, Data from Figure 4, Panel 6. cov_4, combined-subevent,
+    Pb+Pb 5.02 TeV, |eta| < 2.5, 0.5 < pT < 5 GeV (GeV); c_k from the full window, var(v_n^2) = c_n{4} (full) + c_n{2}^2 (two
+    subevents); computed in narrow Sigma E_T bins and combined (multiplicity_baseline: FCal multiplicity). Errors: stat and
+    syst.'
+---
+observable_type: flow_pT_correlations
+inspire_id: '2075412'
+version: 1
+hepdata_file: table_57.yaml
+dv_index: 0
+hepdata_table_label: cov_4, combined-subevent, Pb+Pb 5.02 TeV, |eta| < 1, 0.5 < pT < 5 GeV (table_57.yaml)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 68.7465-79.2535%
+  - 60.108-68.7465%
+  - 54.1805-60.108%
+  - 49.504-54.1805%
+  - 45.5515-49.504%
+  - 42.1145-45.5515%
+  - 39.0505-42.1145%
+  - 35.6615-39.0505%
+  - 31.444-35.6615%
+  - 27.19-31.444%
+  - 21.8645-27.19%
+  - 15.7695-21.8645%
+  - 10.7448-15.7695%
+  - 6.5653-10.7448%
+  - 3.0848-6.5653%
+  - 0.7626-3.0848%
+  - 0-0.7626%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T-based classes; edges midway between the tabulated mean centralities of the Sigma E_T bins.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.5
+    max: 5.0
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -1.0
+        max: -0.35
+      pT:
+        min: 0.5
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.3
+        max: 0.3
+      pT:
+        min: 0.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.35
+        max: 1.0
+      pT:
+        min: 0.5
+        max: 5.0
+observable: cov_vn2_pT
+value_type: cov_n
+correlation_type: rho_vn2_pT
+harmonic: 4
+covariance_method: combined_subevent
+variance_terms:
+  c4: standard
+  c2: two_subevent
+ck_window: full
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, PRC 107 (2023) 054910, arXiv:2205.00039, Data from Figure 4, Panel 6. cov_4, combined-subevent,
+    Pb+Pb 5.02 TeV, |eta| < 1, 0.5 < pT < 5 GeV (GeV); c_k from the full window, var(v_n^2) = c_n{4} (full) + c_n{2}^2 (two
+    subevents); computed in narrow Sigma E_T bins and combined (multiplicity_baseline: FCal multiplicity). Errors: stat and
+    syst.'
