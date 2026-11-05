@@ -1,0 +1,215 @@
+observable_type: mean_pT_fluctuations
+inspire_id: '681688'
+version: 1
+hepdata_file: Fig4.yaml
+dv_index: 1
+hepdata_table_label: sqrt(<Delta pT_i Delta pT_j>)/<<pT>> vs centrality, Au+Au 19.6 GeV (Fig4.yaml)
+collision_system:
+  energy_gev: 19.6
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  - 60-70%
+  - 70-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: all charged particles measured in the TPC with |eta| < 0.5.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.15
+    max: 2.0
+observable: sqrt_dpt_dpt_over_mean_pT
+value_type: sqrt_<dpt1_dpt2>_over_<pT>
+method: two_particle
+averaging: events
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -0.5
+    max: 0.5
+value_scale: 100.0
+hepdata_corrections:
+  energy: HEPData labels the column 20 GeV (the paper rounds too); the run was at 19.6 GeV
+notes:
+  value: 'J. Adams et al. (STAR), PRC 72 (2005) 044902, nucl-ex/0504031, Fig. 4. sqrt(<Delta pT_i Delta pT_j>)/<<pT>> of charged
+    particles, |eta| < 1, 0.15 < pT < 2 GeV/c, Au+Au 19.6 GeV, in percent (value_scale 100). Event average of the pair averages
+    (Eq. 1), deviations from <<pT>> fitted vs the centrality multiplicity N_ch (|eta| < 0.5), event by event (multiplicity_baseline).
+    Errors: stat; sys 2% relative on the covariance (Sec. II), not tabulated.'
+---
+observable_type: mean_pT_fluctuations
+inspire_id: '681688'
+version: 1
+hepdata_file: Fig4.yaml
+dv_index: 2
+hepdata_table_label: sqrt(<Delta pT_i Delta pT_j>)/<<pT>> vs centrality, Au+Au 62.4 GeV (Fig4.yaml)
+collision_system:
+  energy_gev: 62.4
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  - 60-70%
+  - 70-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: all charged particles measured in the TPC with |eta| < 0.5.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.15
+    max: 2.0
+observable: sqrt_dpt_dpt_over_mean_pT
+value_type: sqrt_<dpt1_dpt2>_over_<pT>
+method: two_particle
+averaging: events
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -0.5
+    max: 0.5
+value_scale: 100.0
+hepdata_corrections:
+  energy: HEPData labels the column 62 GeV (the paper rounds too); the run was at 62.4 GeV
+notes:
+  value: 'J. Adams et al. (STAR), PRC 72 (2005) 044902, nucl-ex/0504031, Fig. 4. sqrt(<Delta pT_i Delta pT_j>)/<<pT>> of charged
+    particles, |eta| < 1, 0.15 < pT < 2 GeV/c, Au+Au 62.4 GeV, in percent (value_scale 100). Event average of the pair averages
+    (Eq. 1), deviations from <<pT>> fitted vs the centrality multiplicity N_ch (|eta| < 0.5), event by event (multiplicity_baseline).
+    Errors: stat; sys 2% relative on the covariance (Sec. II), not tabulated.'
+---
+observable_type: mean_pT_fluctuations
+inspire_id: '681688'
+version: 1
+hepdata_file: Fig4.yaml
+dv_index: 3
+hepdata_table_label: sqrt(<Delta pT_i Delta pT_j>)/<<pT>> vs centrality, Au+Au 130 GeV (Fig4.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  - 60-70%
+  - 70-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: all charged particles measured in the TPC with |eta| < 0.5.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.15
+    max: 2.0
+observable: sqrt_dpt_dpt_over_mean_pT
+value_type: sqrt_<dpt1_dpt2>_over_<pT>
+method: two_particle
+averaging: events
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -0.5
+    max: 0.5
+value_scale: 100.0
+notes:
+  value: 'J. Adams et al. (STAR), PRC 72 (2005) 044902, nucl-ex/0504031, Fig. 4. sqrt(<Delta pT_i Delta pT_j>)/<<pT>> of charged
+    particles, |eta| < 1, 0.15 < pT < 2 GeV/c, Au+Au 130 GeV, in percent (value_scale 100). Event average of the pair averages
+    (Eq. 1), deviations from <<pT>> fitted vs the centrality multiplicity N_ch (|eta| < 0.5), event by event (multiplicity_baseline).
+    Errors: stat; sys 2% relative on the covariance (Sec. II), not tabulated.'
+---
+observable_type: mean_pT_fluctuations
+inspire_id: '681688'
+version: 1
+hepdata_file: Fig4.yaml
+dv_index: 4
+hepdata_table_label: sqrt(<Delta pT_i Delta pT_j>)/<<pT>> vs centrality, Au+Au 200 GeV (Fig4.yaml)
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  - 60-70%
+  - 70-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: all charged particles measured in the TPC with |eta| < 0.5.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.15
+    max: 2.0
+observable: sqrt_dpt_dpt_over_mean_pT
+value_type: sqrt_<dpt1_dpt2>_over_<pT>
+method: two_particle
+averaging: events
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -0.5
+    max: 0.5
+value_scale: 100.0
+notes:
+  value: 'J. Adams et al. (STAR), PRC 72 (2005) 044902, nucl-ex/0504031, Fig. 4. sqrt(<Delta pT_i Delta pT_j>)/<<pT>> of charged
+    particles, |eta| < 1, 0.15 < pT < 2 GeV/c, Au+Au 200 GeV, in percent (value_scale 100). Event average of the pair averages
+    (Eq. 1), deviations from <<pT>> fitted vs the centrality multiplicity N_ch (|eta| < 0.5), event by event (multiplicity_baseline).
+    Errors: stat; sys 2% relative on the covariance (Sec. II), not tabulated.'
