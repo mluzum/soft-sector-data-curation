@@ -965,30 +965,71 @@ def compute_vn2_sp(q_poi, q_ref, n_poi, n_ref, w, same_window=False,
 
 
 @register("pT_fluct")
-def compute_pT_fluct(s1, s2, n, w, t0=None, t1=None):
-    """√⟨⟨ΔpTi ΔpTj⟩⟩ / ⟨pT⟩ for one centrality class (ALICE, arXiv:1407.5530).
+def compute_pT_fluct(s1, s2, n, w, t0=None, t1=None, mult=None, raw=False, events=False):
+    """√⟨ΔpTi ΔpTj⟩ / ⟨⟨pT⟩⟩ for one centrality class.
 
     Per-event sums over particles with acceptance weights a_i (the
-    probability to be in the record's window: the 2D eta-window Jacobian and
-    the share of a cut pT cell; 1 for unit weights):
+    probability to be in the record's window: the eta-window Jacobian on
+    2D, the share of a cut pT or eta cell; 1 for unit weights):
       n = S0 = Σ a_i,  s1 = S1 = Σ a_i pT_i,  s2 = T2 = Σ a_i² pT_i²,
       t0 = T0 = Σ a_i²,  t1 = T1 = Σ a_i² pT_i  (default n, s1: unit weights).
-    Distinct pairs: Σ_{i≠j} a_i a_j (pT_i - M)(pT_j - M) = (S1 - M S0)² -
-    (T2 - 2 M T1 + M² T0) over Σ_{i≠j} a_i a_j = S0² - T0, summed over
-    events with the class weights; M the class mean pT.  With a_i = 1 this
-    is the unit-weight estimator.
+    Distinct pairs of an event: P_k = Σ_{i≠j} a_i a_j (pT_i - M)(pT_j - M)
+    = (S1 - M S0)² - (T2 - 2 M T1 + M² T0), over N_k = S0² - T0 pairs.
+    Averaging (class weights w):
+      pairs (ALICE, arXiv:1407.5530 Eq. 2-3; the default): Σ P_k / Σ N_k,
+        M and the normalization the mean pT of all particles, Σ S1 / Σ S0;
+      events (STAR, PRC 72 044902 Eq. 1-3 and later): the mean of the
+        events' pair averages P_k / N_k, M and the normalization the mean
+        of the event means S1/S0.
+    With `mult` (the event multiplicity of the record's
+    `multiplicity_baseline`) M is the mean pT at the event's multiplicity:
+    the event means regressed linearly on mult within the class (weights w
+    S0 for pairs, w for events, so a flat trend gives the class mean back)
+    -- STAR's <<pT>> fitted vs N_ch, or computed per reference-multiplicity
+    bin, which removes the spread of <pT> across a wide class.  The
+    normalization stays the class mean.  A negative covariance gives a
+    negative value (signed root, as for v_n{2}).  raw: the covariance
+    ⟨ΔpTi ΔpTj⟩ itself (GeV², value_type '<dpt1_dpt2>').
     """
+    nan = np.array([np.nan])
     if w.sum() < 2:
-        return np.array([np.nan])
+        return nan
     t0 = n if t0 is None else t0
     t1 = s1 if t1 is None else t1
-    m_bar = np.average(s1, weights=w) / max(np.average(n, weights=w), 1e-30)
-    num = np.sum(w * ((s1 - m_bar * n) ** 2 - (s2 - 2.0 * m_bar * t1 + m_bar ** 2 * t0)))
-    den = np.sum(w * np.maximum(n * n - t0, 0.0))
-    if den <= 1e-30 or m_bar <= 1e-30:
-        return np.array([np.nan])
-    C = num / den
-    return np.array([np.sqrt(max(C, 0.0)) / m_bar])
+    npairs = np.maximum(n * n - t0, 0.0)
+    if events:
+        sel = (w > 0) & (npairs > 1e-12) & (n > 0)
+        if sel.sum() < 2:
+            return nan
+        s1, s2, n, w, t0, t1, npairs = (x[sel] for x in (s1, s2, n, w, t0, t1, npairs))
+        mult = None if mult is None else mult[sel]
+        y = s1 / n
+        u = w
+        m_bar = np.average(y, weights=w)
+    else:
+        m_bar = np.average(s1, weights=w) / max(np.average(n, weights=w), 1e-30)
+        y = np.divide(s1, n, out=np.full_like(s1, m_bar, dtype=float), where=n > 0)
+        u = w * n
+    if m_bar <= 1e-30:
+        return nan
+    M = m_bar
+    if mult is not None and u.sum() > 0 and np.all(np.isfinite(mult[u > 0])):
+        mu = np.where(u > 0, mult, 0.0)
+        dm = mu - np.average(mu, weights=u)
+        var = np.average(dm ** 2, weights=u)
+        if var > 0:
+            M = m_bar + np.average(dm * (y - m_bar), weights=u) / var * dm
+    P = (s1 - M * n) ** 2 - (s2 - 2.0 * M * t1 + M ** 2 * t0)
+    if events:
+        C = np.average(P / npairs, weights=w)
+    else:
+        den = np.sum(w * npairs)
+        if den <= 1e-30:
+            return nan
+        C = np.sum(w * P) / den
+    if raw:
+        return np.array([C])
+    return np.array([np.sign(C) * np.sqrt(abs(C)) / m_bar])
 
 
 @register("dET_deta")

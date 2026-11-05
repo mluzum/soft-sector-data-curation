@@ -428,16 +428,35 @@ near c_4 = 0, ratios) the correction is unstable (zr96c2 dp0001, v2{4}
   3D and whole cells on 2D (no record cuts a cell); pT fluctuations take
   whole cells on 3D (unit weights) and on 2D the flat share of a cut cell,
   as below.
-- **pT fluctuations** (`mean_pT_fluctuations` with value_type
-  `sqrt_<dpt1_dpt2>_over_<pT>`, key pT_fluct: sqrt(<Delta pT_i Delta
-  pT_j>)/<<pT>>, STAR 1712047, 3141716; `fluctuations` is for
-  conserved-charge cumulants and stays undispatched): on 2D containers
-  each particle carries its probability to be in the record's window (the
-  eta-window Jacobian over the flat-y plateau times the pT-cell share), and
-  the distinct pairs come from the second-weight sums (Σa², Σa² pT, Σa²
-  pT²; `compute_pT_fluct`).  Until November 2026 an eta window gave NaN on
-  2D and dy mode ignored the pT window; tests/test_toy_mc_fluct_et.py
-  (eta windows within 2-6% of the brute force).
+- **pT fluctuations** (`mean_pT_fluctuations`, key pT_fluct; value_type
+  `sqrt_<dpt1_dpt2>_over_<pT>`, sqrt(<Delta pT_i Delta pT_j>)/<<pT>>, or
+  `<dpt1_dpt2>`, the covariance in GeV^2 (a (MeV/c)^2 header loads as
+  GeV^2); ALICE 1307102, STAR 681688, 1216565, 1712047, 3141716;
+  `fluctuations` is for conserved-charge cumulants and stays
+  undispatched): each particle carries its probability to be in the
+  record's window (2D: the eta-window Jacobian over the flat-y plateau
+  times the pT-cell share; 3D: the overlap share of a cut cell), and the
+  distinct pairs come from the second-weight sums (Σa², Σa² pT, Σa² pT²;
+  `compute_pT_fluct`).  `averaging`: `pairs` (ALICE, the default: all
+  pairs of the class pooled, deviations from the mean pT of all particles)
+  or `events` (STAR: the mean of the events' pair averages, deviations from
+  and normalization by the mean of the event means; they differ when the
+  multiplicity varies across the class).  `multiplicity_baseline` {eta,
+  pT}: deviations from the mean pT at the event's multiplicity in those
+  windows (a linear regression within the class), STAR's <<pT>> fitted vs
+  N_ch or computed per reference-multiplicity bin; the normalization stays
+  the class mean.  A container event of `nsamples` particlizations
+  (JETSCAPE 2D: median 82) gives each particle weight a/nsamples, so the
+  self-pair sums take 1/nsamples^2.  Until November 2026 they took
+  1/nsamples (JETSCAPE Au+Au 200: sqrt(C)/<<pT>> from -0.01 to -0.08, which
+  the clipped root hid as 0; now 0.7-1.1 x STAR, and 0.84-1.04 x ALICE
+  Pb-Pb 2.76 TeV), an eta window gave NaN on 2D, dy mode ignored the pT
+  window, 3D took whole cells (and an upper limit on a cell edge the next
+  cell too: pT 0.15-2.0 on 0.2 GeV cells summed 0.2-2.2), and STAR records
+  were computed with ALICE's averaging and the class mean;
+  tests/test_toy_mc_fluct_et.py (2D eta windows within 2-6% of the brute
+  force, 3D exact on cell edges and within 3% across cut cells, oversampled
+  events).
 - **Charge-scaled 3D grids**: normalized observables (flow, correlations,
   mean pT and its fluctuations) are computed on unit weights
   (`pipeline_dispatch._unit_weights`); only `ABSOLUTE_KEYS` keep the
@@ -537,7 +556,9 @@ near c_4 = 0, ratios) the correction is unstable (zr96c2 dp0001, v2{4}
   sign(c6) |c6/4|^(1/6), v{8} = sign(-c8) |c8/33|^(1/8)
   (`correlators.vn_from_cumulant`); a POI flow divides by the signed
   reference (v'{2} = d2/v{2}, v'{4} = -d4/v{4}^3), a scalar-product or
-  amplitude estimator by sign(P) sqrt|P|.  Invertible (c = sign(v)|v|^k x
+  amplitude estimator by sign(P) sqrt|P|; likewise sqrt(<Delta pT_i Delta
+  pT_j>)/<<pT>> and the radial-flow v0 (until November 2026 clipped to 0
+  and NaN).  Invertible (c = sign(v)|v|^k x
   norm), no NaN, and a jackknife replicate whose cumulant crosses zero is
   kept (a NaN replicate is replaced by the full-sample value, shrinking the
   error).  Near c = 0 the root's slope diverges, so errors on v there are

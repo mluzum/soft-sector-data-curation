@@ -70,7 +70,10 @@ PRC 103, 054904 (2021), arXiv:2011.01430:
   observable computation.
 - **Pb+Pb 2.76 TeV:** the most central bin agrees for all observables. The
   outer bins of the reference were assigned with a TRENTo-geometry proxy
-  that cannot be reproduced from multiplicity percentiles.
+  that cannot be reproduced from multiplicity percentiles.  The mean-pT
+  fluctuations sqrt(C_m)/M(pT)_m (ALICE, |η| < 0.8, 0.15 < pT < 2 GeV;
+  design point 0) agree within errors in 0–50% (ratios 0.90–1.13, errors
+  7–10%), 0.86–0.89 at 50–60%.
 
 Conventions fixed by this comparison:
 

@@ -447,7 +447,7 @@ def ref_pT_fluct(events, eta_range, pt_range, species_sel=None):
         S_pair += float((d.sum() ** 2 - (d ** 2).sum()))
         denom += len(p) * (len(p) - 1)
     C = S_pair / denom
-    return float(np.sqrt(max(C, 0.0)) / M)
+    return float(np.sign(C) * np.sqrt(abs(C)) / M)
 
 
 def ref_dET(events, eta_range, pt_range, species_sel=None,

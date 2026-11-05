@@ -213,10 +213,12 @@ DISPATCH_TABLE_BY_TYPE = {
         "description": "pT fluctuation correlator Σ",
     },
     "mean_pT_fluctuations": {
+        # value_type 'sqrt_<dpt1_dpt2>_over_<pT>' (relative) or '<dpt1_dpt2>'
+        # (the covariance itself, GeV^2)
         "compute": "pT_fluct",
-        "value_type_contains": "sqrt_<dpt1_dpt2>_over_<pT>",
+        "value_type_contains": "<dpt1_dpt2>",
         "requires": [["kinematic_range.eta", "kinematic_range.y", "centrality.eta"]],
-        "description": "relative dynamical pT correlation sqrt(<Delta pT_i Delta pT_j>)/<<pT>>",
+        "description": "dynamical pT correlation <Delta pT_i Delta pT_j>, or its root over <<pT>>",
     },
     "transverse_energy": {
         "compute": "dET_deta",
@@ -959,6 +961,8 @@ def extract_measurement_params(exp_rec):
         'quantity': exp_rec.get('quantity'),
         'reference_pT': _kr_pT({'pT': exp_rec['reference_pT']}) if exp_rec.get('reference_pT') else None,
         'multiplicity_baseline': exp_rec.get('multiplicity_baseline'),
+        # pT fluctuations: pooled pairs (ALICE) or the event average (STAR)
+        'averaging': exp_rec.get('averaging'),
         # symmetric cumulants: NSC (divided by <<2>>_m <<2>>_n) and the eta
         # gap of those two-particle terms
         'normalized': bool(exp_rec.get('normalized')),
@@ -1230,7 +1234,8 @@ def load_experimental(params):
                         '%' in units or '*100' in name.replace(' ', '') or re.search(r'\(\s*%\s*\)', name)):
                     scale = 0.01
                 elif 'mev' in low and 'gev' not in low:
-                    scale = 0.001
+                    # (MeV/c)^2 (STAR <Delta pT_i Delta pT_j>): GeV^2
+                    scale = 1e-6 if re.search(r'mev(/c)?\)?\s*\^\s*\{?2', low) else 0.001
                 else:
                     scale = 1.0
                 val = _safe_float(v.get("value"))

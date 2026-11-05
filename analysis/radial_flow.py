@@ -113,7 +113,7 @@ def core(data, w):
     # <d[pT]_a d[pT]_b> without the pairs of a particle with itself
     self_pp = (d['Srr2'] - (bA + bB) * d['Srr1'] + bA * bB * d['Srr0']) / (d['Nr_A'] * d['Nr_B'])
     v0sq = np.average((pA - bA) * (pB - bB) - self_pp, weights=w) / (m_A * m_B)
-    v0 = np.sqrt(v0sq) if v0sq > 0 else np.nan
+    v0 = np.sign(v0sq) * np.sqrt(abs(v0sq)) if v0sq != 0 else np.nan   # signed root
     if q == 'v0':
         return np.array([v0])
     nA, nB = d['Nb_A'] / d['N_A'][:, None], d['Nb_B'] / d['N_B'][:, None]
@@ -133,5 +133,5 @@ def core(data, w):
     if q == 'v0_pT':
         return ncov / v0
     if q == 'v0_pT_over_v0':
-        return ncov / v0sq if v0sq > 0 else nan
+        return ncov / v0sq if v0sq != 0 else nan
     raise ValueError(f'radial_flow quantity {q!r}')

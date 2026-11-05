@@ -47,6 +47,38 @@ optional_fields:
     fields:
       min: {type: float, required: false, example: 0}
       max: {type: float, required: false, example: 100}
+  averaging:
+    type: string
+    required: false
+    description: >
+      How <Delta pT_i Delta pT_j> averages over a class: 'pairs' (the
+      default; ALICE, EPJC 74 (2014) 3077 Eq. 2-3: the sum over all pairs of
+      all events over the number of pairs, deviations from the mean pT of
+      all particles) or 'events' (STAR, PRC 72 (2005) 044902 Eq. 1-4 and
+      later: the mean of the events' pair averages, deviations from and
+      normalization by the mean of the event means).  They differ when the
+      multiplicity varies across the class.
+    example: "events"
+  multiplicity_baseline:
+    type: object
+    required: false
+    description: >
+      Deviations pT_i - <<pT>>(N) from the mean pT at the event's
+      multiplicity N instead of the class mean (STAR: <<pT>> fitted vs the
+      multiplicity that defines the centrality, or computed per
+      reference-multiplicity bin and averaged over the class), which
+      removes the spread of <pT> across a wide class.  Computed by a linear
+      regression of the event mean pT on this multiplicity within each
+      class; the normalization stays the class mean.
+    fields:
+      observable: {type: string, required: false, example: "Nch"}
+      eta: {type: list, required: true, example: [{min: -0.5, max: 0.5}]}
+      pT: {type: object, required: false, example: {min: 0.15, max: 100.0}}
+  value_scale:
+    type: float
+    required: false
+    description: "Factor the tabulated values carry (100 for percent)."
+    example: 100.0
 
 validation:
   rules:

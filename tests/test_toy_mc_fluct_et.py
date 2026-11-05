@@ -70,8 +70,9 @@ def test_pT_fluct_iid_consistent_zero():
     fx = _fx(0.0)
     vals, errs = evaluate(_rec_dy(), qv=fx['qv'], cent_method='simple')
     ref = ref_pT_fluct(fx['events'], (-1e9, 1e9), (0.05, 10.))
-    assert_close("iid: pipeline vs brute force", vals[0], abs(ref), 0.02)
-    assert abs(vals[0]) < 0.01, f"iid signal should vanish, got {vals[0]}"
+    # signed root: a negative covariance (here a statistical one) keeps its sign
+    assert_close("iid: pipeline vs brute force", vals[0], ref, 0.02)
+    assert abs(vals[0]) < 0.02, f"iid signal should vanish, got {vals[0]}"
 
 
 def test_pT_fluct_injected_dynamical():
@@ -104,6 +105,179 @@ def test_pT_fluct_dy_pt_window():
     vals, errs = evaluate(_rec_dy(pt=dict(min=0.4, max=2.0)), qv=fx['qv'], cent_method='simple')
     ref = ref_pT_fluct(fx['events'], (-1e9, 1e9), (0.4, 2.0))
     assert_close("dy, pT 0.4-2: pipeline vs brute force", vals[0], ref, 0.05)
+
+
+def _with_trend(events, trend):
+    """A <pT> trend with the event multiplicity M: pT x (1 + trend (M -
+    <M>)/<M>), eta re-derived from y (the converters derive eta from y);
+    returns M."""
+    from analysis.converters import y_to_eta
+    mult = np.array([len(e['pt']) for e in events], float)
+    for e, m in zip(events, mult):
+        e['pt'] = e['pt'] * (1 + trend * (m - mult.mean()) / mult.mean())
+        e['eta'] = y_to_eta(e['y'], e['pt'], e['mass'])
+    return mult
+
+
+def _baseline_ref(events, eta, pt, mult, average='pairs', baseline=True):
+    """Brute force at fixed multiplicity: each event's deviations from the
+    mean pT at its multiplicity, the event means regressed linearly on mult
+    (weights: the events' particle counts, or 1 for the event average);
+    normalized by the class mean.  average 'pairs' (ALICE: pooled pairs,
+    mean of all particles) or 'events' (STAR: mean of the events' pair
+    averages, mean of the event means)."""
+    ps, ms = [], []
+    for e, m in zip(events, mult):
+        sel = (e['eta'] >= eta[0]) & (e['eta'] <= eta[1]) & (e['pt'] >= pt[0]) & (e['pt'] <= pt[1])
+        if sel.sum() >= 2:
+            ps.append(e['pt'][sel])
+            ms.append(m)
+    n = np.array([len(p) for p in ps], float)
+    y = np.array([p.mean() for p in ps])
+    ms = np.array(ms, float)
+    u = np.ones_like(n) if average == 'events' else n
+    m_bar = np.average(y, weights=u)
+    dm = ms - np.average(ms, weights=u)
+    M = m_bar + (np.average(dm * (y - m_bar), weights=u) / np.average(dm ** 2, weights=u) * dm if baseline else 0.0)
+    M = np.broadcast_to(M, n.shape)
+    P = np.array([(p - Mk).sum() ** 2 - ((p - Mk) ** 2).sum() for p, Mk in zip(ps, M)])
+    C = np.mean(P / (n * (n - 1))) if average == 'events' else P.sum() / float((n * (n - 1)).sum())
+    return float(np.sign(C) * np.sqrt(abs(C)) / m_bar)
+
+
+def test_pT_fluct_multiplicity_baseline():
+    """`multiplicity_baseline` (STAR: <<pT>> fitted vs the centrality
+    multiplicity): a <pT> trend with the event multiplicity across a wide
+    class adds its spread to the class-mean correlator; deviations from the
+    mean at the event's multiplicity remove it.  2D (dy mode) and 3D (eta
+    window) against the brute force at fixed multiplicity, and close to the
+    events without the trend."""
+    cfg = ToyGenConfig(n_events=NE, mult_mean=250, mult_sigma=50, seed=4243, pt_rescale_sigma=0.05)
+    events, _ = generate_events(cfg)
+    flat = [dict(e) for e in events]
+    mult = _with_trend(events, 0.3)
+    # pT_max above the rescaled spectra (the converters put larger pT in the last cell)
+    qv = make_qvector_data(events, {'cfg': cfg}, n_pt=100, pt_max=5.0)
+    grid = make_qgrid_data(events, {'cfg': cfg}, n_pt=100, pt_max=5.0)
+    base = {'observable': 'N', 'eta': [{'min': -6.0, 'max': 6.0}], 'pT': {'min': 0.0, 'max': 100.0}}
+    eta3 = snap_window(grid.eta_edges, *ETA)
+    pt3 = snap_window(grid.pt_edges, *PTW)
+    cases = (('2D dy', dict(qv=qv), _rec_dy(), (-1e9, 1e9), (0.05, 10.)),
+             ('3D eta', dict(grid=grid), record_pT_fluct(eta=eta3, pt=pt3, cent_classes=('0-100%',)), eta3, pt3))
+    for tag, cont, rec, eta, pt in cases:
+        plain = evaluate(rec, cent_method='simple', with_jackknife=False, **cont)[0][0]
+        rec = dict(rec, multiplicity_baseline=base)
+        fixed = evaluate(rec, cent_method='simple', with_jackknife=False, **cont)[0][0]
+        ref = _baseline_ref(events, eta, pt, mult)
+        no_trend = ref_pT_fluct(flat, eta, pt)
+        assert_close(f"{tag}: fixed multiplicity vs brute force", fixed, ref, 0.03)
+        assert_close(f"{tag}: fixed multiplicity vs no trend", fixed, no_trend, 0.10)
+        assert plain > 1.3 * fixed, f"{tag}: the trend should inflate the class-mean value ({plain:.4f} vs {fixed:.4f})"
+        print(f"  class mean {plain:.4f}, fixed multiplicity {fixed:.4f}, no trend {no_trend:.4f}")
+
+
+def test_pT_fluct_event_average():
+    """`averaging: events` (STAR Eq. 1-3): the mean of the events' pair
+    averages over the mean of the event means, with and without the
+    multiplicity baseline, 2D (dy mode) and 3D, against the brute force.
+    A wide multiplicity spread (sigma/mean 0.4) separates it from the pooled
+    pairs."""
+    cfg = ToyGenConfig(n_events=NE, mult_mean=150, mult_sigma=60, seed=4244, pt_rescale_sigma=0.05)
+    events, _ = generate_events(cfg)
+    events = [e for e in events if len(e['pt']) >= 20]
+    mult = _with_trend(events, 0.2)
+    qv = make_qvector_data(events, {'cfg': cfg}, n_pt=100, pt_max=5.0)
+    grid = make_qgrid_data(events, {'cfg': cfg}, n_pt=100, pt_max=5.0)
+    base = {'observable': 'N', 'eta': [{'min': -6.0, 'max': 6.0}], 'pT': {'min': 0.0, 'max': 100.0}}
+    eta3, pt3 = snap_window(grid.eta_edges, *ETA), snap_window(grid.pt_edges, *PTW)
+    cases = (('2D dy', dict(qv=qv), _rec_dy(), (-1e9, 1e9), (0.05, 10.)),
+             ('3D eta', dict(grid=grid), record_pT_fluct(eta=eta3, pt=pt3, cent_classes=('0-100%',)), eta3, pt3))
+    for tag, cont, rec, eta, pt in cases:
+        got = {}
+        for av in ('pairs', 'events'):
+            for bl in (False, True):
+                r = dict(rec, averaging=av, **({'multiplicity_baseline': base} if bl else {}))
+                got[av, bl] = evaluate(r, cent_method='simple', with_jackknife=False, **cont)[0][0]
+                ref = _baseline_ref(events, eta, pt, mult, average=av, baseline=bl)
+                assert_close(f"{tag}, {av}, baseline {bl}: vs brute force", got[av, bl], ref,
+                             0.01 if tag.startswith('3D') else 0.05)
+        assert abs(got['events', False] / got['pairs', False] - 1) > 0.03, got
+
+
+def test_pT_fluct_oversampled():
+    """Containers whose events sum nsamples particlizations (JETSCAPE 2D:
+    median 82): a particle counts 1/nsamples, so the self-pairs take
+    1/nsamples^2 (until November 2026 1/nsamples: JETSCAPE Au+Au gave
+    sqrt(C)/<pT> ~ -0.01 to -0.08 where STAR measures +0.01 to +0.05).  The
+    super-events (5 samples sharing one pT rescale) against the brute force
+    over all their particles, 2D and 3D, both averagings."""
+    from analysis.converters import particles_to_qvector_data, particles_to_qgrid_data
+    from analysis.toy_mc import SPECIES_NAMES, SPECIES_MASSES
+    ns, n_super = 5, 400
+    cfg = ToyGenConfig(n_events=ns * n_super, mult_mean=120, mult_sigma=20, seed=4245)
+    base, _ = generate_events(cfg)
+    rng = np.random.default_rng(7)
+    sup = []
+    for i in range(n_super):
+        parts = base[i * ns:(i + 1) * ns]
+        k = rng.normal(1.0, 0.08)
+        ev = {key: np.concatenate([p[key] for p in parts]) for key in ('y', 'pt', 'phi', 'species_idx', 'mass')}
+        ev['pt'] = ev['pt'] * k
+        ev['eta'] = None
+        sup.append(ev)
+    from analysis.converters import y_to_eta
+    for ev in sup:
+        ev['eta'] = y_to_eta(ev['y'], ev['pt'], ev['mass'])
+    nsam = np.full(n_super, float(ns))
+    pt_edges = np.linspace(cfg.pt_min, 5.0, 101)
+    qv = particles_to_qvector_data(sup, pt_edges, rap_max=cfg.rap_max, species_names=list(SPECIES_NAMES),
+                                   masses=SPECIES_MASSES, n_harm=3, nsamples=nsam, with_sum_pt=True,
+                                   with_sum_pt2=True)
+    grid = particles_to_qgrid_data(sup, np.linspace(-6, 6, 51), pt_edges, n_harm=3, nsamples=nsam,
+                                   cent_mult=np.array([len(e['pt']) for e in sup], float), with_sum_pt=True,
+                                   with_sum_pt2=True, masses=SPECIES_MASSES)
+    eta3, pt3 = snap_window(grid.eta_edges, *ETA), snap_window(grid.pt_edges, *PTW)
+    mult = np.zeros(n_super)
+    for tag, cont, rec, eta, pt in (('2D dy', dict(qv=qv), _rec_dy(), (-1e9, 1e9), (0.05, 10.)),
+                                    ('3D eta', dict(grid=grid),
+                                     record_pT_fluct(eta=eta3, pt=pt3, cent_classes=('0-100%',)), eta3, pt3)):
+        for av in ('pairs', 'events'):
+            got = evaluate(dict(rec, averaging=av), cent_method='simple', with_jackknife=False, **cont)[0][0]
+            ref = _baseline_ref(sup, eta, pt, mult, average=av, baseline=False)
+            assert_close(f"{tag}, {av}, nsamples {ns}: vs brute force", got, ref, 0.03)
+            assert got > 0.05, got
+
+
+def test_pT_fluct_raw_covariance():
+    """value_type '<dpt1_dpt2>' (STAR's (MeV/c)^2 tables): the covariance
+    itself, GeV^2, against the brute force (2D eta window, 3D)."""
+    fx = _fx(0.10)
+    eta3 = snap_window(fx['grid'].eta_edges, *ETA)
+    pt3 = snap_window(fx['grid'].pt_edges, 0.15, 2.0)   # below the grid's last cell (it holds larger pT too)
+    for tag, cont, eta, pt, tol in (('2D', dict(qv=fx['qv']), ETA, PTW, 0.10),
+                                    ('3D', dict(grid=fx['grid']), eta3, pt3, 0.02)):
+        rec = record_pT_fluct(eta=eta, pt=pt, cent_classes=('0-100%',))
+        rel = evaluate(rec, cent_method='simple', with_jackknife=False, **cont)[0][0]
+        rec['value_type'] = '<dpt1_dpt2>'
+        cov = evaluate(rec, cent_method='simple', with_jackknife=False, **cont)[0][0]
+        ps = [e['pt'][(e['eta'] >= eta[0]) & (e['eta'] <= eta[1]) & (e['pt'] >= pt[0]) & (e['pt'] <= pt[1])]
+              for e in fx['events']]
+        M = np.concatenate(ps).mean()
+        ref = sum((p - M).sum() ** 2 - ((p - M) ** 2).sum() for p in ps) / sum(len(p) * (len(p) - 1) for p in ps)
+        assert_close(f"{tag}: <dpT dpT> vs brute force (GeV^2)", cov, ref, tol)
+        assert_close(f"{tag}: sqrt(<dpT dpT>)/<pT> consistent", np.sqrt(cov) / M, rel, 0.02)
+
+
+def test_pT_fluct_3d_cut_cells():
+    """3D windows that cut cells (eta |eta| < 0.5 on 0.24-wide cells, pT
+    0.15-2.0 on 0.037 GeV cells): a cut cell's particles carry its overlap
+    share, as on 2D (until November 2026 whole cells, and an upper limit on
+    a cell edge took the next cell too)."""
+    fx = _fx(0.10)
+    for eta, pt in ((ETA, (0.15, 2.0)), ((-0.3, 0.9), (0.4, 1.5))):
+        rec = record_pT_fluct(eta=eta, pt=pt, cent_classes=('0-100%',))
+        got = evaluate(rec, grid=fx['grid'], cent_method='simple', with_jackknife=False)[0][0]
+        assert_close(f"3D eta {eta}, pT {pt}: pipeline vs brute force", got, ref_pT_fluct(fx['events'], eta, pt), 0.03)
 
 
 def test_dET_deta_2d():

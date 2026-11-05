@@ -1543,14 +1543,35 @@ def prepare_pT_fluct_2d(qv, params):
                                 a[species_idx, :])
     else:
         c = c_full
+    # each of the event's nsamples particlizations counts 1/nsamples: weight
+    # a/ns, so the second-weight sums take 1/ns^2 (until November 2026 1/ns,
+    # which subtracted the self-pairs ns times over: negative correlations)
     ns = qv.nsamples
+    ns2 = ns * ns
     a2 = a * a
-    return {'n': (c * a).sum(axis=(1, 2)) / ns, 's1': (s1_src * a).sum(axis=(1, 2)) / ns,
-            's2': (s2_src * a2).sum(axis=(1, 2)) / ns, 't0': (c * a2).sum(axis=(1, 2)) / ns,
-            't1': (s1_src * a2).sum(axis=(1, 2)) / ns}
+    out = {'n': (c * a).sum(axis=(1, 2)) / ns, 's1': (s1_src * a).sum(axis=(1, 2)) / ns,
+           's2': (s2_src * a2).sum(axis=(1, 2)) / ns2, 't0': (c * a2).sum(axis=(1, 2)) / ns2,
+           't1': (s1_src * a2).sum(axis=(1, 2)) / ns2}
+    out['raw'] = params.get('value_type') == '<dpt1_dpt2>'
+    out['events'] = _pT_fluct_events(params)
+    base = _pT_fluct_baseline(params, (lo, hi))
+    if base is not None:   # charged multiplicity in the baseline windows
+        idx = list(charged_species_indices(getattr(qv, 'pdg_ids', None))[0])
+        jac = sum(_make_jacobian_list(qv.pt_centers, qv.masses, e0, e1) for e0, e1 in base[0])
+        fm = np.asarray(_overlap_fractions(qv.pt_bin_edges, *base[1], _pt_squared), dtype=float)
+        out['mult'] = (c_full[:, idx, :] * (jac[idx, :] * fm[np.newaxis, :])[np.newaxis]).sum(axis=(1, 2)) / ns
+    return out
 
 
 def prepare_pT_fluct_3d(grid, params):
+    """Per-event sums for compute_pT_fluct on a 3D grid.  A particle of a
+    cell carries the cell's share of the record's window a (overlap
+    fraction, uniform in eta and pT^2; on a rapidity-binned grid the eta
+    window mapped per pT cell), as on 2D: the distinct pairs come from the
+    second-weight sums (Σa², Σa² pT, Σa² pT²); cells inside the window have
+    a = 1, the unit-weight estimator.  Until November 2026 whole cells were
+    taken, and an upper limit on a cell edge took the next cell too (pT
+    0.15-2.0 on 0.2 GeV cells summed 0.2-2.2)."""
     z = np.full(grid.n_events, np.nan)
     if getattr(grid, 'pt_integrated', False):
         return {'s1': z, 's2': z, 'n': z}
@@ -1558,27 +1579,56 @@ def prepare_pT_fluct_3d(grid, params):
     eta = sk.get('eta', (-1, 1))
     if eta[0] is None or eta[1] is None:
         return {'s1': z, 's2': z, 'n': z}
-    pt = sk.get('pT', (0.1, 10))
+    pt = sk.get('pT') or (0.1, 10)
+    pt = (0.0 if pt[0] is None else float(pt[0]), 1e9 if pt[1] is None else float(pt[1]))
     ns = grid.nsamples
-    n = _window_sum(grid, grid.Qn[..., 0].real, eta, pt) / ns
-    if getattr(grid, 'sum_pt', None) is not None:
-        s1_src = grid.sum_pt
-    else:
-        mids = 0.5 * (grid.pt_edges[:-1] + grid.pt_edges[1:])
-        s1_src = grid.Qn[:, :, :, 0].real * mids[np.newaxis, np.newaxis, :]
-    if getattr(grid, 'sum_pt2', None) is not None:
-        s2_src = grid.sum_pt2
-    else:
-        mids = 0.5 * (grid.pt_edges[:-1] + grid.pt_edges[1:])
-        s2_src = grid.Qn[:, :, :, 0].real \
-            * (mids ** 2)[np.newaxis, np.newaxis, :]
-    s1 = _window_sum(grid, s1_src, eta, pt) / ns
-    s2 = _window_sum(grid, s2_src, eta, pt) / ns
-    return {'s1': s1, 's2': s2, 'n': n}
+    c = grid.Qn[..., 0].real
+    mids = 0.5 * (grid.pt_edges[:-1] + grid.pt_edges[1:])
+    s1_src = grid.sum_pt if getattr(grid, 'sum_pt', None) is not None else c * mids[np.newaxis, np.newaxis, :]
+    s2_src = (grid.sum_pt2 if getattr(grid, 'sum_pt2', None) is not None
+              else c * (mids ** 2)[np.newaxis, np.newaxis, :])
+    a = np.asarray(grid.window_weights(eta[0], eta[1], pt[0], pt[1], fractional=True), dtype=float)
+    a2 = a * a
+
+    def wsum(arr, wt, p=1):   # a particle of one of nsamples particlizations: weight a/ns
+        return np.einsum('ijk,jk->i', arr, wt) / ns ** p
+
+    out = {'n': wsum(c, a), 's1': wsum(s1_src, a), 's2': wsum(s2_src, a2, 2), 't0': wsum(c, a2, 2),
+           't1': wsum(s1_src, a2, 2), 'raw': params.get('value_type') == '<dpt1_dpt2>',
+           'events': _pT_fluct_events(params)}
+    base = _pT_fluct_baseline(params, pt)
+    if base is not None:   # multiplicity in the baseline windows (cut cells by overlap)
+        out['mult'] = sum(_window_sum(grid, c, w_eta, base[1], fractional=True) for w_eta in base[0]) / ns
+    return out
+
+
+def _pT_fluct_events(params):
+    """True for STAR's event average of pair averages (record `averaging:
+    events`), False for ALICE's pooled pairs (`pairs`, the default)."""
+    av = params.get('averaging') or 'pairs'
+    if av not in ('pairs', 'events'):
+        raise ValueError(f"pT fluctuations: averaging {av!r} (pairs | events)")
+    return av == 'events'
+
+
+def _pT_fluct_baseline(params, pt):
+    """(eta windows, pT range) of a pT-fluctuation record's
+    `multiplicity_baseline` (pT default: the record's), or None."""
+    mb = params.get('multiplicity_baseline') or None
+    if not mb:
+        return None
+    eta = [(float(e['min']), float(e['max'])) for e in (mb.get('eta') or [])]
+    if not eta:
+        raise ValueError("multiplicity_baseline needs eta windows")
+    mpt = mb.get('pT') or {}
+    lo = mpt.get('min', 0.0 if pt[0] is None else pt[0])
+    hi = mpt.get('max', 100.0 if pt[1] is None else pt[1])
+    return eta, (float(lo), float(hi))
 
 
 def _wrap_pT_fluct(data, w):
-    return compute_pT_fluct(data['s1'], data['s2'], data['n'], w, data.get('t0'), data.get('t1'))
+    return compute_pT_fluct(data['s1'], data['s2'], data['n'], w, data.get('t0'), data.get('t1'),
+                            data.get('mult'), raw=data.get('raw', False), events=data.get('events', False))
 
 
 # ── radial flow: v0, v0(pT), normalized covariance (analysis.radial_flow) ──
