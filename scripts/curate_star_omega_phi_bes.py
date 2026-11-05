@@ -22,7 +22,8 @@ Omega centralities "0-X" mean "previous edge to X".  phi pT bins are
 encoded in the axis strings ("0.4461 + 0.5 - 0.4": mean 0.4461, bin
 0.4-0.5); Omega tables give mean pT only (0.2 GeV/c windows here).
 
-Records: one spectrum per table, |y| < 0.5.  Not curated: the
+Records: one spectrum per table, |y| < 0.5; the label fixes are stated
+in hepdata_corrections (audit_metadata reports them as warnings).  Not curated: the
 N(Omega)/2N(phi) ratios and k_s(pT^s) (no particle-ratio computation;
 k_s also needs the paper's phi interpolation).
 
@@ -76,6 +77,13 @@ def main():
             assert q['CENTRALITY'] == f'0.0-{cls.split("-")[1].rstrip("%")}.0', (hf, q, cls)
             pt = phi_axis(t['independent_variables'][0]['values'])
             how = 'pT bins from the axis strings'
+            corr = {}
+            if e != 7.7:
+                corr['energy'] = ('HEPData labels all 30 phi tables 7.7 GeV; Tables 1-6, 7-12, 13-18, 19-24, '
+                                  '25-30 are 7.7, 11.5, 19.6, 27, 39 GeV (Fig. 1; the pT reach grows with energy)')
+            if not cls.startswith('0-'):
+                corr['centrality'] = (f'HEPData labels this class 0-{cls.split("-")[1]}; the six phi tables of an '
+                                      'energy are the classes 0-10 ... 60-80% (Fig. 1)')
         else:
             e = float(q['SQRT(S)/NUCLEON'])
             hi = float(q['CENTRALITY'].split('-')[1])
@@ -86,6 +94,9 @@ def main():
             pt = {'min': round(pts[0] - OMEGA_WINDOW / 2, 4), 'max': round(pts[-1] + OMEGA_WINDOW / 2, 4),
                   'points': pts, 'point_window': OMEGA_WINDOW}
             how = f'mean-pT points ({OMEGA_WINDOW} GeV/c windows)'
+            corr = {} if lo == 0 else {
+                'centrality': f'HEPData labels this class 0-{hi:g}%: from the previous class edge, {lo:g}%, '
+                              f'to {hi:g}% (Fig. 2)'}
         docs.append({
             'observable_type': 'particle_spectra', 'inspire_id': '1378002', 'version': 1, 'hepdata_file': hf,
             'dv_index': 0, 'hepdata_table_label': f'{sp} spectrum, {cls} Au+Au at {e:g} GeV ({x.get("location", "")})',
@@ -97,6 +108,7 @@ def main():
             'notes': {'value': (f'{CITE}, {x.get("location", "")}. d2N/(2 pi N_evt pT dy dpT) of {sp}, |y| < 0.5, '
                                 f'{cls} at {e:g} GeV; {how}. Energy and class from the figure (the HEPData labels '
                                 'read 7.7 GeV and 0-X% for these tables). Errors: statistical and systematic.')},
+            **({'hepdata_corrections': corr} if corr else {}),
         })
     out = 'data/particle_spectra/star_particle_spectra_probing_parton_dynamics_of_qcd_AuAu_multigev.yaml'
     with open(out, 'w') as fh:
