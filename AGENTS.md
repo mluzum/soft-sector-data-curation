@@ -79,6 +79,15 @@ Each YAML document has:
 Validate after every edit (`python scripts/validate.py data/`). Records are
 the product. Never fix a value in code that belongs in a record.
 
+Every paper in data/ was vetted against the paper (November 2026; checklist
+in the private workbench).  `scripts/audit_metadata.py` compares each record
+with its HEPData table (reaction, energy, centrality, windows, bins, header),
+and `tests/test_audit_metadata.py` requires zero errors over data/: a
+deliberate departure from HEPData's own labels (a mislabelled energy or
+class, checked against the paper's figures) is stated in the record as
+`hepdata_corrections` {energy | centrality | pT: reason}, which the audit
+reports as a warning.  Warnings are informational.
+
 **What goes in data/:** published records that compute and compare end to
 end: resolve() dispatches them, their centrality classes are percentile
 bins, and their experimental values load.  Ratio records qualify when both

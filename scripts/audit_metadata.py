@@ -28,12 +28,20 @@ import argparse
 import glob
 import os
 import re
+import sys
 
 import yaml
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(REPO, "data")
 RAW = os.path.join(REPO, "hepdata_raw", "records")
+sys.path.insert(0, REPO)
+from analysis.reactions import _NUCLEI, system_key  # noqa: E402
+
+_NUCLEUS_NAMES = set(_NUCLEI.values())
+
+# the C loader where available (the audit reads ~6000 records and their tables)
+_LOADER = getattr(yaml, "CSafeLoader", yaml.SafeLoader)
 
 CENT_MAP = {
     2.5: "0-5%", 7.5: "5-10%", 15.0: "10-20%", 25.0: "20-30%",
@@ -63,7 +71,7 @@ def _table_label(iid, version, hepdata_file):
         path = os.path.join(_raw_dir(iid, version), "submission.yaml")
         labels = {}
         if os.path.exists(path):
-            for doc in yaml.safe_load_all(open(path)):
+            for doc in yaml.load_all(open(path), Loader=_LOADER):
                 if isinstance(doc, dict) and doc.get("data_file"):
                     labels[doc["data_file"]] = str(
                         doc.get("description", "") or "")
@@ -79,12 +87,18 @@ def _load_raw(iid, version, hepdata_file):
     if not os.path.exists(path):
         _RAW_CACHE[key] = None
         return None
-    _RAW_CACHE[key] = yaml.safe_load(open(path))
+    _RAW_CACHE[key] = yaml.load(open(path), Loader=_LOADER)
     return _RAW_CACHE[key]
 
 
+def _qname(name):
+    """A qualifier name without LaTeX markup, lower case: '$p_{\\rm T}$' ->
+    'p_t', '$Centrality (\\%)$' -> 'centrality (%)'."""
+    return re.sub(r"\\(mathrm|rm|text|it)\b\s*|[${}\\]", "", str(name)).strip().lower()
+
+
 def _quals(dv):
-    return {str(q.get("name", "")).strip().lower(): q.get("value")
+    return {_qname(q.get("name", "")): q.get("value")
             for q in dv.get("qualifiers", [])}
 
 
@@ -113,17 +127,22 @@ def _num_range(text):
     """Extract a numeric range from a qualifier string."""
     if text is None:
         return None
-    s = str(text)
-    # "0.2 < pT < 2.0", "0.2 < pT < 5", "pT > 0.2", "0.2-2.0", "0.2 TO 5.0"
-    m = re.search(r"([\d.]+)\s*<\s*[^<]*<\s*([\d.]+)", s) or re.search(r"([\d.]+)\s+TO\s+([\d.]+)", s, re.I)
+    s = re.sub(r"[${}]", "", str(text))
+    # "0.2 < pT < 2.0", "0.2 < pT < 5", "pT > 0.2", "0.2-2.0", "0.2 TO 5.0",
+    # "-0.8 - 0.8" (signed: until November 2026 read as (0.8, 0.8)), "|eta| < 0.8"
+    num = r"(-?\d*\.?\d+)"
+    m = re.search(num + r"\s*<\s*[^<]*<\s*" + num, s) or re.search(num + r"\s+TO\s+" + num, s, re.I)
     if m:
         return (float(m.group(1)), float(m.group(2)))
-    m = re.search(r"([\d.]+)\s*-\s*([\d.]+)", s)
+    m = re.search(num + r"\s*-\s*" + num, s)
     if m:
         return (float(m.group(1)), float(m.group(2)))
     m = re.search(r">\s*([\d.]+)", s)
     if m:
         return (float(m.group(1)), None)
+    m = re.search(r"\|[^|]*\|\s*<\s*(\d*\.?\d+)", s)
+    if m:
+        return (-float(m.group(1)), float(m.group(1)))
     return None
 
 
@@ -135,7 +154,7 @@ def _fmt_range(r):
 
 
 def _norm_cent(s):
-    s = str(s).strip().replace("TO", "-").replace("to", "-")
+    s = re.sub(r"[${}\\]", "", str(s)).strip().replace("TO", "-").replace("to", "-")
     s = re.sub(r"\s+", "", s.replace("%", ""))      # tabs too ('0\t-5', STAR 660793)
     m = re.match(r"([\d.]+)-([\d.]+)", s)
     if m:
@@ -174,7 +193,6 @@ _NOT_VN = re.compile(r"slope|counts|events|cov_|cov\(|var\(|\bc_\{?k\b|"
 _GAP_TEXT = re.compile(r"Delta\s*\\?eta|\|\s*\\?Delta|eta.gap|sub-?event", re.I)
 _PID_TEXT = re.compile(r"\\pi\b|\bpions?\b|\bkaons?\b|\bprotons?\b|K\^\{?0|K_\{?S|\\Lambda|\bLambda|\\phi\b|"
                        r"\\Xi|\bXi\b|\\Omega", re.I)
-_ENERGY_KEYS = {"sqrt(s)/nucleon", "sqrt(s)", "sqrt(s_nn)", "$\\sqrt{s_{nn}}$", "sqrt(s) per nucleon"}
 
 
 def _energy_gev(text):
@@ -185,10 +203,29 @@ def _energy_gev(text):
     return v * 1000.0 if "tev" in str(text).lower() else v
 
 
-def _beams(reaction):
-    head = str(reaction).split("-->")[0].upper().replace("+", " ").replace("-", " ")
-    toks = [t for t in head.split() if t not in ("AND",)]
-    return tuple(toks[:2]) if len(toks) >= 2 else None
+def _systems(text):
+    """The collision systems a reaction string or qualifier names, as a set
+    of sorted beam pairs ('Pb$-$Pb', 'PB PB --> X', 'OO', 'Ne+Ne and O+O',
+    'Ne$-$Ne, OO', 'Ne Ne --> X + O O --> X'); None if a part does not
+    parse.  Until November 2026 the first two words were compared, so LaTeX
+    ('Pb$-$Pb') and 'OO' were reported as mismatches."""
+    text = str(text)
+    arrow = r"-->|\\implies|\\rightarrow|=>"
+    # several reactions ('Ne Ne --> CHARGED X  +  O O --> CHARGED X'): the
+    # initial state of each
+    reactions = re.split(r"\s\+\s", text) if len(re.findall(arrow, text)) > 1 else [text]
+    parts = [p for r in reactions
+             for p in re.split(r",|;|/|\band\b|\bover\b", re.split(arrow, r)[0], flags=re.I)]
+    out = set()
+    for part in parts:
+        part = re.sub(r"\d+(\.\d+)?\s*(gev|tev)\b.*$", "", part.strip(), flags=re.I).strip()
+        if not part:
+            continue
+        beams = re.split(r"[ -]", system_key(part))
+        if len(beams) != 2 or not set(beams) <= _NUCLEUS_NAMES:      # unparsed
+            return None
+        out.add(tuple(sorted(beams)))
+    return out or None
 
 
 def _same_centres(classes, bins):
@@ -274,9 +311,12 @@ def _extra_checks(doc, raw, sel_dv, sel_q, desc, flag):
             except (TypeError, ValueError):
                 pass
         scale = float(doc.get("value_scale") or 1.0)
+        # (a ratio of cumulant orders, v2{6}/v2{4} ~ 0.99, or gamma1 is no
+        # flow coefficient; a difference is)
+        combination = (doc.get("cumulant_combination") or {}).get("kind")
         # (three points at least: with two the median is the larger one --
         # a peripheral Omega at 19.6 GeV, v2 = 0.66 +- 0.11, STAR 1395151)
-        if len(vals) >= 3 and "%" not in units and "*100" not in header.replace(" ", "") \
+        if combination not in ("ratio", "gamma1") and len(vals) >= 3 and "%" not in units and "*100" not in header.replace(" ", "") \
                 and not re.search(r"\(\s*%\s*\)", header) \
                 and sorted(vals)[len(vals) // 2] / scale > 0.5:
             flag("error", f"median |value| {sorted(vals)[len(vals) // 2]:.3g}: percent without a unit "
@@ -291,7 +331,7 @@ def _extra_checks(doc, raw, sel_dv, sel_q, desc, flag):
     rec_e = (doc.get("collision_system") or {}).get("energy_gev")
     rec_r = (doc.get("collision_system") or {}).get("reaction")
     for k, v in sel_q.items():
-        if k in _ENERGY_KEYS or k.startswith("sqrt(s"):
+        if k.startswith("sqrt"):              # sqrt(s)/nucleon, sqrt(s_nn), \\sqrt{s_{NN}}
             e = _energy_gev(v)
             if e and e < 30 and rec_e and float(rec_e) > 1000:
                 e *= 1000.0                    # '2.76', '5.02': TeV without a unit
@@ -301,8 +341,8 @@ def _extra_checks(doc, raw, sel_dv, sel_q, desc, flag):
                      f"energy qualifier {v!r} -> {e:g} GeV, record {rec_e} GeV"
                      + (f" (corrected: {e_fixed})" if e_fixed else ""))
         if k in ("re", "reaction"):
-            b = _beams(v)
-            if b and _beams(rec_r) and set(b) != set(_beams(rec_r)):
+            b, r = _systems(v), _systems(rec_r)
+            if b and r and b != r:
                 flag("error", f"reaction qualifier {v!r}, record {rec_r!r}")
     if str(rec_r).strip().lower() == "unknown":
         flag("warning", "reaction unknown")
@@ -399,6 +439,9 @@ def audit_doc(path, doc):
                           f"centrality empty")
     elif cent_iv is not None:
         cent_vals = _indep_values(cent_iv)
+        # centres written as strings ('0.5', '1.5': CMS 3062822) are centres
+        cent_vals = [float(v) if isinstance(v, str) and re.fullmatch(r"\s*\d*\.?\d+\s*", v) else v
+                     for v in cent_vals]
         if doc.get("table_rows") is not None:          # the record holds these rows only
             cent_vals = [cent_vals[r] for r in doc["table_rows"] if r < len(cent_vals)]
         if cent_vals and all(isinstance(v, tuple) for v in cent_vals):
@@ -545,7 +588,7 @@ def main():
 
     entries = []
     for path in paths:
-        for doc in yaml.safe_load_all(open(path)):
+        for doc in yaml.load_all(open(path), Loader=_LOADER):
             if not isinstance(doc, dict):
                 continue
             if ids is not None and str(doc.get("inspire_id")) not in ids:
