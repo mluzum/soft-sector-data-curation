@@ -1,0 +1,169 @@
+observable_type: mean_pT
+inspire_id: '797805'
+version: 1
+hepdata_file: Fig13top_AuAu200.yaml
+dv_index: 0
+hepdata_table_label: phi <pT> vs centrality, Au+Au 200 GeV (Fig13top_AuAu200.yaml)
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> PHI X
+particle_id:
+  species: phi
+centrality:
+  classes:
+  - 0-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  - 60-70%
+  - 70-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: raw charged multiplicity in the TPC, |eta| < 0.5.
+table_rows:
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+- 8
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.0
+    max: 100.0
+observable: mean_pT
+value_type: mean_pT
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 79 (2009) 064903, arXiv:0809.4737, Fig. 13 and Table III. <pT> of phi from the m_T
+    fits (all pT), |y| < 0.5, Au+Au 200 GeV, classes 0-10%, 10-20%, 20-30%, 30-40%, 40-50%, 50-60%, 60-70%, 70-80% (HEPData:
+    their N_part), MeV/c. Errors: stat (sys in Table III, not tabulated).'
+---
+observable_type: mean_pT
+inspire_id: '797805'
+version: 1
+hepdata_file: Fig13top_AuAu200.yaml
+dv_index: 0
+hepdata_table_label: phi <pT> vs centrality, Au+Au 200 GeV (Fig13top_AuAu200.yaml)
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> PHI X
+particle_id:
+  species: phi
+centrality:
+  classes:
+  - 0-5%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: raw charged multiplicity in the TPC, |eta| < 0.5.
+table_rows:
+- 0
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.0
+    max: 100.0
+observable: mean_pT
+value_type: mean_pT
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 79 (2009) 064903, arXiv:0809.4737, Fig. 13 and Table III. <pT> of phi from the m_T
+    fits (all pT), |y| < 0.5, Au+Au 200 GeV, classes 0-5% (HEPData: their N_part), MeV/c. Errors: stat (sys in Table III,
+    not tabulated).'
+---
+observable_type: mean_pT
+inspire_id: '797805'
+version: 1
+hepdata_file: Fig13top_AuAu62.yaml
+dv_index: 0
+hepdata_table_label: phi <pT> vs centrality, Au+Au 62.4 GeV (Fig13top_AuAu62.yaml)
+collision_system:
+  energy_gev: 62.4
+  reaction: AU AU --> PHI X
+particle_id:
+  species: phi
+centrality:
+  classes:
+  - 0-20%
+  - 20-40%
+  - 40-60%
+  - 60-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: raw charged multiplicity in the TPC, |eta| < 0.5.
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.0
+    max: 100.0
+observable: mean_pT
+value_type: mean_pT
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 79 (2009) 064903, arXiv:0809.4737, Fig. 13 and Table III. <pT> of phi from the m_T
+    fits (all pT), |y| < 0.5, Au+Au 62.4 GeV, classes 0-20%, 20-40%, 40-60%, 60-80% (HEPData: their N_part), MeV/c. Errors:
+    stat (sys in Table III, not tabulated).'
+---
+observable_type: mean_pT
+inspire_id: '797805'
+version: 1
+hepdata_file: Fig13top_dAu200.yaml
+dv_index: 0
+hepdata_table_label: phi <pT> vs centrality, d+Au 200 GeV (Fig13top_dAu200.yaml)
+collision_system:
+  energy_gev: 200.0
+  reaction: D AU --> PHI X
+  frame: lab
+  rapidity_shift: 0.0
+  forward_beam: d
+particle_id:
+  species: phi
+centrality:
+  classes:
+  - 0-20%
+  - 20-40%
+  - 40-100%
+  estimator:
+    name: FTPC-East
+    observable: Nch
+    detector: FTPC
+  eta:
+  - min: -3.8
+    max: -2.8
+  notes: charged multiplicity in the Au-side FTPC.
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.0
+    max: 100.0
+observable: mean_pT
+value_type: mean_pT
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 79 (2009) 064903, arXiv:0809.4737, Fig. 13 and Table III. <pT> of phi from the m_T
+    fits (all pT), |y| < 0.5, d+Au 200 GeV, classes 0-20%, 20-40%, 40-100% (HEPData: their N_part), MeV/c. Errors: stat (sys
+    in Table III, not tabulated).'
