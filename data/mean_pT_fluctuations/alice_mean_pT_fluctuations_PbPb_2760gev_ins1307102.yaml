@@ -1,0 +1,53 @@
+observable_type: mean_pT_fluctuations
+inspire_id: '1307102'
+version: 1
+hepdata_file: Table6.yaml
+dv_index: 0
+hepdata_table_label: sqrt(C_m)/M(pT)_m vs centrality, Pb-Pb 2.76 TeV (Table6.yaml)
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 75-80%
+  - 70-75%
+  - 65-70%
+  - 60-65%
+  - 55-60%
+  - 50-55%
+  - 45-50%
+  - 40-45%
+  - 35-40%
+  - 30-35%
+  - 25-30%
+  - 20-25%
+  - 15-20%
+  - 10-15%
+  - 5-10%
+  - 0-5%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.15
+    max: 2.0
+observable: sqrt_dpt_dpt_over_mean_pT
+value_type: sqrt_<dpt1_dpt2>_over_<pT>
+method: two_particle
+notes:
+  value: 'B. Abelev et al. (ALICE), EPJC 74 (2014) 3077, arXiv:1407.5530, Fig. 7 right. sqrt(C_m)/M(pT)_m of charged particles,
+    |eta| < 0.8, 0.15 < pT < 2 GeV/c, Pb-Pb 2.76 TeV, VZERO 5% classes 75-80 ... 0-5% (HEPData: their <N_part>, peripheral
+    first); deviations from the class mean pT, at least 10 accepted tracks per event. Errors: stat and sys (sys includes the
+    generator-level difference of the uncorrected tracks).'
