@@ -212,6 +212,13 @@ DISPATCH_TABLE_BY_TYPE = {
         "requires": [["kinematic_range.eta", "kinematic_range.y", "centrality.eta"]],
         "description": "pT fluctuation correlator Σ",
     },
+    "flow_pT_correlations": {
+        # rho(v_n^2, [pT]) (value_type rho_n) or cov(v_n^2, [pT]) (cov_n);
+        # windows and methods from the record (analysis/flow_pt.py)
+        "compute": "rho_vn2_pT",
+        "requires": ["kinematic_range.eta", "kinematic_range.pT", "harmonic"],
+        "description": "flow-[pT] correlation rho(v_n^2, [pT]) and cov(v_n^2, [pT])",
+    },
     "mean_pT_fluctuations": {
         # value_type 'sqrt_<dpt1_dpt2>_over_<pT>' (relative) or '<dpt1_dpt2>'
         # (the covariance itself, GeV^2)
@@ -963,6 +970,10 @@ def extract_measurement_params(exp_rec):
         'multiplicity_baseline': exp_rec.get('multiplicity_baseline'),
         # pT fluctuations: pooled pairs (ALICE) or the event average (STAR)
         'averaging': exp_rec.get('averaging'),
+        # rho(v_n^2, [pT]): the cov method, the var(v_n^2) terms, the c_k window
+        'covariance_method': exp_rec.get('covariance_method'),
+        'variance_terms': exp_rec.get('variance_terms'),
+        'ck_window': exp_rec.get('ck_window'),
         # symmetric cumulants: NSC (divided by <<2>>_m <<2>>_n) and the eta
         # gap of those two-particle terms
         'normalized': bool(exp_rec.get('normalized')),

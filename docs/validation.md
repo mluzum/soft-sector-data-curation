@@ -38,6 +38,9 @@ The `tests/test_toy_mc_*.py` files cover:
   and normalized correlations NAC;
 - yields dN/dη and dN/dy, invariant spectra, mean pT, pT fluctuations and
   dE_T/dη, for charged hadrons and per species;
+- ρ(v_n², [pT]) and cov(v_n², [pT]): the three-subevent covariance exact
+  against explicit particle triplets, the injected correlation recovered on
+  2D and 3D containers by every method, zero without it;
 - centrality anchors (sub-sampled cross sections) and per-event weights;
 - jackknife error calibration: the truth lies within 2σ in 12 of 12 seeds.
 - jackknife errors with the centrality edges rebuilt per replicate: the spread

@@ -1556,10 +1556,7 @@ def prepare_pT_fluct_2d(qv, params):
     out['events'] = _pT_fluct_events(params)
     base = _pT_fluct_baseline(params, (lo, hi))
     if base is not None:   # charged multiplicity in the baseline windows
-        idx = list(charged_species_indices(getattr(qv, 'pdg_ids', None))[0])
-        jac = sum(_make_jacobian_list(qv.pt_centers, qv.masses, e0, e1) for e0, e1 in base[0])
-        fm = np.asarray(_overlap_fractions(qv.pt_bin_edges, *base[1], _pt_squared), dtype=float)
-        out['mult'] = (c_full[:, idx, :] * (jac[idx, :] * fm[np.newaxis, :])[np.newaxis]).sum(axis=(1, 2)) / ns
+        out['mult'] = _baseline_mult_2d(qv, base)
     return out
 
 
@@ -1598,7 +1595,7 @@ def prepare_pT_fluct_3d(grid, params):
            'events': _pT_fluct_events(params)}
     base = _pT_fluct_baseline(params, pt)
     if base is not None:   # multiplicity in the baseline windows (cut cells by overlap)
-        out['mult'] = sum(_window_sum(grid, c, w_eta, base[1], fractional=True) for w_eta in base[0]) / ns
+        out['mult'] = _baseline_mult_3d(grid, base)
     return out
 
 
@@ -1626,9 +1623,116 @@ def _pT_fluct_baseline(params, pt):
     return eta, (float(lo), float(hi))
 
 
+def _baseline_mult_2d(qv, base):
+    """Charged multiplicity per event in the baseline windows (2D)."""
+    from analysis.qvector import _overlap_fractions, _pt_squared
+    idx = list(charged_species_indices(getattr(qv, 'pdg_ids', None))[0])
+    c_full = qv.Qn[:, :, 0, :].real
+    jac = sum(_make_jacobian_list(qv.pt_centers, qv.masses, e0, e1) for e0, e1 in base[0])
+    fm = np.asarray(_overlap_fractions(qv.pt_bin_edges, *base[1], _pt_squared), dtype=float)
+    return (c_full[:, idx, :] * (jac[idx, :] * fm[np.newaxis, :])[np.newaxis]).sum(axis=(1, 2)) / qv.nsamples
+
+
+def _baseline_mult_3d(grid, base):
+    """Multiplicity per event in the baseline windows (3D, cut cells by overlap)."""
+    c = grid.Qn[..., 0].real
+    return sum(_window_sum(grid, c, w_eta, base[1], fractional=True) for w_eta in base[0]) / grid.nsamples
+
+
 def _wrap_pT_fluct(data, w):
     return compute_pT_fluct(data['s1'], data['s2'], data['n'], w, data.get('t0'), data.get('t1'),
                             data.get('mult'), raw=data.get('raw', False), events=data.get('events', False))
+
+
+# ── flow-[pT] correlations rho(v_n^2, [pT]) (analysis.flow_pt) ──
+
+def _rho_settings(params):
+    """Harmonic, cov methods, var(v_n^2) terms, c_k window and the windows
+    {name: ((eta_lo, eta_hi), (pT_lo, pT_hi))} of a rho_vn2_pT record."""
+    from analysis.flow_pt import COV_WINDOWS
+    n = int(params.get('harmonic') or 2)
+    method = params.get('covariance_method') or 'three_subevent'
+    cov_methods = (['two_subevent', 'three_subevent'] if method == 'combined_subevent' else [method])
+    for m in cov_methods:
+        if m not in COV_WINDOWS:
+            raise ValueError(f"rho(v_n^2, [pT]): covariance_method {method!r}")
+    var_terms = dict(params.get('variance_terms') or {'c4': 'two_subevent', 'c2': 'two_subevent'})
+    ck = params.get('ck_window') or 'B'
+    full = params.get('poi_range') or {}
+    f_eta, f_pt = tuple(full.get('eta') or (None, None)), tuple(full.get('pT') or (None, None))
+    if None in f_eta or None in f_pt:
+        raise ValueError("rho(v_n^2, [pT]) needs kinematic_range eta and pT")
+    wins = {'full': (f_eta, f_pt)}
+    for label, r in (params.get('subevent_ranges') or {}).items():
+        pt = r.get('pT') or (None, None)
+        wins[label] = (tuple(r['eta']), f_pt if None in pt else tuple(pt))
+    used = {ck} | {w for m in cov_methods for grp in COV_WINDOWS[m] for w in grp}
+    used |= {'A', 'C'} if 'two_subevent' in var_terms.values() else set()
+    missing = sorted(used - set(wins))
+    if missing:
+        raise ValueError(f"rho(v_n^2, [pT]) needs subevents {missing}")
+    q = params.get('value_type')
+    if q not in ('rho_n', 'cov_n'):
+        raise ValueError(f"flow_pT_correlations value_type {q!r} (rho_n | cov_n)")
+    return n, cov_methods, var_terms, ck, {k: wins[k] for k in used | {'full'}}, q
+
+
+def _rho_data(S, params, settings, mult):
+    from analysis import flow_pt
+    n, cov_methods, var_terms, ck, _wins, q = settings
+    out = flow_pt.event_sums(S, n, cov_methods, var_terms, ck)
+    if S.missing:
+        print(f"  note: harmonics {sorted(S.missing)} not stored; their coincidence terms dropped")
+    out.update(quantity=q, cov_methods=list(cov_methods), var_terms=var_terms)
+    if mult is not None:
+        out['mult'] = mult
+    return out
+
+
+def prepare_rho_vn2_pT_2d(qv, params):
+    """Charged species of the boost-invariant container, each window a
+    weight per (species, pT bin): the eta-window Jacobian over the plateau
+    times the pT share (analysis.flow_pt.CellSums)."""
+    from analysis.qvector import _overlap_fractions, _pt_squared
+    from analysis.flow_pt import CellSums
+    settings = _rho_settings(params)
+    idx = list(charged_species_indices(getattr(qv, 'pdg_ids', None))[0])
+    Qn = np.moveaxis(qv.Qn[:, idx], 2, -1)                  # (ev, species, pT, h)
+    c = Qn[..., 0].real
+    mids = 0.5 * (qv.pt_bin_edges[:-1] + qv.pt_bin_edges[1:])
+    s1 = qv.sum_pt[:, idx] if getattr(qv, 'sum_pt', None) is not None else c * mids
+    s2 = qv.sum_pt2[:, idx] if getattr(qv, 'sum_pt2', None) is not None else c * mids ** 2
+    windows = {}
+    for name, (eta, pt) in settings[4].items():
+        jac = _make_jacobian_list(qv.pt_centers, qv.masses, eta[0], eta[1])[idx, :] / (2.0 * qv.rap_max)
+        fpt = np.asarray(_overlap_fractions(qv.pt_bin_edges, pt[0], pt[1], _pt_squared), dtype=float)
+        windows[name] = jac * fpt[np.newaxis, :]
+    S = CellSums(Qn, c, s1, s2, windows, qv.nsamples)
+    base = _pT_fluct_baseline(params, settings[4]['full'][1])
+    return _rho_data(S, params, settings, _baseline_mult_2d(qv, base) if base else None)
+
+
+def prepare_rho_vn2_pT_3d(grid, params):
+    """Unit-weight cells of the charged grid, each window the cells' overlap
+    shares (QGridData.window_weights)."""
+    from analysis.flow_pt import CellSums
+    settings = _rho_settings(params)
+    if getattr(grid, 'pt_integrated', False):
+        raise ValueError("rho(v_n^2, [pT]) needs pT-binned grids")
+    c = grid.Qn[..., 0].real
+    mids = 0.5 * (grid.pt_edges[:-1] + grid.pt_edges[1:])
+    s1 = grid.sum_pt if getattr(grid, 'sum_pt', None) is not None else c * mids
+    s2 = grid.sum_pt2 if getattr(grid, 'sum_pt2', None) is not None else c * mids ** 2
+    windows = {name: np.asarray(grid.window_weights(eta[0], eta[1], pt[0], pt[1], fractional=True), dtype=float)
+               for name, (eta, pt) in settings[4].items()}
+    S = CellSums(grid.Qn, c, s1, s2, windows, grid.nsamples)
+    base = _pT_fluct_baseline(params, settings[4]['full'][1])
+    return _rho_data(S, params, settings, _baseline_mult_3d(grid, base) if base else None)
+
+
+def _wrap_rho_vn2_pT(data, w):
+    from analysis import flow_pt
+    return flow_pt.core(data, w)
 
 
 # ── radial flow: v0, v0(pT), normalized covariance (analysis.radial_flow) ──
@@ -2889,6 +2993,13 @@ PIPELINE_DISPATCH = {
         "description": "scalar-product v_n{SP} (JETSCAPE3D convention)",
         "selects_species": True,
     },
+    "rho_vn2_pT": {
+        "core_fn": _wrap_rho_vn2_pT,
+        "prepare_data_2d": prepare_rho_vn2_pT_2d,
+        "prepare_data_3d": prepare_rho_vn2_pT_3d,
+        "n_obs_per_cent": 1,
+        "description": "rho(v_n^2, [pT]) = cov(v_n^2, [pT]) / sqrt(var(v_n^2) c_k), or cov_n",
+    },
     "pT_fluct": {
         "core_fn": _wrap_pT_fluct,
         "prepare_data_2d": prepare_pT_fluct_2d,
@@ -3009,7 +3120,7 @@ def _unit_weights(grid):
 SINGLE_ROW_KEYS = frozenset({
     'vn2_ep', 'vn3_ep', 'mean_pt', 'yield_dNch_deta', 'yield_dNch_deta_per_eta',
     'spectra_invariant_yield', 'dET_deta', 'sc_mn', 'nac_mn', 'radial_flow',
-    'vn_cumulant_combination', 'v1_even_factorization',
+    'vn_cumulant_combination', 'v1_even_factorization', 'rho_vn2_pT',
 })
 
 

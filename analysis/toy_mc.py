@@ -123,7 +123,7 @@ class ToyGenConfig:
                                          'proton': 0.35},
                  pt_min=0.05, pt_max=3.0,
                  flow=None, fluctuate=None, pt_rescale_sigma=0.0,
-                 eta_shape=None):
+                 eta_shape=None, vn_pt_corr=None):
         """
         flow : dict harmonic → dict(kind='const'|'linear', value=..., pt0=...)
                 e.g. {2: dict(kind='const', value=0.05)}
@@ -151,6 +151,10 @@ class ToyGenConfig:
         # Event-wise common pT rescale k_e ~ N(1, sigma) injects genuine
         # event-by-event mean-pT correlations (dynamical pT_fluct signal).
         self.pt_rescale_sigma = float(pt_rescale_sigma)
+        # (harmonic, r): the pT rescale correlated with the event's v_n^2,
+        # k_e = 1 + sigma (r z + sqrt(1 - r^2) z'), z the standardized v_n^2
+        # (a known rho(v_n^2, [pT]); drawn from a separate stream)
+        self.vn_pt_corr = vn_pt_corr
 
 
 def generate_events(cfg: ToyGenConfig):
@@ -187,6 +191,14 @@ def generate_events(cfg: ToyGenConfig):
                 rng.normal(base, cfg.fluctuate[h], cfg.n_events), 0.0, 0.5)
         else:
             vn_ebe[h] = np.full(cfg.n_events, base)
+
+    k_pre = None
+    if cfg.vn_pt_corr and cfg.pt_rescale_sigma > 0:
+        h_c, r = cfg.vn_pt_corr
+        v2 = vn_ebe[h_c] ** 2
+        z = (v2 - v2.mean()) / max(v2.std(), 1e-12)
+        z2 = np.random.RandomState(cfg.seed + 7919).normal(size=cfg.n_events)
+        k_pre = np.maximum(1.0 + cfg.pt_rescale_sigma * (r * z + np.sqrt(1.0 - r * r) * z2), 0.05)
 
     events = []
     for e in range(cfg.n_events):
@@ -228,7 +240,7 @@ def generate_events(cfg: ToyGenConfig):
         phi = _sample_phi(rng, vn_funcs, psis, M, harms)
 
         if cfg.pt_rescale_sigma > 0:
-            k_e = max(rng.normal(1.0, cfg.pt_rescale_sigma), 0.05)
+            k_e = k_pre[e] if k_pre is not None else max(rng.normal(1.0, cfg.pt_rescale_sigma), 0.05)
             pt = pt * k_e
             mT = np.sqrt(mass_arr ** 2 + pt ** 2)
             E = mT * np.cosh(y)
@@ -247,7 +259,7 @@ def generate_events(cfg: ToyGenConfig):
         events.append(dict(y=y, eta=eta, pt=pt, phi=phi,
                            species_idx=s_idx, mass=mass_arr))
 
-    truth = dict(psi=psi, vn_ebe=vn_ebe, cfg=cfg,
+    truth = dict(psi=psi, vn_ebe=vn_ebe, cfg=cfg, pt_rescale=k_pre,
                  species_names=[SPECIES_NAMES[i] for i in sp_names],
                  masses=sp_mass, temps=sp_temp)
     return events, truth
@@ -923,6 +935,24 @@ def record_pT_fluct(species='charged', eta=(-0.5, 0.5), pt=(0.15, 3.0),
                          'pT': dict(min=pt[0], max=pt[1])},
         centrality=dict(classes=list(cent_classes),
                         eta=[dict(min=-3.9, max=-3.0), dict(min=3.0, max=3.9)]),
+    )
+
+
+def record_rho(n=2, value_type='rho_n', eta=(-0.8, 0.8), pt=(0.2, 3.0), method='three_subevent',
+               variance_terms=None, ck_window='B', A=(-0.8, -0.4), B=(-0.4, 0.4), C=(0.4, 0.8),
+               cent_classes=('0-100%',)):
+    """A flow_pT_correlations record (default: ALICE's three subevents)."""
+    sub = {k: {'kinematic_range': {'eta': dict(min=v[0], max=v[1]), 'pT': dict(min=pt[0], max=pt[1])}}
+           for k, v in (('A', A), ('B', B), ('C', C))}
+    return dict(
+        observable_type='flow_pT_correlations', value_type=value_type, observable='rho_vn2_pT',
+        correlation_type='rho_vn2_pT', harmonic=n, hepdata_file='toy.yaml', inspire_id='0', version=1,
+        particle_id=dict(species='charged'), particles='ABC', subevents=sub,
+        kinematic_range={'eta': dict(min=eta[0], max=eta[1]), 'pT': dict(min=pt[0], max=pt[1])},
+        covariance_method=method,
+        variance_terms=variance_terms or {'c4': 'two_subevent', 'c2': 'two_subevent'},
+        ck_window=ck_window,
+        centrality=dict(classes=list(cent_classes), eta=[dict(min=-3.9, max=-3.0), dict(min=3.0, max=3.9)]),
     )
 
 

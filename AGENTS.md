@@ -211,6 +211,29 @@ Fields that change dispatch:
   species' records the same way (ALICE 1244523 K/pi, p/pi vs pT and
   integrated); a ratio's `scale` multiplies it (Lambda/K0S =
   (Lambda + Lambdabar) / (2 K0S): 0.5).
+- Flow-[pT] correlations (`observable_type: flow_pT_correlations`, key
+  `rho_vn2_pT`, analysis/flow_pt.py): value_type `rho_n`, rho(v_n^2,
+  [pT]) = cov_n / sqrt(var(v_n^2) c_k), or `cov_n` (GeV).  The record
+  states each term's windows: `covariance_method` standard | two_subevent
+  (flow pair from A and C, the pT particle from A or C) | three_subevent
+  (pT particle from B) | combined_subevent (the mean of two and three);
+  `variance_terms` {c4, c2}: standard (the full window) or two_subevent
+  (A|C), var = c_n{4} + c_n{2}^2; `ck_window` full | A | B | C;
+  subevents A, B, C (`particles: ABC`).  ALICE 1966120: three subevents,
+  var and c_k from subevents; ATLAS 2075412: c4 standard, c2 two-subevent,
+  c_k full, narrow Sigma E_T bins (`multiplicity_baseline`: [pT] in cov and
+  c_k, and the v_n^2 terms of var, at fixed multiplicity).  Every term is a
+  sum over distinct particles: set-partition inclusion-exclusion with one
+  window, harmonic and pT power per member (`flow_pt.CellSums`, weights a
+  window share times 1/nsamples per particle), so coincidences vanish for
+  disjoint 3D windows and are removed exactly on 2D; the pT-weighted flow
+  vector of a coincidence term is the cell's flow vector times its mean
+  pT.  Signed root of var x c_k.  tests/test_toy_mc_flow_pt.py: three-
+  subevent cov exact against explicit particle triplets (others within
+  0.1%), the injected rho on 2D and 3D, zero without it, oversampled
+  events, the baseline.  ATLAS's points carry no class edges: classes run
+  midway between the tabulated mean centralities.  rho(v_m^2, v_n^2,
+  [pT]) (ALICE Table 4) is not computed.
 - Symmetric cumulants (`correlation_type: symmetric_cumulant`, key
   `sc_mn`): two harmonics only, and `normalized` is required (true: NSC =
   SC / (<v_m^2><v_n^2>)); `normalization_eta_gap` takes the denominator

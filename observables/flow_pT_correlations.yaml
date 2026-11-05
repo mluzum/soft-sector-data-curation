@@ -1,56 +1,96 @@
 observable_type: flow_pT_correlations
 description: >
-  Correlations between anisotropic flow harmonics and mean transverse momentum
-  measured event-by-event.  The primary observable is the modified Pearson
-  correlation coefficient:
-    ρ_n = ⟨δvn² δ⟨pT⟩⟩ / √⟨(δvn²)²⟩ √⟨(δ⟨pT⟩)²⟩
-  or equivalently the c_k coefficients of ATLAS:
-    c_k(v_n², ⟨pT⟩) = covariance(v_n², ⟨pT⟩)
-  These quantify the coupling between radial flow and anisotropy.
+  Correlations between anisotropic flow and the event mean transverse
+  momentum [pT] (analysis/flow_pt.py):
+    rho_n = cov(v_n^2, [pT]) / sqrt(var(v_n^2) c_k)
+    cov_n = <sum_{i!=j!=k} w w w e^{in(phi_i - phi_j)} (pT_k - <[pT]>)> / <sum w w w>
+    var(v_n^2) = c_n{4} + c_n{2}^2,   c_k = <Delta pT_i Delta pT_j>
+  (ALICE PLB 834 (2022) 137393; ATLAS PRC 107 (2023) 054910).  The record
+  states the windows of each term: the full window (kinematic_range) and
+  the subevents A, B, C (particles: ABC).
 
 composes:
   - _common#collision_system
   - centrality#centrality
+  - _common#particle_id
+  - _common#kinematic_range
 
 required_fields:
   observable:
     type: string
     required: true
     description: Short identifier.
-    example: "rho_2"
+    example: "rho_vn2_pT"
   value_type:
     type: string
     required: true
     description: >
-      One of: 'rho_n' (Pearson coefficient), 'c_k' (covariance),
-      'modified_Pearson', 'covariance'
+      'rho_n' (the modified Pearson coefficient rho(v_n^2, [pT])) or 'cov_n'
+      (cov(v_n^2, [pT]), GeV).
     example: "rho_n"
   harmonic:
     type: integer
     required: true
-    description: "Flow harmonic n correlated with ⟨pT⟩."
+    description: "Flow harmonic n correlated with [pT]."
     example: 2
 
 optional_fields:
-  method:
+  correlation_type:
     type: string
     required: false
-    description: "Method for vn determination (e.g. 'EP', '2PC', 'SP')."
-    example: "EP"
-  pT_range:
+    description: "'rho_vn2_pT'."
+    example: "rho_vn2_pT"
+  covariance_method:
+    type: string
+    required: false
+    description: >
+      Triplets of cov_n: 'standard' (all three particles in the full
+      window), 'two_subevent' (flow pair from A and C, the pT particle from
+      A or C), 'three_subevent' (flow pair from A and C, the pT particle
+      from B; the default), 'combined_subevent' (the mean of the two- and
+      three-subevent cov, ATLAS).
+    example: "three_subevent"
+  variance_terms:
     type: object
     required: false
-    description: "pT range used for both vn and ⟨pT⟩ determination."
+    description: >
+      Windows of var(v_n^2) = c_n{4} + c_n{2}^2: each 'standard' (the full
+      window) or 'two_subevent' (<<4>>_{AA|CC} and <<2>>_{A|C}).  ALICE
+      (v_n{2}^4 - v_n{4}^4 from subevents): both two_subevent, the
+      default; ATLAS: c4 standard, c2 two_subevent.
     fields:
-      min: {type: float, required: true, example: 0.5}
-      max: {type: float, required: true, example: 2.0}
-  eta_range:
+      c4: {type: string, required: true, example: "two_subevent"}
+      c2: {type: string, required: true, example: "two_subevent"}
+  ck_window:
+    type: string
+    required: false
+    description: "Window of the pairs of c_k: 'full', 'A', 'B' (the default) or 'C'."
+    example: "B"
+  multiplicity_baseline:
     type: object
     required: false
-    description: "Pseudorapidity acceptance."
+    description: >
+      Deviations at fixed multiplicity, the counterpart of measuring in
+      narrow multiplicity bins and combining them (ATLAS: Sigma E_T or
+      N_ch^rec bins): [pT] (in cov_n and c_k) and the v_n^2 terms of
+      var(v_n^2) regressed linearly on this multiplicity within each class.
     fields:
-      min: {type: float, required: true, example: -2.5}
-      max: {type: float, required: true, example: 2.5}
+      observable: {type: string, required: false, example: "Nch"}
+      eta: {type: list, required: true, example: [{min: -2.5, max: 2.5}]}
+      pT: {type: object, required: false, example: {min: 0.5, max: 5.0}}
+  particles:
+    type: string
+    required: false
+    description: "'ABC' when subevents are given."
+    example: "ABC"
+  subevents:
+    type: object
+    required: false
+    description: "Subevent windows {A, B, C: {kinematic_range: {eta, pT}}} (pT default: the record's)."
+  value_scale:
+    type: float
+    required: false
+    example: 1.0
 
 validation:
   rules:
