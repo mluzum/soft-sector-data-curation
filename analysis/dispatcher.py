@@ -1259,9 +1259,10 @@ def _error_size(x, val):
 def _point_error(errs, val, excluded=None):
     """Total error of a HEPData point: all components (statistical and every
     systematic one) in quadrature; an asymmetric component enters as the mean
-    of its two sides.  ``excluded``: labels of components that are part of
-    another one (a record's errors_excluded, e.g. ALICE 'syst. uncorr.', the
-    centrality-uncorrelated part of 'syst.')."""
+    of its two sides.  ``excluded``: a record's errors_excluded, components
+    that are part of another one (ALICE 'syst. uncorr.', the
+    centrality-uncorrelated part of 'syst.') or that the record's quantity
+    does not carry (ATLAS 'syst, TAA' of a per-event yield)."""
     total = 0.0
     excluded = set(excluded or ())
     for e in errs:

@@ -63,10 +63,13 @@ hepdata_corrections:
 
 errors_excluded:
   description: >
-    Labels of HEPData error components that are part of another component
-    and are not added again (e.g. ALICE 'syst. uncorr.', the
-    centrality-uncorrelated part of 'syst.').  load_experimental adds the
-    other components in quadrature; audit_metadata checks the labels exist.
+    Labels of HEPData error components that load_experimental does not add:
+    a component that is part of another one (ALICE 'syst. uncorr.', the
+    centrality-uncorrelated part of 'syst.'), or one that the record's
+    quantity does not carry (ATLAS 'syst, TAA', the uncertainty of the
+    <T_AA> that value_scale multiplies back into a per-event yield).  The
+    other components add in quadrature; audit_metadata checks the labels
+    exist.
   type: array
   required: false
 

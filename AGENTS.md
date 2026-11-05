@@ -161,8 +161,11 @@ Fields that change dispatch:
 - `particle_spectra` `value_type`: `invariant_yield` (1/(2 pi pT)
   d2N/(dpT dy)) or `dN_dpT_dy` (d2N/(dpT dy), ALICE 1759506); anything
   else is refused.  audit_metadata checks it against the header.
-- `errors_excluded`: error labels contained in another component (ALICE
-  'syst. uncorr.' inside 'syst.'), not added again by load_experimental.
+- `errors_excluded`: error labels load_experimental does not add: contained
+  in another component (ALICE 'syst. uncorr.' inside 'syst.'), or not
+  carried by the record's quantity (ATLAS 2601282 'syst, TAA': spectra
+  tabulated over <T_AA>, multiplied back by value_scale = 1/<T_AA> into
+  per-event yields, which have no <T_AA> uncertainty).
 - `table_rows`: the table rows a record holds (ascending).  For tables
   whose rows overlap as classes (0-1% and 0-5% in one ATLAS table), one
   record per non-overlapping set; the loader and the audits honour it.

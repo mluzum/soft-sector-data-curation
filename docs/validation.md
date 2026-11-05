@@ -4,12 +4,12 @@ What has been checked, and how far the results can be trusted.
 
 ## 0. The curated records
 
-Every paper with records in `data/` (131 papers, 6,377 records) was checked
-against the paper itself in November 2026: collision system and energy,
-centrality classes and estimator, acceptance, species, method, and which
-table column a record reads.  Records that could not be confirmed, or that
-the pipeline cannot compute, were moved out of `data/`.  Two tests keep
-the result:
+Every paper with records in `data/` was checked against the paper itself
+(November 2026, and each paper added since as it is curated): collision
+system and energy, centrality classes and estimator, acceptance, species,
+method, and which table column a record reads. Records that could not be
+confirmed, or that the pipeline cannot compute, were moved out of `data/`.
+Two tests keep the result:
 
 - `tests/test_public_records.py`: every record dispatches, has percentile
   centrality classes, and loads its experimental values;
