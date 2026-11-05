@@ -1503,42 +1503,51 @@ def _wrap_mean_pt(data, w):
 # ── pT-fluctuation + transverse-energy prepares ─────────────────────────────
 
 def prepare_pT_fluct_2d(qv, params):
-    """Per-event (s1, s2, n) for the ALICE two-particle pT correlator.
+    """Per-event sums for the ALICE two-particle pT correlator (compute_pT_fluct).
 
-    Only uniform-weight acceptances are exact here (dy-mode / full-acceptance):
-    non-uniform Jacobian weights would need second-weight moments for the
-    pair self-correlation subtraction.
+    Each particle of a species and pT bin carries the acceptance weight a:
+    the probability to be in the record's eta window on the flat-y container
+    (the Jacobian over the plateau, cut_qvectors; 1 in dy mode) times the
+    share of its pT bin inside the record's pT window (uniform in pT^2).  The
+    distinct pairs need the second-weight sums Σa², Σa² pT, Σa² pT² (until
+    November 2026 an eta window gave NaN and dy mode ignored the pT window).
     """
+    from analysis.qvector import _overlap_fractions, _pt_squared
     z = np.full(qv.n_events, np.nan)
     sk = params.get('single_range', {})
     eta = sk.get('eta', (-1, 1))
     species_idx, _, found = _get_species_selection(params.get('particle_id'), qv)
     if not found:
         return {'s1': z, 's2': z, 'n': z}
+    c_full = qv.Qn[:, :, 0, :].real
+    mids = 0.5 * (qv.pt_bin_edges[:-1] + qv.pt_bin_edges[1:])
+    if getattr(qv, 'sum_pt', None) is not None:
+        s1_src = qv.sum_pt
+    else:   # bin-midpoint estimate (validated vs Everett <pT> to <0.5%)
+        s1_src = c_full * mids[np.newaxis, np.newaxis, :]
+    if getattr(qv, 'sum_pt2', None) is not None:
+        s2_src = qv.sum_pt2
+    else:
+        s2_src = c_full * (mids ** 2)[np.newaxis, np.newaxis, :]
+    pt = sk.get('pT') or (None, None)
+    lo = 0.0 if pt[0] is None else float(pt[0])
+    hi = float(qv.pt_bin_edges[-1]) if pt[1] is None else min(float(pt[1]), float(qv.pt_bin_edges[-1]))
+    fpt = np.asarray(_overlap_fractions(qv.pt_bin_edges, lo, hi, _pt_squared), dtype=float)
     if eta[0] is None or eta[1] is None:
-        c_full = qv.Qn[:, :, 0, :].real
-        mids = 0.5 * (qv.pt_bin_edges[:-1] + qv.pt_bin_edges[1:])
-        if getattr(qv, 'sum_pt', None) is not None:
-            s1_src = qv.sum_pt
-        else:   # bin-midpoint estimate (validated vs Everett <pT> to <0.5%)
-            s1_src = c_full * mids[np.newaxis, np.newaxis, :]
-        if getattr(qv, 'sum_pt2', None) is not None:
-            s2_src = qv.sum_pt2
-        else:
-            s2_src = c_full * (mids ** 2)[np.newaxis, np.newaxis, :]
-        c = c_full[:, species_idx, :] if species_idx is not None else c_full
-        s1_src = s1_src[:, species_idx, :] if species_idx is not None \
-            else s1_src
-        s2_src = s2_src[:, species_idx, :] if species_idx is not None \
-            else s2_src
-        ns = qv.nsamples
-        n = c.sum(axis=(1, 2)) / ns
-        s1 = s1_src.sum(axis=(1, 2)) / ns
-        s2 = s2_src.sum(axis=(1, 2)) / ns
-        return {'s1': s1, 's2': s2, 'n': n}
-    # Jacobian-weighted windows need second-weight moments for exact pair
-    # self-correlation subtraction -> documented NaN (see AGENTS.md).
-    return {'s1': z, 's2': z, 'n': z}
+        a = np.tile(fpt, (len(qv.masses), 1))
+    else:
+        jac = _make_jacobian_list(qv.pt_centers, qv.masses, eta[0], eta[1])
+        a = jac / (2.0 * qv.rap_max) * fpt[np.newaxis, :]
+    if species_idx is not None:
+        c, s1_src, s2_src, a = (c_full[:, species_idx, :], s1_src[:, species_idx, :], s2_src[:, species_idx, :],
+                                a[species_idx, :])
+    else:
+        c = c_full
+    ns = qv.nsamples
+    a2 = a * a
+    return {'n': (c * a).sum(axis=(1, 2)) / ns, 's1': (s1_src * a).sum(axis=(1, 2)) / ns,
+            's2': (s2_src * a2).sum(axis=(1, 2)) / ns, 't0': (c * a2).sum(axis=(1, 2)) / ns,
+            't1': (s1_src * a2).sum(axis=(1, 2)) / ns}
 
 
 def prepare_pT_fluct_3d(grid, params):
@@ -1569,7 +1578,7 @@ def prepare_pT_fluct_3d(grid, params):
 
 
 def _wrap_pT_fluct(data, w):
-    return compute_pT_fluct(data['s1'], data['s2'], data['n'], w)
+    return compute_pT_fluct(data['s1'], data['s2'], data['n'], w, data.get('t0'), data.get('t1'))
 
 
 # ── radial flow: v0, v0(pT), normalized covariance (analysis.radial_flow) ──

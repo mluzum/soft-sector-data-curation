@@ -83,12 +83,27 @@ def test_pT_fluct_injected_dynamical():
         f"signal should match injected sigma=0.10, got {vals[0]:.4f}")
 
 
-def test_pT_fluct_eta_mode_documented_nan():
+def test_pT_fluct_eta_window_2d():
+    """An eta window on a 2D (flat-y) container: each particle weighted by
+    its probability to be in the window, distinct pairs from the
+    second-weight sums (until November 2026 NaN).  Against the brute force on
+    the particles in the window (the injected signal is reduced by the pT
+    window, in both)."""
     fx = _fx(0.10)
-    rec = record_pT_fluct(eta=ETA, pt=PTW, cent_classes=('0-100%',))
-    vals, errs = evaluate(rec, qv=fx['qv'], cent_method='simple')
-    assert not np.isfinite(vals[0]), (
-        "eta-mode must be NaN until second-weight moments are stored")
+    for eta, pt, tol in ((ETA, PTW, 0.05), ((0.2, 0.9), (0.4, 2.0), 0.10)):
+        rec = record_pT_fluct(eta=eta, pt=pt, cent_classes=('0-100%',))
+        vals, errs = evaluate(rec, qv=fx['qv'], cent_method='simple')
+        ref = ref_pT_fluct(fx['events'], eta, pt)
+        assert_close(f"eta {eta}, pT {pt}: pipeline vs brute force", vals[0], ref, tol)
+
+
+def test_pT_fluct_dy_pt_window():
+    """dy mode honours the record's pT window (until November 2026 every pT
+    of the container entered)."""
+    fx = _fx(0.10)
+    vals, errs = evaluate(_rec_dy(pt=dict(min=0.4, max=2.0)), qv=fx['qv'], cent_method='simple')
+    ref = ref_pT_fluct(fx['events'], (-1e9, 1e9), (0.4, 2.0))
+    assert_close("dy, pT 0.4-2: pipeline vs brute force", vals[0], ref, 0.05)
 
 
 def test_dET_deta_2d():

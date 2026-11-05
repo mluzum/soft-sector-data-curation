@@ -959,21 +959,26 @@ def compute_vn2_sp(q_poi, q_ref, n_poi, n_ref, w, same_window=False,
 
 
 @register("pT_fluct")
-def compute_pT_fluct(s1, s2, n, w):
+def compute_pT_fluct(s1, s2, n, w, t0=None, t1=None):
     """√⟨⟨ΔpTi ΔpTj⟩⟩ / ⟨pT⟩ for one centrality class (ALICE, arXiv:1407.5530).
 
-    All inputs are per-event, acceptance-weighted sums:
-      s1 = Σ w_i pT_i,  s2 = Σ w_i pT_i²,  n = Σ w_i   (w_i = per-particle
-    acceptance weight; pair identity Σ_{i≠j} a_i b_j = S1 S2-form works for
-    arbitrary fixed weights).
-    M̄ is the inclusive weighted mean pT of the class.
+    Per-event sums over particles with acceptance weights a_i (the
+    probability to be in the record's window: the 2D eta-window Jacobian and
+    the share of a cut pT cell; 1 for unit weights):
+      n = S0 = Σ a_i,  s1 = S1 = Σ a_i pT_i,  s2 = T2 = Σ a_i² pT_i²,
+      t0 = T0 = Σ a_i²,  t1 = T1 = Σ a_i² pT_i  (default n, s1: unit weights).
+    Distinct pairs: Σ_{i≠j} a_i a_j (pT_i - M)(pT_j - M) = (S1 - M S0)² -
+    (T2 - 2 M T1 + M² T0) over Σ_{i≠j} a_i a_j = S0² - T0, summed over
+    events with the class weights; M the class mean pT.  With a_i = 1 this
+    is the unit-weight estimator.
     """
     if w.sum() < 2:
         return np.array([np.nan])
+    t0 = n if t0 is None else t0
+    t1 = s1 if t1 is None else t1
     m_bar = np.average(s1, weights=w) / max(np.average(n, weights=w), 1e-30)
-    num = np.sum(w * (s1 ** 2 - s2 - 2.0 * m_bar * (n - 1.0) * s1
-                      + n * (n - 1.0) * m_bar ** 2))
-    den = np.sum(w * n * np.maximum(n - 1.0, 0.0))
+    num = np.sum(w * ((s1 - m_bar * n) ** 2 - (s2 - 2.0 * m_bar * t1 + m_bar ** 2 * t0)))
+    den = np.sum(w * np.maximum(n * n - t0, 0.0))
     if den <= 1e-30 or m_bar <= 1e-30:
         return np.array([np.nan])
     C = num / den

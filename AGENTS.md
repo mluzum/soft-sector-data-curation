@@ -425,8 +425,17 @@ near c_4 = 0, ratios) the correction is unstable (zr96c2 dp0001, v2{4}
   0.2 GeV cells: <pT> from 0.4 GeV, +16%; 2D yields -24%), and 3D yields
   and per-bin <pT> kept the flat share (+-3%);
   tests/test_toy_mc_pt_cut_cells.py.  dE_T/deta takes the flat share on
-  3D and whole cells on 2D (no record cuts a cell); pT fluctuations (pair
-  sums of unit weights) take whole cells.
+  3D and whole cells on 2D (no record cuts a cell); pT fluctuations take
+  whole cells on 3D (unit weights) and on 2D the flat share of a cut cell,
+  as below.
+- **pT fluctuations** (`fluctuations`, value_type with 'pT':
+  sqrt(<Delta pT_i Delta pT_j>)/<<pT>>, STAR 1712047): on 2D containers
+  each particle carries its probability to be in the record's window (the
+  eta-window Jacobian over the flat-y plateau times the pT-cell share), and
+  the distinct pairs come from the second-weight sums (Σa², Σa² pT, Σa²
+  pT²; `compute_pT_fluct`).  Until November 2026 an eta window gave NaN on
+  2D and dy mode ignored the pT window; tests/test_toy_mc_fluct_et.py
+  (eta windows within 2-6% of the brute force).
 - **Charge-scaled 3D grids**: normalized observables (flow, correlations,
   mean pT and its fluctuations) are computed on unit weights
   (`pipeline_dispatch._unit_weights`); only `ABSOLUTE_KEYS` keep the
