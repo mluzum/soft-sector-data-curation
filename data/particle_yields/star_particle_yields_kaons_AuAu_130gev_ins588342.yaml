@@ -1,0 +1,128 @@
+observable_type: particle_yields
+inspire_id: '588342'
+version: 1
+hepdata_file: k2piFig2_dndy.yaml
+dv_index: 0
+hepdata_table_label: K+ dN/dy vs centrality (k2piFig2_dndy.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> K+ X
+centrality:
+  classes:
+  - 58-85%
+  - 45-58%
+  - 34-45%
+  - 26-34%
+  - 18-26%
+  - 11-18%
+  - 6-11%
+  - 0-6%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity in the TPC, |eta| < 0.75 (STAR 130 GeV; the classes of PRL 87 262302).
+particle_id:
+  species: K+
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.0
+    max: 100.0
+observable: dN_dy
+value_type: dN_dy
+notes:
+  value: 'C. Adler et al. (STAR), PLB 595 (2004) 143, nucl-ex/0206008, Table I. Mid-rapidity dN/dy of K+ from m_T exponential
+    fits (extrapolated to all pT), classes 58-85 ... 0-6% (HEPData: their dN_h-/deta). Errors: uncorrelated and correlated
+    sys (plus 5% common, not tabulated).'
+---
+observable_type: particle_yields
+inspire_id: '588342'
+version: 1
+hepdata_file: k2piFig2_dndy.yaml
+dv_index: 1
+hepdata_table_label: K- dN/dy vs centrality (k2piFig2_dndy.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> K- X
+centrality:
+  classes:
+  - 58-85%
+  - 45-58%
+  - 34-45%
+  - 26-34%
+  - 18-26%
+  - 11-18%
+  - 6-11%
+  - 0-6%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity in the TPC, |eta| < 0.75 (STAR 130 GeV; the classes of PRL 87 262302).
+particle_id:
+  species: K-
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.0
+    max: 100.0
+observable: dN_dy
+value_type: dN_dy
+notes:
+  value: 'C. Adler et al. (STAR), PLB 595 (2004) 143, nucl-ex/0206008, Table I. Mid-rapidity dN/dy of K- from m_T exponential
+    fits (extrapolated to all pT), classes 58-85 ... 0-6% (HEPData: their dN_h-/deta). Errors: uncorrelated and correlated
+    sys (plus 5% common, not tabulated).'
+---
+observable_type: particle_yields
+inspire_id: '588342'
+version: 1
+hepdata_file: k2piFig2_dndy.yaml
+dv_index: 2
+hepdata_table_label: K0_S dN/dy vs centrality (k2piFig2_dndy.yaml)
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> K0S X
+centrality:
+  classes:
+  - 58-85%
+  - 45-58%
+  - 34-45%
+  - 26-34%
+  - 18-26%
+  - 11-18%
+  - 6-11%
+  - 0-6%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: Charged multiplicity in the TPC, |eta| < 0.75 (STAR 130 GeV; the classes of PRL 87 262302).
+particle_id:
+  species: K0_S
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.0
+    max: 100.0
+observable: dN_dy
+value_type: dN_dy
+notes:
+  value: 'C. Adler et al. (STAR), PLB 595 (2004) 143, nucl-ex/0206008, Table I. Mid-rapidity dN/dy of K0_S from m_T exponential
+    fits (extrapolated to all pT), classes 58-85 ... 0-6% (HEPData: their dN_h-/deta). Errors: uncorrelated and correlated
+    sys (plus 5% common, not tabulated). HEPData (the published values) differs from arXiv v1 Table I for K0_S.'
