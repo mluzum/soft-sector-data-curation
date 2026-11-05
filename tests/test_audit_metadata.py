@@ -83,6 +83,10 @@ def test_checks_fire():
     bad = copy.deepcopy(d)
     bad['collision_system']['energy_gev'] = 5020.0
     check('a wrong energy is an error', any('energy qualifier' in m for m in _errors(f, bad)))
+    y = 'data/particle_spectra/atlas_particle_spectra_charged_OO_NeNe_5360gev_ins3170344.yaml'
+    flags = A.audit_doc(y, _doc(y, lambda d: 'y' in d['kinematic_range']))['flags']
+    check('y_pi (pion-mass rapidity) names no species', not any('species' in x['message'] for x in flags),
+          ' '.join(x['message'] for x in flags))
     r = _doc(f, lambda d: (d.get('cumulant_combination') or {}).get('kind') == 'ratio')
     check('a ratio of cumulant orders is not read as percent', not _errors(f, r), ' '.join(_errors(f, r)))
     bad = copy.deepcopy(r)

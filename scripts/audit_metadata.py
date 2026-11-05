@@ -326,7 +326,9 @@ def _extra_checks(doc, raw, sel_dv, sel_q, desc, flag):
         if _GAP_TEXT.search(text) and not has_gap:
             flag("warning", "table mentions an eta gap or subevents; the record has none")
     species = (doc.get("particle_id") or {}).get("species")
-    if species == "charged" and _PID_TEXT.search(header + " " + desc) and "charged" not in (header + desc).lower():
+    # (y_pi, the rapidity with the pion mass, names no species: ATLAS 3170344)
+    pid_text = re.sub(r"y_\{?\\pi\}?|pion[- ]rapidit\w*|pion[- ]mass", "", header + " " + desc, flags=re.I)
+    if species == "charged" and _PID_TEXT.search(pid_text) and "charged" not in (header + desc).lower():
         flag("warning", "table names an identified species; the record says charged")
     rec_e = (doc.get("collision_system") or {}).get("energy_gev")
     rec_r = (doc.get("collision_system") or {}).get("reaction")
