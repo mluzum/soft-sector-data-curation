@@ -23,21 +23,32 @@ Public:
   differential_y), both thresholds;
 - dn/deta, dn/dy_pi and <pT> at |eta| < 0.5 or |y_pi| < 0.5 vs centrality,
   both thresholds;
-- pT spectra at |eta| < 0.5, 1.5 < |eta| < 2.25 and |y_pi| < 0.5
-  (kinematic_range.y.mass 0.13957); the two-sided forward window is
-  computed on the positive side (symmetric systems, as 1093733's mirrored
-  v_n(|eta|));
+- pT spectra at |eta| < 0.5, 1.5 < |eta| < 2.25, |y_pi| < 0.5 and
+  1.5 < |y_pi| < 2.25 (kinematic_range.y.mass 0.13957); the two-sided
+  forward windows are computed on the positive side (symmetric systems, as
+  1093733's mirrored v_n(|eta|));
 - the Ne+Ne / O+O ratios of all of these (system ratios linking the two
-  systems' records).
-Staged (--staged OUT): the spectra at 1.5 < |y_pi| < 2.25 and their
-Ne+Ne / O+O ratios -- the HEPData tables are not consistent with ATLAS's
-own: their pT integral is 1.46 x dn/dy_pi in the same window (the other
-three spectra integrate to their dn/deta, dn/dy_pi within 0.4%), their
-ratio to the 1.5 < |eta| < 2.25 spectra tends to 1.500 at high pT where
-y_pi -> eta (1.001 at mid-rapidity), and |y_pi| < 0.5 over them is 1.43 x
-ATLAS's tabulated mid / forward y_pi ratio (a rapidity-width normalization,
-probably; reported by the O+O converter session); the spectra ratios to
-70-80% and mid / forward (ratios within one system: no computation).
+  systems' records);
+- the spectra in each class over the 70-80% spectrum (ratio_type
+  centrality_ratio, denominator_class 70-80%) and at |eta| < 0.5 over
+  1.5 < |eta| < 2.25 (|y_pi| likewise; rapidity_ratio), each spectrum
+  first divided by its pT-integrated yield (Sec. 6.2): side_normalization
+  pT 0.27-5 GeV, the fiducial range, although the spectra start at 0.21
+  GeV.  Checked against the tables: the spectra with that normalization
+  reproduce the tabulated ratios to 70-80% within 0.1-0.4%; ATLAS's
+  normalization is its measured fiducial dn/deta (dn/dy_pi) in the window,
+  which the spectra's integrals match within 0.5% (mid, forward eta) and
+  3% (forward y_pi, within the 2% + 2% systematic errors), so the mid /
+  forward ratios differ from the spectra's own by up to 1% (eta).  The
+  model computes both sides' yields itself.
+The HEPData spectra at 1.5 < |y_pi| < 2.25 are 1.5 x ATLAS's (staged until
+November 2026): ATLAS's mid / forward y_pi ratio, the mid spectra and the
+dn/dy_pi tables give HEPData / ATLAS = 1.500 in every class, bin and system
+(0.9998-1.0002 x 1.5; the forward eta spectra 1.000), and their ratio to the
+1.5 < |eta| < 2.25 spectra tends to 1.500 at high pT, where y_pi -> eta (a
+rapidity-width normalization: 1.5 is the two-sided window's width).
+value_scale 3 pi = 2 pi x 1.5 (hepdata_corrections); the Ne+Ne / O+O
+ratio, in which the factor cancels, is the tabulated one.  Nothing is staged.
 
 Run from the repository root:  python scripts/curate_atlas_dndeta_spectra_oo_nene.py [--staged OUT]
 """
@@ -61,10 +72,11 @@ PT_TXT = {'270': '0.27 < pT < 5 GeV (fiducial)', '0': '0 < pT < 5 GeV (extrapola
 PION = 0.13957
 WINDOWS = {'mid_eta': ('eta', 0.0, 0.5, '|eta| < 0.5'), 'forward_eta': ('eta', 1.5, 2.25, '1.5 < |eta| < 2.25'),
            'mid_ypi': ('y', 0.0, 0.5, '|y_pi| < 0.5'), 'forward_ypi': ('y', 1.5, 2.25, '1.5 < |y_pi| < 2.25')}
-FWD_YPI = ('the HEPData spectra at 1.5 < |y_pi| < 2.25 are not consistent with ATLAS\'s own tables: their pT '
-           'integral is 1.46 x dn/dy_pi in the same window, their ratio to the 1.5 < |eta| < 2.25 spectra tends to '
-           '1.500 at high pT (1.001 at mid-rapidity), and mid / forward over them is 1.43 x the tabulated ratio '
-           '(a rapidity-width normalization, probably)')
+FWD_YPI = ('HEPData tabulates the spectra at 1.5 < |y_pi| < 2.25 as 1.5 x ATLAS\'s: ATLAS\'s mid / forward y_pi '
+           'ratio table with the mid spectra and the dn/dy_pi tables gives 1.500 (0.9998-1.0002 x 1.5) in every class, '
+           'bin and system (forward eta: 1.000), and their ratio to the 1.5 < |eta| < 2.25 spectra tends to 1.500 at '
+           'high pT where y_pi -> eta; value_scale 3 pi = 2 pi x 1.5')
+NORM = {'pT': {'min': 0.27, 'max': 5.0}}         # Sec. 6.2: spectra over their pT-integrated (fiducial) yield
 OUT = {'particle_yields': 'data/particle_yields/atlas_particle_yields_dNch_deta_OO_NeNe_5360gev_ins3170344.yaml',
        'mean_pT': 'data/mean_pT/atlas_mean_pT_OO_NeNe_5360gev_ins3170344.yaml',
        'particle_spectra': 'data/particle_spectra/atlas_particle_spectra_charged_OO_NeNe_5360gev_ins3170344.yaml',
@@ -115,6 +127,22 @@ def ratio_of(num, den, num_ref, den_ref, hf, i, label, extra):
          'numerator_record': num_ref, 'denominator_record': den_ref}
     r.update(extra)
     return r
+
+
+def within(num_ref, den_ref, out, hf, i, system, c, label, ratio_type, numerator, denominator, extra, notes):
+    """A ratio of spectrum shapes within one system: both sides divided by
+    their pT-integrated yields (side_normalization), the pT bins of the sides."""
+    num = out['particle_spectra'][int(num_ref.split('#')[1])]
+    name = SYS[system][0]
+    return {'observable_type': 'observable_ratios', 'inspire_id': '3170344', 'version': VERSION, 'hepdata_file': hf,
+            'dv_index': i, 'hepdata_table_label': f'{label} ({hf})',
+            'collision_system': {'energy_gev': 5360.0, 'reaction': SYS[system][1]},
+            'centrality': cent(c), 'particle_id': {'species': 'charged'},
+            'kinematic_range': {'pT': copy.deepcopy(num['kinematic_range']['pT'])},
+            'observable': 'invariant_yield', 'value_type': label, 'ratio_type': ratio_type,
+            'numerator': numerator, 'denominator': denominator, 'numerator_system': name, 'denominator_system': name,
+            'numerator_record': num_ref, 'denominator_record': den_ref, **extra,
+            'side_normalization': copy.deepcopy(NORM), 'notes': notes}
 
 
 def main():
@@ -215,10 +243,12 @@ def main():
                                         f' of primary charged particles, {wtxt}, {c}, {SYS[system][0]} 5.36 TeV; '
                                         'value_scale 2 pi: the table has no 1/(2 pi)')})
                 if kind == 'forward_ypi':
-                    d['staging_reason'] = FWD_YPI
-                    staged.append(d)
-                else:
-                    add('particle_spectra', d, ('spectra', kind, system, c))
+                    d['value_scale'] = 3 * math.pi
+                    d['hepdata_corrections'] = {'values': FWD_YPI}
+                    d['notes']['value'] = d['notes']['value'].replace(
+                        'value_scale 2 pi: the table has no 1/(2 pi)',
+                        'value_scale 3 pi: the table has no 1/(2 pi) and is 1.5 x the spectrum (hepdata_corrections)')
+                add('particle_spectra', d, ('spectra', kind, system, c))
     # Ne+Ne / O+O ratios
     ratios = out['observable_ratios']
     names = {'dN_deta': 'dn/deta', 'dN_dypi': 'dn/dy_pi', 'MeanpT_vs_eta': '<pT>', 'MeanpT_vs_ypi': '<pT>'}
@@ -252,49 +282,42 @@ def main():
         hf = f'pT_spectra_{kind}_NeNe_to_OO_ratio.yaml'
         for i, dv in enumerate(load(hf)['dependent_variables']):
             c = quals(dv)['Centrality']
-            if kind == 'forward_ypi':
-                staged.append({'observable_type': 'observable_ratios', 'inspire_id': '3170344', 'version': VERSION,
-                               'hepdata_file': hf, 'dv_index': i,
-                               'hepdata_table_label': f'pT spectrum Ne+Ne/O+O, {WINDOWS[kind][3]}, {c} ({hf})',
-                               'collision_system': {'energy_gev': 5360.0, 'reaction': 'Ne+Ne and O+O'},
-                               'observable': 'invariant_yield', 'value_type': dv['header']['name'],
-                               'ratio_type': 'system_ratio', 'numerator': 'Ne+Ne', 'denominator': 'O+O',
-                               'notes': note('Fig. 12', f'pT spectrum Ne+Ne/O+O, {WINDOWS[kind][3]}, {c}'),
-                               'staging_reason': 'its sides are staged: ' + FWD_YPI})
-                continue
             num_ref = refs[('spectra', kind, 'NeNe', c)]
             num = out['particle_spectra'][int(num_ref.split('#')[1])]
             lab = f'pT spectrum Ne+Ne/O+O, {WINDOWS[kind][3]}, {c}'
             r = ratio_of(num, None, num_ref, refs[('spectra', kind, 'OO', c)], hf, i, lab,
                          {'notes': note('Fig. 12', f'{lab} ({window(kind)[2]})')})
             ratios.append(r)
-    # ratios staged: spectra to 70-80% and mid / forward (within one system)
-    for hf in sorted(os.listdir(RAW)):
-        if not hf.endswith('.yaml') or hf == 'submission.yaml':
-            continue
-        within = 'cent_to_70_80' in hf or 'mid_eta_to_forward' in hf or 'mid_ypi_to_forward' in hf
-        if not within:
-            continue
-        t = load(hf)
-        for i, dv in enumerate(t['dependent_variables']):
-            q = quals(dv)
-            staged.append({'observable_type': 'observable_ratios', 'inspire_id': '3170344', 'version': VERSION,
-                           'hepdata_file': hf, 'dv_index': i,
-                           'hepdata_table_label': f"{dv['header']['name']}, {q.get('Centrality', '')} ({hf})",
-                           'collision_system': {'energy_gev': 5360.0,
-                                                'reaction': SYS['NeNe' if '_NeNe' in hf else 'OO'][1]},
-                           'observable': dv['header']['name'], 'value_type': dv['header']['name'],
-                           'ratio_type': 'quantity_ratio',
-                           'numerator': 'the centrality class' if 'cent_to_70_80' in hf else 'mid-rapidity',
-                           'denominator': '70-80%' if 'cent_to_70_80' in hf else 'forward rapidity',
-                           'notes': note('Figs. 12, 16', f"{dv['header']['name']}, {q}"),
-                           'staging_reason': ('a ratio within one system (to 70-80%, or mid- to forward '
-                                              'rapidity): no computation')})
+    # within one system: spectrum shapes over 70-80%, and mid over forward rapidity
+    for kind in WINDOWS:
+        for system in SYS:
+            hf = f'pT_spectra_{kind}_{system}_cent_to_70_80_ratio.yaml'
+            for i, dv in enumerate(load(hf)['dependent_variables']):
+                c = quals(dv)['Centrality']
+                lab = f'pT spectrum shape {c} / 70-80%, {WINDOWS[kind][3]}, {SYS[system][0]}'
+                ratios.append(within(refs[('spectra', kind, system, c)], refs[('spectra', kind, system, '70-80%')],
+                                     out, hf, i, system, c, lab, 'centrality_ratio', c, '70-80%',
+                                     {'denominator_class': '70-80%'},
+                                     note('Figs. 13, 33-36', f'{lab}: each spectrum over its fiducial yield '
+                                          f'(0.27 < pT < 5 GeV) in {window(kind)[2]}')))
+    for var in ('eta', 'ypi'):
+        for system in SYS:
+            hf = f'pT_spectra_mid_{var}_to_forward_{var}_{system}_ratio.yaml'
+            mid, fwd = WINDOWS[f'mid_{var}'][3], WINDOWS[f'forward_{var}'][3]
+            for i, dv in enumerate(load(hf)['dependent_variables']):
+                c = quals(dv)['Centrality']
+                lab = f'pT spectrum shape {mid} / {fwd}, {c}, {SYS[system][0]}'
+                ratios.append(within(refs[('spectra', f'mid_{var}', system, c)],
+                                     refs[('spectra', f'forward_{var}', system, c)],
+                                     out, hf, i, system, c, lab, 'rapidity_ratio', mid, fwd, {},
+                                     note('Figs. 14, 37-40', f'{lab}: each spectrum over its fiducial yield '
+                                          f'(0.27 < pT < 5 GeV) in its window (the forward one computed at the '
+                                          f'positive side)')))
     for otype, path in OUT.items():
         with open(path, 'w') as fh:
             yaml.safe_dump_all(out[otype], fh, sort_keys=False, default_flow_style=False, width=120)
         print(f'{path}: {len(out[otype])} records')
-    if staged_out:
+    if staged_out and staged:
         with open(staged_out, 'w') as fh:
             yaml.safe_dump_all(staged, fh, sort_keys=False, default_flow_style=False, width=120)
         print(f'{staged_out}: {len(staged)} staged records')
