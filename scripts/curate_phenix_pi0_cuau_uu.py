@@ -17,6 +17,9 @@ uncorrelated systematic), B (correlated in pT) and C (normalization).
 The records use the rapidity window |y| < 0.35 (y ~ eta for pT > 1 GeV/c)
 and pT bins from the tables (1-20 GeV/c; the soft sector covers the first
 few bins).  pi0 is computed by isospin, (pi+ + pi-)/2 (analysis.species).
+Cu+Au frame: the nucleon-nucleon frame (equal beam energies per nucleon),
+Cu toward +eta as in PHENIX 1394897; the paper states no orientation, and
+the window is symmetric, so the orientation does not enter.
 
 Staged (--staged-out): the minimum-bias pi0 spectra (Cu+Au: the MB trigger
 sees 93% of the inelastic cross section; a trigger-bias correction is not
@@ -56,13 +59,17 @@ def pt_axis(t):
     return ax
 
 
+CUAU_FRAME = {'frame': 'nn_cms', 'rapidity_shift': 0.0, 'forward_beam': 'Cu'}
+
+
 def record(paper, hf, species, meson, cls, extra_note=''):
     iid, cite, energy, beams, system = paper
     t = table(iid, hf)
     label = 'minimum bias' if cls is None else cls
     d = {'observable_type': 'particle_spectra', 'inspire_id': iid, 'version': 1, 'hepdata_file': hf,
          'dv_index': 0, 'hepdata_table_label': f'{meson} invariant yield, {label} {system} at {energy:g} GeV',
-         'collision_system': {'energy_gev': energy, 'reaction': f'{beams} --> {meson.upper()} X'},
+         'collision_system': {'energy_gev': energy, 'reaction': f'{beams} --> {meson.upper()} X',
+                              **(CUAU_FRAME if beams == 'CU AU' else {})},
          'centrality': {'classes': [cls] if cls else [], **BBC},
          'kinematic_range': {'y': {'min': -0.35, 'max': 0.35}, 'pT': pt_axis(t)},
          'particle_id': {'species': species},

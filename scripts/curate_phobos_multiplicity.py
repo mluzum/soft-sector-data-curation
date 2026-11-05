@@ -16,7 +16,10 @@ From the paper:
   in the Octagon, -3 < eta < 3, for Au+Au at 19.6 GeV and Cu+Cu at
   22.4 GeV; in the six Ring counters, 3 < |eta| < 5.4, for d+Au (Sec. III A);
 - Au+Au (Figs. 15-18) and Cu+Cu (Figs. 19-21): asymmetric systematic errors
-  at 90% C.L.; d+Au (Fig. 27): 1 sigma, eta along the deuteron direction;
+  at 90% C.L.; d+Au (Fig. 27): 1 sigma, eta "relative to the deuteron
+  beam, which travels in the positive z direction" (the lab, which is the
+  nucleon-nucleon frame at RHIC: collision_system.frame lab, shift 0,
+  forward_beam d);
 - the 19.6 GeV Au+Au data are a re-analysis, up to 10% above the earlier
   PRL 91, 052303 (2003) result (Sec. IV A).
 
@@ -82,6 +85,11 @@ def parse(path):
     return rows
 
 
+# d+Au: eta relative to the deuteron beam (+z); equal beam energies per
+# nucleon, so the lab is the nucleon-nucleon frame
+DAU_FRAME = {'frame': 'lab', 'rapidity_shift': 0.0, 'forward_beam': 'd'}
+
+
 def main():
     os.makedirs('data/particle_yields', exist_ok=True)
     for prefix, reaction, label, energy, classes, cent, fig, cl90 in SETS:
@@ -110,7 +118,8 @@ def main():
                 'dv_index': i,
                 'hepdata_table_label': f'Fig. {fig}: dNch/deta vs eta, {c}% central {label} at '
                                        f'sqrt(sNN) = {energy:g} GeV',
-                'collision_system': {'energy_gev': energy, 'reaction': reaction},
+                'collision_system': {'energy_gev': energy, 'reaction': reaction,
+                                     **(DAU_FRAME if label == 'dAu' else {})},
                 'centrality': {'classes': [f'{c}%'], **cent},
                 'kinematic_range': {'eta': {'min': -5.4, 'max': 5.4, 'bins': ETA_EDGES},
                                     'pT': {'min': 0.0, 'max': 5000000000.0}},

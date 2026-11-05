@@ -63,6 +63,9 @@ CHARGED = {'200_GeV': ('AuAu_200gev', 200.0, 'AU AU --> CHARGED X'),
            'U_U': ('UU_193gev', 193.0, 'U U --> CHARGED X'),
            'Cu_Au': ('CuAu_200gev', 200.0, 'CU AU --> CHARGED X')}
 IDENTIFIED = {'200_pi': ('pi', 'pi+ + pi-'), '200_k': ('K', 'K+ + K-'), '200_p': ('p', 'p + pbar')}
+# Cu+Au: the nucleon-nucleon frame, Cu toward +eta as in STAR 1641113; the paper
+# states no orientation, and the windows and subevents are symmetric about eta = 0
+CUAU_FRAME = {'frame': 'nn_cms', 'rapidity_shift': 0.0, 'forward_beam': 'Cu'}
 SUBEVENTS = {'A': {'eta': {'min': 0.3, 'max': 1.0}}, 'B': {'eta': {'min': -1.0, 'max': -0.3}}}
 
 
@@ -88,7 +91,8 @@ def centrality(points, w):
 def base(name, dv, cent_pts, energy, reaction, label, w):
     return {'observable_type': 'flow_vn', 'inspire_id': '2017211', 'version': 1,
             'hepdata_file': f'{name}.yaml', 'dv_index': dv, 'hepdata_table_label': label,
-            'collision_system': {'energy_gev': energy, 'reaction': reaction},
+            'collision_system': {'energy_gev': energy, 'reaction': reaction,
+                                 **(CUAU_FRAME if reaction.startswith('CU AU') else {})},
             'centrality': centrality(cent_pts, w)}
 
 

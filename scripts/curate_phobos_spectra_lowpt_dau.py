@@ -127,7 +127,9 @@ def dau():
             'hepdata_file': 'dAu_first/dAu1_Figure1.txt', 'value_table': f'../../{raw}/tables/fig1_spectra.yaml',
             'dv_index': i,
             'hepdata_table_label': f'Fig. 1: charged-hadron invariant yield, {c}% d+Au at 200 GeV',
-            'collision_system': {'energy_gev': 200.0, 'reaction': 'DEUT AU --> CHARGED X'},
+            'collision_system': {'energy_gev': 200.0, 'reaction': 'DEUT AU --> CHARGED X',
+                                 # eta positive in the deuteron direction, lab = nn frame at RHIC
+                                 'frame': 'lab', 'rapidity_shift': 0.0, 'forward_beam': 'd'},
             'centrality': {'classes': [f'{c}%'], **RINGS},
             'kinematic_range': {'eta': {'min': 0.2, 'max': 1.4},
                                 'pT': {'min': pt_edges[0], 'max': pt_edges[-1], 'bins': pt_edges}},
