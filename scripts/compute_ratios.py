@@ -24,6 +24,19 @@ corrected quantity when the ratio declares efficiency_cancels: true.
 Records whose sides cannot be computed (composite double ratios, spectator
 planes, detector-level distributions) are listed with the reason.
 
+Ratios within one system (ratio_type centrality_ratio, rapidity_ratio) take
+the same simulation set on both sides, e.g.
+
+    python scripts/compute_ratios.py --num-package P --num-design-point 3 \
+        --den-package P --den-design-point 3 --ratio-type centrality_ratio ...
+
+which runs run_pipeline once and pairs every replicate with itself.  A
+ratio's `denominator_class` fixes the denominator's class (each class over
+70-80%), and `side_normalization` {pT: {min, max}} divides each side's
+spectrum by its yield over that pT range, in every replicate
+(analysis.ratios.side_normalized): a ratio of spectrum shapes.
+numerator_values / denominator_values are then the normalized sides.
+
 Output (HDF5, group "ratios"): values, errors, covariance, labels
 ("<ratio value_type> | <quantity>"), exp_values, exp_errors (the ratio
 record's points aligned by centrality class and, for a ratio vs pT or
@@ -51,8 +64,9 @@ sys.path.insert(0, str(ROOT))
 
 from analysis.dispatcher import (axis_bins, extract_measurement_params, iter_records,  # noqa: E402
                                  load_experimental, record_roots)
-from analysis.ratios import (bin_label, collection_base, differential_var, joint_jackknife,  # noqa: E402
-                             label_key, resolve_link, side_record)
+from analysis.ratios import (bin_label, collection_base, denominator_key, differential_var,  # noqa: E402
+                             joint_jackknife, label_key, normalization_weights, resolve_link,
+                             side_classes, side_normalized, side_record)
 
 
 def select_ratio_records(a):
@@ -157,6 +171,26 @@ def experimental(ratio, var=None):
     return {k: (float(v), float(e)) for k, v, e in zip(keys, vals, errs)}
 
 
+def normalized(side, w):
+    """{label key: (full, replicates, value)} of a spectrum side over its
+    pT-integrated yield (weights w, one per pT bin), per centrality class:
+    the full sample and each replicate by their own integral.  The side's
+    labels of one class run over its bins in order."""
+    by_class = {}
+    for k in side:
+        by_class.setdefault(k.split()[-1], []).append(k)
+    out = {}
+    for cls, keys in by_class.items():
+        if len(keys) != len(w):
+            raise SystemExit(f"side_normalization: {len(keys)} labels at {cls} for {len(w)} pT bins")
+        full = np.array([side[k][0] for k in keys])
+        rep = np.array([side[k][1] for k in keys])            # (n_bins, n_blocks)
+        nf, nr = side_normalized(full, rep, w)
+        for j, k in enumerate(keys):
+            out[k] = (nf[j], nr[j], nf[j])
+    return out
+
+
 def exp_key(label, differential):
     """(bin, class) of a side's label key '<compute key> [<var> <lo>-<hi>] <class>'."""
     parts = label.split()
@@ -199,11 +233,13 @@ def main():
             skipped.append((r.get("value_type"), "no numerator/denominator records linked"))
             continue
         try:
-            sides, var = {}, None
+            sides, weights, var = {}, {}, None
             for side, link in (("num", r["numerator_record"]), ("den", r["denominator_record"])):
                 path, idx, doc = resolve_link(link, collection_base(r.get("_record_file")))
-                rec = side_record(doc, r)
+                rec = side_record(doc, r, side_classes(r, side))
                 var = var or differential_var(rec)
+                if r.get("side_normalization"):
+                    weights[side] = normalization_weights(rec, r["side_normalization"])
                 if rec != doc:      # computed as the corrected quantity: pin a modified copy
                     path = str(work / f"{side}_{len(entries[side])}.yaml")
                     with open(path, "w") as fh:
@@ -214,7 +250,7 @@ def main():
         except ValueError as e:
             skipped.append((r.get("value_type"), str(e)))
             continue
-        ratios.append((f, r, sides, var))
+        ratios.append((f, r, sides, var, weights))
     for vt, why in skipped:
         print(f"skip {vt}: {why}")
     if not ratios:
@@ -222,8 +258,18 @@ def main():
     print(f"{len(ratios)} ratio records; numerator records {len(entries['num'])}, "
           f"denominator records {len(entries['den'])}")
 
-    num, num_prov = read_side(run_side("num", a, list(entries["num"]), work, extra))
-    den, den_prov = read_side(run_side("den", a, list(entries["den"]), work, extra))
+    same_set = all(getattr(a, f"num_{k}") == getattr(a, f"den_{k}")
+                   for k in ("package", "design_point", "variant", "data_root"))
+    if same_set:
+        # one simulation set on both sides (ratios within one system, or a
+        # self-ratio): one run, every replicate paired with itself
+        both = list(dict.fromkeys(list(entries["num"]) + list(entries["den"])))
+        num, num_prov = read_side(run_side("num", a, both, work, extra))
+        den, den_prov = num, num_prov
+        print("one simulation set on both sides: one run")
+    else:
+        num, num_prov = read_side(run_side("num", a, list(entries["num"]), work, extra))
+        den, den_prov = read_side(run_side("den", a, list(entries["den"]), work, extra))
     # replicate k must delete the same events on both sides for paired
     # (common-random-number) samples: event-id blocks (run_pipeline --jk-blocks)
     if num_prov.get("jk_block_rule") != den_prov.get("jk_block_rule"):
@@ -232,19 +278,23 @@ def main():
               f"block k, which is right only for independent samples")
 
     labels, rec_idx, nf, nr, df, dr, nv, dv, ev, ee = [], [], [], [], [], [], [], [], [], []
-    for i, (f, r, sides, var) in enumerate(ratios):
+    for i, (f, r, sides, var, weights) in enumerate(ratios):
         n_side = {k: (fu, rep, v) for k, fu, rep, v in num.get(sides["num"], [])}
         d_side = {k: (fu, rep, v) for k, fu, rep, v in den.get(sides["den"], [])}
+        if weights:
+            n_side = {**n_side, **normalized(n_side, weights["num"])}
+            d_side = {**d_side, **normalized(d_side, weights["den"])}
         exp = experimental(r, var)
-        common = [k for k in n_side if k in d_side]
+        common = [k for k in n_side if denominator_key(k, r) in d_side]
         if not common:
             print(f"skip {r.get('value_type')}: no quantity computed on both sides")
             continue
         for k in common:
+            dk = denominator_key(k, r)
             labels.append(f"{r.get('value_type')} | {k}")
             rec_idx.append(i)
             nf.append(n_side[k][0]); nr.append(n_side[k][1]); nv.append(n_side[k][2])
-            df.append(d_side[k][0]); dr.append(d_side[k][1]); dv.append(d_side[k][2])
+            df.append(d_side[dk][0]); dr.append(d_side[dk][1]); dv.append(d_side[dk][2])
             x = exp.get(exp_key(k, bool(var)), (np.nan, np.nan))
             ev.append(x[0]); ee.append(x[1])
     corr, err, cov = joint_jackknife(np.array(nf), np.array(nr).T, np.array(df), np.array(dr).T)

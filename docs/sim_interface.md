@@ -279,6 +279,21 @@ python scripts/compute_ratios.py \
     --ratio-type energy_ratio --output energy_ratios.h5
 ```
 
+Ratios within one system take one set on both sides, which compute_ratios
+runs once: `ratio_type: centrality_ratio` (each class over a reference
+class, `denominator_class`) and `rapidity_ratio` (one class, two eta or y
+windows), e.g. ATLAS's O+O spectra over the 70-80% spectrum, or at
+mid over forward rapidity.  Their `side_normalization` {pT: {min, max}}
+divides each side's spectrum by its yield over that pT range before the
+ratio, in every jackknife replicate, so the ratio compares shapes:
+
+```bash
+python scripts/compute_ratios.py \
+    --num-package <O+O package> --num-design-point 3 \
+    --den-package <O+O package> --den-design-point 3 \
+    --reaction '^O O' --output oo_within.h5
+```
+
 Each side is computed at the ratio record's centrality classes and, for a
 ratio vs pT or eta, in the ratio's bins, which may differ from the binning
 of the side's own table (ALICE's 5.02/2.76 TeV ratios of v_n are in other

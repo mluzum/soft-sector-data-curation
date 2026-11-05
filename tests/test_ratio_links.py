@@ -5,7 +5,9 @@ A link is a repository-relative path to a record file, optionally with
 exist, be a measurement of the ratio's quantity (same observable_type family
 is not required, e.g. a flow_vn record under a v2 ratio), and belong to the
 system the ratio names for that side (nuclei, and the energy when the side
-names one, as energy ratios do: 'Pb+Pb 5.02 TeV').
+names one, as energy ratios do: 'Pb+Pb 5.02 TeV').  A ratio within one
+system (centrality_ratio, rapidity_ratio) names the same system on both
+sides, and a denominator_class is a class of the linked denominator record.
 
 Run: python3 tests/test_ratio_links.py
 """
@@ -65,10 +67,18 @@ def main():
             if err:
                 problems.append(f"{d.get('value_type')}: {err}")
                 continue
+            if side == 'denominator' and d.get('denominator_class') and \
+                    d['denominator_class'] not in ((target.get('centrality') or {}).get('classes') or []):
+                problems.append(f"{d.get('value_type')}: denominator_class {d['denominator_class']} is not a "
+                                f"class of the linked denominator record")
             if system and not side_matches(system, target):
                 cs = target.get('collision_system') or {}
                 problems.append(f"{d.get('value_type')}: {side} system {system} but the linked "
                                 f"record is {cs.get('reaction')} at {cs.get('energy_gev')} GeV")
+        if d.get('ratio_type') in ('centrality_ratio', 'rapidity_ratio') and \
+                d.get('numerator_system') != d.get('denominator_system'):
+            problems.append(f"{d.get('value_type')}: {d.get('ratio_type')} across systems "
+                            f"({d.get('numerator_system')} / {d.get('denominator_system')})")
     for p in problems:
         print('  FAIL', p)
     print(f'  {checked} links checked; {len(unlinked)} ratio records without links '

@@ -59,7 +59,7 @@ data_validation/jetscape_bayes/   record <-> JETSCAPE model matching layer (test
     observables, plus a per-observable model-precision summary and a
     selection for emulator training, `analysis/observable_selection.py`:
     whole observables only, values unchanged).
-  - `compute_ratios.py`: observable_ratios records from two simulation sets
+  - `compute_ratios.py`: observable_ratios records from two simulation sets (or one, within a system)
     (linked numerator/denominator records, joint jackknife; `analysis/ratios.py`).
   - `plot_comparison.py`.
 
@@ -196,7 +196,16 @@ Fields that change dispatch:
   the side's min/max kept, since they may set the reference); compute_ratios
   aligns the ratio's points per class and bin (spectra and per-eta yields,
   which carry no `dimensionality`, count as differential: the dispatcher's
-  `extract_differential_bins`).
+  `extract_differential_bins`).  Ratios within one system
+  (`ratio_type: centrality_ratio`, each class over `denominator_class`;
+  `rapidity_ratio`, two windows at one class; ATLAS 3170344) run on one set,
+  once, every replicate paired with itself; `side_normalization` {pT: {min,
+  max}} divides each spectrum side by its yield over that range in every
+  replicate (`ratios.side_normalized`; weights (hi^2 - lo^2)/2, exact for
+  the pipeline's invariant yield; a bin across a limit is refused).  ATLAS's
+  normalization is the fiducial 0.27-5 GeV yield although its bins start at
+  0.21 GeV (its ratio tables reproduced to 0.1%);
+  tests/test_ratios.py.
 - Symmetric cumulants (`correlation_type: symmetric_cumulant`, key
   `sc_mn`): two harmonics only, and `normalized` is required (true: NSC =
   SC / (<v_m^2><v_n^2>)); `normalization_eta_gap` takes the denominator

@@ -4,12 +4,20 @@ An observable_ratios record names its numerator and denominator records
 (`numerator_record`, `denominator_record`: repository-relative or absolute
 paths, optionally "#<document index>").  Each side is computed by the
 ordinary pipeline on its own simulation set -- two design points of one
-package (e.g. Ru-like and Zr-like nuclear parameters) or two different
-packages (e.g. Xe+Xe over Pb+Pb) -- and the ratio gets a joint block
-jackknife: replicate k removes block k from both samples.  For independent
-samples this is an ordinary jackknife of a function of two means; for
-samples whose events are paired (common random numbers, same event order)
-it also captures their correlation.
+package (e.g. Ru-like and Zr-like nuclear parameters), two different
+packages (e.g. Xe+Xe over Pb+Pb), or one set for a ratio within one system
+(a class over a reference class, mid over forward rapidity) -- and the
+ratio gets a joint block jackknife: replicate k removes block k from both
+samples.  For independent samples this is an ordinary jackknife of a
+function of two means; for samples whose events are paired (common random
+numbers, same event order, or the same events) it also captures their
+correlation.
+
+Within one system (ratio_type centrality_ratio / rapidity_ratio) a ratio
+may fix the denominator's class (`denominator_class`: ATLAS O+O spectra in
+each class over 70-80%) and normalize each side's spectrum by its
+pT-integrated yield (`side_normalization`, side_normalized), so that the
+ratio compares shapes.
 """
 
 from __future__ import annotations
@@ -79,10 +87,11 @@ def resolve_link(link, base=None):
     return full, real[0], copy.deepcopy(docs[real[0]])
 
 
-def side_record(doc, ratio):
+def side_record(doc, ratio, classes=None):
     """The record to compute for one side of `ratio`; raises ValueError if it cannot be.
 
-    The side is computed at the ratio's centrality classes (at_ratio_classes)
+    The side is computed at the ratio's centrality classes (at_ratio_classes;
+    `classes` instead, for a denominator at the ratio's denominator_class)
     and, when differential, in the ratio's bins (at_ratio_bins).
 
     A detector-level side (efficiency_corrected: false) is computed as the
@@ -94,14 +103,73 @@ def side_record(doc, ratio):
         if not ratio.get('efficiency_cancels'):
             raise ValueError('detector-level side and the ratio does not declare efficiency_cancels')
         del doc['efficiency_corrected']
-    at_ratio_classes(doc, ratio)
+    at_ratio_classes(doc, ratio, classes)
     at_ratio_bins(doc, ratio)
     resolve(doc)                       # raises with the reason when not dispatchable
+    if ratio.get('side_normalization'):
+        normalization_weights(doc, ratio['side_normalization'])     # raises when it cannot be
     return doc
 
 
-def at_ratio_classes(doc, ratio):
-    """Compute a side at the ratio's centrality classes (in place).
+def side_classes(ratio, side):
+    """The centrality classes a side is computed at: the ratio's, or for the
+    denominator of a ratio to a reference class its `denominator_class`."""
+    if side == 'den' and ratio.get('denominator_class'):
+        return [str(ratio['denominator_class'])]
+    return None
+
+
+def denominator_key(key, ratio):
+    """The denominator label key paired with numerator key `key` ('<compute
+    key> [<var> <lo>-<hi>] <class>'): the same, at the denominator_class."""
+    if not ratio.get('denominator_class'):
+        return key
+    parts = str(key).split()
+    return ' '.join(parts[:-1] + [str(ratio['denominator_class'])])
+
+
+def normalization_weights(doc, norm):
+    """Weights w_b of a spectrum side's pT bins for its pT-integrated yield,
+    n = sum_b w_b Y_b over the bins inside `norm` {'pT': {min, max}}; 0
+    outside.  An invariant yield Y_b = N_b / (2 pi pT_c dpT dX) (the
+    pipeline's form, pT_c the bin centre) gives w_b = pT_c dpT = (hi^2 -
+    lo^2)/2, exactly the count per unit X up to 2 pi; d2N/(dpT dX) gives
+    w_b = dpT.  A bin across a limit of the range raises ValueError."""
+    from analysis.dispatcher import extract_differential_bins
+    if doc.get('observable_type') != 'particle_spectra':
+        raise ValueError(f"side_normalization needs particle_spectra sides, not {doc.get('observable_type')}")
+    var, bins, _ = extract_differential_bins(doc)
+    if var != 'pT' or not bins:
+        raise ValueError('side_normalization needs a pT-binned spectrum side')
+    rng = (norm or {}).get('pT') or {}
+    lo_n, hi_n = float(rng.get('min', 0.0)), float(rng.get('max', np.inf))
+    form = doc.get('value_type') or 'invariant_yield'
+    if form not in ('invariant_yield', 'dN_dpT_dy', 'd2N_dpT_dy'):
+        raise ValueError(f'side_normalization of a spectrum in the form {form}')
+    w = []
+    for lo, hi in bins:
+        inside, outside = lo >= lo_n - 1e-9 and hi <= hi_n + 1e-9, hi <= lo_n + 1e-9 or lo >= hi_n - 1e-9
+        if not (inside or outside):
+            raise ValueError(f'pT bin {lo:g}-{hi:g} straddles the side_normalization range [{lo_n:g}, {hi_n:g}]')
+        w.append(0.0 if outside else (0.5 * (hi * hi - lo * lo) if form == 'invariant_yield' else hi - lo))
+    w = np.array(w)
+    if not w.any():
+        raise ValueError(f'no pT bin of the side inside the side_normalization range [{lo_n:g}, {hi_n:g}]')
+    return w
+
+
+def side_normalized(full, rep, w):
+    """A side's spectrum over its pT-integrated yield, in the full sample and
+    in every jackknife replicate (each replicate by its own integral): full
+    (n_bins,), rep (n_bins, n_blocks) -> the same shapes."""
+    full, rep = np.asarray(full, float), np.asarray(rep, float)
+    with np.errstate(divide='ignore', invalid='ignore'):
+        return full / (w @ full), rep / (w @ rep)[None, :]
+
+
+def at_ratio_classes(doc, ratio, classes=None):
+    """Compute a side at the ratio's centrality classes, or at `classes`
+    (a denominator at the ratio's denominator_class), in place.
 
     The ratio record states the classes of the measured ratio, and the two
     sides' own tables may be binned otherwise (ALICE 1666817: v3{2} ratio in
@@ -111,7 +179,7 @@ def at_ratio_classes(doc, ratio):
     a point-valued centrality is refused, and combined_from must tile the
     new classes (cent_combine raises otherwise).
     """
-    want = list((ratio.get('centrality') or {}).get('classes') or [])
+    want = list(classes or (ratio.get('centrality') or {}).get('classes') or [])
     cent = doc.get('centrality')
     if not want or not isinstance(cent, dict) or list(cent.get('classes') or []) == want:
         return doc
@@ -194,7 +262,8 @@ def joint_jackknife(num_full, num_rep, den_full, den_rep):
         r_hat = np.asarray(num_full, float) / np.asarray(den_full, float)
         r_i = num_rep / den_rep
     nb = r_i.shape[0]
-    mean = r_i.mean(axis=0)
-    diff = r_i - mean
-    cov = (nb - 1) / nb * diff.T @ diff
+    with np.errstate(invalid='ignore'):            # a side without particles: NaN, kept
+        mean = r_i.mean(axis=0)
+        diff = r_i - mean
+        cov = (nb - 1) / nb * diff.T @ diff
     return r_hat, np.sqrt(np.maximum(np.diag(cov), 0)), cov

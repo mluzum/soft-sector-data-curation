@@ -10,6 +10,13 @@ detector-level side is computed only when the ratio declares
 efficiency_cancels; a spectator-plane side is refused; a side is computed
 at the ratio's centrality classes (and, for a ratio vs pT, in its bins) when
 its own table is binned otherwise, and the ratio's points align per bin.
+Within one system (one simulation set, one run): spectrum shapes over a
+reference class (denominator_class) and over another window, each side
+divided by its pT-integrated yield in every replicate (side_normalization;
+the range need not start at the first bin): values and errors equal a
+direct computation from the run's replicates, a ratio of a side with itself
+is exactly 1 with zero error, and a normalization range across a bin is
+refused.
 
 Run: python3 tests/test_ratios.py
 """
@@ -276,9 +283,119 @@ def test_pipeline():
               good.sum() >= 3 and 0.7 < np.median(rel) < 1.4)
 
 
+def test_within_system():
+    import h5py
+    import test_sim_package as tsp
+    with tempfile.TemporaryDirectory() as tmp:
+        pkg, data, *_ = tsp._package(tmp, "toy_adapter_ratio_within", points=(0,))
+        qn, ns = tsp._jetscape_qns(n_ev=3000, seed=21)
+        np.save(Path(data) / "Qns_0.npy", qn)
+        np.save(Path(data) / "Nsamples_0.npy", ns)
+        spec = find("data/particle_spectra", lambda d: str((d.get("collision_system") or {}).get("reaction")).upper()
+                    .replace(" ", "").startswith("AUAU")
+                    and abs(float((d.get("collision_system") or {}).get("energy_gev") or 0) - 200) < 1
+                    and str((d.get("particle_id") or {}).get("species")) == "charged"
+                    and "eta" in (d.get("kinematic_range") or {}) and d.get("value_type") == "invariant_yield")
+        edges = [0.5 + 0.1 * k for k in range(11)]                  # 0.5-1.5 GeV
+        side = copy.deepcopy(spec[2])
+        side["centrality"]["classes"] = ["0-10%"]
+        side.pop("table_rows", None)
+        side["kinematic_range"] = {"eta": {"min": -0.5, "max": 0.5}, "pT": {"min": 0.5, "max": 1.5, "bins": edges}}
+        fwd = copy.deepcopy(side)
+        fwd["kinematic_range"]["eta"] = {"min": 0.5, "max": 1.0}
+        paths = {}
+        for name, d in (("mid", side), ("fwd", fwd)):
+            paths[name] = os.path.join(tmp, f"{name}.yaml")
+            yaml.safe_dump(d, open(paths[name], "w"))
+        norm = {"pT": {"min": 0.6, "max": 1.5}}                     # from the second bin, as ATLAS's 0.27 GeV
+        kr = {"pT": copy.deepcopy(side["kinematic_range"]["pT"])}
+        recs = [ratio_record("shape_cent", (paths["mid"], 0), (paths["mid"], 0), ratio_type="centrality_ratio",
+                             centrality={"classes": ["0-10%", "10-20%"]}, denominator_class="40-60%",
+                             side_normalization=norm, kinematic_range=kr),
+                ratio_record("shape_rap", (paths["mid"], 0), (paths["fwd"], 0), ratio_type="rapidity_ratio",
+                             centrality={"classes": ["0-10%"]}, side_normalization=norm, kinematic_range=kr),
+                ratio_record("shape_self", (paths["mid"], 0), (paths["mid"], 0), ratio_type="rapidity_ratio",
+                             centrality={"classes": ["0-10%"]}, side_normalization=norm, kinematic_range=kr),
+                ratio_record("shape_straddle", (paths["mid"], 0), (paths["mid"], 0), ratio_type="rapidity_ratio",
+                             centrality={"classes": ["0-10%"]}, side_normalization={"pT": {"min": 0.65, "max": 1.5}},
+                             kinematic_range=kr)]
+        rfile = os.path.join(tmp, "ratios.yaml")
+        yaml.safe_dump_all(recs, open(rfile, "w"))
+        work = os.path.join(tmp, "work")
+        out = os.path.join(tmp, "within.h5")
+        cmd = [sys.executable, "scripts/compute_ratios.py", "--ratio-records", rfile,
+               "--num-package", str(pkg), "--num-design-point", "0", "--num-variant", "plain",
+               "--den-package", str(pkg), "--den-design-point", "0", "--den-variant", "plain",
+               "--n-jk-blocks", "10", "--output", out, "--work-dir", work]
+        r = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True)
+        check("within-system run succeeds", r.returncode == 0)
+        if r.returncode != 0:
+            print(r.stdout[-2000:], r.stderr[-2000:])
+            return
+        check("one simulation set: one pipeline run",
+              "one run" in r.stdout and os.path.exists(os.path.join(work, "num.h5"))
+              and not os.path.exists(os.path.join(work, "den.h5")))
+        check("a normalization range across a pT bin is refused",
+              "skip shape_straddle" in r.stdout and "straddles" in r.stdout)
+        # the sides straight from the run: {(record file, class): (full (n_bins,), replicates (n_bins, n_blocks))}
+        sides = {}
+        with h5py.File(os.path.join(work, "num.h5"), "r") as f:
+            for g in f.values():
+                if "jk_replicates" not in g:
+                    continue
+                labels = [x.decode() for x in g["labels"][:]]
+                for i, (lab, k) in enumerate(zip(labels, g["label_record"][:])):
+                    e = g[f"exp_{k}"].attrs
+                    key = (os.path.basename(str(e["record_file"])), lab.split(" [")[0].split()[-1])
+                    sides.setdefault(key, ([], []))
+                    sides[key][0].append(g["jk_full"][i])
+                    sides[key][1].append(g["jk_replicates"][:, i])
+        lo, hi = np.array(edges[:-1]), np.array(edges[1:])
+        w = np.where(lo >= 0.6 - 1e-9, 0.5 * (hi ** 2 - lo ** 2), 0.0)
+
+        def shape(fname, cls):
+            full, rep = (np.array(x) for x in sides[(fname, cls)])
+            return full / (w @ full), rep / (w @ rep)
+
+        def expected(num, den):
+            (nf, nr), (df, dr) = num, den
+            ri = nr / dr
+            d = ri - ri.mean(axis=1, keepdims=True)
+            return nf / df, np.sqrt((ri.shape[1] - 1) / ri.shape[1] * (d ** 2).sum(axis=1))
+
+        with h5py.File(out, "r") as f:
+            g = f["ratios"]
+            labels = [x.decode() for x in g["labels"][:]]
+            v, e, nv = g["values"][:], g["errors"][:], g["numerator_values"][:]
+        got = {}
+        for name in ("shape_cent", "shape_rap", "shape_self"):
+            for i, lab in enumerate(labels):
+                if lab.startswith(name + " |"):
+                    got.setdefault((name, lab.split()[-1]), []).append(i)
+        den_file = next(fn for fn, c in sides if c == "40-60%")          # the pinned 40-60% copy
+        ok = True
+        for cls in ("0-10%", "10-20%"):
+            num_file = "mid.yaml" if cls == "0-10%" else next(fn for fn, c in sides if c == "10-20%")
+            ev, ee = expected(shape(num_file, cls), shape(den_file, "40-60%"))
+            idx = got.get(("shape_cent", cls), [])
+            ok &= len(idx) == len(edges) - 1 and np.allclose(v[idx], ev, rtol=1e-10) and np.allclose(e[idx], ee, rtol=1e-8)
+        check("each class over the denominator_class: values and errors = the run's replicates, "
+              "sides normalized per replicate", ok)
+        idx = got.get(("shape_cent", "0-10%"), [])
+        check("normalized side: sum of w x shape over the range = 1", abs(w @ nv[idx] - 1) < 1e-12)
+        ev, ee = expected(shape("mid.yaml", "0-10%"), shape("fwd.yaml", "0-10%"))
+        idx = got.get(("shape_rap", "0-10%"), [])
+        check("mid over forward window at one class: values and errors = the run's replicates",
+              len(idx) == len(edges) - 1 and np.allclose(v[idx], ev, rtol=1e-10) and np.allclose(e[idx], ee, rtol=1e-8))
+        idx = got.get(("shape_self", "0-10%"), [])
+        check("a side over itself: exactly 1, zero error",
+              len(idx) == len(edges) - 1 and np.allclose(v[idx], 1, atol=1e-12) and np.allclose(e[idx], 0, atol=1e-12))
+
+
 if __name__ == "__main__":
     test_unit()
     test_pipeline()
+    test_within_system()
     failed = [n for n, ok in results if not ok]
     print(f"\n{len(results) - len(failed)}/{len(results)} passed")
     if failed:

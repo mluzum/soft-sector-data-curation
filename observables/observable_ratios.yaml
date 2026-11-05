@@ -39,7 +39,7 @@ required_fields:
   ratio_type:
     type: string
     required: true
-    description: "One of: 'system_ratio', 'energy_ratio' (the same system at two collision energies), 'particle_ratio', 'double_ratio', 'quantity_ratio'"
+    description: "One of: 'system_ratio', 'energy_ratio' (the same system at two collision energies), 'centrality_ratio' (one system, each class over a reference class: denominator_class), 'rapidity_ratio' (one system and class, two eta or y windows), 'particle_ratio', 'double_ratio', 'quantity_ratio'"
     example: "system_ratio"
 
 optional_fields:
@@ -77,6 +77,25 @@ optional_fields:
     required: false
     description: Particle species of the denominator.
     example: "pi-"
+  denominator_class:
+    type: string
+    required: false
+    description: >
+      The centrality class of the denominator side for every class of the
+      ratio (a ratio to a reference class, e.g. ATLAS O+O spectra over the
+      70-80% spectrum); without it both sides are computed at the ratio's
+      classes.
+    example: "70-80%"
+  side_normalization:
+    type: object
+    required: false
+    description: >
+      Each side is a pT spectrum divided by its pT-integrated yield over
+      this pT range (in the side's window and class) before the ratio is
+      formed, inside the jackknife: a ratio of spectrum shapes.  The range
+      need not be the ratio's bins (ATLAS 3170344: bins from 0.21 GeV, yields
+      over the fiducial 0.27-5 GeV); its limits must be bin edges.
+    example: {pT: {min: 0.27, max: 5.0}}
   efficiency_cancels:
     type: boolean
     required: false
