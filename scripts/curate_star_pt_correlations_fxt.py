@@ -7,6 +7,11 @@ in Au+Au collisions at RHIC", arXiv:2604.06434.
 From the paper:
 - C_pT = sqrt(<Delta pT_i Delta pT_j>) / <<pT>> (Eq. 3) of charged
   particles with |eta_cm| < 0.5 and 0.2 < pT < 2.0 GeV/c, in percent;
+  <Delta pT_i Delta pT_j> = <(Q1^2 - Q2)/(N(N-1))>_ev - <<pT>>^2 (Eq. 2):
+  the event average of each event's pair average, <<pT>> = <Q1/N>_ev
+  (`averaging: events`); here over the whole class (the paper finds C_pT
+  independent of the centrality-bin-width correction, Supplemental
+  Fig. 3);
 - fixed-target (FXT) Au+Au at sqrt(sNN) = 3.0, 3.2, 3.5, 3.9, 4.5, 5.2 and
   7.7 GeV, and collider (COL) mode at 7.7 GeV; in FXT mode mid-rapidity
   moves to negative eta_lab (eta_cm = eta_lab + y_cm, y_cm half the beam
@@ -72,14 +77,14 @@ def record(hf, energy, mode, classes, dv_index=0, rows=None, label=''):
          'particle_id': {'species': 'charged'},
          'kinematic_range': {'eta': {'min': -0.5, 'max': 0.5}, 'pT': {'min': 0.2, 'max': 2.0}},
          'observable': 'sqrt_dpt_dpt_over_mean_pT', 'value_type': 'sqrt_<dpt1_dpt2>_over_<pT>', 'method': 'two_particle',
-         'value_scale': 100.0}
+         'averaging': 'events', 'value_scale': 100.0}
     if rows is not None:
         d['table_rows'] = rows
     d['notes'] = {'value': f'{CITE}. C_pT of charged particles, |eta_cm| < 0.5, 0.2 < pT < 2.0 GeV/c, Au+Au {energy:g} '
                            f'GeV ({"fixed target" if mode == "FXT" else "collider"}), {", ".join(classes)}, in percent '
                            '(value_scale 100)' + ('; the rows of Fig. 3 are the 10% classes 0-10 ... 60-70%, given in '
                                                   'HEPData by their <N_part>' if rows is None else '')
-                           + '. Errors: stat and sys.'}
+                           + '. Event average of the pair averages (Eq. 2). Errors: stat and sys.'}
     return d
 
 

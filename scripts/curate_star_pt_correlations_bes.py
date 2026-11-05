@@ -12,13 +12,18 @@ From the paper (Sec. II, III):
   5-10, 10-20, ..., 70-80% of the inelastic cross section; HEPData gives
   each class by its Glauber <N_part> (the nine rows, in that order);
 - the relative dynamical correlation sqrt(<Delta pT_i Delta pT_j>) /
-  <<pT>> (Eq. 1-2; <<pT>> the event-averaged mean pT), averaged over the
-  centrality bin, in percent; errors stat and sys;
+  <<pT>> (Eq. 1-4: the event average of each event's pair average,
+  deviations from <<pT>> = the mean of the event means), in percent;
+  errors stat and sys;
+- <<pT>> and <Delta pT_i Delta pT_j> are calculated as a function of the
+  reference multiplicity and then averaged over the centrality bin (Sec.
+  II): here deviations from <<pT>> at the event's reference multiplicity
+  (multiplicity_baseline, a linear regression within the class);
 - energies 7.7, 11.5, 14.5 (HEPData: 14.6), 19.6, 27, 39, 62.4, 200 GeV.
 
 Records (public, 8): the Fig. 1 data per energy vs class (value_scale 100:
-percent), computed by the pT_fluct core (the same quantity, ALICE's
-normalization).  Not curated: the UrQMD and power-law tables (model
+percent), computed by the pT_fluct core with `averaging: events` (until
+November 2026 ALICE's pooled pairs and the class mean pT).  Not curated: the UrQMD and power-law tables (model
 curves and data/model ratios), the efficiency studies (Fig. 2), the
 Fig. 4-5 replots (the same STAR points, CERES and ALICE data of other
 papers, models).
@@ -61,13 +66,15 @@ def main():
             'particle_id': {'species': 'charged'},
             'kinematic_range': {'eta': {'min': -0.5, 'max': 0.5}, 'pT': {'min': 0.2, 'max': 2.0}},
             'observable': 'sqrt_dpt_dpt_over_mean_pT', 'value_type': 'sqrt_<dpt1_dpt2>_over_<pT>', 'method': 'two_particle',
+            'averaging': 'events', 'multiplicity_baseline': {'observable': 'Nch', 'eta': [dict(e) for e in REFMULT['eta']]},
             'value_scale': 100.0,
             'notes': {'value': f'{CITE}, Fig. 1. Relative dynamical pT correlation sqrt(<Delta pT_i Delta pT_j>)/<<pT>> '
                                f'of charged particles, |eta| < 0.5, 0.2 < pT < 2.0 GeV/c, Au+Au {energy:g} GeV, in '
                                'percent (value_scale 100); the rows are the classes 0-5 ... 70-80% (Sec. II), given '
                                'in HEPData by their <N_part>' + ('; HEPData labels the energy 14.6 GeV'
                                                                 if energy == 14.5 else '')
-                               + '. Errors: stat and sys.'}})
+                               + '. Event average of the pair averages, deviations from <<pT>> at the event\'s '
+                               'reference multiplicity (multiplicity_baseline). Errors: stat and sys.'}})
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, 'w') as fh:
         yaml.safe_dump_all(docs, fh, sort_keys=False, default_flow_style=False, width=120)
