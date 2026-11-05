@@ -1,0 +1,319 @@
+observable_type: flow_pT_correlations
+inspire_id: '1966120'
+version: 1
+hepdata_file: Table_1.yaml
+dv_index: 0
+hepdata_table_label: rho(v_2^2, [pT]) vs centrality, Pb-Pb 5.02 TeV (Table_1.yaml)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-15%
+  - 15-20%
+  - 20-25%
+  - 25-30%
+  - 30-35%
+  - 35-40%
+  - 40-45%
+  - 45-50%
+  - 50-55%
+  - 55-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 3.0
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -0.8
+        max: -0.4
+      pT:
+        min: 0.2
+        max: 3.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.4
+        max: 0.4
+      pT:
+        min: 0.2
+        max: 3.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.4
+        max: 0.8
+      pT:
+        min: 0.2
+        max: 3.0
+observable: rho_vn2_pT
+value_type: rho_n
+correlation_type: rho_vn2_pT
+harmonic: 2
+covariance_method: three_subevent
+variance_terms:
+  c4: two_subevent
+  c2: two_subevent
+ck_window: B
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 834 (2022) 137393, arXiv:2111.06106, Fig. 1. rho(v_2^2, [pT]) of charged particles,
+    0.2 < pT < 3 GeV/c, Pb-Pb 5.02 TeV, V0M classes (HEPData: their centres). Three subevents: flow from A (-0.8 < eta < -0.4)
+    and C (0.4 < eta < 0.8), [pT] and c_k from B (|eta| < 0.4); Var(v_n^2) = v_n{2}^4 - v_n{4}^4 from A and C. Errors: stat
+    and full syst.'
+---
+observable_type: flow_pT_correlations
+inspire_id: '1966120'
+version: 1
+hepdata_file: Table_1.yaml
+dv_index: 1
+hepdata_table_label: rho(v_3^2, [pT]) vs centrality, Pb-Pb 5.02 TeV (Table_1.yaml)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-15%
+  - 15-20%
+  - 20-25%
+  - 25-30%
+  - 30-35%
+  - 35-40%
+  - 40-45%
+  - 45-50%
+  - 50-55%
+  - 55-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 3.0
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -0.8
+        max: -0.4
+      pT:
+        min: 0.2
+        max: 3.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.4
+        max: 0.4
+      pT:
+        min: 0.2
+        max: 3.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.4
+        max: 0.8
+      pT:
+        min: 0.2
+        max: 3.0
+observable: rho_vn2_pT
+value_type: rho_n
+correlation_type: rho_vn2_pT
+harmonic: 3
+covariance_method: three_subevent
+variance_terms:
+  c4: two_subevent
+  c2: two_subevent
+ck_window: B
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 834 (2022) 137393, arXiv:2111.06106, Fig. 1. rho(v_3^2, [pT]) of charged particles,
+    0.2 < pT < 3 GeV/c, Pb-Pb 5.02 TeV, V0M classes (HEPData: their centres). Three subevents: flow from A (-0.8 < eta < -0.4)
+    and C (0.4 < eta < 0.8), [pT] and c_k from B (|eta| < 0.4); Var(v_n^2) = v_n{2}^4 - v_n{4}^4 from A and C. Errors: stat
+    and full syst.'
+---
+observable_type: flow_pT_correlations
+inspire_id: '1966120'
+version: 1
+hepdata_file: Table_2.yaml
+dv_index: 0
+hepdata_table_label: rho(v_2^2, [pT]) vs centrality, Xe-Xe 5.44 TeV (Table_2.yaml)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-15%
+  - 15-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  - 60-70%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 3.0
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -0.8
+        max: -0.4
+      pT:
+        min: 0.2
+        max: 3.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.4
+        max: 0.4
+      pT:
+        min: 0.2
+        max: 3.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.4
+        max: 0.8
+      pT:
+        min: 0.2
+        max: 3.0
+observable: rho_vn2_pT
+value_type: rho_n
+correlation_type: rho_vn2_pT
+harmonic: 2
+covariance_method: three_subevent
+variance_terms:
+  c4: two_subevent
+  c2: two_subevent
+ck_window: B
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 834 (2022) 137393, arXiv:2111.06106, Fig. 1. rho(v_2^2, [pT]) of charged particles,
+    0.2 < pT < 3 GeV/c, Xe-Xe 5.44 TeV, V0M classes (HEPData: their centres). Three subevents: flow from A (-0.8 < eta < -0.4)
+    and C (0.4 < eta < 0.8), [pT] and c_k from B (|eta| < 0.4); Var(v_n^2) = v_n{2}^4 - v_n{4}^4 from A and C. Errors: stat
+    and full syst.'
+---
+observable_type: flow_pT_correlations
+inspire_id: '1966120'
+version: 1
+hepdata_file: Table_3.yaml
+dv_index: 0
+hepdata_table_label: rho(v_3^2, [pT]) vs centrality, Xe-Xe 5.44 TeV (Table_3.yaml)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-15%
+  - 15-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 3.0
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -0.8
+        max: -0.4
+      pT:
+        min: 0.2
+        max: 3.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.4
+        max: 0.4
+      pT:
+        min: 0.2
+        max: 3.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.4
+        max: 0.8
+      pT:
+        min: 0.2
+        max: 3.0
+observable: rho_vn2_pT
+value_type: rho_n
+correlation_type: rho_vn2_pT
+harmonic: 3
+covariance_method: three_subevent
+variance_terms:
+  c4: two_subevent
+  c2: two_subevent
+ck_window: B
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 834 (2022) 137393, arXiv:2111.06106, Fig. 1. rho(v_3^2, [pT]) of charged particles,
+    0.2 < pT < 3 GeV/c, Xe-Xe 5.44 TeV, V0M classes (HEPData: their centres). Three subevents: flow from A (-0.8 < eta < -0.4)
+    and C (0.4 < eta < 0.8), [pT] and c_k from B (|eta| < 0.4); Var(v_n^2) = v_n{2}^4 - v_n{4}^4 from A and C. Errors: stat
+    and full syst.'
