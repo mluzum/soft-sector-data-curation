@@ -212,6 +212,12 @@ DISPATCH_TABLE_BY_TYPE = {
         "requires": [["kinematic_range.eta", "kinematic_range.y", "centrality.eta"]],
         "description": "pT fluctuation correlator Σ",
     },
+    "mean_pT_fluctuations": {
+        "compute": "pT_fluct",
+        "value_type_contains": "sqrt_<dpt1_dpt2>_over_<pT>",
+        "requires": [["kinematic_range.eta", "kinematic_range.y", "centrality.eta"]],
+        "description": "relative dynamical pT correlation sqrt(<Delta pT_i Delta pT_j>)/<<pT>>",
+    },
     "transverse_energy": {
         "compute": "dET_deta",
         "requires": [["kinematic_range.eta", "centrality.eta"]],

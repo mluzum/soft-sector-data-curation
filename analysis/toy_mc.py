@@ -916,7 +916,7 @@ def _kr_eta_y(eta):
 def record_pT_fluct(species='charged', eta=(-0.5, 0.5), pt=(0.15, 3.0),
                     cent_classes=('0-10%', '10-40%', '40-80%')):
     return dict(
-        observable_type='fluctuations', value_type='pT_fluct',
+        observable_type='mean_pT_fluctuations', value_type='sqrt_<dpt1_dpt2>_over_<pT>',
         hepdata_file='toy.yaml', inspire_id='0', version=1,
         particle_id=dict(species=species),
         kinematic_range={**_kr_eta_y(eta),

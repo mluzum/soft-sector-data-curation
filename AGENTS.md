@@ -428,8 +428,10 @@ near c_4 = 0, ratios) the correction is unstable (zr96c2 dp0001, v2{4}
   3D and whole cells on 2D (no record cuts a cell); pT fluctuations take
   whole cells on 3D (unit weights) and on 2D the flat share of a cut cell,
   as below.
-- **pT fluctuations** (`fluctuations`, value_type with 'pT':
-  sqrt(<Delta pT_i Delta pT_j>)/<<pT>>, STAR 1712047): on 2D containers
+- **pT fluctuations** (`mean_pT_fluctuations` with value_type
+  `sqrt_<dpt1_dpt2>_over_<pT>`, key pT_fluct: sqrt(<Delta pT_i Delta
+  pT_j>)/<<pT>>, STAR 1712047, 3141716; `fluctuations` is for
+  conserved-charge cumulants and stays undispatched): on 2D containers
   each particle carries its probability to be in the record's window (the
   eta-window Jacobian over the flat-y plateau times the pT-cell share), and
   the distinct pairs come from the second-weight sums (Σa², Σa² pT, Σa²
