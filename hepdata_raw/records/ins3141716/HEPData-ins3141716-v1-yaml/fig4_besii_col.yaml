@@ -1,0 +1,27 @@
+dependent_variables:
+- header: {name: C_PT, units: PCT}
+  qualifiers:
+  - {name: RE, value: AU AU --> CHARGED X}
+  - {name: ETARAP, value: ABS(ETARAP) < 0.5}
+  - {name: PT, units: GEV/C, value: 0.2 - 2.0}
+  - {name: CENTRALITY, value: 0-5%}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.05}
+    - {label: sys, symerror: 0.07}
+    value: 0.45
+- header: {name: C_PT, units: PCT}
+  qualifiers:
+  - {name: RE, value: AU AU --> CHARGED X}
+  - {name: ETARAP, value: ABS(ETARAP) < 0.5}
+  - {name: PT, units: GEV/C, value: 0.2 - 2.0}
+  - {name: CENTRALITY, value: 30-40%}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.005}
+    - {label: sys, symerror: 0.14}
+    value: 2.05
+independent_variables:
+- header: {name: SQRT(S)/NUCLEON, units: GEV}
+  values:
+  - {value: 7.7}

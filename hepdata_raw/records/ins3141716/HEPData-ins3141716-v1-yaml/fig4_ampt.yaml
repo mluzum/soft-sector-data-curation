@@ -1,0 +1,60 @@
+dependent_variables:
+- header: {name: C_PT, units: PCT}
+  qualifiers:
+  - {name: RE, value: AU AU --> CHARGED X}
+  - {name: ETARAP, value: ABS(ETARAP) < 0.5}
+  - {name: PT, units: GEV/C, value: 0.2 - 2.0}
+  - {name: CENTRALITY, value: 0-5%}
+  values:
+  - errors:
+    - {label: unc, symerror: 0.0132164}
+    value: 1.16988
+  - errors:
+    - {label: unc, symerror: 0.0188779}
+    value: 1.11761
+  - errors:
+    - {label: unc, symerror: 0.0104723}
+    value: 1.00653
+  - errors:
+    - {label: unc, symerror: 0.0176732}
+    value: 1.03493
+  - errors:
+    - {label: unc, symerror: 0.0208653}
+    value: 1.15542
+  - errors:
+    - {label: unc, symerror: 0.0181467}
+    value: 1.29632
+- header: {name: C_PT, units: PCT}
+  qualifiers:
+  - {name: RE, value: AU AU --> CHARGED X}
+  - {name: ETARAP, value: ABS(ETARAP) < 0.5}
+  - {name: PT, units: GEV/C, value: 0.2 - 2.0}
+  - {name: CENTRALITY, value: 30-40%}
+  values:
+  - errors:
+    - {label: unc, symerror: 0.0129523}
+    value: 3.11867
+  - errors:
+    - {label: unc, symerror: 0.0222138}
+    value: 2.10145
+  - errors:
+    - {label: unc, symerror: 0.0107184}
+    value: 1.84095
+  - errors:
+    - {label: unc, symerror: 0.0191549}
+    value: 1.80077
+  - errors:
+    - {label: unc, symerror: 0.024607}
+    value: 1.82164
+  - errors:
+    - {label: unc, symerror: 0.0223353}
+    value: 1.98704
+independent_variables:
+- header: {name: SQRT(S)/NUCLEON, units: GEV}
+  values:
+  - {value: 3}
+  - {value: 4.5}
+  - {value: 7.7}
+  - {value: 9.1}
+  - {value: 11.5}
+  - {value: 14.5}

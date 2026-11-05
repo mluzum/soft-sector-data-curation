@@ -1,0 +1,46 @@
+dependent_variables:
+- header: {name: C_PT, units: PCT}
+  qualifiers:
+  - {name: RE, value: AU AU --> CHARGED X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: 4.5}
+  - {name: ETARAP, value: ABS(ETARAP) < 0.5}
+  - {name: PT, units: GEV/C, value: 0.2 - 2.0}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.002}
+    - {label: sys, symerror: 0.09}
+    value: 1.16
+  - errors:
+    - {label: stat, symerror: 0.002}
+    - {label: sys, symerror: 0.1}
+    value: 1.68
+  - errors:
+    - {label: stat, symerror: 0.002}
+    - {label: sys, symerror: 0.12}
+    value: 2.21
+  - errors:
+    - {label: stat, symerror: 0.002}
+    - {label: sys, symerror: 0.14}
+    value: 2.8
+  - errors:
+    - {label: stat, symerror: 0.003}
+    - {label: sys, symerror: 0.16}
+    value: 3.46
+  - errors:
+    - {label: stat, symerror: 0.004}
+    - {label: sys, symerror: 0.22}
+    value: 4.15
+  - errors:
+    - {label: stat, symerror: 0.005}
+    - {label: sys, symerror: 2.7}
+    value: 5.14
+independent_variables:
+- header: {name: NPART}
+  values:
+  - {value: 310}
+  - {value: 222.5}
+  - {value: 157.5}
+  - {value: 108}
+  - {value: 71}
+  - {value: 44.5}
+  - {value: 25}

@@ -1,0 +1,90 @@
+dependent_variables:
+- header: {name: C_PT, units: PCT}
+  qualifiers:
+  - {name: RE, value: AU AU --> CHARGED X}
+  - {name: ETARAP, value: ABS(ETARAP) < 0.5}
+  - {name: PT, units: GEV/C, value: 0.2 - 2.0}
+  - {name: CENTRALITY, value: 0-5%}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.32}
+    - {label: sys, symerror: 0.1}
+    value: 0.21
+  - errors:
+    - {label: stat, symerror: 0.04}
+    - {label: sys, symerror: 0.05}
+    value: 0.77
+  - errors:
+    - {label: stat, symerror: 0.011}
+    - {label: sys, symerror: 0.06}
+    value: 0.873
+  - errors:
+    - {label: stat, symerror: 0.027}
+    - {label: sys, symerror: 0.031}
+    value: 0.939
+  - errors:
+    - {label: stat, symerror: 0.012}
+    - {label: sys, symerror: 0.025}
+    value: 0.967
+  - errors:
+    - {label: stat, symerror: 0.004}
+    - {label: sys, symerror: 0.031}
+    value: 1.029
+  - errors:
+    - {label: stat, symerror: 0.004}
+    - {label: sys, symerror: 0.027}
+    value: 1.084
+  - errors:
+    - {label: stat, symerror: 0.006}
+    - {label: sys, symerror: 0.033}
+    value: 1.185
+- header: {name: C_PT, units: PCT}
+  qualifiers:
+  - {name: RE, value: AU AU --> CHARGED X}
+  - {name: ETARAP, value: ABS(ETARAP) < 0.5}
+  - {name: PT, units: GEV/C, value: 0.2 - 2.0}
+  - {name: CENTRALITY, value: 30-40%}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.06}
+    - {label: sys, symerror: 0.06}
+    value: 1.74
+  - errors:
+    - {label: stat, symerror: 0.04}
+    - {label: sys, symerror: 0.08}
+    value: 1.86
+  - errors:
+    - {label: stat, symerror: 0.017}
+    - {label: sys, symerror: 0.07}
+    value: 1.907
+  - errors:
+    - {label: stat, symerror: 0.011}
+    - {label: sys, symerror: 0.07}
+    value: 1.95
+  - errors:
+    - {label: stat, symerror: 0.009}
+    - {label: sys, symerror: 0.07}
+    value: 2.04
+  - errors:
+    - {label: stat, symerror: 0.005}
+    - {label: sys, symerror: 0.07}
+    value: 2.142
+  - errors:
+    - {label: stat, symerror: 0.013}
+    - {label: sys, symerror: 0.06}
+    value: 2.065
+  - errors:
+    - {label: stat, symerror: 0.007}
+    - {label: sys, symerror: 0.06}
+    value: 2.131
+independent_variables:
+- header: {name: SQRT(S)/NUCLEON, units: GEV}
+  values:
+  - {value: 7.7}
+  - {value: 11.5}
+  - {value: 14.5}
+  - {value: 19.6}
+  - {value: 27}
+  - {value: 39}
+  - {value: 62.4}
+  - {value: 200}

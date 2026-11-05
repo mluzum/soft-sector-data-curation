@@ -1,0 +1,52 @@
+dependent_variables:
+- header: {name: SIG(Q=P + PBAR)}
+  qualifiers:
+  - {name: RE, value: P PB --> (P + PBAR) X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020.0'}
+  - {name: YRAP(C=CM), value: 0.0 TO 0.5}
+  values:
+  - errors:
+    - {label: stat, symerror: '4.394273e-03'}
+    - {label: sys, symerror: '1.585968e-01'}
+    - {label: sys, symerror: '7.001060e-02'}
+    value: '2.280446e+00'
+  - errors:
+    - {label: stat, symerror: '3.901768e-03'}
+    - {label: sys, symerror: '1.284426e-01'}
+    - {label: sys, symerror: '5.548104e-02'}
+    value: '1.853576e+00'
+  - errors:
+    - {label: stat, symerror: '2.739986e-03'}
+    - {label: sys, symerror: '1.084793e-01'}
+    - {label: sys, symerror: '4.467687e-02'}
+    value: '1.577375e+00'
+  - errors:
+    - {label: stat, symerror: '1.735134e-03'}
+    - {label: sys, symerror: '8.190972e-02'}
+    - {label: sys, symerror: '3.347605e-02'}
+    value: '1.221875e+00'
+  - errors:
+    - {label: stat, symerror: '1.381181e-03'}
+    - {label: sys, symerror: '5.608663e-02'}
+    - {label: sys, symerror: '2.265973e-02'}
+    value: '8.621290e-01'
+  - errors:
+    - {label: stat, symerror: '1.034190e-03'}
+    - {label: sys, symerror: '3.408551e-02'}
+    - {label: sys, symerror: '1.377331e-02'}
+    value: '5.341445e-01'
+  - errors:
+    - {label: stat, symerror: '6.969543e-04'}
+    - {label: sys, symerror: '1.450569e-02'}
+    - {label: sys, symerror: '6.911692e-03'}
+    value: '2.307767e-01'
+independent_variables:
+- header: {name: EVENT CLASS, units: PCT}
+  values:
+  - {high: 5.0, low: 0.0}
+  - {high: 10.0, low: 5.0}
+  - {high: 20.0, low: 10.0}
+  - {high: 40.0, low: 20.0}
+  - {high: 60.0, low: 40.0}
+  - {high: 80.0, low: 60.0}
+  - {high: 100.0, low: 80.0}

@@ -1,0 +1,61 @@
+dependent_variables:
+- header: {name: MEAN(PT), units: GEV}
+  qualifiers:
+  - {name: RE, value: P PB --> (PI+ + PI-) X}
+  - {name: SQRT(S)/NUCLEON, units: GEV, value: '5020.0'}
+  - {name: YRAP(C=CM), value: 0.0 TO 0.5}
+  values:
+  - errors:
+    - {label: stat, symerror: '0.00040'}
+    - {label: sys, symerror: '0.0154'}
+    - {label: sys, symerror: '0.0086'}
+    value: '0.5453'
+  - errors:
+    - {label: stat, symerror: '0.00050'}
+    - {label: sys, symerror: '0.0147'}
+    - {label: sys, symerror: '0.0084'}
+    value: '0.5375'
+  - errors:
+    - {label: stat, symerror: '0.00030'}
+    - {label: sys, symerror: '0.0145'}
+    - {label: sys, symerror: '0.0082'}
+    value: '0.5293'
+  - errors:
+    - {label: stat, symerror: '0.00030'}
+    - {label: sys, symerror: '0.0134'}
+    - {label: sys, symerror: '0.0078'}
+    value: '0.5142'
+  - errors:
+    - {label: stat, symerror: '0.00030'}
+    - {label: sys, symerror: '0.013'}
+    - {label: sys, symerror: '0.007'}
+    value: '0.4944'
+  - errors:
+    - {label: stat, symerror: '0.00040'}
+    - {label: sys, symerror: '0.012'}
+    - {label: sys, symerror: '0.0068'}
+    value: '0.4705'
+  - errors:
+    - {label: stat, symerror: '0.00050'}
+    - {label: sys, symerror: '0.0098'}
+    - {label: sys, symerror: '0.0061'}
+    value: '0.4336'
+independent_variables:
+- header: {name: DNch/DETRAP}
+  values:
+  - {high: 46.0, low: 44.0}
+  - {high: 37.0, low: 35.4}
+  - {high: 31.2, low: 29.8}
+  - {high: 23.7, low: 22.7}
+  - {high: 16.5, low: 15.7}
+  - {high: 10.0, low: 9.6}
+  - {high: 4.5, low: 4.3}
+- header: {name: EVENT CLASS, units: PCT}
+  values:
+  - {high: 5.0, low: 0.0}
+  - {high: 10.0, low: 5.0}
+  - {high: 20.0, low: 10.0}
+  - {high: 40.0, low: 20.0}
+  - {high: 60.0, low: 40.0}
+  - {high: 80.0, low: 60.0}
+  - {high: 100.0, low: 80.0}

@@ -1,0 +1,81 @@
+dependent_variables:
+- header: {name: C_PT, units: PCT}
+  qualifiers:
+  - {name: RE, value: AU AU --> CHARGED X}
+  - {name: ETARAP, value: ABS(ETARAP) < 0.5}
+  - {name: PT, units: GEV/C, value: 0.2 - 2.0}
+  - {name: CENTRALITY, value: 0-5%}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.025}
+    - {label: sys, symerror: 0.12}
+    value: 1.38
+  - errors:
+    - {label: stat, symerror: 0.02}
+    - {label: sys, symerror: 0.15}
+    value: 1.33
+  - errors:
+    - {label: stat, symerror: 0.04}
+    - {label: sys, symerror: 0.09}
+    value: 1.08
+  - errors:
+    - {label: stat, symerror: 0.04}
+    - {label: sys, symerror: 0.11}
+    value: 0.94
+  - errors:
+    - {label: stat, symerror: 0.02}
+    - {label: sys, symerror: 0.1}
+    value: 0.84
+  - errors:
+    - {label: stat, symerror: 0.03}
+    - {label: sys, symerror: 0.12}
+    value: 0.54
+  - errors:
+    - {label: stat, symerror: 0.08}
+    - {label: sys, symerror: 0.12}
+    value: 0.52
+- header: {name: C_PT, units: PCT}
+  qualifiers:
+  - {name: RE, value: AU AU --> CHARGED X}
+  - {name: ETARAP, value: ABS(ETARAP) < 0.5}
+  - {name: PT, units: GEV/C, value: 0.2 - 2.0}
+  - {name: CENTRALITY, value: 30-40%}
+  values:
+  - errors:
+    - {label: stat, symerror: 0.003}
+    - {label: sys, symerror: 0.082}
+    value: 3.23
+  - errors:
+    - {label: stat, symerror: 0.004}
+    - {label: sys, symerror: 0.12}
+    value: 3.39
+  - errors:
+    - {label: stat, symerror: 0.005}
+    - {label: sys, symerror: 0.13}
+    value: 2.78
+  - errors:
+    - {label: stat, symerror: 0.005}
+    - {label: sys, symerror: 0.15}
+    value: 2.78
+  - errors:
+    - {label: stat, symerror: 0.002}
+    - {label: sys, symerror: 0.14}
+    value: 2.8
+  - errors:
+    - {label: stat, symerror: 0.004}
+    - {label: sys, symerror: 0.14}
+    value: 2.35
+  - errors:
+    - {label: stat, symerror: 0.002}
+    - {label: sys, symerror: 0.14}
+    value: 1.91
+independent_variables:
+- header: {name: SQRT(S)/NUCLEON, units: GEV}
+  values:
+  - {value: 3}
+  - {value: 3.2}
+  - {value: 3.5}
+  - {value: 3.9}
+  - {value: 4.5}
+  - {value: 5.2}
+  - {value: 7.7}

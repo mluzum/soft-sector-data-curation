@@ -15,6 +15,12 @@ Usage:
     python scripts/download_hepdata.py --limit 5                 # Download first 5 records
     python scripts/download_hepdata.py --search-only             # Search + print summary, no download
     python scripts/download_hepdata.py --no-resume               # Redownload everything
+    python scripts/download_hepdata.py --only 3075174,1244523    # Only these INSPIRE ids (of the search)
+
+A sweep for new papers: --dry-run lists every heavy-ion record HEPData
+holds; the in-scope ones not yet in hepdata_raw/records are downloaded with
+--only (out-of-scope records -- jets, heavy flavour, photoproduction -- are
+not kept here).
 """
 
 import argparse
@@ -349,6 +355,8 @@ def main():
                         help="Skip collaboration-based search (reaction queries only, legacy mode)")
     parser.add_argument("--delay", type=float, default=3.0, help="Seconds between downloads")
     parser.add_argument("--verbose", "-v", action="store_true", help="Verbose output")
+    parser.add_argument("--only", default=None, metavar="IDS",
+                        help="comma-separated INSPIRE ids: download only these records of the search")
     args = parser.parse_args()
 
     do_download = not (args.dry_run or args.search_only)
@@ -361,6 +369,13 @@ def main():
     print("=== Searching HEPData for heavy-ion records ===")
     records = gather_records(client, verbose=args.verbose, use_collaboration_search=args.collaboration_search)
     print(f"  Found {len(records)} unique publications")
+    if args.only:
+        want = {x.strip() for x in args.only.split(",") if x.strip()}
+        missing = sorted(want - set(records))
+        if missing:
+            print(f"  WARNING: not found by the search: {', '.join(missing)}", file=sys.stderr)
+        records = {k: v for k, v in records.items() if k in want}
+        print(f"  --only: {len(records)} of them")
 
     if not records:
         print("  No records found. Aborting.")
