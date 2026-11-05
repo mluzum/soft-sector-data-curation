@@ -222,8 +222,11 @@ def vn_poi(arrays, w, order):
         four = four[:, None]
     d4 = four_p - 2.0 * d2 * c2
     c4 = four - 2.0 * c2 ** 2
-    den = np.abs(c4) ** 0.75
-    return np.where(den > 0, -d4 / np.where(den > 0, den, 1.0), 0.0)
+    # -d4 / v{4}^3 with the signed v{4} = sign(-c4) |c4|^(1/4) (until
+    # November 2026 the sign of -c4 was dropped: c4 > 0 gave a negative v{4}
+    # but an unflipped v'{4})
+    den = np.sign(-c4) * np.abs(c4) ** 0.75
+    return np.where(den != 0, -d4 / np.where(den != 0, den, 1.0), 0.0)
 
 
 # ── backends ────────────────────────────────────────────────────────────────

@@ -637,10 +637,12 @@ def _core_vn2_sp_diff(q_poi_bins, n_poi_bins, q_ref, w, dQ_cross=None,
         if nr.ndim == 1:
             nr = nr[:, None]
         ref_pow = ref_pow - np.average(nr, axis=0, weights=w)
-    # A non-positive reference power (no reference flow left after the
-    # self-correlation removal, or an empty reference) or a bin without
-    # POI particles has no v_n: NaN, not num / 1e-30.
-    denom_h = np.sqrt(np.maximum(ref_pow, 0.0))
+    # The reference amplitude is a signed root, sign(P) sqrt|P| of the
+    # reference power P (the convention of every v_n{k}: a reference whose
+    # pair correlation is negative flips the sign instead of giving NaN;
+    # until November 2026 NaN).  An empty reference (P = 0) or a bin
+    # without POI particles has no v_n: NaN, not num / 1e-30.
+    denom_h = np.sign(ref_pow) * np.sqrt(np.abs(ref_pow))
     has_poi = np.average(n_poi_bins, axis=0, weights=w) > 0
     inv_n = 1.0 / np.maximum(n_poi_bins, 1e-9)
     cross = _cross_avg(dQ_cross, n_poi_bins, w, per_event_normalised=True)
@@ -654,7 +656,7 @@ def _core_vn2_sp_diff(q_poi_bins, n_poi_bins, q_ref, w, dQ_cross=None,
         if cross is not None:
             num = num - cross
         d = np.broadcast_to(denom_h[h], num.shape)
-        out[h - 1, :] = np.where((d > 0) & has_poi, num / np.where(d > 0, d, 1.0), np.nan)
+        out[h - 1, :] = np.where((d != 0) & has_poi, num / np.where(d != 0, d, 1.0), np.nan)
     return out.ravel()
 
 
@@ -709,7 +711,9 @@ def _core_vn2_sp_diff_means(q_poi_bins, n_poi_bins, q_ref, n_ref, w,
     for h in range(1, n_harm):
         qr = q_ref[:, h, :] if per_bin else q_ref[:, h][:, None]
         ch = np.broadcast_to(np.asarray(C[h], dtype=float).reshape(-1), (n_bins,))
-        good = np.isfinite(ch) & (ch > 0)          # else NaN (out starts NaN)
+        # the reference c2 enters as sign(c2) sqrt|c2| (until November 2026 a
+        # negative c2 gave NaN); zero or undefined: NaN (out starts NaN)
+        good = np.isfinite(ch) & (ch != 0)
         if not good.any():
             continue
         M1 = np.sum(w[:, None] * np.real(q_poi_bins[:, h, :] *
@@ -725,8 +729,8 @@ def _core_vn2_sp_diff_means(q_poi_bins, n_poi_bins, q_ref, n_ref, w,
             pairs = pairs - dq
         M2 = np.sum(w[:, None] * pairs, axis=0)
         good_h = good & (M2 > 0)
-        out[h - 1, :] = np.where(good_h, M1 / np.where(M2 > 0, M2, 1.0) / np.sqrt(np.where(good, ch, 1.0)),
-                                 np.nan)
+        root = np.sign(ch) * np.sqrt(np.abs(np.where(good, ch, 1.0)))
+        out[h - 1, :] = np.where(good_h, M1 / np.where(M2 > 0, M2, 1.0) / root, np.nan)
     return out.ravel()
 
 
@@ -770,9 +774,10 @@ def _amplitude_vn(q_n, n_poi, w):
         return np.nan
     q2_mean = np.average(np.abs(q_n) ** 2, weights=w)
     num = q2_mean - m_mean
-    if not np.isfinite(num) or num <= 0:
+    if not np.isfinite(num):
         return np.nan
-    return float(np.sqrt(num / m2_mean))
+    # signed root, as v_n{2} (until November 2026 a non-positive num: NaN)
+    return float(np.sign(num) * np.sqrt(abs(num) / m2_mean))
 
 
 def _core_vn2_ep_diff_eta(q_poi_bins, n_poi_bins, w):
@@ -941,10 +946,11 @@ def compute_vn2_sp(q_poi, q_ref, n_poi, n_ref, w, same_window=False,
               if dQ0_poi is not None else m_poi)
     dq_ref = (np.average(np.asarray(dQ0_ref, dtype=float), weights=w)
               if dQ0_ref is not None else m_ref)
-    # Non-positive reference power or no POI: NaN (|.| used to hide a
-    # negative <|Q_ref|^2> - Sum w^2, and 1e-30 to turn 0/0 into 0 or 1e30).
+    # The reference amplitude is the signed root sign(P) sqrt|P| (a negative
+    # <|Q_ref|^2> - Sum w^2 flips the sign; until November 2026 NaN); an
+    # empty reference (P = 0) or no POI: NaN.
     ref_pow = np.average(np.abs(q_ref) ** 2, axis=0, weights=w) - dq_ref
-    denom_ref = np.sqrt(np.maximum(ref_pow, 0.0))
+    denom_ref = np.sign(ref_pow) * np.sqrt(np.abs(ref_pow))
     for h in range(1, q_poi.shape[1]):
         num = np.real(np.average(q_poi[:, h] * np.conj(q_ref[:, h]),
                                  weights=w))
@@ -954,7 +960,7 @@ def compute_vn2_sp(q_poi, q_ref, n_poi, n_ref, w, same_window=False,
         if dQ_cross is not None:
             # General nested / partially-overlapping case.
             num -= np.average(np.asarray(dQ_cross, dtype=float), weights=w)
-        out[h - 1] = num / (denom_ref[h] * m_poi) if ref_pow[h] > 0 and m_poi > 0 else np.nan
+        out[h - 1] = num / (denom_ref[h] * m_poi) if ref_pow[h] != 0 and m_poi > 0 else np.nan
     return out
 
 
@@ -1086,7 +1092,8 @@ def _core_vn2_diff_pT(Qn_int, Qn_pt_int, Q0, dQ0, dmq, w):
         den = Q0 * Q0 - dQ0
         num_mean = np.average(num, weights=w)
         den_mean = np.average(den, weights=w)
-        vn2_int = max(num_mean / max(den_mean, 1e-30), 0.0) ** 0.5
+        r_int = num_mean / max(den_mean, 1e-30)
+        vn2_int = np.sign(r_int) * abs(r_int) ** 0.5           # signed root
         pn_all = Qn_pt_int[:, h, :]
         mq_all = np.abs(Qn_pt_int[:, 0, :]).real
         dn_all = (pn_all.real * Qn_h.real[:, np.newaxis] +
@@ -1096,7 +1103,7 @@ def _core_vn2_diff_pT(Qn_int, Qn_pt_int, Q0, dQ0, dmq, w):
         dn_den_mean_all = np.sum(dn_den_all * w[:, np.newaxis], axis=0) / w_sum
         dn_ratio_all = np.where(dn_den_mean_all > 1e-30,
                                 dn_mean_all / dn_den_mean_all, 0.0)
-        out[h, :] = dn_ratio_all / max(vn2_int, 1e-30)
+        out[h, :] = dn_ratio_all / vn2_int if vn2_int != 0 else 0.0
     return out.ravel()
 
 

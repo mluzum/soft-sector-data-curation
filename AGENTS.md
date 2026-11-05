@@ -529,8 +529,22 @@ near c_4 = 0, ratios) the correction is unstable (zr96c2 dp0001, v2{4}
   A forward-detector reference (FCal, HF, BBC, EPD, RXN, Octagon) states
   `pT: {min: 0.0, max: 100.0}`; without it the reference takes the
   record's pT (until November 2026 ATLAS v_n(eta) at 4 < pT < 8 GeV had a
-  near-empty FCal reference).  A non-positive reference power, or a bin
-  without POI particles, gives NaN.
+  near-empty FCal reference).  The reference amplitude is a signed root of
+  its power (below); an empty reference or a bin without POI particles
+  gives NaN.
+- **Signed roots**: every v_n from a cumulant or a reference power keeps
+  its sign: v{2} = sign(c2) sqrt|c2|, v{4} = sign(-c4) |c4|^(1/4), v{6} =
+  sign(c6) |c6/4|^(1/6), v{8} = sign(-c8) |c8/33|^(1/8)
+  (`correlators.vn_from_cumulant`); a POI flow divides by the signed
+  reference (v'{2} = d2/v{2}, v'{4} = -d4/v{4}^3), a scalar-product or
+  amplitude estimator by sign(P) sqrt|P|.  Invertible (c = sign(v)|v|^k x
+  norm), no NaN, and a jackknife replicate whose cumulant crosses zero is
+  kept (a NaN replicate is replaced by the full-sample value, shrinking the
+  error).  Near c = 0 the root's slope diverges, so errors on v there are
+  non-Gaussian.  Until November 2026 v'{4} dropped the sign of -c4 and a
+  non-positive reference power or amplitude gave NaN;
+  tests/test_signed_roots.py.  (The JETSCAPE replica vn2_single_mor keeps
+  JETSCAPE's clipping.)
 - **Charge factors**:
   - 2D JETSCAPE containers hold positive charges only, so charged
     quantities take ×2, and self-correlation terms take ×CF², consistently;
