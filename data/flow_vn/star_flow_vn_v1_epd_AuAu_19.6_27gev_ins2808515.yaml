@@ -1,0 +1,1935 @@
+observable_type: flow_vn
+inspire_id: '2808515'
+version: 1
+hepdata_file: v1_19p6GeV_7centrality_01.yaml
+dv_index: 0
+hepdata_table_label: v1(eta) of charged particles in the EPD, Au+Au 19.6 GeV, 50-60% (v1_19p6GeV_7centrality_01.yaml)
+collision_system:
+  energy_gev: 19.6
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 50-60%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: charged multiplicity in the TPC, |eta| < 0.5.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -4.9371
+    max: 4.9369
+    bin_ranges:
+    - - -4.9371
+      - -4.4409
+    - - -4.4409
+      - -4.0289
+    - - -4.0289
+      - -3.727
+    - - -3.727
+      - -3.472
+    - - -3.472
+      - -3.2599
+    - - -3.2599
+      - -3.0855
+    - - -3.0855
+      - -2.9367
+    - - -2.9367
+      - -2.8065
+    - - -2.8065
+      - -2.6922
+    - - -2.6922
+      - -2.5901
+    - - -2.5901
+      - -2.4973
+    - - -2.4973
+      - -2.4126
+    - - -2.4126
+      - -2.3349
+    - - -2.3349
+      - -2.2631
+    - - -2.2631
+      - -2.1805
+    - - -2.1805
+      - -2.0842
+    - - 2.0843
+      - 2.1805
+    - - 2.1805
+      - 2.2632
+    - - 2.2632
+      - 2.335
+    - - 2.335
+      - 2.4127
+    - - 2.4127
+      - 2.4973
+    - - 2.4973
+      - 2.5901
+    - - 2.5901
+      - 2.6922
+    - - 2.6922
+      - 2.8066
+    - - 2.8066
+      - 2.9368
+    - - 2.9368
+      - 3.0856
+    - - 3.0856
+      - 3.2599
+    - - 3.2599
+      - 3.4721
+    - - 3.4721
+      - 3.7271
+    - - 3.7271
+      - 4.029
+    - - 4.029
+      - 4.4409
+    - - 4.4409
+      - 4.9369
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 1
+method: event_plane
+value_type: v1
+dimensionality: differential_eta
+flow_reference:
+  odd: true
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: 1.0
+  pT:
+    min: 0.15
+    max: 2.0
+  sign_convention:
+    species: charged
+    eta:
+      min: 0.0
+      max: 0.8
+    sign: negative
+  notes: First-order event plane of TPC tracks, |eta| < 1, 0.15 < pT < 2 GeV/c, weighted -eta (here signs +-1); resolution
+    from TPC, EPD east and EPD west.
+notes:
+  value: 'STAR Collaboration, PRC 111 (2025) 014906, arXiv:2406.18213. Rapidity-odd v1(eta) of charged particles in the EPD
+    (2.1 < |eta| < 5.1, minimum-ionizing particles per tile corrected for the STAR material to primary particles), Au+Au 19.6
+    GeV 50-60%, at the rings'' mean eta (bins midway between them). Sign: STAR''s convention, anchored on charged hadrons,
+    v1 < 0 at 0 < eta < 0.8 (all identified slopes there negative at 19.6 and 27 GeV). Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2808515'
+version: 1
+hepdata_file: v1_19p6GeV_7centrality_02.yaml
+dv_index: 0
+hepdata_table_label: v1(eta) of charged particles in the EPD, Au+Au 19.6 GeV, 40-50% (v1_19p6GeV_7centrality_02.yaml)
+collision_system:
+  energy_gev: 19.6
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 40-50%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: charged multiplicity in the TPC, |eta| < 0.5.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -4.9371
+    max: 4.9369
+    bin_ranges:
+    - - -4.9371
+      - -4.4409
+    - - -4.4409
+      - -4.0289
+    - - -4.0289
+      - -3.727
+    - - -3.727
+      - -3.472
+    - - -3.472
+      - -3.2599
+    - - -3.2599
+      - -3.0855
+    - - -3.0855
+      - -2.9367
+    - - -2.9367
+      - -2.8065
+    - - -2.8065
+      - -2.6921
+    - - -2.6921
+      - -2.59
+    - - -2.59
+      - -2.4973
+    - - -2.4973
+      - -2.4126
+    - - -2.4126
+      - -2.3349
+    - - -2.3349
+      - -2.2631
+    - - -2.2631
+      - -2.1805
+    - - -2.1805
+      - -2.0842
+    - - 2.0843
+      - 2.1805
+    - - 2.1805
+      - 2.2632
+    - - 2.2632
+      - 2.335
+    - - 2.335
+      - 2.4127
+    - - 2.4127
+      - 2.4973
+    - - 2.4973
+      - 2.5901
+    - - 2.5901
+      - 2.6922
+    - - 2.6922
+      - 2.8066
+    - - 2.8066
+      - 2.9368
+    - - 2.9368
+      - 3.0856
+    - - 3.0856
+      - 3.2599
+    - - 3.2599
+      - 3.4721
+    - - 3.4721
+      - 3.7271
+    - - 3.7271
+      - 4.029
+    - - 4.029
+      - 4.4409
+    - - 4.4409
+      - 4.9369
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 1
+method: event_plane
+value_type: v1
+dimensionality: differential_eta
+flow_reference:
+  odd: true
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: 1.0
+  pT:
+    min: 0.15
+    max: 2.0
+  sign_convention:
+    species: charged
+    eta:
+      min: 0.0
+      max: 0.8
+    sign: negative
+  notes: First-order event plane of TPC tracks, |eta| < 1, 0.15 < pT < 2 GeV/c, weighted -eta (here signs +-1); resolution
+    from TPC, EPD east and EPD west.
+notes:
+  value: 'STAR Collaboration, PRC 111 (2025) 014906, arXiv:2406.18213. Rapidity-odd v1(eta) of charged particles in the EPD
+    (2.1 < |eta| < 5.1, minimum-ionizing particles per tile corrected for the STAR material to primary particles), Au+Au 19.6
+    GeV 40-50%, at the rings'' mean eta (bins midway between them). Sign: STAR''s convention, anchored on charged hadrons,
+    v1 < 0 at 0 < eta < 0.8 (all identified slopes there negative at 19.6 and 27 GeV). Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2808515'
+version: 1
+hepdata_file: v1_19p6GeV_7centrality_03.yaml
+dv_index: 0
+hepdata_table_label: v1(eta) of charged particles in the EPD, Au+Au 19.6 GeV, 30-40% (v1_19p6GeV_7centrality_03.yaml)
+collision_system:
+  energy_gev: 19.6
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 30-40%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: charged multiplicity in the TPC, |eta| < 0.5.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -4.9371
+    max: 4.9368
+    bin_ranges:
+    - - -4.9371
+      - -4.4409
+    - - -4.4409
+      - -4.0288
+    - - -4.0288
+      - -3.727
+    - - -3.727
+      - -3.472
+    - - -3.472
+      - -3.2599
+    - - -3.2599
+      - -3.0855
+    - - -3.0855
+      - -2.9367
+    - - -2.9367
+      - -2.8065
+    - - -2.8065
+      - -2.6921
+    - - -2.6921
+      - -2.59
+    - - -2.59
+      - -2.4973
+    - - -2.4973
+      - -2.4126
+    - - -2.4126
+      - -2.3349
+    - - -2.3349
+      - -2.2631
+    - - -2.2631
+      - -2.1805
+    - - -2.1805
+      - -2.0842
+    - - 2.0843
+      - 2.1805
+    - - 2.1805
+      - 2.2632
+    - - 2.2632
+      - 2.335
+    - - 2.335
+      - 2.4127
+    - - 2.4127
+      - 2.4973
+    - - 2.4973
+      - 2.5901
+    - - 2.5901
+      - 2.6922
+    - - 2.6922
+      - 2.8066
+    - - 2.8066
+      - 2.9368
+    - - 2.9368
+      - 3.0856
+    - - 3.0856
+      - 3.2599
+    - - 3.2599
+      - 3.4721
+    - - 3.4721
+      - 3.7271
+    - - 3.7271
+      - 4.0289
+    - - 4.0289
+      - 4.4409
+    - - 4.4409
+      - 4.9368
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 1
+method: event_plane
+value_type: v1
+dimensionality: differential_eta
+flow_reference:
+  odd: true
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: 1.0
+  pT:
+    min: 0.15
+    max: 2.0
+  sign_convention:
+    species: charged
+    eta:
+      min: 0.0
+      max: 0.8
+    sign: negative
+  notes: First-order event plane of TPC tracks, |eta| < 1, 0.15 < pT < 2 GeV/c, weighted -eta (here signs +-1); resolution
+    from TPC, EPD east and EPD west.
+notes:
+  value: 'STAR Collaboration, PRC 111 (2025) 014906, arXiv:2406.18213. Rapidity-odd v1(eta) of charged particles in the EPD
+    (2.1 < |eta| < 5.1, minimum-ionizing particles per tile corrected for the STAR material to primary particles), Au+Au 19.6
+    GeV 30-40%, at the rings'' mean eta (bins midway between them). Sign: STAR''s convention, anchored on charged hadrons,
+    v1 < 0 at 0 < eta < 0.8 (all identified slopes there negative at 19.6 and 27 GeV). Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2808515'
+version: 1
+hepdata_file: v1_19p6GeV_7centrality_04.yaml
+dv_index: 0
+hepdata_table_label: v1(eta) of charged particles in the EPD, Au+Au 19.6 GeV, 20-30% (v1_19p6GeV_7centrality_04.yaml)
+collision_system:
+  energy_gev: 19.6
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 20-30%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: charged multiplicity in the TPC, |eta| < 0.5.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -4.9371
+    max: 4.9368
+    bin_ranges:
+    - - -4.9371
+      - -4.4409
+    - - -4.4409
+      - -4.0288
+    - - -4.0288
+      - -3.727
+    - - -3.727
+      - -3.472
+    - - -3.472
+      - -3.2599
+    - - -3.2599
+      - -3.0855
+    - - -3.0855
+      - -2.9367
+    - - -2.9367
+      - -2.8065
+    - - -2.8065
+      - -2.6921
+    - - -2.6921
+      - -2.59
+    - - -2.59
+      - -2.4973
+    - - -2.4973
+      - -2.4126
+    - - -2.4126
+      - -2.3349
+    - - -2.3349
+      - -2.2631
+    - - -2.2631
+      - -2.1805
+    - - -2.1805
+      - -2.0842
+    - - 2.0843
+      - 2.1805
+    - - 2.1805
+      - 2.2632
+    - - 2.2632
+      - 2.335
+    - - 2.335
+      - 2.4127
+    - - 2.4127
+      - 2.4973
+    - - 2.4973
+      - 2.5901
+    - - 2.5901
+      - 2.6922
+    - - 2.6922
+      - 2.8066
+    - - 2.8066
+      - 2.9368
+    - - 2.9368
+      - 3.0855
+    - - 3.0855
+      - 3.2599
+    - - 3.2599
+      - 3.4721
+    - - 3.4721
+      - 3.7271
+    - - 3.7271
+      - 4.0289
+    - - 4.0289
+      - 4.4409
+    - - 4.4409
+      - 4.9368
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 1
+method: event_plane
+value_type: v1
+dimensionality: differential_eta
+flow_reference:
+  odd: true
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: 1.0
+  pT:
+    min: 0.15
+    max: 2.0
+  sign_convention:
+    species: charged
+    eta:
+      min: 0.0
+      max: 0.8
+    sign: negative
+  notes: First-order event plane of TPC tracks, |eta| < 1, 0.15 < pT < 2 GeV/c, weighted -eta (here signs +-1); resolution
+    from TPC, EPD east and EPD west.
+notes:
+  value: 'STAR Collaboration, PRC 111 (2025) 014906, arXiv:2406.18213. Rapidity-odd v1(eta) of charged particles in the EPD
+    (2.1 < |eta| < 5.1, minimum-ionizing particles per tile corrected for the STAR material to primary particles), Au+Au 19.6
+    GeV 20-30%, at the rings'' mean eta (bins midway between them). Sign: STAR''s convention, anchored on charged hadrons,
+    v1 < 0 at 0 < eta < 0.8 (all identified slopes there negative at 19.6 and 27 GeV). Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2808515'
+version: 1
+hepdata_file: v1_19p6GeV_7centrality_05.yaml
+dv_index: 0
+hepdata_table_label: v1(eta) of charged particles in the EPD, Au+Au 19.6 GeV, 10-20% (v1_19p6GeV_7centrality_05.yaml)
+collision_system:
+  energy_gev: 19.6
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 10-20%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: charged multiplicity in the TPC, |eta| < 0.5.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -4.9372
+    max: 4.9368
+    bin_ranges:
+    - - -4.9372
+      - -4.4409
+    - - -4.4409
+      - -4.0288
+    - - -4.0288
+      - -3.7269
+    - - -3.7269
+      - -3.4719
+    - - -3.4719
+      - -3.2599
+    - - -3.2599
+      - -3.0855
+    - - -3.0855
+      - -2.9367
+    - - -2.9367
+      - -2.8065
+    - - -2.8065
+      - -2.6921
+    - - -2.6921
+      - -2.59
+    - - -2.59
+      - -2.4973
+    - - -2.4973
+      - -2.4126
+    - - -2.4126
+      - -2.3349
+    - - -2.3349
+      - -2.2631
+    - - -2.2631
+      - -2.1805
+    - - -2.1805
+      - -2.0842
+    - - 2.0843
+      - 2.1805
+    - - 2.1805
+      - 2.2632
+    - - 2.2632
+      - 2.335
+    - - 2.335
+      - 2.4127
+    - - 2.4127
+      - 2.4973
+    - - 2.4973
+      - 2.5901
+    - - 2.5901
+      - 2.6922
+    - - 2.6922
+      - 2.8066
+    - - 2.8066
+      - 2.9368
+    - - 2.9368
+      - 3.0855
+    - - 3.0855
+      - 3.2599
+    - - 3.2599
+      - 3.472
+    - - 3.472
+      - 3.727
+    - - 3.727
+      - 4.0289
+    - - 4.0289
+      - 4.4409
+    - - 4.4409
+      - 4.9368
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 1
+method: event_plane
+value_type: v1
+dimensionality: differential_eta
+flow_reference:
+  odd: true
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: 1.0
+  pT:
+    min: 0.15
+    max: 2.0
+  sign_convention:
+    species: charged
+    eta:
+      min: 0.0
+      max: 0.8
+    sign: negative
+  notes: First-order event plane of TPC tracks, |eta| < 1, 0.15 < pT < 2 GeV/c, weighted -eta (here signs +-1); resolution
+    from TPC, EPD east and EPD west.
+notes:
+  value: 'STAR Collaboration, PRC 111 (2025) 014906, arXiv:2406.18213. Rapidity-odd v1(eta) of charged particles in the EPD
+    (2.1 < |eta| < 5.1, minimum-ionizing particles per tile corrected for the STAR material to primary particles), Au+Au 19.6
+    GeV 10-20%, at the rings'' mean eta (bins midway between them). Sign: STAR''s convention, anchored on charged hadrons,
+    v1 < 0 at 0 < eta < 0.8 (all identified slopes there negative at 19.6 and 27 GeV). Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2808515'
+version: 1
+hepdata_file: v1_19p6GeV_7centrality_06.yaml
+dv_index: 0
+hepdata_table_label: v1(eta) of charged particles in the EPD, Au+Au 19.6 GeV, 5-10% (v1_19p6GeV_7centrality_06.yaml)
+collision_system:
+  energy_gev: 19.6
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 5-10%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: charged multiplicity in the TPC, |eta| < 0.5.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -4.9372
+    max: 4.9368
+    bin_ranges:
+    - - -4.9372
+      - -4.4409
+    - - -4.4409
+      - -4.0288
+    - - -4.0288
+      - -3.7269
+    - - -3.7269
+      - -3.4719
+    - - -3.4719
+      - -3.2598
+    - - -3.2598
+      - -3.0855
+    - - -3.0855
+      - -2.9367
+    - - -2.9367
+      - -2.8065
+    - - -2.8065
+      - -2.6921
+    - - -2.6921
+      - -2.59
+    - - -2.59
+      - -2.4973
+    - - -2.4973
+      - -2.4126
+    - - -2.4126
+      - -2.3349
+    - - -2.3349
+      - -2.2631
+    - - -2.2631
+      - -2.1805
+    - - -2.1805
+      - -2.0842
+    - - 2.0843
+      - 2.1805
+    - - 2.1805
+      - 2.2632
+    - - 2.2632
+      - 2.335
+    - - 2.335
+      - 2.4127
+    - - 2.4127
+      - 2.4973
+    - - 2.4973
+      - 2.5901
+    - - 2.5901
+      - 2.6922
+    - - 2.6922
+      - 2.8066
+    - - 2.8066
+      - 2.9368
+    - - 2.9368
+      - 3.0855
+    - - 3.0855
+      - 3.2599
+    - - 3.2599
+      - 3.472
+    - - 3.472
+      - 3.727
+    - - 3.727
+      - 4.0289
+    - - 4.0289
+      - 4.4408
+    - - 4.4408
+      - 4.9368
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 1
+method: event_plane
+value_type: v1
+dimensionality: differential_eta
+flow_reference:
+  odd: true
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: 1.0
+  pT:
+    min: 0.15
+    max: 2.0
+  sign_convention:
+    species: charged
+    eta:
+      min: 0.0
+      max: 0.8
+    sign: negative
+  notes: First-order event plane of TPC tracks, |eta| < 1, 0.15 < pT < 2 GeV/c, weighted -eta (here signs +-1); resolution
+    from TPC, EPD east and EPD west.
+notes:
+  value: 'STAR Collaboration, PRC 111 (2025) 014906, arXiv:2406.18213. Rapidity-odd v1(eta) of charged particles in the EPD
+    (2.1 < |eta| < 5.1, minimum-ionizing particles per tile corrected for the STAR material to primary particles), Au+Au 19.6
+    GeV 5-10%, at the rings'' mean eta (bins midway between them). Sign: STAR''s convention, anchored on charged hadrons,
+    v1 < 0 at 0 < eta < 0.8 (all identified slopes there negative at 19.6 and 27 GeV). Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2808515'
+version: 1
+hepdata_file: v1_19p6GeV_7centrality_07.yaml
+dv_index: 0
+hepdata_table_label: v1(eta) of charged particles in the EPD, Au+Au 19.6 GeV, 0-5% (v1_19p6GeV_7centrality_07.yaml)
+collision_system:
+  energy_gev: 19.6
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: charged multiplicity in the TPC, |eta| < 0.5.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -4.9372
+    max: 4.9368
+    bin_ranges:
+    - - -4.9372
+      - -4.4409
+    - - -4.4409
+      - -4.0288
+    - - -4.0288
+      - -3.7269
+    - - -3.7269
+      - -3.4719
+    - - -3.4719
+      - -3.2598
+    - - -3.2598
+      - -3.0855
+    - - -3.0855
+      - -2.9367
+    - - -2.9367
+      - -2.8065
+    - - -2.8065
+      - -2.6921
+    - - -2.6921
+      - -2.59
+    - - -2.59
+      - -2.4973
+    - - -2.4973
+      - -2.4126
+    - - -2.4126
+      - -2.3349
+    - - -2.3349
+      - -2.2631
+    - - -2.2631
+      - -2.1805
+    - - -2.1805
+      - -2.0842
+    - - 2.0843
+      - 2.1805
+    - - 2.1805
+      - 2.2632
+    - - 2.2632
+      - 2.335
+    - - 2.335
+      - 2.4127
+    - - 2.4127
+      - 2.4973
+    - - 2.4973
+      - 2.5901
+    - - 2.5901
+      - 2.6922
+    - - 2.6922
+      - 2.8066
+    - - 2.8066
+      - 2.9368
+    - - 2.9368
+      - 3.0855
+    - - 3.0855
+      - 3.2599
+    - - 3.2599
+      - 3.472
+    - - 3.472
+      - 3.727
+    - - 3.727
+      - 4.0288
+    - - 4.0288
+      - 4.4408
+    - - 4.4408
+      - 4.9368
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 1
+method: event_plane
+value_type: v1
+dimensionality: differential_eta
+flow_reference:
+  odd: true
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: 1.0
+  pT:
+    min: 0.15
+    max: 2.0
+  sign_convention:
+    species: charged
+    eta:
+      min: 0.0
+      max: 0.8
+    sign: negative
+  notes: First-order event plane of TPC tracks, |eta| < 1, 0.15 < pT < 2 GeV/c, weighted -eta (here signs +-1); resolution
+    from TPC, EPD east and EPD west.
+notes:
+  value: 'STAR Collaboration, PRC 111 (2025) 014906, arXiv:2406.18213. Rapidity-odd v1(eta) of charged particles in the EPD
+    (2.1 < |eta| < 5.1, minimum-ionizing particles per tile corrected for the STAR material to primary particles), Au+Au 19.6
+    GeV 0-5%, at the rings'' mean eta (bins midway between them). Sign: STAR''s convention, anchored on charged hadrons, v1
+    < 0 at 0 < eta < 0.8 (all identified slopes there negative at 19.6 and 27 GeV). Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2808515'
+version: 1
+hepdata_file: v1_19p6GeV_10_40_01.yaml
+dv_index: 0
+hepdata_table_label: v1(eta) of charged particles in the EPD, Au+Au 19.6 GeV, 10-40% (v1_19p6GeV_10_40_01.yaml)
+collision_system:
+  energy_gev: 19.6
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: charged multiplicity in the TPC, |eta| < 0.5.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -4.9371
+    max: 4.9369
+    bin_ranges:
+    - - -4.9371
+      - -4.4409
+    - - -4.4409
+      - -4.0288
+    - - -4.0288
+      - -3.7269
+    - - -3.7269
+      - -3.4719
+    - - -3.4719
+      - -3.2599
+    - - -3.2599
+      - -3.0855
+    - - -3.0855
+      - -2.9367
+    - - -2.9367
+      - -2.8065
+    - - -2.8065
+      - -2.6921
+    - - -2.6921
+      - -2.59
+    - - -2.59
+      - -2.4973
+    - - -2.4973
+      - -2.4126
+    - - -2.4126
+      - -2.3349
+    - - -2.3349
+      - -2.2631
+    - - -2.2631
+      - -2.1805
+    - - -2.1805
+      - -2.0842
+    - - 2.0843
+      - 2.1805
+    - - 2.1805
+      - 2.2632
+    - - 2.2632
+      - 2.335
+    - - 2.335
+      - 2.4127
+    - - 2.4127
+      - 2.4973
+    - - 2.4973
+      - 2.5901
+    - - 2.5901
+      - 2.6922
+    - - 2.6922
+      - 2.8066
+    - - 2.8066
+      - 2.9368
+    - - 2.9368
+      - 3.0855
+    - - 3.0855
+      - 3.2599
+    - - 3.2599
+      - 3.4721
+    - - 3.4721
+      - 3.7271
+    - - 3.7271
+      - 4.0289
+    - - 4.0289
+      - 4.4409
+    - - 4.4409
+      - 4.9369
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 1
+method: event_plane
+value_type: v1
+dimensionality: differential_eta
+flow_reference:
+  odd: true
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: 1.0
+  pT:
+    min: 0.15
+    max: 2.0
+  sign_convention:
+    species: charged
+    eta:
+      min: 0.0
+      max: 0.8
+    sign: negative
+  notes: First-order event plane of TPC tracks, |eta| < 1, 0.15 < pT < 2 GeV/c, weighted -eta (here signs +-1); resolution
+    from TPC, EPD east and EPD west.
+notes:
+  value: 'STAR Collaboration, PRC 111 (2025) 014906, arXiv:2406.18213. Rapidity-odd v1(eta) of charged particles in the EPD
+    (2.1 < |eta| < 5.1, minimum-ionizing particles per tile corrected for the STAR material to primary particles), Au+Au 19.6
+    GeV 10-40%, at the rings'' mean eta (bins midway between them). Sign: STAR''s convention, anchored on charged hadrons,
+    v1 < 0 at 0 < eta < 0.8 (all identified slopes there negative at 19.6 and 27 GeV). Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2808515'
+version: 1
+hepdata_file: v1_27GeV_7centrality_01.yaml
+dv_index: 0
+hepdata_table_label: v1(eta) of charged particles in the EPD, Au+Au 27 GeV, 50-60% (v1_27GeV_7centrality_01.yaml)
+collision_system:
+  energy_gev: 27.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 50-60%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: charged multiplicity in the TPC, |eta| < 0.5.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -4.9371
+    max: 4.9368
+    bin_ranges:
+    - - -4.9371
+      - -4.4409
+    - - -4.4409
+      - -4.0288
+    - - -4.0288
+      - -3.727
+    - - -3.727
+      - -3.472
+    - - -3.472
+      - -3.2599
+    - - -3.2599
+      - -3.0855
+    - - -3.0855
+      - -2.9367
+    - - -2.9367
+      - -2.8065
+    - - -2.8065
+      - -2.6921
+    - - -2.6921
+      - -2.59
+    - - -2.59
+      - -2.4973
+    - - -2.4973
+      - -2.4126
+    - - -2.4126
+      - -2.3349
+    - - -2.3349
+      - -2.2631
+    - - -2.2631
+      - -2.1805
+    - - -2.1805
+      - -2.0842
+    - - 2.0843
+      - 2.1805
+    - - 2.1805
+      - 2.2632
+    - - 2.2632
+      - 2.335
+    - - 2.335
+      - 2.4127
+    - - 2.4127
+      - 2.4973
+    - - 2.4973
+      - 2.5901
+    - - 2.5901
+      - 2.6922
+    - - 2.6922
+      - 2.8066
+    - - 2.8066
+      - 2.9368
+    - - 2.9368
+      - 3.0856
+    - - 3.0856
+      - 3.2599
+    - - 3.2599
+      - 3.4721
+    - - 3.4721
+      - 3.7271
+    - - 3.7271
+      - 4.0289
+    - - 4.0289
+      - 4.4409
+    - - 4.4409
+      - 4.9368
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 1
+method: event_plane
+value_type: v1
+dimensionality: differential_eta
+flow_reference:
+  odd: true
+  detector: TPC
+  eta:
+  - min: -0.8
+    max: 0.8
+  pT:
+    min: 0.15
+    max: 2.0
+  sign_convention:
+    species: charged
+    eta:
+      min: 0.0
+      max: 0.8
+    sign: negative
+  notes: First-order event plane of TPC tracks, |eta| < 0.8, 0.15 < pT < 2 GeV/c, weighted -eta (here signs +-1); resolution
+    from TPC, EPD east and EPD west.
+notes:
+  value: 'STAR Collaboration, PRC 111 (2025) 014906, arXiv:2406.18213. Rapidity-odd v1(eta) of charged particles in the EPD
+    (2.1 < |eta| < 5.1, minimum-ionizing particles per tile corrected for the STAR material to primary particles), Au+Au 27
+    GeV 50-60%, at the rings'' mean eta (bins midway between them). Sign: STAR''s convention, anchored on charged hadrons,
+    v1 < 0 at 0 < eta < 0.8 (all identified slopes there negative at 19.6 and 27 GeV). Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2808515'
+version: 1
+hepdata_file: v1_27GeV_7centrality_02.yaml
+dv_index: 0
+hepdata_table_label: v1(eta) of charged particles in the EPD, Au+Au 27 GeV, 40-50% (v1_27GeV_7centrality_02.yaml)
+collision_system:
+  energy_gev: 27.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 40-50%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: charged multiplicity in the TPC, |eta| < 0.5.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -4.9371
+    max: 4.9368
+    bin_ranges:
+    - - -4.9371
+      - -4.4409
+    - - -4.4409
+      - -4.0288
+    - - -4.0288
+      - -3.727
+    - - -3.727
+      - -3.472
+    - - -3.472
+      - -3.2599
+    - - -3.2599
+      - -3.0855
+    - - -3.0855
+      - -2.9367
+    - - -2.9367
+      - -2.8065
+    - - -2.8065
+      - -2.6921
+    - - -2.6921
+      - -2.59
+    - - -2.59
+      - -2.4973
+    - - -2.4973
+      - -2.4126
+    - - -2.4126
+      - -2.3349
+    - - -2.3349
+      - -2.2631
+    - - -2.2631
+      - -2.1805
+    - - -2.1805
+      - -2.0842
+    - - 2.0843
+      - 2.1805
+    - - 2.1805
+      - 2.2632
+    - - 2.2632
+      - 2.335
+    - - 2.335
+      - 2.4127
+    - - 2.4127
+      - 2.4973
+    - - 2.4973
+      - 2.5901
+    - - 2.5901
+      - 2.6922
+    - - 2.6922
+      - 2.8066
+    - - 2.8066
+      - 2.9368
+    - - 2.9368
+      - 3.0856
+    - - 3.0856
+      - 3.2599
+    - - 3.2599
+      - 3.4721
+    - - 3.4721
+      - 3.7271
+    - - 3.7271
+      - 4.0289
+    - - 4.0289
+      - 4.4409
+    - - 4.4409
+      - 4.9368
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 1
+method: event_plane
+value_type: v1
+dimensionality: differential_eta
+flow_reference:
+  odd: true
+  detector: TPC
+  eta:
+  - min: -0.8
+    max: 0.8
+  pT:
+    min: 0.15
+    max: 2.0
+  sign_convention:
+    species: charged
+    eta:
+      min: 0.0
+      max: 0.8
+    sign: negative
+  notes: First-order event plane of TPC tracks, |eta| < 0.8, 0.15 < pT < 2 GeV/c, weighted -eta (here signs +-1); resolution
+    from TPC, EPD east and EPD west.
+notes:
+  value: 'STAR Collaboration, PRC 111 (2025) 014906, arXiv:2406.18213. Rapidity-odd v1(eta) of charged particles in the EPD
+    (2.1 < |eta| < 5.1, minimum-ionizing particles per tile corrected for the STAR material to primary particles), Au+Au 27
+    GeV 40-50%, at the rings'' mean eta (bins midway between them). Sign: STAR''s convention, anchored on charged hadrons,
+    v1 < 0 at 0 < eta < 0.8 (all identified slopes there negative at 19.6 and 27 GeV). Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2808515'
+version: 1
+hepdata_file: v1_27GeV_7centrality_03.yaml
+dv_index: 0
+hepdata_table_label: v1(eta) of charged particles in the EPD, Au+Au 27 GeV, 30-40% (v1_27GeV_7centrality_03.yaml)
+collision_system:
+  energy_gev: 27.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 30-40%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: charged multiplicity in the TPC, |eta| < 0.5.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -4.9371
+    max: 4.9368
+    bin_ranges:
+    - - -4.9371
+      - -4.4409
+    - - -4.4409
+      - -4.0288
+    - - -4.0288
+      - -3.727
+    - - -3.727
+      - -3.472
+    - - -3.472
+      - -3.2599
+    - - -3.2599
+      - -3.0855
+    - - -3.0855
+      - -2.9367
+    - - -2.9367
+      - -2.8065
+    - - -2.8065
+      - -2.6921
+    - - -2.6921
+      - -2.59
+    - - -2.59
+      - -2.4973
+    - - -2.4973
+      - -2.4126
+    - - -2.4126
+      - -2.3349
+    - - -2.3349
+      - -2.2631
+    - - -2.2631
+      - -2.1805
+    - - -2.1805
+      - -2.0842
+    - - 2.0843
+      - 2.1805
+    - - 2.1805
+      - 2.2632
+    - - 2.2632
+      - 2.335
+    - - 2.335
+      - 2.4127
+    - - 2.4127
+      - 2.4973
+    - - 2.4973
+      - 2.5901
+    - - 2.5901
+      - 2.6922
+    - - 2.6922
+      - 2.8066
+    - - 2.8066
+      - 2.9368
+    - - 2.9368
+      - 3.0856
+    - - 3.0856
+      - 3.2599
+    - - 3.2599
+      - 3.4721
+    - - 3.4721
+      - 3.7271
+    - - 3.7271
+      - 4.0289
+    - - 4.0289
+      - 4.4409
+    - - 4.4409
+      - 4.9368
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 1
+method: event_plane
+value_type: v1
+dimensionality: differential_eta
+flow_reference:
+  odd: true
+  detector: TPC
+  eta:
+  - min: -0.8
+    max: 0.8
+  pT:
+    min: 0.15
+    max: 2.0
+  sign_convention:
+    species: charged
+    eta:
+      min: 0.0
+      max: 0.8
+    sign: negative
+  notes: First-order event plane of TPC tracks, |eta| < 0.8, 0.15 < pT < 2 GeV/c, weighted -eta (here signs +-1); resolution
+    from TPC, EPD east and EPD west.
+notes:
+  value: 'STAR Collaboration, PRC 111 (2025) 014906, arXiv:2406.18213. Rapidity-odd v1(eta) of charged particles in the EPD
+    (2.1 < |eta| < 5.1, minimum-ionizing particles per tile corrected for the STAR material to primary particles), Au+Au 27
+    GeV 30-40%, at the rings'' mean eta (bins midway between them). Sign: STAR''s convention, anchored on charged hadrons,
+    v1 < 0 at 0 < eta < 0.8 (all identified slopes there negative at 19.6 and 27 GeV). Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2808515'
+version: 1
+hepdata_file: v1_27GeV_7centrality_04.yaml
+dv_index: 0
+hepdata_table_label: v1(eta) of charged particles in the EPD, Au+Au 27 GeV, 20-30% (v1_27GeV_7centrality_04.yaml)
+collision_system:
+  energy_gev: 27.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 20-30%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: charged multiplicity in the TPC, |eta| < 0.5.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -4.9371
+    max: 4.9368
+    bin_ranges:
+    - - -4.9371
+      - -4.4409
+    - - -4.4409
+      - -4.0288
+    - - -4.0288
+      - -3.7269
+    - - -3.7269
+      - -3.4719
+    - - -3.4719
+      - -3.2599
+    - - -3.2599
+      - -3.0855
+    - - -3.0855
+      - -2.9367
+    - - -2.9367
+      - -2.8065
+    - - -2.8065
+      - -2.6921
+    - - -2.6921
+      - -2.59
+    - - -2.59
+      - -2.4973
+    - - -2.4973
+      - -2.4126
+    - - -2.4126
+      - -2.3349
+    - - -2.3349
+      - -2.2631
+    - - -2.2631
+      - -2.1805
+    - - -2.1805
+      - -2.0842
+    - - 2.0843
+      - 2.1805
+    - - 2.1805
+      - 2.2632
+    - - 2.2632
+      - 2.335
+    - - 2.335
+      - 2.4127
+    - - 2.4127
+      - 2.4973
+    - - 2.4973
+      - 2.5901
+    - - 2.5901
+      - 2.6922
+    - - 2.6922
+      - 2.8066
+    - - 2.8066
+      - 2.9368
+    - - 2.9368
+      - 3.0855
+    - - 3.0855
+      - 3.2599
+    - - 3.2599
+      - 3.4721
+    - - 3.4721
+      - 3.7271
+    - - 3.7271
+      - 4.0289
+    - - 4.0289
+      - 4.4409
+    - - 4.4409
+      - 4.9368
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 1
+method: event_plane
+value_type: v1
+dimensionality: differential_eta
+flow_reference:
+  odd: true
+  detector: TPC
+  eta:
+  - min: -0.8
+    max: 0.8
+  pT:
+    min: 0.15
+    max: 2.0
+  sign_convention:
+    species: charged
+    eta:
+      min: 0.0
+      max: 0.8
+    sign: negative
+  notes: First-order event plane of TPC tracks, |eta| < 0.8, 0.15 < pT < 2 GeV/c, weighted -eta (here signs +-1); resolution
+    from TPC, EPD east and EPD west.
+notes:
+  value: 'STAR Collaboration, PRC 111 (2025) 014906, arXiv:2406.18213. Rapidity-odd v1(eta) of charged particles in the EPD
+    (2.1 < |eta| < 5.1, minimum-ionizing particles per tile corrected for the STAR material to primary particles), Au+Au 27
+    GeV 20-30%, at the rings'' mean eta (bins midway between them). Sign: STAR''s convention, anchored on charged hadrons,
+    v1 < 0 at 0 < eta < 0.8 (all identified slopes there negative at 19.6 and 27 GeV). Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2808515'
+version: 1
+hepdata_file: v1_27GeV_7centrality_05.yaml
+dv_index: 0
+hepdata_table_label: v1(eta) of charged particles in the EPD, Au+Au 27 GeV, 10-20% (v1_27GeV_7centrality_05.yaml)
+collision_system:
+  energy_gev: 27.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 10-20%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: charged multiplicity in the TPC, |eta| < 0.5.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -4.9372
+    max: 4.9368
+    bin_ranges:
+    - - -4.9372
+      - -4.4409
+    - - -4.4409
+      - -4.0288
+    - - -4.0288
+      - -3.7269
+    - - -3.7269
+      - -3.4719
+    - - -3.4719
+      - -3.2598
+    - - -3.2598
+      - -3.0855
+    - - -3.0855
+      - -2.9367
+    - - -2.9367
+      - -2.8065
+    - - -2.8065
+      - -2.6921
+    - - -2.6921
+      - -2.59
+    - - -2.59
+      - -2.4973
+    - - -2.4973
+      - -2.4126
+    - - -2.4126
+      - -2.3349
+    - - -2.3349
+      - -2.2631
+    - - -2.2631
+      - -2.1805
+    - - -2.1805
+      - -2.0842
+    - - 2.0843
+      - 2.1805
+    - - 2.1805
+      - 2.2632
+    - - 2.2632
+      - 2.335
+    - - 2.335
+      - 2.4127
+    - - 2.4127
+      - 2.4973
+    - - 2.4973
+      - 2.5901
+    - - 2.5901
+      - 2.6922
+    - - 2.6922
+      - 2.8066
+    - - 2.8066
+      - 2.9368
+    - - 2.9368
+      - 3.0855
+    - - 3.0855
+      - 3.2599
+    - - 3.2599
+      - 3.472
+    - - 3.472
+      - 3.727
+    - - 3.727
+      - 4.0289
+    - - 4.0289
+      - 4.4409
+    - - 4.4409
+      - 4.9368
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 1
+method: event_plane
+value_type: v1
+dimensionality: differential_eta
+flow_reference:
+  odd: true
+  detector: TPC
+  eta:
+  - min: -0.8
+    max: 0.8
+  pT:
+    min: 0.15
+    max: 2.0
+  sign_convention:
+    species: charged
+    eta:
+      min: 0.0
+      max: 0.8
+    sign: negative
+  notes: First-order event plane of TPC tracks, |eta| < 0.8, 0.15 < pT < 2 GeV/c, weighted -eta (here signs +-1); resolution
+    from TPC, EPD east and EPD west.
+notes:
+  value: 'STAR Collaboration, PRC 111 (2025) 014906, arXiv:2406.18213. Rapidity-odd v1(eta) of charged particles in the EPD
+    (2.1 < |eta| < 5.1, minimum-ionizing particles per tile corrected for the STAR material to primary particles), Au+Au 27
+    GeV 10-20%, at the rings'' mean eta (bins midway between them). Sign: STAR''s convention, anchored on charged hadrons,
+    v1 < 0 at 0 < eta < 0.8 (all identified slopes there negative at 19.6 and 27 GeV). Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2808515'
+version: 1
+hepdata_file: v1_27GeV_7centrality_06.yaml
+dv_index: 0
+hepdata_table_label: v1(eta) of charged particles in the EPD, Au+Au 27 GeV, 5-10% (v1_27GeV_7centrality_06.yaml)
+collision_system:
+  energy_gev: 27.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 5-10%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: charged multiplicity in the TPC, |eta| < 0.5.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -4.9372
+    max: 4.9368
+    bin_ranges:
+    - - -4.9372
+      - -4.4409
+    - - -4.4409
+      - -4.0288
+    - - -4.0288
+      - -3.7269
+    - - -3.7269
+      - -3.4719
+    - - -3.4719
+      - -3.2598
+    - - -3.2598
+      - -3.0855
+    - - -3.0855
+      - -2.9367
+    - - -2.9367
+      - -2.8065
+    - - -2.8065
+      - -2.6921
+    - - -2.6921
+      - -2.59
+    - - -2.59
+      - -2.4973
+    - - -2.4973
+      - -2.4126
+    - - -2.4126
+      - -2.3349
+    - - -2.3349
+      - -2.2631
+    - - -2.2631
+      - -2.1805
+    - - -2.1805
+      - -2.0842
+    - - 2.0843
+      - 2.1805
+    - - 2.1805
+      - 2.2632
+    - - 2.2632
+      - 2.335
+    - - 2.335
+      - 2.4127
+    - - 2.4127
+      - 2.4973
+    - - 2.4973
+      - 2.5901
+    - - 2.5901
+      - 2.6922
+    - - 2.6922
+      - 2.8066
+    - - 2.8066
+      - 2.9368
+    - - 2.9368
+      - 3.0855
+    - - 3.0855
+      - 3.2599
+    - - 3.2599
+      - 3.472
+    - - 3.472
+      - 3.727
+    - - 3.727
+      - 4.0288
+    - - 4.0288
+      - 4.4408
+    - - 4.4408
+      - 4.9368
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 1
+method: event_plane
+value_type: v1
+dimensionality: differential_eta
+flow_reference:
+  odd: true
+  detector: TPC
+  eta:
+  - min: -0.8
+    max: 0.8
+  pT:
+    min: 0.15
+    max: 2.0
+  sign_convention:
+    species: charged
+    eta:
+      min: 0.0
+      max: 0.8
+    sign: negative
+  notes: First-order event plane of TPC tracks, |eta| < 0.8, 0.15 < pT < 2 GeV/c, weighted -eta (here signs +-1); resolution
+    from TPC, EPD east and EPD west.
+notes:
+  value: 'STAR Collaboration, PRC 111 (2025) 014906, arXiv:2406.18213. Rapidity-odd v1(eta) of charged particles in the EPD
+    (2.1 < |eta| < 5.1, minimum-ionizing particles per tile corrected for the STAR material to primary particles), Au+Au 27
+    GeV 5-10%, at the rings'' mean eta (bins midway between them). Sign: STAR''s convention, anchored on charged hadrons,
+    v1 < 0 at 0 < eta < 0.8 (all identified slopes there negative at 19.6 and 27 GeV). Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2808515'
+version: 1
+hepdata_file: v1_27GeV_7centrality_07.yaml
+dv_index: 0
+hepdata_table_label: v1(eta) of charged particles in the EPD, Au+Au 27 GeV, 0-5% (v1_27GeV_7centrality_07.yaml)
+collision_system:
+  energy_gev: 27.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: charged multiplicity in the TPC, |eta| < 0.5.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -4.9372
+    max: 4.9368
+    bin_ranges:
+    - - -4.9372
+      - -4.4409
+    - - -4.4409
+      - -4.0288
+    - - -4.0288
+      - -3.7269
+    - - -3.7269
+      - -3.4719
+    - - -3.4719
+      - -3.2598
+    - - -3.2598
+      - -3.0855
+    - - -3.0855
+      - -2.9367
+    - - -2.9367
+      - -2.8065
+    - - -2.8065
+      - -2.6921
+    - - -2.6921
+      - -2.59
+    - - -2.59
+      - -2.4973
+    - - -2.4973
+      - -2.4126
+    - - -2.4126
+      - -2.3349
+    - - -2.3349
+      - -2.2631
+    - - -2.2631
+      - -2.1805
+    - - -2.1805
+      - -2.0842
+    - - 2.0843
+      - 2.1805
+    - - 2.1805
+      - 2.2632
+    - - 2.2632
+      - 2.335
+    - - 2.335
+      - 2.4127
+    - - 2.4127
+      - 2.4973
+    - - 2.4973
+      - 2.5901
+    - - 2.5901
+      - 2.6922
+    - - 2.6922
+      - 2.8066
+    - - 2.8066
+      - 2.9368
+    - - 2.9368
+      - 3.0855
+    - - 3.0855
+      - 3.2599
+    - - 3.2599
+      - 3.472
+    - - 3.472
+      - 3.727
+    - - 3.727
+      - 4.0288
+    - - 4.0288
+      - 4.4408
+    - - 4.4408
+      - 4.9368
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 1
+method: event_plane
+value_type: v1
+dimensionality: differential_eta
+flow_reference:
+  odd: true
+  detector: TPC
+  eta:
+  - min: -0.8
+    max: 0.8
+  pT:
+    min: 0.15
+    max: 2.0
+  sign_convention:
+    species: charged
+    eta:
+      min: 0.0
+      max: 0.8
+    sign: negative
+  notes: First-order event plane of TPC tracks, |eta| < 0.8, 0.15 < pT < 2 GeV/c, weighted -eta (here signs +-1); resolution
+    from TPC, EPD east and EPD west.
+notes:
+  value: 'STAR Collaboration, PRC 111 (2025) 014906, arXiv:2406.18213. Rapidity-odd v1(eta) of charged particles in the EPD
+    (2.1 < |eta| < 5.1, minimum-ionizing particles per tile corrected for the STAR material to primary particles), Au+Au 27
+    GeV 0-5%, at the rings'' mean eta (bins midway between them). Sign: STAR''s convention, anchored on charged hadrons, v1
+    < 0 at 0 < eta < 0.8 (all identified slopes there negative at 19.6 and 27 GeV). Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2808515'
+version: 1
+hepdata_file: v1_27GeV_10_40_01.yaml
+dv_index: 0
+hepdata_table_label: v1(eta) of charged particles in the EPD, Au+Au 27 GeV, 10-40% (v1_27GeV_10_40_01.yaml)
+collision_system:
+  energy_gev: 27.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: charged multiplicity in the TPC, |eta| < 0.5.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -4.9371
+    max: 4.9368
+    bin_ranges:
+    - - -4.9371
+      - -4.4409
+    - - -4.4409
+      - -4.0288
+    - - -4.0288
+      - -3.7269
+    - - -3.7269
+      - -3.4719
+    - - -3.4719
+      - -3.2599
+    - - -3.2599
+      - -3.0855
+    - - -3.0855
+      - -2.9367
+    - - -2.9367
+      - -2.8065
+    - - -2.8065
+      - -2.6921
+    - - -2.6921
+      - -2.59
+    - - -2.59
+      - -2.4973
+    - - -2.4973
+      - -2.4126
+    - - -2.4126
+      - -2.3349
+    - - -2.3349
+      - -2.2631
+    - - -2.2631
+      - -2.1805
+    - - -2.1805
+      - -2.0842
+    - - 2.0843
+      - 2.1805
+    - - 2.1805
+      - 2.2632
+    - - 2.2632
+      - 2.335
+    - - 2.335
+      - 2.4127
+    - - 2.4127
+      - 2.4973
+    - - 2.4973
+      - 2.5901
+    - - 2.5901
+      - 2.6922
+    - - 2.6922
+      - 2.8066
+    - - 2.8066
+      - 2.9368
+    - - 2.9368
+      - 3.0855
+    - - 3.0855
+      - 3.2599
+    - - 3.2599
+      - 3.4721
+    - - 3.4721
+      - 3.7271
+    - - 3.7271
+      - 4.0289
+    - - 4.0289
+      - 4.4409
+    - - 4.4409
+      - 4.9368
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 1
+method: event_plane
+value_type: v1
+dimensionality: differential_eta
+flow_reference:
+  odd: true
+  detector: TPC
+  eta:
+  - min: -0.8
+    max: 0.8
+  pT:
+    min: 0.15
+    max: 2.0
+  sign_convention:
+    species: charged
+    eta:
+      min: 0.0
+      max: 0.8
+    sign: negative
+  notes: First-order event plane of TPC tracks, |eta| < 0.8, 0.15 < pT < 2 GeV/c, weighted -eta (here signs +-1); resolution
+    from TPC, EPD east and EPD west.
+notes:
+  value: 'STAR Collaboration, PRC 111 (2025) 014906, arXiv:2406.18213. Rapidity-odd v1(eta) of charged particles in the EPD
+    (2.1 < |eta| < 5.1, minimum-ionizing particles per tile corrected for the STAR material to primary particles), Au+Au 27
+    GeV 10-40%, at the rings'' mean eta (bins midway between them). Sign: STAR''s convention, anchored on charged hadrons,
+    v1 < 0 at 0 < eta < 0.8 (all identified slopes there negative at 19.6 and 27 GeV). Errors: stat and sys.'
