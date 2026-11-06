@@ -209,11 +209,14 @@ def generate_events(cfg: ToyGenConfig):
         else:
             vn_ebe[h] = np.full(cfg.n_events, base)
 
-    # mode coupling: V_k = V_k^L + chi V_n V_m; v_k and Psi_k become the
-    # magnitude and angle of the sum (clipped like the magnitudes above)
-    for h, (chi, a, b) in sorted(cfg.nonlinear.items()):
-        V = vn_ebe[h] * np.exp(1j * h * psi[h]) + chi * (vn_ebe[a] * np.exp(1j * a * psi[a])
-                                                         * vn_ebe[b] * np.exp(1j * b * psi[b]))
+    # mode coupling: V_k = V_k^L + chi V_n V_m (or chi V_n V_m V_l); v_k and
+    # Psi_k become the magnitude and angle of the sum (clipped like the
+    # magnitudes above)
+    for h, (chi, *low) in sorted(cfg.nonlinear.items()):
+        prod = 1.0
+        for a in low:
+            prod = prod * vn_ebe[a] * np.exp(1j * a * psi[a])
+        V = vn_ebe[h] * np.exp(1j * h * psi[h]) + chi * prod
         vn_ebe[h] = np.clip(np.abs(V), 0.0, 0.5)
         psi[h] = np.angle(V) / h
 

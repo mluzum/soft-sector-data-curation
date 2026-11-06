@@ -268,18 +268,24 @@ Fields that change dispatch:
   |Delta eta| > 1).  SC of three harmonics is refused.
 - Linear and mode-coupled flow harmonics (`correlation_type:
   mode_coupling`, key `mode_coupling`, analysis/mode_coupling.py):
-  harmonics [k, n, m] with k = n + m, `quantity` C | v_inclusive |
-  v_mode_coupled | v_linear | chi | rho, from P2 = <<cos k(phi1 -
-  phi2)>>, C = <<cos(k phi1 - n phi2 - m phi3)>> and <v_n^2 v_m^2> =
-  <<cos(n phi1 + m phi2 - n phi3 - m phi4)>> over distinct particles
-  (flow_pt.CellSums), in one window or with two subevents (`particles: AB`:
-  particle 1 of P2 and C in one subevent, particles 1, 2 of the
-  quadruplet; both orientations pooled); `chi_denominator: factorized`
+  harmonics [k, n, m] with k = n + m, or [k, n, m, l] with k = n + m + l
+  (v_{6,222}, v_{7,223}), `quantity` C | v_inclusive | v_mode_coupled |
+  v_linear | chi | rho, from P2 = <<cos k(phi1 - phi2)>>, C = <<cos(k
+  phi1 - n phi2 - m phi3 [- l phi4])>> and <v_n^2 v_m^2 [v_l^2]> = <<cos(n
+  phi1 + m phi2 [+ l phi3] - n phi4 - m phi5 [- l phi6])>> over distinct
+  particles (flow_pt.CellSums: set partitions to four members, the
+  generating function distinct_gf beyond), in one window or with two
+  subevents (`particles: AB`: particle 1 of P2 and C in one subevent, the
+  first half of the normalization; both orientations pooled, where ALICE
+  averages the two subevents' ratios); `chi_denominator: factorized`
   divides by sqrt(<v_n^2><v_m^2>) (STAR's differential chi_{5,23}).
   differential_pT: particle 1 in the bin, normalizations over the record's
-  pT.  One value per bin (`SINGLE_ROW_KEYS`); signed roots.  STAR 1802752,
-  2634985; tests/test_toy_mc_mode_coupling.py (C equal to explicit triplet
-  sums on 3D, the injected chi_{4,22}, chi_{5,23} recovered on 2D and 3D,
+  pT.  One value per bin (`SINGLE_ROW_KEYS`); signed roots; a harmonic the
+  container does not store is refused.  STAR 1802752, 2634985; ALICE
+  1599396, 1778342 (ALICE's chi_{6,24}, Eq. A.4 of JHEP 05 (2020) 085, is
+  not computed); tests/test_toy_mc_mode_coupling.py (C equal to explicit
+  triplet and quadruplet sums on 3D, the injected chi_{4,22}, chi_{5,23},
+  chi_{6,222}, chi_{7,223} recovered on 2D and 3D,
   ToyGenConfig.nonlinear).
 - Symmetry-plane correlations (`correlation_type: plane_correlation`, key
   `plane_corr_sp`, analysis/plane_correlations.py): <cos(sum c_i n_i

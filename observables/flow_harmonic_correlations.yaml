@@ -10,9 +10,9 @@ description: >
          Normalised correlations between different flow amplitudes,
          e.g. ρ_n^{k} = ⟨vn² v_{k}²⟩ / √⟨vn⁴⟩⟨v_{k}⁴⟩
     4. Linear and mode-coupled flow harmonics (mode_coupling):
-         V_k = V_k^L + χ_{k,nm} V_n V_m, k = n + m; the three-particle
-         correlator C_{k,nm}, the inclusive, mode-coupled and linear v_k,
-         χ_{k,nm} and ρ_{k,nm} (analysis/mode_coupling.py)
+         V_k = V_k^L + χ_{k,nm} V_n V_m, k = n + m (or χ_{k,nml} V_n V_m V_l,
+         k = n + m + l); the correlator C_{k,nm(l)}, the inclusive,
+         mode-coupled and linear v_k, χ and ρ (analysis/mode_coupling.py)
     5. Symmetry-plane correlations (plane_correlation):
          ⟨cos(Σ c_i n_i Φ_{n_i})⟩, Σ c_i n_i = 0, each plane from its own
          subevent, scalar-product method (analysis/plane_correlations.py)
@@ -45,7 +45,8 @@ required_fields:
       - plane_correlation
     description: >
       Sub-type of the correlation observable.  `mode_coupling`: linear and
-      mode-coupled flow harmonics (harmonics [k, n, m], `quantity`).
+      mode-coupled flow harmonics (harmonics [k, n, m] or [k, n, m, l],
+      `quantity`).
       `plane_correlation`: symmetry-plane correlations (`planes`,
       `plane_subevents`, `estimator: SP`).
       `longitudinal_decorrelation`:
@@ -72,11 +73,14 @@ optional_fields:
       sqrt(<v_n^2 v_m^2>), <v_n^2 v_m^2> = <<cos(n phi_1 + m phi_2 - n
       phi_3 - m phi_4)>>; v_linear = sqrt(v_inclusive^2 -
       v_mode_coupled^2); chi = v_mode_coupled / sqrt(<v_n^2 v_m^2>); rho =
-      v_mode_coupled / v_inclusive.  With particles AB, particle 1 (of the
-      pair and the triplet; particles 1, 2 of the quadruplet) in one
-      subevent and the rest in the other, both orientations pooled; without,
-      all in the window.  differential_pT: particle 1 in the pT bin, the
-      normalizations over the record's pT range.
+      v_mode_coupled / v_inclusive.  Harmonics [k, n, m, l] (k = n + m + l,
+      v_{6,222}, v_{7,223}): C = <<cos(k phi_1 - n phi_2 - m phi_3 - l
+      phi_4)>> over <v_n^2 v_m^2 v_l^2>, a six-particle correlator.  With
+      particles AB, particle 1 (of the pair and of C; the first half of the
+      normalization) in one subevent and the rest in the other, both
+      orientations pooled; without, all in the window.  differential_pT:
+      particle 1 in the pT bin, the normalizations over the record's pT
+      range.
     example: chi
   chi_denominator:
     type: string

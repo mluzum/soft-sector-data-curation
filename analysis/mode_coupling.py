@@ -1,37 +1,44 @@
 """Linear and mode-coupled flow harmonics (nonlinear response).
 
-The higher harmonic V_k (k = n + m) holds a part driven by the product of
-lower harmonics: V_k = V_k^L + chi_{k,nm} V_n V_m.  The measurements (STAR
-PLB 809 135728, PLB 839 137755; ALICE, ATLAS) use, over distinct particles,
+The higher harmonic V_k holds a part driven by products of lower harmonics:
+V_k = V_k^L + chi_{k,nm} V_n V_m (k = n + m), or with three, V_k = V_k^L +
+chi_{k,nml} V_n V_m V_l (k = n + m + l: chi_{6,222}, chi_{7,223}).  The
+measurements (STAR PLB 809 135728, PLB 839 137755; ALICE PLB 773 68, JHEP
+05 (2020) 085) use, over distinct particles,
 
-  P2 = <<cos k(phi_1 - phi_2)>>                      v_k{2}^2
-  C  = <<cos(k phi_1 - n phi_2 - m phi_3)>>          C_{k,nm}
-  P4 = <<cos(n phi_1 + m phi_2 - n phi_3 - m phi_4)>>  <v_n^2 v_m^2>
+  P2 = <<cos k(phi_1 - phi_2)>>                        v_k{2}^2
+  C  = <<cos(k phi_1 - n phi_2 - m phi_3 [- l phi_4])>>  C_{k,nm[l]}
+  PN = <<cos(n phi_1 + m phi_2 [+ l phi_3] - n phi_4 - m phi_5 [- l phi_6])>>
+                                                       <v_n^2 v_m^2 [v_l^2]>
 
 either in one window ('standard') or with two subevents A and B (particles
-AB): particle 1 of P2 and C in A, the others in B; particles 1, 2 of P4 in A,
-3, 4 in B.  Both orientations (A <-> B) are pooled.  Then
+AB): particle 1 of P2 and C in A, the others in B; the first half of PN
+(the positive harmonics) in A, the rest in B.  Both orientations (A <-> B)
+are pooled.  Then
 
   v_inclusive    = sign(P2) sqrt|P2|
-  v_mode_coupled = C / sqrt(P4)          (signed root of P4)
+  v_mode_coupled = C / sqrt(PN)          (signed root of PN)
   v_linear       = signed sqrt(v_inclusive^2 - v_mode_coupled^2)
-  rho            = v_mode_coupled / v_inclusive   (<cos(k Psi_k - n Psi_n - m Psi_m)>)
-  chi            = v_mode_coupled / sqrt(P4) = C / P4, or with
+  rho            = v_mode_coupled / v_inclusive   (<cos(k Psi_k - n Psi_n - ...)>)
+  chi            = v_mode_coupled / sqrt(PN) = C / PN, or with
                    chi_denominator 'factorized': v_mode_coupled /
-                   sqrt(<v_n^2> <v_m^2>) (STAR's differential chi_{5,23})
+                   sqrt(<v_n^2> <v_m^2> [<v_l^2>]) (STAR's differential
+                   chi_{5,23})
 
 pT-differential: particle 1 of P2 and C in the pT bin (and its subevent);
 the normalizations stay integrated: v_inclusive(pT) = P2(pT) / v_k{2}, the
 reference v_k{2} = sign(P2) sqrt|P2| over the record's pT range.
 
 Every correlator is a sum over distinct particles from analysis.flow_pt
-(CellSums, distinct): windows weight each particle (2D: the eta-window
-Jacobian times the pT share; 3D: the cells' overlap shares), coincidence
-terms are removed exactly.  Events are weighted by their tuple counts.
+(CellSums; set partitions, distinct, up to four members, the generating
+function, distinct_gf, beyond): windows weight each particle (2D: the
+eta-window Jacobian times the pT share; 3D: the cells' overlap shares),
+coincidence terms are removed exactly.  Events are weighted by their tuple
+counts.
 """
 import numpy as np
 
-from analysis.flow_pt import distinct
+from analysis.flow_pt import distinct, distinct_gf
 
 QUANTITIES = ('C', 'v_inclusive', 'v_mode_coupled', 'v_linear', 'chi', 'rho')
 
@@ -40,33 +47,52 @@ def _sroot(x):
     return np.sign(x) * np.sqrt(np.abs(x))
 
 
-def event_sums(S, k, n, m, orientations, bins):
+def harmonics_ok(harms):
+    """[k, n, m] or [k, n, m, l], k the sum of the others, all >= 1."""
+    return len(harms) in (3, 4) and min(harms) >= 1 and harms[0] == sum(harms[1:])
+
+
+def _dsum(S, members):
+    """Sum over distinct particles of prod a_W e^{i h phi}, members [(window,
+    h)]: set partitions up to four members, the generating function beyond."""
+    if len(members) <= 4:
+        return distinct(S, [(w, h, 0) for w, h in members])
+    types = {}
+    for w, h in members:
+        types[(w, h)] = types.get((w, h), 0) + 1
+    return distinct_gf(S, [(w, h, c) for (w, h), c in types.items()])
+
+
+def event_sums(S, harmonics, orientations, bins):
     """Per-event numerators and tuple counts.
 
-    orientations: [(X, Y)] window-name pairs (two subevents: ('A', 'B'),
-    ('B', 'A'); one window: ('full', 'full')); bins: per pT bin, the POI
-    window names {X: name} of each orientation's X (empty: integrated).
+    harmonics: [k, n, m(, l)]; orientations: [(X, Y)] window-name pairs (two
+    subevents: ('A', 'B'), ('B', 'A'); one window: ('full', 'full')); bins:
+    per pT bin, the POI window names {X: name} of each orientation's X
+    (empty: integrated).
     """
+    k, low = harmonics[0], list(harmonics[1:])
     out = {}
 
     def add(key, val):
         out[key] = out.get(key, 0.0) + np.real(val)
 
     for X, Y in orientations:
-        add('P2', distinct(S, [(X, k, 0), (Y, -k, 0)]))
-        add('W2', distinct(S, [(X, 0, 0), (Y, 0, 0)]))
-        add('C', distinct(S, [(X, k, 0), (Y, -n, 0), (Y, -m, 0)]))
-        add('W3', distinct(S, [(X, 0, 0), (Y, 0, 0), (Y, 0, 0)]))
-        add('P4', distinct(S, [(X, n, 0), (X, m, 0), (Y, -n, 0), (Y, -m, 0)]))
-        add('W4', distinct(S, [(X, 0, 0), (X, 0, 0), (Y, 0, 0), (Y, 0, 0)]))
-        add('Pn', distinct(S, [(X, n, 0), (Y, -n, 0)]))
-        add('Pm', distinct(S, [(X, m, 0), (Y, -m, 0)]))
+        add('P2', _dsum(S, [(X, k), (Y, -k)]))
+        add('W2', _dsum(S, [(X, 0), (Y, 0)]))
+        add('C', _dsum(S, [(X, k)] + [(Y, -h) for h in low]))
+        add('WC', _dsum(S, [(X, 0)] + [(Y, 0)] * len(low)))
+        add('PN', _dsum(S, [(X, h) for h in low] + [(Y, -h) for h in low]))
+        add('WN', _dsum(S, [(X, 0)] * len(low) + [(Y, 0)] * len(low)))
+        for j, h in enumerate(low):
+            add(f'Pl{j}', _dsum(S, [(X, h), (Y, -h)]))
         for b, poi in enumerate(bins):
             Xb = poi[X]
-            add(f'P2_{b}', distinct(S, [(Xb, k, 0), (Y, -k, 0)]))
-            add(f'W2_{b}', distinct(S, [(Xb, 0, 0), (Y, 0, 0)]))
-            add(f'C_{b}', distinct(S, [(Xb, k, 0), (Y, -n, 0), (Y, -m, 0)]))
-            add(f'W3_{b}', distinct(S, [(Xb, 0, 0), (Y, 0, 0), (Y, 0, 0)]))
+            add(f'P2_{b}', _dsum(S, [(Xb, k), (Y, -k)]))
+            add(f'W2_{b}', _dsum(S, [(Xb, 0), (Y, 0)]))
+            add(f'C_{b}', _dsum(S, [(Xb, k)] + [(Y, -h) for h in low]))
+            add(f'WC_{b}', _dsum(S, [(Xb, 0)] + [(Y, 0)] * len(low)))
+    out['n_low'] = len(low)
     return out
 
 
@@ -80,22 +106,22 @@ def core(d, w):
     (one value when integrated)."""
     q = d['quantity']
     P2 = _avg(d['P2'], d['W2'], w)
-    P4 = _avg(d['P4'], d['W4'], w)
+    PN = _avg(d['PN'], d['WN'], w)
     vref = _sroot(P2)
     if d['factorized']:
-        norm = _sroot(_avg(d['Pn'], d['W2'], w) * _avg(d['Pm'], d['W2'], w))
+        norm = _sroot(np.prod([_avg(d[f'Pl{j}'], d['W2'], w) for j in range(d['n_low'])]))
     else:
-        norm = _sroot(P4)
+        norm = _sroot(PN)
     if d['n_bins']:
         p2 = np.array([_avg(d[f'P2_{b}'], d[f'W2_{b}'], w) for b in range(d['n_bins'])])
-        c = np.array([_avg(d[f'C_{b}'], d[f'W3_{b}'], w) for b in range(d['n_bins'])])
+        c = np.array([_avg(d[f'C_{b}'], d[f'WC_{b}'], w) for b in range(d['n_bins'])])
         with np.errstate(divide='ignore', invalid='ignore'):
             v_inc = p2 / vref
     else:
-        c = np.array([_avg(d['C'], d['W3'], w)])
+        c = np.array([_avg(d['C'], d['WC'], w)])
         v_inc = np.array([vref])
     with np.errstate(divide='ignore', invalid='ignore'):
-        v_mc = c / _sroot(P4)
+        v_mc = c / _sroot(PN)
         if q == 'C':
             return c
         if q == 'v_inclusive':

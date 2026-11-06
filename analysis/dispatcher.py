@@ -710,14 +710,16 @@ def resolve(record):
                                      f"is implemented")
                 if "normalized" not in record:
                     raise ValueError("symmetric_cumulant record needs 'normalized' (true: NSC, false: SC)")
-            # Linear and mode-coupled harmonics: [k, n, m] with k = n + m, a
-            # known quantity, two subevents A, B or one window, pT-differential
-            # or integrated (analysis.mode_coupling).
+            # Linear and mode-coupled harmonics: [k, n, m] with k = n + m, or
+            # [k, n, m, l] with k = n + m + l, a known quantity, two subevents
+            # A, B or one window, pT-differential or integrated
+            # (analysis.mode_coupling).
             if entry.get("compute") == "mode_coupling":
-                from analysis.mode_coupling import QUANTITIES
+                from analysis.mode_coupling import QUANTITIES, harmonics_ok
                 harms = [int(h) for h in (record.get("harmonics") or [])]
-                if len(harms) != 3 or harms[0] != harms[1] + harms[2] or min(harms) < 1:
-                    raise ValueError(f"mode coupling: harmonics {harms} must be [k, n, m] with k = n + m")
+                if not harmonics_ok(harms):
+                    raise ValueError(f"mode coupling: harmonics {harms} must be [k, n, m] (k = n + m) or "
+                                     "[k, n, m, l] (k = n + m + l)")
                 if record.get("quantity") not in QUANTITIES:
                     raise ValueError(f"mode coupling: quantity {record.get('quantity')!r} (one of "
                                      f"{', '.join(QUANTITIES)})")

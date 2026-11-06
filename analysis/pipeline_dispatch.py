@@ -1747,12 +1747,13 @@ def _wrap_rho_vn2_pT(data, w):
 # ── linear and mode-coupled flow harmonics (analysis.mode_coupling) ──
 
 def _mode_coupling_settings(params):
-    """(k, n, m), orientations, the windows {name: (eta, pT)}, the POI
+    """[k, n, m(, l)], orientations, the windows {name: (eta, pT)}, the POI
     windows per pT bin and the quantity of a mode-coupling record."""
-    from analysis.mode_coupling import QUANTITIES
+    from analysis.mode_coupling import QUANTITIES, harmonics_ok
     harms = [int(h) for h in (params.get('harmonics') or [])]
-    if len(harms) != 3 or harms[0] != harms[1] + harms[2] or min(harms) < 1:
-        raise ValueError(f"mode coupling: harmonics {harms} must be [k, n, m] with k = n + m")
+    if not harmonics_ok(harms):
+        raise ValueError(f"mode coupling: harmonics {harms} must be [k, n, m] (k = n + m) or [k, n, m, l] "
+                         "(k = n + m + l)")
     q = params.get('quantity')
     if q not in QUANTITIES:
         raise ValueError(f"mode coupling: quantity {q!r} (one of {', '.join(QUANTITIES)})")
@@ -1785,8 +1786,10 @@ def _mode_coupling_settings(params):
 
 def _mode_coupling_data(S, settings):
     from analysis.mode_coupling import event_sums
-    (k, n, m), orientations, _w, poi, q, factorized = settings
-    out = event_sums(S, k, n, m, orientations, poi)
+    harms, orientations, _w, poi, q, factorized = settings
+    if max(harms) >= S.H:
+        raise ValueError(f"mode coupling needs Q_{max(harms)}; the container stores harmonics below {S.H}")
+    out = event_sums(S, harms, orientations, poi)
     if S.missing:
         print(f"  note: harmonics {sorted(S.missing)} not stored; their coincidence terms dropped")
     out.update(quantity=q, factorized=factorized, n_bins=len(poi))
@@ -3245,7 +3248,8 @@ PIPELINE_DISPATCH = {
         "prepare_data_2d": prepare_mode_coupling_2d,
         "prepare_data_3d": prepare_mode_coupling_3d,
         "n_obs_per_cent": None,
-        "description": "linear and mode-coupled v_k, C_{k,nm}, chi_{k,nm}, rho_{k,nm} (one value per pT bin)",
+        "description": "linear and mode-coupled v_k, C_{k,nm(l)}, chi_{k,nm(l)}, rho_{k,nm(l)} (one value "
+                       "per pT bin)",
     },
     "plane_corr_sp": {
         "core_fn": _wrap_plane_corr,

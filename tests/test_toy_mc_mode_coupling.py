@@ -14,6 +14,10 @@ fluctuating v_2 and v_3:
     and the differential C summed over the bins' tuples gives the
     integrated C;
   - without coupling, chi is consistent with zero;
+  - three lower harmonics (V_6 = V_6^L + chi_{6,222} V_2^3, V_7 = V_7^L +
+    chi_{7,223} V_2^2 V_3): C_{6,222}, C_{7,223} equal explicit quadruplet
+    sums on 3D, chi_{6,222} and chi_{7,223} (six-particle normalization)
+    recovered on 2D and 3D;
   - invalid harmonics and quantities are refused.
 Run: python3 tests/test_toy_mc_mode_coupling.py
 """
@@ -77,7 +81,8 @@ def run(r, kind, coupled=True, jk=False):
 
 def test_dispatch():
     check('dispatches to mode_coupling', resolve(rec('chi'))['compute'] == 'mode_coupling')
-    for bad in (dict(harmonics=[4, 2, 3]), dict(quantity='kappa'), dict(harmonics=[4, 2])):
+    for bad in (dict(harmonics=[4, 2, 3]), dict(quantity='kappa'), dict(harmonics=[4, 2]),
+                dict(harmonics=[7, 2, 2, 2])):
         r = rec('chi')
         r.update(bad)
         try:
@@ -172,6 +177,79 @@ def test_no_coupling():
     for kind in ('3d', '2d'):
         v, e = run(rec('chi'), kind, coupled=False, jk=True)
         check(f'{kind}: no coupling, chi_4,22 consistent with 0', np.all(np.abs(v) < 4 * e + 0.05), f'{v} +- {e}')
+
+
+CHI3 = {6: 2.0, 7: 2.5}
+
+
+def _fx3():
+    """V_6 = V_6^L + chi_{6,222} V_2^3, V_7 = V_7^L + chi_{7,223} V_2^2 V_3."""
+    if 'fx3' not in _CACHE:
+        flow = {2: dict(kind='const', value=0.11), 3: dict(kind='const', value=0.05),
+                6: dict(kind='const', value=0.003), 7: dict(kind='const', value=0.002)}
+        cfg = ToyGenConfig(n_events=3000, mult_mean=3000, mult_sigma=300, seed=616, rap_max=1.6,
+                           flow=flow, fluctuate={2: 0.05, 3: 0.025, 6: 0.0015, 7: 0.001},
+                           nonlinear={6: (CHI3[6], 2, 2, 2), 7: (CHI3[7], 2, 2, 3)})
+        events, truth = generate_events(cfg)
+        _CACHE['fx3'] = {'2d': make_qvector_data(events, truth, n_pt=30, n_harm=9),
+                         '3d': make_qgrid_data(events, truth, n_eta=32, n_pt=30, n_harm=9, eta_half=1.6)}
+    return _CACHE['fx3']
+
+
+def _brute_C4(events, harms, eta_a, eta_b, pt, max_ev=8, max_m=40):
+    """<<cos(k phi1 - n phi2 - m phi3 - l phi4)>>, 1 in A and 2, 3, 4 distinct
+    in B, both orientations pooled, events weighted by their counts."""
+    k, n, m, l = harms
+    num = den = 0.0
+    for ev in events[:max_ev]:
+        sel = (ev['pt'] >= pt[0]) & (ev['pt'] < pt[1])
+        phi, eta = ev['phi'][sel][:max_m], ev['eta'][sel][:max_m]
+        for (xa, xb) in ((eta_a, eta_b), (eta_b, eta_a)):
+            a = phi[(eta >= xa[0]) & (eta < xa[1])]
+            b = phi[(eta >= xb[0]) & (eta < xb[1])]
+            nb = len(b)
+            i2, i3, i4 = np.meshgrid(np.arange(nb), np.arange(nb), np.arange(nb), indexing='ij')
+            ok = (i2 != i3) & (i2 != i4) & (i3 != i4)
+            for p1 in a:
+                d = np.cos(k * p1 - n * b[i2] - m * b[i3] - l * b[i4])
+                num += d[ok].sum()
+                den += ok.sum()
+    return num / den
+
+
+def test_three_mode():
+    # C_{6,222}, C_{7,223} (four particles, coincidences through the
+    # generating function) against explicit sums; chi_{6,222}, chi_{7,223}
+    # (six-particle normalization) recovered on 2D and 3D
+    cfg = ToyGenConfig(n_events=8, mult_mean=60, mult_sigma=5, seed=11, rap_max=1.6,
+                       flow={2: dict(kind='const', value=0.1), 3: dict(kind='const', value=0.05),
+                             6: dict(kind='const', value=0.01), 7: dict(kind='const', value=0.01)},
+                       nonlinear={6: (1.0, 2, 2, 2), 7: (1.0, 2, 2, 3)})
+    events, truth = generate_events(cfg)
+    grid = make_qgrid_data(events, truth, n_eta=32, n_pt=30, n_harm=9, eta_half=1.6)
+    edges = np.linspace(-1.6, 1.6, 33)
+    a, b = (edges[20], edges[28]), (edges[4], edges[12])
+    for h in ((6, 2, 2, 2), (7, 2, 2, 3)):
+        r = rec('C', h, sub=True, subevents={'A': {'kinematic_range': {'eta': {'min': a[0], 'max': a[1]},
+                                                                       'pT': {'min': 0.0, 'max': 3.0}}},
+                                             'B': {'kinematic_range': {'eta': {'min': b[0], 'max': b[1]},
+                                                                       'pT': {'min': 0.0, 'max': 3.0}}}},
+                kinematic_range={'eta': {'min': -1.6, 'max': 1.6}, 'pT': {'min': 0.0, 'max': 3.0}},
+                centrality={'classes': ['0-100%'], 'eta': [{'min': -3.9, 'max': -3.0}]})
+        v, _ = evaluate(r, grid=grid, cent_method='simple', with_jackknife=False)
+        want = _brute_C4(events, h, a, b, (0.0, 3.0), max_m=10 ** 6)
+        check(f'3D two-subevent C_{h[0]},{h[1]}{h[2]}{h[3]} = explicit quadruplet sum',
+              np.isclose(v[0], want, rtol=1e-9, atol=1e-12), f'{v[0]:.6e} vs {want:.6e}')
+    wide = {'A': {'kinematic_range': {'eta': {'min': 0.3, 'max': 1.5}, 'pT': {'min': 0.2, 'max': 3.0}}},
+            'B': {'kinematic_range': {'eta': {'min': -1.5, 'max': -0.3}, 'pT': {'min': 0.2, 'max': 3.0}}}}
+    for kind in ('3d', '2d'):
+        for k, h in ((6, (6, 2, 2, 2)), (7, (7, 2, 2, 3))):
+            c = _fx3()[kind]
+            r = rec('chi', h, subevents=wide)
+            v, e = evaluate(r, qv=c, cent_method='simple', with_jackknife=True) if kind == '2d' else \
+                evaluate(r, grid=c, cent_method='simple', with_jackknife=True)
+            check(f'{kind} two-subevent chi_{k},{"".join(map(str, h[1:]))} = {CHI3[k]}',
+                  np.all(np.abs(v - CHI3[k]) < 0.15 * CHI3[k] + 3 * e), f'{v} +- {e}')
 
 
 if __name__ == '__main__':
