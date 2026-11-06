@@ -20,8 +20,8 @@ Records (public): v2{4}(pT) and v2{SP}(pT) per species and class (Fig. 2).
 Not curated: v2{6}, v2{8}(pT) (differential v{6}, v{8} of a particle of
 interest are not computed), v2{4, Sub} (a subevent four-particle cumulant
 of a particle of interest, not computed), sigma/<v2> and the cumulant
-ratios (derived), and every pPb table (N_trk^offline classes, not
-percentile).
+ratios (derived).  The pPb tables (N_trk^offline classes):
+scripts/curate_cms_strange_v2_ppb.py.
 
 Run from the repository root:  python scripts/curate_cms_strange_v2_pbpb.py
 """
