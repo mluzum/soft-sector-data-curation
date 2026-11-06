@@ -489,7 +489,9 @@ near c_4 = 0, ratios) the correction is unstable (zr96c2 dp0001, v2{4}
   `vn2_single`, `vn4_single` and their pT/eta-differential keys correlate
   the particle of interest (record species and acceptance; each
   differential bin narrows it) with the charged reference (record
-  acceptance; pT from `flow_reference.pT` when given).  Sums over distinct
+  acceptance; pT from `flow_reference.pT` and eta from one
+  `flow_reference.eta` window when given: CMS 2075415, reference |eta| <
+  2.4 for particles in |eta| < 1).  Sums over distinct
   particles come from inclusion-exclusion over set partitions, valid for a
   POI inside, partly inside or outside the reference and for the 2D
   Jacobian weights.  v'{2} = d2/sqrt(c2), v'{4} = -d4/(-c4)^(3/4); a

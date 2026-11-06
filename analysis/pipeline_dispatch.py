@@ -392,7 +392,8 @@ def _wrap_vn2_gap_poi(data, w):
 # a charged record POI and reference coincide and the results are the
 # integrated v_n{2}, v_n{4}; identified records get differential flow with
 # a charged reference (they used to get the charged-hadron value in 2D, and
-# an identified-only reference in 3D).
+# an identified-only reference in 3D).  A flow_reference eta window (one)
+# sets the reference's eta (CMS: reference |eta| < 2.4, POI |eta| < 1).
 
 def _cumulant_windows(params):
     """(reference (eta, pT), [POI (eta, pT) per bin], differential?)."""
@@ -400,12 +401,13 @@ def _cumulant_windows(params):
     eta = tuple(sk.get('eta', (-1, 1)))
     pt = tuple(sk.get('pT', (0.1, 10)))
     ref_pt = tuple(params['flow_reference_pT']) if params.get('flow_reference_pT') else pt
+    ref_eta = tuple(params['flow_reference_eta']) if params.get('flow_reference_eta') else eta
     var, bins = params.get('differential_var'), params.get('differential_bins') or []
     if var == 'pT' and bins:
-        return (eta, ref_pt), [(eta, (lo, hi)) for lo, hi in bins], True
+        return (ref_eta, ref_pt), [(eta, (lo, hi)) for lo, hi in bins], True
     if var == 'eta' and bins:
-        return (eta, ref_pt), [((lo, hi), pt) for lo, hi in bins], True
-    return (eta, ref_pt), [(eta, pt)], False
+        return (ref_eta, ref_pt), [((lo, hi), pt) for lo, hi in bins], True
+    return (ref_eta, ref_pt), [(eta, pt)], False
 
 
 def _poi_species(params):

@@ -68,12 +68,12 @@ def _fx():
     return _CACHE['fx']
 
 
-def particle_level(events, order, poi_slots, bins, ref_pt=PT):
+def particle_level(events, order, poi_slots, bins, ref_pt=PT, ref_eta=ETA):
     """v'_2{order} per bin from the particles (POI slots vs charged slots 0-2)."""
     rows = []
     for e in events:
         acc = (np.abs(e['eta']) < ETA[1]) & (e['pt'] > PT[0]) & (e['pt'] < PT[1])
-        ref = (np.abs(e['eta']) < ETA[1]) & (e['pt'] > ref_pt[0]) & (e['pt'] < ref_pt[1]) & (e['species_idx'] < 3)
+        ref = (np.abs(e['eta']) < ref_eta[1]) & (e['pt'] > ref_pt[0]) & (e['pt'] < ref_pt[1]) & (e['species_idx'] < 3)
         per_bin = []
         for lo, hi in bins:
             poi = acc & np.isin(e['species_idx'], poi_slots) & (e['pt'] > lo) & (e['pt'] < hi)
@@ -154,6 +154,21 @@ def test_reference_pt_window():
     v, _ = evaluate(rec, grid=fx['ms'], cent_method='simple', with_jackknife=False)
     ref = particle_level(fx['events'], 2, [0, 1, 2], BINS, ref_pt=(0.6, 1.6))
     check('3D v2{2}(pT), reference 0.6-1.6', np.allclose(v, ref, atol=1e-9), f'{np.round(v, 4)} vs {np.round(ref, 4)}')
+
+
+def test_reference_eta_window():
+    """flow_reference.eta sets the reference's eta window (CMS: reference |eta|
+    < 2.4 for particles of interest in |eta| < 1): POI in |eta| < 0.8 against a
+    reference in |eta| < 1.2, v'{2} and v'{4}, against the particles."""
+    fx = _fx()
+    for order in (2, 4):
+        rec = record('p', order, BINS)
+        rec['flow_reference'] = {'eta': [{'min': -1.2, 'max': 1.2}]}
+        v, _ = evaluate(rec, grid=fx['ms'], cent_method='simple', with_jackknife=False)
+        ref = particle_level(fx['events'], order, [PROTON], BINS, ref_eta=(-1.2, 1.2))
+        same = particle_level(fx['events'], order, [PROTON], BINS)
+        check(f'3D v2{{{order}}}(pT) of protons, reference |eta| < 1.2', np.allclose(v, ref, atol=1e-9),
+              f'{np.round(v, 4)} vs {np.round(ref, 4)} (reference |eta| < 0.8: {np.round(same, 4)})')
 
 
 def test_charged_unchanged_2d():

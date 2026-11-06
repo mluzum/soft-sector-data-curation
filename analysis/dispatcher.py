@@ -937,6 +937,7 @@ def extract_measurement_params(exp_rec):
         # Reference pT window (also without reference eta windows, which
         # _flow_reference requires): the cumulant keys' reference sample.
         'flow_reference_pT': _ref_pt(exp_rec),
+        'flow_reference_eta': _ref_eta(exp_rec),
         'cent_eta_ranges': cent_eta_ranges,
         'cent_pT_range': cent_pT_range,
         'cent_classes': cent_classes,
@@ -1008,6 +1009,19 @@ def _ref_windows(eta_field):
             continue
         out.append((float(lo), float(hi)))
     return out
+
+
+def _ref_eta(exp_rec):
+    """One eta window of the record's flow_reference (the reference of the
+    particle-of-interest cumulants, CMS: |eta| < 2.4 for POI in |eta| < 1),
+    or None."""
+    fr = exp_rec.get('flow_reference') if isinstance(exp_rec.get('flow_reference'), dict) else {}
+    eta = (fr or {}).get('eta')
+    if isinstance(eta, dict):
+        eta = [eta]
+    if not eta or len(eta) != 1 or eta[0].get('min') is None or eta[0].get('max') is None:
+        return None
+    return (float(eta[0]['min']), float(eta[0]['max']))
 
 
 def _ref_pt(exp_rec):
