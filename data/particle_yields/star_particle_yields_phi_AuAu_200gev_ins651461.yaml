@@ -1,0 +1,81 @@
+observable_type: particle_yields
+inspire_id: '651461'
+version: 1
+hepdata_file: table_1.yaml
+dv_index: 1
+hepdata_table_label: 'Table 1: phi dN/dy vs class (0-5%, 10-30%, 30-50%, 50-80%) (table_1.yaml column 1)'
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> PHI X
+centrality:
+  classes:
+  - 0-5%
+  - 10-30%
+  - 30-50%
+  - 50-80%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: raw hadron multiplicity in |eta| <= 0.5.
+particle_id:
+  species: phi
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.0
+    max: 100.0
+observable: dN_dy
+value_type: dN_dy
+table_rows:
+- 0
+- 2
+- 3
+- 4
+notes:
+  value: 'J. Adams et al. (STAR), PLB 612 (2005) 181, arXiv:nucl-ex/0406003, Table 1. dN/dy of phi at |y| < 0.5, extrapolated
+    to all pT with a single-exponential mT fit, Au+Au 200 GeV (the 0-5% and 0-10% rows overlap: one record each). Errors:
+    stat and sys.'
+---
+observable_type: particle_yields
+inspire_id: '651461'
+version: 1
+hepdata_file: table_1.yaml
+dv_index: 1
+hepdata_table_label: 'Table 1: phi dN/dy vs class (0-10%) (table_1.yaml column 1)'
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> PHI X
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: raw hadron multiplicity in |eta| <= 0.5.
+particle_id:
+  species: phi
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.0
+    max: 100.0
+observable: dN_dy
+value_type: dN_dy
+table_rows:
+- 1
+notes:
+  value: 'J. Adams et al. (STAR), PLB 612 (2005) 181, arXiv:nucl-ex/0406003, Table 1. dN/dy of phi at |y| < 0.5, extrapolated
+    to all pT with a single-exponential mT fit, Au+Au 200 GeV (the 0-5% and 0-10% rows overlap: one record each). Errors:
+    stat and sys.'

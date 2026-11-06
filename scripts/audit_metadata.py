@@ -108,7 +108,9 @@ def _indep_name(iv):
 
 
 def _indep_values(iv):
-    return [v.get("value") if "value" in v else
+    # a placeholder value 'None' beside low/high edges (STAR 651461) is no value
+    return [v.get("value") if "value" in v and not ("low" in v and "high" in v and
+                                                    str(v.get("value")).strip() in ("None", "")) else
             (v.get("low"), v.get("high"))
             for v in iv.get("values", [])]
 
