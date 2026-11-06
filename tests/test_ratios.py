@@ -183,7 +183,25 @@ def test_pipeline():
                                        "dv_average", "table_rows", "value_scale", "kinematic_range", "centrality")
                if k in v2pt[2]}
         own["_record_file"] = v2pt[0]
-        recs = [ratio_record("v2_ratio", v2, v2),
+        # a preliminary ratio given without its sides' values (STAR's Ru/Zr <pT>): sides
+        # with experimental_values false, the ratio's own value_table
+        side = {k: v for k, v in copy.deepcopy(v2[2]).items() if k not in ("hepdata_file", "dv_index")}
+        side.update(status="preliminary", experimental_values=False, source={"reference": "toy"})
+        side_path = os.path.join(tmp, "prelim_side.yaml")
+        yaml.safe_dump(side, open(side_path, "w"))
+        pcls = v2[2]["centrality"]["classes"]
+        ptab = [0.9 + 0.01 * k for k in range(len(pcls))]
+        yaml.safe_dump({"independent_variables": [{"header": {"name": "centrality"}, "values": [
+                            {"low": float(c.rstrip("%").split("-")[0]), "high": float(c.rstrip("%").split("-")[1])}
+                            for c in pcls]}],
+                        "dependent_variables": [{"header": {"name": "ratio"}, "values": [
+                            {"value": x, "errors": [{"symerror": 0.01, "label": "stat"}]} for x in ptab]}]},
+                       open(os.path.join(tmp, "prelim_table.yaml"), "w"))
+        prelim = ratio_record("prelim_ratio", (side_path, 0), (side_path, 0), status="preliminary",
+                              value_table="prelim_table.yaml", centrality=copy.deepcopy(v2[2]["centrality"]),
+                              source={"reference": "toy"})
+        prelim.pop("hepdata_file")
+        recs = [prelim, ratio_record("v2_ratio", v2, v2),
                 ratio_record("v2pt_ratio_coarse", v2pt, v2pt, centrality=v2pt[2]["centrality"],
                              kinematic_range={"eta": v2pt[2]["kinematic_range"].get("eta"),
                                               "pT": {"min": b[0][0], "max": b[2][1], "bin_ranges": coarse_pt}}),
@@ -196,15 +214,15 @@ def test_pipeline():
         rfile = os.path.join(tmp, "ratios.yaml")
         yaml.safe_dump_all(recs, open(rfile, "w"))
 
-        def run(num_dp, den_dp, out):
+        def run(num_dp, den_dp, out, *more):
             cmd = [sys.executable, "scripts/compute_ratios.py", "--ratio-records", rfile,
                    "--num-package", str(pkg), "--num-design-point", str(num_dp), "--num-variant", "plain",
                    "--den-package", str(pkg), "--den-design-point", str(den_dp), "--den-variant", "plain",
-                   "--n-jk-blocks", "10", "--output", out]
+                   "--n-jk-blocks", "10", "--output", out, *more]
             return subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True)
 
         self_out = os.path.join(tmp, "self.h5")
-        r = run(0, 0, self_out)
+        r = run(0, 0, self_out, "--include-preliminary")
         check("self-ratio run succeeds", r.returncode == 0)
         if r.returncode != 0:
             print(r.stdout[-2000:], r.stderr[-2000:])
@@ -220,6 +238,11 @@ def test_pipeline():
             side_ok = np.isfinite(g["numerator_values"][:])   # a bin without particles is NaN on the sides
         check("ratios computed for v2 and the efficiency-cancelling N_ch",
               any(l.startswith("v2_ratio") for l in labels) and any(l.startswith("nch_ratio_cancels") for l in labels))
+        pi = [i for i, l in enumerate(labels) if l.startswith("prelim_ratio |")]
+        want_p = {c: x for c, x in zip(pcls, ptab)}
+        check(f"preliminary ratio (--include-preliminary) computed from sides without values, its "
+              f"points from its value_table ({len(pi)} classes)",
+              len(pi) > 0 and all(abs(ev[i] - want_p[labels[i].split()[-1]]) < 1e-12 for i in pi))
         cls = v2pt[2]["centrality"]["classes"][0]
         want = [f"pT {lo:.2f}-{hi:.2f} {cls}" for lo, hi in coarse_pt]
         check(f"pT-differential ratio computed in the ratio's bins {want}",
@@ -243,6 +266,8 @@ def test_pipeline():
         ind_out = os.path.join(tmp, "ind.h5")
         r = run(0, 1, ind_out)
         check("independent-sample run succeeds", r.returncode == 0)
+        check("preliminary ratio skipped without --include-preliminary",
+              "skip prelim_ratio: preliminary" in r.stdout)
         if r.returncode != 0:
             print(r.stdout[-2000:], r.stderr[-2000:])
             return

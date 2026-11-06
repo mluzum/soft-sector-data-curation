@@ -384,7 +384,7 @@ _PREPARE_KEY_SKIP = frozenset({
     'cent_normalization', 'cent_classes_suspicious', 'record_anchor',
     'hepdata_file', 'value_table', 'record_file', 'status', 'inspire_id',
     'version', 'dv_index', 'dv_average', 'table_rows', 'value_scale',
-    'errors_excluded'})
+    'errors_excluded', 'experimental_values'})
 
 
 def _freeze(x):

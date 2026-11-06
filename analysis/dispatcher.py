@@ -968,6 +968,9 @@ def extract_measurement_params(exp_rec):
         'cent_estimator': cent.get('estimator', {}),
         'hepdata_file': exp_rec.get('hepdata_file', ''),
         'value_table': exp_rec.get('value_table'),
+        # false: the measurement exists only as a ratio (the linked ratio
+        # record holds the values); the record computes and loads none
+        'experimental_values': exp_rec.get('experimental_values', True) is not False,
         'record_file': exp_rec.get('_record_file'),
         'status': exp_rec.get('status', 'published'),
         'inspire_id': exp_rec.get('inspire_id', 0),
@@ -1238,6 +1241,8 @@ def _safe_float(v, default=np.nan):
 def load_experimental(params):
     """Load experimental values from the raw HEPData YAML table."""
     inspire_id = params['inspire_id']
+    if params.get('experimental_values') is False:       # values only in a ratio record
+        return None, None
     # A record may carry its own HEPData-format table (data without a HEPData
     # record, e.g. preliminary results): `value_table`, relative to the record file.
     value_table = params.get('value_table')

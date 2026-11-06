@@ -99,7 +99,12 @@ the same layout (data/<type>/, records carry `staging_reason`), used through
 - observable types without a computation;
 - minimum-bias or p+p records (the pipeline needs centrality classes);
 - PHOBOS ASCII tables until converted to a `value_table`;
-- preliminary results (`status: preliminary`, with `source`).
+- preliminary results (`status: preliminary`, with `source`; values in a
+  `value_table`).  A result shown only as a ratio (STAR's preliminary Ru/Zr
+  <pT>) is a ratio record holding the values, linked to side records with
+  `experimental_values: false` (they compute and load none);
+  compute_ratios computes preliminary ratio records only with
+  --include-preliminary, which it passes to the side runs.
 
 Out-of-scope observables (jets, heavy flavor, electromagnetic probes) are
 not curated here.

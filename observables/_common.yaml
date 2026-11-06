@@ -527,6 +527,15 @@ record_status:
         relative to the record file; replaces the hepdata_raw/ lookup by
         inspire_id / hepdata_file.
       example: "../tables/star_isobar_meanpt_ratio_prelim.yaml"
+    experimental_values:
+      type: boolean
+      required: false
+      description: >
+        false: the measurement exists only as a ratio, whose record holds
+        the values (STAR's preliminary Ru/Zr <pT>, given without the Ru
+        and Zr values); this side record defines the computation and loads
+        no values.  Not for data/, whose records compare end to end.
+      example: false
     staging_reason:
       type: string
       required: false

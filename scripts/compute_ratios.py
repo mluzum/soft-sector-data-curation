@@ -115,6 +115,8 @@ def run_side(side, a, entries, work, extra):
         cmd += ["--adapter-path", a.adapter_path]
     for d in a.extra_records or []:
         cmd += ["--extra-records", d]
+    if a.include_preliminary and "--include-preliminary" not in extra:
+        cmd += ["--include-preliminary"]
     cmd += extra
     with open(work / f"{side}.log", "w") as log:
         r = subprocess.run(cmd, cwd=ROOT, stdout=log, stderr=subprocess.STDOUT)
@@ -220,6 +222,9 @@ def main():
     ap.add_argument("--ratio-type", default=None,
                     help="ratio records of this ratio_type only (system_ratio, energy_ratio, ...)")
     ap.add_argument("--value-type-regex", default=None)
+    ap.add_argument("--include-preliminary", action="store_true",
+                    help="also compute ratio records marked status: preliminary (their sides "
+                         "run with run_pipeline --include-preliminary)")
     ap.add_argument("--n-jk-blocks", type=int, default=20)
     ap.add_argument("--output", required=True)
     ap.add_argument("--work-dir", default=None, help="keep the per-side runs here")
@@ -233,6 +238,9 @@ def main():
         r["_record_file"] = os.path.abspath(f)
         if not (r.get("numerator_record") and r.get("denominator_record")):
             skipped.append((r.get("value_type"), "no numerator/denominator records linked"))
+            continue
+        if r.get("status") == "preliminary" and not a.include_preliminary:
+            skipped.append((r.get("value_type"), "preliminary (--include-preliminary to compute it)"))
             continue
         try:
             sides, weights, var = {}, {}, None
