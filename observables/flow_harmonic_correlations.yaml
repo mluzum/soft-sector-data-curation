@@ -9,6 +9,10 @@ description: >
     3. Multi-harmonic correlations:
          Normalised correlations between different flow amplitudes,
          e.g. ρ_n^{k} = ⟨vn² v_{k}²⟩ / √⟨vn⁴⟩⟨v_{k}⁴⟩
+    4. Linear and mode-coupled flow harmonics (mode_coupling):
+         V_k = V_k^L + χ_{k,nm} V_n V_m, k = n + m; the three-particle
+         correlator C_{k,nm}, the inclusive, mode-coupled and linear v_k,
+         χ_{k,nm} and ρ_{k,nm} (analysis/mode_coupling.py)
 
 composes:
   - _common#collision_system
@@ -34,8 +38,11 @@ required_fields:
       - event_plane_correlation
       - multi_harmonic_correlation
       - longitudinal_decorrelation
+      - mode_coupling
     description: >
-      Sub-type of the correlation observable.  `longitudinal_decorrelation`:
+      Sub-type of the correlation observable.  `mode_coupling`: linear and
+      mode-coupled flow harmonics (harmonics [k, n, m], `quantity`).
+      `longitudinal_decorrelation`:
       decorrelation of the flow vector or flow plane between pseudorapidity
       windows (r_n(eta), multi-plane cumulants T_n); needs a model with
       longitudinal dynamics.
@@ -49,6 +56,48 @@ required_fields:
     example: [5, 2]
 
 optional_fields:
+  quantity:
+    type: string
+    required: false
+    allowed: [C, v_inclusive, v_mode_coupled, v_linear, chi, rho]
+    description: >
+      mode_coupling (harmonics [k, n, m], k = n + m): C = <<cos(k phi_1 - n
+      phi_2 - m phi_3)>>; v_inclusive = v_k{2}; v_mode_coupled = C /
+      sqrt(<v_n^2 v_m^2>), <v_n^2 v_m^2> = <<cos(n phi_1 + m phi_2 - n
+      phi_3 - m phi_4)>>; v_linear = sqrt(v_inclusive^2 -
+      v_mode_coupled^2); chi = v_mode_coupled / sqrt(<v_n^2 v_m^2>); rho =
+      v_mode_coupled / v_inclusive.  With particles AB, particle 1 (of the
+      pair and the triplet; particles 1, 2 of the quadruplet) in one
+      subevent and the rest in the other, both orientations pooled; without,
+      all in the window.  differential_pT: particle 1 in the pT bin, the
+      normalizations over the record's pT range.
+    example: chi
+  chi_denominator:
+    type: string
+    required: false
+    allowed: [P4, factorized]
+    description: >
+      mode_coupling chi: v_mode_coupled divided by sqrt(<v_n^2 v_m^2>) (P4,
+      the default) or by sqrt(<v_n^2><v_m^2>) (factorized: STAR's
+      differential chi_{5,23}).
+    example: factorized
+  particles:
+    type: string
+    required: false
+    allowed: [AB]
+    description: "mode_coupling: two subevents (`subevents.A`, `subevents.B` with kinematic_range eta)."
+    example: AB
+  subevents:
+    type: object
+    required: false
+    description: "The subevents named by `particles` (kinematic_range per subevent)."
+    example: {A: {kinematic_range: {eta: {min: 0.35, max: 1.0}}}, B: {kinematic_range: {eta: {min: -1.0, max: -0.35}}}}
+  dimensionality:
+    type: string
+    required: false
+    allowed: [integrated, differential_pT]
+    description: "mode_coupling: integrated, or in the pT bins of kinematic_range.pT."
+    example: differential_pT
   normalized:
     type: boolean
     required: false

@@ -266,6 +266,21 @@ Fields that change dispatch:
   SC / (<v_m^2><v_n^2>)); `normalization_eta_gap` takes the denominator
   from the two halves of the window separated by the gap (ALICE, STAR:
   |Delta eta| > 1).  SC of three harmonics is refused.
+- Linear and mode-coupled flow harmonics (`correlation_type:
+  mode_coupling`, key `mode_coupling`, analysis/mode_coupling.py):
+  harmonics [k, n, m] with k = n + m, `quantity` C | v_inclusive |
+  v_mode_coupled | v_linear | chi | rho, from P2 = <<cos k(phi1 -
+  phi2)>>, C = <<cos(k phi1 - n phi2 - m phi3)>> and <v_n^2 v_m^2> =
+  <<cos(n phi1 + m phi2 - n phi3 - m phi4)>> over distinct particles
+  (flow_pt.CellSums), in one window or with two subevents (`particles: AB`:
+  particle 1 of P2 and C in one subevent, particles 1, 2 of the
+  quadruplet; both orientations pooled); `chi_denominator: factorized`
+  divides by sqrt(<v_n^2><v_m^2>) (STAR's differential chi_{5,23}).
+  differential_pT: particle 1 in the bin, normalizations over the record's
+  pT.  One value per bin (`SINGLE_ROW_KEYS`); signed roots.  STAR 1802752,
+  2634985; tests/test_toy_mc_mode_coupling.py (C equal to explicit triplet
+  sums on 3D, the injected chi_{4,22}, chi_{5,23} recovered on 2D and 3D,
+  ToyGenConfig.nonlinear).
 - Asymmetric systems (p+Pb, d+Au, 3He+Au, Cu+Au): `collision_system.frame`
   (lab | nn_cms), `rapidity_shift` (y_lab = y_cms + shift; ALICE p-Pb
   -0.465) and `forward_beam` (the beam toward +eta) state the frame of

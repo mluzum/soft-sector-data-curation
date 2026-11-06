@@ -247,17 +247,20 @@ DISPATCH_TABLE_BY_TYPE = {
         "compute": {
             "symmetric_cumulant": "sc_mn",
             "event_plane_correlation": "nac_mn",
+            "mode_coupling": "mode_coupling",
         },
         "requires": [["kinematic_range.eta", "centrality.eta"],
                      "harmonics", "correlation_type"],
         "requires_per_ct": {
+            "mode_coupling": [["kinematic_range.eta"], "harmonics", "correlation_type", "quantity"],
             "event_plane_correlation": [
                 ["kinematic_range.eta", "centrality.eta"],
                 "harmonics", "correlation_type",
                 "particles", "subevents",
             ],
         },
-        "description": "Mixed-harmonic flow correlations: SC(n,m) or subevent NAC(n,m)",
+        "description": "Mixed-harmonic flow correlations: SC(n,m), subevent NAC(n,m), or the linear and "
+                       "mode-coupled flow harmonics (analysis.mode_coupling)",
     },
 }
 
@@ -703,6 +706,24 @@ def resolve(record):
                                      f"is implemented")
                 if "normalized" not in record:
                     raise ValueError("symmetric_cumulant record needs 'normalized' (true: NSC, false: SC)")
+            # Linear and mode-coupled harmonics: [k, n, m] with k = n + m, a
+            # known quantity, two subevents A, B or one window, pT-differential
+            # or integrated (analysis.mode_coupling).
+            if entry.get("compute") == "mode_coupling":
+                from analysis.mode_coupling import QUANTITIES
+                harms = [int(h) for h in (record.get("harmonics") or [])]
+                if len(harms) != 3 or harms[0] != harms[1] + harms[2] or min(harms) < 1:
+                    raise ValueError(f"mode coupling: harmonics {harms} must be [k, n, m] with k = n + m")
+                if record.get("quantity") not in QUANTITIES:
+                    raise ValueError(f"mode coupling: quantity {record.get('quantity')!r} (one of "
+                                     f"{', '.join(QUANTITIES)})")
+                if record.get("particles") not in (None, "AB"):
+                    raise ValueError(f"mode coupling: particles {record.get('particles')!r} (AB or one window)")
+                if record.get("dimensionality", "integrated") not in ("integrated", "differential_pT"):
+                    raise ValueError("mode coupling: integrated or differential_pT")
+                if record.get("chi_denominator") not in (None, "P4", "factorized"):
+                    raise ValueError(f"mode coupling: chi_denominator {record.get('chi_denominator')!r} "
+                                     "(P4 | factorized)")
             # For particle_yields, choose per-eta vs integrated based on
             # whether the record has eta bin edges (differential_eta).
             if obs_type == "particle_yields":
@@ -1035,6 +1056,9 @@ def extract_measurement_params(exp_rec):
         # gap of those two-particle terms
         'normalized': bool(exp_rec.get('normalized')),
         'normalization_eta_gap': exp_rec.get('normalization_eta_gap'),
+        # mode coupling: chi's denominator, <v_n^2 v_m^2> (default) or
+        # 'factorized' <v_n^2><v_m^2> (STAR's differential chi_{5,23})
+        'chi_denominator': exp_rec.get('chi_denominator'),
         # Experiment-defined centrality normalization (threshold_anchor) and
         # a detector efficiency for detector-level yields.
         'cent_normalization': cent.get('normalization'),

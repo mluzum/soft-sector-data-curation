@@ -123,7 +123,7 @@ class ToyGenConfig:
                                          'proton': 0.35},
                  pt_min=0.05, pt_max=3.0,
                  flow=None, fluctuate=None, pt_rescale_sigma=0.0,
-                 eta_shape=None, vn_pt_corr=None):
+                 eta_shape=None, vn_pt_corr=None, nonlinear=None):
         """
         flow : dict harmonic → dict(kind='const'|'linear', value=..., pt0=...)
                 e.g. {2: dict(kind='const', value=0.05)}
@@ -156,6 +156,10 @@ class ToyGenConfig:
         # k_e = 1 + sigma (r z + sqrt(1 - r^2) z'), z the standardized v_n^2
         # (a known rho(v_n^2, [pT]); drawn from a separate stream)
         self.vn_pt_corr = vn_pt_corr
+        # mode coupling {k: (chi, n, m)}: V_k = V_k^L + chi V_n V_m, the
+        # linear part V_k^L the flow[k] magnitude at a random angle (a known
+        # chi_{k,nm}; flow[n], flow[m], flow[k] needed)
+        self.nonlinear = nonlinear or {}
 
 
 def _eta_shape(shape, eta, s_idx, names):
@@ -204,6 +208,14 @@ def generate_events(cfg: ToyGenConfig):
                 rng.normal(base, cfg.fluctuate[h], cfg.n_events), 0.0, 0.5)
         else:
             vn_ebe[h] = np.full(cfg.n_events, base)
+
+    # mode coupling: V_k = V_k^L + chi V_n V_m; v_k and Psi_k become the
+    # magnitude and angle of the sum (clipped like the magnitudes above)
+    for h, (chi, a, b) in sorted(cfg.nonlinear.items()):
+        V = vn_ebe[h] * np.exp(1j * h * psi[h]) + chi * (vn_ebe[a] * np.exp(1j * a * psi[a])
+                                                         * vn_ebe[b] * np.exp(1j * b * psi[b]))
+        vn_ebe[h] = np.clip(np.abs(V), 0.0, 0.5)
+        psi[h] = np.angle(V) / h
 
     k_pre = None
     if cfg.vn_pt_corr and cfg.pt_rescale_sigma > 0:

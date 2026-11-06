@@ -1744,6 +1744,90 @@ def _wrap_rho_vn2_pT(data, w):
     return flow_pt.core(data, w)
 
 
+# ── linear and mode-coupled flow harmonics (analysis.mode_coupling) ──
+
+def _mode_coupling_settings(params):
+    """(k, n, m), orientations, the windows {name: (eta, pT)}, the POI
+    windows per pT bin and the quantity of a mode-coupling record."""
+    from analysis.mode_coupling import QUANTITIES
+    harms = [int(h) for h in (params.get('harmonics') or [])]
+    if len(harms) != 3 or harms[0] != harms[1] + harms[2] or min(harms) < 1:
+        raise ValueError(f"mode coupling: harmonics {harms} must be [k, n, m] with k = n + m")
+    q = params.get('quantity')
+    if q not in QUANTITIES:
+        raise ValueError(f"mode coupling: quantity {q!r} (one of {', '.join(QUANTITIES)})")
+    full = params.get('poi_range') or {}
+    f_eta, f_pt = tuple(full.get('eta') or (None, None)), tuple(full.get('pT') or (None, None))
+    if None in f_eta or None in f_pt:
+        raise ValueError("mode coupling needs kinematic_range eta and pT")
+    sr = params.get('subevent_ranges') or {}
+    if sr:
+        if sorted(sr) != ['A', 'B']:
+            raise ValueError("mode coupling: two subevents A and B (particles: AB)")
+        wins = {lab: (tuple(r['eta']), f_pt if None in (r.get('pT') or (None, None)) else tuple(r['pT']))
+                for lab, r in sr.items()}
+        orientations = [('A', 'B'), ('B', 'A')]
+    else:
+        wins = {'full': (f_eta, f_pt)}
+        orientations = [('full', 'full')]
+    bins = [tuple(b) for b in (params.get('differential_bins') or [])] \
+        if params.get('dimensionality') == 'differential_pT' else []
+    poi = []
+    for b, (lo, hi) in enumerate(bins):
+        names = {}
+        for X in {o[0] for o in orientations}:
+            names[X] = f'{X}#{b}'
+            wins[names[X]] = (wins[X][0], (lo, hi))
+        poi.append(names)
+    factorized = (params.get('chi_denominator') or 'P4') == 'factorized'
+    return tuple(harms), orientations, wins, poi, q, factorized
+
+
+def _mode_coupling_data(S, settings):
+    from analysis.mode_coupling import event_sums
+    (k, n, m), orientations, _w, poi, q, factorized = settings
+    out = event_sums(S, k, n, m, orientations, poi)
+    if S.missing:
+        print(f"  note: harmonics {sorted(S.missing)} not stored; their coincidence terms dropped")
+    out.update(quantity=q, factorized=factorized, n_bins=len(poi))
+    return out
+
+
+def prepare_mode_coupling_2d(qv, params):
+    """Charged species of the boost-invariant container; each window a
+    weight per (species, pT bin): the eta-window Jacobian over the plateau
+    times the pT share (analysis.flow_pt.CellSums)."""
+    from analysis.qvector import _overlap_fractions, _pt_squared
+    from analysis.flow_pt import CellSums
+    settings = _mode_coupling_settings(params)
+    idx = list(charged_species_indices(getattr(qv, 'pdg_ids', None))[0])
+    Qn = np.moveaxis(qv.Qn[:, idx], 2, -1)                  # (ev, species, pT, h)
+    c = Qn[..., 0].real
+    windows = {}
+    for name, (eta, pt) in settings[2].items():
+        jac = _make_jacobian_list(qv.pt_centers, qv.masses, eta[0], eta[1])[idx, :] / (2.0 * qv.rap_max)
+        fpt = np.asarray(_overlap_fractions(qv.pt_bin_edges, pt[0], pt[1], _pt_squared), dtype=float)
+        windows[name] = jac * fpt[np.newaxis, :]
+    S = CellSums(Qn, c, c, c, windows, qv.nsamples)
+    return _mode_coupling_data(S, settings)
+
+
+def prepare_mode_coupling_3d(grid, params):
+    """Unit-weight cells of the charged grid, each window the cells' overlap
+    shares (QGridData.window_weights)."""
+    from analysis.flow_pt import CellSums
+    settings = _mode_coupling_settings(params)
+    c = grid.Qn[..., 0].real
+    windows = {name: np.asarray(grid.window_weights(eta[0], eta[1], pt[0], pt[1], fractional=True), dtype=float)
+               for name, (eta, pt) in settings[2].items()}
+    S = CellSums(grid.Qn, c, c, c, windows, grid.nsamples)
+    return _mode_coupling_data(S, settings)
+
+
+def _wrap_mode_coupling(data, w):
+    from analysis import mode_coupling
+    return mode_coupling.core(data, w)
+
 # ── radial flow: v0, v0(pT), normalized covariance (analysis.radial_flow) ──
 
 def _radial_flow_settings(params):
@@ -3087,6 +3171,13 @@ PIPELINE_DISPATCH = {
         "n_obs_per_cent": 1,
         "description": "rho(v_n^2, [pT]) = cov(v_n^2, [pT]) / sqrt(var(v_n^2) c_k), or cov_n",
     },
+    "mode_coupling": {
+        "core_fn": _wrap_mode_coupling,
+        "prepare_data_2d": prepare_mode_coupling_2d,
+        "prepare_data_3d": prepare_mode_coupling_3d,
+        "n_obs_per_cent": None,
+        "description": "linear and mode-coupled v_k, C_{k,nm}, chi_{k,nm}, rho_{k,nm} (one value per pT bin)",
+    },
     "pT_fluct": {
         "core_fn": _wrap_pT_fluct,
         "prepare_data_2d": prepare_pT_fluct_2d,
@@ -3245,7 +3336,7 @@ def _unit_weights(grid):
 SINGLE_ROW_KEYS = frozenset({
     'vn2_ep', 'vn3_ep', 'mean_pt', 'yield_dNch_deta', 'yield_dNch_deta_per_eta',
     'spectra_invariant_yield', 'dET_deta', 'sc_mn', 'nac_mn', 'radial_flow',
-    'vn_cumulant_combination', 'v1_even_factorization', 'rho_vn2_pT',
+    'vn_cumulant_combination', 'v1_even_factorization', 'rho_vn2_pT', 'mode_coupling',
 })
 
 
