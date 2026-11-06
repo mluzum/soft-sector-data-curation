@@ -1,0 +1,187 @@
+observable_type: particle_yields
+inspire_id: '1394228'
+version: 1
+hepdata_file: fig5.yaml
+dv_index: 1
+hepdata_table_label: 'Fig. 5: BR dN/dy of phi, Cu-going, vs class (fig5.yaml column 1)'
+collision_system:
+  energy_gev: 200.0
+  reaction: CU AU --> PHI X
+  frame: nn_cms
+  rapidity_shift: 0.0
+  forward_beam: Cu
+centrality:
+  classes:
+  - 0-20%
+  - 20-40%
+  - 40-93%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.1
+  - min: 3.1
+    max: 3.9
+  notes: combined charge of both BBCs, 3.1 < |eta| < 3.9.
+particle_id:
+  species: phi
+kinematic_range:
+  y:
+    min: 1.2
+    max: 2.2
+  pT:
+    min: 1.0
+    max: 5.0
+observable: dN_dy
+value_type: dN_dy
+value_scale: 0.000289
+notes:
+  value: 'A. Adare et al. (PHENIX), PRC 93 (2016) 024904, arXiv:1509.06337, Fig. 5 and Table IV. dN/dy of phi (mu+ mu-) in
+    1 < pT < 5 GeV/c, 1.2 < y < 2.2 (Cu-going), Cu+Au 200 GeV vs class. Tabulated times BR(phi -> mu+ mu-); value_scale =
+    0.000289, the paper''s BR (+-0.19e-4, not in the tabulated errors). Errors: stat. + type A sys., type B sys. (point-to-point
+    correlated), type C (3% global).'
+---
+observable_type: particle_yields
+inspire_id: '1394228'
+version: 1
+hepdata_file: fig5.yaml
+dv_index: 2
+hepdata_table_label: 'Fig. 5: BR dN/dy of phi, Au-going, vs class (fig5.yaml column 2)'
+collision_system:
+  energy_gev: 200.0
+  reaction: CU AU --> PHI X
+  frame: nn_cms
+  rapidity_shift: 0.0
+  forward_beam: Cu
+centrality:
+  classes:
+  - 0-20%
+  - 20-40%
+  - 40-93%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.1
+  - min: 3.1
+    max: 3.9
+  notes: combined charge of both BBCs, 3.1 < |eta| < 3.9.
+particle_id:
+  species: phi
+kinematic_range:
+  y:
+    min: -2.2
+    max: -1.2
+  pT:
+    min: 1.0
+    max: 5.0
+observable: dN_dy
+value_type: dN_dy
+value_scale: 0.000289
+notes:
+  value: 'A. Adare et al. (PHENIX), PRC 93 (2016) 024904, arXiv:1509.06337, Fig. 5 and Table IV. dN/dy of phi (mu+ mu-) in
+    1 < pT < 5 GeV/c, -2.2 < y < -1.2 (Au-going), Cu+Au 200 GeV vs class. Tabulated times BR(phi -> mu+ mu-); value_scale
+    = 0.000289, the paper''s BR (+-0.19e-4, not in the tabulated errors). Errors: stat. + type A sys., type B sys. (point-to-point
+    correlated), type C (3% global).'
+---
+observable_type: particle_yields
+inspire_id: '1394228'
+version: 1
+hepdata_file: fig7.yaml
+dv_index: 1
+hepdata_table_label: 'Fig. 7: BR dN/dy of phi vs |y|, Cu-going, 0-93% (fig7.yaml column 1)'
+collision_system:
+  energy_gev: 200.0
+  reaction: CU AU --> PHI X
+  frame: nn_cms
+  rapidity_shift: 0.0
+  forward_beam: Cu
+centrality:
+  classes:
+  - 0-93%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.1
+  - min: 3.1
+    max: 3.9
+  notes: combined charge of both BBCs, 3.1 < |eta| < 3.9.
+particle_id:
+  species: phi
+kinematic_range:
+  y:
+    min: 1.2
+    max: 2.2
+    bin_ranges:
+    - - 1.8
+      - 2.2
+    - - 1.2
+      - 1.8
+  pT:
+    min: 1.0
+    max: 5.0
+observable: dN_dy
+value_type: dN_dy
+dimensionality: differential_y
+value_scale: 0.000289
+notes:
+  value: 'A. Adare et al. (PHENIX), PRC 93 (2016) 024904, arXiv:1509.06337, Fig. 7 and Table VI. dN/dy of phi (mu+ mu-) in
+    1 < pT < 5 GeV/c per rapidity bin (Cu-going; the table rows run 1.8 < |y| < 2.2, then 1.2 < |y| < 1.8), Cu+Au 200 GeV
+    0-93%. Tabulated times BR(phi -> mu+ mu-); value_scale = 0.000289, the paper''s BR (+-0.19e-4, not in the tabulated errors).
+    Errors: stat. + type A sys., type B sys. (point-to-point correlated), type C (3% global).'
+---
+observable_type: particle_yields
+inspire_id: '1394228'
+version: 1
+hepdata_file: fig7.yaml
+dv_index: 2
+hepdata_table_label: 'Fig. 7: BR dN/dy of phi vs |y|, Au-going, 0-93% (fig7.yaml column 2)'
+collision_system:
+  energy_gev: 200.0
+  reaction: CU AU --> PHI X
+  frame: nn_cms
+  rapidity_shift: 0.0
+  forward_beam: Cu
+centrality:
+  classes:
+  - 0-93%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.1
+  - min: 3.1
+    max: 3.9
+  notes: combined charge of both BBCs, 3.1 < |eta| < 3.9.
+particle_id:
+  species: phi
+kinematic_range:
+  y:
+    min: -2.2
+    max: -1.2
+    bin_ranges:
+    - - -2.2
+      - -1.8
+    - - -1.8
+      - -1.2
+  pT:
+    min: 1.0
+    max: 5.0
+observable: dN_dy
+value_type: dN_dy
+dimensionality: differential_y
+value_scale: 0.000289
+notes:
+  value: 'A. Adare et al. (PHENIX), PRC 93 (2016) 024904, arXiv:1509.06337, Fig. 7 and Table VI. dN/dy of phi (mu+ mu-) in
+    1 < pT < 5 GeV/c per rapidity bin (Au-going; the table rows run 1.8 < |y| < 2.2, then 1.2 < |y| < 1.8), Cu+Au 200 GeV
+    0-93%. Tabulated times BR(phi -> mu+ mu-); value_scale = 0.000289, the paper''s BR (+-0.19e-4, not in the tabulated errors).
+    Errors: stat. + type A sys., type B sys. (point-to-point correlated), type C (3% global).'

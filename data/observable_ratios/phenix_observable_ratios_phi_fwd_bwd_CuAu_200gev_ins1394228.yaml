@@ -1,0 +1,46 @@
+observable_type: observable_ratios
+inspire_id: '1394228'
+version: 1
+hepdata_file: fig11.yaml
+dv_index: 0
+hepdata_table_label: 'Fig. 11: phi forward (Cu-going) / backward (Au-going) yield ratio vs class (fig11.yaml column 0)'
+collision_system:
+  energy_gev: 200.0
+  reaction: CU AU --> PHI X
+  frame: nn_cms
+  rapidity_shift: 0.0
+  forward_beam: Cu
+centrality:
+  classes:
+  - 0-20%
+  - 20-40%
+  - 40-93%
+  estimator:
+    name: BBC
+    observable: amplitude
+    detector: BBC
+  eta:
+  - min: -3.9
+    max: -3.1
+  - min: 3.1
+    max: 3.9
+  notes: combined charge of both BBCs, 3.1 < |eta| < 3.9.
+particle_id:
+  species: phi
+kinematic_range:
+  pT:
+    min: 1.0
+    max: 5.0
+observable: dN_dy
+value_type: forward/backward ratio
+ratio_type: rapidity_ratio
+numerator: 1.2 < y < 2.2 (Cu-going)
+denominator: -2.2 < y < -1.2 (Au-going)
+numerator_system: Cu+Au
+denominator_system: Cu+Au
+numerator_record: data/particle_yields/phenix_particle_yields_phi_mumu_CuAu_200gev_ins1394228.yaml#0
+denominator_record: data/particle_yields/phenix_particle_yields_phi_mumu_CuAu_200gev_ins1394228.yaml#1
+notes:
+  value: 'A. Adare et al. (PHENIX), PRC 93 (2016) 024904, arXiv:1509.06337, Fig. 11 and Table IV. Ratio of the phi dN/dy (1
+    < pT < 5 GeV/c) at 1.2 < y < 2.2 (Cu-going) to -2.2 < y < -1.2 (Au-going), Cu+Au 200 GeV vs class. Errors: stat. + type
+    A sys. (asymmetric), type B sys.; no type C.'
