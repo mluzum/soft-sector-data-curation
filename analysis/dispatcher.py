@@ -248,19 +248,23 @@ DISPATCH_TABLE_BY_TYPE = {
             "symmetric_cumulant": "sc_mn",
             "event_plane_correlation": "nac_mn",
             "mode_coupling": "mode_coupling",
+            "plane_correlation": "plane_corr_sp",
         },
         "requires": [["kinematic_range.eta", "centrality.eta"],
                      "harmonics", "correlation_type"],
         "requires_per_ct": {
             "mode_coupling": [["kinematic_range.eta"], "harmonics", "correlation_type", "quantity"],
+            "plane_correlation": [["kinematic_range.eta"], "harmonics", "correlation_type", "planes",
+                                  "plane_subevents", "estimator"],
             "event_plane_correlation": [
                 ["kinematic_range.eta", "centrality.eta"],
                 "harmonics", "correlation_type",
                 "particles", "subevents",
             ],
         },
-        "description": "Mixed-harmonic flow correlations: SC(n,m), subevent NAC(n,m), or the linear and "
-                       "mode-coupled flow harmonics (analysis.mode_coupling)",
+        "description": "Mixed-harmonic flow correlations: SC(n,m), subevent NAC(n,m), the linear and "
+                       "mode-coupled flow harmonics (analysis.mode_coupling), or symmetry-plane "
+                       "correlations, SP method (analysis.plane_correlations)",
     },
 }
 
@@ -724,6 +728,26 @@ def resolve(record):
                 if record.get("chi_denominator") not in (None, "P4", "factorized"):
                     raise ValueError(f"mode coupling: chi_denominator {record.get('chi_denominator')!r} "
                                      "(P4 | factorized)")
+            # Symmetry-plane correlations: the scalar-product method only (the
+            # event-plane method depends on the detector's event-plane
+            # resolution, which a model does not have); planes [(n, c)], two or
+            # three, sum c n = 0, harmonics their n (analysis.plane_correlations).
+            if entry.get("compute") == "plane_corr_sp":
+                if record.get("estimator") != "SP":
+                    raise ValueError(f"plane correlation: estimator {record.get('estimator')!r}; only the "
+                                     "scalar-product method (SP) is computed (EP depends on the detector's "
+                                     "event-plane resolution)")
+                planes = record.get("planes") or []
+                try:
+                    pl = [(int(p["harmonic"]), int(p["coefficient"])) for p in planes]
+                except (KeyError, TypeError, ValueError):
+                    raise ValueError(f"plane correlation: planes {planes!r} need harmonic and coefficient")
+                if len(pl) not in (2, 3) or any(c == 0 or n < 1 for n, c in pl) or sum(n * c for n, c in pl):
+                    raise ValueError(f"plane correlation: planes {pl} must be two or three (n, c), n >= 1, "
+                                     "c != 0, sum c n = 0")
+                if sorted(int(h) for h in record.get("harmonics") or []) != sorted(n for n, _ in pl):
+                    raise ValueError(f"plane correlation: harmonics {record.get('harmonics')} are not the "
+                                     f"planes' {[n for n, _ in pl]}")
             # For particle_yields, choose per-eta vs integrated based on
             # whether the record has eta bin edges (differential_eta).
             if obs_type == "particle_yields":
@@ -1059,6 +1083,11 @@ def extract_measurement_params(exp_rec):
         # mode coupling: chi's denominator, <v_n^2 v_m^2> (default) or
         # 'factorized' <v_n^2><v_m^2> (STAR's differential chi_{5,23})
         'chi_denominator': exp_rec.get('chi_denominator'),
+        # symmetry-plane correlations: the planes [{harmonic, coefficient}],
+        # their subevents {name: [eta ranges]} and the method (SP)
+        'planes': exp_rec.get('planes'),
+        'plane_subevents': exp_rec.get('plane_subevents'),
+        'estimator': exp_rec.get('estimator'),
         # Experiment-defined centrality normalization (threshold_anchor) and
         # a detector efficiency for detector-level yields.
         'cent_normalization': cent.get('normalization'),

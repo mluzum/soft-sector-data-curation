@@ -13,6 +13,9 @@ description: >
          V_k = V_k^L + χ_{k,nm} V_n V_m, k = n + m; the three-particle
          correlator C_{k,nm}, the inclusive, mode-coupled and linear v_k,
          χ_{k,nm} and ρ_{k,nm} (analysis/mode_coupling.py)
+    5. Symmetry-plane correlations (plane_correlation):
+         ⟨cos(Σ c_i n_i Φ_{n_i})⟩, Σ c_i n_i = 0, each plane from its own
+         subevent, scalar-product method (analysis/plane_correlations.py)
 
 composes:
   - _common#collision_system
@@ -39,9 +42,12 @@ required_fields:
       - multi_harmonic_correlation
       - longitudinal_decorrelation
       - mode_coupling
+      - plane_correlation
     description: >
       Sub-type of the correlation observable.  `mode_coupling`: linear and
       mode-coupled flow harmonics (harmonics [k, n, m], `quantity`).
+      `plane_correlation`: symmetry-plane correlations (`planes`,
+      `plane_subevents`, `estimator: SP`).
       `longitudinal_decorrelation`:
       decorrelation of the flow vector or flow plane between pseudorapidity
       windows (r_n(eta), multi-plane cumulants T_n); needs a model with
@@ -81,6 +87,27 @@ optional_fields:
       the default) or by sqrt(<v_n^2><v_m^2>) (factorized: STAR's
       differential chi_{5,23}).
     example: factorized
+  planes:
+    type: list
+    required: false
+    description: >
+      plane_correlation: the planes of <cos(sum_i c_i n_i Phi_{n_i})>, two or
+      three {harmonic: n_i, coefficient: c_i}, c_i != 0, sum c_i n_i = 0
+      (<cos 4(Phi_2 - Phi_4)>: [{harmonic: 2, coefficient: 2}, {harmonic: 4,
+      coefficient: -1}]).
+    example: [{harmonic: 2, coefficient: 2}, {harmonic: 4, coefficient: -1}]
+  plane_subevents:
+    type: object
+    required: false
+    description: >
+      plane_correlation: the subevents, each a list of eta ranges (pT from
+      kinematic_range.pT).  Two planes: P and N, the planes measured in P
+      and N and in N and P, the two averaged, each resolution from P and N
+      (ATLAS Eqs. 12, 16).  Three planes: A, B, C (A and C symmetric); type
+      t puts plane t in B and the other two in A and C (both assignments
+      averaged), plane t's resolution from the three subevents, the others'
+      from A and C; the three types averaged (ATLAS Eqs. 13, 17).
+    example: {P: [{min: 0.5, max: 4.8}], N: [{min: -4.8, max: -0.5}]}
   particles:
     type: string
     required: false
@@ -119,7 +146,9 @@ optional_fields:
     required: false
     description: >
       Estimator used. Common values: 'standard' (default SC), 'GE' (Gaussian
-      estimator for event-plane correlations), 'SP' (scalar product).
+      estimator for event-plane correlations), 'SP' (scalar product), 'EP'
+      (event plane).  plane_correlation computes SP only: EP depends on the
+      detector's event-plane resolution.
     example: "GE"
   value_type:
     type: string

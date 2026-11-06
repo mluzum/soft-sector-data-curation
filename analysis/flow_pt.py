@@ -36,6 +36,7 @@ vector, which the containers do not store, enters only through
 coincidences of the pT particle with a flow particle (standard and
 two-subevent methods), as the cell's flow vector times its mean pT.
 """
+import itertools
 from math import factorial
 
 import numpy as np
@@ -114,6 +115,50 @@ def distinct(S, members):
                             sum(members[m][2] for m in b))
         total = total + coef * term
     return total
+
+
+def _multinomial(alpha):
+    k = sum(alpha)
+    out = factorial(k)
+    for a in alpha:
+        out //= factorial(a)
+    return out
+
+
+def distinct_gf(S, types):
+    """Ordered sum over distinct particles of prod over members of
+    a_W(i) e^{i h phi_i}; types: [(window, h, count)], the members of a type
+    interchangeable.  The coefficient of prod s_t^{count_t} of
+    prod_i (1 + sum_t s_t a_{W_t}(i) e^{i h_t phi_i}) = exp(sum_alpha
+    (-1)^{k+1}/k multinomial(alpha) p_alpha s^alpha), p_alpha the power sums
+    S(sum alpha_t h_t, windows repeated alpha_t times), times prod count_t!."""
+    dmax = tuple(int(c) for _, _, c in types)
+    grid = list(itertools.product(*[range(c + 1) for c in dmax]))
+    zero = tuple(0 for _ in dmax)
+    L = {}
+    for a in grid:
+        k = sum(a)
+        if k == 0:
+            continue
+        h = sum(at * types[t][1] for t, at in enumerate(a))
+        wins = [types[t][0] for t, at in enumerate(a) for _ in range(at)]
+        L[a] = ((-1) ** (k + 1) / k) * _multinomial(a) * S(h, wins)
+    E = {zero: 1.0}
+    for a in sorted(grid, key=sum):
+        if a == zero:
+            continue
+        t = next(i for i, x in enumerate(a) if x > 0)
+        acc = 0.0
+        for b in itertools.product(*[range(x + 1) for x in a]):
+            if b[t] == 0:
+                continue
+            rest = tuple(x - y for x, y in zip(a, b))
+            acc = acc + b[t] * L[b] * E[rest]
+        E[a] = acc / a[t]
+    norm = 1
+    for c in dmax:
+        norm *= factorial(c)
+    return E[dmax] * norm
 
 
 COV_WINDOWS = {'standard': (('full',), ('full',), ('full',)),

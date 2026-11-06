@@ -281,6 +281,20 @@ Fields that change dispatch:
   2634985; tests/test_toy_mc_mode_coupling.py (C equal to explicit triplet
   sums on 3D, the injected chi_{4,22}, chi_{5,23} recovered on 2D and 3D,
   ToyGenConfig.nonlinear).
+- Symmetry-plane correlations (`correlation_type: plane_correlation`, key
+  `plane_corr_sp`, analysis/plane_correlations.py): <cos(sum c_i n_i
+  Phi_{n_i})>, `planes` [{harmonic, coefficient}] (two or three, sum c n =
+  0), each plane from its own subevent (`plane_subevents`: P, N or A, B, C,
+  lists of eta ranges), scalar-product method only (`estimator: SP`; EP
+  depends on the detector's event-plane resolution, refused): <Re prod
+  q_n^c> over the resolutions sqrt(<q_X^c q_Y^c*>), three subevents for
+  the plane in B, ATLAS's assignments and types averaged.  Each q^c is a
+  sum over distinct c-tuples of the subevent per event over their number
+  (any number of members: the generating function `distinct_gf`), events
+  weighted equally.  ATLAS 1283339 (the E_T-weighted calorimeter flow
+  vectors from charged particles with unit weights);
+  tests/test_toy_mc_plane_correlations.py (distinct_gf against explicit
+  tuples to six members, the generated correlations on 2D and 3D).
 - Asymmetric systems (p+Pb, d+Au, 3He+Au, Cu+Au): `collision_system.frame`
   (lab | nn_cms), `rapidity_shift` (y_lab = y_cms + shift; ALICE p-Pb
   -0.465) and `forward_beam` (the beam toward +eta) state the frame of

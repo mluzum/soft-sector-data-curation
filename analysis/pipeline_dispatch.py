@@ -1828,6 +1828,75 @@ def _wrap_mode_coupling(data, w):
     from analysis import mode_coupling
     return mode_coupling.core(data, w)
 
+
+
+# ── symmetry-plane correlations, SP method (analysis.plane_correlations) ──
+
+def _plane_corr_settings(params):
+    """[(n, c)], the layout ('two': subevents P, N; 'three': A, B, C) and the
+    windows {name: ([(eta_lo, eta_hi), ...], (pT_lo, pT_hi))}."""
+    planes = [(int(p['harmonic']), int(p['coefficient'])) for p in (params.get('planes') or [])]
+    if len(planes) not in (2, 3) or any(c == 0 for _, c in planes) or sum(n * c for n, c in planes) != 0:
+        raise ValueError(f"plane correlation: planes {planes} must be two or three (n, c), c != 0, sum c n = 0")
+    layout = 'two' if len(planes) == 2 else 'three'
+    subs = params.get('plane_subevents') or {}
+    need = ['N', 'P'] if layout == 'two' else ['A', 'B', 'C']
+    if sorted(subs) != need:
+        raise ValueError(f"plane correlation ({layout} planes): plane_subevents {sorted(subs)} (need {need})")
+    pt = tuple((params.get('poi_range') or {}).get('pT') or (None, None))
+    pt = (0.0 if pt[0] is None else pt[0], 100.0 if pt[1] is None else pt[1])
+    wins = {name: ([(float(r['min']), float(r['max'])) for r in rngs], pt) for name, rngs in subs.items()}
+    return planes, layout, wins
+
+
+def _plane_corr_data(S, settings):
+    from analysis import plane_correlations
+    planes, layout, _w = settings
+    top = max(n for n, _ in planes)
+    if top >= S.H:
+        raise ValueError(f"plane correlation needs Q_{top}; the container stores harmonics below {S.H}")
+    out = plane_correlations.event_terms(S, planes, layout)
+    if S.missing:
+        print(f"  note: harmonics {sorted(S.missing)} not stored; their coincidence terms dropped")
+    out.update(planes=planes, layout=layout)
+    return out
+
+
+def prepare_plane_corr_2d(qv, params):
+    """Charged species of the boost-invariant container; each subevent a
+    weight per (species, pT bin): its eta windows' Jacobians over the plateau
+    times the pT share (analysis.flow_pt.CellSums)."""
+    from analysis.qvector import _overlap_fractions, _pt_squared
+    from analysis.flow_pt import CellSums
+    settings = _plane_corr_settings(params)
+    idx = list(charged_species_indices(getattr(qv, 'pdg_ids', None))[0])
+    Qn = np.moveaxis(qv.Qn[:, idx], 2, -1)                  # (ev, species, pT, h)
+    c = Qn[..., 0].real
+    windows = {}
+    for name, (etas, pt) in settings[2].items():
+        jac = sum(_make_jacobian_list(qv.pt_centers, qv.masses, lo, hi)[idx, :] for lo, hi in etas) \
+            / (2.0 * qv.rap_max)
+        fpt = np.asarray(_overlap_fractions(qv.pt_bin_edges, pt[0], pt[1], _pt_squared), dtype=float)
+        windows[name] = jac * fpt[np.newaxis, :]
+    return _plane_corr_data(CellSums(Qn, c, c, c, windows, qv.nsamples), settings)
+
+
+def prepare_plane_corr_3d(grid, params):
+    """Unit-weight cells of the charged grid; each subevent the cells' overlap
+    shares summed over its eta windows (QGridData.window_weights)."""
+    from analysis.flow_pt import CellSums
+    settings = _plane_corr_settings(params)
+    c = grid.Qn[..., 0].real
+    windows = {name: sum(np.asarray(grid.window_weights(lo, hi, pt[0], pt[1], fractional=True), dtype=float)
+                         for lo, hi in etas)
+               for name, (etas, pt) in settings[2].items()}
+    return _plane_corr_data(CellSums(grid.Qn, c, c, c, windows, grid.nsamples), settings)
+
+
+def _wrap_plane_corr(data, w):
+    from analysis import plane_correlations
+    return plane_correlations.core(data, w)
+
 # ── radial flow: v0, v0(pT), normalized covariance (analysis.radial_flow) ──
 
 def _radial_flow_settings(params):
@@ -3178,6 +3247,13 @@ PIPELINE_DISPATCH = {
         "n_obs_per_cent": None,
         "description": "linear and mode-coupled v_k, C_{k,nm}, chi_{k,nm}, rho_{k,nm} (one value per pT bin)",
     },
+    "plane_corr_sp": {
+        "core_fn": _wrap_plane_corr,
+        "prepare_data_2d": prepare_plane_corr_2d,
+        "prepare_data_3d": prepare_plane_corr_3d,
+        "n_obs_per_cent": None,
+        "description": "symmetry-plane correlations <cos(sum c_i n_i Phi_i)>, scalar-product method (subevents)",
+    },
     "pT_fluct": {
         "core_fn": _wrap_pT_fluct,
         "prepare_data_2d": prepare_pT_fluct_2d,
@@ -3337,6 +3413,7 @@ SINGLE_ROW_KEYS = frozenset({
     'vn2_ep', 'vn3_ep', 'mean_pt', 'yield_dNch_deta', 'yield_dNch_deta_per_eta',
     'spectra_invariant_yield', 'dET_deta', 'sc_mn', 'nac_mn', 'radial_flow',
     'vn_cumulant_combination', 'v1_even_factorization', 'rho_vn2_pT', 'mode_coupling',
+    'plane_corr_sp',
 })
 
 
