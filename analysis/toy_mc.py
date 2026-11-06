@@ -87,7 +87,8 @@ def _sample_phi(rng, vn_funcs, psis, n, harmonics):
     """Per-particle rejection sampling of φ from 1 + 2Σ vₙᵢcos(n(φ−Ψₙ)).
 
     vn_funcs[k]/psis[k]/harmonics[k]: per-particle v_n(pT) array, event-plane
-    angle, and true harmonic number n of entry k.
+    angle (a scalar, or per particle: a pT-dependent plane), and true
+    harmonic number n of entry k.
     """
     out = np.empty(n)
     if n == 0:
@@ -104,7 +105,8 @@ def _sample_phi(rng, vn_funcs, psis, n, harmonics):
             if f is None:
                 continue
             vh = np.atleast_1d(f)[todo]
-            w += 2.0 * vh * np.cos(h * (dphi - ps))
+            pa = np.atleast_1d(ps)
+            w += 2.0 * vh * np.cos(h * (dphi - (pa[todo] if pa.size > 1 else pa[0])))
             max_sum += float(np.abs(vh).max())   # v_n may be negative (odd v1)
         bound = 1.0 + 2.0 * max_sum
         acc = rng.uniform(0, bound, m) < w
@@ -123,7 +125,7 @@ class ToyGenConfig:
                                          'proton': 0.35},
                  pt_min=0.05, pt_max=3.0,
                  flow=None, fluctuate=None, pt_rescale_sigma=0.0,
-                 eta_shape=None, vn_pt_corr=None, nonlinear=None):
+                 eta_shape=None, vn_pt_corr=None, nonlinear=None, plane_twist=None):
         """
         flow : dict harmonic → dict(kind='const'|'linear', value=..., pt0=...)
                 e.g. {2: dict(kind='const', value=0.05)}
@@ -160,6 +162,10 @@ class ToyGenConfig:
         # linear part V_k^L the flow[k] magnitude at a random angle (a known
         # chi_{k,nm}; flow[n], flow[m], flow[k] needed)
         self.nonlinear = nonlinear or {}
+        # pT-dependent flow angles {h: (sigma, pt0)}: Psi_h(pT) = Psi_h +
+        # delta_e (pT - pt0), delta_e ~ N(0, sigma) per event (drawn from a
+        # separate stream; truth['plane_twist'][h])
+        self.plane_twist = plane_twist or {}
 
 
 def _eta_shape(shape, eta, s_idx, names):
@@ -220,6 +226,9 @@ def generate_events(cfg: ToyGenConfig):
         vn_ebe[h] = np.clip(np.abs(V), 0.0, 0.5)
         psi[h] = np.angle(V) / h
 
+    twist = {h: np.random.RandomState(cfg.seed + 104729 + h).normal(0.0, sig, cfg.n_events)
+             for h, (sig, _pt0) in cfg.plane_twist.items()}
+
     k_pre = None
     if cfg.vn_pt_corr and cfg.pt_rescale_sigma > 0:
         h_c, r = cfg.vn_pt_corr
@@ -264,7 +273,10 @@ def generate_events(cfg: ToyGenConfig):
             if h in cfg.eta_shape:
                 f = f * _eta_shape(cfg.eta_shape[h], eta_pre, s_idx, names)
             vn_funcs.append(f)
-            psis.append(psi[h][e])
+            if h in twist:
+                psis.append(psi[h][e] + twist[h][e] * (pt - cfg.plane_twist[h][1]))
+            else:
+                psis.append(psi[h][e])
         phi = _sample_phi(rng, vn_funcs, psis, M, harms)
 
         if cfg.pt_rescale_sigma > 0:
@@ -287,7 +299,7 @@ def generate_events(cfg: ToyGenConfig):
         events.append(dict(y=y, eta=eta, pt=pt, phi=phi,
                            species_idx=s_idx, mass=mass_arr))
 
-    truth = dict(psi=psi, vn_ebe=vn_ebe, cfg=cfg, pt_rescale=k_pre,
+    truth = dict(psi=psi, vn_ebe=vn_ebe, cfg=cfg, pt_rescale=k_pre, plane_twist=twist,
                  species_names=[SPECIES_NAMES[i] for i in sp_names],
                  masses=sp_mass, temps=sp_temp)
     return events, truth

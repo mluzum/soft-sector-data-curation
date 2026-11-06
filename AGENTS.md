@@ -301,6 +301,20 @@ Fields that change dispatch:
   vectors from charged particles with unit weights);
   tests/test_toy_mc_plane_correlations.py (distinct_gf against explicit
   tuples to six members, the generated correlations on 2D and 3D).
+- pT-dependent flow-vector fluctuations (`correlation_type:
+  pT_flow_vector_fluctuations`, key `flow_vector_fluct`,
+  analysis/flow_vector_fluct.py; ALICE 2771093): one harmonic, POI pT
+  bins, reference particles from `flow_reference.pT`; `quantity` v_ratio
+  (v_n{2}/v_n[2]) | r (r_n(pT^a, `trigger_pT`)) | A_f | M_f |
+  angle_lower_limit | magnitude_upper_limit.  Two-particle correlators
+  across `subevents` A, B (`particles: AB`; ALICE's |Delta eta| >= 0.8 as
+  -0.8 < eta < -0.4 and 0.4 < eta < 0.8), four-particle ones with the
+  positive harmonics in one of `four_particle_subevents` and the negative
+  in the other; both orientations pooled, distinct particles
+  (flow_pt.CellSums), tuple-count event weights.  ToyGenConfig.plane_twist
+  turns the flow angle with pT; tests/test_toy_mc_flow_vector_fluct.py
+  (3D: the measured ratios equal the correlators of the generated flow
+  vectors and fall below 1; all 1 without the twist, 2D and 3D).
 - Asymmetric systems (p+Pb, d+Au, 3He+Au, Cu+Au): `collision_system.frame`
   (lab | nn_cms), `rapidity_shift` (y_lab = y_cms + shift; ALICE p-Pb
   -0.465) and `forward_beam` (the beam toward +eta) state the frame of

@@ -1904,6 +1904,101 @@ def _wrap_plane_corr(data, w):
     from analysis import plane_correlations
     return plane_correlations.core(data, w)
 
+# ── pT-dependent flow-vector fluctuations (analysis.flow_vector_fluct) ──
+
+def _fvf_settings(params):
+    """n, the quantity, the windows {name: (eta, pT)} and the number of POI
+    bins of a pT_flow_vector_fluctuations record."""
+    from analysis.flow_vector_fluct import QUANTITIES, needs
+    harms = [int(h) for h in (params.get('harmonics') or [])]
+    if len(harms) != 1 or harms[0] < 1:
+        raise ValueError(f"flow-vector fluctuations: one harmonic, not {harms}")
+    q = params.get('quantity')
+    if q not in QUANTITIES:
+        raise ValueError(f"flow-vector fluctuations: quantity {q!r} (one of {', '.join(QUANTITIES)})")
+    ref_pt = params.get('flow_reference_pT')
+    if not ref_pt:
+        raise ValueError("flow-vector fluctuations need flow_reference.pT (the reference particles)")
+    bins = [tuple(b) for b in (params.get('differential_bins') or [])]
+    if params.get('dimensionality') != 'differential_pT' or not bins:
+        raise ValueError("flow-vector fluctuations: differential_pT with POI bins")
+    wins = {}
+    need = needs(q)
+    if 'two' in need or 'trigger' in need:
+        sr = params.get('subevent_ranges') or {}
+        if sorted(sr) != ['A', 'B']:
+            raise ValueError("flow-vector fluctuations: two-particle subevents A and B (particles: AB)")
+        trig = params.get('trigger_pT')
+        if 'trigger' in need and not trig:
+            raise ValueError("factorization ratio r_n needs trigger_pT")
+        for lab, r in sr.items():
+            eta = tuple(r['eta'])
+            wins[lab] = (eta, tuple(ref_pt))
+            for b, pt in enumerate(bins):
+                wins[f'{lab}#{b}'] = (eta, pt)
+            if trig:
+                wins[f'{lab}#t'] = (eta, tuple(trig))
+    if 'four' in need:
+        fs = params.get('four_particle_subevents') or {}
+        if sorted(fs) != ['A', 'B']:
+            raise ValueError("flow-vector fluctuations: four_particle_subevents A and B")
+        for lab, new in (('A', 'C'), ('B', 'D')):
+            eta = (float(fs[lab]['eta']['min']), float(fs[lab]['eta']['max']))
+            wins[new] = (eta, tuple(ref_pt))
+            for b, pt in enumerate(bins):
+                wins[f'{new}#{b}'] = (eta, pt)
+    return harms[0], q, wins, len(bins)
+
+
+def _fvf_data(S, settings):
+    from analysis.flow_vector_fluct import event_sums
+    n, q, _w, n_bins = settings
+    if 2 * n >= S.H:
+        print(f"  note: Q_{2 * n} not stored; the coincidence terms of the four-particle sums that need it are "
+              "dropped")
+    out = event_sums(S, n, q, n_bins)
+    out.update(quantity=q, n_bins=n_bins)
+    return out
+
+
+def prepare_fvf_2d(qv, params):
+    """Charged species of the boost-invariant container; each window a
+    weight per (species, pT bin): the eta-window Jacobian over the plateau
+    times the pT share (analysis.flow_pt.CellSums)."""
+    from analysis.qvector import _overlap_fractions, _pt_squared
+    from analysis.flow_pt import CellSums
+    settings = _fvf_settings(params)
+    if settings[0] >= qv.Qn.shape[2]:
+        raise ValueError(f"flow-vector fluctuations of n = {settings[0]}: harmonic not stored")
+    idx = list(charged_species_indices(getattr(qv, 'pdg_ids', None))[0])
+    Qn = np.moveaxis(qv.Qn[:, idx], 2, -1)                  # (ev, species, pT, h)
+    c = Qn[..., 0].real
+    windows = {}
+    for name, (eta, pt) in settings[2].items():
+        jac = _make_jacobian_list(qv.pt_centers, qv.masses, eta[0], eta[1])[idx, :] / (2.0 * qv.rap_max)
+        fpt = np.asarray(_overlap_fractions(qv.pt_bin_edges, pt[0], pt[1], _pt_squared), dtype=float)
+        windows[name] = jac * fpt[np.newaxis, :]
+    return _fvf_data(CellSums(Qn, c, c, c, windows, qv.nsamples), settings)
+
+
+def prepare_fvf_3d(grid, params):
+    """Unit-weight cells of the charged grid, each window the cells' overlap
+    shares (QGridData.window_weights)."""
+    from analysis.flow_pt import CellSums
+    settings = _fvf_settings(params)
+    if settings[0] >= grid.Qn.shape[-1]:
+        raise ValueError(f"flow-vector fluctuations of n = {settings[0]}: harmonic not stored")
+    c = grid.Qn[..., 0].real
+    windows = {name: np.asarray(grid.window_weights(eta[0], eta[1], pt[0], pt[1], fractional=True), dtype=float)
+               for name, (eta, pt) in settings[2].items()}
+    return _fvf_data(CellSums(grid.Qn, c, c, c, windows, grid.nsamples), settings)
+
+
+def _wrap_fvf(data, w):
+    from analysis import flow_vector_fluct
+    return flow_vector_fluct.core(data, w)
+
+
 # ── radial flow: v0, v0(pT), normalized covariance (analysis.radial_flow) ──
 
 def _radial_flow_settings(params):
@@ -3287,6 +3382,13 @@ PIPELINE_DISPATCH = {
         "description": "linear and mode-coupled v_k, C_{k,nm(l)}, chi_{k,nm(l)}, rho_{k,nm(l)} (one value "
                        "per pT bin)",
     },
+    "flow_vector_fluct": {
+        "core_fn": _wrap_fvf,
+        "prepare_data_2d": prepare_fvf_2d,
+        "prepare_data_3d": prepare_fvf_3d,
+        "n_obs_per_cent": None,
+        "description": "pT-dependent flow-vector fluctuations: v_n{2}/v_n[2], r_n, A_n^f, M_n^f (per POI pT bin)",
+    },
     "plane_corr_sp": {
         "core_fn": _wrap_plane_corr,
         "prepare_data_2d": prepare_plane_corr_2d,
@@ -3453,7 +3555,7 @@ SINGLE_ROW_KEYS = frozenset({
     'vn2_ep', 'vn3_ep', 'mean_pt', 'yield_dNch_deta', 'yield_dNch_deta_per_eta',
     'spectra_invariant_yield', 'dET_deta', 'sc_mn', 'nac_mn', 'radial_flow',
     'vn_cumulant_combination', 'v1_even_factorization', 'rho_vn2_pT', 'mode_coupling',
-    'plane_corr_sp',
+    'plane_corr_sp', 'flow_vector_fluct',
 })
 
 

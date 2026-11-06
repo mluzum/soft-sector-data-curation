@@ -269,6 +269,7 @@ DISPATCH_TABLE_BY_TYPE = {
             "event_plane_correlation": "nac_mn",
             "mode_coupling": "mode_coupling",
             "plane_correlation": "plane_corr_sp",
+            "pT_flow_vector_fluctuations": "flow_vector_fluct",
         },
         "requires": [["kinematic_range.eta", "centrality.eta"],
                      "harmonics", "correlation_type"],
@@ -276,6 +277,8 @@ DISPATCH_TABLE_BY_TYPE = {
             "mode_coupling": [["kinematic_range.eta"], "harmonics", "correlation_type", "quantity"],
             "plane_correlation": [["kinematic_range.eta"], "harmonics", "correlation_type", "planes",
                                   "plane_subevents", "estimator"],
+            "pT_flow_vector_fluctuations": [["kinematic_range.eta"], "harmonics", "correlation_type", "quantity",
+                                            "flow_reference.pT"],
             "event_plane_correlation": [
                 ["kinematic_range.eta", "centrality.eta"],
                 "harmonics", "correlation_type",
@@ -754,6 +757,24 @@ def resolve(record):
             # event-plane method depends on the detector's event-plane
             # resolution, which a model does not have); planes [(n, c)], two or
             # three, sum c n = 0, harmonics their n (analysis.plane_correlations).
+            # pT-dependent flow-vector fluctuations (ALICE 2771093): one
+            # harmonic, pT bins, the correlators each quantity needs
+            # (analysis.flow_vector_fluct).
+            if entry.get("compute") == "flow_vector_fluct":
+                from analysis.flow_vector_fluct import QUANTITIES, needs
+                q = record.get("quantity")
+                if q not in QUANTITIES:
+                    raise ValueError(f"flow-vector fluctuations: quantity {q!r} (one of {', '.join(QUANTITIES)})")
+                if len(record.get("harmonics") or []) != 1:
+                    raise ValueError("flow-vector fluctuations: one harmonic")
+                if record.get("dimensionality") != "differential_pT":
+                    raise ValueError("flow-vector fluctuations: dimensionality differential_pT (POI pT bins)")
+                if ("two" in needs(q) or "trigger" in needs(q)) and record.get("particles") != "AB":
+                    raise ValueError(f"flow-vector fluctuations ({q}): two-particle subevents (particles: AB)")
+                if "trigger" in needs(q) and not record.get("trigger_pT"):
+                    raise ValueError("factorization ratio r_n needs trigger_pT")
+                if "four" in needs(q) and not record.get("four_particle_subevents"):
+                    raise ValueError(f"flow-vector fluctuations ({q}): four_particle_subevents A and B")
             if entry.get("compute") == "plane_corr_sp":
                 if record.get("estimator") != "SP":
                     raise ValueError(f"plane correlation: estimator {record.get('estimator')!r}; only the "
@@ -1110,6 +1131,10 @@ def extract_measurement_params(exp_rec):
         'planes': exp_rec.get('planes'),
         'plane_subevents': exp_rec.get('plane_subevents'),
         'estimator': exp_rec.get('estimator'),
+        # pT-dependent flow-vector fluctuations: the four-particle subevents
+        # and the trigger pT of r_n
+        'four_particle_subevents': exp_rec.get('four_particle_subevents'),
+        'trigger_pT': _kr_pT({'pT': exp_rec['trigger_pT']}) if exp_rec.get('trigger_pT') else None,
         # Experiment-defined centrality normalization (threshold_anchor) and
         # a detector efficiency for detector-level yields.
         'cent_normalization': cent.get('normalization'),

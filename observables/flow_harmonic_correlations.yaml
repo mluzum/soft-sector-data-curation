@@ -16,6 +16,9 @@ description: >
     5. Symmetry-plane correlations (plane_correlation):
          ⟨cos(Σ c_i n_i Φ_{n_i})⟩, Σ c_i n_i = 0, each plane from its own
          subevent, scalar-product method (analysis/plane_correlations.py)
+    6. pT-dependent flow-vector fluctuations (pT_flow_vector_fluctuations):
+         v_n{2}/v_n[2], the factorization ratio r_n, A_n^f, M_n^f
+         (analysis/flow_vector_fluct.py)
 
 composes:
   - _common#collision_system
@@ -43,12 +46,16 @@ required_fields:
       - longitudinal_decorrelation
       - mode_coupling
       - plane_correlation
+      - pT_flow_vector_fluctuations
     description: >
       Sub-type of the correlation observable.  `mode_coupling`: linear and
       mode-coupled flow harmonics (harmonics [k, n, m] or [k, n, m, l],
       `quantity`).
       `plane_correlation`: symmetry-plane correlations (`planes`,
-      `plane_subevents`, `estimator: SP`).
+      `plane_subevents`, `estimator: SP`).  `pT_flow_vector_fluctuations`:
+      v_n{2}/v_n[2], r_n, A_n^f, M_n^f per POI pT bin (`quantity`,
+      `flow_reference.pT`, `subevents`, `four_particle_subevents`,
+      `trigger_pT`).
       `longitudinal_decorrelation`:
       decorrelation of the flow vector or flow plane between pseudorapidity
       windows (r_n(eta), multi-plane cumulants T_n); needs a model with
@@ -66,7 +73,8 @@ optional_fields:
   quantity:
     type: string
     required: false
-    allowed: [C, v_inclusive, v_mode_coupled, v_linear, chi, rho]
+    allowed: [C, v_inclusive, v_mode_coupled, v_linear, chi, rho, v_ratio, r, A_f, M_f, angle_lower_limit,
+              magnitude_upper_limit]
     description: >
       mode_coupling (harmonics [k, n, m], k = n + m): C = <<cos(k phi_1 - n
       phi_2 - m phi_3)>>; v_inclusive = v_k{2}; v_mode_coupled = C /
@@ -81,6 +89,10 @@ optional_fields:
       orientations pooled; without, all in the window.  differential_pT:
       particle 1 in the pT bin, the normalizations over the record's pT
       range.
+      pT_flow_vector_fluctuations (one harmonic, per POI pT bin): v_ratio =
+      v_n{2}/v_n[2]; r = r_n(pT_a, pT_trigger); A_f, M_f (ALICE Eqs. 10,
+      14); angle_lower_limit = sqrt((A_f + 1)/2); magnitude_upper_limit =
+      v_ratio / sqrt((A_f + 1)/2).
     example: chi
   chi_denominator:
     type: string
@@ -91,6 +103,20 @@ optional_fields:
       the default) or by sqrt(<v_n^2><v_m^2>) (factorized: STAR's
       differential chi_{5,23}).
     example: factorized
+  four_particle_subevents:
+    type: object
+    required: false
+    description: >
+      pT_flow_vector_fluctuations: the subevents A, B of the four-particle
+      correlators (A_f, M_f; ALICE: no gap, eta < 0 and eta > 0), each
+      {eta: {min, max}}: the positive harmonics in one, the negative in the
+      other, both orientations pooled.
+    example: {A: {eta: {min: -0.8, max: 0.0}}, B: {eta: {min: 0.0, max: 0.8}}}
+  trigger_pT:
+    type: object
+    required: false
+    description: "pT_flow_vector_fluctuations r_n: the trigger particles' pT range {min, max}."
+    example: {min: 0.2, max: 0.6}
   planes:
     type: list
     required: false
