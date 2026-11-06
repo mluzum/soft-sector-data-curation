@@ -1,0 +1,1033 @@
+observable_type: flow_harmonic_correlations
+inspire_id: '1283339'
+version: 1
+hepdata_file: Table1.yaml
+dv_index: 0
+hepdata_table_label: < cos4(Phi_{2}-Phi_{4}) > SP method (Table1.yaml column 0)
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-1%
+  - 1-2%
+  - 2-3%
+  - 3-4%
+  - 4-5%
+  - 5-10%
+  - 10-15%
+  - 15-20%
+  - 20-25%
+  - 25-30%
+  - 30-35%
+  - 35-40%
+  - 40-45%
+  - 45-50%
+  - 50-55%
+  - 55-60%
+  - 60-65%
+  - 65-70%
+  - 70-75%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T, 3.2 < |eta| < 4.9.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -4.8
+    max: 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+observable: < cos4(Phi_{2}-Phi_{4}) > SP method
+correlation_type: plane_correlation
+harmonics:
+- 2
+- 4
+planes:
+- harmonic: 2
+  coefficient: 2
+- harmonic: 4
+  coefficient: -1
+estimator: SP
+plane_subevents:
+  P:
+  - min: 0.5
+    max: 4.8
+  N:
+  - min: -4.8
+    max: -0.5
+value_type: $\langle$ cos4($\Phi_{2}$-$\Phi_{4}$) $\rangle$ SP method
+hepdata_corrections:
+  centrality: HEPData's axis is <N_part>; the classes are those of Table I with these <N_part>
+notes:
+  value: 'G. Aad et al. (ATLAS), PRC 90 (2014) 024905, arXiv:1403.0489. < cos4(Phi_{2}-Phi_{4}) > SP method: scalar-product
+    method, two subevents 0.5 < |eta| < 4.8 (ECal+FCal), both assignments averaged; the E_T-weighted calorimeter flow vectors
+    computed from charged particles with unit weights. Pb+Pb 2.76 TeV vs centrality (classes of Table I from the tabulated
+    <N_part>). Errors: stat and sys.'
+---
+observable_type: flow_harmonic_correlations
+inspire_id: '1283339'
+version: 1
+hepdata_file: Table3.yaml
+dv_index: 0
+hepdata_table_label: < cos8(Phi_{2}-Phi_{4}) > SP method (Table3.yaml column 0)
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-1%
+  - 1-2%
+  - 2-3%
+  - 3-4%
+  - 4-5%
+  - 5-10%
+  - 10-15%
+  - 15-20%
+  - 20-25%
+  - 25-30%
+  - 30-35%
+  - 35-40%
+  - 40-45%
+  - 45-50%
+  - 50-55%
+  - 55-60%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T, 3.2 < |eta| < 4.9.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -4.8
+    max: 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+observable: < cos8(Phi_{2}-Phi_{4}) > SP method
+correlation_type: plane_correlation
+harmonics:
+- 2
+- 4
+planes:
+- harmonic: 2
+  coefficient: 4
+- harmonic: 4
+  coefficient: -2
+estimator: SP
+plane_subevents:
+  P:
+  - min: 0.5
+    max: 4.8
+  N:
+  - min: -4.8
+    max: -0.5
+value_type: $\langle$ cos8($\Phi_{2}$-$\Phi_{4}$) $\rangle$ SP method
+hepdata_corrections:
+  centrality: HEPData's axis is <N_part>; the classes are those of Table I with these <N_part>
+notes:
+  value: 'G. Aad et al. (ATLAS), PRC 90 (2014) 024905, arXiv:1403.0489. < cos8(Phi_{2}-Phi_{4}) > SP method: scalar-product
+    method, two subevents 0.5 < |eta| < 4.8 (ECal+FCal), both assignments averaged; the E_T-weighted calorimeter flow vectors
+    computed from charged particles with unit weights. Pb+Pb 2.76 TeV vs centrality (classes of Table I from the tabulated
+    <N_part>). Errors: stat and sys.'
+---
+observable_type: flow_harmonic_correlations
+inspire_id: '1283339'
+version: 1
+hepdata_file: Table5.yaml
+dv_index: 0
+hepdata_table_label: < cos12(Phi_{2}-Phi_{4}) > SP method (Table5.yaml column 0)
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-15%
+  - 15-20%
+  - 20-25%
+  - 25-30%
+  - 30-35%
+  - 35-40%
+  - 40-45%
+  - 45-50%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T, 3.2 < |eta| < 4.9.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -4.8
+    max: 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+observable: < cos12(Phi_{2}-Phi_{4}) > SP method
+correlation_type: plane_correlation
+harmonics:
+- 2
+- 4
+planes:
+- harmonic: 2
+  coefficient: 6
+- harmonic: 4
+  coefficient: -3
+estimator: SP
+plane_subevents:
+  P:
+  - min: 0.5
+    max: 4.8
+  N:
+  - min: -4.8
+    max: -0.5
+value_type: $\langle$ cos12($\Phi_{2}$-$\Phi_{4}$) $\rangle$ SP method
+hepdata_corrections:
+  centrality: HEPData's axis is <N_part>; the classes are those of Table I with these <N_part>
+notes:
+  value: 'G. Aad et al. (ATLAS), PRC 90 (2014) 024905, arXiv:1403.0489. < cos12(Phi_{2}-Phi_{4}) > SP method: scalar-product
+    method, two subevents 0.5 < |eta| < 4.8 (ECal+FCal), both assignments averaged; the E_T-weighted calorimeter flow vectors
+    computed from charged particles with unit weights. Pb+Pb 2.76 TeV vs centrality (classes of Table I from the tabulated
+    <N_part>). Errors: stat and sys.'
+---
+observable_type: flow_harmonic_correlations
+inspire_id: '1283339'
+version: 1
+hepdata_file: Table7.yaml
+dv_index: 0
+hepdata_table_label: < cos6(Phi_{2}-Phi_{3}) > SP method (Table7.yaml column 0)
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-15%
+  - 15-20%
+  - 20-25%
+  - 25-30%
+  - 30-35%
+  - 35-40%
+  - 40-45%
+  - 45-50%
+  - 50-55%
+  - 55-60%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T, 3.2 < |eta| < 4.9.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -4.8
+    max: 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+observable: < cos6(Phi_{2}-Phi_{3}) > SP method
+correlation_type: plane_correlation
+harmonics:
+- 2
+- 3
+planes:
+- harmonic: 2
+  coefficient: 3
+- harmonic: 3
+  coefficient: -2
+estimator: SP
+plane_subevents:
+  P:
+  - min: 0.5
+    max: 4.8
+  N:
+  - min: -4.8
+    max: -0.5
+value_type: $\langle$ cos6($\Phi_{2}$-$\Phi_{3}$) $\rangle$ SP method
+hepdata_corrections:
+  centrality: HEPData's axis is <N_part>; the classes are those of Table I with these <N_part>
+notes:
+  value: 'G. Aad et al. (ATLAS), PRC 90 (2014) 024905, arXiv:1403.0489. < cos6(Phi_{2}-Phi_{3}) > SP method: scalar-product
+    method, two subevents 0.5 < |eta| < 4.8 (ECal+FCal), both assignments averaged; the E_T-weighted calorimeter flow vectors
+    computed from charged particles with unit weights. Pb+Pb 2.76 TeV vs centrality (classes of Table I from the tabulated
+    <N_part>). Errors: stat and sys.'
+---
+observable_type: flow_harmonic_correlations
+inspire_id: '1283339'
+version: 1
+hepdata_file: Table9.yaml
+dv_index: 0
+hepdata_table_label: < cos6(Phi_{2}-Phi_{6}) > SP method (Table9.yaml column 0)
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-1%
+  - 1-2%
+  - 2-3%
+  - 3-4%
+  - 4-5%
+  - 5-10%
+  - 10-15%
+  - 15-20%
+  - 20-25%
+  - 25-30%
+  - 30-35%
+  - 35-40%
+  - 40-45%
+  - 45-50%
+  - 50-55%
+  - 55-60%
+  - 60-65%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T, 3.2 < |eta| < 4.9.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -4.8
+    max: 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+observable: < cos6(Phi_{2}-Phi_{6}) > SP method
+correlation_type: plane_correlation
+harmonics:
+- 2
+- 6
+planes:
+- harmonic: 2
+  coefficient: 3
+- harmonic: 6
+  coefficient: -1
+estimator: SP
+plane_subevents:
+  P:
+  - min: 0.5
+    max: 4.8
+  N:
+  - min: -4.8
+    max: -0.5
+value_type: $\langle$ cos6($\Phi_{2}$-$\Phi_{6}$) $\rangle$ SP method
+hepdata_corrections:
+  centrality: HEPData's axis is <N_part>; the classes are those of Table I with these <N_part>
+notes:
+  value: 'G. Aad et al. (ATLAS), PRC 90 (2014) 024905, arXiv:1403.0489. < cos6(Phi_{2}-Phi_{6}) > SP method: scalar-product
+    method, two subevents 0.5 < |eta| < 4.8 (ECal+FCal), both assignments averaged; the E_T-weighted calorimeter flow vectors
+    computed from charged particles with unit weights. Pb+Pb 2.76 TeV vs centrality (classes of Table I from the tabulated
+    <N_part>). Errors: stat and sys.'
+---
+observable_type: flow_harmonic_correlations
+inspire_id: '1283339'
+version: 1
+hepdata_file: Table11.yaml
+dv_index: 0
+hepdata_table_label: < cos6(Phi_{3}-Phi_{6}) > SP method (Table11.yaml column 0)
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-1%
+  - 1-2%
+  - 2-3%
+  - 3-4%
+  - 4-5%
+  - 5-10%
+  - 10-15%
+  - 15-20%
+  - 20-25%
+  - 25-30%
+  - 30-35%
+  - 35-40%
+  - 40-45%
+  - 45-50%
+  - 50-55%
+  - 55-60%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T, 3.2 < |eta| < 4.9.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -4.8
+    max: 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+observable: < cos6(Phi_{3}-Phi_{6}) > SP method
+correlation_type: plane_correlation
+harmonics:
+- 3
+- 6
+planes:
+- harmonic: 3
+  coefficient: 2
+- harmonic: 6
+  coefficient: -1
+estimator: SP
+plane_subevents:
+  P:
+  - min: 0.5
+    max: 4.8
+  N:
+  - min: -4.8
+    max: -0.5
+value_type: $\langle$ cos6($\Phi_{3}$-$\Phi_{6}$) $\rangle$ SP method
+hepdata_corrections:
+  centrality: HEPData's axis is <N_part>; the classes are those of Table I with these <N_part>
+notes:
+  value: 'G. Aad et al. (ATLAS), PRC 90 (2014) 024905, arXiv:1403.0489. < cos6(Phi_{3}-Phi_{6}) > SP method: scalar-product
+    method, two subevents 0.5 < |eta| < 4.8 (ECal+FCal), both assignments averaged; the E_T-weighted calorimeter flow vectors
+    computed from charged particles with unit weights. Pb+Pb 2.76 TeV vs centrality (classes of Table I from the tabulated
+    <N_part>). Errors: stat and sys.'
+---
+observable_type: flow_harmonic_correlations
+inspire_id: '1283339'
+version: 1
+hepdata_file: Table13.yaml
+dv_index: 0
+hepdata_table_label: < cos12(Phi_{3}-Phi_{4})> SP method (Table13.yaml column 0)
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-15%
+  - 15-20%
+  - 20-25%
+  - 25-30%
+  - 30-35%
+  - 35-40%
+  - 40-45%
+  - 45-50%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T, 3.2 < |eta| < 4.9.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -4.8
+    max: 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+observable: < cos12(Phi_{3}-Phi_{4})> SP method
+correlation_type: plane_correlation
+harmonics:
+- 3
+- 4
+planes:
+- harmonic: 3
+  coefficient: 4
+- harmonic: 4
+  coefficient: -3
+estimator: SP
+plane_subevents:
+  P:
+  - min: 0.5
+    max: 4.8
+  N:
+  - min: -4.8
+    max: -0.5
+value_type: $\langle$ cos12($\Phi_{3}$-$\Phi_{4}$)$\rangle$ SP method
+hepdata_corrections:
+  centrality: HEPData's axis is <N_part>; the classes are those of Table I with these <N_part>
+notes:
+  value: 'G. Aad et al. (ATLAS), PRC 90 (2014) 024905, arXiv:1403.0489. < cos12(Phi_{3}-Phi_{4})> SP method: scalar-product
+    method, two subevents 0.5 < |eta| < 4.8 (ECal+FCal), both assignments averaged; the E_T-weighted calorimeter flow vectors
+    computed from charged particles with unit weights. Pb+Pb 2.76 TeV vs centrality (classes of Table I from the tabulated
+    <N_part>). Errors: stat and sys.'
+---
+observable_type: flow_harmonic_correlations
+inspire_id: '1283339'
+version: 1
+hepdata_file: Table15.yaml
+dv_index: 0
+hepdata_table_label: < cos10(Phi_{2}-Phi_{5})> SP method (Table15.yaml column 0)
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-15%
+  - 15-20%
+  - 20-25%
+  - 25-30%
+  - 30-35%
+  - 35-40%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T, 3.2 < |eta| < 4.9.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -4.8
+    max: 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+observable: < cos10(Phi_{2}-Phi_{5})> SP method
+correlation_type: plane_correlation
+harmonics:
+- 2
+- 5
+planes:
+- harmonic: 2
+  coefficient: 5
+- harmonic: 5
+  coefficient: -2
+estimator: SP
+plane_subevents:
+  P:
+  - min: 0.5
+    max: 4.8
+  N:
+  - min: -4.8
+    max: -0.5
+value_type: $\langle$ cos10($\Phi_{2}$-$\Phi_{5}$)$\rangle$ SP method
+hepdata_corrections:
+  centrality: HEPData's axis is <N_part>; the classes are those of Table I with these <N_part>
+notes:
+  value: 'G. Aad et al. (ATLAS), PRC 90 (2014) 024905, arXiv:1403.0489. < cos10(Phi_{2}-Phi_{5})> SP method: scalar-product
+    method, two subevents 0.5 < |eta| < 4.8 (ECal+FCal), both assignments averaged; the E_T-weighted calorimeter flow vectors
+    computed from charged particles with unit weights. Pb+Pb 2.76 TeV vs centrality (classes of Table I from the tabulated
+    <N_part>). Errors: stat and sys.'
+---
+observable_type: flow_harmonic_correlations
+inspire_id: '1283339'
+version: 1
+hepdata_file: Table17.yaml
+dv_index: 0
+hepdata_table_label: < cos(2Phi_{2}+3Phi_{3}-5Phi_{5})> SP method (Table17.yaml column 0)
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-1%
+  - 1-2%
+  - 2-3%
+  - 3-4%
+  - 4-5%
+  - 5-10%
+  - 10-15%
+  - 15-20%
+  - 20-25%
+  - 25-30%
+  - 30-35%
+  - 35-40%
+  - 40-45%
+  - 45-50%
+  - 50-55%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T, 3.2 < |eta| < 4.9.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -4.8
+    max: 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+observable: < cos(2Phi_{2}+3Phi_{3}-5Phi_{5})> SP method
+correlation_type: plane_correlation
+harmonics:
+- 2
+- 3
+- 5
+planes:
+- harmonic: 2
+  coefficient: 1
+- harmonic: 3
+  coefficient: 1
+- harmonic: 5
+  coefficient: -1
+estimator: SP
+plane_subevents:
+  A:
+  - min: 0.5
+    max: 2.7
+  B:
+  - min: -4.8
+    max: -3.3
+  - min: 3.3
+    max: 4.8
+  C:
+  - min: -2.7
+    max: -0.5
+value_type: $\langle$ cos(2$\Phi_{2}+3\Phi_{3}-5\Phi_{5}$)$\rangle$ SP method
+hepdata_corrections:
+  centrality: HEPData's axis is <N_part>; the classes are those of Table I with these <N_part>
+notes:
+  value: 'G. Aad et al. (ATLAS), PRC 90 (2014) 024905, arXiv:1403.0489. < cos(2Phi_{2}+3Phi_{3}-5Phi_{5})> SP method: scalar-product
+    method, three subevents: ECalP 0.5 < eta < 2.7, FCal 3.3 < |eta| < 4.8, ECalN -2.7 < eta < -0.5; the three types (the
+    plane in the FCal) averaged; the E_T-weighted calorimeter flow vectors computed from charged particles with unit weights.
+    Pb+Pb 2.76 TeV vs centrality (classes of Table I from the tabulated <N_part>). Errors: stat and sys.'
+---
+observable_type: flow_harmonic_correlations
+inspire_id: '1283339'
+version: 1
+hepdata_file: Table19.yaml
+dv_index: 0
+hepdata_table_label: < cos(2Phi_{2}+4Phi_{4}-6Phi_{6})> SP method (Table19.yaml column 0)
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-1%
+  - 1-2%
+  - 2-3%
+  - 3-4%
+  - 4-5%
+  - 5-10%
+  - 10-15%
+  - 15-20%
+  - 20-25%
+  - 25-30%
+  - 30-35%
+  - 35-40%
+  - 40-45%
+  - 45-50%
+  - 50-55%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T, 3.2 < |eta| < 4.9.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -4.8
+    max: 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+observable: < cos(2Phi_{2}+4Phi_{4}-6Phi_{6})> SP method
+correlation_type: plane_correlation
+harmonics:
+- 2
+- 4
+- 6
+planes:
+- harmonic: 2
+  coefficient: 1
+- harmonic: 4
+  coefficient: 1
+- harmonic: 6
+  coefficient: -1
+estimator: SP
+plane_subevents:
+  A:
+  - min: 0.5
+    max: 2.7
+  B:
+  - min: -4.8
+    max: -3.3
+  - min: 3.3
+    max: 4.8
+  C:
+  - min: -2.7
+    max: -0.5
+value_type: $\langle$ cos($2\Phi_{2}+4\Phi_{4}-6\Phi_{6}$)$\rangle$ SP method
+hepdata_corrections:
+  centrality: HEPData's axis is <N_part>; the classes are those of Table I with these <N_part>
+notes:
+  value: 'G. Aad et al. (ATLAS), PRC 90 (2014) 024905, arXiv:1403.0489. < cos(2Phi_{2}+4Phi_{4}-6Phi_{6})> SP method: scalar-product
+    method, three subevents: ECalP 0.5 < eta < 2.7, FCal 3.3 < |eta| < 4.8, ECalN -2.7 < eta < -0.5; the three types (the
+    plane in the FCal) averaged; the E_T-weighted calorimeter flow vectors computed from charged particles with unit weights.
+    Pb+Pb 2.76 TeV vs centrality (classes of Table I from the tabulated <N_part>). Errors: stat and sys.'
+---
+observable_type: flow_harmonic_correlations
+inspire_id: '1283339'
+version: 1
+hepdata_file: Table21.yaml
+dv_index: 0
+hepdata_table_label: < cos(2Phi_{2}-6Phi_{3}+4Phi_{4})> SP method (Table21.yaml column 0)
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-1%
+  - 1-2%
+  - 2-3%
+  - 3-4%
+  - 4-5%
+  - 5-10%
+  - 10-15%
+  - 15-20%
+  - 20-25%
+  - 25-30%
+  - 30-35%
+  - 35-40%
+  - 40-45%
+  - 45-50%
+  - 50-55%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T, 3.2 < |eta| < 4.9.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -4.8
+    max: 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+observable: < cos(2Phi_{2}-6Phi_{3}+4Phi_{4})> SP method
+correlation_type: plane_correlation
+harmonics:
+- 2
+- 3
+- 4
+planes:
+- harmonic: 2
+  coefficient: 1
+- harmonic: 3
+  coefficient: -2
+- harmonic: 4
+  coefficient: 1
+estimator: SP
+plane_subevents:
+  A:
+  - min: 0.5
+    max: 2.7
+  B:
+  - min: -4.8
+    max: -3.3
+  - min: 3.3
+    max: 4.8
+  C:
+  - min: -2.7
+    max: -0.5
+value_type: $\langle$ cos($2\Phi_{2}-6\Phi_{3}+4\Phi_{4}$)$\rangle$ SP method
+hepdata_corrections:
+  centrality: HEPData's axis is <N_part>; the classes are those of Table I with these <N_part>
+notes:
+  value: 'G. Aad et al. (ATLAS), PRC 90 (2014) 024905, arXiv:1403.0489. < cos(2Phi_{2}-6Phi_{3}+4Phi_{4})> SP method: scalar-product
+    method, three subevents: ECalP 0.5 < eta < 2.7, FCal 3.3 < |eta| < 4.8, ECalN -2.7 < eta < -0.5; the three types (the
+    plane in the FCal) averaged; the E_T-weighted calorimeter flow vectors computed from charged particles with unit weights.
+    Pb+Pb 2.76 TeV vs centrality (classes of Table I from the tabulated <N_part>). Errors: stat and sys.'
+---
+observable_type: flow_harmonic_correlations
+inspire_id: '1283339'
+version: 1
+hepdata_file: Table23.yaml
+dv_index: 0
+hepdata_table_label: < cos(-8Phi_{2}+3Phi_{3}+5Phi_{5})> SP method (Table23.yaml column 0)
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-1%
+  - 1-2%
+  - 2-3%
+  - 3-4%
+  - 4-5%
+  - 5-10%
+  - 10-15%
+  - 15-20%
+  - 20-25%
+  - 25-30%
+  - 30-35%
+  - 35-40%
+  - 40-45%
+  - 45-50%
+  - 50-55%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T, 3.2 < |eta| < 4.9.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -4.8
+    max: 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+observable: < cos(-8Phi_{2}+3Phi_{3}+5Phi_{5})> SP method
+correlation_type: plane_correlation
+harmonics:
+- 2
+- 3
+- 5
+planes:
+- harmonic: 2
+  coefficient: -4
+- harmonic: 3
+  coefficient: 1
+- harmonic: 5
+  coefficient: 1
+estimator: SP
+plane_subevents:
+  A:
+  - min: 0.5
+    max: 2.7
+  B:
+  - min: -4.8
+    max: -3.3
+  - min: 3.3
+    max: 4.8
+  C:
+  - min: -2.7
+    max: -0.5
+value_type: $\langle$ cos($-8\Phi_{2}+3\Phi_{3}+5\Phi_{5}$)$\rangle$ SP method
+hepdata_corrections:
+  centrality: HEPData's axis is <N_part>; the classes are those of Table I with these <N_part>
+notes:
+  value: 'G. Aad et al. (ATLAS), PRC 90 (2014) 024905, arXiv:1403.0489. < cos(-8Phi_{2}+3Phi_{3}+5Phi_{5})> SP method: scalar-product
+    method, three subevents: ECalP 0.5 < eta < 2.7, FCal 3.3 < |eta| < 4.8, ECalN -2.7 < eta < -0.5; the three types (the
+    plane in the FCal) averaged; the E_T-weighted calorimeter flow vectors computed from charged particles with unit weights.
+    Pb+Pb 2.76 TeV vs centrality (classes of Table I from the tabulated <N_part>). Errors: stat and sys.'
+---
+observable_type: flow_harmonic_correlations
+inspire_id: '1283339'
+version: 1
+hepdata_file: Table25.yaml
+dv_index: 0
+hepdata_table_label: < cos(-10Phi_{2}+4Phi_{4}+6Phi_{6})> SP method (Table25.yaml column 0)
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-15%
+  - 15-20%
+  - 20-25%
+  - 25-30%
+  - 30-35%
+  - 35-40%
+  - 40-45%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T, 3.2 < |eta| < 4.9.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -4.8
+    max: 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+observable: < cos(-10Phi_{2}+4Phi_{4}+6Phi_{6})> SP method
+correlation_type: plane_correlation
+harmonics:
+- 2
+- 4
+- 6
+planes:
+- harmonic: 2
+  coefficient: -5
+- harmonic: 4
+  coefficient: 1
+- harmonic: 6
+  coefficient: 1
+estimator: SP
+plane_subevents:
+  A:
+  - min: 0.5
+    max: 2.7
+  B:
+  - min: -4.8
+    max: -3.3
+  - min: 3.3
+    max: 4.8
+  C:
+  - min: -2.7
+    max: -0.5
+value_type: $\langle$ cos($-10\Phi_{2}+4\Phi_{4}+6\Phi_{6}$)$\rangle$ EP mathod
+hepdata_corrections:
+  centrality: HEPData's axis is <N_part>; the classes are those of Table I with these <N_part>
+notes:
+  value: 'G. Aad et al. (ATLAS), PRC 90 (2014) 024905, arXiv:1403.0489. < cos(-10Phi_{2}+4Phi_{4}+6Phi_{6})> SP method: scalar-product
+    method, three subevents: ECalP 0.5 < eta < 2.7, FCal 3.3 < |eta| < 4.8, ECalN -2.7 < eta < -0.5; the three types (the
+    plane in the FCal) averaged; the E_T-weighted calorimeter flow vectors computed from charged particles with unit weights.
+    Pb+Pb 2.76 TeV vs centrality (classes of Table I from the tabulated <N_part>). HEPData labels this column ''EP mathod'';
+    it is the SP column (the first, as in every table). Errors: stat and sys.'
+---
+observable_type: flow_harmonic_correlations
+inspire_id: '1283339'
+version: 1
+hepdata_file: Table27.yaml
+dv_index: 0
+hepdata_table_label: < cos(-10Phi_{2}+6Phi_{3}+4Phi_{4})> SP method (Table27.yaml column 0)
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-15%
+  - 15-20%
+  - 20-25%
+  - 25-30%
+  - 30-35%
+  - 35-40%
+  - 40-45%
+  - 45-50%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T, 3.2 < |eta| < 4.9.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -4.8
+    max: 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+observable: < cos(-10Phi_{2}+6Phi_{3}+4Phi_{4})> SP method
+correlation_type: plane_correlation
+harmonics:
+- 2
+- 3
+- 4
+planes:
+- harmonic: 2
+  coefficient: -5
+- harmonic: 3
+  coefficient: 2
+- harmonic: 4
+  coefficient: 1
+estimator: SP
+plane_subevents:
+  A:
+  - min: 0.5
+    max: 2.7
+  B:
+  - min: -4.8
+    max: -3.3
+  - min: 3.3
+    max: 4.8
+  C:
+  - min: -2.7
+    max: -0.5
+value_type: $\langle$ cos($-10\Phi_{2}+6\Phi_{3}+4\Phi_{4}$)$\rangle$ SP method
+hepdata_corrections:
+  centrality: HEPData's axis is <N_part>; the classes are those of Table I with these <N_part>
+notes:
+  value: 'G. Aad et al. (ATLAS), PRC 90 (2014) 024905, arXiv:1403.0489. < cos(-10Phi_{2}+6Phi_{3}+4Phi_{4})> SP method: scalar-product
+    method, three subevents: ECalP 0.5 < eta < 2.7, FCal 3.3 < |eta| < 4.8, ECalN -2.7 < eta < -0.5; the three types (the
+    plane in the FCal) averaged; the E_T-weighted calorimeter flow vectors computed from charged particles with unit weights.
+    Pb+Pb 2.76 TeV vs centrality (classes of Table I from the tabulated <N_part>). Errors: stat and sys.'
