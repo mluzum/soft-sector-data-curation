@@ -1,0 +1,186 @@
+observable_type: observable_ratios
+inspire_id: '590481'
+version: 1
+hepdata_file: tab3a.yaml
+dv_index: 0
+hepdata_table_label: pi-/pi+ vs y, Au+Au 200 GeV 0-20% (tab3a.yaml)
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X X
+centrality:
+  classes:
+  - 0-20%
+  estimator:
+    name: MA
+    observable: Nch
+    detector: TMA
+  eta:
+  - min: -2.2
+    max: 2.2
+  notes: tile multiplicity array, |eta| < 2.2.
+kinematic_range:
+  y:
+    min: -0.02
+    max: 3.35
+    bin_ranges:
+    - - -0.02
+      - 0.02
+    - - 0.425
+      - 0.505
+    - - 0.95
+      - 1.05
+    - - 1.6
+      - 1.8
+    - - 2.15
+      - 2.35
+    - - 2.45
+      - 2.65
+    - - 3.15
+      - 3.35
+  pT:
+    min: 0.0
+    max: 100.0
+observable: dN_dy
+value_type: pi-/pi+
+ratio_type: particle_ratio
+dimensionality: differential_y
+numerator: pi-
+denominator: pi+
+numerator_particle: pi-
+denominator_particle: pi+
+numerator_system: Au+Au
+denominator_system: Au+Au
+numerator_record: data/particle_yields/brahms_particle_yields_ratio_sides_vs_y_AuAu_200gev_ins590481.yaml#0
+denominator_record: data/particle_yields/brahms_particle_yields_ratio_sides_vs_y_AuAu_200gev_ins590481.yaml#1
+hepdata_corrections:
+  centrality: the table states no class; the paper integrates over 0-20%
+notes:
+  value: 'I. G. Bearden et al. (BRAHMS), PRL 90 (2003) 102301, arXiv:nucl-ex/0207006, Fig. 3. pi-/pi+ per rapidity bin, Au+Au
+    200 GeV 0-20%, integrated over the measured pT (all pT here; the ratios are flat in pT). Not corrected for the hyperon
+    feed-down (< 5% on the ratios). Errors: stat and sys.'
+---
+observable_type: observable_ratios
+inspire_id: '590481'
+version: 1
+hepdata_file: tab3b.yaml
+dv_index: 0
+hepdata_table_label: K-/K+ vs y, Au+Au 200 GeV 0-20% (tab3b.yaml)
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X X
+centrality:
+  classes:
+  - 0-20%
+  estimator:
+    name: MA
+    observable: Nch
+    detector: TMA
+  eta:
+  - min: -2.2
+    max: 2.2
+  notes: tile multiplicity array, |eta| < 2.2.
+kinematic_range:
+  y:
+    min: -0.05
+    max: 3.15
+    bin_ranges:
+    - - -0.05
+      - 0.05
+    - - 0.41
+      - 0.51
+    - - 0.79
+      - 0.91
+    - - 1.5
+      - 1.7
+    - - 2.025
+      - 2.125
+    - - 2.275
+      - 2.375
+    - - 3.05
+      - 3.15
+  pT:
+    min: 0.0
+    max: 100.0
+observable: dN_dy
+value_type: K-/K+
+ratio_type: particle_ratio
+dimensionality: differential_y
+numerator: K-
+denominator: K+
+numerator_particle: K-
+denominator_particle: K+
+numerator_system: Au+Au
+denominator_system: Au+Au
+numerator_record: data/particle_yields/brahms_particle_yields_ratio_sides_vs_y_AuAu_200gev_ins590481.yaml#2
+denominator_record: data/particle_yields/brahms_particle_yields_ratio_sides_vs_y_AuAu_200gev_ins590481.yaml#3
+hepdata_corrections:
+  centrality: the table states no class; the paper integrates over 0-20%
+notes:
+  value: 'I. G. Bearden et al. (BRAHMS), PRL 90 (2003) 102301, arXiv:nucl-ex/0207006, Fig. 3. K-/K+ per rapidity bin, Au+Au
+    200 GeV 0-20%, integrated over the measured pT (all pT here; the ratios are flat in pT). Not corrected for the hyperon
+    feed-down (< 5% on the ratios). Errors: stat and sys.'
+---
+observable_type: observable_ratios
+inspire_id: '590481'
+version: 1
+hepdata_file: tab3c.yaml
+dv_index: 0
+hepdata_table_label: pbar/p vs y, Au+Au 200 GeV 0-20% (tab3c.yaml)
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> X X
+centrality:
+  classes:
+  - 0-20%
+  estimator:
+    name: MA
+    observable: Nch
+    detector: TMA
+  eta:
+  - min: -2.2
+    max: 2.2
+  notes: tile multiplicity array, |eta| < 2.2.
+kinematic_range:
+  y:
+    min: -0.06
+    max: 3.2
+    bin_ranges:
+    - - -0.06
+      - 0.06
+    - - 0.4
+      - 0.5
+    - - 0.75
+      - 0.85
+    - - 1.4
+      - 1.6
+    - - 1.8
+      - 1.9
+    - - 2.0
+      - 2.1
+    - - 2.35
+      - 2.45
+    - - 2.85
+      - 2.95
+    - - 3.0
+      - 3.2
+  pT:
+    min: 0.0
+    max: 100.0
+observable: dN_dy
+value_type: pbar/p
+ratio_type: particle_ratio
+dimensionality: differential_y
+numerator: pbar
+denominator: p
+numerator_particle: pbar
+denominator_particle: p
+numerator_system: Au+Au
+denominator_system: Au+Au
+numerator_record: data/particle_yields/brahms_particle_yields_ratio_sides_vs_y_AuAu_200gev_ins590481.yaml#4
+denominator_record: data/particle_yields/brahms_particle_yields_ratio_sides_vs_y_AuAu_200gev_ins590481.yaml#5
+hepdata_corrections:
+  centrality: the table states no class; the paper integrates over 0-20%
+notes:
+  value: 'I. G. Bearden et al. (BRAHMS), PRL 90 (2003) 102301, arXiv:nucl-ex/0207006, Fig. 3. pbar/p per rapidity bin, Au+Au
+    200 GeV 0-20%, integrated over the measured pT (all pT here; the ratios are flat in pT). Not corrected for the hyperon
+    feed-down (< 5% on the ratios). Errors: stat and sys.'
