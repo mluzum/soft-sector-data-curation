@@ -41,6 +41,7 @@ RECORD = dict(
         sign_convention=dict(eta=dict(min=1.5, max=3.0), sign='negative')))
 
 results = []
+_CACHE = {}
 
 
 def check(name, ok, detail=''):
@@ -53,6 +54,7 @@ def fixture():
                        flow={1: dict(kind='const', value=1.0), 2: dict(kind='const', value=0.05)},
                        eta_shape={1: shape})
     events, _ = generate_events(cfg)
+    _CACHE['events'] = events
     grid = make_qgrid_data(events, {'cfg': cfg}, n_eta=120, n_pt=10)
     truth = []
     for lo, hi in BINS:
@@ -86,6 +88,21 @@ def main():
     v2, _ = evaluate(flipped, grid=grid, cent_method='simple', with_jackknife=False)
     v1n, _ = evaluate(RECORD, grid=grid, cent_method='simple', with_jackknife=False)
     check('the sign convention flips the whole curve', np.allclose(v2, -v1n))
+
+    # bins narrower than a cell (STAR's EPD rings at 2.1 < |eta| < 2.7 on the
+    # toy's 0.1 cells): each POI cell counts with its overlap share
+    narrow = [(2.0843, 2.1805), (2.1805, 2.2632), (2.2632, 2.3349), (2.3349, 2.4127), (2.4127, 2.4973),
+              (2.4973, 2.5901), (2.5901, 2.6922)]
+    rec = copy.deepcopy(RECORD)
+    rec['kinematic_range']['eta'] = dict(min=narrow[0][0], max=narrow[-1][1], bin_ranges=[list(b) for b in narrow])
+    vn, en = evaluate(rec, grid=grid, cent_method='simple', n_blocks=20)
+    events = _CACHE['events']
+    tn = np.array([np.concatenate([shape(ev['eta'][(ev['eta'] >= lo) & (ev['eta'] < hi)]) for ev in events]).mean()
+                   for lo, hi in narrow])
+    print(f"    narrow bins: v1 {vn.round(4)}\n                 truth {tn.round(4)}")
+    pull = np.abs(vn - tn) / np.maximum(en, 1e-6)
+    check('bins narrower than a cell: every one within 4 sigma of the input (no empty bins)',
+          np.all(np.isfinite(vn)) and np.all(pull < 4), f'pulls {pull.round(1)}')
 
     for name, rec in (('without an odd reference', {k: v for k, v in RECORD.items() if k != 'flow_reference'}),
                       ('without a sign convention', dict(RECORD, flow_reference=dict(RECORD['flow_reference'], sign_convention=None)))):

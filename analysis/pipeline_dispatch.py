@@ -2349,17 +2349,21 @@ def _momentum_fractions(grid, p_range, mass, n_sub=8):
 
 
 def _poi_cell_weights(grid, var, lo, hi, pt, p_range, eta=None):
-    """Cell weights of a POI window: whole cells for an eta window on an eta
-    grid (as acceptance()), fractional for a rapidity window (the species'
-    mass per pT cell) or a rapidity-binned grid; times the momentum-cut
-    fractions.  A rapidity window may also carry an eta window (tracks in
-    STAR's TPC, |eta| < 1): times its cell fractions."""
+    """Cell weights of a POI window, fractional: an eta window by overlap
+    (uniform in eta and pT**2), a rapidity window mapped per pT cell with the
+    species' mass; times the momentum-cut fractions.  A rapidity window may
+    also carry an eta window (tracks in STAR's TPC, |eta| < 1): times its
+    cell fractions.  POI sums enter the correlations linearly, so a cut
+    cell counts with its share; the self-pairs with the reference follow
+    (_odd_shared_cells).  (Until November 2026 an eta window took whole
+    cells by its snapped edges: a bin narrower than a cell, STAR's EPD rings
+    on 0.1-0.2 cells, came out empty or doubled.)"""
     if var == 'y':
         W = grid.window_weights(lo, hi, pt[0], pt[1], var='y', mass=grid.mass, fractional=True)
         if eta is not None and eta[0] is not None and eta[1] is not None:
             W = W * grid.window_weights(eta[0], eta[1], 0.0, 1e9, fractional=True)
     else:
-        W = grid.window_weights(lo, hi, pt[0], pt[1], fractional=bool(getattr(grid, 'rapidity_binned', False)))
+        W = grid.window_weights(lo, hi, pt[0], pt[1], fractional=True)
     if p_range is not None:
         W = W * _momentum_fractions(grid, p_range, getattr(grid, 'mass', None))
     return W

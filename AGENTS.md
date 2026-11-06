@@ -122,6 +122,10 @@ Fields that change dispatch:
   sigma).  A y-binned POI honours an eta window (STAR TPC tracks, |eta|
   < 1) and `kinematic_range.p` (|p| < 1.6 GeV/c, STAR's PID limit; each
   cell weighted by its fraction inside; refused for other observables).
+  POI cells count with their overlap share (eta and y bins; the reference
+  keeps whole cells): until November 2026 an eta bin took whole cells by
+  its snapped edges, and a bin narrower than a cell (STAR's EPD rings on
+  0.1 cells) came out empty or doubled.
   Until November 2026 charged hadrons in eta bins only, every sum from the
   record's species grid; tests/test_toy_mc_v1_odd_pid.py (K+, pi, p
   v1(y) against particle level, counts per y bin within 0.5% with the
