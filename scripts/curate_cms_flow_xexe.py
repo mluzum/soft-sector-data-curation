@@ -23,13 +23,14 @@ From the paper:
 
 Records (public): v_n(pT) from two-particle correlations (Xe+Xe v2, v3, v4
 and Pb+Pb v2, v3, v4: the pair gap, reference 1-3 GeV/c), the scalar
-product (v2, v3, v4; the opposite HF), and four-particle cumulants (v2,
-v3); integrated v_n{2} (2PC), v2{4}, v2{6}, v2{8}, v3{4} vs class (Xe+Xe)
-and v_n{2} (Pb+Pb); the ratios v2{4}/v2{2}, v2{6}/v2{4}, v3{4}/v3{2}
+product (v2, v3, v4; the opposite HF), and four-, six- and eight-particle
+cumulants (v2{4}, v3{4}, v2{6}, v2{8}; the reference 0.3 < pT < 3.0 GeV/c);
+integrated v_n{2} (2PC), v2{4}, v2{6}, v2{8}, v3{4} vs class (Xe+Xe) and
+v_n{2} (Pb+Pb); the ratios v2{4}/v2{2}, v2{6}/v2{4}, v3{4}/v3{2}
 (cumulant combinations, the v{2} term the gapped 2PC); and the Xe+Xe /
-Pb+Pb ratios of the 2PC v_n (system ratios, linked).  Staged (--staged
-OUT): v2{6}(pT) and v2{8}(pT) (differential six- and eight-particle
-cumulants are not computed).
+Pb+Pb ratios of the 2PC v_n (system ratios, linked).  Nothing is staged
+since v2{6}(pT) and v2{8}(pT) are computed (2026-11-06); --staged writes an
+empty collection.
 
 Run from the repository root:  python scripts/curate_cms_flow_xexe.py --staged OUT.yaml
 """
@@ -97,7 +98,8 @@ def method_fields(kind, n):
 DESC = {'2pc': 'two-particle correlations, |Delta eta| > 2, associated 1.0 < pT < 3.0 GeV/c',
         'sp': 'scalar product with the opposite HF (3 < |eta| < 5)',
         'c4': 'four-particle Q-cumulant (reference 0.3 < pT < 3.0 GeV/c)',
-        'c6': 'six-particle Q-cumulant', 'c8': 'eight-particle Q-cumulant'}
+        'c6': 'six-particle Q-cumulant (reference 0.3 < pT < 3.0 GeV/c)',
+        'c8': 'eight-particle Q-cumulant (reference 0.3 < pT < 3.0 GeV/c)'}
 
 
 def main():
@@ -120,18 +122,11 @@ def main():
             name = SYSTEMS[system][2]
             cls = q['centrality']
             assert re.fullmatch(r'\d+-\d+%', cls), q
-            if kind in ('c6', 'c8'):
-                staged.append({'observable_type': 'flow_vn', 'inspire_id': '1716441', 'version': VERSION,
-                               'hepdata_file': hf, 'dv_index': i,
-                               'hepdata_table_label': f'v{n}{{{kind[1]}}}(pT), {name}, {cls} ({hf} column {i})',
-                               'value_type': dv['header']['name'], 'notes': {'value': f'{CITE}. {DESC[kind]}.'},
-                               'staging_reason': 'differential six- and eight-particle cumulants are not computed'})
-                continue
             rows = filled(dv)
             assert {tuple(e['label'] for e in dv['values'][r]['errors']) for r in rows} == {('stat', 'sys')}, (hf, i)
             rb = [bins[r] for r in rows]
             fields, (elo, ehi) = method_fields(kind, n)
-            if kind == 'c4':
+            if kind in ('c4', 'c6', 'c8'):
                 fields['flow_reference'] = copy.deepcopy(REF_CUM)
             d = head(hf, i, f'v{n}(pT), {DESC[kind].split(",")[0]}, {name}, {cls}', system, [cls])
             d['kinematic_range'] = {'eta': {'min': elo, 'max': ehi},
