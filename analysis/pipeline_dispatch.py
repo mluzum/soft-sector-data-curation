@@ -446,6 +446,8 @@ def prepare_cumulant_poi_2d(qv, params, order):
 
     ref = sample(ref_idx, r_eta, r_pt, False)
     n_harm = qv.Qn.shape[2]
+    if order >= 6:
+        _note_missing_multi(Container2D(qv, ref, ref), order, n_harm, int(params.get('harmonic', 2)))
     out = correlator_arrays(Container2D(qv, ref, ref), n_harm, order, which=('ref',))
     per_bin = [correlator_arrays(Container2D(qv, sample(poi_idx, eta, pt, diff and params.get('differential_var') == 'pT'), ref),
                                  n_harm, order, which=('poi',)) for eta, pt in bins]
@@ -562,6 +564,8 @@ def prepare_cumulant_poi_3d(container, params, order):
     ref = _unit_weights(container.select({'species': 'charged'}))
     overlap = _poi_within_charged(container, pid)
     n_harm = ref.Qn.shape[-1]
+    if order >= 6:
+        _note_missing_multi(Container3D(ref, rw, ref, rw, True), order, n_harm, int(params.get('harmonic', 2)))
     out = correlator_arrays(Container3D(ref, rw, ref, rw, True), n_harm, order, which=('ref',))
     per_bin = [correlator_arrays(Container3D(poi, (eta[0], eta[1], pt[0], pt[1]), ref, rw, overlap),
                                  n_harm, order, which=('poi',)) for eta, pt in bins]
@@ -3095,6 +3099,38 @@ PIPELINE_DISPATCH = {
         "selects_species": True,
         "n_obs_per_cent": None,
         "description": "v_n{4} eta-differential",
+    },
+    "vn6_single_diff_pT": {
+        "core_fn": _poi_core(6, 'h_major'),
+        "prepare_data_2d": _poi_prepares(6)[0],
+        "prepare_data_3d": _poi_prepares(6)[1],
+        "selects_species": True,
+        "n_obs_per_cent": None,
+        "description": "v_n{6} pT-differential (particle of interest; generating-function sums)",
+    },
+    "vn6_single_diff_eta": {
+        "core_fn": _poi_core(6, 'h_major'),
+        "prepare_data_2d": _poi_prepares(6)[0],
+        "prepare_data_3d": _poi_prepares(6)[1],
+        "selects_species": True,
+        "n_obs_per_cent": None,
+        "description": "v_n{6} eta-differential (particle of interest; generating-function sums)",
+    },
+    "vn8_single_diff_pT": {
+        "core_fn": _poi_core(8, 'h_major'),
+        "prepare_data_2d": _poi_prepares(8)[0],
+        "prepare_data_3d": _poi_prepares(8)[1],
+        "selects_species": True,
+        "n_obs_per_cent": None,
+        "description": "v_n{8} pT-differential (particle of interest; generating-function sums)",
+    },
+    "vn8_single_diff_eta": {
+        "core_fn": _poi_core(8, 'h_major'),
+        "prepare_data_2d": _poi_prepares(8)[0],
+        "prepare_data_3d": _poi_prepares(8)[1],
+        "selects_species": True,
+        "n_obs_per_cent": None,
+        "description": "v_n{8} eta-differential (particle of interest; generating-function sums)",
     },
     "vn4_gap": {
         "core_fn": _wrap_vn4_gap,

@@ -19,13 +19,22 @@ Backends give S(h, n_poi, n_ref):
 - Container2D: QVectorData species/pT slices and window weights;
 - Container3D: species-selected unit-weight grids and eta/pT windows.
 
-Differential and integrated v_n{2}, v_n{4} of the POI (Bilandzic et al.,
-PRC 83, 044913; PRC 89, 064904):
+Differential and integrated v_n{2}, v_n{4}, v_n{6}, v_n{8} of the POI
+(Bilandzic et al., PRC 83, 044913; PRC 89, 064904):
     d2 = <<2'>>,  c2 = <<2>>,                      v'{2} = d2 / sqrt(c2)
     d4 = <<4'>> - 2 <<2'>><<2>>,  c4 = <<4>> - 2 <<2>>^2,  v'{4} = -d4 / (-c4)^(3/4)
-With POI = REF they reduce to v{2} = sqrt(c2) and v{4} = (-c4)^(1/4).  Signs
-follow the existing convention: sign(c2) sqrt|c2| and sign(-c4) |c4|^(1/4)
-for POI = REF.
+    d6 = <<6'>> - 6 <<4'>><<2>> - 3 <<2'>><<4>> + 12 <<2'>><<2>>^2,
+                                                   v'{6} = d6 / (4 v{6}^5)
+    d8 = <<8'>> - 12 <<6'>><<2>> - 4 <<2'>><<6>> - 18 <<4'>><<4>>
+         + 72 <<4'>><<2>>^2 + 72 <<4>><<2'>><<2>> - 144 <<2'>><<2>>^3,
+                                                   v'{8} = -d8 / (33 v{8}^7)
+(each term of c_n{2k} with the POI in each of its correlators, weighted by
+the correlator's share of the 2k particles).  With POI = REF they reduce to
+v{2} = sqrt(c2), v{4} = (-c4)^(1/4), v{6} = (c6/4)^(1/6), v{8} =
+(-c8/33)^(1/8).  Signs follow the existing convention: v{k} the signed root
+(vn_from_cumulant), v'{k} over its signed power.  <<6'>> and <<8'>> are
+distinct-particle sums from the generating function (flow_pt.distinct_gf),
+the reference <<6>>, <<8>> from symmetric_distinct_sum.
 """
 from math import factorial
 
@@ -139,11 +148,24 @@ def vn_from_cumulant(c, order):
     return np.sign(x) * np.abs(x) ** (1.0 / order)
 
 
+def roles_distinct_sum(S, members):
+    """Sum over distinct particles of prod w e^{i h phi} for members [(role,
+    h)], role 'P' or 'R', any number of members (flow_pt.distinct_gf over
+    S(h, n_poi, n_ref))."""
+    from analysis.flow_pt import distinct_gf
+    types = {}
+    for role, h in members:
+        types[(role, h)] = types.get((role, h), 0) + 1
+    return distinct_gf(lambda h, wins: S(h, wins.count('P'), wins.count('R')),
+                       [(r, h, c) for (r, h), c in types.items()])
+
+
 def correlator_arrays(S, n_harm, order, which=('poi', 'ref')):
     """Per-event numerators and denominators for harmonics 1..n_harm-1.
 
     'poi': N2p (n_events, n_harm-1) complex, D2p (n_events,) real, and with
-    order 4 N4p, D4p; 'ref': N2, D2 (and N4, D4)."""
+    order 4 N4p, D4p (6: N6p, D6p; 8: N8p, D8p); 'ref': N2, D2 (and N4, D4,
+    ...)."""
     out = {}
     hs = range(1, n_harm)
     specs = []
@@ -156,6 +178,14 @@ def correlator_arrays(S, n_harm, order, which=('poi', 'ref')):
         out['D' + tag] = np.real(distinct_sum(S, (0,) * len(sign), roles))
         if len(sign) == 4:
             _note_missing_q2n(S, [h for h in hs if 2 * h >= n_harm], n_harm)
+    for m in range(3, order // 2 + 1):
+        if 'poi' in which:
+            out[f'N{2 * m}p'] = np.stack([roles_distinct_sum(S, [('P', h)] + [('R', h)] * (m - 1)
+                                                             + [('R', -h)] * m) for h in hs], axis=1)
+            out[f'D{2 * m}p'] = np.real(roles_distinct_sum(S, [('P', 0)] + [('R', 0)] * (2 * m - 1)))
+        if 'ref' in which:
+            out[f'N{2 * m}'] = np.stack([symmetric_distinct_sum(S, h, m) for h in hs], axis=1)
+            out[f'D{2 * m}'] = np.real(symmetric_distinct_sum(S, 0, m))
     return out
 
 
@@ -216,17 +246,34 @@ def vn_poi(arrays, w, order):
         # no reference pairs (c2 undefined): NaN, not 0
         return np.where(np.isnan(root), np.nan,
                         np.where(root > 0, d2 * np.sign(c2) / np.where(root > 0, root, 1.0), 0.0))
-    four_p = _avg(arrays['N4p'], arrays['D4p'], w)
-    four = _avg(arrays['N4'], arrays['D4'], w)
-    if arrays['N4p'].ndim == 3:
-        four = four[:, None]
+    binned = arrays['N2p'].ndim == 3
+
+    def k(tag):                           # <<k'>> (tag 'p') or the reference <<k>>
+        v = _avg(arrays[f'N{tag}'], arrays[f'D{tag}'], w)
+        return v[:, None] if binned and not tag.endswith('p') else v
+    four_p, four = k('4p'), k('4')
     d4 = four_p - 2.0 * d2 * c2
     c4 = four - 2.0 * c2 ** 2
-    # -d4 / v{4}^3 with the signed v{4} = sign(-c4) |c4|^(1/4) (until
-    # November 2026 the sign of -c4 was dropped: c4 > 0 gave a negative v{4}
-    # but an unflipped v'{4})
-    den = np.sign(-c4) * np.abs(c4) ** 0.75
-    return np.where(den != 0, -d4 / np.where(den != 0, den, 1.0), 0.0)
+    if order == 4:
+        # -d4 / v{4}^3 with the signed v{4} = sign(-c4) |c4|^(1/4) (until
+        # November 2026 the sign of -c4 was dropped: c4 > 0 gave a negative
+        # v{4} but an unflipped v'{4})
+        den = np.sign(-c4) * np.abs(c4) ** 0.75
+        return np.where(den != 0, -d4 / np.where(den != 0, den, 1.0), 0.0)
+    six_p, six = k('6p'), k('6')
+    if order == 6:
+        d6 = six_p - 6.0 * four_p * c2 - 3.0 * d2 * four + 12.0 * d2 * c2 ** 2
+        c6 = six - 9.0 * four * c2 + 12.0 * c2 ** 3
+        den = 4.0 * vn_from_cumulant(c6, 6) ** 5
+        return np.where(den != 0, d6 / np.where(den != 0, den, 1.0), 0.0)
+    if order != 8:
+        raise ValueError(f'v_n{{{order}}} of a particle of interest: orders 2, 4, 6, 8')
+    eight_p, eight = k('8p'), k('8')
+    d8 = (eight_p - 12.0 * six_p * c2 - 4.0 * d2 * six - 18.0 * four_p * four + 72.0 * four_p * c2 ** 2
+          + 72.0 * four * d2 * c2 - 144.0 * d2 * c2 ** 3)
+    c8 = eight - 16.0 * six * c2 - 18.0 * four ** 2 + 144.0 * four * c2 ** 2 - 144.0 * c2 ** 4
+    den = -33.0 * vn_from_cumulant(c8, 8) ** 7
+    return np.where(den != 0, d8 / np.where(den != 0, den, 1.0), 0.0)
 
 
 # ── backends ────────────────────────────────────────────────────────────────

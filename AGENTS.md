@@ -585,7 +585,13 @@ near c_4 = 0, ratios) the correction is unstable (zr96c2 dp0001, v2{4}
   particles come from inclusion-exclusion over set partitions, valid for a
   POI inside, partly inside or outside the reference and for the 2D
   Jacobian weights.  v'{2} = d2/sqrt(c2), v'{4} = -d4/(-c4)^(3/4); a
-  charged record gives v{2}, v{4}.  The 3D prepares get the unselected
+  charged record gives v{2}, v{4}.  v'{6} = d6/(4 v{6}^5) and v'{8} =
+  -d8/(33 v{8}^7) (`vn6_single_diff_pT`, `vn8_single_diff_pT` and the eta
+  keys; CMS 1716441 v2{6}(pT), v2{8}(pT)): d_{2k} has each term of c_{2k}
+  with the POI in each of its correlators, <<6'>> and <<8'>> from the
+  generating function (`correlators.roles_distinct_sum` over
+  `flow_pt.distinct_gf`); tests/test_toy_mc_vn68_poi.py (exact against
+  explicit tuples; POI = reference gives v{6}, v{8}).  The 3D prepares get the unselected
   container (`selects_species`).  Until November 2026: 2D ignored the
   species, v_n{4}(pT) was (v' v^3)^(1/4) with an unbalanced four-particle
   term, v_n{4} ignored the record's pT window, and 3D v_n{2}(pT)

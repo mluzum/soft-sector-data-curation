@@ -83,6 +83,26 @@ DISPATCH_TABLE = {
         "requires": ["kinematic_range.eta", "kinematic_range.pT"],
         "description": "v_n{6} integrated cumulant",
     },
+    ("cumulant", 6, None, "differential_pT"): {
+        "compute": "vn6_single_diff_pT",
+        "requires": ["kinematic_range.eta", "kinematic_range.pT", ["kinematic_range.pT.bins", "kinematic_range.pT.points", "kinematic_range.pT.bin_ranges"]],
+        "description": "v_n{6} pT-differential (particle of interest)",
+    },
+    ("cumulant", 6, None, "differential_eta"): {
+        "compute": "vn6_single_diff_eta",
+        "requires": ["kinematic_range.eta", "kinematic_range.pT", ["kinematic_range.eta.bins", "kinematic_range.eta.points", "kinematic_range.eta.bin_ranges"]],
+        "description": "v_n{6} eta-differential (particle of interest)",
+    },
+    ("cumulant", 8, None, "differential_pT"): {
+        "compute": "vn8_single_diff_pT",
+        "requires": ["kinematic_range.eta", "kinematic_range.pT", ["kinematic_range.pT.bins", "kinematic_range.pT.points", "kinematic_range.pT.bin_ranges"]],
+        "description": "v_n{8} pT-differential (particle of interest)",
+    },
+    ("cumulant", 8, None, "differential_eta"): {
+        "compute": "vn8_single_diff_eta",
+        "requires": ["kinematic_range.eta", "kinematic_range.pT", ["kinematic_range.eta.bins", "kinematic_range.eta.points", "kinematic_range.eta.bin_ranges"]],
+        "description": "v_n{8} eta-differential (particle of interest)",
+    },
     ("scalar_product", None, None, "differential_pT"): {
         "compute": "vn2_sp_diff_pT",
         "requires": "kinematic_range.eta",
