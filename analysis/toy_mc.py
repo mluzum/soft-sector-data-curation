@@ -608,21 +608,6 @@ def _cent_mult_2d(qv, cent_eta_ranges, pt_range=None):
     return m
 
 
-def _cent_mult_3d(grid, cent_eta_ranges, pt_range=None):
-    """Estimator multiplicity per event; with pt_range (classes in track
-    count) as run_pipeline: fractional cells in the estimator's pT window."""
-    m = np.zeros(grid.n_events)
-    if pt_range is None:
-        for lo, hi in cent_eta_ranges:
-            m += grid.acceptance(lo, hi, 0.0, 1e9)[:, 0].real / grid.nsamples
-        return m
-    lo_pt = 0.0 if pt_range[0] is None else pt_range[0]
-    hi_pt = 1e9 if pt_range[1] is None else pt_range[1]
-    for lo, hi in cent_eta_ranges:
-        m += grid.acceptance_fractional(lo, hi, lo_pt, hi_pt)[:, 0].real / grid.nsamples
-    return m
-
-
 def _combined_raw_factory(data, cw, entry, n_cent, min_weight=0.01, groups=None):
     """cw: (CentralityWeights, class edges), rebuilt for each mask."""
     from analysis.cent_combine import class_weights
@@ -726,9 +711,7 @@ def evaluate(record, qv=None, grid=None, with_jackknife=True,
     if qv is not None:
         data = entry['prepare_data_2d'](qv, params)
         n_events = qv.n_events
-        mult = _cent_mult_2d(qv, params['cent_eta_ranges'],
-                             (params.get('cent_pT_range') or (None, None)) if params.get('cent_multiplicity_bins')
-                             else None)
+        mult = _cent_mult_2d(qv, params['cent_eta_ranges'], params.get('cent_pT_range') or (None, None))
     elif grid is not None:
         # Apply charge-symmetry / species selection once, up front, so the
         # 3D prepares read grid.charge_factor consistently with run_pipeline.
@@ -737,10 +720,10 @@ def evaluate(record, qv=None, grid=None, with_jackknife=True,
         grid = container_for_prepare(grid, params, entry)
         data = entry['prepare_data_3d'](grid, params)
         n_events = grid.n_events
-        # classes in track count: the charged count, as run_pipeline
-        mult = (_cent_mult_3d(grid_unselected.select({'species': 'charged'}), params['cent_eta_ranges'],
-                              params.get('cent_pT_range') or (None, None))
-                if params.get('cent_multiplicity_bins') else _cent_mult_3d(grid, params['cent_eta_ranges']))
+        # the estimator's charged multiplicity in its acceptance, as run_pipeline
+        from analysis.pipeline_dispatch import estimator_multiplicity_3d
+        mult = estimator_multiplicity_3d(grid_unselected, params['cent_eta_ranges'],
+                                         params.get('cent_pT_range') or (None, None))
     else:
         raise ValueError("provide qv or grid")
 

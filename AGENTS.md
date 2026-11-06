@@ -396,7 +396,16 @@ Containers (`analysis/qvector.py`):
 
 Centrality (`analysis/weights.py`):
 - simple percentiles, or Poisson-fluctuated weights, of the multiplicity in
-  the record's estimator acceptance;
+  the record's estimator acceptance: the charged multiplicity in its eta
+  and pT windows (2D: the Jacobian-weighted charged count, or a package's
+  own `cent_mult`; 3D: `pipeline_dispatch.estimator_multiplicity_3d`, x2
+  on a positives-only grid, a species collection's combined grid or its
+  charged species summed).  Until November 2026 3D counted the stored
+  particles: half the charged count on a positives-only grid, the first
+  species of a collection without a combined grid -- ranks unchanged, but
+  the Poisson width and a threshold normalization's N_trk scale off (toy,
+  N_trk >= 60: 60-100% dN/deta 98 instead of 17);
+  tests/test_centrality_3d_estimator.py;
 - anchored to the total cross section by `resolve_anchor` (fraction f,
   N_ref, {b_max, sigma_tot} in fm², or {sigma_eff, sigma_tot});
 - bins beyond the anchor get zero weight, and bins below `--min-cent-weight`

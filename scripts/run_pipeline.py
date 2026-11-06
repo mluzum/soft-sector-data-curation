@@ -282,7 +282,7 @@ def _record_anchor(params, mult, anchor, args, event_weights=None):
     params['record_anchor'] = {k: a[k] for k in ('f', 'n_ref', 'anchor_cent', 'p_above')}
     return a, eff
 from analysis.pipeline_dispatch import (
-    get_pipeline_entry, PTCUTS, container_for_prepare, SINGLE_ROW_KEYS,
+    get_pipeline_entry, PTCUTS, container_for_prepare, SINGLE_ROW_KEYS, estimator_multiplicity_3d,
 )
 
 
@@ -1261,32 +1261,19 @@ def main():
                         print(f"    Skipping: qv is not a 3D grid")
                         continue
 
-                    cent_mult_3d = np.zeros(n_events, dtype=np.float64)
-                    # the estimator's pT window (STAR Ntrk: pT > 0.2 GeV/c);
-                    # until November 2026 every pT was counted
-                    c_pt = params.get('cent_pT_range') or (None, None)
-                    c_lo = c_pt[0] if c_pt[0] is not None else 0.0
-                    c_hi = c_pt[1] if c_pt[1] is not None else 1e9
-                    # Classes in track count are absolute: the estimator
-                    # counts charged particles (the charged selection: x2 on
-                    # a positives-only grid, the charged species of a
-                    # species collection).  Percentile classes rank the
-                    # container's own multiplicity, as before.
-                    est = (qv.select({'species': 'charged'}) if params.get('cent_multiplicity_bins')
-                           else qv)
-                    for emin, emax in cent_eta_ranges:
-                        cent_mult_3d += est.acceptance_fractional(emin, emax, c_lo, c_hi)[:, 0].real \
-                            if hasattr(est, 'acceptance_fractional') else est.acceptance(emin, emax, c_lo, c_hi)[:, 0].real
-                    # Rank by TABLE-scale multiplicity (per-run means): the
-                    # loader scales Q by nsamples (nevents) for cumulant-scale
+                    # The estimator's charged multiplicity in its acceptance
+                    # and pT window (STAR Ntrk: pT > 0.2 GeV/c; until November
+                    # 2026 every pT was counted), per particlization.  Rank by
+                    # TABLE-scale multiplicity (per-run means): the loader
+                    # scales Q by nsamples (nevents) for cumulant-scale
                     # consistency, but centrality sorting must use the
                     # unscaled variable — JETSCAPE sorts by raw table sums
                     # (getCentralityTrigger, no R factor), and nsamples varies
                     # 10x event-to-event so ranking the scaled values scrambles
                     # bins (found Sep 2026: +13% on v22_int 0-5%).  The Poisson
                     # path needs the physical per-run mean as its base too.
-                    cent_mult_3d = cent_mult_3d / np.maximum(
-                        np.asarray(qv.nsamples, dtype=np.float64), 1e-30)
+                    cent_mult_3d = estimator_multiplicity_3d(
+                        qv, cent_eta_ranges, params.get('cent_pT_range') or (None, None))
                     rec_anchor, rec_eff = _record_anchor(params, cent_mult_3d, anchor, args,
                                                          group_event_weights)
                     cw = _centrality(cent_mult_3d, rec_eff, params)

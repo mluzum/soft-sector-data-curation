@@ -3179,6 +3179,44 @@ PIPELINE_DISPATCH['vn_cumulant_combination'] = {
 ABSOLUTE_KEYS = {'yield_dNch_deta', 'yield_dNch_deta_per_eta', 'spectra_invariant_yield', 'dET_deta'}
 
 
+def _charged_estimator(container):
+    """(grid, charge factor) whose acceptance sums give the physical
+    charged multiplicity: a plain grid x2 when it holds positives only, a
+    species collection's combined grid likewise, else its charged species
+    summed (MultiSpeciesGrid.select, cached on the container)."""
+    from analysis.qvector import MultiSpeciesGrid
+    if isinstance(container, MultiSpeciesGrid):
+        if container.combined is not None:
+            g = container.combined
+            return g, 2.0 if getattr(g, 'positives_only', True) else 1.0
+        g = getattr(container, '_charged_estimator_grid', None)
+        if g is None:
+            g = container.select({'species': 'charged'})
+            container._charged_estimator_grid = g
+        return g, 1.0
+    return container, 2.0 if getattr(container, 'positives_only', True) else 1.0
+
+
+def estimator_multiplicity_3d(container, eta_ranges, pt_range=(None, None)):
+    """Per-event charged multiplicity in a centrality estimator's
+    acceptance on a 3D container (cut cells by overlap; per particlization:
+    over nsamples), for percentile ranking, its Poisson smearing and
+    threshold normalizations, and classes in track count.  (Until November
+    2026 percentile classes counted the stored particles: half the charged
+    count on a positives-only grid, the first species of a collection
+    without a combined grid -- ranks unchanged, but the Poisson width and a
+    threshold's N_trk scale off.)"""
+    g, cf = _charged_estimator(container)
+    lo = 0.0 if pt_range[0] is None else pt_range[0]
+    hi = 1e9 if pt_range[1] is None else pt_range[1]
+    m = np.zeros(g.n_events)
+    for emin, emax in eta_ranges:
+        a = g.acceptance_fractional(emin, emax, lo, hi) if hasattr(g, 'acceptance_fractional') \
+            else g.acceptance(emin, emax, lo, hi)
+        m += a[:, 0].real
+    return cf * m / np.maximum(np.asarray(g.nsamples, dtype=np.float64), 1e-30)
+
+
 def _unit_weights(grid):
     """The grid with a charge-symmetry scaling undone.
 
