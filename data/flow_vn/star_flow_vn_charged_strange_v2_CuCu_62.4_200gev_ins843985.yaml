@@ -1,0 +1,2074 @@
+observable_type: flow_vn
+inspire_id: '843985'
+version: 1
+hepdata_file: Fig3.0.yaml
+dv_index: 0
+hepdata_table_label: 'Figure 3.0: v2{TPC} of charged vs pT, Cu+Cu 200 GeV, 0-60% (Fig3.0.yaml)'
+collision_system:
+  energy_gev: 200.0
+  reaction: CU CU --> CHARGED X
+centrality:
+  classes:
+  - 0-60%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: raw TPC charged multiplicity in |eta| < 0.5.
+  combined_from: analysis_classes
+  analysis_class_width: 10.0
+  combination_weight: yield
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.02
+    max: 4.42
+    bin_ranges:
+    - - 0.02
+      - 0.22
+    - - 0.22
+      - 0.42
+    - - 0.42
+      - 0.62
+    - - 0.62
+      - 0.82
+    - - 0.82
+      - 1.02
+    - - 1.02
+      - 1.22
+    - - 1.22
+      - 1.42
+    - - 1.42
+      - 1.62
+    - - 1.62
+      - 1.82
+    - - 1.82
+      - 2.02
+    - - 2.02
+      - 2.22
+    - - 2.22
+      - 2.42
+    - - 2.42
+      - 2.62
+    - - 2.62
+      - 2.87
+    - - 2.87
+      - 3.22
+    - - 3.22
+      - 3.62
+    - - 3.62
+      - 4.02
+    - - 4.02
+      - 4.42
+harmonic: 2
+method: event_plane
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: 1.0
+  pT:
+    min: 0.15
+    max: 2.0
+  notes: Event plane of TPC tracks (|eta| < 1, 0.15 < pT < 2 GeV/c, pT-weighted), the particle's own track excluded.
+value_type: v2{TPC}
+dimensionality: differential_pT
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 81 (2010) 044902, arXiv:1001.5052. v2{TPC}(pT) of charged, |eta| < 1, Cu+Cu 200
+    GeV 0-60%. pT bins midway between the tabulated points. Wide classes combined from 10% classes weighted by the particle
+    yield. Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '843985'
+version: 1
+hepdata_file: Fig3.1.yaml
+dv_index: 0
+hepdata_table_label: 'Figure 3.1: v2{FTPC} of charged vs pT, Cu+Cu 200 GeV, 0-60% (Fig3.1.yaml)'
+collision_system:
+  energy_gev: 200.0
+  reaction: CU CU --> CHARGED X
+centrality:
+  classes:
+  - 0-60%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: raw TPC charged multiplicity in |eta| < 0.5.
+  combined_from: analysis_classes
+  analysis_class_width: 10.0
+  combination_weight: yield
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.0
+    max: 4.4
+    bin_ranges:
+    - - 0.0
+      - 0.2
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.85
+    - - 2.85
+      - 3.2
+    - - 3.2
+      - 3.6
+    - - 3.6
+      - 4.0
+    - - 4.0
+      - 4.4
+harmonic: 2
+method: event_plane
+flow_reference:
+  detector: FTPC
+  eta:
+  - min: -4.0
+    max: -2.5
+  - min: 2.5
+    max: 4.0
+  pT:
+    min: 0.15
+    max: 2.0
+  notes: Event plane of the two FTPCs (2.5 < |eta| < 4.0; tracks 0.15 < pT < 2 GeV/c, pT-weighted), resolution from the east
+    and west subevents.
+value_type: v2{FTPC}
+dimensionality: differential_pT
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 81 (2010) 044902, arXiv:1001.5052. v2{FTPC}(pT) of charged, |eta| < 1, Cu+Cu 200
+    GeV 0-60%. pT bins midway between the tabulated points. Wide classes combined from 10% classes weighted by the particle
+    yield. Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '843985'
+version: 1
+hepdata_file: Fig4.0.yaml
+dv_index: 0
+hepdata_table_label: 'Figure 4.0: v2{FTPC} of charged vs pT, Cu+Cu 200 GeV, 50-60% (Fig4.0.yaml)'
+collision_system:
+  energy_gev: 200.0
+  reaction: CU CU --> CHARGED X
+centrality:
+  classes:
+  - 50-60%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: raw TPC charged multiplicity in |eta| < 0.5.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.0
+    max: 5.2
+    bin_ranges:
+    - - 0.0
+      - 0.2
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.5
+    - - 2.5
+      - 2.85
+    - - 2.85
+      - 3.2
+    - - 3.2
+      - 3.6
+    - - 3.6
+      - 4.0
+    - - 4.0
+      - 4.4
+    - - 4.4
+      - 4.8
+    - - 4.8
+      - 5.2
+harmonic: 2
+method: event_plane
+flow_reference:
+  detector: FTPC
+  eta:
+  - min: -4.0
+    max: -2.5
+  - min: 2.5
+    max: 4.0
+  pT:
+    min: 0.15
+    max: 2.0
+  notes: Event plane of the two FTPCs (2.5 < |eta| < 4.0; tracks 0.15 < pT < 2 GeV/c, pT-weighted), resolution from the east
+    and west subevents.
+value_type: v2{FTPC}
+dimensionality: differential_pT
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 81 (2010) 044902, arXiv:1001.5052. v2{FTPC}(pT) of charged, |eta| < 1, Cu+Cu 200
+    GeV 50-60%. pT bins midway between the tabulated points. Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '843985'
+version: 1
+hepdata_file: Fig4.1.yaml
+dv_index: 0
+hepdata_table_label: 'Figure 4.1: v2{FTPC} of charged vs pT, Cu+Cu 200 GeV, 40-50% (Fig4.1.yaml)'
+collision_system:
+  energy_gev: 200.0
+  reaction: CU CU --> CHARGED X
+centrality:
+  classes:
+  - 40-50%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: raw TPC charged multiplicity in |eta| < 0.5.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.0
+    max: 5.2
+    bin_ranges:
+    - - 0.0
+      - 0.2
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.85
+    - - 2.85
+      - 3.2
+    - - 3.2
+      - 3.6
+    - - 3.6
+      - 4.0
+    - - 4.0
+      - 4.4
+    - - 4.4
+      - 4.8
+    - - 4.8
+      - 5.2
+harmonic: 2
+method: event_plane
+flow_reference:
+  detector: FTPC
+  eta:
+  - min: -4.0
+    max: -2.5
+  - min: 2.5
+    max: 4.0
+  pT:
+    min: 0.15
+    max: 2.0
+  notes: Event plane of the two FTPCs (2.5 < |eta| < 4.0; tracks 0.15 < pT < 2 GeV/c, pT-weighted), resolution from the east
+    and west subevents.
+value_type: v2{FTPC}
+dimensionality: differential_pT
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 81 (2010) 044902, arXiv:1001.5052. v2{FTPC}(pT) of charged, |eta| < 1, Cu+Cu 200
+    GeV 40-50%. pT bins midway between the tabulated points. Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '843985'
+version: 1
+hepdata_file: Fig4.2.yaml
+dv_index: 0
+hepdata_table_label: 'Figure 4.2: v2{FTPC} of charged vs pT, Cu+Cu 200 GeV, 30-40% (Fig4.2.yaml)'
+collision_system:
+  energy_gev: 200.0
+  reaction: CU CU --> CHARGED X
+centrality:
+  classes:
+  - 30-40%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: raw TPC charged multiplicity in |eta| < 0.5.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.0
+    max: 5.2
+    bin_ranges:
+    - - 0.0
+      - 0.2
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.85
+    - - 2.85
+      - 3.2
+    - - 3.2
+      - 3.6
+    - - 3.6
+      - 4.0
+    - - 4.0
+      - 4.4
+    - - 4.4
+      - 4.8
+    - - 4.8
+      - 5.2
+harmonic: 2
+method: event_plane
+flow_reference:
+  detector: FTPC
+  eta:
+  - min: -4.0
+    max: -2.5
+  - min: 2.5
+    max: 4.0
+  pT:
+    min: 0.15
+    max: 2.0
+  notes: Event plane of the two FTPCs (2.5 < |eta| < 4.0; tracks 0.15 < pT < 2 GeV/c, pT-weighted), resolution from the east
+    and west subevents.
+value_type: v2{FTPC}
+dimensionality: differential_pT
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 81 (2010) 044902, arXiv:1001.5052. v2{FTPC}(pT) of charged, |eta| < 1, Cu+Cu 200
+    GeV 30-40%. pT bins midway between the tabulated points. Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '843985'
+version: 1
+hepdata_file: Fig4.3.yaml
+dv_index: 0
+hepdata_table_label: 'Figure 4.3: v2{FTPC} of charged vs pT, Cu+Cu 200 GeV, 20-30% (Fig4.3.yaml)'
+collision_system:
+  energy_gev: 200.0
+  reaction: CU CU --> CHARGED X
+centrality:
+  classes:
+  - 20-30%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: raw TPC charged multiplicity in |eta| < 0.5.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.0
+    max: 5.2
+    bin_ranges:
+    - - 0.0
+      - 0.2
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.85
+    - - 2.85
+      - 3.2
+    - - 3.2
+      - 3.6
+    - - 3.6
+      - 4.0
+    - - 4.0
+      - 4.4
+    - - 4.4
+      - 4.8
+    - - 4.8
+      - 5.2
+harmonic: 2
+method: event_plane
+flow_reference:
+  detector: FTPC
+  eta:
+  - min: -4.0
+    max: -2.5
+  - min: 2.5
+    max: 4.0
+  pT:
+    min: 0.15
+    max: 2.0
+  notes: Event plane of the two FTPCs (2.5 < |eta| < 4.0; tracks 0.15 < pT < 2 GeV/c, pT-weighted), resolution from the east
+    and west subevents.
+value_type: v2{FTPC}
+dimensionality: differential_pT
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 81 (2010) 044902, arXiv:1001.5052. v2{FTPC}(pT) of charged, |eta| < 1, Cu+Cu 200
+    GeV 20-30%. pT bins midway between the tabulated points. Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '843985'
+version: 1
+hepdata_file: Fig4.4.yaml
+dv_index: 0
+hepdata_table_label: 'Figure 4.4: v2{FTPC} of charged vs pT, Cu+Cu 200 GeV, 10-20% (Fig4.4.yaml)'
+collision_system:
+  energy_gev: 200.0
+  reaction: CU CU --> CHARGED X
+centrality:
+  classes:
+  - 10-20%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: raw TPC charged multiplicity in |eta| < 0.5.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.0
+    max: 5.2
+    bin_ranges:
+    - - 0.0
+      - 0.2
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.85
+    - - 2.85
+      - 3.2
+    - - 3.2
+      - 3.6
+    - - 3.6
+      - 4.0
+    - - 4.0
+      - 4.4
+    - - 4.4
+      - 4.8
+    - - 4.8
+      - 5.2
+harmonic: 2
+method: event_plane
+flow_reference:
+  detector: FTPC
+  eta:
+  - min: -4.0
+    max: -2.5
+  - min: 2.5
+    max: 4.0
+  pT:
+    min: 0.15
+    max: 2.0
+  notes: Event plane of the two FTPCs (2.5 < |eta| < 4.0; tracks 0.15 < pT < 2 GeV/c, pT-weighted), resolution from the east
+    and west subevents.
+value_type: v2{FTPC}
+dimensionality: differential_pT
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 81 (2010) 044902, arXiv:1001.5052. v2{FTPC}(pT) of charged, |eta| < 1, Cu+Cu 200
+    GeV 10-20%. pT bins midway between the tabulated points. Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '843985'
+version: 1
+hepdata_file: Fig4.5.yaml
+dv_index: 0
+hepdata_table_label: 'Figure 4.5: v2{FTPC} of charged vs pT, Cu+Cu 200 GeV, 0-10% (Fig4.5.yaml)'
+collision_system:
+  energy_gev: 200.0
+  reaction: CU CU --> CHARGED X
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: raw TPC charged multiplicity in |eta| < 0.5.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.0
+    max: 5.2
+    bin_ranges:
+    - - 0.0
+      - 0.2
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.85
+    - - 2.85
+      - 3.2
+    - - 3.2
+      - 3.6
+    - - 3.6
+      - 4.0
+    - - 4.0
+      - 4.4
+    - - 4.4
+      - 4.8
+    - - 4.8
+      - 5.2
+harmonic: 2
+method: event_plane
+flow_reference:
+  detector: FTPC
+  eta:
+  - min: -4.0
+    max: -2.5
+  - min: 2.5
+    max: 4.0
+  pT:
+    min: 0.15
+    max: 2.0
+  notes: Event plane of the two FTPCs (2.5 < |eta| < 4.0; tracks 0.15 < pT < 2 GeV/c, pT-weighted), resolution from the east
+    and west subevents.
+value_type: v2{FTPC}
+dimensionality: differential_pT
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 81 (2010) 044902, arXiv:1001.5052. v2{FTPC}(pT) of charged, |eta| < 1, Cu+Cu 200
+    GeV 0-10%. pT bins midway between the tabulated points. Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '843985'
+version: 1
+hepdata_file: Fig6.0.yaml
+dv_index: 0
+hepdata_table_label: 'Fig. 6: integrated v2{TPC} of charged hadrons vs centrality, Cu+Cu 200 GeV (Fig6.0.yaml)'
+collision_system:
+  energy_gev: 200.0
+  reaction: CU CU --> CHARGED X
+centrality:
+  classes:
+  - 50-60%
+  - 40-50%
+  - 30-40%
+  - 20-30%
+  - 10-20%
+  - 0-10%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: raw TPC charged multiplicity in |eta| < 0.5.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.15
+    max: 4.0
+harmonic: 2
+method: event_plane
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: 1.0
+  pT:
+    min: 0.15
+    max: 2.0
+  notes: Event plane of TPC tracks (|eta| < 1, 0.15 < pT < 2 GeV/c, pT-weighted), the particle's own track excluded.
+value_type: v2{TPC}
+dimensionality: integrated
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 81 (2010) 044902, arXiv:1001.5052. Integrated v2{TPC} of charged hadrons (0.15 <
+    pT < 4 GeV/c, |eta| < 1) vs centrality, Cu+Cu 200 GeV. Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '843985'
+version: 1
+hepdata_file: Fig6.0.yaml
+dv_index: 2
+hepdata_table_label: 'Fig. 6: integrated v2{FTPC} of charged hadrons vs centrality, Cu+Cu 200 GeV (Fig6.0.yaml)'
+collision_system:
+  energy_gev: 200.0
+  reaction: CU CU --> CHARGED X
+centrality:
+  classes:
+  - 50-60%
+  - 40-50%
+  - 30-40%
+  - 20-30%
+  - 10-20%
+  - 0-10%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: raw TPC charged multiplicity in |eta| < 0.5.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.15
+    max: 4.0
+harmonic: 2
+method: event_plane
+flow_reference:
+  detector: FTPC
+  eta:
+  - min: -4.0
+    max: -2.5
+  - min: 2.5
+    max: 4.0
+  pT:
+    min: 0.15
+    max: 2.0
+  notes: Event plane of the two FTPCs (2.5 < |eta| < 4.0; tracks 0.15 < pT < 2 GeV/c, pT-weighted), resolution from the east
+    and west subevents.
+value_type: v2{FTPC}
+dimensionality: integrated
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 81 (2010) 044902, arXiv:1001.5052. Integrated v2{FTPC} of charged hadrons (0.15
+    < pT < 4 GeV/c, |eta| < 1) vs centrality, Cu+Cu 200 GeV. Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '843985'
+version: 1
+hepdata_file: Fig6.1.yaml
+dv_index: 0
+hepdata_table_label: 'Fig. 6: integrated v2{TPC} of charged hadrons vs centrality, Cu+Cu 62.4 GeV (Fig6.1.yaml)'
+collision_system:
+  energy_gev: 62.4
+  reaction: CU CU --> CHARGED X
+centrality:
+  classes:
+  - 50-60%
+  - 40-50%
+  - 30-40%
+  - 20-30%
+  - 10-20%
+  - 0-10%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: raw TPC charged multiplicity in |eta| < 0.5.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.15
+    max: 4.0
+harmonic: 2
+method: event_plane
+flow_reference:
+  detector: TPC
+  eta:
+  - min: -1.0
+    max: 1.0
+  pT:
+    min: 0.15
+    max: 2.0
+  notes: Event plane of TPC tracks (|eta| < 1, 0.15 < pT < 2 GeV/c, pT-weighted), the particle's own track excluded.
+value_type: v2{TPC}
+dimensionality: integrated
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 81 (2010) 044902, arXiv:1001.5052. Integrated v2{TPC} of charged hadrons (0.15 <
+    pT < 4 GeV/c, |eta| < 1) vs centrality, Cu+Cu 62.4 GeV. Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '843985'
+version: 1
+hepdata_file: Fig6.1.yaml
+dv_index: 1
+hepdata_table_label: 'Fig. 6: integrated v2{FTPC} of charged hadrons vs centrality, Cu+Cu 62.4 GeV (Fig6.1.yaml)'
+collision_system:
+  energy_gev: 62.4
+  reaction: CU CU --> CHARGED X
+centrality:
+  classes:
+  - 50-60%
+  - 40-50%
+  - 30-40%
+  - 20-30%
+  - 10-20%
+  - 0-10%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: raw TPC charged multiplicity in |eta| < 0.5.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.15
+    max: 4.0
+harmonic: 2
+method: event_plane
+flow_reference:
+  detector: FTPC
+  eta:
+  - min: -4.0
+    max: -2.5
+  - min: 2.5
+    max: 4.0
+  pT:
+    min: 0.15
+    max: 2.0
+  notes: Event plane of the two FTPCs (2.5 < |eta| < 4.0; tracks 0.15 < pT < 2 GeV/c, pT-weighted), resolution from the east
+    and west subevents.
+value_type: v2{FTPC}
+dimensionality: integrated
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 81 (2010) 044902, arXiv:1001.5052. Integrated v2{FTPC} of charged hadrons (0.15
+    < pT < 4 GeV/c, |eta| < 1) vs centrality, Cu+Cu 62.4 GeV. Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '843985'
+version: 1
+hepdata_file: Fig7.0.yaml
+dv_index: 0
+hepdata_table_label: 'Figure 7.0: v2{FTPC} of charged vs pT, Cu+Cu 62.4 GeV, 50-60% (Fig7.0.yaml)'
+collision_system:
+  energy_gev: 62.4
+  reaction: CU CU --> CHARGED X
+centrality:
+  classes:
+  - 50-60%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: raw TPC charged multiplicity in |eta| < 0.5.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.0
+    max: 2.4
+    bin_ranges:
+    - - 0.0
+      - 0.2
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.5
+    - - 1.5
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+harmonic: 2
+method: event_plane
+flow_reference:
+  detector: FTPC
+  eta:
+  - min: -4.0
+    max: -2.5
+  - min: 2.5
+    max: 4.0
+  pT:
+    min: 0.15
+    max: 2.0
+  notes: Event plane of the two FTPCs (2.5 < |eta| < 4.0; tracks 0.15 < pT < 2 GeV/c, pT-weighted), resolution from the east
+    and west subevents.
+value_type: v2{FTPC}
+dimensionality: differential_pT
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 81 (2010) 044902, arXiv:1001.5052. v2{FTPC}(pT) of charged, |eta| < 1, Cu+Cu 62.4
+    GeV 50-60%. pT bins midway between the tabulated points. Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '843985'
+version: 1
+hepdata_file: Fig7.1.yaml
+dv_index: 0
+hepdata_table_label: 'Figure 7.1: v2{FTPC} of charged vs pT, Cu+Cu 62.4 GeV, 40-50% (Fig7.1.yaml)'
+collision_system:
+  energy_gev: 62.4
+  reaction: CU CU --> CHARGED X
+centrality:
+  classes:
+  - 40-50%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: raw TPC charged multiplicity in |eta| < 0.5.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.0
+    max: 2.5
+    bin_ranges:
+    - - 0.0
+      - 0.2
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.1
+    - - 2.1
+      - 2.5
+harmonic: 2
+method: event_plane
+flow_reference:
+  detector: FTPC
+  eta:
+  - min: -4.0
+    max: -2.5
+  - min: 2.5
+    max: 4.0
+  pT:
+    min: 0.15
+    max: 2.0
+  notes: Event plane of the two FTPCs (2.5 < |eta| < 4.0; tracks 0.15 < pT < 2 GeV/c, pT-weighted), resolution from the east
+    and west subevents.
+value_type: v2{FTPC}
+dimensionality: differential_pT
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 81 (2010) 044902, arXiv:1001.5052. v2{FTPC}(pT) of charged, |eta| < 1, Cu+Cu 62.4
+    GeV 40-50%. pT bins midway between the tabulated points. Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '843985'
+version: 1
+hepdata_file: Fig7.2.yaml
+dv_index: 0
+hepdata_table_label: 'Figure 7.2: v2{FTPC} of charged vs pT, Cu+Cu 62.4 GeV, 30-40% (Fig7.2.yaml)'
+collision_system:
+  energy_gev: 62.4
+  reaction: CU CU --> CHARGED X
+centrality:
+  classes:
+  - 30-40%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: raw TPC charged multiplicity in |eta| < 0.5.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.0
+    max: 2.4
+    bin_ranges:
+    - - 0.0
+      - 0.2
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+harmonic: 2
+method: event_plane
+flow_reference:
+  detector: FTPC
+  eta:
+  - min: -4.0
+    max: -2.5
+  - min: 2.5
+    max: 4.0
+  pT:
+    min: 0.15
+    max: 2.0
+  notes: Event plane of the two FTPCs (2.5 < |eta| < 4.0; tracks 0.15 < pT < 2 GeV/c, pT-weighted), resolution from the east
+    and west subevents.
+value_type: v2{FTPC}
+dimensionality: differential_pT
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 81 (2010) 044902, arXiv:1001.5052. v2{FTPC}(pT) of charged, |eta| < 1, Cu+Cu 62.4
+    GeV 30-40%. pT bins midway between the tabulated points. Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '843985'
+version: 1
+hepdata_file: Fig7.3.yaml
+dv_index: 0
+hepdata_table_label: 'Figure 7.3: v2{FTPC} of charged vs pT, Cu+Cu 62.4 GeV, 20-30% (Fig7.3.yaml)'
+collision_system:
+  energy_gev: 62.4
+  reaction: CU CU --> CHARGED X
+centrality:
+  classes:
+  - 20-30%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: raw TPC charged multiplicity in |eta| < 0.5.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.0
+    max: 2.4
+    bin_ranges:
+    - - 0.0
+      - 0.2
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+harmonic: 2
+method: event_plane
+flow_reference:
+  detector: FTPC
+  eta:
+  - min: -4.0
+    max: -2.5
+  - min: 2.5
+    max: 4.0
+  pT:
+    min: 0.15
+    max: 2.0
+  notes: Event plane of the two FTPCs (2.5 < |eta| < 4.0; tracks 0.15 < pT < 2 GeV/c, pT-weighted), resolution from the east
+    and west subevents.
+value_type: v2{FTPC}
+dimensionality: differential_pT
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 81 (2010) 044902, arXiv:1001.5052. v2{FTPC}(pT) of charged, |eta| < 1, Cu+Cu 62.4
+    GeV 20-30%. pT bins midway between the tabulated points. Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '843985'
+version: 1
+hepdata_file: Fig7.4.yaml
+dv_index: 0
+hepdata_table_label: 'Figure 7.4: v2{FTPC} of charged vs pT, Cu+Cu 62.4 GeV, 10-20% (Fig7.4.yaml)'
+collision_system:
+  energy_gev: 62.4
+  reaction: CU CU --> CHARGED X
+centrality:
+  classes:
+  - 10-20%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: raw TPC charged multiplicity in |eta| < 0.5.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.0
+    max: 2.4
+    bin_ranges:
+    - - 0.0
+      - 0.2
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+harmonic: 2
+method: event_plane
+flow_reference:
+  detector: FTPC
+  eta:
+  - min: -4.0
+    max: -2.5
+  - min: 2.5
+    max: 4.0
+  pT:
+    min: 0.15
+    max: 2.0
+  notes: Event plane of the two FTPCs (2.5 < |eta| < 4.0; tracks 0.15 < pT < 2 GeV/c, pT-weighted), resolution from the east
+    and west subevents.
+value_type: v2{FTPC}
+dimensionality: differential_pT
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 81 (2010) 044902, arXiv:1001.5052. v2{FTPC}(pT) of charged, |eta| < 1, Cu+Cu 62.4
+    GeV 10-20%. pT bins midway between the tabulated points. Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '843985'
+version: 1
+hepdata_file: Fig7.5.yaml
+dv_index: 0
+hepdata_table_label: 'Figure 7.5: v2{FTPC} of charged vs pT, Cu+Cu 62.4 GeV, 0-10% (Fig7.5.yaml)'
+collision_system:
+  energy_gev: 62.4
+  reaction: CU CU --> CHARGED X
+centrality:
+  classes:
+  - 0-10%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: raw TPC charged multiplicity in |eta| < 0.5.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.0
+    max: 2.5
+    bin_ranges:
+    - - 0.0
+      - 0.2
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.1
+    - - 2.1
+      - 2.5
+harmonic: 2
+method: event_plane
+flow_reference:
+  detector: FTPC
+  eta:
+  - min: -4.0
+    max: -2.5
+  - min: 2.5
+    max: 4.0
+  pT:
+    min: 0.15
+    max: 2.0
+  notes: Event plane of the two FTPCs (2.5 < |eta| < 4.0; tracks 0.15 < pT < 2 GeV/c, pT-weighted), resolution from the east
+    and west subevents.
+value_type: v2{FTPC}
+dimensionality: differential_pT
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 81 (2010) 044902, arXiv:1001.5052. v2{FTPC}(pT) of charged, |eta| < 1, Cu+Cu 62.4
+    GeV 0-10%. pT bins midway between the tabulated points. Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '843985'
+version: 1
+hepdata_file: Fig8.yaml
+dv_index: 0
+hepdata_table_label: 'Figure 8: v2{FTPC} of charged vs pT, Cu+Cu 62.4 GeV, 0-60% (Fig8.yaml)'
+collision_system:
+  energy_gev: 62.4
+  reaction: CU CU --> CHARGED X
+centrality:
+  classes:
+  - 0-60%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: raw TPC charged multiplicity in |eta| < 0.5.
+  combined_from: analysis_classes
+  analysis_class_width: 10.0
+  combination_weight: yield
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.0
+    max: 3.6
+    bin_ranges:
+    - - 0.0
+      - 0.2
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.85
+    - - 2.85
+      - 3.2
+    - - 3.2
+      - 3.6
+harmonic: 2
+method: event_plane
+flow_reference:
+  detector: FTPC
+  eta:
+  - min: -4.0
+    max: -2.5
+  - min: 2.5
+    max: 4.0
+  pT:
+    min: 0.15
+    max: 2.0
+  notes: Event plane of the two FTPCs (2.5 < |eta| < 4.0; tracks 0.15 < pT < 2 GeV/c, pT-weighted), resolution from the east
+    and west subevents.
+value_type: v2{FTPC}
+dimensionality: differential_pT
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 81 (2010) 044902, arXiv:1001.5052. v2{FTPC}(pT) of charged, |eta| < 1, Cu+Cu 62.4
+    GeV 0-60%. pT bins midway between the tabulated points. Wide classes combined from 10% classes weighted by the particle
+    yield. Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '843985'
+version: 1
+hepdata_file: Fig9.0.0.yaml
+dv_index: 0
+hepdata_table_label: 'Figure 9.0.0: v2{FTPC} of K0_S vs pT, Cu+Cu 200 GeV, 0-60% (Fig9.0.0.yaml)'
+collision_system:
+  energy_gev: 200.0
+  reaction: CU CU --> K0S X
+centrality:
+  classes:
+  - 0-60%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: raw TPC charged multiplicity in |eta| < 0.5.
+  combined_from: analysis_classes
+  analysis_class_width: 10.0
+  combination_weight: yield
+particle_id:
+  species: K0_S
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.2235
+    max: 4.375
+    bin_ranges:
+    - - 0.2235
+      - 0.4137
+    - - 0.4137
+      - 0.6052
+    - - 0.6052
+      - 0.7998
+    - - 0.7998
+      - 0.9971
+    - - 0.9971
+      - 1.1955
+    - - 1.1955
+      - 1.3945
+    - - 1.3945
+      - 1.593
+    - - 1.593
+      - 1.792
+    - - 1.792
+      - 1.992
+    - - 1.992
+      - 2.192
+    - - 2.192
+      - 2.392
+    - - 2.392
+      - 2.592
+    - - 2.592
+      - 2.831
+    - - 2.831
+      - 3.1705
+    - - 3.1705
+      - 3.5715
+    - - 3.5715
+      - 3.973
+    - - 3.973
+      - 4.375
+harmonic: 2
+method: event_plane
+flow_reference:
+  detector: FTPC
+  eta:
+  - min: -4.0
+    max: -2.5
+  - min: 2.5
+    max: 4.0
+  pT:
+    min: 0.15
+    max: 2.0
+  notes: Event plane of the two FTPCs (2.5 < |eta| < 4.0; tracks 0.15 < pT < 2 GeV/c, pT-weighted), resolution from the east
+    and west subevents.
+value_type: v2{FTPC}
+dimensionality: differential_pT
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 81 (2010) 044902, arXiv:1001.5052. v2{FTPC}(pT) of K0_S, |eta| < 1, Cu+Cu 200 GeV
+    0-60%. pT bins midway between the tabulated points. Wide classes combined from 10% classes weighted by the particle yield.
+    Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '843985'
+version: 1
+hepdata_file: Fig9.0.1.yaml
+dv_index: 0
+hepdata_table_label: 'Figure 9.0.1: v2{FTPC} of K0_S vs pT, Cu+Cu 200 GeV, 0-20% (Fig9.0.1.yaml)'
+collision_system:
+  energy_gev: 200.0
+  reaction: CU CU --> K0S X
+centrality:
+  classes:
+  - 0-20%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: raw TPC charged multiplicity in |eta| < 0.5.
+  combined_from: analysis_classes
+  analysis_class_width: 10.0
+  combination_weight: yield
+particle_id:
+  species: K0_S
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.2228
+    max: 3.971
+    bin_ranges:
+    - - 0.2228
+      - 0.4132
+    - - 0.4132
+      - 0.6048
+    - - 0.6048
+      - 0.7997
+    - - 0.7997
+      - 0.9971
+    - - 0.9971
+      - 1.1955
+    - - 1.1955
+      - 1.3945
+    - - 1.3945
+      - 1.593
+    - - 1.593
+      - 1.792
+    - - 1.792
+      - 1.992
+    - - 1.992
+      - 2.292
+    - - 2.292
+      - 2.592
+    - - 2.592
+      - 2.831
+    - - 2.831
+      - 3.1705
+    - - 3.1705
+      - 3.571
+    - - 3.571
+      - 3.971
+harmonic: 2
+method: event_plane
+flow_reference:
+  detector: FTPC
+  eta:
+  - min: -4.0
+    max: -2.5
+  - min: 2.5
+    max: 4.0
+  pT:
+    min: 0.15
+    max: 2.0
+  notes: Event plane of the two FTPCs (2.5 < |eta| < 4.0; tracks 0.15 < pT < 2 GeV/c, pT-weighted), resolution from the east
+    and west subevents.
+value_type: v2{FTPC}
+dimensionality: differential_pT
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 81 (2010) 044902, arXiv:1001.5052. v2{FTPC}(pT) of K0_S, |eta| < 1, Cu+Cu 200 GeV
+    0-20%. pT bins midway between the tabulated points. Wide classes combined from 10% classes weighted by the particle yield.
+    Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '843985'
+version: 1
+hepdata_file: Fig9.0.2.yaml
+dv_index: 0
+hepdata_table_label: 'Figure 9.0.2: v2{FTPC} of K0_S vs pT, Cu+Cu 200 GeV, 20-60% (Fig9.0.2.yaml)'
+collision_system:
+  energy_gev: 200.0
+  reaction: CU CU --> K0S X
+centrality:
+  classes:
+  - 20-60%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: raw TPC charged multiplicity in |eta| < 0.5.
+  combined_from: analysis_classes
+  analysis_class_width: 10.0
+  combination_weight: yield
+particle_id:
+  species: K0_S
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.2248
+    max: 3.5735
+    bin_ranges:
+    - - 0.2248
+      - 0.4148
+    - - 0.4148
+      - 0.6057
+    - - 0.6057
+      - 0.7999
+    - - 0.7999
+      - 0.9971
+    - - 0.9971
+      - 1.1955
+    - - 1.1955
+      - 1.3945
+    - - 1.3945
+      - 1.5935
+    - - 1.5935
+      - 1.7925
+    - - 1.7925
+      - 1.992
+    - - 1.992
+      - 2.192
+    - - 2.192
+      - 2.3925
+    - - 2.3925
+      - 2.593
+    - - 2.593
+      - 2.8325
+    - - 2.8325
+      - 3.1725
+    - - 3.1725
+      - 3.5735
+harmonic: 2
+method: event_plane
+flow_reference:
+  detector: FTPC
+  eta:
+  - min: -4.0
+    max: -2.5
+  - min: 2.5
+    max: 4.0
+  pT:
+    min: 0.15
+    max: 2.0
+  notes: Event plane of the two FTPCs (2.5 < |eta| < 4.0; tracks 0.15 < pT < 2 GeV/c, pT-weighted), resolution from the east
+    and west subevents.
+value_type: v2{FTPC}
+dimensionality: differential_pT
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 81 (2010) 044902, arXiv:1001.5052. v2{FTPC}(pT) of K0_S, |eta| < 1, Cu+Cu 200 GeV
+    20-60%. pT bins midway between the tabulated points. Wide classes combined from 10% classes weighted by the particle yield.
+    Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '843985'
+version: 1
+hepdata_file: Fig9.1.0.yaml
+dv_index: 0
+hepdata_table_label: 'Figure 9.1.0: v2{FTPC} of Lambda + Lambdabar vs pT, Cu+Cu 200 GeV, 0-60% (Fig9.1.0.yaml)'
+collision_system:
+  energy_gev: 200.0
+  reaction: CU CU --> LAMBDA LAMBDABAR X
+centrality:
+  classes:
+  - 0-60%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: raw TPC charged multiplicity in |eta| < 0.5.
+  combined_from: analysis_classes
+  analysis_class_width: 10.0
+  combination_weight: yield
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.41
+    max: 4.573
+    bin_ranges:
+    - - 0.41
+      - 0.6072
+    - - 0.6072
+      - 0.8047
+    - - 0.8047
+      - 1.0023
+    - - 1.0023
+      - 1.198
+    - - 1.198
+      - 1.394
+    - - 1.394
+      - 1.5925
+    - - 1.5925
+      - 1.792
+    - - 1.792
+      - 1.992
+    - - 1.992
+      - 2.192
+    - - 2.192
+      - 2.392
+    - - 2.392
+      - 2.592
+    - - 2.592
+      - 2.83
+    - - 2.83
+      - 3.169
+    - - 3.169
+      - 3.771
+    - - 3.771
+      - 4.573
+harmonic: 2
+method: event_plane
+flow_reference:
+  detector: FTPC
+  eta:
+  - min: -4.0
+    max: -2.5
+  - min: 2.5
+    max: 4.0
+  pT:
+    min: 0.15
+    max: 2.0
+  notes: Event plane of the two FTPCs (2.5 < |eta| < 4.0; tracks 0.15 < pT < 2 GeV/c, pT-weighted), resolution from the east
+    and west subevents.
+value_type: v2{FTPC}
+dimensionality: differential_pT
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 81 (2010) 044902, arXiv:1001.5052. v2{FTPC}(pT) of Lambda + Lambdabar, |eta| < 1,
+    Cu+Cu 200 GeV 0-60%. pT bins midway between the tabulated points. Wide classes combined from 10% classes weighted by the
+    particle yield. Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '843985'
+version: 1
+hepdata_file: Fig9.1.1.yaml
+dv_index: 0
+hepdata_table_label: 'Figure 9.1.1: v2{FTPC} of Lambda + Lambdabar vs pT, Cu+Cu 200 GeV, 0-20% (Fig9.1.1.yaml)'
+collision_system:
+  energy_gev: 200.0
+  reaction: CU CU --> LAMBDA LAMBDABAR X
+centrality:
+  classes:
+  - 0-20%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: raw TPC charged multiplicity in |eta| < 0.5.
+  combined_from: analysis_classes
+  analysis_class_width: 10.0
+  combination_weight: yield
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.6069
+    max: 3.97
+    bin_ranges:
+    - - 0.6069
+      - 0.8049
+    - - 0.8049
+      - 1.003
+    - - 1.003
+      - 1.1985
+    - - 1.1985
+      - 1.3935
+    - - 1.3935
+      - 1.592
+    - - 1.592
+      - 1.792
+    - - 1.792
+      - 1.992
+    - - 1.992
+      - 2.192
+    - - 2.192
+      - 2.3915
+    - - 2.3915
+      - 2.729
+    - - 2.729
+      - 3.1685
+    - - 3.1685
+      - 3.57
+    - - 3.57
+      - 3.97
+harmonic: 2
+method: event_plane
+flow_reference:
+  detector: FTPC
+  eta:
+  - min: -4.0
+    max: -2.5
+  - min: 2.5
+    max: 4.0
+  pT:
+    min: 0.15
+    max: 2.0
+  notes: Event plane of the two FTPCs (2.5 < |eta| < 4.0; tracks 0.15 < pT < 2 GeV/c, pT-weighted), resolution from the east
+    and west subevents.
+value_type: v2{FTPC}
+dimensionality: differential_pT
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 81 (2010) 044902, arXiv:1001.5052. v2{FTPC}(pT) of Lambda + Lambdabar, |eta| < 1,
+    Cu+Cu 200 GeV 0-20%. pT bins midway between the tabulated points. Wide classes combined from 10% classes weighted by the
+    particle yield. Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '843985'
+version: 1
+hepdata_file: Fig9.1.2.yaml
+dv_index: 0
+hepdata_table_label: 'Figure 9.1.2: v2{FTPC} of Lambda + Lambdabar vs pT, Cu+Cu 200 GeV, 20-60% (Fig9.1.2.yaml)'
+collision_system:
+  energy_gev: 200.0
+  reaction: CU CU --> LAMBDA LAMBDABAR X
+centrality:
+  classes:
+  - 20-60%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: raw TPC charged multiplicity in |eta| < 0.5.
+  combined_from: analysis_classes
+  analysis_class_width: 10.0
+  combination_weight: yield
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.411
+    max: 3.5705
+    bin_ranges:
+    - - 0.411
+      - 0.6074
+    - - 0.6074
+      - 0.8042
+    - - 0.8042
+      - 1.0019
+    - - 1.0019
+      - 1.198
+    - - 1.198
+      - 1.394
+    - - 1.394
+      - 1.593
+    - - 1.593
+      - 1.8925
+    - - 1.8925
+      - 2.192
+    - - 2.192
+      - 2.392
+    - - 2.392
+      - 2.592
+    - - 2.592
+      - 2.8305
+    - - 2.8305
+      - 3.1695
+    - - 3.1695
+      - 3.5705
+harmonic: 2
+method: event_plane
+flow_reference:
+  detector: FTPC
+  eta:
+  - min: -4.0
+    max: -2.5
+  - min: 2.5
+    max: 4.0
+  pT:
+    min: 0.15
+    max: 2.0
+  notes: Event plane of the two FTPCs (2.5 < |eta| < 4.0; tracks 0.15 < pT < 2 GeV/c, pT-weighted), resolution from the east
+    and west subevents.
+value_type: v2{FTPC}
+dimensionality: differential_pT
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 81 (2010) 044902, arXiv:1001.5052. v2{FTPC}(pT) of Lambda + Lambdabar, |eta| < 1,
+    Cu+Cu 200 GeV 20-60%. pT bins midway between the tabulated points. Wide classes combined from 10% classes weighted by
+    the particle yield. Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '843985'
+version: 1
+hepdata_file: Fig9.2.yaml
+dv_index: 0
+hepdata_table_label: 'Figure 9.2: v2{FTPC} of Xi- + Xibar+ vs pT, Cu+Cu 200 GeV, 0-60% (Fig9.2.yaml)'
+collision_system:
+  energy_gev: 200.0
+  reaction: CU CU --> XI- XIBAR+ X
+centrality:
+  classes:
+  - 0-60%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: raw TPC charged multiplicity in |eta| < 0.5.
+  combined_from: analysis_classes
+  analysis_class_width: 10.0
+  combination_weight: yield
+particle_id:
+  species: Xi- + Xibar+
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.3497
+    max: 3.8725
+    bin_ranges:
+    - - 0.3497
+      - 0.8419
+    - - 0.8419
+      - 1.3225
+    - - 1.3225
+      - 1.773
+    - - 1.773
+      - 2.203
+    - - 2.203
+      - 2.679
+    - - 2.679
+      - 3.2515
+    - - 3.2515
+      - 3.8725
+harmonic: 2
+method: event_plane
+flow_reference:
+  detector: FTPC
+  eta:
+  - min: -4.0
+    max: -2.5
+  - min: 2.5
+    max: 4.0
+  pT:
+    min: 0.15
+    max: 2.0
+  notes: Event plane of the two FTPCs (2.5 < |eta| < 4.0; tracks 0.15 < pT < 2 GeV/c, pT-weighted), resolution from the east
+    and west subevents.
+value_type: v2{FTPC}
+dimensionality: differential_pT
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 81 (2010) 044902, arXiv:1001.5052. v2{FTPC}(pT) of Xi- + Xibar+, |eta| < 1, Cu+Cu
+    200 GeV 0-60%. pT bins midway between the tabulated points. Wide classes combined from 10% classes weighted by the particle
+    yield. Errors: statistical.'
+---
+observable_type: flow_vn
+inspire_id: '843985'
+version: 1
+hepdata_file: Fig9.3.yaml
+dv_index: 0
+hepdata_table_label: 'Figure 9.3: v2{FTPC} of phi vs pT, Cu+Cu 200 GeV, 0-60% (Fig9.3.yaml)'
+collision_system:
+  energy_gev: 200.0
+  reaction: CU CU --> PHI X
+centrality:
+  classes:
+  - 0-60%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  notes: raw TPC charged multiplicity in |eta| < 0.5.
+  combined_from: analysis_classes
+  analysis_class_width: 10.0
+  combination_weight: yield
+particle_id:
+  species: phi
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.5825
+    max: 1.7285
+    bin_ranges:
+    - - 0.5825
+      - 1.1555
+    - - 1.1555
+      - 1.7285
+harmonic: 2
+method: event_plane
+flow_reference:
+  detector: FTPC
+  eta:
+  - min: -4.0
+    max: -2.5
+  - min: 2.5
+    max: 4.0
+  pT:
+    min: 0.15
+    max: 2.0
+  notes: Event plane of the two FTPCs (2.5 < |eta| < 4.0; tracks 0.15 < pT < 2 GeV/c, pT-weighted), resolution from the east
+    and west subevents.
+value_type: v2{FTPC}
+dimensionality: differential_pT
+notes:
+  value: 'B. I. Abelev et al. (STAR), PRC 81 (2010) 044902, arXiv:1001.5052. v2{FTPC}(pT) of phi, |eta| < 1, Cu+Cu 200 GeV
+    0-60%. pT bins midway between the tabulated points. Wide classes combined from 10% classes weighted by the particle yield.
+    Errors: statistical.'
