@@ -1,0 +1,957 @@
+observable_type: flow_harmonic_correlations
+inspire_id: '1599396'
+version: 1
+hepdata_file: fig2LeftB.yaml
+dv_index: 0
+hepdata_table_label: "Centrality dependence of v4 (left), v5 (middle) and v6 (right) in Pb\u2013Pb collisions at 2.76 TeV.\
+  \ Cont (V4L)"
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 5.0
+observable: V4L
+correlation_type: mode_coupling
+harmonics:
+- 4
+- 2
+- 2
+quantity: v_linear
+particles: AB
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -0.8
+        max: -0.4
+      pT:
+        min: 0.2
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.4
+        max: 0.8
+      pT:
+        min: 0.2
+        max: 5.0
+dimensionality: integrated
+value_type: V4L
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 773 (2017) 68, arXiv:1705.04377. linear mode v_n^L = sqrt(v_n{2}^2 - v_{n,mk}^2)
+    (Eqs. 23, 24), harmonics [4, 2, 2], charged particles, 0.2 < pT < 5.0 GeV/c, two subevents -0.8 < eta < -0.4 and 0.4 <
+    eta < 0.8 (particle 1 in one, the others in the other; the two subevents averaged). Errors: statistical and systematic.'
+---
+observable_type: flow_harmonic_correlations
+inspire_id: '1599396'
+version: 1
+hepdata_file: fig2LeftC.yaml
+dv_index: 0
+hepdata_table_label: "Centrality dependence of v4 (left), v5 (middle) and v6 (right) in Pb\u2013Pb collisions at 2.76 TeV.\
+  \ Cont (V4Psi2)"
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 5.0
+observable: V4Psi2
+correlation_type: mode_coupling
+harmonics:
+- 4
+- 2
+- 2
+quantity: v_mode_coupled
+particles: AB
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -0.8
+        max: -0.4
+      pT:
+        min: 0.2
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.4
+        max: 0.8
+      pT:
+        min: 0.2
+        max: 5.0
+dimensionality: integrated
+value_type: V4Psi2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 773 (2017) 68, arXiv:1705.04377. non-linear mode v_{n,mk} (Eqs. 15-22), harmonics
+    [4, 2, 2], charged particles, 0.2 < pT < 5.0 GeV/c, two subevents -0.8 < eta < -0.4 and 0.4 < eta < 0.8 (particle 1 in
+    one, the others in the other; the two subevents averaged). Errors: statistical and systematic.'
+---
+observable_type: flow_harmonic_correlations
+inspire_id: '1599396'
+version: 1
+hepdata_file: fig2MiddleB.yaml
+dv_index: 0
+hepdata_table_label: "Centrality dependence of v4 (left), v5 (middle) and v6 (right) in Pb\u2013Pb collisions at 2.76 TeV.\
+  \ Cont (v5L)"
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 5.0
+observable: v5L
+correlation_type: mode_coupling
+harmonics:
+- 5
+- 3
+- 2
+quantity: v_linear
+particles: AB
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -0.8
+        max: -0.4
+      pT:
+        min: 0.2
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.4
+        max: 0.8
+      pT:
+        min: 0.2
+        max: 5.0
+dimensionality: integrated
+value_type: v5L
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 773 (2017) 68, arXiv:1705.04377. linear mode v_n^L = sqrt(v_n{2}^2 - v_{n,mk}^2)
+    (Eqs. 23, 24), harmonics [5, 3, 2], charged particles, 0.2 < pT < 5.0 GeV/c, two subevents -0.8 < eta < -0.4 and 0.4 <
+    eta < 0.8 (particle 1 in one, the others in the other; the two subevents averaged). Errors: statistical and systematic.'
+---
+observable_type: flow_harmonic_correlations
+inspire_id: '1599396'
+version: 1
+hepdata_file: fig2MiddleC.yaml
+dv_index: 0
+hepdata_table_label: "Centrality dependence of v4 (left), v5 (middle) and v6 (right) in Pb\u2013Pb collisions at 2.76 TeV.\
+  \ Cont (V5Psi23)"
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 5.0
+observable: V5Psi23
+correlation_type: mode_coupling
+harmonics:
+- 5
+- 3
+- 2
+quantity: v_mode_coupled
+particles: AB
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -0.8
+        max: -0.4
+      pT:
+        min: 0.2
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.4
+        max: 0.8
+      pT:
+        min: 0.2
+        max: 5.0
+dimensionality: integrated
+value_type: V5Psi23
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 773 (2017) 68, arXiv:1705.04377. non-linear mode v_{n,mk} (Eqs. 15-22), harmonics
+    [5, 3, 2], charged particles, 0.2 < pT < 5.0 GeV/c, two subevents -0.8 < eta < -0.4 and 0.4 < eta < 0.8 (particle 1 in
+    one, the others in the other; the two subevents averaged). Errors: statistical and systematic.'
+---
+observable_type: flow_harmonic_correlations
+inspire_id: '1599396'
+version: 1
+hepdata_file: fig2RightB.yaml
+dv_index: 0
+hepdata_table_label: "Centrality dependence of v4 (left), v5 (middle) and v6 (right) in Pb\u2013Pb collisions at 2.76 TeV.\
+  \ Cont (v6Psi2)"
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 5.0
+observable: v6Psi2
+correlation_type: mode_coupling
+harmonics:
+- 6
+- 2
+- 2
+- 2
+quantity: v_mode_coupled
+particles: AB
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -0.8
+        max: -0.4
+      pT:
+        min: 0.2
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.4
+        max: 0.8
+      pT:
+        min: 0.2
+        max: 5.0
+dimensionality: integrated
+value_type: v6Psi2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 773 (2017) 68, arXiv:1705.04377. non-linear mode v_{n,mk} (Eqs. 15-22), harmonics
+    [6, 2, 2, 2], charged particles, 0.2 < pT < 5.0 GeV/c, two subevents -0.8 < eta < -0.4 and 0.4 < eta < 0.8 (particle 1
+    in one, the others in the other; the two subevents averaged). Errors: statistical and systematic.'
+---
+observable_type: flow_harmonic_correlations
+inspire_id: '1599396'
+version: 1
+hepdata_file: fig2RightC.yaml
+dv_index: 0
+hepdata_table_label: "Centrality dependence of v4 (left), v5 (middle) and v6 (right) in Pb\u2013Pb collisions at 2.76 TeV.\
+  \ Cont (v6Psi3)"
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 5.0
+observable: v6Psi3
+correlation_type: mode_coupling
+harmonics:
+- 6
+- 3
+- 3
+quantity: v_mode_coupled
+particles: AB
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -0.8
+        max: -0.4
+      pT:
+        min: 0.2
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.4
+        max: 0.8
+      pT:
+        min: 0.2
+        max: 5.0
+dimensionality: integrated
+value_type: v6Psi3
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 773 (2017) 68, arXiv:1705.04377. non-linear mode v_{n,mk} (Eqs. 15-22), harmonics
+    [6, 3, 3], charged particles, 0.2 < pT < 5.0 GeV/c, two subevents -0.8 < eta < -0.4 and 0.4 < eta < 0.8 (particle 1 in
+    one, the others in the other; the two subevents averaged). Errors: statistical and systematic.'
+---
+observable_type: flow_harmonic_correlations
+inspire_id: '1599396'
+version: 1
+hepdata_file: fig3UpLeft.yaml
+dv_index: 0
+hepdata_table_label: "Centrality dependence of rho_mn in Pb\u2013Pb collisions at 2.76 TeV. (rho422Gap)"
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 5.0
+observable: rho422Gap
+correlation_type: mode_coupling
+harmonics:
+- 4
+- 2
+- 2
+quantity: rho
+particles: AB
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -0.8
+        max: -0.4
+      pT:
+        min: 0.2
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.4
+        max: 0.8
+      pT:
+        min: 0.2
+        max: 5.0
+dimensionality: integrated
+value_type: rho422Gap
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 773 (2017) 68, arXiv:1705.04377. symmetry-plane correlation rho_{n,mk} = v_{n,mk}
+    / v_n{2} (Eqs. 25-28), harmonics [4, 2, 2], charged particles, 0.2 < pT < 5.0 GeV/c, two subevents -0.8 < eta < -0.4 and
+    0.4 < eta < 0.8 (particle 1 in one, the others in the other; the two subevents averaged). Errors: statistical and systematic.'
+---
+observable_type: flow_harmonic_correlations
+inspire_id: '1599396'
+version: 1
+hepdata_file: fig3UpRight.yaml
+dv_index: 0
+hepdata_table_label: "Centrality dependence of rho_mn in Pb\u2013Pb collisions at 2.76 TeV. (rho532Gap)"
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 5.0
+observable: rho532Gap
+correlation_type: mode_coupling
+harmonics:
+- 5
+- 3
+- 2
+quantity: rho
+particles: AB
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -0.8
+        max: -0.4
+      pT:
+        min: 0.2
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.4
+        max: 0.8
+      pT:
+        min: 0.2
+        max: 5.0
+dimensionality: integrated
+value_type: rho532Gap
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 773 (2017) 68, arXiv:1705.04377. symmetry-plane correlation rho_{n,mk} = v_{n,mk}
+    / v_n{2} (Eqs. 25-28), harmonics [5, 3, 2], charged particles, 0.2 < pT < 5.0 GeV/c, two subevents -0.8 < eta < -0.4 and
+    0.4 < eta < 0.8 (particle 1 in one, the others in the other; the two subevents averaged). Errors: statistical and systematic.'
+---
+observable_type: flow_harmonic_correlations
+inspire_id: '1599396'
+version: 1
+hepdata_file: fig3DownLeft.yaml
+dv_index: 0
+hepdata_table_label: "Centrality dependence of rho_mn in Pb\u2013Pb collisions at 2.76 TeV. (rho6222Gap)"
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 5.0
+observable: rho6222Gap
+correlation_type: mode_coupling
+harmonics:
+- 6
+- 2
+- 2
+- 2
+quantity: rho
+particles: AB
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -0.8
+        max: -0.4
+      pT:
+        min: 0.2
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.4
+        max: 0.8
+      pT:
+        min: 0.2
+        max: 5.0
+dimensionality: integrated
+value_type: rho6222Gap
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 773 (2017) 68, arXiv:1705.04377. symmetry-plane correlation rho_{n,mk} = v_{n,mk}
+    / v_n{2} (Eqs. 25-28), harmonics [6, 2, 2, 2], charged particles, 0.2 < pT < 5.0 GeV/c, two subevents -0.8 < eta < -0.4
+    and 0.4 < eta < 0.8 (particle 1 in one, the others in the other; the two subevents averaged). Errors: statistical and
+    systematic.'
+---
+observable_type: flow_harmonic_correlations
+inspire_id: '1599396'
+version: 1
+hepdata_file: fig3DownRight.yaml
+dv_index: 0
+hepdata_table_label: "Centrality dependence of rho_mn in Pb\u2013Pb collisions at 2.76 TeV. (rho633Gap)"
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 5.0
+observable: rho633Gap
+correlation_type: mode_coupling
+harmonics:
+- 6
+- 3
+- 3
+quantity: rho
+particles: AB
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -0.8
+        max: -0.4
+      pT:
+        min: 0.2
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.4
+        max: 0.8
+      pT:
+        min: 0.2
+        max: 5.0
+dimensionality: integrated
+value_type: rho633Gap
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 773 (2017) 68, arXiv:1705.04377. symmetry-plane correlation rho_{n,mk} = v_{n,mk}
+    / v_n{2} (Eqs. 25-28), harmonics [6, 3, 3], charged particles, 0.2 < pT < 5.0 GeV/c, two subevents -0.8 < eta < -0.4 and
+    0.4 < eta < 0.8 (particle 1 in one, the others in the other; the two subevents averaged). Errors: statistical and systematic.'
+---
+observable_type: flow_harmonic_correlations
+inspire_id: '1599396'
+version: 1
+hepdata_file: fig4UpLeft.yaml
+dv_index: 0
+hepdata_table_label: "Centrality dependence of chi in Pb\u2013Pb collisions at 2.76 TeV. (chi422)"
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 5.0
+observable: chi422
+correlation_type: mode_coupling
+harmonics:
+- 4
+- 2
+- 2
+quantity: chi
+particles: AB
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -0.8
+        max: -0.4
+      pT:
+        min: 0.2
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.4
+        max: 0.8
+      pT:
+        min: 0.2
+        max: 5.0
+dimensionality: integrated
+value_type: chi422
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 773 (2017) 68, arXiv:1705.04377. non-linear coefficient chi_{n,mk} = v_{n,mk} / sqrt(<v_m^2
+    v_k^2 ...>) (Eqs. 29-32), harmonics [4, 2, 2], charged particles, 0.2 < pT < 5.0 GeV/c, two subevents -0.8 < eta < -0.4
+    and 0.4 < eta < 0.8 (particle 1 in one, the others in the other; the two subevents averaged). Errors: statistical and
+    systematic.'
+---
+observable_type: flow_harmonic_correlations
+inspire_id: '1599396'
+version: 1
+hepdata_file: fig4UpRight.yaml
+dv_index: 0
+hepdata_table_label: "Centrality dependence of chi in Pb\u2013Pb collisions at 2.76 TeV. (chi532)"
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 5.0
+observable: chi532
+correlation_type: mode_coupling
+harmonics:
+- 5
+- 3
+- 2
+quantity: chi
+particles: AB
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -0.8
+        max: -0.4
+      pT:
+        min: 0.2
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.4
+        max: 0.8
+      pT:
+        min: 0.2
+        max: 5.0
+dimensionality: integrated
+value_type: chi532
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 773 (2017) 68, arXiv:1705.04377. non-linear coefficient chi_{n,mk} = v_{n,mk} / sqrt(<v_m^2
+    v_k^2 ...>) (Eqs. 29-32), harmonics [5, 3, 2], charged particles, 0.2 < pT < 5.0 GeV/c, two subevents -0.8 < eta < -0.4
+    and 0.4 < eta < 0.8 (particle 1 in one, the others in the other; the two subevents averaged). Errors: statistical and
+    systematic.'
+---
+observable_type: flow_harmonic_correlations
+inspire_id: '1599396'
+version: 1
+hepdata_file: fig4DownLeft.yaml
+dv_index: 0
+hepdata_table_label: "Centrality dependence of chi in Pb\u2013Pb collisions at 2.76 TeV. (chi6222)"
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 5.0
+observable: chi6222
+correlation_type: mode_coupling
+harmonics:
+- 6
+- 2
+- 2
+- 2
+quantity: chi
+particles: AB
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -0.8
+        max: -0.4
+      pT:
+        min: 0.2
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.4
+        max: 0.8
+      pT:
+        min: 0.2
+        max: 5.0
+dimensionality: integrated
+value_type: chi6222
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 773 (2017) 68, arXiv:1705.04377. non-linear coefficient chi_{n,mk} = v_{n,mk} / sqrt(<v_m^2
+    v_k^2 ...>) (Eqs. 29-32), harmonics [6, 2, 2, 2], charged particles, 0.2 < pT < 5.0 GeV/c, two subevents -0.8 < eta <
+    -0.4 and 0.4 < eta < 0.8 (particle 1 in one, the others in the other; the two subevents averaged). Errors: statistical
+    and systematic.'
+---
+observable_type: flow_harmonic_correlations
+inspire_id: '1599396'
+version: 1
+hepdata_file: fig4DownRight.yaml
+dv_index: 0
+hepdata_table_label: "Centrality dependence of chi in Pb\u2013Pb collisions at 2.76 TeV. (chi633)"
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 5.0
+observable: chi633
+correlation_type: mode_coupling
+harmonics:
+- 6
+- 3
+- 3
+quantity: chi
+particles: AB
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -0.8
+        max: -0.4
+      pT:
+        min: 0.2
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.4
+        max: 0.8
+      pT:
+        min: 0.2
+        max: 5.0
+dimensionality: integrated
+value_type: chi633
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 773 (2017) 68, arXiv:1705.04377. non-linear coefficient chi_{n,mk} = v_{n,mk} / sqrt(<v_m^2
+    v_k^2 ...>) (Eqs. 29-32), harmonics [6, 3, 3], charged particles, 0.2 < pT < 5.0 GeV/c, two subevents -0.8 < eta < -0.4
+    and 0.4 < eta < 0.8 (particle 1 in one, the others in the other; the two subevents averaged). Errors: statistical and
+    systematic.'
