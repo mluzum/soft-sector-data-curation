@@ -965,7 +965,7 @@ def compute_vn2_sp(q_poi, q_ref, n_poi, n_ref, w, same_window=False,
 
 
 @register("pT_fluct")
-def compute_pT_fluct(s1, s2, n, w, t0=None, t1=None, mult=None, raw=False, events=False):
+def compute_pT_fluct(s1, s2, n, w, t0=None, t1=None, mult=None, raw=False, events=False, squared=False):
     """√⟨ΔpTi ΔpTj⟩ / ⟨⟨pT⟩⟩ for one centrality class.
 
     Per-event sums over particles with acceptance weights a_i (the
@@ -989,7 +989,8 @@ def compute_pT_fluct(s1, s2, n, w, t0=None, t1=None, mult=None, raw=False, event
     bin, which removes the spread of <pT> across a wide class.  The
     normalization stays the class mean.  A negative covariance gives a
     negative value (signed root, as for v_n{2}).  raw: the covariance
-    ⟨ΔpTi ΔpTj⟩ itself (GeV², value_type '<dpt1_dpt2>').
+    ⟨ΔpTi ΔpTj⟩ itself (GeV², value_type '<dpt1_dpt2>'); squared: over the
+    squared mean, ⟨ΔpTi ΔpTj⟩ / ⟨⟨pT⟩⟩² (value_type '<dpt1_dpt2>/<pT>^2').
     """
     nan = np.array([np.nan])
     if w.sum() < 2:
@@ -1029,6 +1030,8 @@ def compute_pT_fluct(s1, s2, n, w, t0=None, t1=None, mult=None, raw=False, event
         C = np.sum(w * P) / den
     if raw:
         return np.array([C])
+    if squared:
+        return np.array([C / m_bar ** 2])
     return np.array([np.sign(C) * np.sqrt(abs(C)) / m_bar])
 
 

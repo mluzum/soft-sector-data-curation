@@ -268,6 +268,36 @@ def test_pT_fluct_raw_covariance():
         assert_close(f"{tag}: sqrt(<dpT dpT>)/<pT> consistent", np.sqrt(cov) / M, rel, 0.02)
 
 
+def test_pT_fluct_squared_normalized():
+    """value_type '<dpt1_dpt2>/<pT>^2' (STAR's preliminary isobar <delta pT^2>/<pT>^2):
+    the covariance over the squared mean, no root -- against the brute force,
+    and exactly the square of the signed root form (both averagings, 2D, 3D)."""
+    fx = _fx(0.10)
+    eta3 = snap_window(fx['grid'].eta_edges, *ETA)
+    pt3 = snap_window(fx['grid'].pt_edges, 0.15, 2.0)
+    for tag, cont, eta, pt, tol in (('2D', dict(qv=fx['qv']), ETA, PTW, 0.10),
+                                    ('3D', dict(grid=fx['grid']), eta3, pt3, 0.02)):
+        for averaging in ('pairs', 'events'):
+            rec = record_pT_fluct(eta=eta, pt=pt, cent_classes=('0-100%',))
+            rec['averaging'] = averaging
+            root = evaluate(rec, cent_method='simple', with_jackknife=False, **cont)[0][0]
+            rec['value_type'] = '<dpt1_dpt2>/<pT>^2'
+            sq = evaluate(rec, cent_method='simple', with_jackknife=False, **cont)[0][0]
+            ok = abs(sq - np.sign(root) * root ** 2) <= 1e-12 * abs(sq)
+            print(f"  {'PASS' if ok else 'FAIL'} {tag} {averaging}: squared form = (signed root)^2: "
+                  f"{sq:.6g} vs {np.sign(root) * root ** 2:.6g}")
+            if not ok:
+                raise AssertionError(f'{tag} {averaging}: {sq} vs {root}')
+        ps = [e['pt'][(e['eta'] >= eta[0]) & (e['eta'] <= eta[1]) & (e['pt'] >= pt[0]) & (e['pt'] <= pt[1])]
+              for e in fx['events']]
+        M = np.concatenate(ps).mean()
+        ref = sum((p - M).sum() ** 2 - ((p - M) ** 2).sum() for p in ps) / sum(len(p) * (len(p) - 1)
+                                                                               for p in ps) / M ** 2
+        rec['averaging'] = 'pairs'
+        sq = evaluate(rec, cent_method='simple', with_jackknife=False, **cont)[0][0]
+        assert_close(f"{tag}: <dpT dpT>/<pT>^2 vs brute force", sq, ref, tol)
+
+
 def test_pT_fluct_3d_cut_cells():
     """3D windows that cut cells (eta |eta| < 0.5 on 0.24-wide cells, pT
     0.15-2.0 on 0.037 GeV cells): a cut cell's particles carry its overlap

@@ -492,9 +492,10 @@ near c_4 = 0, ratios) the correction is unstable (zr96c2 dp0001, v2{4}
   whole cells on 3D (unit weights) and on 2D the flat share of a cut cell,
   as below.
 - **pT fluctuations** (`mean_pT_fluctuations`, key pT_fluct; value_type
-  `sqrt_<dpt1_dpt2>_over_<pT>`, sqrt(<Delta pT_i Delta pT_j>)/<<pT>>, or
+  `sqrt_<dpt1_dpt2>_over_<pT>`, sqrt(<Delta pT_i Delta pT_j>)/<<pT>>,
   `<dpt1_dpt2>`, the covariance in GeV^2 (a (MeV/c)^2 header loads as
-  GeV^2); ALICE 1307102, STAR 681688, 1216565, 1712047, 3141716;
+  GeV^2), or `<dpt1_dpt2>/<pT>^2`, the covariance over the squared mean
+  (STAR's isobar <delta pT^2>/<pT>^2); ALICE 1307102, STAR 681688, 1216565, 1712047, 3141716;
   `fluctuations` is for conserved-charge cumulants and stays
   undispatched): each particle carries its probability to be in the
   record's window (2D: the eta-window Jacobian over the flat-y plateau

@@ -23,8 +23,11 @@ required_fields:
     type: string
     required: true
     description: >
-      One of: 'Sigma', 'sqrt_<dpt1_dpt2>_over_<pT>', 'sigma_<pT>_over_<pT>',
-      'dyn_fluctuation', 'F_pT', 'Delta_fluctuation'
+      One of: 'Sigma', 'sqrt_<dpt1_dpt2>_over_<pT>', '<dpt1_dpt2>' (GeV^2),
+      '<dpt1_dpt2>/<pT>^2' (the covariance over the squared mean, no root:
+      STAR's isobar <delta pT^2>/<pT>^2), 'sigma_<pT>_over_<pT>',
+      'dyn_fluctuation', 'F_pT', 'Delta_fluctuation'.  Computed: the
+      three <dpt1_dpt2> forms.
     example: "Sigma"
 
 optional_fields:

@@ -1555,6 +1555,7 @@ def prepare_pT_fluct_2d(qv, params):
            's2': (s2_src * a2).sum(axis=(1, 2)) / ns2, 't0': (c * a2).sum(axis=(1, 2)) / ns2,
            't1': (s1_src * a2).sum(axis=(1, 2)) / ns2}
     out['raw'] = params.get('value_type') == '<dpt1_dpt2>'
+    out['squared'] = params.get('value_type') == PT_FLUCT_SQUARED
     out['events'] = _pT_fluct_events(params)
     base = _pT_fluct_baseline(params, (lo, hi))
     if base is not None:   # charged multiplicity in the baseline windows
@@ -1594,7 +1595,7 @@ def prepare_pT_fluct_3d(grid, params):
 
     out = {'n': wsum(c, a), 's1': wsum(s1_src, a), 's2': wsum(s2_src, a2, 2), 't0': wsum(c, a2, 2),
            't1': wsum(s1_src, a2, 2), 'raw': params.get('value_type') == '<dpt1_dpt2>',
-           'events': _pT_fluct_events(params)}
+           'squared': params.get('value_type') == PT_FLUCT_SQUARED, 'events': _pT_fluct_events(params)}
     base = _pT_fluct_baseline(params, pt)
     if base is not None:   # multiplicity in the baseline windows (cut cells by overlap)
         out['mult'] = _baseline_mult_3d(grid, base)
@@ -1641,9 +1642,15 @@ def _baseline_mult_3d(grid, base):
     return sum(_window_sum(grid, c, w_eta, base[1], fractional=True) for w_eta in base[0]) / grid.nsamples
 
 
+# value_type of <Delta pT_i Delta pT_j> / <<pT>>^2 (STAR's preliminary isobar
+# <delta pT^2>/<pT>^2): the covariance over the squared mean, no root
+PT_FLUCT_SQUARED = '<dpt1_dpt2>/<pT>^2'
+
+
 def _wrap_pT_fluct(data, w):
     return compute_pT_fluct(data['s1'], data['s2'], data['n'], w, data.get('t0'), data.get('t1'),
-                            data.get('mult'), raw=data.get('raw', False), events=data.get('events', False))
+                            data.get('mult'), raw=data.get('raw', False), events=data.get('events', False),
+                            squared=data.get('squared', False))
 
 
 # ── flow-[pT] correlations rho(v_n^2, [pT]) (analysis.flow_pt) ──
