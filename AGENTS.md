@@ -569,7 +569,8 @@ near c_4 = 0, ratios) the correction is unstable (zr96c2 dp0001, v2{4}
   tests/test_missing_harmonics.py).
 - **Combinations of cumulant orders** (`cumulant_combination`: ratio,
   difference with optional `scale`, gamma1 = -6 sqrt2 v{4}^2 (v{4} - v{6}) /
-  (v{2}^2 - v{4}^2)^{3/2}; `two_particle` for a gapped v{2} term;
+  (v{2}^2 - v{4}^2)^{3/2}; `two_particle` for a gapped v{2} term, with
+  its own `flow_reference` when it has one (CMS's 2PC, 1-3 GeV/c associated);
   `harmonics` for terms of different harmonics, v3{2}/v2{2} = orders [2, 2],
   harmonics [3, 2]): computed
   by `vn_cumulant_combination` from its terms, each the record as an

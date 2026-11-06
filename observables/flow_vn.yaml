@@ -138,7 +138,10 @@ conditional_fields:
       estimate -6 sqrt(2) v{4}^2 (v{4} - v{6}) / (v{2}^2 - v{4}^2)^(3/2),
       orders [2, 4, 6]); 'orders'; optional 'scale' (a factor on the result,
       e.g. 1/11 for (v2{4} - v2{6})/11); optional 'two_particle'
-      ({particles, subevents, eta_gap}) for a v{2} term measured with a gap;
+      ({particles, subevents, eta_gap, flow_reference}) for a v{2} term
+      measured with a gap (CMS 1716441: the two-particle correlation with
+      |Delta eta| > 2 and its 1-3 GeV/c associated particles, a reference
+      the higher-order terms do not share);
       optional 'harmonics' (ratio, difference): one harmonic per term, e.g.
       orders [2, 2], harmonics [3, 2] for v3{2}/v2{2} (the record's
       harmonic is the first term's).

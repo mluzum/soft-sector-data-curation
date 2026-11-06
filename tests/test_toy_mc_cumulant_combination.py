@@ -8,6 +8,7 @@ Checks, on 2D and 3D containers with fluctuating v2:
     computed v2{2}, v2{4}, v2{6}, v2{8} (machine precision);
   - gamma1 with a two-subevent v2{2} term (ALICE's v2{2, |Delta eta| > 1});
   - a ratio of harmonics, v3{2}/v2{2} with the gap (harmonics [3, 2]);
+  - a v{2} term with its own gap and reference (CMS v2{4}/v2{2, 2PC});
   - the jackknife error of v2{6}/v2{4} is far below the uncorrelated
     propagation of the two errors (the orders share the events);
   - invalid combinations are refused.
@@ -136,6 +137,22 @@ def test_harmonic_ratio():
         except ValueError:
             ok = True
         check(f'refused {bad}', ok)
+
+
+def test_two_particle_reference():
+    # CMS 1716441: v2{4}/v2{2}, the v{2} term a pair-gap correlation with its
+    # own associated-pT reference (1-3 GeV/c), which the v{4} term does not use
+    ref = {'eta': [{'min': -0.8, 'max': 0.8}], 'pT': {'min': 1.0, 'max': 3.0}}
+    comb = {'kind': 'ratio', 'orders': [4, 2], 'two_particle': {'eta_gap': 1.0, 'flow_reference': ref}}
+    for kind in ('2d', '3d'):
+        vr, _ = run(rec(comb=comb), kind)
+        v4, _ = run(rec(4), kind)
+        v2, _ = run(rec(2, eta_gap=1.0, flow_reference=ref), kind)
+        v2_plain, _ = run(rec(2, eta_gap=1.0), kind)
+        check(f'{kind}: v2{{4}}/v2{{2, ref}} = the separate terms', np.allclose(vr, v4 / v2, rtol=1e-10, atol=0),
+              f'{vr} vs {v4 / v2}')
+        check(f'{kind}: the reference changes the v{{2}} term', not np.allclose(v2, v2_plain, rtol=1e-6),
+              f'{v2} vs {v2_plain}')
 
 
 def test_jackknife_correlation():

@@ -443,7 +443,8 @@ def combination_terms(record):
     v{b}) | gamma1 (-6 sqrt2 v{4}^2 (v{4} - v{6}) / (v{2}^2 - v{4}^2)^{3/2},
     orders [2, 4, 6]); ``orders``; optional ``scale`` (a factor on the
     result, e.g. 1/11); optional ``two_particle``: {particles, subevents,
-    eta_gap} for the v{2} term (ALICE's gamma1 uses v2{2, |Delta eta| > 1});
+    eta_gap, flow_reference} for the v{2} term (ALICE's gamma1 uses v2{2,
+    |Delta eta| > 1}; CMS's 2PC v{2} its own associated-pT reference);
     optional ``harmonics`` (ratio, difference): the harmonic of each term,
     e.g. orders [2, 2] with harmonics [3, 2] for v3{2}/v2{2} (default the
     record's harmonic for every term).
