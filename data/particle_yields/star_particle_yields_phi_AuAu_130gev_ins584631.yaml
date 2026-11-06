@@ -1,0 +1,36 @@
+observable_type: particle_yields
+inspire_id: '584631'
+version: 1
+hepdata_file: HEPData-gpc8-tab1.0.yaml
+dv_index: 1
+hepdata_table_label: 'Table 1: phi dN/dy vs class (HEPData-gpc8-tab1.0.yaml column 1)'
+collision_system:
+  energy_gev: 130.0
+  reaction: AU AU --> PHI X
+centrality:
+  classes:
+  - 0-11%
+  - 11-26%
+  - 26-85%
+  estimator:
+    name: Nch
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.75
+    max: 0.75
+  notes: raw total charged multiplicity in |eta| < 0.75.
+particle_id:
+  species: phi
+kinematic_range:
+  y:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.0
+    max: 100.0
+observable: dN_dy
+value_type: dN_dy
+notes:
+  value: 'C. Adler et al. (STAR), PRC 65 (2002) 041901(R), Table 1. dN/dy of phi at |y| < 0.5, extrapolated to all pT with
+    the exponential mT fit, Au+Au 130 GeV vs class. Errors: statistical (12% systematic not tabulated).'
