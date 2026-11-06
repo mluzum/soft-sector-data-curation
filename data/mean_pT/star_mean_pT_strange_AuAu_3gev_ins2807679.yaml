@@ -1,0 +1,85 @@
+observable_type: mean_pT
+inspire_id: '2807679'
+version: 1
+hepdata_file: table_4.yaml
+dv_index: 0
+hepdata_table_label: Lambda <pT> vs <N_part>, -0.2 < y_cm < 0, Au+Au 3 GeV (table_4.yaml column 0)
+collision_system:
+  energy_gev: 3.0
+  reaction: AU AU --> LAMBDA X
+centrality:
+  classes:
+  - 0-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-60%
+  - 60-80%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.046
+    max: 0.954
+  notes: 'reconstructed charged tracks in the TPC, -2 < eta_lab < 0 with the beam toward -eta_lab; in the paper''s centre-of-momentum
+    frame (beam toward +y, target at y_cm = -1.046) -1.046 < eta_cm < 0.954. Rows by <N_part> (310.5, 224, 159.5, 110.5, 59,
+    20.1): the six classes in order.'
+particle_id:
+  species: Lambda
+kinematic_range:
+  y:
+    min: -0.2
+    max: 0.0
+  pT:
+    min: 0.0
+    max: 100.0
+observable: mean_pT
+value_type: mean_pT
+notes:
+  value: 'STAR Collaboration, JHEP 10 (2024) 139, arXiv:2407.10110. <pT> of Lambda, -0.2 < y_cm < 0 (y_cm with the beam toward
+    +y (the target at y_cm = -1.05)), Au+Au 3 GeV, vs class (HEPData: vs <N_part>); blast-wave extrapolation in pT. Corrected
+    for the Xi- and Xi0 weak-decay feed-down (Xi0 as Xi-); Sigma0 decays count as prompt. Errors: stat and sys.'
+---
+observable_type: mean_pT
+inspire_id: '2807679'
+version: 1
+hepdata_file: table_4.yaml
+dv_index: 1
+hepdata_table_label: K0_S <pT> vs <N_part>, -0.2 < y_cm < 0, Au+Au 3 GeV (table_4.yaml column 1)
+collision_system:
+  energy_gev: 3.0
+  reaction: AU AU --> K0S X
+centrality:
+  classes:
+  - 0-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-60%
+  - 60-80%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.046
+    max: 0.954
+  notes: 'reconstructed charged tracks in the TPC, -2 < eta_lab < 0 with the beam toward -eta_lab; in the paper''s centre-of-momentum
+    frame (beam toward +y, target at y_cm = -1.046) -1.046 < eta_cm < 0.954. Rows by <N_part> (310.5, 224, 159.5, 110.5, 59,
+    20.1): the six classes in order.'
+particle_id:
+  species: K0_S
+kinematic_range:
+  y:
+    min: -0.2
+    max: 0.0
+  pT:
+    min: 0.0
+    max: 100.0
+observable: mean_pT
+value_type: mean_pT
+notes:
+  value: 'STAR Collaboration, JHEP 10 (2024) 139, arXiv:2407.10110. <pT> of K0_S, -0.2 < y_cm < 0 (y_cm with the beam toward
+    +y (the target at y_cm = -1.05)), Au+Au 3 GeV, vs class (HEPData: vs <N_part>); blast-wave extrapolation in pT. Errors:
+    stat and sys.'
