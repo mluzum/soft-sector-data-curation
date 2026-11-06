@@ -387,6 +387,24 @@ flow_reference:
       fields:
         min: {type: float, required: true, example: 0.0}
         max: {type: float, required: true, example: 4.0}
+    harmonic:
+      type: integer
+      required: false
+      description: >
+        The order m of the reference plane when it differs from the
+        record's harmonic n (m dividing n): flow relative to a lower-order
+        plane, v_n{Psi_m} (STAR's v2 relative to the first-order EPD plane
+        at 3-4.5 GeV).  `eta` and `pT` are then the plane's subevent A and
+        `resolution_subevents` the other two of the three-subevent
+        resolution; computed by analysis/mixed_plane.py (3D containers).
+      example: 1
+    resolution_subevents:
+      type: object
+      required: false
+      description: >
+        With `harmonic`: subevents B and C of the three-subevent
+        resolution, each {eta: [{min, max}], pT: {min, max}}.
+      example: {B: {eta: [{min: 1.7, max: 2.0}]}, C: {eta: [{min: -1.1, max: -0.1}], pT: {min: 0.2, max: 2.0}}}
     odd:
       type: boolean
       required: false

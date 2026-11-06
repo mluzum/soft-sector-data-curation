@@ -148,6 +148,21 @@ Fields that change dispatch:
   `absolute: true` for a tabulated |v1|.  vs centrality or pT, 2D and 3D;
   tests/test_toy_mc_v1_even.py.  Otherwise refused: the even-harmonic
   machinery would return ~0.
+- Flow relative to a lower-order plane (`method: event_plane` with
+  `flow_reference.harmonic` m != harmonic n, m dividing n; key
+  `vn_mixed_plane`, analysis/mixed_plane.py): STAR's v2 relative to the
+  first-order EPD plane at 3-4.5 GeV (2907591).  The scalar-product analog
+  of the event-plane result at low resolution, <Re q_n D_A*> /
+  sqrt(<D_A D_B*><D_A D_C*>/<D_B D_C*>), D_X the distinct (n/m)-tuples of
+  subevent X at harmonic m (A: `flow_reference.eta`/`pT`; B, C:
+  `flow_reference.resolution_subevents`); tuple-count event weights; the
+  sign of Psi_m drops out for even n/m.  3D containers only (2D refused:
+  no longitudinal structure); the POI (species grid, y or eta window,
+  _poi_cell_weights) must not share particles with A (refused).
+  Fixed-target windows are curated in the centre-of-mass frame (eta_lab -
+  y_beam).  ToyGenConfig.plane_lock correlates Psi_n with Psi_m;
+  tests/test_toy_mc_mixed_plane.py (v2 <cos 2(Psi_2 - Psi_1)> recovered,
+  zero for independent planes).
 - `kinematic_range.y.mass`: a rapidity window with one assumed mass (PHOBOS
   and ATLAS y_pi): spectra, yields (a window, or per y bin) and <pT>.
 - Per-bin yields and <pT>: eta bins (`dimensionality: differential_eta`)

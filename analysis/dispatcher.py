@@ -78,6 +78,26 @@ DISPATCH_TABLE = {
         "requires": ["kinematic_range.eta", "kinematic_range.pT"],
         "description": "v_n{8} integrated cumulant",
     },
+    ("event_plane_mixed", None, None, "integrated"): {
+        "compute": "vn_mixed_plane",
+        "requires": ["flow_reference.eta", "flow_reference.harmonic", "flow_reference.resolution_subevents"],
+        "description": "v_n relative to a lower-order plane (integrated)",
+    },
+    ("event_plane_mixed", None, None, "differential_pT"): {
+        "compute": "vn_mixed_plane",
+        "requires": ["flow_reference.eta", "flow_reference.harmonic", "flow_reference.resolution_subevents"],
+        "description": "v_n relative to a lower-order plane (differential_pT)",
+    },
+    ("event_plane_mixed", None, None, "differential_y"): {
+        "compute": "vn_mixed_plane",
+        "requires": ["flow_reference.eta", "flow_reference.harmonic", "flow_reference.resolution_subevents"],
+        "description": "v_n relative to a lower-order plane (differential_y)",
+    },
+    ("event_plane_mixed", None, None, "differential_eta"): {
+        "compute": "vn_mixed_plane",
+        "requires": ["flow_reference.eta", "flow_reference.harmonic", "flow_reference.resolution_subevents"],
+        "description": "v_n relative to a lower-order plane (differential_eta)",
+    },
     ("cumulant", 6, None, "integrated"): {
         "compute": "vn6_single",
         "requires": ["kinematic_range.eta", "kinematic_range.pT"],
@@ -676,7 +696,13 @@ def resolve(record):
     # silently discard the reference the record declares.
     # Records with no declared reference keep the amplitude path, which is
     # then explicitly only an approximation of the reported observable.
-    if method == "event_plane" and _has_flow_reference(record):
+    _fr = record.get("flow_reference") if isinstance(record.get("flow_reference"), dict) else {}
+    # Flow relative to a lower-order plane (STAR's v2{Psi_1} at 3-4.5 GeV):
+    # the mixed-harmonic estimator (analysis.mixed_plane).
+    if method == "event_plane" and _fr.get("harmonic") is not None and \
+            int(_fr["harmonic"]) != int(record.get("harmonic") or 0):
+        method, order = "event_plane_mixed", None
+    elif method == "event_plane" and _has_flow_reference(record):
         # The SP entries are keyed without a harmonic because the cores
         # return EVERY harmonic: run_pipeline indexes them as
         # (harm - 1) * n_bins, so a v_3/v_4 record served by vn2_sp reads
@@ -1075,6 +1101,9 @@ def extract_measurement_params(exp_rec):
         # rapidity-even v1: fit grid, sign convention or |v1|
         'v1_even': exp_rec.get('v1_even'),
         'flow_reference': _flow_reference(exp_rec),
+        # the record's own flow_reference (the mixed-plane subevents)
+        'flow_reference_raw': exp_rec.get('flow_reference') if isinstance(exp_rec.get('flow_reference'), dict)
+        else None,
         # Reference pT window (also without reference eta windows, which
         # _flow_reference requires): the cumulant keys' reference sample.
         'flow_reference_pT': _ref_pt(exp_rec),

@@ -1999,6 +1999,104 @@ def _wrap_fvf(data, w):
     return flow_vector_fluct.core(data, w)
 
 
+# ── flow relative to a lower-order plane (analysis.mixed_plane) ──
+
+def _mixed_plane_windows(fr, key):
+    """[(eta_lo, eta_hi)], (pT_lo, pT_hi) of a flow_reference subevent."""
+    sub = fr if key == 'A' else (fr.get('resolution_subevents') or {}).get(key) or {}
+    etas = sub.get('eta')
+    if isinstance(etas, dict):
+        etas = [etas]
+    if not etas:
+        raise ValueError(f"flow relative to a lower-order plane: subevent {key} has no eta window")
+    pt = sub.get('pT') or {}
+    return ([(float(e['min']), float(e['max'])) for e in etas],
+            (float(pt.get('min', 0.0)), float(pt.get('max', 100.0))))
+
+
+def prepare_vn_mixed_plane_2d(qv, params):
+    raise ValueError("flow relative to a forward lower-order plane needs a 3D container (a boost-invariant "
+                     "container has no longitudinal structure)")
+
+
+def prepare_vn_mixed_plane_3d(container, params):
+    """POI from the record's species grid (y or eta window per pT cell,
+    fractional; analysis.pipeline_dispatch._poi_cell_weights), subevents A
+    (the plane), B, C (the resolution) from the charged grid; distinct
+    k-tuples of each subevent (analysis.flow_pt.CellSums)."""
+    from analysis.flow_pt import CellSums, distinct
+    fr = params.get('flow_reference_raw') or {}
+    n, m = int(params.get('harmonic')), int(fr.get('harmonic'))
+    if m < 1 or n % m:
+        raise ValueError(f"v_{n} relative to the order-{m} plane: m must divide n")
+    k = n // m
+    pid = _poi_species(params)
+    poi = _unit_weights(container.select(pid))
+    ref = _unit_weights(container.select({'species': 'charged'}))
+    if n >= poi.Qn.shape[-1] or n >= ref.Qn.shape[-1]:
+        raise ValueError(f"v_{n}{{Psi_{m}}}: harmonic {n} not stored")
+    single = params.get('single_range') or {}
+    var = params.get('differential_var') if params.get('dimensionality') != 'integrated' else None
+    bins = params.get('differential_bins') or []
+    y_win = single.get('y')
+    base_var, base = ('y', y_win) if y_win and None not in tuple(y_win) else ('eta', single.get('eta'))
+    pt_full = single.get('pT') or (0.0, 100.0)
+    windows = []
+    if var == 'pT':
+        windows = [(base_var, base, tuple(b)) for b in bins]
+    elif var in ('y', 'eta'):
+        windows = [(var, tuple(b), pt_full) for b in bins]
+    else:
+        windows = [(base_var, base, pt_full)]
+    if base_var == 'y' or var == 'y':
+        if getattr(poi, 'mass', None) is None:
+            raise ValueError("a rapidity window needs an identified species with a mass")
+    wins = {}
+    for key in ('A', 'B', 'C'):
+        etas, pt = _mixed_plane_windows(fr, key)
+        wins[key] = sum(np.asarray(ref.window_weights(lo, hi, pt[0], pt[1], fractional=True), float)
+                        for lo, hi in etas)
+    S = CellSums(ref.Qn, ref.Qn[..., 0].real, None, None, wins, ref.nsamples)
+    a_lo = min(lo for lo, _ in _mixed_plane_windows(fr, 'A')[0])
+    a_hi = max(hi for _, hi in _mixed_plane_windows(fr, 'A')[0])
+
+    def disjoint_from_a(v, lo, hi, W):
+        """The POI window shares no particle with subevent A: by cells on a
+        common grid, else by sign (|eta| >= |y|: a y window on one side of 0
+        stays there in eta)."""
+        if not _poi_within_charged(container, pid):
+            return True
+        if W.shape == wins['A'].shape:
+            return not np.any((W > 0) & (wins['A'] > 0))
+        if v == 'y':
+            return (hi <= 0.0 and a_lo >= 0.0) or (lo >= 0.0 and a_hi <= 0.0)
+        return hi <= a_lo or lo >= a_hi
+
+    def dsum(X):
+        return distinct(S, [(X, m, 0)] * k), np.real(distinct(S, [(X, 0, 0)] * k))
+    D, P = {}, {}
+    for X in ('A', 'B', 'C'):
+        D[X], P[X] = dsum(X)
+    num, cnt = [], []
+    for v, (lo, hi), pt in windows:
+        W = _poi_cell_weights(poi, v, lo, hi, pt, params.get('momentum_range'),
+                              single.get('eta') if v == 'y' else None)
+        if not disjoint_from_a(v, lo, hi, W):
+            raise ValueError("the particles of interest may share particles with the plane's subevent A")
+        a = poi._weighted(W)
+        num.append(np.real(a[:, n] * np.conj(D['A'])))
+        cnt.append(a[:, 0].real * P['A'])
+    return {'num': np.stack(num, axis=1), 'cnt': np.stack(cnt, axis=1),
+            'ab': np.real(D['A'] * np.conj(D['B'])), 'cab': P['A'] * P['B'],
+            'ac': np.real(D['A'] * np.conj(D['C'])), 'cac': P['A'] * P['C'],
+            'bc': np.real(D['B'] * np.conj(D['C'])), 'cbc': P['B'] * P['C']}
+
+
+def _wrap_vn_mixed_plane(data, w):
+    from analysis import mixed_plane
+    return mixed_plane.core(data, w)
+
+
 # ── radial flow: v0, v0(pT), normalized covariance (analysis.radial_flow) ──
 
 def _radial_flow_settings(params):
@@ -3389,6 +3487,14 @@ PIPELINE_DISPATCH = {
         "n_obs_per_cent": None,
         "description": "pT-dependent flow-vector fluctuations: v_n{2}/v_n[2], r_n, A_n^f, M_n^f (per POI pT bin)",
     },
+    "vn_mixed_plane": {
+        "core_fn": _wrap_vn_mixed_plane,
+        "prepare_data_2d": prepare_vn_mixed_plane_2d,
+        "prepare_data_3d": prepare_vn_mixed_plane_3d,
+        "selects_species": True,
+        "n_obs_per_cent": None,
+        "description": "v_n relative to a lower-order plane (mixed harmonic, scalar-product analog of STAR's EP)",
+    },
     "plane_corr_sp": {
         "core_fn": _wrap_plane_corr,
         "prepare_data_2d": prepare_plane_corr_2d,
@@ -3555,7 +3661,7 @@ SINGLE_ROW_KEYS = frozenset({
     'vn2_ep', 'vn3_ep', 'mean_pt', 'yield_dNch_deta', 'yield_dNch_deta_per_eta',
     'spectra_invariant_yield', 'dET_deta', 'sc_mn', 'nac_mn', 'radial_flow',
     'vn_cumulant_combination', 'v1_even_factorization', 'rho_vn2_pT', 'mode_coupling',
-    'plane_corr_sp', 'flow_vector_fluct',
+    'plane_corr_sp', 'flow_vector_fluct', 'vn_mixed_plane',
 })
 
 

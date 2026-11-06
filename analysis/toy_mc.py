@@ -125,7 +125,7 @@ class ToyGenConfig:
                                          'proton': 0.35},
                  pt_min=0.05, pt_max=3.0,
                  flow=None, fluctuate=None, pt_rescale_sigma=0.0,
-                 eta_shape=None, vn_pt_corr=None, nonlinear=None, plane_twist=None):
+                 eta_shape=None, vn_pt_corr=None, nonlinear=None, plane_twist=None, plane_lock=None):
         """
         flow : dict harmonic → dict(kind='const'|'linear', value=..., pt0=...)
                 e.g. {2: dict(kind='const', value=0.05)}
@@ -166,6 +166,10 @@ class ToyGenConfig:
         # delta_e (pT - pt0), delta_e ~ N(0, sigma) per event (drawn from a
         # separate stream; truth['plane_twist'][h])
         self.plane_twist = plane_twist or {}
+        # correlated planes {h: (m, sigma)}: Psi_h = Psi_m + delta_e, delta_e ~
+        # N(0, sigma) (a separate stream), <cos h(Psi_h - Psi_m)> = exp(-h^2
+        # sigma^2 / 2)
+        self.plane_lock = plane_lock or {}
 
 
 def _eta_shape(shape, eta, s_idx, names):
@@ -202,6 +206,8 @@ def generate_events(cfg: ToyGenConfig):
 
     # per-event Ψ_n
     psi = {h: rng.uniform(0, 2 * np.pi, cfg.n_events) for h in harms}
+    for h, (m, sig) in sorted(cfg.plane_lock.items()):
+        psi[h] = psi[m] + np.random.RandomState(cfg.seed + 7477 + h).normal(0.0, sig, cfg.n_events)
 
     # ebE fluctuating magnitudes
     vn_ebe = {}
