@@ -91,7 +91,10 @@ reports as a warning.  Warnings are informational.
 **What goes in data/:** published records that compute and compare end to
 end: resolve() dispatches them, their centrality classes are percentile
 bins, and their experimental values load.  Ratio records qualify when both
-linked sides do, and their link targets stay with them.
+linked sides do, and their link targets stay with them.  A result
+published only as a ratio (BRAHMS p/pi vs pT) is a ratio record holding
+the values, linked to side records with `experimental_values: false`
+(they compute and load none), public only as link targets.
 `tests/test_public_records.py` enforces this; it is the practical test of a
 fully vetted record.  Everything else lives in a separate collection with
 the same layout (data/<type>/, records carry `staging_reason`), used through

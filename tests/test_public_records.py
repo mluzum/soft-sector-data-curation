@@ -5,8 +5,12 @@ compute from a simulation and compare with the data -- the test of a fully
 vetted record.  For each record: resolve() dispatches it, its centrality
 classes are percentile bins, and its experimental values load.  Ratio
 records qualify when both linked sides do (scripts/compute_ratios.py); the
-records a public ratio links to belong here too.  Records that do not
-qualify yet are curated elsewhere and used through --extra-records.
+records a public ratio links to belong here too.  A result published only
+as a ratio (BRAHMS p/pi) has side records with experimental_values: false:
+they compute and load no values, and are public only as the target of a
+public ratio's link, and every ratio record's own values must load.
+Records that do not qualify yet are curated elsewhere and used through
+--extra-records.
 
 Run: python3 tests/test_public_records.py
 """
@@ -25,8 +29,12 @@ from analysis.dispatcher import extract_measurement_params, load_experimental, r
 from analysis.ratios import resolve_link, side_record  # noqa: E402
 
 
-def problem(doc):
-    """None if computable end to end, else what is missing."""
+def problem(doc, linked=False):
+    """None if computable end to end, else what is missing.
+
+    linked: the doc is a side of a public ratio, so a value-less side
+    (experimental_values: false, the values only in the ratio) qualifies.
+    """
     try:
         energy = float((doc.get('collision_system') or {}).get('energy_gev') or 0)
     except (TypeError, ValueError):
@@ -40,6 +48,8 @@ def problem(doc):
     p = extract_measurement_params(doc)
     if not p.get('cent_edges') or p.get('cent_classes_suspicious'):
         return 'no percentile centrality classes'
+    if doc.get('experimental_values') is False:
+        return None if linked else 'experimental_values: false, but no public ratio links this record'
     with contextlib.redirect_stdout(io.StringIO()):
         v, _ = load_experimental(p)
     return None if v is not None else 'experimental values do not load'
@@ -59,10 +69,14 @@ def main():
     for (path, i), d in docs.items():
         if d.get('observable_type') != 'observable_ratios':
             continue
+        with contextlib.redirect_stdout(io.StringIO()):          # the ratio's own values
+            v, _ = load_experimental(extract_measurement_params(d))
+        if v is None:
+            bad.append(f'{os.path.relpath(path, ROOT)}#{i}: the ratio\'s experimental values do not load')
         for link in (d.get('numerator_record'), d.get('denominator_record')):
             try:
                 p, j, side = resolve_link(link, ROOT)
-                why = problem(side_record(side, d))
+                why = problem(side_record(side, d), linked=True)
             except ValueError as e:
                 why = str(e)
             if why:

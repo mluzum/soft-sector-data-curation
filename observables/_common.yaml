@@ -532,9 +532,10 @@ record_status:
       required: false
       description: >
         false: the measurement exists only as a ratio, whose record holds
-        the values (STAR's preliminary Ru/Zr <pT>, given without the Ru
-        and Zr values); this side record defines the computation and loads
-        no values.  Not for data/, whose records compare end to end.
+        the values (BRAHMS p/pi vs pT, STAR's preliminary Ru/Zr <pT>, given
+        without the side values); this side record defines the computation
+        and loads no values.  In data/ only as the target of a public
+        ratio's link (tests/test_public_records.py).
       example: false
     staging_reason:
       type: string

@@ -201,7 +201,15 @@ def test_pipeline():
                               value_table="prelim_table.yaml", centrality=copy.deepcopy(v2[2]["centrality"]),
                               source={"reference": "toy"})
         prelim.pop("hepdata_file")
-        recs = [prelim, ratio_record("v2_ratio", v2, v2),
+        # a published result given only as a ratio (BRAHMS p/pi): the same, not preliminary,
+        # computed without --include-preliminary
+        pside = {k: v for k, v in side.items() if k not in ("status", "source")}
+        pside_path = os.path.join(tmp, "published_side.yaml")
+        yaml.safe_dump(pside, open(pside_path, "w"))
+        published = ratio_record("published_ratio", (pside_path, 0), (pside_path, 0),
+                                 value_table="prelim_table.yaml", centrality=copy.deepcopy(v2[2]["centrality"]))
+        published.pop("hepdata_file")
+        recs = [prelim, published, ratio_record("v2_ratio", v2, v2),
                 ratio_record("v2pt_ratio_coarse", v2pt, v2pt, centrality=v2pt[2]["centrality"],
                              kinematic_range={"eta": v2pt[2]["kinematic_range"].get("eta"),
                                               "pT": {"min": b[0][0], "max": b[2][1], "bin_ranges": coarse_pt}}),
@@ -271,6 +279,16 @@ def test_pipeline():
         if r.returncode != 0:
             print(r.stdout[-2000:], r.stderr[-2000:])
             return
+        with h5py.File(ind_out, "r") as f:
+            g = f["ratios"]
+            pl = [x.decode() for x in g["labels"][:]]
+            pe = g["exp_values"][:]
+            pv = g["values"][:]
+        pub = [i for i, l in enumerate(pl) if l.startswith("published_ratio |")]
+        check(f"published ratio-only result computed from value-less sides without --include-preliminary "
+              f"({len(pub)} classes, points from the ratio's table)",
+              len(pub) == len(pcls) and all(abs(pe[i] - want_p[pl[i].split()[-1]]) < 1e-12 for i in pub)
+              and np.all(np.isfinite(pv[pub])))
         with h5py.File(ind_out, "r") as f:
             g = f["ratios"]
             v, e = g["values"][:], g["errors"][:]

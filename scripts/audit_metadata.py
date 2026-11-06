@@ -365,6 +365,10 @@ def audit_doc(path, doc):
     # PHOBOS records are ASCII data, not HEPData YAML.
     if iid.startswith("PHOBOS"):
         return None
+    # A side of a ratio published without its sides holds no values and has
+    # no table to compare with (the ratio record is audited).
+    if doc.get("experimental_values") is False and not hf:
+        return None
     raw = _load_raw(iid, version, hf)
     if doc.get("value_table"):        # curated from another source (value_tables.py)
         vt = os.path.join(os.path.dirname(path), doc["value_table"])

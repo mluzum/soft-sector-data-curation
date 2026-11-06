@@ -309,8 +309,14 @@ def validate_doc(record, record_path, doc_index=None, verbose=False):
     errors = []
 
     # ── 1. Top-level required fields ──
+    # hepdata_file locates the values: a record whose values are in a
+    # value_table, or that has none (experimental_values: false, a side of a
+    # ratio published without its sides), needs none.
+    no_raw_table = bool(record.get("value_table")) or record.get("experimental_values") is False
     for name, defn in resolved["top_level_fields"].items():
         if defn.get("_required"):
+            if name == "hepdata_file" and no_raw_table:
+                continue
             if name not in record:
                 errors.append(f"'{record_name}': '{name}': missing required field")
             else:
