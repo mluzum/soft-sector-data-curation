@@ -505,13 +505,17 @@ def audit_doc(path, doc):
                 flag("error", f"centrality bin count mismatch: curated "
                               f"{len(cur_classes)} vs raw {len(centers)}")
             else:
+                # an axis named centrality that holds another quantity (STAR
+                # 865572: the class's dNch/deta), stated in the record
+                fixed = (doc.get("hepdata_corrections") or {}).get("centrality")
                 for c, center in zip(cur_classes, centers):
                     b = _cent_bounds(c)
                     if b is None:
                         flag("warning", f"unparsed curated centrality {c!r}")
                     elif not (b[0] - 1e-6 <= center < b[1] + 1e-6):
-                        flag("error", f"curated class {c!r} does not contain "
-                                      f"raw centre {center}")
+                        flag("warning" if fixed else "error",
+                             f"curated class {c!r} does not contain raw centre {center}"
+                             + (f" (corrected: {fixed[:60]})" if fixed else ""))
     elif cur_classes:
         flag("warning", "curated centrality present but no raw centrality "
                         "qualifier or independent variable")
