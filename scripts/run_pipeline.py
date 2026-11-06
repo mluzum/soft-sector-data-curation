@@ -41,7 +41,7 @@ from analysis.qvector import QVectorData, QGridData, MultiSpeciesGrid
 from analysis.simulation_data import load_3d_grid, load_3d_species_grids
 from analysis.weights import (direct_cent_weights_percentile,
                                poisson_cdf_cent_weights, combine_weights,
-                               cent_weights, CentralityWeights,
+                               cent_weights, CentralityWeights, estimator_weights,
                                resolve_anchor, cent_bins_partial)
 
 _PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -263,6 +263,10 @@ def _record_anchor(params, mult, anchor, args, event_weights=None):
     experiment-defined normalization the record states
     (centrality.normalization: estimator_threshold, fraction_above,
     efficiency -- STAR's isobar classes, analysis.weights.threshold_anchor)."""
+    mb = params.get('cent_multiplicity_bins')
+    if mb:      # classes in track count: absolute, no cross-section anchor
+        return ({'f': 1.0, 'n_ref': float(len(mult)), 'anchor_cent': float('inf')},
+                float(mb.get('efficiency', 1.0)))
     norm = params.get('cent_normalization')
     if not norm:
         return anchor, args.poisson_efficiency
@@ -384,7 +388,7 @@ _PREPARE_KEY_SKIP = frozenset({
     'cent_normalization', 'cent_classes_suspicious', 'record_anchor',
     'hepdata_file', 'value_table', 'record_file', 'status', 'inspire_id',
     'version', 'dv_index', 'dv_average', 'table_rows', 'value_scale',
-    'errors_excluded', 'experimental_values'})
+    'errors_excluded', 'experimental_values', 'cent_multiplicity_bins'})
 
 
 def _freeze(x):
@@ -1003,14 +1007,18 @@ def main():
                 # events it keeps); shared by the records of one estimator.
                 import hashlib
                 norm = params.get('cent_normalization') or None
+                mb = params.get('cent_multiplicity_bins') or None
                 key = (hashlib.blake2b(np.ascontiguousarray(mult, dtype=np.float64).tobytes(),
                                        digest_size=16).digest(), float(rec_eff),
                        None if norm is None else (float(norm['estimator_threshold']),
-                                                  float(norm['fraction_above'])))
+                                                  float(norm['fraction_above'])),
+                       mb is not None)
                 if key not in centralities:
-                    centralities[key] = CentralityWeights(
+                    # percentiles, or classes in the estimator's track count
+                    centralities[key] = estimator_weights(
                         args.cent_method, mult, anchor, efficiency=rec_eff,
-                        normalization=norm, event_weights=group_event_weights)
+                        normalization=norm, event_weights=group_event_weights,
+                        multiplicity_bins=mb)
                 return centralities[key]
 
             def _setup_combination(params, container, cw, is_2d_):
@@ -1163,7 +1171,10 @@ def main():
                 cent_edges = params['cent_edges']
 
                 if is_2d:
-                    if getattr(qv, 'cent_mult', None) is not None:
+                    # a package's own estimator multiplicity ranks the events
+                    # for percentiles; classes in track count need the count
+                    # in the record's estimator acceptance
+                    if getattr(qv, 'cent_mult', None) is not None and not params.get('cent_multiplicity_bins'):
                         cent_mult = np.asarray(qv.cent_mult, dtype=float)
                     else:
                         cent_mult = np.zeros(n_events)
@@ -1256,9 +1267,16 @@ def main():
                     c_pt = params.get('cent_pT_range') or (None, None)
                     c_lo = c_pt[0] if c_pt[0] is not None else 0.0
                     c_hi = c_pt[1] if c_pt[1] is not None else 1e9
+                    # Classes in track count are absolute: the estimator
+                    # counts charged particles (the charged selection: x2 on
+                    # a positives-only grid, the charged species of a
+                    # species collection).  Percentile classes rank the
+                    # container's own multiplicity, as before.
+                    est = (qv.select({'species': 'charged'}) if params.get('cent_multiplicity_bins')
+                           else qv)
                     for emin, emax in cent_eta_ranges:
-                        cent_mult_3d += qv.acceptance_fractional(emin, emax, c_lo, c_hi)[:, 0].real \
-                            if hasattr(qv, 'acceptance_fractional') else qv.acceptance(emin, emax, c_lo, c_hi)[:, 0].real
+                        cent_mult_3d += est.acceptance_fractional(emin, emax, c_lo, c_hi)[:, 0].real \
+                            if hasattr(est, 'acceptance_fractional') else est.acceptance(emin, emax, c_lo, c_hi)[:, 0].real
                     # Rank by TABLE-scale multiplicity (per-run means): the
                     # loader scales Q by nsamples (nevents) for cumulant-scale
                     # consistency, but centrality sorting must use the

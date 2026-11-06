@@ -586,3 +586,75 @@ class CentralityWeights:
                 C.setflags(write=False)
             memo[('comb', key)] = C
         return memo[('raw' if raw else 'comb', key)]
+
+
+class MultiplicityBinWeights:
+    """Classes in the estimator's track count instead of percentiles: STAR's
+    isobar ratios vs N_trk(|eta| < 0.5), ATLAS N_ch^rec, CMS N_trk^offline
+    (`centrality.multiplicity_bins`).  A model event of multiplicity N in the
+    estimator acceptance (the per-event mean on oversampled containers) has
+    the count N_trk = Poisson(efficiency x N) ('poisson', the default) or
+    efficiency x N ('simple'); its weight in the class [lo, hi) is
+    P(lo <= N_trk < hi), integer counts (lo <= N_trk <= ceil(hi) - 1).  A Ru
+    and a Zr event of the same N_trk therefore enter the same class, at
+    different percentiles of their systems.
+
+    The classes are absolute: nothing is estimated from the events, so a
+    jackknife replicate only drops events, and no cross-section anchor
+    enters (anchor_cent is infinite: no class is partial).  Same interface
+    as CentralityWeights.  (On a container of realized counts, Poisson
+    stands in for Binomial(N, efficiency), as in threshold_anchor.)
+    """
+
+    def __init__(self, method, event_var, efficiency=1.0, event_weights=None):
+        if method not in ('simple', 'poisson'):
+            raise ValueError(f"unknown cent method {method!r}")
+        self.method = method
+        self.x = float(efficiency) * np.asarray(event_var, dtype=float)
+        self.n = len(self.x)
+        self.efficiency = float(efficiency)
+        self.event_weights = None if event_weights is None else np.asarray(event_weights, dtype=float)
+        self._memo = {}
+
+    def anchor(self, mask=None):
+        n = self.n if mask is None else int(np.count_nonzero(mask))
+        return {'f': 1.0, 'n_ref': float(n), 'anchor_cent': math.inf}
+
+    def _full(self, edges, raw):
+        key = (tuple((float(lo), float(hi)) for lo, hi in edges), raw)
+        if key not in self._memo:
+            W = np.empty((self.n, len(edges)))
+            for k, (lo, hi) in enumerate(edges):
+                if self.method == 'poisson':
+                    a, b = math.ceil(float(lo)), math.ceil(float(hi)) - 1        # lo <= N_trk <= b
+                    W[:, k] = (scipy.stats.poisson.cdf(b, self.x) - scipy.stats.poisson.cdf(a - 1, self.x)
+                               if b >= a else 0.0)
+                else:
+                    W[:, k] = (self.x >= float(lo)) & (self.x < float(hi))
+            W.setflags(write=False)
+            C = W if raw else combine_weights(W, self.event_weights)
+            if C is not W:
+                C.setflags(write=False)
+            self._memo[key] = C
+        return self._memo[key]
+
+    def weights(self, edges, mask=None, raw=False):
+        W = self._full(edges, raw)
+        if mask is None or mask.all():
+            return W
+        out = W[mask]
+        out.setflags(write=False)
+        return out
+
+
+def estimator_weights(method, event_var, anchor=None, efficiency=1.0, normalization=None,
+                      event_weights=None, multiplicity_bins=None):
+    """The weights object of a record's centrality: percentiles
+    (CentralityWeights) or, with `multiplicity_bins` (the record's
+    centrality.multiplicity_bins), classes in the estimator's track count
+    (MultiplicityBinWeights, its own efficiency)."""
+    if multiplicity_bins:
+        return MultiplicityBinWeights(method, event_var, efficiency=float(multiplicity_bins.get('efficiency', 1.0)),
+                                      event_weights=event_weights)
+    return CentralityWeights(method, event_var, anchor, efficiency=efficiency, normalization=normalization,
+                             event_weights=event_weights)

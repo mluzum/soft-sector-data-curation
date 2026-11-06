@@ -302,6 +302,21 @@ _COEFF_RATIO = re.compile(
     re.I)
 
 
+def multiplicity_classes_invalid(classes):
+    """True when classes in track count (centrality.multiplicity_bins) are
+    not ranges 'lo-hi' of the count: no '%', 0 <= lo < hi, no overlap."""
+    spans = []
+    for c in list(classes or []):
+        m = re.fullmatch(r'\s*(\d+(?:\.\d+)?)\s*-\s*(\d+(?:\.\d+)?)\s*', str(c))
+        if not m:
+            return True
+        spans.append((float(m.group(1)), float(m.group(2))))
+    if not spans or any(hi <= lo for lo, hi in spans):
+        return True
+    srt = sorted(spans)
+    return any(srt[i][1] > srt[i + 1][0] + 1e-9 for i in range(len(srt) - 1))
+
+
 def centrality_classes_suspicious(classes):
     """True when `centrality.classes` is not a list of percentile bins.
 
@@ -490,6 +505,19 @@ def resolve(record):
         for _k, sub in combination_terms(record):
             resolve(sub)
         return dict(COMBINATION_ENTRY)
+
+    # Classes in the estimator's track count are absolute: no percentile
+    # machinery (actual ranges, a cross-section normalization, sub-class
+    # combination, points) applies to them.
+    cent_ = record.get("centrality") or {}
+    if cent_.get("multiplicity_bins"):
+        clash = [k for k in ("actual_classes", "normalization", "combined_from", "points") if cent_.get(k)]
+        if clash:
+            raise ValueError(f"centrality.multiplicity_bins with {', '.join(clash)}: classes in track count "
+                             f"are absolute")
+        if multiplicity_classes_invalid(cent_.get("classes")):
+            raise ValueError(f"centrality.multiplicity_bins: classes {cent_.get('classes')} are not "
+                             f"non-overlapping track-count ranges 'lo-hi'")
 
     # A total-momentum cut (kinematic_range.p: STAR's PID limit p < 1.6
     # GeV/c) is applied by the rapidity-odd v1 prepare only; elsewhere it
@@ -913,7 +941,11 @@ def extract_measurement_params(exp_rec):
     # Flag a centrality.classes that is not centrality.  The record is still
     # returned (so schema validation and export see it) but the pipeline must
     # not build percentile bins from it -- see centrality_classes_suspicious.
-    cent_suspicious = centrality_classes_suspicious(cent_classes)
+    # Classes in the estimator's track count (multiplicity_bins) have their
+    # own check: numeric ranges without '%'.
+    mult_bins = cent.get('multiplicity_bins') or None
+    cent_suspicious = (multiplicity_classes_invalid(cent_classes) if mult_bins
+                       else centrality_classes_suspicious(cent_classes))
 
     dim = exp_rec.get('dimensionality', 'integrated')
     diff_var, diff_bins, diff_fixed = extract_differential_bins(exp_rec)
@@ -1004,6 +1036,9 @@ def extract_measurement_params(exp_rec):
         # Experiment-defined centrality normalization (threshold_anchor) and
         # a detector efficiency for detector-level yields.
         'cent_normalization': cent.get('normalization'),
+        # classes in the estimator's track count, N_trk = Poisson(efficiency
+        # x N) (analysis.weights.MultiplicityBinWeights); None for percentiles
+        'cent_multiplicity_bins': mult_bins,
         'detector_efficiency': exp_rec.get('detector_efficiency'),
         # Asymmetric systems: frame of the record's windows (lab / nn_cms),
         # the centre-of-mass rapidity in the lab, and the +eta beam.

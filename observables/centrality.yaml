@@ -30,7 +30,9 @@ centrality:
     classes:
       type: list
       required: true
-      description: List of centrality percentile bins.
+      description: >
+        List of centrality percentile bins ('0-5%'), or of track-count
+        ranges ('10-20') with multiplicity_bins.
       items:
         type: string
         example: "0-5%"
@@ -125,6 +127,28 @@ centrality:
       required: false
       description: Width, in percent, of the windows around `points`.
       example: 2.0
+    multiplicity_bins:
+      type: object
+      required: false
+      description: >
+        The classes are ranges of the estimator's track count, not
+        percentiles: `classes` 'lo-hi' (no '%') mean lo <= N_trk < hi in
+        the estimator acceptance (`eta`, `pT`).  A model event of charged
+        multiplicity N there counts N_trk = Poisson(efficiency x N) (cent
+        method poisson; efficiency x N with simple) and enters each class
+        with that probability (analysis.weights.MultiplicityBinWeights):
+        STAR's isobar ratios vs N_trk(|eta| < 0.5), ATLAS N_ch^rec, CMS
+        N_trk^offline.  Absolute: no anchor, actual_classes,
+        normalization, combined_from or points.
+      fields:
+        efficiency:
+          type: float
+          required: true
+          description: >
+            Tracking efficiency of the counted tracks (1.0 for a corrected
+            multiplicity).
+          example: 0.87
+        notes: {type: string, required: false}
     actual_classes:
       type: list
       required: false

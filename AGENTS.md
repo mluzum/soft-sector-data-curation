@@ -289,6 +289,24 @@ Fields that change dispatch:
   100%; the record's own anchor is written as record_* attrs.  STAR
   isobars (1914564, 2822399): Table III ranges, F50 = 0.4712 (Ru), 0.4590
   (Zr), efficiency 0.87 (scripts/curate_star_isobar_centrality.py).
+- `centrality.multiplicity_bins` {efficiency}: the classes are ranges of
+  the estimator's track count ('10-20', no '%': 10 <= N_trk < 20), not
+  percentiles (STAR's isobar ratios vs N_trk(|eta| < 0.5), ATLAS N_ch^rec,
+  CMS N_trk^offline).  A model event of charged multiplicity N in the
+  estimator acceptance has N_trk = Poisson(efficiency x N) (cent method
+  poisson; efficiency x N with simple) and enters each class with that
+  probability (`weights.MultiplicityBinWeights`, chosen by
+  `weights.estimator_weights`): a Ru and a Zr event of one N_trk share a
+  class at different percentiles.  Absolute: no anchor, nothing
+  re-estimated per jackknife replicate, and actual_classes,
+  normalization, combined_from and points are refused.  N counts charged
+  particles in the record's acceptance (3D: the charged selection, x2 on
+  a positives-only grid; 2D: never a package's own `cent_mult`).  On 2D
+  containers N is the event's expected count, so classes select on it
+  without the binomial window noise of realized counts (toy: the top
+  class's dN/deta 8% higher than with realized counts);
+  tests/test_toy_mc_multiplicity_bins.py (3D and 2D within 0.1% of
+  explicit Poisson draws, run_pipeline = toy harness).
 - `efficiency_corrected: false` with `detector_efficiency` (yields,
   spectra) is computed as efficiency x N; without it, refused.
 - `centrality.combined_from: unit_multiplicity`: class values combined
