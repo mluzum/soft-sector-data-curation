@@ -1,0 +1,8258 @@
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data1.yaml
+dv_index: 0
+hepdata_table_label: 'Fig. 2: K0_S invariant yield, pp N_trk^offline 0-35, -1 < y_cm < 1 (data1.yaml column 0)'
+collision_system:
+  energy_gev: 7000.0
+  reaction: P P --> K0S X
+centrality:
+  classes:
+  - 0-35
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.4
+    max: 2.4
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.86
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (Table 1 of this paper: 12/14, 43/50, ..., 137/158).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive (the top
+    class open, here to 1000).'
+particle_id:
+  species: K0_S
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.1
+    max: 5.0
+    bin_ranges:
+    - - 0.1
+      - 0.2
+    - - 0.2
+      - 0.3
+    - - 0.3
+      - 0.4
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0
+    - - 1.0
+      - 1.1
+    - - 1.1
+      - 1.2
+    - - 1.2
+      - 1.3
+    - - 1.3
+      - 1.4
+    - - 1.4
+      - 1.5
+    - - 1.5
+      - 1.6
+    - - 1.6
+      - 1.7
+    - - 1.7
+      - 1.8
+    - - 1.8
+      - 1.9
+    - - 1.9
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of K0_S (sum of particle
+    and antiparticle), -1 < y_cm < 1, pp 7 TeV, N_trk^offline 0-35. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data1.yaml
+dv_index: 1
+hepdata_table_label: 'Fig. 2: K0_S invariant yield, pp N_trk^offline 35-60, -1 < y_cm < 1 (data1.yaml column 1)'
+collision_system:
+  energy_gev: 7000.0
+  reaction: P P --> K0S X
+centrality:
+  classes:
+  - 35-60
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.4
+    max: 2.4
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.86
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (Table 1 of this paper: 12/14, 43/50, ..., 137/158).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive (the top
+    class open, here to 1000).'
+particle_id:
+  species: K0_S
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.1
+    max: 5.0
+    bin_ranges:
+    - - 0.1
+      - 0.2
+    - - 0.2
+      - 0.3
+    - - 0.3
+      - 0.4
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0
+    - - 1.0
+      - 1.1
+    - - 1.1
+      - 1.2
+    - - 1.2
+      - 1.3
+    - - 1.3
+      - 1.4
+    - - 1.4
+      - 1.5
+    - - 1.5
+      - 1.6
+    - - 1.6
+      - 1.7
+    - - 1.7
+      - 1.8
+    - - 1.8
+      - 1.9
+    - - 1.9
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of K0_S (sum of particle
+    and antiparticle), -1 < y_cm < 1, pp 7 TeV, N_trk^offline 35-60. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data1.yaml
+dv_index: 2
+hepdata_table_label: 'Fig. 2: K0_S invariant yield, pp N_trk^offline 60-90, -1 < y_cm < 1 (data1.yaml column 2)'
+collision_system:
+  energy_gev: 7000.0
+  reaction: P P --> K0S X
+centrality:
+  classes:
+  - 60-90
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.4
+    max: 2.4
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.86
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (Table 1 of this paper: 12/14, 43/50, ..., 137/158).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive (the top
+    class open, here to 1000).'
+particle_id:
+  species: K0_S
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.1
+    max: 5.0
+    bin_ranges:
+    - - 0.1
+      - 0.2
+    - - 0.2
+      - 0.3
+    - - 0.3
+      - 0.4
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0
+    - - 1.0
+      - 1.1
+    - - 1.1
+      - 1.2
+    - - 1.2
+      - 1.3
+    - - 1.3
+      - 1.4
+    - - 1.4
+      - 1.5
+    - - 1.5
+      - 1.6
+    - - 1.6
+      - 1.7
+    - - 1.7
+      - 1.8
+    - - 1.8
+      - 1.9
+    - - 1.9
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of K0_S (sum of particle
+    and antiparticle), -1 < y_cm < 1, pp 7 TeV, N_trk^offline 60-90. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data2.yaml
+dv_index: 0
+hepdata_table_label: 'Fig. 2: K0_S invariant yield, pp N_trk^offline 90-110, -1 < y_cm < 1 (data2.yaml column 0)'
+collision_system:
+  energy_gev: 7000.0
+  reaction: P P --> K0S X
+centrality:
+  classes:
+  - 90-110
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.4
+    max: 2.4
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.86
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (Table 1 of this paper: 12/14, 43/50, ..., 137/158).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive (the top
+    class open, here to 1000).'
+particle_id:
+  species: K0_S
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.1
+    max: 5.0
+    bin_ranges:
+    - - 0.1
+      - 0.2
+    - - 0.2
+      - 0.3
+    - - 0.3
+      - 0.4
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0
+    - - 1.0
+      - 1.1
+    - - 1.1
+      - 1.2
+    - - 1.2
+      - 1.3
+    - - 1.3
+      - 1.4
+    - - 1.4
+      - 1.5
+    - - 1.5
+      - 1.6
+    - - 1.6
+      - 1.7
+    - - 1.7
+      - 1.8
+    - - 1.8
+      - 1.9
+    - - 1.9
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of K0_S (sum of particle
+    and antiparticle), -1 < y_cm < 1, pp 7 TeV, N_trk^offline 90-110. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data2.yaml
+dv_index: 1
+hepdata_table_label: 'Fig. 2: K0_S invariant yield, pp N_trk^offline 110-130, -1 < y_cm < 1 (data2.yaml column 1)'
+collision_system:
+  energy_gev: 7000.0
+  reaction: P P --> K0S X
+centrality:
+  classes:
+  - 110-130
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.4
+    max: 2.4
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.86
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (Table 1 of this paper: 12/14, 43/50, ..., 137/158).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive (the top
+    class open, here to 1000).'
+particle_id:
+  species: K0_S
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.1
+    max: 5.0
+    bin_ranges:
+    - - 0.1
+      - 0.2
+    - - 0.2
+      - 0.3
+    - - 0.3
+      - 0.4
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0
+    - - 1.0
+      - 1.1
+    - - 1.1
+      - 1.2
+    - - 1.2
+      - 1.3
+    - - 1.3
+      - 1.4
+    - - 1.4
+      - 1.5
+    - - 1.5
+      - 1.6
+    - - 1.6
+      - 1.7
+    - - 1.7
+      - 1.8
+    - - 1.8
+      - 1.9
+    - - 1.9
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of K0_S (sum of particle
+    and antiparticle), -1 < y_cm < 1, pp 7 TeV, N_trk^offline 110-130. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data2.yaml
+dv_index: 2
+hepdata_table_label: 'Fig. 2: K0_S invariant yield, pp N_trk^offline 130-1000, -1 < y_cm < 1 (data2.yaml column 2)'
+collision_system:
+  energy_gev: 7000.0
+  reaction: P P --> K0S X
+centrality:
+  classes:
+  - 130-1000
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.4
+    max: 2.4
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.86
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (Table 1 of this paper: 12/14, 43/50, ..., 137/158).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive (the top
+    class open, here to 1000).'
+particle_id:
+  species: K0_S
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.1
+    max: 5.0
+    bin_ranges:
+    - - 0.1
+      - 0.2
+    - - 0.2
+      - 0.3
+    - - 0.3
+      - 0.4
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0
+    - - 1.0
+      - 1.1
+    - - 1.1
+      - 1.2
+    - - 1.2
+      - 1.3
+    - - 1.3
+      - 1.4
+    - - 1.4
+      - 1.5
+    - - 1.5
+      - 1.6
+    - - 1.6
+      - 1.7
+    - - 1.7
+      - 1.8
+    - - 1.8
+      - 1.9
+    - - 1.9
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of K0_S (sum of particle
+    and antiparticle), -1 < y_cm < 1, pp 7 TeV, N_trk^offline 130-1000. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data3.yaml
+dv_index: 0
+hepdata_table_label: 'Fig. 2: Lambda + Lambdabar invariant yield, pp N_trk^offline 0-35, -1 < y_cm < 1 (data3.yaml column
+  0)'
+collision_system:
+  energy_gev: 7000.0
+  reaction: P P --> LAMBDA LAMBDABAR X
+centrality:
+  classes:
+  - 0-35
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.4
+    max: 2.4
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.86
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (Table 1 of this paper: 12/14, 43/50, ..., 137/158).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive (the top
+    class open, here to 1000).'
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.4
+    max: 5.0
+    bin_ranges:
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Lambda + Lambdabar
+    (sum of particle and antiparticle), -1 < y_cm < 1, pp 7 TeV, N_trk^offline 0-35. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data3.yaml
+dv_index: 1
+hepdata_table_label: 'Fig. 2: Lambda + Lambdabar invariant yield, pp N_trk^offline 35-60, -1 < y_cm < 1 (data3.yaml column
+  1)'
+collision_system:
+  energy_gev: 7000.0
+  reaction: P P --> LAMBDA LAMBDABAR X
+centrality:
+  classes:
+  - 35-60
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.4
+    max: 2.4
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.86
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (Table 1 of this paper: 12/14, 43/50, ..., 137/158).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive (the top
+    class open, here to 1000).'
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.4
+    max: 5.0
+    bin_ranges:
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Lambda + Lambdabar
+    (sum of particle and antiparticle), -1 < y_cm < 1, pp 7 TeV, N_trk^offline 35-60. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data3.yaml
+dv_index: 2
+hepdata_table_label: 'Fig. 2: Lambda + Lambdabar invariant yield, pp N_trk^offline 60-90, -1 < y_cm < 1 (data3.yaml column
+  2)'
+collision_system:
+  energy_gev: 7000.0
+  reaction: P P --> LAMBDA LAMBDABAR X
+centrality:
+  classes:
+  - 60-90
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.4
+    max: 2.4
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.86
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (Table 1 of this paper: 12/14, 43/50, ..., 137/158).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive (the top
+    class open, here to 1000).'
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.4
+    max: 5.0
+    bin_ranges:
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Lambda + Lambdabar
+    (sum of particle and antiparticle), -1 < y_cm < 1, pp 7 TeV, N_trk^offline 60-90. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data4.yaml
+dv_index: 0
+hepdata_table_label: 'Fig. 2: Lambda + Lambdabar invariant yield, pp N_trk^offline 90-110, -1 < y_cm < 1 (data4.yaml column
+  0)'
+collision_system:
+  energy_gev: 7000.0
+  reaction: P P --> LAMBDA LAMBDABAR X
+centrality:
+  classes:
+  - 90-110
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.4
+    max: 2.4
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.86
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (Table 1 of this paper: 12/14, 43/50, ..., 137/158).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive (the top
+    class open, here to 1000).'
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.4
+    max: 5.0
+    bin_ranges:
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Lambda + Lambdabar
+    (sum of particle and antiparticle), -1 < y_cm < 1, pp 7 TeV, N_trk^offline 90-110. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data4.yaml
+dv_index: 1
+hepdata_table_label: 'Fig. 2: Lambda + Lambdabar invariant yield, pp N_trk^offline 110-130, -1 < y_cm < 1 (data4.yaml column
+  1)'
+collision_system:
+  energy_gev: 7000.0
+  reaction: P P --> LAMBDA LAMBDABAR X
+centrality:
+  classes:
+  - 110-130
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.4
+    max: 2.4
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.86
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (Table 1 of this paper: 12/14, 43/50, ..., 137/158).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive (the top
+    class open, here to 1000).'
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.4
+    max: 5.0
+    bin_ranges:
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Lambda + Lambdabar
+    (sum of particle and antiparticle), -1 < y_cm < 1, pp 7 TeV, N_trk^offline 110-130. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data4.yaml
+dv_index: 2
+hepdata_table_label: 'Fig. 2: Lambda + Lambdabar invariant yield, pp N_trk^offline 130-1000, -1 < y_cm < 1 (data4.yaml column
+  2)'
+collision_system:
+  energy_gev: 7000.0
+  reaction: P P --> LAMBDA LAMBDABAR X
+centrality:
+  classes:
+  - 130-1000
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.4
+    max: 2.4
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.86
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (Table 1 of this paper: 12/14, 43/50, ..., 137/158).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive (the top
+    class open, here to 1000).'
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.4
+    max: 5.0
+    bin_ranges:
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Lambda + Lambdabar
+    (sum of particle and antiparticle), -1 < y_cm < 1, pp 7 TeV, N_trk^offline 130-1000. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data5.yaml
+dv_index: 0
+hepdata_table_label: 'Fig. 2: Xi- + Xibar+ invariant yield, pp N_trk^offline 0-35, -1 < y_cm < 1 (data5.yaml column 0)'
+collision_system:
+  energy_gev: 7000.0
+  reaction: P P --> XI- XIBAR+ X
+centrality:
+  classes:
+  - 0-35
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.4
+    max: 2.4
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.86
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (Table 1 of this paper: 12/14, 43/50, ..., 137/158).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive (the top
+    class open, here to 1000).'
+particle_id:
+  species: Xi- + Xibar+
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 1.0
+    max: 5.0
+    bin_ranges:
+    - - 1.0
+      - 1.4
+    - - 1.4
+      - 1.8
+    - - 1.8
+      - 2.2
+    - - 2.2
+      - 2.6
+    - - 2.6
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Xi- + Xibar+ (sum
+    of particle and antiparticle), -1 < y_cm < 1, pp 7 TeV, N_trk^offline 0-35. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data5.yaml
+dv_index: 1
+hepdata_table_label: 'Fig. 2: Xi- + Xibar+ invariant yield, pp N_trk^offline 35-60, -1 < y_cm < 1 (data5.yaml column 1)'
+collision_system:
+  energy_gev: 7000.0
+  reaction: P P --> XI- XIBAR+ X
+centrality:
+  classes:
+  - 35-60
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.4
+    max: 2.4
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.86
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (Table 1 of this paper: 12/14, 43/50, ..., 137/158).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive (the top
+    class open, here to 1000).'
+particle_id:
+  species: Xi- + Xibar+
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 1.0
+    max: 5.0
+    bin_ranges:
+    - - 1.0
+      - 1.4
+    - - 1.4
+      - 1.8
+    - - 1.8
+      - 2.2
+    - - 2.2
+      - 2.6
+    - - 2.6
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Xi- + Xibar+ (sum
+    of particle and antiparticle), -1 < y_cm < 1, pp 7 TeV, N_trk^offline 35-60. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data5.yaml
+dv_index: 2
+hepdata_table_label: 'Fig. 2: Xi- + Xibar+ invariant yield, pp N_trk^offline 60-90, -1 < y_cm < 1 (data5.yaml column 2)'
+collision_system:
+  energy_gev: 7000.0
+  reaction: P P --> XI- XIBAR+ X
+centrality:
+  classes:
+  - 60-90
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.4
+    max: 2.4
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.86
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (Table 1 of this paper: 12/14, 43/50, ..., 137/158).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive (the top
+    class open, here to 1000).'
+particle_id:
+  species: Xi- + Xibar+
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 1.0
+    max: 5.0
+    bin_ranges:
+    - - 1.0
+      - 1.4
+    - - 1.4
+      - 1.8
+    - - 1.8
+      - 2.2
+    - - 2.2
+      - 2.6
+    - - 2.6
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Xi- + Xibar+ (sum
+    of particle and antiparticle), -1 < y_cm < 1, pp 7 TeV, N_trk^offline 60-90. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data6.yaml
+dv_index: 0
+hepdata_table_label: 'Fig. 2: Xi- + Xibar+ invariant yield, pp N_trk^offline 90-110, -1 < y_cm < 1 (data6.yaml column 0)'
+collision_system:
+  energy_gev: 7000.0
+  reaction: P P --> XI- XIBAR+ X
+centrality:
+  classes:
+  - 90-110
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.4
+    max: 2.4
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.86
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (Table 1 of this paper: 12/14, 43/50, ..., 137/158).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive (the top
+    class open, here to 1000).'
+particle_id:
+  species: Xi- + Xibar+
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 1.0
+    max: 5.0
+    bin_ranges:
+    - - 1.0
+      - 1.4
+    - - 1.4
+      - 1.8
+    - - 1.8
+      - 2.2
+    - - 2.2
+      - 2.6
+    - - 2.6
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Xi- + Xibar+ (sum
+    of particle and antiparticle), -1 < y_cm < 1, pp 7 TeV, N_trk^offline 90-110. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data6.yaml
+dv_index: 1
+hepdata_table_label: 'Fig. 2: Xi- + Xibar+ invariant yield, pp N_trk^offline 110-130, -1 < y_cm < 1 (data6.yaml column 1)'
+collision_system:
+  energy_gev: 7000.0
+  reaction: P P --> XI- XIBAR+ X
+centrality:
+  classes:
+  - 110-130
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.4
+    max: 2.4
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.86
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (Table 1 of this paper: 12/14, 43/50, ..., 137/158).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive (the top
+    class open, here to 1000).'
+particle_id:
+  species: Xi- + Xibar+
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 1.0
+    max: 5.0
+    bin_ranges:
+    - - 1.0
+      - 1.4
+    - - 1.4
+      - 1.8
+    - - 1.8
+      - 2.2
+    - - 2.2
+      - 2.6
+    - - 2.6
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Xi- + Xibar+ (sum
+    of particle and antiparticle), -1 < y_cm < 1, pp 7 TeV, N_trk^offline 110-130. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data6.yaml
+dv_index: 2
+hepdata_table_label: 'Fig. 2: Xi- + Xibar+ invariant yield, pp N_trk^offline 130-1000, -1 < y_cm < 1 (data6.yaml column 2)'
+collision_system:
+  energy_gev: 7000.0
+  reaction: P P --> XI- XIBAR+ X
+centrality:
+  classes:
+  - 130-1000
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.4
+    max: 2.4
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.86
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (Table 1 of this paper: 12/14, 43/50, ..., 137/158).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive (the top
+    class open, here to 1000).'
+particle_id:
+  species: Xi- + Xibar+
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 1.0
+    max: 5.0
+    bin_ranges:
+    - - 1.0
+      - 1.4
+    - - 1.4
+      - 1.8
+    - - 1.8
+      - 2.2
+    - - 2.2
+      - 2.6
+    - - 2.6
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Xi- + Xibar+ (sum
+    of particle and antiparticle), -1 < y_cm < 1, pp 7 TeV, N_trk^offline 130-1000. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data7.yaml
+dv_index: 0
+hepdata_table_label: 'Fig. 2: K0_S invariant yield, pPb N_trk^offline 0-35, -1 < y_cm < 1 (data7.yaml column 0)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> K0S X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 0-35
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: K0_S
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.1
+    max: 5.0
+    bin_ranges:
+    - - 0.1
+      - 0.2
+    - - 0.2
+      - 0.3
+    - - 0.3
+      - 0.4
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0
+    - - 1.0
+      - 1.1
+    - - 1.1
+      - 1.2
+    - - 1.2
+      - 1.3
+    - - 1.3
+      - 1.4
+    - - 1.4
+      - 1.5
+    - - 1.5
+      - 1.6
+    - - 1.6
+      - 1.7
+    - - 1.7
+      - 1.8
+    - - 1.8
+      - 1.9
+    - - 1.9
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of K0_S (sum of particle
+    and antiparticle), -1 < y_cm < 1, pPb 5.02 TeV, N_trk^offline 0-35. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data7.yaml
+dv_index: 1
+hepdata_table_label: 'Fig. 2: K0_S invariant yield, pPb N_trk^offline 35-60, -1 < y_cm < 1 (data7.yaml column 1)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> K0S X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 35-60
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: K0_S
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.1
+    max: 5.0
+    bin_ranges:
+    - - 0.1
+      - 0.2
+    - - 0.2
+      - 0.3
+    - - 0.3
+      - 0.4
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0
+    - - 1.0
+      - 1.1
+    - - 1.1
+      - 1.2
+    - - 1.2
+      - 1.3
+    - - 1.3
+      - 1.4
+    - - 1.4
+      - 1.5
+    - - 1.5
+      - 1.6
+    - - 1.6
+      - 1.7
+    - - 1.7
+      - 1.8
+    - - 1.8
+      - 1.9
+    - - 1.9
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of K0_S (sum of particle
+    and antiparticle), -1 < y_cm < 1, pPb 5.02 TeV, N_trk^offline 35-60. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data7.yaml
+dv_index: 2
+hepdata_table_label: 'Fig. 2: K0_S invariant yield, pPb N_trk^offline 60-90, -1 < y_cm < 1 (data7.yaml column 2)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> K0S X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 60-90
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: K0_S
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.1
+    max: 5.0
+    bin_ranges:
+    - - 0.1
+      - 0.2
+    - - 0.2
+      - 0.3
+    - - 0.3
+      - 0.4
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0
+    - - 1.0
+      - 1.1
+    - - 1.1
+      - 1.2
+    - - 1.2
+      - 1.3
+    - - 1.3
+      - 1.4
+    - - 1.4
+      - 1.5
+    - - 1.5
+      - 1.6
+    - - 1.6
+      - 1.7
+    - - 1.7
+      - 1.8
+    - - 1.8
+      - 1.9
+    - - 1.9
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of K0_S (sum of particle
+    and antiparticle), -1 < y_cm < 1, pPb 5.02 TeV, N_trk^offline 60-90. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data7.yaml
+dv_index: 3
+hepdata_table_label: 'Fig. 2: K0_S invariant yield, pPb N_trk^offline 90-120, -1 < y_cm < 1 (data7.yaml column 3)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> K0S X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 90-120
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: K0_S
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.1
+    max: 5.0
+    bin_ranges:
+    - - 0.1
+      - 0.2
+    - - 0.2
+      - 0.3
+    - - 0.3
+      - 0.4
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0
+    - - 1.0
+      - 1.1
+    - - 1.1
+      - 1.2
+    - - 1.2
+      - 1.3
+    - - 1.3
+      - 1.4
+    - - 1.4
+      - 1.5
+    - - 1.5
+      - 1.6
+    - - 1.6
+      - 1.7
+    - - 1.7
+      - 1.8
+    - - 1.8
+      - 1.9
+    - - 1.9
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of K0_S (sum of particle
+    and antiparticle), -1 < y_cm < 1, pPb 5.02 TeV, N_trk^offline 90-120. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data8.yaml
+dv_index: 0
+hepdata_table_label: 'Fig. 2: K0_S invariant yield, pPb N_trk^offline 120-150, -1 < y_cm < 1 (data8.yaml column 0)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> K0S X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 120-150
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: K0_S
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.1
+    max: 5.0
+    bin_ranges:
+    - - 0.1
+      - 0.2
+    - - 0.2
+      - 0.3
+    - - 0.3
+      - 0.4
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0
+    - - 1.0
+      - 1.1
+    - - 1.1
+      - 1.2
+    - - 1.2
+      - 1.3
+    - - 1.3
+      - 1.4
+    - - 1.4
+      - 1.5
+    - - 1.5
+      - 1.6
+    - - 1.6
+      - 1.7
+    - - 1.7
+      - 1.8
+    - - 1.8
+      - 1.9
+    - - 1.9
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of K0_S (sum of particle
+    and antiparticle), -1 < y_cm < 1, pPb 5.02 TeV, N_trk^offline 120-150. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data8.yaml
+dv_index: 1
+hepdata_table_label: 'Fig. 2: K0_S invariant yield, pPb N_trk^offline 150-185, -1 < y_cm < 1 (data8.yaml column 1)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> K0S X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 150-185
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: K0_S
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.1
+    max: 5.0
+    bin_ranges:
+    - - 0.1
+      - 0.2
+    - - 0.2
+      - 0.3
+    - - 0.3
+      - 0.4
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0
+    - - 1.0
+      - 1.1
+    - - 1.1
+      - 1.2
+    - - 1.2
+      - 1.3
+    - - 1.3
+      - 1.4
+    - - 1.4
+      - 1.5
+    - - 1.5
+      - 1.6
+    - - 1.6
+      - 1.7
+    - - 1.7
+      - 1.8
+    - - 1.8
+      - 1.9
+    - - 1.9
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of K0_S (sum of particle
+    and antiparticle), -1 < y_cm < 1, pPb 5.02 TeV, N_trk^offline 150-185. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data8.yaml
+dv_index: 2
+hepdata_table_label: 'Fig. 2: K0_S invariant yield, pPb N_trk^offline 185-220, -1 < y_cm < 1 (data8.yaml column 2)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> K0S X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 185-220
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: K0_S
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.1
+    max: 5.0
+    bin_ranges:
+    - - 0.1
+      - 0.2
+    - - 0.2
+      - 0.3
+    - - 0.3
+      - 0.4
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0
+    - - 1.0
+      - 1.1
+    - - 1.1
+      - 1.2
+    - - 1.2
+      - 1.3
+    - - 1.3
+      - 1.4
+    - - 1.4
+      - 1.5
+    - - 1.5
+      - 1.6
+    - - 1.6
+      - 1.7
+    - - 1.7
+      - 1.8
+    - - 1.8
+      - 1.9
+    - - 1.9
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of K0_S (sum of particle
+    and antiparticle), -1 < y_cm < 1, pPb 5.02 TeV, N_trk^offline 185-220. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data8.yaml
+dv_index: 3
+hepdata_table_label: 'Fig. 2: K0_S invariant yield, pPb N_trk^offline 220-260, -1 < y_cm < 1 (data8.yaml column 3)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> K0S X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 220-260
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: K0_S
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.1
+    max: 5.0
+    bin_ranges:
+    - - 0.1
+      - 0.2
+    - - 0.2
+      - 0.3
+    - - 0.3
+      - 0.4
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0
+    - - 1.0
+      - 1.1
+    - - 1.1
+      - 1.2
+    - - 1.2
+      - 1.3
+    - - 1.3
+      - 1.4
+    - - 1.4
+      - 1.5
+    - - 1.5
+      - 1.6
+    - - 1.6
+      - 1.7
+    - - 1.7
+      - 1.8
+    - - 1.8
+      - 1.9
+    - - 1.9
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of K0_S (sum of particle
+    and antiparticle), -1 < y_cm < 1, pPb 5.02 TeV, N_trk^offline 220-260. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data9.yaml
+dv_index: 0
+hepdata_table_label: 'Fig. 2: Lambda + Lambdabar invariant yield, pPb N_trk^offline 0-35, -1 < y_cm < 1 (data9.yaml column
+  0)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> LAMBDA LAMBDABAR X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 0-35
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.4
+    max: 5.0
+    bin_ranges:
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Lambda + Lambdabar
+    (sum of particle and antiparticle), -1 < y_cm < 1, pPb 5.02 TeV, N_trk^offline 0-35. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data9.yaml
+dv_index: 1
+hepdata_table_label: 'Fig. 2: Lambda + Lambdabar invariant yield, pPb N_trk^offline 35-60, -1 < y_cm < 1 (data9.yaml column
+  1)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> LAMBDA LAMBDABAR X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 35-60
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.4
+    max: 5.0
+    bin_ranges:
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Lambda + Lambdabar
+    (sum of particle and antiparticle), -1 < y_cm < 1, pPb 5.02 TeV, N_trk^offline 35-60. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data9.yaml
+dv_index: 2
+hepdata_table_label: 'Fig. 2: Lambda + Lambdabar invariant yield, pPb N_trk^offline 60-90, -1 < y_cm < 1 (data9.yaml column
+  2)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> LAMBDA LAMBDABAR X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 60-90
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.4
+    max: 5.0
+    bin_ranges:
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Lambda + Lambdabar
+    (sum of particle and antiparticle), -1 < y_cm < 1, pPb 5.02 TeV, N_trk^offline 60-90. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data9.yaml
+dv_index: 3
+hepdata_table_label: 'Fig. 2: Lambda + Lambdabar invariant yield, pPb N_trk^offline 90-120, -1 < y_cm < 1 (data9.yaml column
+  3)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> LAMBDA LAMBDABAR X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 90-120
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.4
+    max: 5.0
+    bin_ranges:
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Lambda + Lambdabar
+    (sum of particle and antiparticle), -1 < y_cm < 1, pPb 5.02 TeV, N_trk^offline 90-120. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data10.yaml
+dv_index: 0
+hepdata_table_label: 'Fig. 2: Lambda + Lambdabar invariant yield, pPb N_trk^offline 120-150, -1 < y_cm < 1 (data10.yaml column
+  0)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> LAMBDA LAMBDABAR X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 120-150
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.4
+    max: 5.0
+    bin_ranges:
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Lambda + Lambdabar
+    (sum of particle and antiparticle), -1 < y_cm < 1, pPb 5.02 TeV, N_trk^offline 120-150. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data10.yaml
+dv_index: 1
+hepdata_table_label: 'Fig. 2: Lambda + Lambdabar invariant yield, pPb N_trk^offline 150-185, -1 < y_cm < 1 (data10.yaml column
+  1)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> LAMBDA LAMBDABAR X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 150-185
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.4
+    max: 5.0
+    bin_ranges:
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Lambda + Lambdabar
+    (sum of particle and antiparticle), -1 < y_cm < 1, pPb 5.02 TeV, N_trk^offline 150-185. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data10.yaml
+dv_index: 2
+hepdata_table_label: 'Fig. 2: Lambda + Lambdabar invariant yield, pPb N_trk^offline 185-220, -1 < y_cm < 1 (data10.yaml column
+  2)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> LAMBDA LAMBDABAR X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 185-220
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.4
+    max: 5.0
+    bin_ranges:
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Lambda + Lambdabar
+    (sum of particle and antiparticle), -1 < y_cm < 1, pPb 5.02 TeV, N_trk^offline 185-220. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data10.yaml
+dv_index: 3
+hepdata_table_label: 'Fig. 2: Lambda + Lambdabar invariant yield, pPb N_trk^offline 220-260, -1 < y_cm < 1 (data10.yaml column
+  3)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> LAMBDA LAMBDABAR X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 220-260
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.4
+    max: 5.0
+    bin_ranges:
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Lambda + Lambdabar
+    (sum of particle and antiparticle), -1 < y_cm < 1, pPb 5.02 TeV, N_trk^offline 220-260. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data11.yaml
+dv_index: 0
+hepdata_table_label: 'Fig. 2: Xi- + Xibar+ invariant yield, pPb N_trk^offline 0-35, -1 < y_cm < 1 (data11.yaml column 0)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> XI- XIBAR+ X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 0-35
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: Xi- + Xibar+
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.6
+    max: 5.0
+    bin_ranges:
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Xi- + Xibar+ (sum
+    of particle and antiparticle), -1 < y_cm < 1, pPb 5.02 TeV, N_trk^offline 0-35. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data11.yaml
+dv_index: 1
+hepdata_table_label: 'Fig. 2: Xi- + Xibar+ invariant yield, pPb N_trk^offline 35-60, -1 < y_cm < 1 (data11.yaml column 1)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> XI- XIBAR+ X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 35-60
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: Xi- + Xibar+
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.6
+    max: 5.0
+    bin_ranges:
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Xi- + Xibar+ (sum
+    of particle and antiparticle), -1 < y_cm < 1, pPb 5.02 TeV, N_trk^offline 35-60. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data11.yaml
+dv_index: 2
+hepdata_table_label: 'Fig. 2: Xi- + Xibar+ invariant yield, pPb N_trk^offline 60-90, -1 < y_cm < 1 (data11.yaml column 2)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> XI- XIBAR+ X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 60-90
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: Xi- + Xibar+
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.6
+    max: 5.0
+    bin_ranges:
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Xi- + Xibar+ (sum
+    of particle and antiparticle), -1 < y_cm < 1, pPb 5.02 TeV, N_trk^offline 60-90. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data11.yaml
+dv_index: 3
+hepdata_table_label: 'Fig. 2: Xi- + Xibar+ invariant yield, pPb N_trk^offline 90-120, -1 < y_cm < 1 (data11.yaml column 3)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> XI- XIBAR+ X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 90-120
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: Xi- + Xibar+
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.6
+    max: 5.0
+    bin_ranges:
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Xi- + Xibar+ (sum
+    of particle and antiparticle), -1 < y_cm < 1, pPb 5.02 TeV, N_trk^offline 90-120. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data12.yaml
+dv_index: 0
+hepdata_table_label: 'Fig. 2: Xi- + Xibar+ invariant yield, pPb N_trk^offline 120-150, -1 < y_cm < 1 (data12.yaml column 0)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> XI- XIBAR+ X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 120-150
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: Xi- + Xibar+
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.6
+    max: 5.0
+    bin_ranges:
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Xi- + Xibar+ (sum
+    of particle and antiparticle), -1 < y_cm < 1, pPb 5.02 TeV, N_trk^offline 120-150. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data12.yaml
+dv_index: 1
+hepdata_table_label: 'Fig. 2: Xi- + Xibar+ invariant yield, pPb N_trk^offline 150-185, -1 < y_cm < 1 (data12.yaml column 1)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> XI- XIBAR+ X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 150-185
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: Xi- + Xibar+
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.6
+    max: 5.0
+    bin_ranges:
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Xi- + Xibar+ (sum
+    of particle and antiparticle), -1 < y_cm < 1, pPb 5.02 TeV, N_trk^offline 150-185. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data12.yaml
+dv_index: 2
+hepdata_table_label: 'Fig. 2: Xi- + Xibar+ invariant yield, pPb N_trk^offline 185-220, -1 < y_cm < 1 (data12.yaml column 2)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> XI- XIBAR+ X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 185-220
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: Xi- + Xibar+
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.6
+    max: 5.0
+    bin_ranges:
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Xi- + Xibar+ (sum
+    of particle and antiparticle), -1 < y_cm < 1, pPb 5.02 TeV, N_trk^offline 185-220. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data12.yaml
+dv_index: 3
+hepdata_table_label: 'Fig. 2: Xi- + Xibar+ invariant yield, pPb N_trk^offline 220-260, -1 < y_cm < 1 (data12.yaml column 3)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> XI- XIBAR+ X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 220-260
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: Xi- + Xibar+
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.6
+    max: 5.0
+    bin_ranges:
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Xi- + Xibar+ (sum
+    of particle and antiparticle), -1 < y_cm < 1, pPb 5.02 TeV, N_trk^offline 220-260. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data13.yaml
+dv_index: 0
+hepdata_table_label: 'Fig. 2: K0_S invariant yield, PbPb N_trk^offline 0-35, -1 < y_cm < 1 (data13.yaml column 0)'
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> K0S X
+centrality:
+  classes:
+  - 0-35
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.4
+    max: 2.4
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.8
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 44/55,
+      134/168, 239/299).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive.'
+particle_id:
+  species: K0_S
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.1
+    max: 5.0
+    bin_ranges:
+    - - 0.1
+      - 0.2
+    - - 0.2
+      - 0.3
+    - - 0.3
+      - 0.4
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0
+    - - 1.0
+      - 1.1
+    - - 1.1
+      - 1.2
+    - - 1.2
+      - 1.3
+    - - 1.3
+      - 1.4
+    - - 1.4
+      - 1.5
+    - - 1.5
+      - 1.6
+    - - 1.6
+      - 1.7
+    - - 1.7
+      - 1.8
+    - - 1.8
+      - 1.9
+    - - 1.9
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of K0_S (sum of particle
+    and antiparticle), -1 < y_cm < 1, PbPb 2.76 TeV, N_trk^offline 0-35. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data13.yaml
+dv_index: 1
+hepdata_table_label: 'Fig. 2: K0_S invariant yield, PbPb N_trk^offline 35-60, -1 < y_cm < 1 (data13.yaml column 1)'
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> K0S X
+centrality:
+  classes:
+  - 35-60
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.4
+    max: 2.4
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.8
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 44/55,
+      134/168, 239/299).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive.'
+particle_id:
+  species: K0_S
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.1
+    max: 5.0
+    bin_ranges:
+    - - 0.1
+      - 0.2
+    - - 0.2
+      - 0.3
+    - - 0.3
+      - 0.4
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0
+    - - 1.0
+      - 1.1
+    - - 1.1
+      - 1.2
+    - - 1.2
+      - 1.3
+    - - 1.3
+      - 1.4
+    - - 1.4
+      - 1.5
+    - - 1.5
+      - 1.6
+    - - 1.6
+      - 1.7
+    - - 1.7
+      - 1.8
+    - - 1.8
+      - 1.9
+    - - 1.9
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of K0_S (sum of particle
+    and antiparticle), -1 < y_cm < 1, PbPb 2.76 TeV, N_trk^offline 35-60. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data13.yaml
+dv_index: 2
+hepdata_table_label: 'Fig. 2: K0_S invariant yield, PbPb N_trk^offline 60-90, -1 < y_cm < 1 (data13.yaml column 2)'
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> K0S X
+centrality:
+  classes:
+  - 60-90
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.4
+    max: 2.4
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.8
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 44/55,
+      134/168, 239/299).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive.'
+particle_id:
+  species: K0_S
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.1
+    max: 5.0
+    bin_ranges:
+    - - 0.1
+      - 0.2
+    - - 0.2
+      - 0.3
+    - - 0.3
+      - 0.4
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0
+    - - 1.0
+      - 1.1
+    - - 1.1
+      - 1.2
+    - - 1.2
+      - 1.3
+    - - 1.3
+      - 1.4
+    - - 1.4
+      - 1.5
+    - - 1.5
+      - 1.6
+    - - 1.6
+      - 1.7
+    - - 1.7
+      - 1.8
+    - - 1.8
+      - 1.9
+    - - 1.9
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of K0_S (sum of particle
+    and antiparticle), -1 < y_cm < 1, PbPb 2.76 TeV, N_trk^offline 60-90. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data13.yaml
+dv_index: 3
+hepdata_table_label: 'Fig. 2: K0_S invariant yield, PbPb N_trk^offline 90-120, -1 < y_cm < 1 (data13.yaml column 3)'
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> K0S X
+centrality:
+  classes:
+  - 90-120
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.4
+    max: 2.4
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.8
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 44/55,
+      134/168, 239/299).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive.'
+particle_id:
+  species: K0_S
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.1
+    max: 5.0
+    bin_ranges:
+    - - 0.1
+      - 0.2
+    - - 0.2
+      - 0.3
+    - - 0.3
+      - 0.4
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0
+    - - 1.0
+      - 1.1
+    - - 1.1
+      - 1.2
+    - - 1.2
+      - 1.3
+    - - 1.3
+      - 1.4
+    - - 1.4
+      - 1.5
+    - - 1.5
+      - 1.6
+    - - 1.6
+      - 1.7
+    - - 1.7
+      - 1.8
+    - - 1.8
+      - 1.9
+    - - 1.9
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of K0_S (sum of particle
+    and antiparticle), -1 < y_cm < 1, PbPb 2.76 TeV, N_trk^offline 90-120. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data14.yaml
+dv_index: 0
+hepdata_table_label: 'Fig. 2: K0_S invariant yield, PbPb N_trk^offline 120-150, -1 < y_cm < 1 (data14.yaml column 0)'
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> K0S X
+centrality:
+  classes:
+  - 120-150
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.4
+    max: 2.4
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.8
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 44/55,
+      134/168, 239/299).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive.'
+particle_id:
+  species: K0_S
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.1
+    max: 5.0
+    bin_ranges:
+    - - 0.1
+      - 0.2
+    - - 0.2
+      - 0.3
+    - - 0.3
+      - 0.4
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0
+    - - 1.0
+      - 1.1
+    - - 1.1
+      - 1.2
+    - - 1.2
+      - 1.3
+    - - 1.3
+      - 1.4
+    - - 1.4
+      - 1.5
+    - - 1.5
+      - 1.6
+    - - 1.6
+      - 1.7
+    - - 1.7
+      - 1.8
+    - - 1.8
+      - 1.9
+    - - 1.9
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of K0_S (sum of particle
+    and antiparticle), -1 < y_cm < 1, PbPb 2.76 TeV, N_trk^offline 120-150. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data14.yaml
+dv_index: 1
+hepdata_table_label: 'Fig. 2: K0_S invariant yield, PbPb N_trk^offline 150-185, -1 < y_cm < 1 (data14.yaml column 1)'
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> K0S X
+centrality:
+  classes:
+  - 150-185
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.4
+    max: 2.4
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.8
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 44/55,
+      134/168, 239/299).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive.'
+particle_id:
+  species: K0_S
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.1
+    max: 5.0
+    bin_ranges:
+    - - 0.1
+      - 0.2
+    - - 0.2
+      - 0.3
+    - - 0.3
+      - 0.4
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0
+    - - 1.0
+      - 1.1
+    - - 1.1
+      - 1.2
+    - - 1.2
+      - 1.3
+    - - 1.3
+      - 1.4
+    - - 1.4
+      - 1.5
+    - - 1.5
+      - 1.6
+    - - 1.6
+      - 1.7
+    - - 1.7
+      - 1.8
+    - - 1.8
+      - 1.9
+    - - 1.9
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of K0_S (sum of particle
+    and antiparticle), -1 < y_cm < 1, PbPb 2.76 TeV, N_trk^offline 150-185. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data14.yaml
+dv_index: 2
+hepdata_table_label: 'Fig. 2: K0_S invariant yield, PbPb N_trk^offline 185-220, -1 < y_cm < 1 (data14.yaml column 2)'
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> K0S X
+centrality:
+  classes:
+  - 185-220
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.4
+    max: 2.4
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.8
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 44/55,
+      134/168, 239/299).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive.'
+particle_id:
+  species: K0_S
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.1
+    max: 5.0
+    bin_ranges:
+    - - 0.1
+      - 0.2
+    - - 0.2
+      - 0.3
+    - - 0.3
+      - 0.4
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0
+    - - 1.0
+      - 1.1
+    - - 1.1
+      - 1.2
+    - - 1.2
+      - 1.3
+    - - 1.3
+      - 1.4
+    - - 1.4
+      - 1.5
+    - - 1.5
+      - 1.6
+    - - 1.6
+      - 1.7
+    - - 1.7
+      - 1.8
+    - - 1.8
+      - 1.9
+    - - 1.9
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of K0_S (sum of particle
+    and antiparticle), -1 < y_cm < 1, PbPb 2.76 TeV, N_trk^offline 185-220. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data14.yaml
+dv_index: 3
+hepdata_table_label: 'Fig. 2: K0_S invariant yield, PbPb N_trk^offline 220-260, -1 < y_cm < 1 (data14.yaml column 3)'
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> K0S X
+centrality:
+  classes:
+  - 220-260
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.4
+    max: 2.4
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.8
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 44/55,
+      134/168, 239/299).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive.'
+particle_id:
+  species: K0_S
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.1
+    max: 5.0
+    bin_ranges:
+    - - 0.1
+      - 0.2
+    - - 0.2
+      - 0.3
+    - - 0.3
+      - 0.4
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0
+    - - 1.0
+      - 1.1
+    - - 1.1
+      - 1.2
+    - - 1.2
+      - 1.3
+    - - 1.3
+      - 1.4
+    - - 1.4
+      - 1.5
+    - - 1.5
+      - 1.6
+    - - 1.6
+      - 1.7
+    - - 1.7
+      - 1.8
+    - - 1.8
+      - 1.9
+    - - 1.9
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of K0_S (sum of particle
+    and antiparticle), -1 < y_cm < 1, PbPb 2.76 TeV, N_trk^offline 220-260. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data15.yaml
+dv_index: 0
+hepdata_table_label: 'Fig. 2: Lambda + Lambdabar invariant yield, PbPb N_trk^offline 0-35, -1 < y_cm < 1 (data15.yaml column
+  0)'
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> LAMBDA LAMBDABAR X
+centrality:
+  classes:
+  - 0-35
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.4
+    max: 2.4
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.8
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 44/55,
+      134/168, 239/299).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive.'
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.4
+    max: 5.0
+    bin_ranges:
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Lambda + Lambdabar
+    (sum of particle and antiparticle), -1 < y_cm < 1, PbPb 2.76 TeV, N_trk^offline 0-35. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data15.yaml
+dv_index: 1
+hepdata_table_label: 'Fig. 2: Lambda + Lambdabar invariant yield, PbPb N_trk^offline 35-60, -1 < y_cm < 1 (data15.yaml column
+  1)'
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> LAMBDA LAMBDABAR X
+centrality:
+  classes:
+  - 35-60
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.4
+    max: 2.4
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.8
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 44/55,
+      134/168, 239/299).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive.'
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.4
+    max: 5.0
+    bin_ranges:
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Lambda + Lambdabar
+    (sum of particle and antiparticle), -1 < y_cm < 1, PbPb 2.76 TeV, N_trk^offline 35-60. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data15.yaml
+dv_index: 2
+hepdata_table_label: 'Fig. 2: Lambda + Lambdabar invariant yield, PbPb N_trk^offline 60-90, -1 < y_cm < 1 (data15.yaml column
+  2)'
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> LAMBDA LAMBDABAR X
+centrality:
+  classes:
+  - 60-90
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.4
+    max: 2.4
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.8
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 44/55,
+      134/168, 239/299).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive.'
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.4
+    max: 5.0
+    bin_ranges:
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Lambda + Lambdabar
+    (sum of particle and antiparticle), -1 < y_cm < 1, PbPb 2.76 TeV, N_trk^offline 60-90. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data15.yaml
+dv_index: 3
+hepdata_table_label: 'Fig. 2: Lambda + Lambdabar invariant yield, PbPb N_trk^offline 90-120, -1 < y_cm < 1 (data15.yaml column
+  3)'
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> LAMBDA LAMBDABAR X
+centrality:
+  classes:
+  - 90-120
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.4
+    max: 2.4
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.8
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 44/55,
+      134/168, 239/299).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive.'
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.4
+    max: 5.0
+    bin_ranges:
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Lambda + Lambdabar
+    (sum of particle and antiparticle), -1 < y_cm < 1, PbPb 2.76 TeV, N_trk^offline 90-120. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data16.yaml
+dv_index: 0
+hepdata_table_label: 'Fig. 2: Lambda + Lambdabar invariant yield, PbPb N_trk^offline 120-150, -1 < y_cm < 1 (data16.yaml column
+  0)'
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> LAMBDA LAMBDABAR X
+centrality:
+  classes:
+  - 120-150
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.4
+    max: 2.4
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.8
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 44/55,
+      134/168, 239/299).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive.'
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.4
+    max: 5.0
+    bin_ranges:
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Lambda + Lambdabar
+    (sum of particle and antiparticle), -1 < y_cm < 1, PbPb 2.76 TeV, N_trk^offline 120-150. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data16.yaml
+dv_index: 1
+hepdata_table_label: 'Fig. 2: Lambda + Lambdabar invariant yield, PbPb N_trk^offline 150-185, -1 < y_cm < 1 (data16.yaml column
+  1)'
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> LAMBDA LAMBDABAR X
+centrality:
+  classes:
+  - 150-185
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.4
+    max: 2.4
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.8
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 44/55,
+      134/168, 239/299).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive.'
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.4
+    max: 5.0
+    bin_ranges:
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Lambda + Lambdabar
+    (sum of particle and antiparticle), -1 < y_cm < 1, PbPb 2.76 TeV, N_trk^offline 150-185. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data16.yaml
+dv_index: 2
+hepdata_table_label: 'Fig. 2: Lambda + Lambdabar invariant yield, PbPb N_trk^offline 185-220, -1 < y_cm < 1 (data16.yaml column
+  2)'
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> LAMBDA LAMBDABAR X
+centrality:
+  classes:
+  - 185-220
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.4
+    max: 2.4
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.8
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 44/55,
+      134/168, 239/299).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive.'
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.4
+    max: 5.0
+    bin_ranges:
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Lambda + Lambdabar
+    (sum of particle and antiparticle), -1 < y_cm < 1, PbPb 2.76 TeV, N_trk^offline 185-220. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data16.yaml
+dv_index: 3
+hepdata_table_label: 'Fig. 2: Lambda + Lambdabar invariant yield, PbPb N_trk^offline 220-260, -1 < y_cm < 1 (data16.yaml column
+  3)'
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> LAMBDA LAMBDABAR X
+centrality:
+  classes:
+  - 220-260
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.4
+    max: 2.4
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.8
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 44/55,
+      134/168, 239/299).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive.'
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.4
+    max: 5.0
+    bin_ranges:
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Lambda + Lambdabar
+    (sum of particle and antiparticle), -1 < y_cm < 1, PbPb 2.76 TeV, N_trk^offline 220-260. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data17.yaml
+dv_index: 0
+hepdata_table_label: 'Fig. 2: Xi- + Xibar+ invariant yield, PbPb N_trk^offline 0-35, -1 < y_cm < 1 (data17.yaml column 0)'
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> XI- XIBAR+ X
+centrality:
+  classes:
+  - 0-35
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.4
+    max: 2.4
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.8
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 44/55,
+      134/168, 239/299).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive.'
+particle_id:
+  species: Xi- + Xibar+
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.8
+    max: 5.0
+    bin_ranges:
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Xi- + Xibar+ (sum
+    of particle and antiparticle), -1 < y_cm < 1, PbPb 2.76 TeV, N_trk^offline 0-35. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data17.yaml
+dv_index: 1
+hepdata_table_label: 'Fig. 2: Xi- + Xibar+ invariant yield, PbPb N_trk^offline 35-60, -1 < y_cm < 1 (data17.yaml column 1)'
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> XI- XIBAR+ X
+centrality:
+  classes:
+  - 35-60
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.4
+    max: 2.4
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.8
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 44/55,
+      134/168, 239/299).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive.'
+particle_id:
+  species: Xi- + Xibar+
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.8
+    max: 5.0
+    bin_ranges:
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Xi- + Xibar+ (sum
+    of particle and antiparticle), -1 < y_cm < 1, PbPb 2.76 TeV, N_trk^offline 35-60. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data17.yaml
+dv_index: 2
+hepdata_table_label: 'Fig. 2: Xi- + Xibar+ invariant yield, PbPb N_trk^offline 60-90, -1 < y_cm < 1 (data17.yaml column 2)'
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> XI- XIBAR+ X
+centrality:
+  classes:
+  - 60-90
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.4
+    max: 2.4
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.8
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 44/55,
+      134/168, 239/299).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive.'
+particle_id:
+  species: Xi- + Xibar+
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.8
+    max: 5.0
+    bin_ranges:
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Xi- + Xibar+ (sum
+    of particle and antiparticle), -1 < y_cm < 1, PbPb 2.76 TeV, N_trk^offline 60-90. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data17.yaml
+dv_index: 3
+hepdata_table_label: 'Fig. 2: Xi- + Xibar+ invariant yield, PbPb N_trk^offline 90-120, -1 < y_cm < 1 (data17.yaml column 3)'
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> XI- XIBAR+ X
+centrality:
+  classes:
+  - 90-120
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.4
+    max: 2.4
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.8
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 44/55,
+      134/168, 239/299).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive.'
+particle_id:
+  species: Xi- + Xibar+
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.8
+    max: 5.0
+    bin_ranges:
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Xi- + Xibar+ (sum
+    of particle and antiparticle), -1 < y_cm < 1, PbPb 2.76 TeV, N_trk^offline 90-120. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data18.yaml
+dv_index: 0
+hepdata_table_label: 'Fig. 2: Xi- + Xibar+ invariant yield, PbPb N_trk^offline 120-150, -1 < y_cm < 1 (data18.yaml column
+  0)'
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> XI- XIBAR+ X
+centrality:
+  classes:
+  - 120-150
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.4
+    max: 2.4
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.8
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 44/55,
+      134/168, 239/299).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive.'
+particle_id:
+  species: Xi- + Xibar+
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.8
+    max: 5.0
+    bin_ranges:
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Xi- + Xibar+ (sum
+    of particle and antiparticle), -1 < y_cm < 1, PbPb 2.76 TeV, N_trk^offline 120-150. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data18.yaml
+dv_index: 1
+hepdata_table_label: 'Fig. 2: Xi- + Xibar+ invariant yield, PbPb N_trk^offline 150-185, -1 < y_cm < 1 (data18.yaml column
+  1)'
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> XI- XIBAR+ X
+centrality:
+  classes:
+  - 150-185
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.4
+    max: 2.4
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.8
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 44/55,
+      134/168, 239/299).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive.'
+particle_id:
+  species: Xi- + Xibar+
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.8
+    max: 5.0
+    bin_ranges:
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Xi- + Xibar+ (sum
+    of particle and antiparticle), -1 < y_cm < 1, PbPb 2.76 TeV, N_trk^offline 150-185. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data18.yaml
+dv_index: 2
+hepdata_table_label: 'Fig. 2: Xi- + Xibar+ invariant yield, PbPb N_trk^offline 185-220, -1 < y_cm < 1 (data18.yaml column
+  2)'
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> XI- XIBAR+ X
+centrality:
+  classes:
+  - 185-220
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.4
+    max: 2.4
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.8
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 44/55,
+      134/168, 239/299).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive.'
+particle_id:
+  species: Xi- + Xibar+
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.8
+    max: 5.0
+    bin_ranges:
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Xi- + Xibar+ (sum
+    of particle and antiparticle), -1 < y_cm < 1, PbPb 2.76 TeV, N_trk^offline 185-220. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data18.yaml
+dv_index: 3
+hepdata_table_label: 'Fig. 2: Xi- + Xibar+ invariant yield, PbPb N_trk^offline 220-260, -1 < y_cm < 1 (data18.yaml column
+  3)'
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> XI- XIBAR+ X
+centrality:
+  classes:
+  - 220-260
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.4
+    max: 2.4
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.8
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 44/55,
+      134/168, 239/299).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive.'
+particle_id:
+  species: Xi- + Xibar+
+kinematic_range:
+  y:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.8
+    max: 5.0
+    bin_ranges:
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Xi- + Xibar+ (sum
+    of particle and antiparticle), -1 < y_cm < 1, PbPb 2.76 TeV, N_trk^offline 220-260. Errors: stat and sys.'
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data35.yaml
+dv_index: 0
+hepdata_table_label: 'Fig. 7: K0_S invariant yield, pPb N_trk^offline 0-35, -2.4 < y_cm < -1.5 (data35.yaml column 0)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> K0S X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 0-35
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: K0_S
+kinematic_range:
+  y:
+    min: -2.4
+    max: -1.5
+  pT:
+    min: 0.4
+    max: 5.0
+    bin_ranges:
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0
+    - - 1.0
+      - 1.1
+    - - 1.1
+      - 1.2
+    - - 1.2
+      - 1.3
+    - - 1.3
+      - 1.4
+    - - 1.4
+      - 1.5
+    - - 1.5
+      - 1.6
+    - - 1.6
+      - 1.7
+    - - 1.7
+      - 1.8
+    - - 1.8
+      - 1.9
+    - - 1.9
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of K0_S (sum of particle
+    and antiparticle), -2.4 < y_cm < -1.5, pPb 5.02 TeV, N_trk^offline 0-35. Errors: stat and sys.'
+hepdata_corrections:
+  centrality: HEPData's 'class' qualifier holds the y_cm slice; the N_trk^offline class is Fig. 7's (0-35, 120-150, 220-260
+    for tables 35-36, 37-38, 39-40)
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data35.yaml
+dv_index: 1
+hepdata_table_label: 'Fig. 7: K0_S invariant yield, pPb N_trk^offline 0-35, -1.5 < y_cm < -0.8 (data35.yaml column 1)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> K0S X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 0-35
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: K0_S
+kinematic_range:
+  y:
+    min: -1.5
+    max: -0.8
+  pT:
+    min: 0.4
+    max: 5.0
+    bin_ranges:
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0
+    - - 1.0
+      - 1.1
+    - - 1.1
+      - 1.2
+    - - 1.2
+      - 1.3
+    - - 1.3
+      - 1.4
+    - - 1.4
+      - 1.5
+    - - 1.5
+      - 1.6
+    - - 1.6
+      - 1.7
+    - - 1.7
+      - 1.8
+    - - 1.8
+      - 1.9
+    - - 1.9
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of K0_S (sum of particle
+    and antiparticle), -1.5 < y_cm < -0.8, pPb 5.02 TeV, N_trk^offline 0-35. Errors: stat and sys.'
+hepdata_corrections:
+  centrality: HEPData's 'class' qualifier holds the y_cm slice; the N_trk^offline class is Fig. 7's (0-35, 120-150, 220-260
+    for tables 35-36, 37-38, 39-40)
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data35.yaml
+dv_index: 2
+hepdata_table_label: 'Fig. 7: K0_S invariant yield, pPb N_trk^offline 0-35, -0.8 < y_cm < 0 (data35.yaml column 2)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> K0S X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 0-35
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: K0_S
+kinematic_range:
+  y:
+    min: -0.8
+    max: 0.0
+  pT:
+    min: 0.4
+    max: 5.0
+    bin_ranges:
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0
+    - - 1.0
+      - 1.1
+    - - 1.1
+      - 1.2
+    - - 1.2
+      - 1.3
+    - - 1.3
+      - 1.4
+    - - 1.4
+      - 1.5
+    - - 1.5
+      - 1.6
+    - - 1.6
+      - 1.7
+    - - 1.7
+      - 1.8
+    - - 1.8
+      - 1.9
+    - - 1.9
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of K0_S (sum of particle
+    and antiparticle), -0.8 < y_cm < 0, pPb 5.02 TeV, N_trk^offline 0-35. Errors: stat and sys.'
+hepdata_corrections:
+  centrality: HEPData's 'class' qualifier holds the y_cm slice; the N_trk^offline class is Fig. 7's (0-35, 120-150, 220-260
+    for tables 35-36, 37-38, 39-40)
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data35.yaml
+dv_index: 3
+hepdata_table_label: 'Fig. 7: K0_S invariant yield, pPb N_trk^offline 0-35, 0 < y_cm < 0.8 (data35.yaml column 3)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> K0S X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 0-35
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: K0_S
+kinematic_range:
+  y:
+    min: 0.0
+    max: 0.8
+  pT:
+    min: 0.4
+    max: 5.0
+    bin_ranges:
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0
+    - - 1.0
+      - 1.1
+    - - 1.1
+      - 1.2
+    - - 1.2
+      - 1.3
+    - - 1.3
+      - 1.4
+    - - 1.4
+      - 1.5
+    - - 1.5
+      - 1.6
+    - - 1.6
+      - 1.7
+    - - 1.7
+      - 1.8
+    - - 1.8
+      - 1.9
+    - - 1.9
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of K0_S (sum of particle
+    and antiparticle), 0 < y_cm < 0.8, pPb 5.02 TeV, N_trk^offline 0-35. Errors: stat and sys.'
+hepdata_corrections:
+  centrality: HEPData's 'class' qualifier holds the y_cm slice; the N_trk^offline class is Fig. 7's (0-35, 120-150, 220-260
+    for tables 35-36, 37-38, 39-40)
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data35.yaml
+dv_index: 4
+hepdata_table_label: 'Fig. 7: K0_S invariant yield, pPb N_trk^offline 0-35, 0.8 < y_cm < 1.5 (data35.yaml column 4)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> K0S X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 0-35
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: K0_S
+kinematic_range:
+  y:
+    min: 0.8
+    max: 1.5
+  pT:
+    min: 0.4
+    max: 5.0
+    bin_ranges:
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0
+    - - 1.0
+      - 1.1
+    - - 1.1
+      - 1.2
+    - - 1.2
+      - 1.3
+    - - 1.3
+      - 1.4
+    - - 1.4
+      - 1.5
+    - - 1.5
+      - 1.6
+    - - 1.6
+      - 1.7
+    - - 1.7
+      - 1.8
+    - - 1.8
+      - 1.9
+    - - 1.9
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of K0_S (sum of particle
+    and antiparticle), 0.8 < y_cm < 1.5, pPb 5.02 TeV, N_trk^offline 0-35. Errors: stat and sys.'
+hepdata_corrections:
+  centrality: HEPData's 'class' qualifier holds the y_cm slice; the N_trk^offline class is Fig. 7's (0-35, 120-150, 220-260
+    for tables 35-36, 37-38, 39-40)
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data36.yaml
+dv_index: 0
+hepdata_table_label: 'Fig. 7: Lambda + Lambdabar invariant yield, pPb N_trk^offline 0-35, -2.4 < y_cm < -1.5 (data36.yaml
+  column 0)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> LAMBDA LAMBDABAR X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 0-35
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  y:
+    min: -2.4
+    max: -1.5
+  pT:
+    min: 0.8
+    max: 5.0
+    bin_ranges:
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Lambda + Lambdabar
+    (sum of particle and antiparticle), -2.4 < y_cm < -1.5, pPb 5.02 TeV, N_trk^offline 0-35. Errors: stat and sys.'
+hepdata_corrections:
+  centrality: HEPData's 'class' qualifier holds the y_cm slice; the N_trk^offline class is Fig. 7's (0-35, 120-150, 220-260
+    for tables 35-36, 37-38, 39-40)
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data36.yaml
+dv_index: 1
+hepdata_table_label: 'Fig. 7: Lambda + Lambdabar invariant yield, pPb N_trk^offline 0-35, -1.5 < y_cm < -0.8 (data36.yaml
+  column 1)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> LAMBDA LAMBDABAR X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 0-35
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  y:
+    min: -1.5
+    max: -0.8
+  pT:
+    min: 0.8
+    max: 5.0
+    bin_ranges:
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Lambda + Lambdabar
+    (sum of particle and antiparticle), -1.5 < y_cm < -0.8, pPb 5.02 TeV, N_trk^offline 0-35. Errors: stat and sys.'
+hepdata_corrections:
+  centrality: HEPData's 'class' qualifier holds the y_cm slice; the N_trk^offline class is Fig. 7's (0-35, 120-150, 220-260
+    for tables 35-36, 37-38, 39-40)
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data36.yaml
+dv_index: 2
+hepdata_table_label: 'Fig. 7: Lambda + Lambdabar invariant yield, pPb N_trk^offline 0-35, -0.8 < y_cm < 0 (data36.yaml column
+  2)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> LAMBDA LAMBDABAR X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 0-35
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  y:
+    min: -0.8
+    max: 0.0
+  pT:
+    min: 0.8
+    max: 5.0
+    bin_ranges:
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Lambda + Lambdabar
+    (sum of particle and antiparticle), -0.8 < y_cm < 0, pPb 5.02 TeV, N_trk^offline 0-35. Errors: stat and sys.'
+hepdata_corrections:
+  centrality: HEPData's 'class' qualifier holds the y_cm slice; the N_trk^offline class is Fig. 7's (0-35, 120-150, 220-260
+    for tables 35-36, 37-38, 39-40)
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data36.yaml
+dv_index: 3
+hepdata_table_label: 'Fig. 7: Lambda + Lambdabar invariant yield, pPb N_trk^offline 0-35, 0 < y_cm < 0.8 (data36.yaml column
+  3)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> LAMBDA LAMBDABAR X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 0-35
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  y:
+    min: 0.0
+    max: 0.8
+  pT:
+    min: 0.8
+    max: 5.0
+    bin_ranges:
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Lambda + Lambdabar
+    (sum of particle and antiparticle), 0 < y_cm < 0.8, pPb 5.02 TeV, N_trk^offline 0-35. Errors: stat and sys.'
+hepdata_corrections:
+  centrality: HEPData's 'class' qualifier holds the y_cm slice; the N_trk^offline class is Fig. 7's (0-35, 120-150, 220-260
+    for tables 35-36, 37-38, 39-40)
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data36.yaml
+dv_index: 4
+hepdata_table_label: 'Fig. 7: Lambda + Lambdabar invariant yield, pPb N_trk^offline 0-35, 0.8 < y_cm < 1.5 (data36.yaml column
+  4)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> LAMBDA LAMBDABAR X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 0-35
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  y:
+    min: 0.8
+    max: 1.5
+  pT:
+    min: 0.8
+    max: 5.0
+    bin_ranges:
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Lambda + Lambdabar
+    (sum of particle and antiparticle), 0.8 < y_cm < 1.5, pPb 5.02 TeV, N_trk^offline 0-35. Errors: stat and sys.'
+hepdata_corrections:
+  centrality: HEPData's 'class' qualifier holds the y_cm slice; the N_trk^offline class is Fig. 7's (0-35, 120-150, 220-260
+    for tables 35-36, 37-38, 39-40)
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data37.yaml
+dv_index: 0
+hepdata_table_label: 'Fig. 7: K0_S invariant yield, pPb N_trk^offline 120-150, -2.4 < y_cm < -1.5 (data37.yaml column 0)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> K0S X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 120-150
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: K0_S
+kinematic_range:
+  y:
+    min: -2.4
+    max: -1.5
+  pT:
+    min: 0.4
+    max: 5.0
+    bin_ranges:
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0
+    - - 1.0
+      - 1.1
+    - - 1.1
+      - 1.2
+    - - 1.2
+      - 1.3
+    - - 1.3
+      - 1.4
+    - - 1.4
+      - 1.5
+    - - 1.5
+      - 1.6
+    - - 1.6
+      - 1.7
+    - - 1.7
+      - 1.8
+    - - 1.8
+      - 1.9
+    - - 1.9
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of K0_S (sum of particle
+    and antiparticle), -2.4 < y_cm < -1.5, pPb 5.02 TeV, N_trk^offline 120-150. Errors: stat and sys.'
+hepdata_corrections:
+  centrality: HEPData's 'class' qualifier holds the y_cm slice; the N_trk^offline class is Fig. 7's (0-35, 120-150, 220-260
+    for tables 35-36, 37-38, 39-40)
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data37.yaml
+dv_index: 1
+hepdata_table_label: 'Fig. 7: K0_S invariant yield, pPb N_trk^offline 120-150, -1.5 < y_cm < -0.8 (data37.yaml column 1)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> K0S X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 120-150
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: K0_S
+kinematic_range:
+  y:
+    min: -1.5
+    max: -0.8
+  pT:
+    min: 0.4
+    max: 5.0
+    bin_ranges:
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0
+    - - 1.0
+      - 1.1
+    - - 1.1
+      - 1.2
+    - - 1.2
+      - 1.3
+    - - 1.3
+      - 1.4
+    - - 1.4
+      - 1.5
+    - - 1.5
+      - 1.6
+    - - 1.6
+      - 1.7
+    - - 1.7
+      - 1.8
+    - - 1.8
+      - 1.9
+    - - 1.9
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of K0_S (sum of particle
+    and antiparticle), -1.5 < y_cm < -0.8, pPb 5.02 TeV, N_trk^offline 120-150. Errors: stat and sys.'
+hepdata_corrections:
+  centrality: HEPData's 'class' qualifier holds the y_cm slice; the N_trk^offline class is Fig. 7's (0-35, 120-150, 220-260
+    for tables 35-36, 37-38, 39-40)
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data37.yaml
+dv_index: 2
+hepdata_table_label: 'Fig. 7: K0_S invariant yield, pPb N_trk^offline 120-150, -0.8 < y_cm < 0 (data37.yaml column 2)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> K0S X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 120-150
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: K0_S
+kinematic_range:
+  y:
+    min: -0.8
+    max: 0.0
+  pT:
+    min: 0.4
+    max: 5.0
+    bin_ranges:
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0
+    - - 1.0
+      - 1.1
+    - - 1.1
+      - 1.2
+    - - 1.2
+      - 1.3
+    - - 1.3
+      - 1.4
+    - - 1.4
+      - 1.5
+    - - 1.5
+      - 1.6
+    - - 1.6
+      - 1.7
+    - - 1.7
+      - 1.8
+    - - 1.8
+      - 1.9
+    - - 1.9
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of K0_S (sum of particle
+    and antiparticle), -0.8 < y_cm < 0, pPb 5.02 TeV, N_trk^offline 120-150. Errors: stat and sys.'
+hepdata_corrections:
+  centrality: HEPData's 'class' qualifier holds the y_cm slice; the N_trk^offline class is Fig. 7's (0-35, 120-150, 220-260
+    for tables 35-36, 37-38, 39-40)
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data37.yaml
+dv_index: 3
+hepdata_table_label: 'Fig. 7: K0_S invariant yield, pPb N_trk^offline 120-150, 0 < y_cm < 0.8 (data37.yaml column 3)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> K0S X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 120-150
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: K0_S
+kinematic_range:
+  y:
+    min: 0.0
+    max: 0.8
+  pT:
+    min: 0.4
+    max: 5.0
+    bin_ranges:
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0
+    - - 1.0
+      - 1.1
+    - - 1.1
+      - 1.2
+    - - 1.2
+      - 1.3
+    - - 1.3
+      - 1.4
+    - - 1.4
+      - 1.5
+    - - 1.5
+      - 1.6
+    - - 1.6
+      - 1.7
+    - - 1.7
+      - 1.8
+    - - 1.8
+      - 1.9
+    - - 1.9
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of K0_S (sum of particle
+    and antiparticle), 0 < y_cm < 0.8, pPb 5.02 TeV, N_trk^offline 120-150. Errors: stat and sys.'
+hepdata_corrections:
+  centrality: HEPData's 'class' qualifier holds the y_cm slice; the N_trk^offline class is Fig. 7's (0-35, 120-150, 220-260
+    for tables 35-36, 37-38, 39-40)
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data37.yaml
+dv_index: 4
+hepdata_table_label: 'Fig. 7: K0_S invariant yield, pPb N_trk^offline 120-150, 0.8 < y_cm < 1.5 (data37.yaml column 4)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> K0S X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 120-150
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: K0_S
+kinematic_range:
+  y:
+    min: 0.8
+    max: 1.5
+  pT:
+    min: 0.4
+    max: 5.0
+    bin_ranges:
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0
+    - - 1.0
+      - 1.1
+    - - 1.1
+      - 1.2
+    - - 1.2
+      - 1.3
+    - - 1.3
+      - 1.4
+    - - 1.4
+      - 1.5
+    - - 1.5
+      - 1.6
+    - - 1.6
+      - 1.7
+    - - 1.7
+      - 1.8
+    - - 1.8
+      - 1.9
+    - - 1.9
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of K0_S (sum of particle
+    and antiparticle), 0.8 < y_cm < 1.5, pPb 5.02 TeV, N_trk^offline 120-150. Errors: stat and sys.'
+hepdata_corrections:
+  centrality: HEPData's 'class' qualifier holds the y_cm slice; the N_trk^offline class is Fig. 7's (0-35, 120-150, 220-260
+    for tables 35-36, 37-38, 39-40)
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data38.yaml
+dv_index: 0
+hepdata_table_label: 'Fig. 7: Lambda + Lambdabar invariant yield, pPb N_trk^offline 120-150, -2.4 < y_cm < -1.5 (data38.yaml
+  column 0)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> LAMBDA LAMBDABAR X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 120-150
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  y:
+    min: -2.4
+    max: -1.5
+  pT:
+    min: 0.8
+    max: 5.0
+    bin_ranges:
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Lambda + Lambdabar
+    (sum of particle and antiparticle), -2.4 < y_cm < -1.5, pPb 5.02 TeV, N_trk^offline 120-150. Errors: stat and sys.'
+hepdata_corrections:
+  centrality: HEPData's 'class' qualifier holds the y_cm slice; the N_trk^offline class is Fig. 7's (0-35, 120-150, 220-260
+    for tables 35-36, 37-38, 39-40)
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data38.yaml
+dv_index: 1
+hepdata_table_label: 'Fig. 7: Lambda + Lambdabar invariant yield, pPb N_trk^offline 120-150, -1.5 < y_cm < -0.8 (data38.yaml
+  column 1)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> LAMBDA LAMBDABAR X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 120-150
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  y:
+    min: -1.5
+    max: -0.8
+  pT:
+    min: 0.8
+    max: 5.0
+    bin_ranges:
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Lambda + Lambdabar
+    (sum of particle and antiparticle), -1.5 < y_cm < -0.8, pPb 5.02 TeV, N_trk^offline 120-150. Errors: stat and sys.'
+hepdata_corrections:
+  centrality: HEPData's 'class' qualifier holds the y_cm slice; the N_trk^offline class is Fig. 7's (0-35, 120-150, 220-260
+    for tables 35-36, 37-38, 39-40)
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data38.yaml
+dv_index: 2
+hepdata_table_label: 'Fig. 7: Lambda + Lambdabar invariant yield, pPb N_trk^offline 120-150, -0.8 < y_cm < 0 (data38.yaml
+  column 2)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> LAMBDA LAMBDABAR X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 120-150
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  y:
+    min: -0.8
+    max: 0.0
+  pT:
+    min: 0.8
+    max: 5.0
+    bin_ranges:
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Lambda + Lambdabar
+    (sum of particle and antiparticle), -0.8 < y_cm < 0, pPb 5.02 TeV, N_trk^offline 120-150. Errors: stat and sys.'
+hepdata_corrections:
+  centrality: HEPData's 'class' qualifier holds the y_cm slice; the N_trk^offline class is Fig. 7's (0-35, 120-150, 220-260
+    for tables 35-36, 37-38, 39-40)
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data38.yaml
+dv_index: 3
+hepdata_table_label: 'Fig. 7: Lambda + Lambdabar invariant yield, pPb N_trk^offline 120-150, 0 < y_cm < 0.8 (data38.yaml column
+  3)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> LAMBDA LAMBDABAR X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 120-150
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  y:
+    min: 0.0
+    max: 0.8
+  pT:
+    min: 0.8
+    max: 5.0
+    bin_ranges:
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Lambda + Lambdabar
+    (sum of particle and antiparticle), 0 < y_cm < 0.8, pPb 5.02 TeV, N_trk^offline 120-150. Errors: stat and sys.'
+hepdata_corrections:
+  centrality: HEPData's 'class' qualifier holds the y_cm slice; the N_trk^offline class is Fig. 7's (0-35, 120-150, 220-260
+    for tables 35-36, 37-38, 39-40)
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data38.yaml
+dv_index: 4
+hepdata_table_label: 'Fig. 7: Lambda + Lambdabar invariant yield, pPb N_trk^offline 120-150, 0.8 < y_cm < 1.5 (data38.yaml
+  column 4)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> LAMBDA LAMBDABAR X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 120-150
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  y:
+    min: 0.8
+    max: 1.5
+  pT:
+    min: 0.8
+    max: 5.0
+    bin_ranges:
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Lambda + Lambdabar
+    (sum of particle and antiparticle), 0.8 < y_cm < 1.5, pPb 5.02 TeV, N_trk^offline 120-150. Errors: stat and sys.'
+hepdata_corrections:
+  centrality: HEPData's 'class' qualifier holds the y_cm slice; the N_trk^offline class is Fig. 7's (0-35, 120-150, 220-260
+    for tables 35-36, 37-38, 39-40)
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data39.yaml
+dv_index: 0
+hepdata_table_label: 'Fig. 7: K0_S invariant yield, pPb N_trk^offline 220-260, -2.4 < y_cm < -1.5 (data39.yaml column 0)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> K0S X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 220-260
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: K0_S
+kinematic_range:
+  y:
+    min: -2.4
+    max: -1.5
+  pT:
+    min: 0.4
+    max: 5.0
+    bin_ranges:
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0
+    - - 1.0
+      - 1.1
+    - - 1.1
+      - 1.2
+    - - 1.2
+      - 1.3
+    - - 1.3
+      - 1.4
+    - - 1.4
+      - 1.5
+    - - 1.5
+      - 1.6
+    - - 1.6
+      - 1.7
+    - - 1.7
+      - 1.8
+    - - 1.8
+      - 1.9
+    - - 1.9
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of K0_S (sum of particle
+    and antiparticle), -2.4 < y_cm < -1.5, pPb 5.02 TeV, N_trk^offline 220-260. Errors: stat and sys.'
+hepdata_corrections:
+  centrality: HEPData's 'class' qualifier holds the y_cm slice; the N_trk^offline class is Fig. 7's (0-35, 120-150, 220-260
+    for tables 35-36, 37-38, 39-40)
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data39.yaml
+dv_index: 1
+hepdata_table_label: 'Fig. 7: K0_S invariant yield, pPb N_trk^offline 220-260, -1.5 < y_cm < -0.8 (data39.yaml column 1)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> K0S X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 220-260
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: K0_S
+kinematic_range:
+  y:
+    min: -1.5
+    max: -0.8
+  pT:
+    min: 0.4
+    max: 5.0
+    bin_ranges:
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0
+    - - 1.0
+      - 1.1
+    - - 1.1
+      - 1.2
+    - - 1.2
+      - 1.3
+    - - 1.3
+      - 1.4
+    - - 1.4
+      - 1.5
+    - - 1.5
+      - 1.6
+    - - 1.6
+      - 1.7
+    - - 1.7
+      - 1.8
+    - - 1.8
+      - 1.9
+    - - 1.9
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of K0_S (sum of particle
+    and antiparticle), -1.5 < y_cm < -0.8, pPb 5.02 TeV, N_trk^offline 220-260. Errors: stat and sys.'
+hepdata_corrections:
+  centrality: HEPData's 'class' qualifier holds the y_cm slice; the N_trk^offline class is Fig. 7's (0-35, 120-150, 220-260
+    for tables 35-36, 37-38, 39-40)
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data39.yaml
+dv_index: 2
+hepdata_table_label: 'Fig. 7: K0_S invariant yield, pPb N_trk^offline 220-260, -0.8 < y_cm < 0 (data39.yaml column 2)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> K0S X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 220-260
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: K0_S
+kinematic_range:
+  y:
+    min: -0.8
+    max: 0.0
+  pT:
+    min: 0.4
+    max: 5.0
+    bin_ranges:
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0
+    - - 1.0
+      - 1.1
+    - - 1.1
+      - 1.2
+    - - 1.2
+      - 1.3
+    - - 1.3
+      - 1.4
+    - - 1.4
+      - 1.5
+    - - 1.5
+      - 1.6
+    - - 1.6
+      - 1.7
+    - - 1.7
+      - 1.8
+    - - 1.8
+      - 1.9
+    - - 1.9
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of K0_S (sum of particle
+    and antiparticle), -0.8 < y_cm < 0, pPb 5.02 TeV, N_trk^offline 220-260. Errors: stat and sys.'
+hepdata_corrections:
+  centrality: HEPData's 'class' qualifier holds the y_cm slice; the N_trk^offline class is Fig. 7's (0-35, 120-150, 220-260
+    for tables 35-36, 37-38, 39-40)
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data39.yaml
+dv_index: 3
+hepdata_table_label: 'Fig. 7: K0_S invariant yield, pPb N_trk^offline 220-260, 0 < y_cm < 0.8 (data39.yaml column 3)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> K0S X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 220-260
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: K0_S
+kinematic_range:
+  y:
+    min: 0.0
+    max: 0.8
+  pT:
+    min: 0.4
+    max: 5.0
+    bin_ranges:
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0
+    - - 1.0
+      - 1.1
+    - - 1.1
+      - 1.2
+    - - 1.2
+      - 1.3
+    - - 1.3
+      - 1.4
+    - - 1.4
+      - 1.5
+    - - 1.5
+      - 1.6
+    - - 1.6
+      - 1.7
+    - - 1.7
+      - 1.8
+    - - 1.8
+      - 1.9
+    - - 1.9
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of K0_S (sum of particle
+    and antiparticle), 0 < y_cm < 0.8, pPb 5.02 TeV, N_trk^offline 220-260. Errors: stat and sys.'
+hepdata_corrections:
+  centrality: HEPData's 'class' qualifier holds the y_cm slice; the N_trk^offline class is Fig. 7's (0-35, 120-150, 220-260
+    for tables 35-36, 37-38, 39-40)
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data39.yaml
+dv_index: 4
+hepdata_table_label: 'Fig. 7: K0_S invariant yield, pPb N_trk^offline 220-260, 0.8 < y_cm < 1.5 (data39.yaml column 4)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> K0S X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 220-260
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: K0_S
+kinematic_range:
+  y:
+    min: 0.8
+    max: 1.5
+  pT:
+    min: 0.4
+    max: 5.0
+    bin_ranges:
+    - - 0.4
+      - 0.5
+    - - 0.5
+      - 0.6
+    - - 0.6
+      - 0.7
+    - - 0.7
+      - 0.8
+    - - 0.8
+      - 0.9
+    - - 0.9
+      - 1.0
+    - - 1.0
+      - 1.1
+    - - 1.1
+      - 1.2
+    - - 1.2
+      - 1.3
+    - - 1.3
+      - 1.4
+    - - 1.4
+      - 1.5
+    - - 1.5
+      - 1.6
+    - - 1.6
+      - 1.7
+    - - 1.7
+      - 1.8
+    - - 1.8
+      - 1.9
+    - - 1.9
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of K0_S (sum of particle
+    and antiparticle), 0.8 < y_cm < 1.5, pPb 5.02 TeV, N_trk^offline 220-260. Errors: stat and sys.'
+hepdata_corrections:
+  centrality: HEPData's 'class' qualifier holds the y_cm slice; the N_trk^offline class is Fig. 7's (0-35, 120-150, 220-260
+    for tables 35-36, 37-38, 39-40)
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data40.yaml
+dv_index: 0
+hepdata_table_label: 'Fig. 7: Lambda + Lambdabar invariant yield, pPb N_trk^offline 220-260, -2.4 < y_cm < -1.5 (data40.yaml
+  column 0)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> LAMBDA LAMBDABAR X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 220-260
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  y:
+    min: -2.4
+    max: -1.5
+  pT:
+    min: 0.8
+    max: 5.0
+    bin_ranges:
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Lambda + Lambdabar
+    (sum of particle and antiparticle), -2.4 < y_cm < -1.5, pPb 5.02 TeV, N_trk^offline 220-260. Errors: stat and sys.'
+hepdata_corrections:
+  centrality: HEPData's 'class' qualifier holds the y_cm slice; the N_trk^offline class is Fig. 7's (0-35, 120-150, 220-260
+    for tables 35-36, 37-38, 39-40)
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data40.yaml
+dv_index: 1
+hepdata_table_label: 'Fig. 7: Lambda + Lambdabar invariant yield, pPb N_trk^offline 220-260, -1.5 < y_cm < -0.8 (data40.yaml
+  column 1)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> LAMBDA LAMBDABAR X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 220-260
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  y:
+    min: -1.5
+    max: -0.8
+  pT:
+    min: 0.8
+    max: 5.0
+    bin_ranges:
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Lambda + Lambdabar
+    (sum of particle and antiparticle), -1.5 < y_cm < -0.8, pPb 5.02 TeV, N_trk^offline 220-260. Errors: stat and sys.'
+hepdata_corrections:
+  centrality: HEPData's 'class' qualifier holds the y_cm slice; the N_trk^offline class is Fig. 7's (0-35, 120-150, 220-260
+    for tables 35-36, 37-38, 39-40)
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data40.yaml
+dv_index: 2
+hepdata_table_label: 'Fig. 7: Lambda + Lambdabar invariant yield, pPb N_trk^offline 220-260, -0.8 < y_cm < 0 (data40.yaml
+  column 2)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> LAMBDA LAMBDABAR X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 220-260
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  y:
+    min: -0.8
+    max: 0.0
+  pT:
+    min: 0.8
+    max: 5.0
+    bin_ranges:
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Lambda + Lambdabar
+    (sum of particle and antiparticle), -0.8 < y_cm < 0, pPb 5.02 TeV, N_trk^offline 220-260. Errors: stat and sys.'
+hepdata_corrections:
+  centrality: HEPData's 'class' qualifier holds the y_cm slice; the N_trk^offline class is Fig. 7's (0-35, 120-150, 220-260
+    for tables 35-36, 37-38, 39-40)
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data40.yaml
+dv_index: 3
+hepdata_table_label: 'Fig. 7: Lambda + Lambdabar invariant yield, pPb N_trk^offline 220-260, 0 < y_cm < 0.8 (data40.yaml column
+  3)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> LAMBDA LAMBDABAR X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 220-260
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  y:
+    min: 0.0
+    max: 0.8
+  pT:
+    min: 0.8
+    max: 5.0
+    bin_ranges:
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Lambda + Lambdabar
+    (sum of particle and antiparticle), 0 < y_cm < 0.8, pPb 5.02 TeV, N_trk^offline 220-260. Errors: stat and sys.'
+hepdata_corrections:
+  centrality: HEPData's 'class' qualifier holds the y_cm slice; the N_trk^offline class is Fig. 7's (0-35, 120-150, 220-260
+    for tables 35-36, 37-38, 39-40)
+---
+observable_type: particle_spectra
+inspire_id: '1464834'
+version: 1
+hepdata_file: data40.yaml
+dv_index: 4
+hepdata_table_label: 'Fig. 7: Lambda + Lambdabar invariant yield, pPb N_trk^offline 220-260, 0.8 < y_cm < 1.5 (data40.yaml
+  column 4)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> LAMBDA LAMBDABAR X
+  frame: nn_cms
+  rapidity_shift: 0.465
+  forward_beam: p
+centrality:
+  classes:
+  - 220-260
+  estimator:
+    name: Ntrk_offline
+    observable: Nch
+    detector: Tracker
+  eta:
+  - min: -2.865
+    max: 1.935
+  pT:
+    min: 0.4
+    max: 100.0
+  multiplicity_bins:
+    efficiency: 0.83
+    notes: '<N_trk^offline>/<N_trk^corrected> per class, flat in multiplicity (CMS PLB 724 (2013) 213 Table 1: e.g. 45/54,
+      132/159, 232/280).'
+  notes: 'N_trk^offline: primary tracks |eta| < 2.4, pT > 0.4 GeV, not efficiency corrected; lower bounds inclusive; counted
+    in the laboratory frame, here -2.865 < eta_cm < 1.935.'
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  y:
+    min: 0.8
+    max: 1.5
+  pT:
+    min: 0.8
+    max: 5.0
+    bin_ranges:
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+    - - 2.8
+      - 3.0
+    - - 3.0
+      - 3.4
+    - - 3.4
+      - 3.8
+    - - 3.8
+      - 4.2
+    - - 4.2
+      - 5.0
+observable: invariant_yield
+value_type: invariant_yield
+notes:
+  value: 'CMS Collaboration, PLB 768 (2017) 103, arXiv:1605.06699. 1/(2 pi pT) d2N/(dpT dy) per event of Lambda + Lambdabar
+    (sum of particle and antiparticle), 0.8 < y_cm < 1.5, pPb 5.02 TeV, N_trk^offline 220-260. Errors: stat and sys.'
+hepdata_corrections:
+  centrality: HEPData's 'class' qualifier holds the y_cm slice; the N_trk^offline class is Fig. 7's (0-35, 120-150, 220-260
+    for tables 35-36, 37-38, 39-40)
