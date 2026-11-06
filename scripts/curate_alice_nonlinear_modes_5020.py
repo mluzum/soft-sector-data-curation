@@ -9,13 +9,20 @@ From the paper (abstract, Secs. 2-3, Fig. 2):
 - charged particles 0.2 < pT < 5.0 GeV/c in 0.4 < |eta| < 0.8 (the
   HEPData qualifier says 0.2 - 0.5 GeV: a typo), two subevents
   -0.8 < eta < -0.4 and 0.4 < eta < 0.8;
-- v_n = v_n{2} of the two subevents; v_{n,mk}, rho_{n,mk}, chi_{n,mk} from
-  multi-particle correlations of the subevents;
+- v_n = v_n{2} of the two subevents; v_{n,mk} = Re<V_n V_m* V_k*> /
+  sqrt(<|V_m|^2 |V_k|^2>) (Eq. 6, A.1; three lower harmonics for v_{6,222},
+  v_{7,223}) from multi-particle correlations, particle 1 in one subevent
+  and the others in the other, the normalization's first half in one, the
+  results of the two orientations averaged; rho_{n,mk} = v_{n,mk} / v_n
+  (Eq. A.2); chi_{n,mk} = v_{n,mk} / sqrt(<|V_m|^2 |V_k|^2>) (Eq. A.3),
+  except chi_{6,24} (Eq. A.4: a projection that removes the V_2^3 part);
 - V0 centrality (V0M), 0-60%.
 
 Records (public): v2 ... v9 vs centrality (v2.yaml ... v9.yaml), two-subevent
-v_n{2}.  Staged (--staged OUT): v_{n,mk}, rho_{n,mk}, chi_{n,mk} (no
-computation; correlation_type multi_harmonic_correlation).  The old records
+v_n{2}; v_{n,mk}, rho_{n,mk}, chi_{n,mk} as correlation_type mode_coupling
+(analysis/mode_coupling.py; harmonics [n, m, k(, l)], quantity
+v_mode_coupled | rho | chi; the two orientations pooled before the ratios).
+Staged (--staged OUT): chi_{6,24} (Eq. A.4, not computed).  The old records
 filed all 17 as v2{EP} with pT < 0.5 GeV/c.
 
 Run from the repository root:
@@ -39,6 +46,9 @@ SUB = {'A': {'kinematic_range': {'eta': {'min': -0.8, 'max': -0.4}, 'pT': dict(P
 PT_FIX = {'pT': "HEPData qualifier PT '0.2 - 0.5 GeV'; the paper (abstract, Sec. 3, Fig. 2): 0.2 < pT < 5.0 GeV/c"}
 NAMES = {'v': 'non-linear flow mode v_{n,mk}', 'rho': 'symmetry-plane correlation rho_{n,mk}',
          'chi': 'non-linear response coefficient chi_{n,mk}'}
+QUANTITY = {'v': 'v_mode_coupled', 'rho': 'rho', 'chi': 'chi'}
+EQ = {'v': 'Re<V_n V_m* V_k*> / sqrt(<|V_m|^2 |V_k|^2>) (Eqs. 6, A.1)', 'rho': 'v_{n,mk} / v_n{2} (Eq. A.2)',
+      'chi': 'v_{n,mk} / sqrt(<|V_m|^2 |V_k|^2>) (Eq. A.3)'}
 
 
 def main():
@@ -46,7 +56,7 @@ def main():
     ap.add_argument('--staged', help='write the staged records here (a staging collection)')
     staged_out = ap.parse_args().staged
     sub = [x for x in yaml.safe_load_all(open(os.path.join(RAW, 'submission.yaml'))) if x and 'data_file' in x]
-    public, staged = [], []
+    public, modes, staged = [], [], []
     for x in sub:
         hf = x['data_file']
         t = yaml.safe_load(open(os.path.join(RAW, hf)))
@@ -75,15 +85,27 @@ def main():
             public.append(d)
         else:
             kind, digits = re.fullmatch(r'(v|rho|chi)(\d+)', name).groups()
-            d = {'observable_type': 'flow_harmonic_correlations', **d, 'observable': name,
-                 'correlation_type': 'multi_harmonic_correlation', 'harmonics': [int(c) for c in digits],
-                 'value_type': name,
-                 'notes': {'value': f'{CITE}. {NAMES[kind]} ({name}), charged particles, 0.2 < pT < 5.0 GeV/c, '
-                                    'subevents -0.8 < eta < -0.4 and 0.4 < eta < 0.8.'},
-                 'staging_reason': f'{NAMES[kind]}: no computation'}
-            if rows != list(range(len(iv['values']))):
-                d['table_rows'] = rows
-            staged.append(d)
+            harms = [int(c) for c in digits]
+            assert harms[0] == sum(harms[1:]), name
+            if name == 'chi624':
+                d = {'observable_type': 'flow_harmonic_correlations', **d, 'observable': name,
+                     'correlation_type': 'multi_harmonic_correlation', 'harmonics': harms, 'value_type': name,
+                     'notes': {'value': f'{CITE}. chi_{{6,24}} (Eq. A.4), charged particles, 0.2 < pT < 5.0 '
+                                        'GeV/c, subevents -0.8 < eta < -0.4 and 0.4 < eta < 0.8.'},
+                     'staging_reason': 'chi_{6,24} of Eq. A.4 (a projection removing the V_2^3 part of V_4): '
+                                       'not computed (mode_coupling chi is v_{6,24} / sqrt(<|V_2|^2 |V_4|^2>))'}
+                staged.append(d)
+            else:
+                d = {'observable_type': 'flow_harmonic_correlations', **d, 'observable': name,
+                     'correlation_type': 'mode_coupling', 'harmonics': harms, 'quantity': QUANTITY[kind],
+                     'particles': 'AB', 'subevents': {k: {'kinematic_range': dict(v['kinematic_range'])}
+                                                      for k, v in SUB.items()},
+                     'dimensionality': 'integrated', 'value_type': name,
+                     'notes': {'value': f'{CITE}. {NAMES[kind]} ({name}) = {EQ[kind]}, charged particles, 0.2 < '
+                                        'pT < 5.0 GeV/c, two subevents -0.8 < eta < -0.4 and 0.4 < eta < 0.8 '
+                                        '(particle 1 in one, the others in the other; the two orientations '
+                                        'averaged). Errors: statistical and systematic.'}}
+                modes.append(d)
         if rows != list(range(len(iv['values']))):
             d['table_rows'] = rows
     old = 'data/flow_vn/alice_flow_vn_higher_harmonic_non-linear_flow_modes_PbPb_5020gev.yaml'
@@ -93,6 +115,10 @@ def main():
     with open(out, 'w') as fh:
         yaml.safe_dump_all(public, fh, sort_keys=False, default_flow_style=False, width=120)
     print(f'{out}: {len(public)} records;', [d['harmonic'] for d in public])
+    out = 'data/flow_harmonic_correlations/alice_flow_harmonic_correlations_nonlinear_modes_PbPb_5020gev_ins1778342.yaml'
+    with open(out, 'w') as fh:
+        yaml.safe_dump_all(modes, fh, sort_keys=False, default_flow_style=False, width=120)
+    print(f'{out}: {len(modes)} records;', [d['value_type'] for d in modes])
     if staged_out:
         with open(staged_out, 'w') as fh:
             yaml.safe_dump_all(staged, fh, sort_keys=False, default_flow_style=False, width=120)
