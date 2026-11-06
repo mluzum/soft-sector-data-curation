@@ -235,7 +235,9 @@ Fields that change dispatch:
   (Lambda + Lambdabar) / (2 K0S): 0.5).
 - Flow-[pT] correlations (`observable_type: flow_pT_correlations`, key
   `rho_vn2_pT`, analysis/flow_pt.py): value_type `rho_n`, rho(v_n^2,
-  [pT]) = cov_n / sqrt(var(v_n^2) c_k), or `cov_n` (GeV).  The record
+  [pT]) = cov_n / sqrt(var(v_n^2) c_k), `cov_n` (GeV), or
+  `cov_n_over_pT` (cov_n / <[pT]>, the class mean of the pT window,
+  triplet-weighted as in cov_n).  The record
   states each term's windows: `covariance_method` standard | two_subevent
   (flow pair from A and C, the pT particle from A or C) | three_subevent
   (pT particle from B) | combined_subevent (the mean of two and three);

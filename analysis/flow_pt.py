@@ -190,14 +190,17 @@ def _trend_var(y, mult, u):
 
 
 def core(d, w):
-    """One value per class: rho_n (value_type rho_n) or cov_n (cov_n)."""
+    """One value per class: rho_n (value_type rho_n), cov_n (cov_n), or
+    cov_n / <[pT]> (cov_n_over_pT: over the class mean of the [pT] window,
+    triplet-weighted as in cov_n; the mean of the methods' ratios for
+    combined_subevent)."""
     from analysis.observables_2d import compute_pT_fluct
     nan = np.array([np.nan])
     w = np.asarray(w, dtype=float)
     if w.sum() < 2:
         return nan
     mult = d.get('mult')
-    covs = []
+    covs, means = [], []
     for m in d['cov_methods']:
         W = d[f'W_{m}']
         u = w * W
@@ -205,6 +208,7 @@ def core(d, w):
             return nan
         pz = np.divide(d[f'PZ_{m}'], d[f'NZ_{m}'], out=np.zeros_like(W), where=d[f'NZ_{m}'] > 0)
         M = _wavg(pz, u)
+        means.append(M)
         if mult is not None:
             dm = mult - _wavg(mult, u)
             var_m = _wavg(dm ** 2, u)
@@ -214,6 +218,10 @@ def core(d, w):
     cov = float(np.mean(covs))
     if d['quantity'] == 'cov_n':
         return np.array([cov])
+    if d['quantity'] == 'cov_n_over_pT':
+        if min(means) <= 0:
+            return nan
+        return np.array([float(np.mean([c / mz for c, mz in zip(covs, means)]))])
     vt = d['var_terms']
     t4, t2 = vt['c4'], vt['c2']
 

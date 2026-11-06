@@ -213,7 +213,8 @@ DISPATCH_TABLE_BY_TYPE = {
         "description": "pT fluctuation correlator Σ",
     },
     "flow_pT_correlations": {
-        # rho(v_n^2, [pT]) (value_type rho_n) or cov(v_n^2, [pT]) (cov_n);
+        # rho(v_n^2, [pT]) (value_type rho_n), cov(v_n^2, [pT]) (cov_n) or
+        # cov / <[pT]> (cov_n_over_pT);
         # windows and methods from the record (analysis/flow_pt.py)
         "compute": "rho_vn2_pT",
         "requires": ["kinematic_range.eta", "kinematic_range.pT", "harmonic"],

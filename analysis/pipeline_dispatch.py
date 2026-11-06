@@ -1681,8 +1681,8 @@ def _rho_settings(params):
     if missing:
         raise ValueError(f"rho(v_n^2, [pT]) needs subevents {missing}")
     q = params.get('value_type')
-    if q not in ('rho_n', 'cov_n'):
-        raise ValueError(f"flow_pT_correlations value_type {q!r} (rho_n | cov_n)")
+    if q not in ('rho_n', 'cov_n', 'cov_n_over_pT'):
+        raise ValueError(f"flow_pT_correlations value_type {q!r} (rho_n | cov_n | cov_n_over_pT)")
     return n, cov_methods, var_terms, ck, {k: wins[k] for k in used | {'full'}}, q
 
 

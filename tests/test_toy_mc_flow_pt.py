@@ -56,8 +56,9 @@ def _sel(e, win):
     return (e['eta'] > win[0]) & (e['eta'] < win[1]) & (e['pt'] > PT[0]) & (e['pt'] < PT[1])
 
 
-def brute_cov(events, method, n=2):
-    """cov_n from explicit distinct triplets: i in X, j in Y, k in Z."""
+def brute_cov(events, method, n=2, with_mean=False):
+    """cov_n from explicit distinct triplets: i in X, j in Y, k in Z (and the
+    triplet-weighted <[pT]> of the Z window with with_mean)."""
     T, W, PZ = [], [], []
     for e in events:
         phi, p = e['phi'], e['pt']
@@ -92,7 +93,8 @@ def brute_cov(events, method, n=2):
     pz = np.array([x[0] / x[1] for x in PZ])
     T1 = np.array([x[2] for x in PZ], float)
     M = np.sum(W * pz) / W.sum()
-    return (T.sum() - M * T1.sum()) / W.sum()
+    cov = (T.sum() - M * T1.sum()) / W.sum()
+    return (cov, M) if with_mean else cov
 
 
 def test_cov_exact_3d():
@@ -102,8 +104,12 @@ def test_cov_exact_3d():
     for method, tol in (('three_subevent', 1e-9), ('two_subevent', 0.01), ('standard', 0.01)):
         got = evaluate(record_rho(value_type='cov_n', method=method), grid=fx['grid'], cent_method='simple',
                        with_jackknife=False)[0][0]
-        ref = brute_cov(fx['events'], method)
+        ref, M = brute_cov(fx['events'], method, with_mean=True)
         check(f'{method}: cov_2', abs(got - ref) <= tol * abs(ref) + 1e-12, f'{got:.6e} vs {ref:.6e}')
+        got_n = evaluate(record_rho(value_type='cov_n_over_pT', method=method), grid=fx['grid'],
+                         cent_method='simple', with_jackknife=False)[0][0]
+        check(f'{method}: cov_2 / <[pT]> (cov_n_over_pT)', abs(got_n - ref / M) <= tol * abs(ref / M) + 1e-12
+              and abs(got_n * M / got - 1) < 0.01, f'{got_n:.6e} vs {ref / M:.6e}')
 
 
 def test_rho_injected():
