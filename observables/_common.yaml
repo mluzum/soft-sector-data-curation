@@ -212,6 +212,17 @@ kinematic_range:
             curator (narrow, so a smooth observable equals its value at the
             mean position); required with points.
           example: 0.2
+    p:
+      description: >
+        Total-momentum window |p| of the particle of interest (STAR's PID
+        limit p < 1.6 GeV/c for pi and K).  Implemented for rapidity-odd v1
+        (each grid cell weighted by its fraction inside the window);
+        refused elsewhere.
+      type: object
+      required: false
+      fields:
+        min: {type: float, required: false, example: 0.0}
+        max: {type: float, required: false, example: 1.6}
     delta_eta:
       description: >
         Difference in pseudorapidity (Δη) — the correlation axis for
@@ -385,25 +396,45 @@ flow_reference:
         across eta = 0 splits there), so momentum-conservation recoil
         cancels between the two halves (PHOBOS's symmetric sub-events).
         Harmonic-1 flow_vn records need it (with sign_convention); the
-        computation is v1_odd_sp_diff_eta, on 3D containers only.
+        computation is v1_odd_sp_diff_eta (eta bins, or y bins of an
+        identified species; the reference is charged hadrons), on 3D
+        containers only.
       example: true
     sign_convention:
       type: object
       required: false
       description: >
         Fixes the overall sign of rapidity-odd v1, which an odd reference
-        leaves open: v1 averaged over this POI eta window has this sign.
-        Segments are first aligned to the reference of that window's
-        segment.  E.g. PHOBOS (PRL 97, 012301) keeps v1 positive at high
-        positive eta at 19.6 and 62.4 GeV and inverts 130 and 200 GeV to
-        match; at all four energies v1 < 0 over 1.5 < eta < 3.
+        leaves open: v1 of `species` (default the record's) averaged over
+        this eta or y window (one of them; y needs an identified species)
+        within `pT` (default the record's) has this sign.  Segments are
+        first aligned to the reference of that window's segment.  E.g.
+        PHOBOS (PRL 97, 012301) keeps v1 positive at high positive eta at
+        19.6 and 62.4 GeV and inverts 130 and 200 GeV to match; at all
+        four energies v1 < 0 over 1.5 < eta < 3.  STAR's convention
+        (nucleons near beam rapidity positive) has no counterpart in a
+        model without spectators: its BES records anchor on pions, v1 < 0
+        at 0 < y < 1 at every energy and centrality (INSPIRE 1277069).
       fields:
         eta:
           type: object
-          required: true
+          required: false
           fields:
             min: {type: float, required: true, example: 1.5}
             max: {type: float, required: true, example: 3.0}
+        y:
+          type: object
+          required: false
+          fields:
+            min: {type: float, required: true, example: 0.0}
+            max: {type: float, required: true, example: 1.0}
+        species: {type: string, required: false, example: "pi+ + pi-"}
+        pT:
+          type: object
+          required: false
+          fields:
+            min: {type: float, required: true, example: 0.2}
+            max: {type: float, required: true, example: 1.6}
         sign: {type: string, required: true, allowed: [positive, negative], example: negative}
     plane:
       type: string

@@ -302,8 +302,10 @@ def _extra_checks(doc, raw, sel_dv, sel_q, desc, flag):
         dim = doc.get("dimensionality", "integrated")
         if n0 > 1 and not _is_pt_cut_axis(name0) and (name0.startswith(("p_t", "pt")) or "transversemomentum" in name0) and dim != "differential_pT":
             flag("error", f"table is pT-differential ({n0} points), record is {dim}")
-        if n0 > 1 and (name0.startswith(("eta", "\\eta", "y", "pseudorapidity", "rapidity"))) and dim != "differential_eta":
-            flag("error", f"table is eta-differential ({n0} points), record is {dim}")
+        rap = name0.startswith(("y", "rapidity"))
+        if n0 > 1 and (name0.startswith(("eta", "\\eta", "pseudorapidity")) or rap) and \
+                dim not in (("differential_eta", "differential_y") if rap else ("differential_eta",)):
+            flag("error", f"table is {'y' if rap else 'eta'}-differential ({n0} points), record is {dim}")
         # Percent tables whose header carries no unit (STAR PRC 72, 014904:
         # v2 = 1.89 for 1.89%): a flow coefficient's median |value| stays
         # far below 0.5; single noisy high-pT points do not move the median.

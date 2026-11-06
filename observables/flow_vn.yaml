@@ -16,6 +16,8 @@ description: >
     - integrated:  vn vs centrality (single pT/eta acceptance)
     - differential_pT:  vn vs pT for a fixed centrality bin
     - differential_eta:  vn vs eta for a fixed centrality bin
+    - differential_y:  vn vs rapidity of an identified species (rapidity-odd
+      v1 only: kinematic_range.y.bins)
 
 composes:
   - _common#collision_system
@@ -114,6 +116,7 @@ required_fields:
       - integrated
       - differential_pT
       - differential_eta
+      - differential_y
     description: "What the independent variable of the measurement is"
     example: "differential_pT"
 

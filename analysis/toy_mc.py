@@ -146,7 +146,8 @@ class ToyGenConfig:
         self.flow = flow or {}
         self.fluctuate = fluctuate or {}
         # harmonic -> f(eta): v_n(pT, eta) = v_n(pT) * f(eta), e.g. a
-        # rapidity-odd directed flow (f odd, possibly negative).
+        # rapidity-odd directed flow (f odd, possibly negative); or
+        # harmonic -> {species name: f} (species without an entry: 0).
         self.eta_shape = eta_shape or {}
         # Event-wise common pT rescale k_e ~ N(1, sigma) injects genuine
         # event-by-event mean-pT correlations (dynamical pT_fluct signal).
@@ -155,6 +156,18 @@ class ToyGenConfig:
         # k_e = 1 + sigma (r z + sqrt(1 - r^2) z'), z the standardized v_n^2
         # (a known rho(v_n^2, [pT]); drawn from a separate stream)
         self.vn_pt_corr = vn_pt_corr
+
+
+def _eta_shape(shape, eta, s_idx, names):
+    """f(eta) per particle: one function, or one per species name."""
+    if callable(shape):
+        return shape(eta)
+    out = np.zeros_like(eta)
+    for k, n in enumerate(names):
+        sel = s_idx == k
+        if sel.any() and n in shape:
+            out[sel] = shape[n](eta[sel])
+    return out
 
 
 def generate_events(cfg: ToyGenConfig):
@@ -234,7 +247,7 @@ def generate_events(cfg: ToyGenConfig):
             base_at_ref = _vn_profile_scale(cfg.flow[h])
             f = base_prof * (vn_ebe[h][e] / max(base_at_ref, 1e-12))
             if h in cfg.eta_shape:
-                f = f * cfg.eta_shape[h](eta_pre)
+                f = f * _eta_shape(cfg.eta_shape[h], eta_pre, s_idx, names)
             vn_funcs.append(f)
             psis.append(psi[h][e])
         phi = _sample_phi(rng, vn_funcs, psis, M, harms)

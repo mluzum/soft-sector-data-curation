@@ -62,7 +62,7 @@ PTCUTS = np.array([
 # shared identically with the 3D (PDG-based) selection.
 from analysis.species import (
     resolve_species, resolve_species_on_axis, charged_species_indices,
-    is_charged,
+    is_charged, species_unavailable,
 )  # noqa: E402,F401
 
 
@@ -2329,15 +2329,83 @@ def _odd_shared(grid, wins_a, wins_b, pt_a, pt_b):
     return tot
 
 
-def prepare_v1_odd_3d(grid, params):
-    """Rapidity-odd v1(eta): per POI bin its eta-odd reference (from
+def _momentum_fractions(grid, p_range, mass, n_sub=8):
+    """Fraction of each (axis, pT) cell with p_min <= |p| < p_max: n_sub x
+    n_sub points per cell, uniform in the axis variable and in pT**2 (the
+    density the fractional window weights assume).  Eta cells: |p| = pT
+    cosh(eta); rapidity cells of mass m: |p|**2 = pT**2 + mT**2 sinh(y)**2."""
+    ax, pe = np.asarray(grid.axis_edges, float), np.asarray(grid.pt_edges, float)
+    u = (np.arange(n_sub) + 0.5) / n_sub
+    a = ax[:-1, None] + np.diff(ax)[:, None] * u                          # (n_ax, n_sub)
+    pt = np.sqrt(pe[:-1, None] ** 2 + np.diff(pe ** 2)[:, None] * u)      # (n_pt, n_sub)
+    A, P = a[:, None, :, None], pt[None, :, None, :]
+    if getattr(grid, 'rapidity_binned', False):
+        mt2 = P ** 2 + float(grid.y_mass) ** 2
+        p = np.sqrt(P ** 2 + mt2 * np.sinh(A) ** 2)
+    else:
+        p = P * np.cosh(A)
+    inside = (p >= p_range[0]) & (p < p_range[1])
+    return inside.mean(axis=(2, 3))
+
+
+def _poi_cell_weights(grid, var, lo, hi, pt, p_range, eta=None):
+    """Cell weights of a POI window: whole cells for an eta window on an eta
+    grid (as acceptance()), fractional for a rapidity window (the species'
+    mass per pT cell) or a rapidity-binned grid; times the momentum-cut
+    fractions.  A rapidity window may also carry an eta window (tracks in
+    STAR's TPC, |eta| < 1): times its cell fractions."""
+    if var == 'y':
+        W = grid.window_weights(lo, hi, pt[0], pt[1], var='y', mass=grid.mass, fractional=True)
+        if eta is not None and eta[0] is not None and eta[1] is not None:
+            W = W * grid.window_weights(eta[0], eta[1], 0.0, 1e9, fractional=True)
+    else:
+        W = grid.window_weights(lo, hi, pt[0], pt[1], fractional=bool(getattr(grid, 'rapidity_binned', False)))
+    if p_range is not None:
+        W = W * _momentum_fractions(grid, p_range, getattr(grid, 'mass', None))
+    return W
+
+
+def _odd_shared_cells(grid, W, wins, rpt):
+    """POI particles (cell weights W) inside the signed reference windows:
+    the diagonal of Re<q_poi Q_ref*> when the POI is a reference particle."""
+    tot = np.zeros(grid.n_events)
+    frac = bool(getattr(grid, 'rapidity_binned', False))
+    for lo, hi, sg in wins:
+        Wr = grid.window_weights(lo, hi, rpt[0], rpt[1], fractional=frac)
+        if (W * Wr).any():
+            tot += sg * grid._weighted(W * Wr)[:, 0].real
+    return tot
+
+
+def prepare_v1_odd_3d(container, params):
+    """Rapidity-odd v1(eta) or v1(y): per POI bin its eta-odd reference (from
     flow_reference, by |eta| segment), plus the reference of the
-    sign-convention window, which every bin is aligned to."""
+    sign-convention window, which every bin is aligned to.
+
+    Receives the unselected container (selects_species): the POI is the
+    record's species, the reference charged hadrons, the sign window
+    flow_reference.sign_convention's species (default the record's).  y
+    bins (an identified species) map per pT cell with the species' mass
+    (fractional cells); a total-momentum cut (kinematic_range.p) weights
+    each POI cell by its fraction inside it, and an eta window of a y-binned
+    record (kinematic_range.eta) likewise.  (Until November 2026 charged
+    hadrons in eta bins only, every sum from the record's species grid.)"""
     fr = params.get('flow_reference') or {}
     bins = params.get('differential_bins') or []
+    var = 'y' if params.get('differential_var') == 'y' else 'eta'
     pt = (params.get('single_range') or {}).get('pT', (0.1, 10))
-    n_ev, nb = grid.n_events, max(len(bins), 1)
-    if getattr(grid, 'pt_integrated', False) or not bins or not fr.get('sign_convention'):
+    p_range = params.get('momentum_range')
+    pid = _poi_species(params)
+    poi = _unit_weights(container.select(pid))
+    ref = _unit_weights(container.select({'species': 'charged'}))
+    sw_pid = {'species': fr.get('sign_species')} if fr.get('sign_species') else pid
+    sw_grid = poi if sw_pid == pid else _unit_weights(container.select(sw_pid))
+    n_ev, nb = ref.n_events, max(len(bins), 1)
+    sw_var = fr.get('sign_var') or 'eta'
+    if (any(getattr(g, 'pt_integrated', False) for g in (poi, ref, sw_grid)) or not bins
+            or not fr.get('sign_convention') or (var == 'y' and getattr(poi, 'mass', None) is None)
+            or (sw_var == 'y' and getattr(sw_grid, 'mass', None) is None)
+            or species_unavailable(sw_pid, container)):
         nan = np.full((n_ev, nb), np.nan)
         return {'q_poi': nan.astype(complex), 'n_poi': nan, 'q_ref': nan.astype(complex), 'n_ref': nan,
                 'dq': nan, 'align_shared': nan, 'q_c': np.full(n_ev, np.nan, complex),
@@ -2349,22 +2417,27 @@ def prepare_v1_odd_3d(grid, params):
         return _odd_windows(seg['eta']), (seg.get('pT') or pt)
 
     (sw_lo, sw_hi), sign = fr['sign_convention']
+    sw_pt = fr.get('sign_pT') or pt
     wins_c, pt_c = ref_for(sw_lo, sw_hi)
-    q_c, n_c = _odd_q(grid, wins_c, pt_c)
-    a_sw = grid.acceptance(sw_lo, sw_hi, pt[0], pt[1])
+    q_c, n_c = _odd_q(ref, wins_c, pt_c)
+    W_sw = _poi_cell_weights(sw_grid, sw_var, sw_lo, sw_hi, sw_pt, None)
+    a_sw = sw_grid._weighted(W_sw)
+    poi_in_ref = _poi_within_charged(container, pid)
     out = {k: np.zeros((n_ev, nb), complex if k in ('q_poi', 'q_ref') else float)
            for k in ('q_poi', 'n_poi', 'q_ref', 'n_ref', 'dq', 'align_shared')}
     for b, (lo, hi) in enumerate(bins):
-        a = grid.acceptance(lo, hi, pt[0], pt[1])
+        W = _poi_cell_weights(poi, var, lo, hi, pt, p_range, (params.get('single_range') or {}).get('eta'))
+        a = poi._weighted(W)
         wins, rpt = ref_for(lo, hi)
-        q_r, n_r = _odd_q(grid, wins, rpt)
+        q_r, n_r = _odd_q(ref, wins, rpt)
         out['q_poi'][:, b], out['n_poi'][:, b] = a[:, 1], a[:, 0].real
         out['q_ref'][:, b], out['n_ref'][:, b] = q_r, n_r
-        out['dq'][:, b] = _odd_shared(grid, [(lo, hi, 1.0)], wins, pt, rpt)
-        out['align_shared'][:, b] = _odd_shared(grid, wins, wins_c, rpt, pt_c)
-    out.update(q_c=q_c, n_c=n_c, q_sw=a_sw[:, 1], n_sw=a_sw[:, 0].real,
-               dq_sw=_odd_shared(grid, [(sw_lo, sw_hi, 1.0)], wins_c, pt, pt_c), sign=float(sign))
-    # (Charge-scaled grids reach this on unit weights: _on_unit_weights.)
+        if poi_in_ref:
+            out['dq'][:, b] = _odd_shared_cells(poi, W, wins, rpt)
+        out['align_shared'][:, b] = _odd_shared(ref, wins, wins_c, rpt, pt_c)
+    dq_sw = (_odd_shared_cells(sw_grid, W_sw, wins_c, pt_c) if _poi_within_charged(container, sw_pid)
+             else np.zeros(n_ev))
+    out.update(q_c=q_c, n_c=n_c, q_sw=a_sw[:, 1], n_sw=a_sw[:, 0].real, dq_sw=dq_sw, sign=float(sign))
     return out
 
 
@@ -2949,8 +3022,9 @@ PIPELINE_DISPATCH = {
         "core_fn": _wrap_v1_odd,
         "prepare_data_2d": None,        # boost-invariant 2D has no rapidity-odd flow
         "prepare_data_3d": prepare_v1_odd_3d,
+        "selects_species": True,
         "n_obs_per_cent": None,
-        "description": "rapidity-odd directed flow v1(eta) (eta-odd reference, sign convention)",
+        "description": "rapidity-odd directed flow v1(eta) or v1(y) (eta-odd charged reference, sign convention)",
     },
     "vn2_ep_diff_eta": {
         "core_fn": _wrap_vn2_ep_diff_eta,

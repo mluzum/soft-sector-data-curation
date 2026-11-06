@@ -112,7 +112,20 @@ Fields that change dispatch:
   (ZDC/SMD), refused, because models have no spectators.
 - Directed flow (`harmonic: 1`): rapidity-odd v1 needs `flow_reference.odd`
   (an eta-odd reference) and `sign_convention`: computed by
-  `v1_odd_sp_diff_eta` (3D only).  Rapidity-even v1 declares `v1_even`
+  `v1_odd_sp_diff_eta` (3D only), the POI the record's species (eta bins,
+  or y bins of an identified species, its mass mapping each pT cell;
+  `selects_species`), the reference charged hadrons.  The sign window
+  names its own `species` and `pT` (default the record's) and an eta or
+  y window: STAR's convention (nucleons positive near beam rapidity) has
+  no counterpart without spectators, so its BES records anchor on pions,
+  v1 < 0 at 0 < y < 1 (every energy and centrality in 1277069, >= 5
+  sigma).  A y-binned POI honours an eta window (STAR TPC tracks, |eta|
+  < 1) and `kinematic_range.p` (|p| < 1.6 GeV/c, STAR's PID limit; each
+  cell weighted by its fraction inside; refused for other observables).
+  Until November 2026 charged hadrons in eta bins only, every sum from the
+  record's species grid; tests/test_toy_mc_v1_odd_pid.py (K+, pi, p
+  v1(y) against particle level, counts per y bin within 0.5% with the
+  cuts).  Rapidity-even v1 declares `v1_even`
   (`fit: factorization`): the experiments fit v11(pTa, pTb) = v1(pTa)
   v1(pTb) - K pTa pTb, K from global momentum conservation, which the
   models lack, so the model's pair matrix (distinct pairs; on 3D only pairs

@@ -491,6 +491,15 @@ def resolve(record):
             resolve(sub)
         return dict(COMBINATION_ENTRY)
 
+    # A total-momentum cut (kinematic_range.p: STAR's PID limit p < 1.6
+    # GeV/c) is applied by the rapidity-odd v1 prepare only; elsewhere it
+    # would be ignored silently.
+    if (record.get("kinematic_range") or {}).get("p") is not None and not (
+            record.get("observable_type") == "flow_vn" and record.get("harmonic") == 1
+            and record.get("v1_even") is None):
+        raise ValueError("a total-momentum cut (kinematic_range.p) is implemented for "
+                         "rapidity-odd v1 only")
+
     # Refuse a ratio of flow coefficients rather than return a coefficient
     # that the record does not claim.  A silent substitution here is worse
     # than a visible failure: the value is plausible and the label is wrong.
@@ -571,11 +580,18 @@ def resolve(record):
             raise ValueError(
                 "directed flow (harmonic 1) needs a rapidity-odd reference "
                 "(flow_reference.odd) or, for rapidity-even v1, v1_even")
-        if record.get("dimensionality") != "differential_eta":
-            raise ValueError("rapidity-odd v1 is implemented for eta-differential records")
-        if not isinstance(fr.get("sign_convention"), dict):
+        if record.get("dimensionality") not in ("differential_eta", "differential_y"):
+            raise ValueError("rapidity-odd v1 is implemented for eta- or y-differential records")
+        if record.get("dimensionality") == "differential_y" and (
+                species is None or is_charged(species)):
+            raise ValueError("rapidity-odd v1 in rapidity bins needs an identified species "
+                             "(the mass of the eta <-> y mapping)")
+        sc = fr.get("sign_convention")
+        if not isinstance(sc, dict):
             raise ValueError("rapidity-odd v1 needs flow_reference.sign_convention "
                              "(an odd reference leaves the overall sign open)")
+        if sc.get("y") is not None and is_charged(sc.get("species") or species or "charged"):
+            raise ValueError("a sign-convention rapidity window needs an identified species")
         return dict(V1_ODD_ENTRY)
 
     method = record.get("method")
@@ -772,8 +788,8 @@ def _check_v1_even(record):
 V1_ODD_ENTRY = {
     "compute": "v1_odd_sp_diff_eta",
     "requires": "kinematic_range.pT",
-    "description": "rapidity-odd directed flow v1(eta): scalar product with an eta-odd "
-                   "reference, segments aligned, sign by convention (3D only)",
+    "description": "rapidity-odd directed flow v1(eta) or v1(y): scalar product with an "
+                   "eta-odd charged reference, segments aligned, sign by convention (3D only)",
 }
 
 
@@ -925,6 +941,9 @@ def extract_measurement_params(exp_rec):
         # The particle of interest's own acceptance (top-level
         # kinematic_range); single_range is subevent A's when subevents exist.
         'poi_range': {'eta': _kr_eta(top_kr), 'pT': _kr_pT(top_kr)},
+        # Total-momentum window of the particle of interest (kinematic_range.p;
+        # rapidity-odd v1 only, resolve() refuses it elsewhere)
+        'momentum_range': _kr_p(top_kr),
         'dimensionality': dim,
         'differential_var': diff_var,
         'differential_bins': diff_bins,
@@ -1069,11 +1088,20 @@ def _flow_reference(exp_rec):
     # reference leaves open: ((lo, hi), +1 or -1) -- v1 averaged over that
     # POI window has that sign.
     out['odd'] = bool(raw.get('odd', False))
+    # The window is in eta or (an identified species) in rapidity; its
+    # species and pT default to the record's (STAR BES: pi+ + pi- at
+    # 0 < y < 1, negative).
     sc = raw.get('sign_convention') or {}
-    sc_eta = sc.get('eta') or {}
-    if sc_eta.get('min') is not None and sc_eta.get('max') is not None and sc.get('sign') in ('positive', 'negative'):
-        out['sign_convention'] = ((float(sc_eta['min']), float(sc_eta['max'])),
+    sc_var = 'y' if sc.get('y') is not None else 'eta'
+    sc_win = sc.get(sc_var) or {}
+    if sc_win.get('min') is not None and sc_win.get('max') is not None and sc.get('sign') in ('positive', 'negative'):
+        out['sign_convention'] = ((float(sc_win['min']), float(sc_win['max'])),
                                   1 if sc['sign'] == 'positive' else -1)
+        sc_pt = sc.get('pT') or {}
+        out['sign_var'] = sc_var
+        out['sign_species'] = sc.get('species')
+        out['sign_pT'] = ((float(sc_pt['min']), float(sc_pt['max']))
+                          if sc_pt.get('min') is not None and sc_pt.get('max') is not None else None)
     else:
         out['sign_convention'] = None
     segs = raw.get('segments')
@@ -1095,6 +1123,13 @@ def _flow_reference(exp_rec):
     if not out['eta'] and not out['segments']:
         return None
     return out
+
+
+def _kr_p(kr):
+    p = (kr or {}).get('p') or {}
+    if p.get('min') is None and p.get('max') is None:
+        return None
+    return (float(p.get('min') or 0.0), float(p['max']) if p.get('max') is not None else float('inf'))
 
 
 def _kr_eta(kr):
