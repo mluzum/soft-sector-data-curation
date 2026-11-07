@@ -88,7 +88,11 @@ optional_fields:
       normalization) in one subevent and the rest in the other, both
       orientations pooled; without, all in the window.  differential_pT:
       particle 1 in the pT bin, the normalizations over the record's pT
-      range.
+      range.  With flow_reference.subevents A, B (CMS 1759853, the split
+      layout): particle 1 in the record's window (each pT bin), the first
+      lower harmonic in A and the rest in B, the normalization's positive
+      harmonics in A; quantities C, v_mode_coupled (v_k{Psi_nm}) and chi
+      (chi_denominator poi or P4).
       pT_flow_vector_fluctuations (one harmonic, per POI pT bin): v_ratio =
       v_n{2}/v_n[2]; r = r_n(pT_a, pT_trigger); A_f, M_f (ALICE Eqs. 10,
       14); angle_lower_limit = sqrt((A_f + 1)/2); magnitude_upper_limit =
@@ -98,11 +102,14 @@ optional_fields:
   chi_denominator:
     type: string
     required: false
-    allowed: [P4, factorized]
+    allowed: [P4, factorized, poi]
     description: >
       mode_coupling chi: v_mode_coupled divided by sqrt(<v_n^2 v_m^2>) (P4,
-      the default) or by sqrt(<v_n^2><v_m^2>) (factorized: STAR's
-      differential chi_{5,23}).
+      the default), by sqrt(<v_n^2><v_m^2>) (factorized: STAR's
+      differential chi_{5,23}), or C over <<cos(n phi_1 + m phi_2 - n phi_A
+      - m phi_B)>> with particles 1, 2 in the record's window (each pT bin)
+      and A, B as in C (poi: CMS's chi_{k,nm} = Re<Q_k Q_nA* Q_mB*> /
+      Re<Q_n Q_m Q_nA* Q_mB*>, split layout only).
     example: factorized
   decorrelation_reference:
     type: object

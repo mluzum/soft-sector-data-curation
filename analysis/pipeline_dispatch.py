@@ -1766,7 +1766,32 @@ def _mode_coupling_settings(params):
     if None in f_eta or None in f_pt:
         raise ValueError("mode coupling needs kinematic_range eta and pT")
     sr = params.get('subevent_ranges') or {}
-    if sr:
+    split = ((params.get('flow_reference_raw') or {}).get('subevents')) or {}
+    chi_den = params.get('chi_denominator') or 'P4'
+    if split:
+        # CMS's layout: particle 1 in the record's window, the lower
+        # harmonics in two forward subevents (analysis.mode_coupling)
+        from analysis.mode_coupling import SPLIT_QUANTITIES
+        if sr:
+            raise ValueError("mode coupling: particles AB or flow_reference.subevents, not both")
+        if sorted(split) != ['A', 'B']:
+            raise ValueError("mode coupling: flow_reference.subevents A and B (the lower harmonics' regions)")
+        if q not in SPLIT_QUANTITIES:
+            raise ValueError(f"mode coupling with flow_reference.subevents: quantity {q!r} (one of "
+                             f"{', '.join(SPLIT_QUANTITIES)})")
+        if chi_den == 'factorized':
+            raise ValueError("mode coupling with flow_reference.subevents: chi_denominator P4 or poi")
+        wins = {'P': (f_eta, f_pt)}
+        for lab, sub in split.items():
+            etas, pt = _mixed_plane_windows({'eta': sub.get('eta'), 'pT': sub.get('pT')}, 'A')
+            if len(etas) != 1:
+                raise ValueError(f"mode coupling: subevent {lab} needs one eta window")
+            wins[lab] = (etas[0], pt)
+        orientations = [('A', 'B'), ('B', 'A')]
+        xs = ['P']
+    elif chi_den == 'poi':
+        raise ValueError("mode coupling: chi_denominator poi needs flow_reference.subevents (the split layout)")
+    elif sr:
         if sorted(sr) != ['A', 'B']:
             raise ValueError("mode coupling: two subevents A and B (particles: AB)")
         wins = {lab: (tuple(r['eta']), f_pt if None in (r.get('pT') or (None, None)) else tuple(r['pT']))
@@ -1775,28 +1800,30 @@ def _mode_coupling_settings(params):
     else:
         wins = {'full': (f_eta, f_pt)}
         orientations = [('full', 'full')]
+    if not split:
+        xs = sorted({o[0] for o in orientations})
     bins = [tuple(b) for b in (params.get('differential_bins') or [])] \
         if params.get('dimensionality') == 'differential_pT' else []
     poi = []
     for b, (lo, hi) in enumerate(bins):
         names = {}
-        for X in {o[0] for o in orientations}:
+        for X in xs:
             names[X] = f'{X}#{b}'
             wins[names[X]] = (wins[X][0], (lo, hi))
         poi.append(names)
-    factorized = (params.get('chi_denominator') or 'P4') == 'factorized'
-    return tuple(harms), orientations, wins, poi, q, factorized
+    return (tuple(harms), orientations, wins, poi, q, chi_den == 'factorized', 'P' if split else None,
+            chi_den == 'poi')
 
 
 def _mode_coupling_data(S, settings):
     from analysis.mode_coupling import event_sums
-    harms, orientations, _w, poi, q, factorized = settings
+    harms, orientations, _w, poi, q, factorized, split, chi_poi = settings
     if max(harms) >= S.H:
         raise ValueError(f"mode coupling needs Q_{max(harms)}; the container stores harmonics below {S.H}")
-    out = event_sums(S, harms, orientations, poi)
+    out = event_sums(S, harms, orientations, poi, poi=split)
     if S.missing:
         print(f"  note: harmonics {sorted(S.missing)} not stored; their coincidence terms dropped")
-    out.update(quantity=q, factorized=factorized, n_bins=len(poi))
+    out.update(quantity=q, factorized=factorized, n_bins=len(poi), split=split is not None, chi_poi=chi_poi)
     return out
 
 

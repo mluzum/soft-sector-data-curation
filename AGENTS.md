@@ -321,12 +321,19 @@ Fields that change dispatch:
   divides by sqrt(<v_n^2><v_m^2>) (STAR's differential chi_{5,23}).
   differential_pT: particle 1 in the bin, normalizations over the record's
   pT.  One value per bin (`SINGLE_ROW_KEYS`); signed roots; a harmonic the
-  container does not store is refused.  STAR 1802752, 2634985; ALICE
-  1599396, 1778342 (ALICE's chi_{6,24}, Eq. A.4 of JHEP 05 (2020) 085, is
-  not computed); tests/test_toy_mc_mode_coupling.py (C equal to explicit
-  triplet and quadruplet sums on 3D, the injected chi_{4,22}, chi_{5,23},
-  chi_{6,222}, chi_{7,223} recovered on 2D and 3D,
-  ToyGenConfig.nonlinear).
+  container does not store is refused.  The split layout
+  (`flow_reference.subevents` A, B; CMS 1759853): particle 1 in the
+  record's window (the tracker, each pT bin), the first lower harmonic in
+  A and the rest in B (Re<Q_k Q_nA* Q_mB*>), the normalization's positive
+  harmonics in A, both orientations pooled; quantities C, v_mode_coupled
+  (v_k{Psi_nm}) and chi with `chi_denominator: poi` (C over Re<Q_n Q_m
+  Q_nA* Q_mB*>, the tracker Q_n Q_m in the same pT bin).  STAR 1802752,
+  2634985; ALICE 1599396, 1778342 (ALICE's chi_{6,24}, Eq. A.4 of JHEP 05
+  (2020) 085, is not computed); CMS 1759853;
+  tests/test_toy_mc_mode_coupling.py (C equal to explicit triplet and
+  quadruplet sums on 3D, and the split layout's C, normalization and chi
+  denominator; the injected chi_{4,22}, chi_{5,23}, chi_{6,222},
+  chi_{7,223} recovered on 2D and 3D, ToyGenConfig.nonlinear).
 - Symmetry-plane correlations (`correlation_type: plane_correlation`, key
   `plane_corr_sp`, analysis/plane_correlations.py): <cos(sum c_i n_i
   Phi_{n_i})>, `planes` [{harmonic, coefficient}] (two or three, sum c n =

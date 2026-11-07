@@ -18,9 +18,16 @@ fluctuating v_2 and v_3:
     chi_{7,223} V_2^2 V_3): C_{6,222}, C_{7,223} equal explicit quadruplet
     sums on 3D, chi_{6,222} and chi_{7,223} (six-particle normalization)
     recovered on 2D and 3D;
+  - the split layout (CMS: particle 1 in the record's window P, the lower
+    harmonics in forward subevents A and B, flow_reference.subevents): C,
+    the normalization and the chi denominator D (positive harmonics in P)
+    equal explicit tuple sums on 3D; chi = C/D (chi_denominator poi)
+    recovers chi_{4,22}, chi_{5,23}, chi_{6,222}, chi_{7,223} on 2D and 3D,
+    integrated and per pT bin;
   - invalid harmonics and quantities are refused.
 Run: python3 tests/test_toy_mc_mode_coupling.py
 """
+import itertools
 import os
 import sys
 
@@ -250,6 +257,129 @@ def test_three_mode():
                 evaluate(r, grid=c, cent_method='simple', with_jackknife=True)
             check(f'{kind} two-subevent chi_{k},{"".join(map(str, h[1:]))} = {CHI3[k]}',
                   np.all(np.abs(v - CHI3[k]) < 0.15 * CHI3[k] + 3 * e), f'{v} +- {e}')
+
+
+def rec_split(quantity, harmonics=(4, 2, 2), P=(-0.4, 0.4), A=(0.8, 1.5), B=(-1.5, -0.8), pt=(0.2, 3.0), **extra):
+    """CMS's layout: particle 1 in P (the record's window), the lower
+    harmonics in A (the first) and B (the rest)."""
+    sub = {lab: {'eta': [{'min': w[0], 'max': w[1]}], 'pT': {'min': 0.0, 'max': 100.0}}
+           for lab, w in (('A', A), ('B', B))}
+    r = rec(quantity, harmonics, sub=False,
+            kinematic_range={'eta': {'min': P[0], 'max': P[1]}, 'pT': {'min': pt[0], 'max': pt[1]}},
+            flow_reference={'detector': 'HF', 'subevents': sub}, chi_denominator='poi')
+    r.update(extra)
+    return r
+
+
+def _perm_sum(phi, hs):
+    """Sum over ordered distinct tuples of particles of prod e^{i h phi}."""
+    if not hs:
+        return 1.0 + 0j, 1
+    tot, n = 0j, 0
+    for t in itertools.permutations(range(len(phi)), len(hs)):
+        tot += np.exp(1j * sum(h * phi[i] for h, i in zip(hs, t)))
+        n += 1
+    return tot, n
+
+
+def _brute_split(events, members_of, wins, pt):
+    """<<Re prod>> over distinct particles of disjoint windows: members_of(X,
+    Y) -> {window label: [h, ...]}, both orientations pooled, events weighted
+    by their tuple counts."""
+    num = den = 0.0
+    for ev in events:
+        sel = (ev['pt'] >= pt[0]) & (ev['pt'] < pt[1])
+        phi, eta = ev['phi'][sel], ev['eta'][sel]
+        part = {lab: phi[(eta >= w[0]) & (eta < w[1])] for lab, w in wins.items()}
+        for X, Y in (('A', 'B'), ('B', 'A')):
+            val, cnt = 1.0 + 0j, 1
+            for lab, hs in members_of(X, Y).items():
+                v, c = _perm_sum(part[lab], hs)
+                val, cnt = val * v, cnt * c
+            num += val.real
+            den += cnt
+    return num / den
+
+
+def test_split_exact():
+    cfg = ToyGenConfig(n_events=6, mult_mean=60, mult_sigma=5, seed=17, rap_max=1.6,
+                       flow={2: dict(kind='const', value=0.1), 3: dict(kind='const', value=0.05),
+                             4: dict(kind='const', value=0.02), 7: dict(kind='const', value=0.01)},
+                       nonlinear={4: (1.0, 2, 2), 7: (1.0, 2, 2, 3)})
+    events, truth = generate_events(cfg)
+    grid = make_qgrid_data(events, truth, n_eta=32, n_pt=30, n_harm=9, eta_half=1.6)
+    edges = np.linspace(-1.6, 1.6, 33)
+    wins = {'P': (edges[12], edges[20]), 'A': (edges[23], edges[30]), 'B': (edges[2], edges[9])}
+    cls = {'classes': ['0-100%'], 'eta': [{'min': -3.9, 'max': -3.0}]}
+    for h in ((4, 2, 2), (5, 2, 3), (7, 2, 2, 3)):
+        k, low = h[0], list(h[1:])
+
+        def neg(X, Y):
+            return {X: [-low[0]], Y: [-x for x in low[1:]]}
+        forms = {
+            'C': lambda X, Y: {'P': [k], **neg(X, Y)},
+            'PN': lambda X, Y: {X: low, Y: [-x for x in low]},
+            'D': lambda X, Y: {'P': low, **neg(X, Y)},
+        }
+        want = {q: _brute_split(events, f, wins, (0.0, 3.0)) for q, f in forms.items()}
+        got = {}
+        for q, cd in (('C', 'poi'), ('v_mode_coupled', 'poi'), ('chi', 'poi')):
+            r = rec_split(q, h, P=wins['P'], A=wins['A'], B=wins['B'], pt=(0.0, 3.0), chi_denominator=cd,
+                          centrality=cls)
+            got[q] = evaluate(r, grid=grid, cent_method='simple', with_jackknife=False)[0][0]
+        lab = ''.join(map(str, h[1:]))
+        check(f'3D split C_{k},{lab} = explicit sum', np.isclose(got['C'], want['C'], rtol=1e-9, atol=1e-13),
+              f"{got['C']:.6e} vs {want['C']:.6e}")
+        pn = (want['C'] / got['v_mode_coupled']) ** 2
+        check(f'3D split normalization <v^2..> ({lab}) = explicit sum', np.isclose(pn, want['PN'], rtol=1e-8),
+              f"{pn:.6e} vs {want['PN']:.6e}")
+        d = want['C'] / got['chi']
+        check(f'3D split chi denominator D ({lab}) = explicit sum', np.isclose(d, want['D'], rtol=1e-8),
+              f"{d:.6e} vs {want['D']:.6e}")
+
+
+def test_split_chi():
+    bins = [[0.2, 0.6], [0.6, 1.0], [1.0, 1.6], [1.6, 3.0]]
+    for kind in ('3d', '2d'):
+        for k, h in ((4, (4, 2, 2)), (5, (5, 2, 3))):
+            v, e = run(rec_split('chi', h), kind, jk=True)
+            check(f'{kind} split chi_{k},{h[1]}{h[2]} = C/D = {CHI[k]}',
+                  np.all(np.abs(v - CHI[k]) < 0.15 * CHI[k] + 3 * e), f'{v} +- {e}')
+        kr = {'eta': {'min': -0.4, 'max': 0.4}, 'pT': {'min': 0.2, 'max': 3.0, 'bin_ranges': bins}}
+        v, e = run(rec_split('chi', kinematic_range=kr, dimensionality='differential_pT'), kind, jk=True)
+        check(f'{kind} split chi_4,22(pT) flat at {CHI[4]}', np.all(np.abs(v - CHI[4]) < 0.2 * CHI[4] + 3 * e),
+              f'{v} +- {e}')
+        vm, _ = run(rec_split('v_mode_coupled'), kind)
+        c, _ = run(rec_split('C'), kind)
+        p4, _ = run(rec_split('chi', chi_denominator='P4'), kind)
+        check(f'{kind} split v_mode_coupled = C / sqrt(C / chi_P4)', np.allclose(vm, c / np.sqrt(c / p4), rtol=1e-10),
+              f'{vm} {c} {p4}')
+        for k, h in ((6, (6, 2, 2, 2)), (7, (7, 2, 2, 3))):
+            c3 = _fx3()[kind]
+            # wide windows: C's noise (Q_k of P times the forward v_2^3) dominates
+            r = rec_split('chi', h, P=(-0.8, 0.8), A=(0.8, 1.6), B=(-1.6, -0.8))
+            v, e = evaluate(r, qv=c3, cent_method='simple', with_jackknife=True) if kind == '2d' else \
+                evaluate(r, grid=c3, cent_method='simple', with_jackknife=True)
+            check(f'{kind} split chi_{k},{"".join(map(str, h[1:]))} = {CHI3[k]}',
+                  np.all(np.abs(v - CHI3[k]) < 0.15 * CHI3[k] + 3 * e), f'{v} +- {e}')
+
+
+def test_split_refused():
+    for q, extra in (('v_inclusive', {}), ('rho', {}), ('chi', {'chi_denominator': 'factorized'})):
+        r = rec_split(q, **extra)
+        try:
+            evaluate(r, grid=_fx()['3d'], cent_method='simple', with_jackknife=False)
+            ok = False
+        except ValueError:
+            ok = True
+        check(f'split layout refuses {q} {extra}', ok)
+    r = rec('chi', chi_denominator='poi')
+    try:
+        evaluate(r, grid=_fx()['3d'], cent_method='simple', with_jackknife=False)
+        ok = False
+    except ValueError:
+        ok = True
+    check('chi_denominator poi without flow_reference.subevents refused', ok)
 
 
 if __name__ == '__main__':

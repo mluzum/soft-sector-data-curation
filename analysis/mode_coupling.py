@@ -29,6 +29,20 @@ pT-differential: particle 1 of P2 and C in the pT bin (and its subevent);
 the normalizations stay integrated: v_inclusive(pT) = P2(pT) / v_k{2}, the
 reference v_k{2} = sign(P2) sqrt|P2| over the record's pT range.
 
+Split layout (CMS PLB 2020, arXiv:1910.08789, Eqs. 5-14; the record's
+flow_reference.subevents A, B): particle 1 in the record's window P (the
+tracker; each pT bin), the lower harmonics in two forward subevents, the
+first in A and the rest in B,
+
+  C  = <<cos(k phi_P - n phi_A - m phi_B [- l phi_B'])>>
+  PN = <<cos(n phi_A + m phi_A' [+ l phi_A''] - n phi_B - m phi_B' ...)>>
+  D  = <<cos(n phi_P + m phi_P' [+ l phi_P''] - n phi_A - m phi_B [- l phi_B'])>>
+
+both orientations pooled; v_mode_coupled = C / sqrt(PN) (v_k{Psi_nm}) and,
+with chi_denominator 'poi', chi = C / D, the particles of D's positive
+harmonics in the same pT bin as particle 1 (the tracker Q_n Q_m of CMS's
+denominators).  v_inclusive, v_linear and rho are not defined there.
+
 Every correlator is a sum over distinct particles from analysis.flow_pt
 (CellSums; set partitions, distinct, up to four members, the generating
 function, distinct_gf, beyond): windows weight each particle (2D: the
@@ -63,19 +77,34 @@ def _dsum(S, members):
     return distinct_gf(S, [(w, h, c) for (w, h), c in types.items()])
 
 
-def event_sums(S, harmonics, orientations, bins):
+def event_sums(S, harmonics, orientations, bins, poi=None):
     """Per-event numerators and tuple counts.
 
     harmonics: [k, n, m(, l)]; orientations: [(X, Y)] window-name pairs (two
     subevents: ('A', 'B'), ('B', 'A'); one window: ('full', 'full')); bins:
     per pT bin, the POI window names {X: name} of each orientation's X
-    (empty: integrated).
+    (empty: integrated).  poi: the split layout's POI window (bins then
+    {poi: name}).
     """
     k, low = harmonics[0], list(harmonics[1:])
     out = {}
 
     def add(key, val):
         out[key] = out.get(key, 0.0) + np.real(val)
+
+    if poi is not None:
+        for X, Y in orientations:
+            neg = [(X, -low[0])] + [(Y, -h) for h in low[1:]]
+            add('PN', _dsum(S, [(X, h) for h in low] + [(Y, -h) for h in low]))
+            add('WN', _dsum(S, [(X, 0)] * len(low) + [(Y, 0)] * len(low)))
+            for b, P in enumerate([poi] + [names[poi] for names in bins]):
+                sfx = '' if b == 0 else f'_{b - 1}'
+                add('C' + sfx, _dsum(S, [(P, k)] + neg))
+                add('WC' + sfx, _dsum(S, [(P, 0)] + [(w, 0) for w, _ in neg]))
+                add('D' + sfx, _dsum(S, [(P, h) for h in low] + neg))
+                add('WD' + sfx, _dsum(S, [(P, 0)] * len(low) + [(w, 0) for w, _ in neg]))
+        out['n_low'] = len(low)
+        return out
 
     for X, Y in orientations:
         add('P2', _dsum(S, [(X, k), (Y, -k)]))
@@ -105,6 +134,8 @@ def core(d, w):
     """One centrality class: the record's quantity, one value per pT bin
     (one value when integrated)."""
     q = d['quantity']
+    if d.get('split'):
+        return _core_split(d, w, q)
     P2 = _avg(d['P2'], d['W2'], w)
     PN = _avg(d['PN'], d['WN'], w)
     vref = _sroot(P2)
@@ -135,3 +166,24 @@ def core(d, w):
         if q == 'chi':
             return v_mc / norm
     raise ValueError(f"mode coupling: quantity {q!r} (one of {', '.join(QUANTITIES)})")
+
+
+SPLIT_QUANTITIES = ('C', 'v_mode_coupled', 'chi')
+
+
+def _core_split(d, w, q):
+    """The split layout: C, v_mode_coupled = C / sqrt(PN), chi = C / D
+    ('poi') or C / PN, per pT bin."""
+    PN = _avg(d['PN'], d['WN'], w)
+    sfx = [f'_{b}' for b in range(d['n_bins'])] if d['n_bins'] else ['']
+    c = np.array([_avg(d['C' + x], d['WC' + x], w) for x in sfx])
+    with np.errstate(divide='ignore', invalid='ignore'):
+        if q == 'C':
+            return c
+        if q == 'v_mode_coupled':
+            return c / _sroot(PN)
+        if q == 'chi':
+            if d['chi_poi']:
+                return c / np.array([_avg(d['D' + x], d['WD' + x], w) for x in sfx])
+            return c / PN
+    raise ValueError(f"mode coupling, split layout: quantity {q!r} (one of {', '.join(SPLIT_QUANTITIES)})")

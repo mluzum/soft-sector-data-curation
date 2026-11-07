@@ -809,9 +809,9 @@ def resolve(record):
                     raise ValueError(f"mode coupling: particles {record.get('particles')!r} (AB or one window)")
                 if record.get("dimensionality", "integrated") not in ("integrated", "differential_pT"):
                     raise ValueError("mode coupling: integrated or differential_pT")
-                if record.get("chi_denominator") not in (None, "P4", "factorized"):
+                if record.get("chi_denominator") not in (None, "P4", "factorized", "poi"):
                     raise ValueError(f"mode coupling: chi_denominator {record.get('chi_denominator')!r} "
-                                     "(P4 | factorized)")
+                                     "(P4 | factorized | poi)")
             # Symmetry-plane correlations: the scalar-product method only (the
             # event-plane method depends on the detector's event-plane
             # resolution, which a model does not have); planes [(n, c)], two or
