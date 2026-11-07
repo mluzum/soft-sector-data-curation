@@ -1,0 +1,4231 @@
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: v2pt_PiP_3.2.yaml
+dv_index: 0
+hepdata_table_label: $p_{T}$ dependence of $v_{2}$ for $\pi^{+}$ in Au+Au collisions at 3.2 GeV
+collision_system:
+  energy_gev: 3.2
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.1274
+    max: 0.8726
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.1274).'
+particle_id:
+  species: pi+
+kinematic_range:
+  eta:
+    min: -1.1274
+    max: 0.8726
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.2
+    max: 1.6
+    bin_ranges:
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 2.0726
+    max: 4.9726
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.6726
+        max: 1.9726
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.1274
+        max: -0.1274
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.1274. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: differential_pT
+value_type: v2
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. v2(pT) of pi+, -0.5 < y < 0, relative to the first-order
+    EPD plane, Au+Au 3.2 GeV 10-40%; pT bins from the midpoints between the tabulated centres. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: v2pt_PiP_3.5.yaml
+dv_index: 0
+hepdata_table_label: $p_{T}$ dependence of $v_{2}$ for $\pi^{+}$ in Au+Au collisions at 3.5 GeV
+collision_system:
+  energy_gev: 3.5
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.2357
+    max: 0.7643
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.2357).'
+particle_id:
+  species: pi+
+kinematic_range:
+  eta:
+    min: -1.2357
+    max: 0.7643
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.2
+    max: 1.6
+    bin_ranges:
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.85
+    - - 0.85
+      - 1.2
+    - - 1.2
+      - 1.6
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 1.9643
+    max: 4.8643
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.5643
+        max: 1.8643
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.2357
+        max: -0.2357
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.2357. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: differential_pT
+value_type: v2
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. v2(pT) of pi+, -0.5 < y < 0, relative to the first-order
+    EPD plane, Au+Au 3.5 GeV 10-40%; pT bins from the midpoints between the tabulated centres. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: v2pt_PiP_3.9.yaml
+dv_index: 0
+hepdata_table_label: $p_{T}$ dependence of $v_{2}$ for $\pi^{+}$ in Au+Au collisions at 3.9 GeV
+collision_system:
+  energy_gev: 3.9
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.3614
+    max: 0.6386
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.3614).'
+particle_id:
+  species: pi+
+kinematic_range:
+  eta:
+    min: -1.3614
+    max: 0.6386
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.2
+    max: 1.6
+    bin_ranges:
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.85
+    - - 0.85
+      - 1.2
+    - - 1.2
+      - 1.6
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 1.8386
+    max: 4.7386
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.4386
+        max: 1.7386
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.3614
+        max: -0.3614
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.3614. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: differential_pT
+value_type: v2
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. v2(pT) of pi+, -0.5 < y < 0, relative to the first-order
+    EPD plane, Au+Au 3.9 GeV 10-40%; pT bins from the midpoints between the tabulated centres. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: v2pt_PiP_4.5.yaml
+dv_index: 0
+hepdata_table_label: $p_{T}$ dependence of $v_{2}$ for $\pi^{+}$ in Au+Au collisions at 4.5 GeV
+collision_system:
+  energy_gev: 4.5
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.5215
+    max: 0.4785
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.5215).'
+particle_id:
+  species: pi+
+kinematic_range:
+  eta:
+    min: -1.5215
+    max: 0.4785
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.2
+    max: 1.6
+    bin_ranges:
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 1.6785
+    max: 4.5785
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.2785
+        max: 1.5785
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.5215
+        max: -0.5215
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.5215. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: differential_pT
+value_type: v2
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. v2(pT) of pi+, -0.5 < y < 0, relative to the first-order
+    EPD plane, Au+Au 4.5 GeV 10-40%; pT bins from the midpoints between the tabulated centres. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: v2pt_PiM_3.2.yaml
+dv_index: 0
+hepdata_table_label: $p_{T}$ dependence of $v_{2}$ for $\pi^{-}$ in Au+Au collisions at 3.2 GeV
+collision_system:
+  energy_gev: 3.2
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.1274
+    max: 0.8726
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.1274).'
+particle_id:
+  species: pi-
+kinematic_range:
+  eta:
+    min: -1.1274
+    max: 0.8726
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.2
+    max: 1.6
+    bin_ranges:
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 2.0726
+    max: 4.9726
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.6726
+        max: 1.9726
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.1274
+        max: -0.1274
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.1274. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: differential_pT
+value_type: v2
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. v2(pT) of pi-, -0.5 < y < 0, relative to the first-order
+    EPD plane, Au+Au 3.2 GeV 10-40%; pT bins from the midpoints between the tabulated centres. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: v2pt_PiM_3.5.yaml
+dv_index: 0
+hepdata_table_label: $p_{T}$ dependence of $v_{2}$ for $\pi^{-}$ in Au+Au collisions at 3.5 GeV
+collision_system:
+  energy_gev: 3.5
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.2357
+    max: 0.7643
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.2357).'
+particle_id:
+  species: pi-
+kinematic_range:
+  eta:
+    min: -1.2357
+    max: 0.7643
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.2
+    max: 1.6
+    bin_ranges:
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.85
+    - - 0.85
+      - 1.2
+    - - 1.2
+      - 1.6
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 1.9643
+    max: 4.8643
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.5643
+        max: 1.8643
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.2357
+        max: -0.2357
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.2357. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: differential_pT
+value_type: v2
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. v2(pT) of pi-, -0.5 < y < 0, relative to the first-order
+    EPD plane, Au+Au 3.5 GeV 10-40%; pT bins from the midpoints between the tabulated centres. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: v2pt_PiM_3.9.yaml
+dv_index: 0
+hepdata_table_label: $p_{T}$ dependence of $v_{2}$ for $\pi^{-}$ in Au+Au collisions at 3.9 GeV
+collision_system:
+  energy_gev: 3.9
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.3614
+    max: 0.6386
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.3614).'
+particle_id:
+  species: pi-
+kinematic_range:
+  eta:
+    min: -1.3614
+    max: 0.6386
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.2
+    max: 1.6
+    bin_ranges:
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.85
+    - - 0.85
+      - 1.2
+    - - 1.2
+      - 1.6
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 1.8386
+    max: 4.7386
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.4386
+        max: 1.7386
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.3614
+        max: -0.3614
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.3614. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: differential_pT
+value_type: v2
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. v2(pT) of pi-, -0.5 < y < 0, relative to the first-order
+    EPD plane, Au+Au 3.9 GeV 10-40%; pT bins from the midpoints between the tabulated centres. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: v2pt_PiM_4.5.yaml
+dv_index: 0
+hepdata_table_label: $p_{T}$ dependence of $v_{2}$ for $\pi^{-}$ in Au+Au collisions at 4.5 GeV
+collision_system:
+  energy_gev: 4.5
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.5215
+    max: 0.4785
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.5215).'
+particle_id:
+  species: pi-
+kinematic_range:
+  eta:
+    min: -1.5215
+    max: 0.4785
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.2
+    max: 2.0
+    bin_ranges:
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 1.6785
+    max: 4.5785
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.2785
+        max: 1.5785
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.5215
+        max: -0.5215
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.5215. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: differential_pT
+value_type: v2
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. v2(pT) of pi-, -0.5 < y < 0, relative to the first-order
+    EPD plane, Au+Au 4.5 GeV 10-40%; pT bins from the midpoints between the tabulated centres. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: v2pt_KP_3.2.yaml
+dv_index: 0
+hepdata_table_label: $p_{T}$ dependence of $v_{2}$ for $K^{+}$ in Au+Au collisions at 3.2 GeV
+collision_system:
+  energy_gev: 3.2
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.1274
+    max: 0.8726
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.1274).'
+particle_id:
+  species: K+
+kinematic_range:
+  eta:
+    min: -1.1274
+    max: 0.8726
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.2
+    max: 1.6
+    bin_ranges:
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 2.0726
+    max: 4.9726
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.6726
+        max: 1.9726
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.1274
+        max: -0.1274
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.1274. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: differential_pT
+value_type: v2
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. v2(pT) of K+, -0.5 < y < 0, relative to the first-order
+    EPD plane, Au+Au 3.2 GeV 10-40%; pT bins from the midpoints between the tabulated centres. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: v2pt_KP_3.5.yaml
+dv_index: 0
+hepdata_table_label: $p_{T}$ dependence of $v_{2}$ for $K^{+}$ in Au+Au collisions at 3.5 GeV
+collision_system:
+  energy_gev: 3.5
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.2357
+    max: 0.7643
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.2357).'
+particle_id:
+  species: K+
+kinematic_range:
+  eta:
+    min: -1.2357
+    max: 0.7643
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.2
+    max: 1.6
+    bin_ranges:
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.85
+    - - 0.85
+      - 1.2
+    - - 1.2
+      - 1.6
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 1.9643
+    max: 4.8643
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.5643
+        max: 1.8643
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.2357
+        max: -0.2357
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.2357. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: differential_pT
+value_type: v2
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. v2(pT) of K+, -0.5 < y < 0, relative to the first-order
+    EPD plane, Au+Au 3.5 GeV 10-40%; pT bins from the midpoints between the tabulated centres. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: v2pt_KP_3.9.yaml
+dv_index: 0
+hepdata_table_label: $p_{T}$ dependence of $v_{2}$ for $K^{+}$ in Au+Au collisions at 3.9 GeV
+collision_system:
+  energy_gev: 3.9
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.3614
+    max: 0.6386
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.3614).'
+particle_id:
+  species: K+
+kinematic_range:
+  eta:
+    min: -1.3614
+    max: 0.6386
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.4
+    max: 1.6
+    bin_ranges:
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 1.8386
+    max: 4.7386
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.4386
+        max: 1.7386
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.3614
+        max: -0.3614
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.3614. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: differential_pT
+value_type: v2
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. v2(pT) of K+, -0.5 < y < 0, relative to the first-order
+    EPD plane, Au+Au 3.9 GeV 10-40%; pT bins from the midpoints between the tabulated centres. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: v2pt_KP_4.5.yaml
+dv_index: 0
+hepdata_table_label: $p_{T}$ dependence of $v_{2}$ for $K^{+}$ in Au+Au collisions at 4.5 GeV
+collision_system:
+  energy_gev: 4.5
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.5215
+    max: 0.4785
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.5215).'
+particle_id:
+  species: K+
+kinematic_range:
+  eta:
+    min: -1.5215
+    max: 0.4785
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.3
+    max: 1.5
+    bin_ranges:
+    - - 0.3
+      - 0.5
+    - - 0.5
+      - 0.7
+    - - 0.7
+      - 0.9
+    - - 0.9
+      - 1.1
+    - - 1.1
+      - 1.3
+    - - 1.3
+      - 1.5
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 1.6785
+    max: 4.5785
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.2785
+        max: 1.5785
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.5215
+        max: -0.5215
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.5215. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: differential_pT
+value_type: v2
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. v2(pT) of K+, -0.5 < y < 0, relative to the first-order
+    EPD plane, Au+Au 4.5 GeV 10-40%; pT bins from the midpoints between the tabulated centres. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: v2pt_KM_3.2.yaml
+dv_index: 0
+hepdata_table_label: $p_{T}$ dependence of $v_{2}$ for $K^{-}$ in Au+Au collisions at 3.2 GeV
+collision_system:
+  energy_gev: 3.2
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.1274
+    max: 0.8726
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.1274).'
+particle_id:
+  species: K-
+kinematic_range:
+  eta:
+    min: -1.1274
+    max: 0.8726
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.2
+    max: 1.6
+    bin_ranges:
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 2.0726
+    max: 4.9726
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.6726
+        max: 1.9726
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.1274
+        max: -0.1274
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.1274. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: differential_pT
+value_type: v2
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. v2(pT) of K-, -0.5 < y < 0, relative to the first-order
+    EPD plane, Au+Au 3.2 GeV 10-40%; pT bins from the midpoints between the tabulated centres. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: v2pt_KM_3.5.yaml
+dv_index: 0
+hepdata_table_label: $p_{T}$ dependence of $v_{2}$ for $K^{-}$ in Au+Au collisions at 3.5 GeV
+collision_system:
+  energy_gev: 3.5
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.2357
+    max: 0.7643
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.2357).'
+particle_id:
+  species: K-
+kinematic_range:
+  eta:
+    min: -1.2357
+    max: 0.7643
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.2
+    max: 1.6
+    bin_ranges:
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.85
+    - - 0.85
+      - 1.2
+    - - 1.2
+      - 1.6
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 1.9643
+    max: 4.8643
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.5643
+        max: 1.8643
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.2357
+        max: -0.2357
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.2357. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: differential_pT
+value_type: v2
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. v2(pT) of K-, -0.5 < y < 0, relative to the first-order
+    EPD plane, Au+Au 3.5 GeV 10-40%; pT bins from the midpoints between the tabulated centres. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: v2pt_KM_3.9.yaml
+dv_index: 0
+hepdata_table_label: $p_{T}$ dependence of $v_{2}$ for $K^{-}$ in Au+Au collisions at 3.9 GeV
+collision_system:
+  energy_gev: 3.9
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.3614
+    max: 0.6386
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.3614).'
+particle_id:
+  species: K-
+kinematic_range:
+  eta:
+    min: -1.3614
+    max: 0.6386
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.2
+    max: 1.4
+    bin_ranges:
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 1.8386
+    max: 4.7386
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.4386
+        max: 1.7386
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.3614
+        max: -0.3614
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.3614. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: differential_pT
+value_type: v2
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. v2(pT) of K-, -0.5 < y < 0, relative to the first-order
+    EPD plane, Au+Au 3.9 GeV 10-40%; pT bins from the midpoints between the tabulated centres. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: v2pt_KM_4.5.yaml
+dv_index: 0
+hepdata_table_label: $p_{T}$ dependence of $v_{2}$ for $K^{-}$ in Au+Au collisions at 4.5 GeV
+collision_system:
+  energy_gev: 4.5
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.5215
+    max: 0.4785
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.5215).'
+particle_id:
+  species: K-
+kinematic_range:
+  eta:
+    min: -1.5215
+    max: 0.4785
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.3
+    max: 1.1
+    bin_ranges:
+    - - 0.3
+      - 0.5
+    - - 0.5
+      - 0.7
+    - - 0.7
+      - 0.9
+    - - 0.9
+      - 1.1
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 1.6785
+    max: 4.5785
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.2785
+        max: 1.5785
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.5215
+        max: -0.5215
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.5215. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: differential_pT
+value_type: v2
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. v2(pT) of K-, -0.5 < y < 0, relative to the first-order
+    EPD plane, Au+Au 4.5 GeV 10-40%; pT bins from the midpoints between the tabulated centres. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: v2pt_K0S_3.2.yaml
+dv_index: 0
+hepdata_table_label: $p_{T}$ dependence of $v_{2}$ for $K^{0}_{S}$ in Au+Au collisions at 3.2 GeV
+collision_system:
+  energy_gev: 3.2
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.1274
+    max: 0.8726
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.1274).'
+particle_id:
+  species: K0_S
+kinematic_range:
+  eta:
+    min: -1.1274
+    max: 0.8726
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.25
+    max: 1.6
+    bin_ranges:
+    - - 0.25
+      - 0.45
+    - - 0.45
+      - 0.65
+    - - 0.65
+      - 0.85
+    - - 0.85
+      - 1.05
+    - - 1.05
+      - 1.3
+    - - 1.3
+      - 1.6
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 2.0726
+    max: 4.9726
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.6726
+        max: 1.9726
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.1274
+        max: -0.1274
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.1274. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: differential_pT
+value_type: v2
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. v2(pT) of K0_S, -0.5 < y < 0, relative to the first-order
+    EPD plane, Au+Au 3.2 GeV 10-40%; pT bins from the midpoints between the tabulated centres. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: v2pt_K0S_3.5.yaml
+dv_index: 0
+hepdata_table_label: $p_{T}$ dependence of $v_{2}$ for $K^{0}_{S}$ in Au+Au collisions at 3.5 GeV
+collision_system:
+  energy_gev: 3.5
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.2357
+    max: 0.7643
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.2357).'
+particle_id:
+  species: K0_S
+kinematic_range:
+  eta:
+    min: -1.2357
+    max: 0.7643
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.2
+    max: 1.55
+    bin_ranges:
+    - - 0.2
+      - 0.4
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.25
+    - - 1.25
+      - 1.55
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 1.9643
+    max: 4.8643
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.5643
+        max: 1.8643
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.2357
+        max: -0.2357
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.2357. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: differential_pT
+value_type: v2
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. v2(pT) of K0_S, -0.5 < y < 0, relative to the first-order
+    EPD plane, Au+Au 3.5 GeV 10-40%; pT bins from the midpoints between the tabulated centres. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: v2pt_K0S_3.9.yaml
+dv_index: 0
+hepdata_table_label: $p_{T}$ dependence of $v_{2}$ for $K^{0}_{S}$ in Au+Au collisions at 3.9 GeV
+collision_system:
+  energy_gev: 3.9
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.3614
+    max: 0.6386
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.3614).'
+particle_id:
+  species: K0_S
+kinematic_range:
+  eta:
+    min: -1.3614
+    max: 0.6386
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.35
+    max: 1.5
+    bin_ranges:
+    - - 0.35
+      - 0.55
+    - - 0.55
+      - 0.75
+    - - 0.75
+      - 0.95
+    - - 0.95
+      - 1.2
+    - - 1.2
+      - 1.5
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 1.8386
+    max: 4.7386
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.4386
+        max: 1.7386
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.3614
+        max: -0.3614
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.3614. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: differential_pT
+value_type: v2
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. v2(pT) of K0_S, -0.5 < y < 0, relative to the first-order
+    EPD plane, Au+Au 3.9 GeV 10-40%; pT bins from the midpoints between the tabulated centres. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: v2pt_K0S_4.5.yaml
+dv_index: 0
+hepdata_table_label: $p_{T}$ dependence of $v_{2}$ for $K^{0}_{S}$ in Au+Au collisions at 4.5 GeV
+collision_system:
+  energy_gev: 4.5
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.5215
+    max: 0.4785
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.5215).'
+particle_id:
+  species: K0_S
+kinematic_range:
+  eta:
+    min: -1.5215
+    max: 0.4785
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.25
+    max: 1.6
+    bin_ranges:
+    - - 0.25
+      - 0.45
+    - - 0.45
+      - 0.65
+    - - 0.65
+      - 0.85
+    - - 0.85
+      - 1.05
+    - - 1.05
+      - 1.3
+    - - 1.3
+      - 1.6
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 1.6785
+    max: 4.5785
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.2785
+        max: 1.5785
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.5215
+        max: -0.5215
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.5215. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: differential_pT
+value_type: v2
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. v2(pT) of K0_S, -0.5 < y < 0, relative to the first-order
+    EPD plane, Au+Au 4.5 GeV 10-40%; pT bins from the midpoints between the tabulated centres. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: v2pt_Proton_3.2.yaml
+dv_index: 0
+hepdata_table_label: $p_{T}$ dependence of $v_{2}$ for $p$ in Au+Au collisions at 3.2 GeV
+collision_system:
+  energy_gev: 3.2
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.1274
+    max: 0.8726
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.1274).'
+particle_id:
+  species: p
+kinematic_range:
+  eta:
+    min: -1.1274
+    max: 0.8726
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.4
+    max: 3.0
+    bin_ranges:
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.25
+    - - 2.25
+      - 2.6
+    - - 2.6
+      - 3.0
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 2.0726
+    max: 4.9726
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.6726
+        max: 1.9726
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.1274
+        max: -0.1274
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.1274. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: differential_pT
+value_type: v2
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. v2(pT) of p, -0.5 < y < 0, relative to the first-order
+    EPD plane, Au+Au 3.2 GeV 10-40%; pT bins from the midpoints between the tabulated centres. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: v2pt_Proton_3.5.yaml
+dv_index: 0
+hepdata_table_label: $p_{T}$ dependence of $v_{2}$ for $p$ in Au+Au collisions at 3.5 GeV
+collision_system:
+  energy_gev: 3.5
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.2357
+    max: 0.7643
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.2357).'
+particle_id:
+  species: p
+kinematic_range:
+  eta:
+    min: -1.2357
+    max: 0.7643
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.4
+    max: 2.8
+    bin_ranges:
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.2
+    - - 2.2
+      - 2.4
+    - - 2.4
+      - 2.6
+    - - 2.6
+      - 2.8
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 1.9643
+    max: 4.8643
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.5643
+        max: 1.8643
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.2357
+        max: -0.2357
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.2357. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: differential_pT
+value_type: v2
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. v2(pT) of p, -0.5 < y < 0, relative to the first-order
+    EPD plane, Au+Au 3.5 GeV 10-40%; pT bins from the midpoints between the tabulated centres. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: v2pt_Proton_3.9.yaml
+dv_index: 0
+hepdata_table_label: $p_{T}$ dependence of $v_{2}$ for $p$ in Au+Au collisions at 3.9 GeV
+collision_system:
+  energy_gev: 3.9
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.3614
+    max: 0.6386
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.3614).'
+particle_id:
+  species: p
+kinematic_range:
+  eta:
+    min: -1.3614
+    max: 0.6386
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.4
+    max: 2.0
+    bin_ranges:
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 1.8386
+    max: 4.7386
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.4386
+        max: 1.7386
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.3614
+        max: -0.3614
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.3614. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: differential_pT
+value_type: v2
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. v2(pT) of p, -0.5 < y < 0, relative to the first-order
+    EPD plane, Au+Au 3.9 GeV 10-40%; pT bins from the midpoints between the tabulated centres. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: v2pt_Proton_4.5.yaml
+dv_index: 0
+hepdata_table_label: $p_{T}$ dependence of $v_{2}$ for $p$ in Au+Au collisions at 4.5 GeV
+collision_system:
+  energy_gev: 4.5
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.5215
+    max: 0.4785
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.5215).'
+particle_id:
+  species: p
+kinematic_range:
+  eta:
+    min: -1.5215
+    max: 0.4785
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.4
+    max: 2.0
+    bin_ranges:
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.6
+    - - 1.6
+      - 1.8
+    - - 1.8
+      - 2.0
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 1.6785
+    max: 4.5785
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.2785
+        max: 1.5785
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.5215
+        max: -0.5215
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.5215. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: differential_pT
+value_type: v2
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. v2(pT) of p, -0.5 < y < 0, relative to the first-order
+    EPD plane, Au+Au 4.5 GeV 10-40%; pT bins from the midpoints between the tabulated centres. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: v2pt_Lambda_3.2.yaml
+dv_index: 0
+hepdata_table_label: $p_{T}$ dependence of $v_{2}$ for $\Lambda$ in Au+Au collisions at 3.2 GeV
+collision_system:
+  energy_gev: 3.2
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.1274
+    max: 0.8726
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.1274).'
+particle_id:
+  species: Lambda
+kinematic_range:
+  eta:
+    min: -1.1274
+    max: 0.8726
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.4
+    max: 2.475
+    bin_ranges:
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.2
+    - - 1.2
+      - 1.4
+    - - 1.4
+      - 1.65
+    - - 1.65
+      - 2.025
+    - - 2.025
+      - 2.475
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 2.0726
+    max: 4.9726
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.6726
+        max: 1.9726
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.1274
+        max: -0.1274
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.1274. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: differential_pT
+value_type: v2
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. v2(pT) of Lambda, -0.5 < y < 0, relative to the first-order
+    EPD plane, Au+Au 3.2 GeV 10-40%; pT bins from the midpoints between the tabulated centres. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: v2pt_Lambda_3.5.yaml
+dv_index: 0
+hepdata_table_label: $p_{T}$ dependence of $v_{2}$ for $\Lambda$ in Au+Au collisions at 3.5 GeV
+collision_system:
+  energy_gev: 3.5
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.2357
+    max: 0.7643
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.2357).'
+particle_id:
+  species: Lambda
+kinematic_range:
+  eta:
+    min: -1.2357
+    max: 0.7643
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.4
+    max: 2.475
+    bin_ranges:
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.25
+    - - 1.25
+      - 1.6
+    - - 1.6
+      - 2.025
+    - - 2.025
+      - 2.475
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 1.9643
+    max: 4.8643
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.5643
+        max: 1.8643
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.2357
+        max: -0.2357
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.2357. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: differential_pT
+value_type: v2
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. v2(pT) of Lambda, -0.5 < y < 0, relative to the first-order
+    EPD plane, Au+Au 3.5 GeV 10-40%; pT bins from the midpoints between the tabulated centres. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: v2pt_Lambda_3.9.yaml
+dv_index: 0
+hepdata_table_label: $p_{T}$ dependence of $v_{2}$ for $\Lambda$ in Au+Au collisions at 3.9 GeV
+collision_system:
+  energy_gev: 3.9
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.3614
+    max: 0.6386
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.3614).'
+particle_id:
+  species: Lambda
+kinematic_range:
+  eta:
+    min: -1.3614
+    max: 0.6386
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.4
+    max: 2.475
+    bin_ranges:
+    - - 0.4
+      - 0.6
+    - - 0.6
+      - 0.8
+    - - 0.8
+      - 1.0
+    - - 1.0
+      - 1.25
+    - - 1.25
+      - 1.6
+    - - 1.6
+      - 2.025
+    - - 2.025
+      - 2.475
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 1.8386
+    max: 4.7386
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.4386
+        max: 1.7386
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.3614
+        max: -0.3614
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.3614. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: differential_pT
+value_type: v2
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. v2(pT) of Lambda, -0.5 < y < 0, relative to the first-order
+    EPD plane, Au+Au 3.9 GeV 10-40%; pT bins from the midpoints between the tabulated centres. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: v2pt_Lambda_4.5.yaml
+dv_index: 0
+hepdata_table_label: $p_{T}$ dependence of $v_{2}$ for $\Lambda$ in Au+Au collisions at 4.5 GeV
+collision_system:
+  energy_gev: 4.5
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.5215
+    max: 0.4785
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.5215).'
+particle_id:
+  species: Lambda
+kinematic_range:
+  eta:
+    min: -1.5215
+    max: 0.4785
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.5
+    max: 2.95
+    bin_ranges:
+    - - 0.5
+      - 0.7
+    - - 0.7
+      - 0.9
+    - - 0.9
+      - 1.1
+    - - 1.1
+      - 1.325
+    - - 1.325
+      - 1.575
+    - - 1.575
+      - 1.8
+    - - 1.8
+      - 2.0
+    - - 2.0
+      - 2.225
+    - - 2.225
+      - 2.55
+    - - 2.55
+      - 2.95
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 1.6785
+    max: 4.5785
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.2785
+        max: 1.5785
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.5215
+        max: -0.5215
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.5215. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: differential_pT
+value_type: v2
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. v2(pT) of Lambda, -0.5 < y < 0, relative to the first-order
+    EPD plane, Au+Au 4.5 GeV 10-40%; pT bins from the midpoints between the tabulated centres. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: Fig4_a.yaml
+dv_index: 0
+hepdata_table_label: The energy dependence of $p_T$ integrated $v_2$ for $\pi^{\pm}$, $K^{\pm}$, $K^{0}_{S}$, $ (pi+, 3.2
+  GeV)
+collision_system:
+  energy_gev: 3.2
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.1274
+    max: 0.8726
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.1274).'
+particle_id:
+  species: pi+
+kinematic_range:
+  eta:
+    min: -1.1274
+    max: 0.8726
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.2
+    max: 1.6
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 2.0726
+    max: 4.9726
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.6726
+        max: 1.9726
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.1274
+        max: -0.1274
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.1274. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: integrated
+value_type: v2
+table_rows:
+- 1
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. pT-integrated v2 of pi+, 0.2 < pT < 1.6 GeV/c, -0.5 <
+    y < 0, relative to the first-order EPD plane, Au+Au 3.2 GeV 10-40%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: Fig4_a.yaml
+dv_index: 0
+hepdata_table_label: The energy dependence of $p_T$ integrated $v_2$ for $\pi^{\pm}$, $K^{\pm}$, $K^{0}_{S}$, $ (pi+, 3.5
+  GeV)
+collision_system:
+  energy_gev: 3.5
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.2357
+    max: 0.7643
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.2357).'
+particle_id:
+  species: pi+
+kinematic_range:
+  eta:
+    min: -1.2357
+    max: 0.7643
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.2
+    max: 1.6
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 1.9643
+    max: 4.8643
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.5643
+        max: 1.8643
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.2357
+        max: -0.2357
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.2357. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: integrated
+value_type: v2
+table_rows:
+- 2
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. pT-integrated v2 of pi+, 0.2 < pT < 1.6 GeV/c, -0.5 <
+    y < 0, relative to the first-order EPD plane, Au+Au 3.5 GeV 10-40%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: Fig4_a.yaml
+dv_index: 0
+hepdata_table_label: The energy dependence of $p_T$ integrated $v_2$ for $\pi^{\pm}$, $K^{\pm}$, $K^{0}_{S}$, $ (pi+, 3.9
+  GeV)
+collision_system:
+  energy_gev: 3.9
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.3614
+    max: 0.6386
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.3614).'
+particle_id:
+  species: pi+
+kinematic_range:
+  eta:
+    min: -1.3614
+    max: 0.6386
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.2
+    max: 1.6
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 1.8386
+    max: 4.7386
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.4386
+        max: 1.7386
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.3614
+        max: -0.3614
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.3614. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: integrated
+value_type: v2
+table_rows:
+- 3
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. pT-integrated v2 of pi+, 0.2 < pT < 1.6 GeV/c, -0.5 <
+    y < 0, relative to the first-order EPD plane, Au+Au 3.9 GeV 10-40%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: Fig4_a.yaml
+dv_index: 0
+hepdata_table_label: The energy dependence of $p_T$ integrated $v_2$ for $\pi^{\pm}$, $K^{\pm}$, $K^{0}_{S}$, $ (pi+, 4.5
+  GeV)
+collision_system:
+  energy_gev: 4.5
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.5215
+    max: 0.4785
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.5215).'
+particle_id:
+  species: pi+
+kinematic_range:
+  eta:
+    min: -1.5215
+    max: 0.4785
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.2
+    max: 1.6
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 1.6785
+    max: 4.5785
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.2785
+        max: 1.5785
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.5215
+        max: -0.5215
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.5215. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: integrated
+value_type: v2
+table_rows:
+- 4
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. pT-integrated v2 of pi+, 0.2 < pT < 1.6 GeV/c, -0.5 <
+    y < 0, relative to the first-order EPD plane, Au+Au 4.5 GeV 10-40%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: Fig4_a.yaml
+dv_index: 1
+hepdata_table_label: The energy dependence of $p_T$ integrated $v_2$ for $\pi^{\pm}$, $K^{\pm}$, $K^{0}_{S}$, $ (pi-, 3.2
+  GeV)
+collision_system:
+  energy_gev: 3.2
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.1274
+    max: 0.8726
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.1274).'
+particle_id:
+  species: pi-
+kinematic_range:
+  eta:
+    min: -1.1274
+    max: 0.8726
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.2
+    max: 1.6
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 2.0726
+    max: 4.9726
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.6726
+        max: 1.9726
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.1274
+        max: -0.1274
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.1274. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: integrated
+value_type: v2
+table_rows:
+- 1
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. pT-integrated v2 of pi-, 0.2 < pT < 1.6 GeV/c, -0.5 <
+    y < 0, relative to the first-order EPD plane, Au+Au 3.2 GeV 10-40%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: Fig4_a.yaml
+dv_index: 1
+hepdata_table_label: The energy dependence of $p_T$ integrated $v_2$ for $\pi^{\pm}$, $K^{\pm}$, $K^{0}_{S}$, $ (pi-, 3.5
+  GeV)
+collision_system:
+  energy_gev: 3.5
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.2357
+    max: 0.7643
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.2357).'
+particle_id:
+  species: pi-
+kinematic_range:
+  eta:
+    min: -1.2357
+    max: 0.7643
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.2
+    max: 1.6
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 1.9643
+    max: 4.8643
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.5643
+        max: 1.8643
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.2357
+        max: -0.2357
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.2357. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: integrated
+value_type: v2
+table_rows:
+- 2
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. pT-integrated v2 of pi-, 0.2 < pT < 1.6 GeV/c, -0.5 <
+    y < 0, relative to the first-order EPD plane, Au+Au 3.5 GeV 10-40%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: Fig4_a.yaml
+dv_index: 1
+hepdata_table_label: The energy dependence of $p_T$ integrated $v_2$ for $\pi^{\pm}$, $K^{\pm}$, $K^{0}_{S}$, $ (pi-, 3.9
+  GeV)
+collision_system:
+  energy_gev: 3.9
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.3614
+    max: 0.6386
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.3614).'
+particle_id:
+  species: pi-
+kinematic_range:
+  eta:
+    min: -1.3614
+    max: 0.6386
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.2
+    max: 1.6
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 1.8386
+    max: 4.7386
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.4386
+        max: 1.7386
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.3614
+        max: -0.3614
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.3614. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: integrated
+value_type: v2
+table_rows:
+- 3
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. pT-integrated v2 of pi-, 0.2 < pT < 1.6 GeV/c, -0.5 <
+    y < 0, relative to the first-order EPD plane, Au+Au 3.9 GeV 10-40%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: Fig4_a.yaml
+dv_index: 1
+hepdata_table_label: The energy dependence of $p_T$ integrated $v_2$ for $\pi^{\pm}$, $K^{\pm}$, $K^{0}_{S}$, $ (pi-, 4.5
+  GeV)
+collision_system:
+  energy_gev: 4.5
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.5215
+    max: 0.4785
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.5215).'
+particle_id:
+  species: pi-
+kinematic_range:
+  eta:
+    min: -1.5215
+    max: 0.4785
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.2
+    max: 1.6
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 1.6785
+    max: 4.5785
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.2785
+        max: 1.5785
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.5215
+        max: -0.5215
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.5215. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: integrated
+value_type: v2
+table_rows:
+- 4
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. pT-integrated v2 of pi-, 0.2 < pT < 1.6 GeV/c, -0.5 <
+    y < 0, relative to the first-order EPD plane, Au+Au 4.5 GeV 10-40%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: Fig4_a.yaml
+dv_index: 2
+hepdata_table_label: The energy dependence of $p_T$ integrated $v_2$ for $\pi^{\pm}$, $K^{\pm}$, $K^{0}_{S}$, $ (K+, 3.2 GeV)
+collision_system:
+  energy_gev: 3.2
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.1274
+    max: 0.8726
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.1274).'
+particle_id:
+  species: K+
+kinematic_range:
+  eta:
+    min: -1.1274
+    max: 0.8726
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.4
+    max: 1.6
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 2.0726
+    max: 4.9726
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.6726
+        max: 1.9726
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.1274
+        max: -0.1274
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.1274. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: integrated
+value_type: v2
+table_rows:
+- 1
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. pT-integrated v2 of K+, 0.4 < pT < 1.6 GeV/c, -0.5 <
+    y < 0, relative to the first-order EPD plane, Au+Au 3.2 GeV 10-40%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: Fig4_a.yaml
+dv_index: 2
+hepdata_table_label: The energy dependence of $p_T$ integrated $v_2$ for $\pi^{\pm}$, $K^{\pm}$, $K^{0}_{S}$, $ (K+, 3.5 GeV)
+collision_system:
+  energy_gev: 3.5
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.2357
+    max: 0.7643
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.2357).'
+particle_id:
+  species: K+
+kinematic_range:
+  eta:
+    min: -1.2357
+    max: 0.7643
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.4
+    max: 1.6
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 1.9643
+    max: 4.8643
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.5643
+        max: 1.8643
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.2357
+        max: -0.2357
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.2357. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: integrated
+value_type: v2
+table_rows:
+- 2
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. pT-integrated v2 of K+, 0.4 < pT < 1.6 GeV/c, -0.5 <
+    y < 0, relative to the first-order EPD plane, Au+Au 3.5 GeV 10-40%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: Fig4_a.yaml
+dv_index: 2
+hepdata_table_label: The energy dependence of $p_T$ integrated $v_2$ for $\pi^{\pm}$, $K^{\pm}$, $K^{0}_{S}$, $ (K+, 3.9 GeV)
+collision_system:
+  energy_gev: 3.9
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.3614
+    max: 0.6386
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.3614).'
+particle_id:
+  species: K+
+kinematic_range:
+  eta:
+    min: -1.3614
+    max: 0.6386
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.4
+    max: 1.6
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 1.8386
+    max: 4.7386
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.4386
+        max: 1.7386
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.3614
+        max: -0.3614
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.3614. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: integrated
+value_type: v2
+table_rows:
+- 3
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. pT-integrated v2 of K+, 0.4 < pT < 1.6 GeV/c, -0.5 <
+    y < 0, relative to the first-order EPD plane, Au+Au 3.9 GeV 10-40%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: Fig4_a.yaml
+dv_index: 2
+hepdata_table_label: The energy dependence of $p_T$ integrated $v_2$ for $\pi^{\pm}$, $K^{\pm}$, $K^{0}_{S}$, $ (K+, 4.5 GeV)
+collision_system:
+  energy_gev: 4.5
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.5215
+    max: 0.4785
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.5215).'
+particle_id:
+  species: K+
+kinematic_range:
+  eta:
+    min: -1.5215
+    max: 0.4785
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.4
+    max: 1.6
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 1.6785
+    max: 4.5785
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.2785
+        max: 1.5785
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.5215
+        max: -0.5215
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.5215. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: integrated
+value_type: v2
+table_rows:
+- 4
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. pT-integrated v2 of K+, 0.4 < pT < 1.6 GeV/c, -0.5 <
+    y < 0, relative to the first-order EPD plane, Au+Au 4.5 GeV 10-40%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: Fig4_a.yaml
+dv_index: 3
+hepdata_table_label: The energy dependence of $p_T$ integrated $v_2$ for $\pi^{\pm}$, $K^{\pm}$, $K^{0}_{S}$, $ (K-, 3.2 GeV)
+collision_system:
+  energy_gev: 3.2
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.1274
+    max: 0.8726
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.1274).'
+particle_id:
+  species: K-
+kinematic_range:
+  eta:
+    min: -1.1274
+    max: 0.8726
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.4
+    max: 1.6
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 2.0726
+    max: 4.9726
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.6726
+        max: 1.9726
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.1274
+        max: -0.1274
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.1274. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: integrated
+value_type: v2
+table_rows:
+- 1
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. pT-integrated v2 of K-, 0.4 < pT < 1.6 GeV/c, -0.5 <
+    y < 0, relative to the first-order EPD plane, Au+Au 3.2 GeV 10-40%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: Fig4_a.yaml
+dv_index: 3
+hepdata_table_label: The energy dependence of $p_T$ integrated $v_2$ for $\pi^{\pm}$, $K^{\pm}$, $K^{0}_{S}$, $ (K-, 3.5 GeV)
+collision_system:
+  energy_gev: 3.5
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.2357
+    max: 0.7643
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.2357).'
+particle_id:
+  species: K-
+kinematic_range:
+  eta:
+    min: -1.2357
+    max: 0.7643
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.4
+    max: 1.6
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 1.9643
+    max: 4.8643
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.5643
+        max: 1.8643
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.2357
+        max: -0.2357
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.2357. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: integrated
+value_type: v2
+table_rows:
+- 2
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. pT-integrated v2 of K-, 0.4 < pT < 1.6 GeV/c, -0.5 <
+    y < 0, relative to the first-order EPD plane, Au+Au 3.5 GeV 10-40%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: Fig4_a.yaml
+dv_index: 3
+hepdata_table_label: The energy dependence of $p_T$ integrated $v_2$ for $\pi^{\pm}$, $K^{\pm}$, $K^{0}_{S}$, $ (K-, 3.9 GeV)
+collision_system:
+  energy_gev: 3.9
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.3614
+    max: 0.6386
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.3614).'
+particle_id:
+  species: K-
+kinematic_range:
+  eta:
+    min: -1.3614
+    max: 0.6386
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.4
+    max: 1.6
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 1.8386
+    max: 4.7386
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.4386
+        max: 1.7386
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.3614
+        max: -0.3614
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.3614. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: integrated
+value_type: v2
+table_rows:
+- 3
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. pT-integrated v2 of K-, 0.4 < pT < 1.6 GeV/c, -0.5 <
+    y < 0, relative to the first-order EPD plane, Au+Au 3.9 GeV 10-40%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: Fig4_a.yaml
+dv_index: 3
+hepdata_table_label: The energy dependence of $p_T$ integrated $v_2$ for $\pi^{\pm}$, $K^{\pm}$, $K^{0}_{S}$, $ (K-, 4.5 GeV)
+collision_system:
+  energy_gev: 4.5
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.5215
+    max: 0.4785
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.5215).'
+particle_id:
+  species: K-
+kinematic_range:
+  eta:
+    min: -1.5215
+    max: 0.4785
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.4
+    max: 1.6
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 1.6785
+    max: 4.5785
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.2785
+        max: 1.5785
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.5215
+        max: -0.5215
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.5215. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: integrated
+value_type: v2
+table_rows:
+- 4
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. pT-integrated v2 of K-, 0.4 < pT < 1.6 GeV/c, -0.5 <
+    y < 0, relative to the first-order EPD plane, Au+Au 4.5 GeV 10-40%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: Fig4_a.yaml
+dv_index: 4
+hepdata_table_label: The energy dependence of $p_T$ integrated $v_2$ for $\pi^{\pm}$, $K^{\pm}$, $K^{0}_{S}$, $ (K0_S, 3.2
+  GeV)
+collision_system:
+  energy_gev: 3.2
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.1274
+    max: 0.8726
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.1274).'
+particle_id:
+  species: K0_S
+kinematic_range:
+  eta:
+    min: -1.1274
+    max: 0.8726
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.4
+    max: 1.6
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 2.0726
+    max: 4.9726
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.6726
+        max: 1.9726
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.1274
+        max: -0.1274
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.1274. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: integrated
+value_type: v2
+table_rows:
+- 1
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. pT-integrated v2 of K0_S, 0.4 < pT < 1.6 GeV/c, -0.5
+    < y < 0, relative to the first-order EPD plane, Au+Au 3.2 GeV 10-40%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: Fig4_a.yaml
+dv_index: 4
+hepdata_table_label: The energy dependence of $p_T$ integrated $v_2$ for $\pi^{\pm}$, $K^{\pm}$, $K^{0}_{S}$, $ (K0_S, 3.5
+  GeV)
+collision_system:
+  energy_gev: 3.5
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.2357
+    max: 0.7643
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.2357).'
+particle_id:
+  species: K0_S
+kinematic_range:
+  eta:
+    min: -1.2357
+    max: 0.7643
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.4
+    max: 1.6
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 1.9643
+    max: 4.8643
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.5643
+        max: 1.8643
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.2357
+        max: -0.2357
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.2357. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: integrated
+value_type: v2
+table_rows:
+- 2
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. pT-integrated v2 of K0_S, 0.4 < pT < 1.6 GeV/c, -0.5
+    < y < 0, relative to the first-order EPD plane, Au+Au 3.5 GeV 10-40%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: Fig4_a.yaml
+dv_index: 4
+hepdata_table_label: The energy dependence of $p_T$ integrated $v_2$ for $\pi^{\pm}$, $K^{\pm}$, $K^{0}_{S}$, $ (K0_S, 3.9
+  GeV)
+collision_system:
+  energy_gev: 3.9
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.3614
+    max: 0.6386
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.3614).'
+particle_id:
+  species: K0_S
+kinematic_range:
+  eta:
+    min: -1.3614
+    max: 0.6386
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.4
+    max: 1.6
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 1.8386
+    max: 4.7386
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.4386
+        max: 1.7386
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.3614
+        max: -0.3614
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.3614. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: integrated
+value_type: v2
+table_rows:
+- 3
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. pT-integrated v2 of K0_S, 0.4 < pT < 1.6 GeV/c, -0.5
+    < y < 0, relative to the first-order EPD plane, Au+Au 3.9 GeV 10-40%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: Fig4_a.yaml
+dv_index: 4
+hepdata_table_label: The energy dependence of $p_T$ integrated $v_2$ for $\pi^{\pm}$, $K^{\pm}$, $K^{0}_{S}$, $ (K0_S, 4.5
+  GeV)
+collision_system:
+  energy_gev: 4.5
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.5215
+    max: 0.4785
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.5215).'
+particle_id:
+  species: K0_S
+kinematic_range:
+  eta:
+    min: -1.5215
+    max: 0.4785
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.4
+    max: 1.6
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 1.6785
+    max: 4.5785
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.2785
+        max: 1.5785
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.5215
+        max: -0.5215
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.5215. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: integrated
+value_type: v2
+table_rows:
+- 4
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. pT-integrated v2 of K0_S, 0.4 < pT < 1.6 GeV/c, -0.5
+    < y < 0, relative to the first-order EPD plane, Au+Au 4.5 GeV 10-40%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: Fig4_a.yaml
+dv_index: 5
+hepdata_table_label: The energy dependence of $p_T$ integrated $v_2$ for $\pi^{\pm}$, $K^{\pm}$, $K^{0}_{S}$, $ (p, 3.2 GeV)
+collision_system:
+  energy_gev: 3.2
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.1274
+    max: 0.8726
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.1274).'
+particle_id:
+  species: p
+kinematic_range:
+  eta:
+    min: -1.1274
+    max: 0.8726
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.4
+    max: 2.0
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 2.0726
+    max: 4.9726
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.6726
+        max: 1.9726
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.1274
+        max: -0.1274
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.1274. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: integrated
+value_type: v2
+table_rows:
+- 1
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. pT-integrated v2 of p, 0.4 < pT < 2 GeV/c, -0.5 < y <
+    0, relative to the first-order EPD plane, Au+Au 3.2 GeV 10-40%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: Fig4_a.yaml
+dv_index: 5
+hepdata_table_label: The energy dependence of $p_T$ integrated $v_2$ for $\pi^{\pm}$, $K^{\pm}$, $K^{0}_{S}$, $ (p, 3.5 GeV)
+collision_system:
+  energy_gev: 3.5
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.2357
+    max: 0.7643
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.2357).'
+particle_id:
+  species: p
+kinematic_range:
+  eta:
+    min: -1.2357
+    max: 0.7643
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.4
+    max: 2.0
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 1.9643
+    max: 4.8643
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.5643
+        max: 1.8643
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.2357
+        max: -0.2357
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.2357. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: integrated
+value_type: v2
+table_rows:
+- 2
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. pT-integrated v2 of p, 0.4 < pT < 2 GeV/c, -0.5 < y <
+    0, relative to the first-order EPD plane, Au+Au 3.5 GeV 10-40%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: Fig4_a.yaml
+dv_index: 5
+hepdata_table_label: The energy dependence of $p_T$ integrated $v_2$ for $\pi^{\pm}$, $K^{\pm}$, $K^{0}_{S}$, $ (p, 3.9 GeV)
+collision_system:
+  energy_gev: 3.9
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.3614
+    max: 0.6386
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.3614).'
+particle_id:
+  species: p
+kinematic_range:
+  eta:
+    min: -1.3614
+    max: 0.6386
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.4
+    max: 2.0
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 1.8386
+    max: 4.7386
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.4386
+        max: 1.7386
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.3614
+        max: -0.3614
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.3614. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: integrated
+value_type: v2
+table_rows:
+- 3
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. pT-integrated v2 of p, 0.4 < pT < 2 GeV/c, -0.5 < y <
+    0, relative to the first-order EPD plane, Au+Au 3.9 GeV 10-40%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: Fig4_a.yaml
+dv_index: 5
+hepdata_table_label: The energy dependence of $p_T$ integrated $v_2$ for $\pi^{\pm}$, $K^{\pm}$, $K^{0}_{S}$, $ (p, 4.5 GeV)
+collision_system:
+  energy_gev: 4.5
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.5215
+    max: 0.4785
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.5215).'
+particle_id:
+  species: p
+kinematic_range:
+  eta:
+    min: -1.5215
+    max: 0.4785
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.4
+    max: 2.0
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 1.6785
+    max: 4.5785
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.2785
+        max: 1.5785
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.5215
+        max: -0.5215
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.5215. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: integrated
+value_type: v2
+table_rows:
+- 4
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. pT-integrated v2 of p, 0.4 < pT < 2 GeV/c, -0.5 < y <
+    0, relative to the first-order EPD plane, Au+Au 4.5 GeV 10-40%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: Fig4_a.yaml
+dv_index: 6
+hepdata_table_label: The energy dependence of $p_T$ integrated $v_2$ for $\pi^{\pm}$, $K^{\pm}$, $K^{0}_{S}$, $ (Lambda, 3.2
+  GeV)
+collision_system:
+  energy_gev: 3.2
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.1274
+    max: 0.8726
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.1274).'
+particle_id:
+  species: Lambda
+kinematic_range:
+  eta:
+    min: -1.1274
+    max: 0.8726
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.4
+    max: 2.0
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 2.0726
+    max: 4.9726
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.6726
+        max: 1.9726
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.1274
+        max: -0.1274
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.1274. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: integrated
+value_type: v2
+table_rows:
+- 1
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. pT-integrated v2 of Lambda, 0.4 < pT < 2 GeV/c, -0.5
+    < y < 0, relative to the first-order EPD plane, Au+Au 3.2 GeV 10-40%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: Fig4_a.yaml
+dv_index: 6
+hepdata_table_label: The energy dependence of $p_T$ integrated $v_2$ for $\pi^{\pm}$, $K^{\pm}$, $K^{0}_{S}$, $ (Lambda, 3.5
+  GeV)
+collision_system:
+  energy_gev: 3.5
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.2357
+    max: 0.7643
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.2357).'
+particle_id:
+  species: Lambda
+kinematic_range:
+  eta:
+    min: -1.2357
+    max: 0.7643
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.4
+    max: 2.0
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 1.9643
+    max: 4.8643
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.5643
+        max: 1.8643
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.2357
+        max: -0.2357
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.2357. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: integrated
+value_type: v2
+table_rows:
+- 2
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. pT-integrated v2 of Lambda, 0.4 < pT < 2 GeV/c, -0.5
+    < y < 0, relative to the first-order EPD plane, Au+Au 3.5 GeV 10-40%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: Fig4_a.yaml
+dv_index: 6
+hepdata_table_label: The energy dependence of $p_T$ integrated $v_2$ for $\pi^{\pm}$, $K^{\pm}$, $K^{0}_{S}$, $ (Lambda, 3.9
+  GeV)
+collision_system:
+  energy_gev: 3.9
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.3614
+    max: 0.6386
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.3614).'
+particle_id:
+  species: Lambda
+kinematic_range:
+  eta:
+    min: -1.3614
+    max: 0.6386
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.4
+    max: 2.0
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 1.8386
+    max: 4.7386
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.4386
+        max: 1.7386
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.3614
+        max: -0.3614
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.3614. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: integrated
+value_type: v2
+table_rows:
+- 3
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. pT-integrated v2 of Lambda, 0.4 < pT < 2 GeV/c, -0.5
+    < y < 0, relative to the first-order EPD plane, Au+Au 3.9 GeV 10-40%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2907591'
+version: 1
+hepdata_file: Fig4_a.yaml
+dv_index: 6
+hepdata_table_label: The energy dependence of $p_T$ integrated $v_2$ for $\pi^{\pm}$, $K^{\pm}$, $K^{0}_{S}$, $ (Lambda, 4.5
+  GeV)
+collision_system:
+  energy_gev: 4.5
+  reaction: AU AU --> X
+centrality:
+  classes:
+  - 10-40%
+  estimator:
+    name: FXTMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -1.5215
+    max: 0.4785
+  notes: 'TPC charged multiplicity, 0 < eta_lab < 2 (centre-of-mass: shifted by y_beam = 1.5215).'
+particle_id:
+  species: Lambda
+kinematic_range:
+  eta:
+    min: -1.5215
+    max: 0.4785
+  y:
+    min: -0.5
+    max: 0.0
+  pT:
+    min: 0.4
+    max: 2.0
+harmonic: 2
+method: event_plane
+flow_reference:
+  harmonic: 1
+  detector: EPD
+  eta:
+  - min: 1.6785
+    max: 4.5785
+  pT:
+    min: 0.0
+    max: 100.0
+  resolution_subevents:
+    B:
+      eta:
+      - min: 1.2785
+        max: 1.5785
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -1.5215
+        max: -0.5215
+      pT:
+        min: 0.2
+        max: 2.0
+  notes: First-order plane from the EPD at 3.2 < eta_lab < 6.1, resolution from three subevents (eta_lab [3.2, 6.1], [2.8,
+    3.1], TPC [0, 1.0]); windows in the centre-of-mass frame, eta_cm = eta_lab - y_beam, y_beam = 1.5215. TPC subevent pT
+    0.2-2 GeV/c assumed (not stated); event-plane weights not modelled.
+dimensionality: integrated
+value_type: v2
+table_rows:
+- 4
+notes:
+  value: 'STAR, PRL (2025), doi:10.1103/2qhx-cp79, arXiv:2504.02531. pT-integrated v2 of Lambda, 0.4 < pT < 2 GeV/c, -0.5
+    < y < 0, relative to the first-order EPD plane, Au+Au 4.5 GeV 10-40%. Errors: stat and sys.'
