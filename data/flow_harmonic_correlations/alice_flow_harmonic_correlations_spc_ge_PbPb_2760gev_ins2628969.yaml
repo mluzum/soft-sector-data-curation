@@ -1,0 +1,492 @@
+observable_type: flow_harmonic_correlations
+inspire_id: '2628969'
+version: 1
+hepdata_file: data1.yaml
+dv_index: 0
+hepdata_table_label: 'Table 1: Centrality dependence of $\langle \cos[4(\Psi_{4}-\Psi_{2})]\rangle_{\mathrm{GE}}$ in Pb--Pb
+  collisions at $\sqrt{s_{\rm NN}} = 2.76$ TeV.'
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  estimator:
+    name: CL1
+    observable: Nch
+    detector: SPD
+  eta:
+  - min: -1.4
+    max: 1.4
+  notes: 'the SPD (the paper: "estimated with the SPD"); curated as CL1, clusters in the outer SPD layer, |eta_lab| < 1.4.'
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 5.0
+observable: SPC_4+1_2-2
+correlation_type: plane_correlation
+harmonics:
+- 4
+- 2
+planes:
+- harmonic: 4
+  coefficient: 1
+- harmonic: 2
+  coefficient: -2
+estimator: GE
+dimensionality: integrated
+value_type: $\langle \cos[4(\Psi_{4}-\Psi_{2})]\rangle_{\mathrm{GE}}$
+notes:
+  value: 'S. Acharya et al. (ALICE), EPJC 83 (2023) 576, arXiv:2302.01234. <cos[4Psi_4 - 4Psi_2]>_GE = sqrt(pi/4) <prod v^a
+    cos(...)> / sqrt(<prod v^2a>) (Eq. 4), 3- and 6-particle correlators of charged particles |eta| < 0.8, 0.2 < pT < 5.0
+    GeV/c (all distinct particles, no eta gap). Errors: stat and sys.'
+---
+observable_type: flow_harmonic_correlations
+inspire_id: '2628969'
+version: 1
+hepdata_file: data2.yaml
+dv_index: 0
+hepdata_table_label: 'Table 2: Centrality dependence of $\langle \cos[6(\Psi_{6}-\Psi_{3})]\rangle_{\mathrm{GE}}$ in Pb--Pb
+  collisions at $\sqrt{s_{\rm NN}} = 2.76$ TeV.'
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  estimator:
+    name: CL1
+    observable: Nch
+    detector: SPD
+  eta:
+  - min: -1.4
+    max: 1.4
+  notes: 'the SPD (the paper: "estimated with the SPD"); curated as CL1, clusters in the outer SPD layer, |eta_lab| < 1.4.'
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 5.0
+observable: SPC_6+1_3-2
+correlation_type: plane_correlation
+harmonics:
+- 6
+- 3
+planes:
+- harmonic: 6
+  coefficient: 1
+- harmonic: 3
+  coefficient: -2
+estimator: GE
+dimensionality: integrated
+value_type: $\langle \cos[6(\Psi_{6}-\Psi_{3})]\rangle_{\mathrm{GE}}$
+notes:
+  value: 'S. Acharya et al. (ALICE), EPJC 83 (2023) 576, arXiv:2302.01234. <cos[6Psi_6 - 6Psi_3]>_GE = sqrt(pi/4) <prod v^a
+    cos(...)> / sqrt(<prod v^2a>) (Eq. 4), 3- and 6-particle correlators of charged particles |eta| < 0.8, 0.2 < pT < 5.0
+    GeV/c (all distinct particles, no eta gap). Errors: stat and sys.'
+---
+observable_type: flow_harmonic_correlations
+inspire_id: '2628969'
+version: 1
+hepdata_file: data3.yaml
+dv_index: 0
+hepdata_table_label: 'Table 3: Centrality dependence of $\langle \cos[6(\Psi_{2}-\Psi_{3})]\rangle_{\mathrm{GE}}$ in Pb--Pb
+  collisions at $\sqrt{s_{\rm NN}} = 2.76$ TeV.'
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  estimator:
+    name: CL1
+    observable: Nch
+    detector: SPD
+  eta:
+  - min: -1.4
+    max: 1.4
+  notes: 'the SPD (the paper: "estimated with the SPD"); curated as CL1, clusters in the outer SPD layer, |eta_lab| < 1.4.'
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 5.0
+observable: SPC_2+3_3-2
+correlation_type: plane_correlation
+harmonics:
+- 2
+- 3
+planes:
+- harmonic: 2
+  coefficient: 3
+- harmonic: 3
+  coefficient: -2
+estimator: GE
+dimensionality: integrated
+value_type: $\langle \cos[6(\Psi_{2}-\Psi_{3})]\rangle_{\mathrm{GE}}$
+notes:
+  value: 'S. Acharya et al. (ALICE), EPJC 83 (2023) 576, arXiv:2302.01234. <cos[6Psi_2 - 6Psi_3]>_GE = sqrt(pi/4) <prod v^a
+    cos(...)> / sqrt(<prod v^2a>) (Eq. 4), 5- and 10-particle correlators of charged particles |eta| < 0.8, 0.2 < pT < 5.0
+    GeV/c (all distinct particles, no eta gap). Errors: stat and sys.'
+---
+observable_type: flow_harmonic_correlations
+inspire_id: '2628969'
+version: 1
+hepdata_file: data4.yaml
+dv_index: 0
+hepdata_table_label: 'Table 4: Centrality dependence of $\langle \cos[6(\Psi_{6}-\Psi_{2})]\rangle_{\mathrm{GE}}$ in Pb--Pb
+  collisions at $\sqrt{s_{\rm NN}} = 2.76$ TeV.'
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  estimator:
+    name: CL1
+    observable: Nch
+    detector: SPD
+  eta:
+  - min: -1.4
+    max: 1.4
+  notes: 'the SPD (the paper: "estimated with the SPD"); curated as CL1, clusters in the outer SPD layer, |eta_lab| < 1.4.'
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 5.0
+observable: SPC_6+1_2-3
+correlation_type: plane_correlation
+harmonics:
+- 6
+- 2
+planes:
+- harmonic: 6
+  coefficient: 1
+- harmonic: 2
+  coefficient: -3
+estimator: GE
+dimensionality: integrated
+value_type: $\langle \cos[6(\Psi_{6}-\Psi_{2})]\rangle_{\mathrm{GE}}$
+notes:
+  value: 'S. Acharya et al. (ALICE), EPJC 83 (2023) 576, arXiv:2302.01234. <cos[6Psi_6 - 6Psi_2]>_GE = sqrt(pi/4) <prod v^a
+    cos(...)> / sqrt(<prod v^2a>) (Eq. 4), 4- and 8-particle correlators of charged particles |eta| < 0.8, 0.2 < pT < 5.0
+    GeV/c (all distinct particles, no eta gap). Errors: stat and sys.'
+---
+observable_type: flow_harmonic_correlations
+inspire_id: '2628969'
+version: 1
+hepdata_file: data5.yaml
+dv_index: 0
+hepdata_table_label: 'Table 5: Centrality dependence of $\langle \cos[2\Psi_{2}+3\Psi_{3}-5\Psi_{5}]\rangle_{\mathrm{GE}}$
+  in Pb--Pb collisions at $\sqrt{s_{\rm NN}} = 2.76$ TeV.'
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  estimator:
+    name: CL1
+    observable: Nch
+    detector: SPD
+  eta:
+  - min: -1.4
+    max: 1.4
+  notes: 'the SPD (the paper: "estimated with the SPD"); curated as CL1, clusters in the outer SPD layer, |eta_lab| < 1.4.'
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 5.0
+observable: SPC_2+1_3+1_5-1
+correlation_type: plane_correlation
+harmonics:
+- 2
+- 3
+- 5
+planes:
+- harmonic: 2
+  coefficient: 1
+- harmonic: 3
+  coefficient: 1
+- harmonic: 5
+  coefficient: -1
+estimator: GE
+dimensionality: integrated
+value_type: $\langle \cos[2\Psi_{2}+3\Psi_{3}-5\Psi_{5}]\rangle_{\mathrm{GE}}$
+notes:
+  value: 'S. Acharya et al. (ALICE), EPJC 83 (2023) 576, arXiv:2302.01234. <cos[2Psi_2 + 3Psi_3 - 5Psi_5]>_GE = sqrt(pi/4)
+    <prod v^a cos(...)> / sqrt(<prod v^2a>) (Eq. 4), 3- and 6-particle correlators of charged particles |eta| < 0.8, 0.2 <
+    pT < 5.0 GeV/c (all distinct particles, no eta gap). Errors: stat and sys.'
+---
+observable_type: flow_harmonic_correlations
+inspire_id: '2628969'
+version: 1
+hepdata_file: data6.yaml
+dv_index: 0
+hepdata_table_label: 'Table 6: Centrality dependence of $\langle \cos[2\Psi_{2}+4\Psi_{4}-6\Psi_{6}]\rangle_{\mathrm{GE}}$
+  in Pb--Pb collisions at $\sqrt{s_{\rm NN}} = 2.76$ TeV.'
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  estimator:
+    name: CL1
+    observable: Nch
+    detector: SPD
+  eta:
+  - min: -1.4
+    max: 1.4
+  notes: 'the SPD (the paper: "estimated with the SPD"); curated as CL1, clusters in the outer SPD layer, |eta_lab| < 1.4.'
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 5.0
+observable: SPC_2+1_4+1_6-1
+correlation_type: plane_correlation
+harmonics:
+- 2
+- 4
+- 6
+planes:
+- harmonic: 2
+  coefficient: 1
+- harmonic: 4
+  coefficient: 1
+- harmonic: 6
+  coefficient: -1
+estimator: GE
+dimensionality: integrated
+value_type: $\langle \cos[2\Psi_{2}+4\Psi_{4}-6\Psi_{6}]\rangle_{\mathrm{GE}}$
+notes:
+  value: 'S. Acharya et al. (ALICE), EPJC 83 (2023) 576, arXiv:2302.01234. <cos[2Psi_2 + 4Psi_4 - 6Psi_6]>_GE = sqrt(pi/4)
+    <prod v^a cos(...)> / sqrt(<prod v^2a>) (Eq. 4), 3- and 6-particle correlators of charged particles |eta| < 0.8, 0.2 <
+    pT < 5.0 GeV/c (all distinct particles, no eta gap). Errors: stat and sys.'
+---
+observable_type: flow_harmonic_correlations
+inspire_id: '2628969'
+version: 1
+hepdata_file: data7.yaml
+dv_index: 0
+hepdata_table_label: 'Table 7: Centrality dependence of $\langle \cos[8\Psi_{2}-3\Psi_{3}-5\Psi_{5}]\rangle_{\mathrm{GE}}$
+  in Pb--Pb collisions at $\sqrt{s_{\rm NN}} = 2.76$ TeV.'
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  estimator:
+    name: CL1
+    observable: Nch
+    detector: SPD
+  eta:
+  - min: -1.4
+    max: 1.4
+  notes: 'the SPD (the paper: "estimated with the SPD"); curated as CL1, clusters in the outer SPD layer, |eta_lab| < 1.4.'
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 5.0
+observable: SPC_2+4_3-1_5-1
+correlation_type: plane_correlation
+harmonics:
+- 2
+- 3
+- 5
+planes:
+- harmonic: 2
+  coefficient: 4
+- harmonic: 3
+  coefficient: -1
+- harmonic: 5
+  coefficient: -1
+estimator: GE
+dimensionality: integrated
+value_type: $\langle \cos[8\Psi_{2}-3\Psi_{3}-5\Psi_{5}]\rangle_{\mathrm{GE}}$
+notes:
+  value: 'S. Acharya et al. (ALICE), EPJC 83 (2023) 576, arXiv:2302.01234. <cos[8Psi_2 - 3Psi_3 - 5Psi_5]>_GE = sqrt(pi/4)
+    <prod v^a cos(...)> / sqrt(<prod v^2a>) (Eq. 4), 6- and 12-particle correlators of charged particles |eta| < 0.8, 0.2
+    < pT < 5.0 GeV/c (all distinct particles, no eta gap). Errors: stat and sys.'
+---
+observable_type: flow_harmonic_correlations
+inspire_id: '2628969'
+version: 1
+hepdata_file: data8.yaml
+dv_index: 0
+hepdata_table_label: 'Table 8: Centrality dependence of $\langle \cos[2\Psi_{2}-6\Psi_{3}+4\Psi_{4}]\rangle_{\mathrm{GE}}$
+  in Pb--Pb collisions at $\sqrt{s_{\rm NN}} = 2.76$ TeV.'
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  estimator:
+    name: CL1
+    observable: Nch
+    detector: SPD
+  eta:
+  - min: -1.4
+    max: 1.4
+  notes: 'the SPD (the paper: "estimated with the SPD"); curated as CL1, clusters in the outer SPD layer, |eta_lab| < 1.4.'
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 5.0
+observable: SPC_2+1_3-2_4+1
+correlation_type: plane_correlation
+harmonics:
+- 2
+- 3
+- 4
+planes:
+- harmonic: 2
+  coefficient: 1
+- harmonic: 3
+  coefficient: -2
+- harmonic: 4
+  coefficient: 1
+estimator: GE
+dimensionality: integrated
+value_type: $\langle \cos[2\Psi_{2}-6\Psi_{3}+4\Psi_{4}]\rangle_{\mathrm{GE}}$
+notes:
+  value: 'S. Acharya et al. (ALICE), EPJC 83 (2023) 576, arXiv:2302.01234. <cos[2Psi_2 - 6Psi_3 + 4Psi_4]>_GE = sqrt(pi/4)
+    <prod v^a cos(...)> / sqrt(<prod v^2a>) (Eq. 4), 4- and 8-particle correlators of charged particles |eta| < 0.8, 0.2 <
+    pT < 5.0 GeV/c (all distinct particles, no eta gap). Errors: stat and sys.'
+---
+observable_type: flow_harmonic_correlations
+inspire_id: '2628969'
+version: 1
+hepdata_file: data9.yaml
+dv_index: 0
+hepdata_table_label: 'Table 9: Centrality dependence of $\langle \cos[2\Psi_{2}-3\Psi_{3}-4\Psi_{4}+5\Psi_{5}]\rangle_{\mathrm{GE}}$
+  in Pb--Pb collisions at $\sqrt{s_{\rm NN}} = 2.76$ TeV.'
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  estimator:
+    name: CL1
+    observable: Nch
+    detector: SPD
+  eta:
+  - min: -1.4
+    max: 1.4
+  notes: 'the SPD (the paper: "estimated with the SPD"); curated as CL1, clusters in the outer SPD layer, |eta_lab| < 1.4.'
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 5.0
+observable: SPC_2+1_3-1_4-1_5+1
+correlation_type: plane_correlation
+harmonics:
+- 2
+- 3
+- 4
+- 5
+planes:
+- harmonic: 2
+  coefficient: 1
+- harmonic: 3
+  coefficient: -1
+- harmonic: 4
+  coefficient: -1
+- harmonic: 5
+  coefficient: 1
+estimator: GE
+dimensionality: integrated
+value_type: $\langle \cos[2\Psi_{2}-3\Psi_{3}-4\Psi_{4}+5\Psi_{5}]\rangle_{\mathrm{GE}}$
+notes:
+  value: 'S. Acharya et al. (ALICE), EPJC 83 (2023) 576, arXiv:2302.01234. <cos[2Psi_2 - 3Psi_3 - 4Psi_4 + 5Psi_5]>_GE = sqrt(pi/4)
+    <prod v^a cos(...)> / sqrt(<prod v^2a>) (Eq. 4), 4- and 8-particle correlators of charged particles |eta| < 0.8, 0.2 <
+    pT < 5.0 GeV/c (all distinct particles, no eta gap). Errors: stat and sys.'
