@@ -74,7 +74,7 @@ optional_fields:
     type: string
     required: false
     allowed: [C, v_inclusive, v_mode_coupled, v_linear, chi, rho, v_ratio, r, A_f, M_f, angle_lower_limit,
-              magnitude_upper_limit, r_nn]
+              magnitude_upper_limit, r_nn, T_n]
     description: >
       mode_coupling (harmonics [k, n, m], k = n + m): C = <<cos(k phi_1 - n
       phi_2 - m phi_3)>>; v_inclusive = v_k{2}; v_mode_coupled = C /
@@ -97,7 +97,14 @@ optional_fields:
       v_n{2}/v_n[2]; r = r_n(pT_a, pT_trigger); A_f, M_f (ALICE Eqs. 10,
       14); angle_lower_limit = sqrt((A_f + 1)/2); magnitude_upper_limit =
       v_ratio / sqrt((A_f + 1)/2).  longitudinal_decorrelation: r_nn (see
-      decorrelation_reference).
+      decorrelation_reference), or T_n, the four-plane correlator
+      T_n{ba; dc} = <<sin n(phi_b - Psi_a) sin n(Psi_d - phi_c)>> /
+      (<cos n(phi_b - Psi_a)><cos n(Psi_d - phi_c)>) (STAR 2928639, Eqs.
+      17-19, particle level; dimensionality integrated): b, c the record's
+      |eta| window at negative and positive eta, a, d the
+      decorrelation_reference at -|eta_ref| and +|eta_ref|, as flow vectors
+      (the scalar-product analog, the event-plane result at low resolution
+      of a and d).
     example: chi
   chi_denominator:
     type: string
@@ -115,7 +122,7 @@ optional_fields:
     type: object
     required: false
     description: >
-      longitudinal_decorrelation (quantity r_nn): the reference window
+      longitudinal_decorrelation (quantity r_nn or T_n): the reference window
       {eta: {min, max}} in |eta| (both signs) and its pT; r_{n|n}(eta) =
       <<cos n(phi(-eta) - phi_ref)>> / <<cos n(phi(eta) - phi_ref)>>, the POI
       in the record's |eta| bins, both orientations pooled

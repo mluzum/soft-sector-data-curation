@@ -829,13 +829,21 @@ def resolve(record):
             # pT-dependent flow-vector fluctuations (ALICE 2771093): one
             # harmonic, pT bins, the correlators each quantity needs
             # (analysis.flow_vector_fluct).
+            # T_n{ba; dc} (STAR's four-plane correlator, particle level): one
+            # |eta| window (b, c) and the reference (a, d), key tn_four_plane.
             if entry.get("compute") == "rnn_decorrelation":
-                if record.get("quantity") != "r_nn":
-                    raise ValueError(f"longitudinal decorrelation: quantity {record.get('quantity')!r} (r_nn: the "
-                                     "opposite- over same-side correlation; others not computed)")
+                q = record.get("quantity")
+                if q not in ("r_nn", "T_n"):
+                    raise ValueError(f"longitudinal decorrelation: quantity {q!r} (r_nn: the opposite- over "
+                                     "same-side correlation; T_n: the four-plane correlator; others not computed)")
                 if len(record.get("harmonics") or []) != 1:
-                    raise ValueError("r_{n|n}: one harmonic")
-                if record.get("dimensionality") != "differential_eta":
+                    raise ValueError(f"{q}: one harmonic")
+                if q == "T_n":
+                    if record.get("dimensionality", "integrated") != "integrated":
+                        raise ValueError("T_n: dimensionality integrated (one |eta| window)")
+                    entry = dict(entry)
+                    entry["compute"] = "tn_four_plane"
+                elif record.get("dimensionality") != "differential_eta":
                     raise ValueError("r_{n|n}: dimensionality differential_eta (|eta| bins)")
             if entry.get("compute") == "flow_vector_fluct":
                 from analysis.flow_vector_fluct import QUANTITIES, needs

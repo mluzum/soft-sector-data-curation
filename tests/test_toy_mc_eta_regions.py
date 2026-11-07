@@ -7,7 +7,11 @@ eta (ToyGenConfig.plane_eta_twist), on 3D grids (windows on cell edges):
     expectation from the generated flow vectors (the same correlators with
     each e^{i n phi} replaced by v_n e^{i n Psi_n(eta)}), and r_{2|2} falls
     below 1 with |eta|;
-  - without the twist r_{2|2} = 1 and v_2{2}(eta) = sqrt(<v_2^2>), 2D and 3D;
+  - the four-plane correlator T_2{ba; dc} (STAR's particle level, scalar-
+    product analog) equals its expectation from the generated flow
+    vectors, and is positive for a twist (all four planes turn one way);
+  - without the twist r_{2|2} = 1, T_2 = 0 and v_2{2}(eta) = sqrt(<v_2^2>),
+    2D and 3D;
   - a bin without a reference segment is refused.
 Run: python3 tests/test_toy_mc_eta_regions.py
 """
@@ -70,13 +74,28 @@ def rec_rnn():
             'centrality': {'classes': ['0-100%'], 'eta': [{'min': -4.0, 'max': 4.0}]}}
 
 
+TN_ETA, TN_REF = (0.2, 1.0), (2.0, 3.4)
+
+
+def rec_tn():
+    return {'observable_type': 'flow_harmonic_correlations', 'correlation_type': 'longitudinal_decorrelation',
+            'quantity': 'T_n', 'harmonics': [2], 'value_type': 'T_2', 'hepdata_file': 'toy.yaml',
+            'inspire_id': '0', 'version': 1, 'particle_id': {'species': 'charged'},
+            'kinematic_range': {'eta': {'min': TN_ETA[0], 'max': TN_ETA[1]}, 'pT': {'min': 0.0, 'max': 100.0}},
+            'decorrelation_reference': {'eta': {'min': TN_REF[0], 'max': TN_REF[1]}, 'pT': {'min': 0.0, 'max': 100.0}},
+            'centrality': {'classes': ['0-100%'], 'eta': [{'min': -4.0, 'max': 4.0}]}}
+
+
 def run(r, kind, twist, jk=True):
     c = _fx(twist)[kind]
     return evaluate(r, qv=c, cent_method='simple', with_jackknife=jk) if kind == '2d' else \
         evaluate(r, grid=c, cent_method='simple', with_jackknife=jk)
 
 
-def _expected(fx, which, n=2):
+def _expected(fx, which, n=2, particles=False):
+    """The record's correlators with each e^{i n phi} replaced by the
+    generated flow vector v_n e^{i n Psi_n(eta)} (particles: the particles'
+    own e^{i n phi}, an exact sum on windows on cell edges)."""
     tr = fx['truth']
     acc = {}
 
@@ -87,7 +106,7 @@ def _expected(fx, which, n=2):
         eta = ev['eta']
         v = tr['vn_ebe'][n][e]
         psi = tr['psi'][n][e] + (tr['plane_eta_twist'][n][e] * eta if n in tr['plane_eta_twist'] else 0.0)
-        u = v * np.exp(1j * n * psi)
+        u = np.exp(1j * n * ev['phi']) if particles else v * np.exp(1j * n * psi)
 
         def s(lo, hi):
             m = (eta >= lo) & (eta < hi)
@@ -95,7 +114,16 @@ def _expected(fx, which, n=2):
 
         def two(a, b):    # disjoint windows
             return np.real(a[0] * np.conj(b[0])), a[1] * b[1]
-        if which == 'rnn':
+        if which == 'tn':     # four disjoint windows: products of sums are distinct tuples
+            qa, qb = s(-TN_REF[1], -TN_REF[0]), s(-TN_ETA[1], -TN_ETA[0])
+            qc, qd = s(*TN_ETA), s(*TN_REF)
+            cj = np.conj
+            add('f1', np.real(qb[0] * qc[0] * cj(qa[0]) * cj(qd[0])), qa[1] * qb[1] * qc[1] * qd[1])
+            add('f2', np.real(qb[0] * cj(qc[0]) * cj(qa[0]) * qd[0]), qa[1] * qb[1] * qc[1] * qd[1])
+            for k, (x, y) in {'bd': (qb, qd), 'ac': (qa, qc), 'ad': (qa, qd), 'bc': (qb, qc),
+                              'ba': (qb, qa), 'dc': (qd, qc)}.items():
+                add(k, *two(x, y))
+        elif which == 'rnn':
             yn, yp = s(-REF[1], -REF[0]), s(*REF)
             for b, (lo, hi) in enumerate(ABS_BINS):
                 pp, pm = s(lo, hi), s(-hi, -lo)
@@ -113,6 +141,9 @@ def _expected(fx, which, n=2):
 
     def a(k):
         return acc[k] / acc['W' + k]
+    if which == 'tn':
+        return np.array([(0.5 * (a('f1') - a('f2')) - 0.5 * a('bd') * a('ac') + 0.5 * a('ad') * a('bc'))
+                         / (a('ba') * a('dc'))])
     if which == 'rnn':
         return np.array([a(f'o{b}') / a(f's{b}') for b in range(len(ABS_BINS))])
     return np.array([a(f'n{b}') / np.sqrt(a(f'x{b}')) for b in range(len(BINS))])
@@ -122,6 +153,15 @@ def test_dispatch():
     check('v2{2}(eta) with partner regions dispatches to vn2_eta_partner',
           resolve(rec_vn())['compute'] == 'vn2_eta_partner')
     check('r_nn dispatches to rnn_decorrelation', resolve(rec_rnn())['compute'] == 'rnn_decorrelation')
+    check('T_n dispatches to tn_four_plane', resolve(rec_tn())['compute'] == 'tn_four_plane')
+    r = rec_tn()
+    r['decorrelation_reference'] = {'eta': {'min': 0.6, 'max': 3.0}}
+    try:
+        run(r, '3d', 0.0, jk=False)
+        ok = False
+    except ValueError:
+        ok = True
+    check('T_n with a reference overlapping the |eta| window is refused', ok)
     r = rec_vn()
     r['flow_reference'] = {'segments': SEGMENTS[:1]}
     try:
@@ -143,10 +183,24 @@ def test_expectation_3d():
     check('3D r_2|2 falls with |eta|', v[-1] < v[0] and v[-1] < 1 - 3 * e[-1], f'{v.round(4)}')
 
 
+def test_tn_3d():
+    fx = _fx(0.15)
+    v, e = run(rec_tn(), '3d', 0.15)
+    exact = _expected(fx, 'tn', particles=True)
+    check('3D T_2{ba; dc} = the explicit sum over particle quadruplets and pairs',
+          np.all(np.abs(v - exact) < 1e-6 * (1 + np.abs(exact))), f'{v.round(6)} vs {exact.round(6)}')
+    want = _expected(fx, 'tn')
+    check('3D T_2{ba; dc} = expectation from the generated flow vectors', np.all(np.abs(v - want) < 3 * e),
+          f'{v.round(4)} +- {e.round(4)} vs {want.round(4)}')
+    check('3D T_2 > 0 for a twist (S-shaped)', v[0] > 3 * e[0], f'{v.round(4)} +- {e.round(4)}')
+
+
 def test_no_twist():
     for kind in ('3d', '2d'):
         v, e = run(rec_rnn(), kind, 0.0)
         check(f'{kind}: r_2|2 = 1 without decorrelation', np.all(np.abs(v - 1) < 3 * e + 0.01), f'{v.round(4)}')
+        v, e = run(rec_tn(), kind, 0.0)
+        check(f'{kind}: T_2 = 0 without decorrelation', np.all(np.abs(v) < 3 * e + 0.01), f'{v.round(4)} +- {e.round(4)}')
         v, e = run(rec_vn(), kind, 0.0)
         rms = np.sqrt(np.mean(_fx(0.0)['truth']['vn_ebe'][2] ** 2))
         check(f'{kind}: v2{{2}}(eta) = sqrt(<v2^2>) = {rms:.4f} without decorrelation',

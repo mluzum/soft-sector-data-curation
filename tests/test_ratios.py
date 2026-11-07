@@ -16,7 +16,9 @@ divided by its pT-integrated yield in every replicate (side_normalization;
 the range need not start at the first bin): values and errors equal a
 direct computation from the run's replicates, a ratio of a side with itself
 is exactly 1 with zero error, a ratio's scale multiplies it, and a
-normalization range across a bin is refused.
+normalization range across a bin is refused.  A system_combination record
+(combination: mean) is the mean of its two sides, with the joint
+jackknife's error (independent samples: about the quadrature mean).
 
 Run: python3 tests/test_ratios.py
 """
@@ -82,6 +84,12 @@ def test_unit():
           np.allclose(corr, 1) and np.allclose(err, 0))
     corr, err, _ = joint_jackknife(nf, np.tile(nf, (10, 1)), df, np.tile(df, (10, 1)))
     check("constant replicates: plain ratio", np.allclose(corr, 0.5) and np.allclose(err, 0))
+    rep_d = df + 0.01 * rng.normal(size=(10, 2))
+    corr, err, _ = joint_jackknife(nf, rep_n, df, rep_d, mean=[True, False])
+    r1 = 0.5 * (rep_n[:, 0] + rep_d[:, 0])
+    check("mean rows: (num + den) / 2 and the jackknife of the replicates' means, other rows ratios",
+          np.isclose(corr[0], 3.0) and np.isclose(corr[1], 0.5)
+          and np.isclose(err[0], np.sqrt(0.9 * np.sum((r1 - r1.mean()) ** 2))))
     check("label key drops the record tag",
           label_key("vn2_single 20-30% [v2{2}/fig4_left]#2 ~NO-REF") == "vn2_single 20-30%")
     try:
@@ -210,6 +218,9 @@ def test_pipeline():
                                  value_table="prelim_table.yaml", centrality=copy.deepcopy(v2[2]["centrality"]))
         published.pop("hepdata_file")
         recs = [prelim, published, ratio_record("v2_ratio", v2, v2),
+                ratio_record("v2_mean", v2, v2, ratio_type="system_combination", combination="mean"),
+                ratio_record("v2_mean_scaled", v2, v2, ratio_type="system_combination", combination="mean",
+                             scale=2.0),
                 ratio_record("v2pt_ratio_coarse", v2pt, v2pt, centrality=v2pt[2]["centrality"],
                              kinematic_range={"eta": v2pt[2]["kinematic_range"].get("eta"),
                                               "pT": {"min": b[0][0], "max": b[2][1], "bin_ranges": coarse_pt}}),
@@ -238,6 +249,7 @@ def test_pipeline():
         check("detector-level side without efficiency_cancels skipped",
               "skip nch_ratio_detector: detector-level side" in r.stdout)
         check("spectator-plane side skipped", "skip spectator_ratio" in r.stdout and "spectator plane" in r.stdout)
+        check("system_combination with a scale skipped", "skip v2_mean_scaled: system_combination" in r.stdout)
         with h5py.File(self_out, "r") as f:
             g = f["ratios"]
             labels = [x.decode() for x in g["labels"][:]]
@@ -266,10 +278,16 @@ def test_pipeline():
               "skip v2_ratio_points: side with point-valued centrality" in r.stdout)
         check(f"coarse-class ratio computed at its own class {coarse} ({os.path.basename(v2c[0])})",
               sorted(l.split()[-1] for l in labels if l.startswith("v2_ratio_coarse")) == coarse)
+        is_mean = np.array([l.startswith("v2_mean |") for l in labels])
+        with h5py.File(self_out, "r") as f:
+            nv_self = f["ratios"]["numerator_values"][:]
+        check(f"system_combination of a sample with itself is the sample ({int(is_mean.sum())} classes)",
+              is_mean.sum() > 0 and np.allclose(v[is_mean], nv_self[is_mean], rtol=1e-12))
+        side_ok &= ~is_mean
         check(f"self-ratio (same sample both sides) is exactly 1 with zero error ({int(side_ok.sum())} "
-              f"observables; {int((~side_ok).sum())} empty toy bins NaN on both sides)",
+              f"observables; {int((~side_ok).sum()) - int(is_mean.sum())} empty toy bins NaN on both sides)",
               side_ok.sum() > 0 and np.allclose(v[side_ok], 1, atol=1e-12) and np.allclose(e[side_ok], 0, atol=1e-12)
-              and np.all(np.isnan(v[~side_ok])))
+              and np.all(np.isnan(v[~side_ok & ~is_mean])))
 
         ind_out = os.path.join(tmp, "ind.h5")
         r = run(0, 1, ind_out)
@@ -311,7 +329,15 @@ def test_pipeline():
         nd = {k: (x, s) for k, x, s in n_err}
         dd = {k: (x, s) for k, x, s in d_err}
         with h5py.File(ind_out, "r") as f:
-            labels = [x.decode().split(" | ", 1)[1] for x in f["ratios"]["labels"][:]]
+            full = [x.decode() for x in f["ratios"]["labels"][:]]
+        is_mean = np.array([l.startswith("v2_mean |") for l in full])
+        labels = [l.split(" | ", 1)[1] for l in full]
+        quad = np.array([0.5 * np.hypot(nd[k][1], dd[k][1]) for k in labels])
+        check(f"independent: system_combination = (numerator + denominator) / 2 ({int(is_mean.sum())} classes), "
+              f"error about the quadrature mean (median ratio {np.median(e[is_mean] / quad[is_mean]):.2f})",
+              is_mean.sum() >= 3 and np.allclose(v[is_mean], 0.5 * (nv[is_mean] + dv[is_mean]), rtol=1e-12)
+              and 0.7 < np.median(e[is_mean] / quad[is_mean]) < 1.4)
+        ok &= ~is_mean
         prop = np.array([abs(nd[k][0] / dd[k][0]) * np.hypot(nd[k][1] / nd[k][0], dd[k][1] / dd[k][0])
                          for k in labels])
         # Linear error propagation holds only where both sides are well measured;

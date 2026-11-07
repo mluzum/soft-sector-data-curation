@@ -173,10 +173,19 @@ Fields that change dispatch:
   (key rnn_decorrelation): r_{n|n}(eta) = opposite- over same-side
   correlation with `decorrelation_reference` at +-|eta_ref|, both
   orientations pooled.  Distinct particles, pair-count event weights; on 2D
-  containers r = 1.  ToyGenConfig.plane_eta_twist turns Psi_n with eta;
+  containers r = 1.  `quantity: T_n` (key tn_four_plane; STAR 2928639's
+  four-plane correlator, particle level, Eqs. 17-19): T_n{ba; dc} =
+  <<sin n(phi_b - Psi_a) sin n(Psi_d - phi_c)>> / (<cos n(phi_b -
+  Psi_a)><cos n(Psi_d - phi_c)>), b, c the record's |eta| window at -/+,
+  a, d the decorrelation_reference at -/+|eta_ref|; the scalar-product
+  analog (each e^{i n Psi} the window's flow vector: the event-plane result
+  at low resolution of a and d, whose normalization cancels), tuple-count
+  event weights, mirror-symmetric, zero without decorrelation (2D).
+  ToyGenConfig.plane_eta_twist turns Psi_n with eta;
   tests/test_toy_mc_eta_regions.py (3D: both equal the correlators of the
-  generated flow vectors, r falls with |eta|; r = 1 and v = sqrt(<v^2>)
-  without the twist, 2D and 3D).
+  generated flow vectors, r falls with |eta|; T_2 equals the explicit
+  quadruplet and pair sums and is positive for a twist; r = 1, T_2 = 0 and
+  v = sqrt(<v^2>) without the twist, 2D and 3D).
 - Three sets of two-particle correlations (`method: three_subevent_2pc`,
   key vn_3x2pc, analysis/three_sub_2pc.py; ALICE 2848254, PHENIX's 3x2PC):
   v_n(POI) = sqrt(c(POI, B) c(POI, C) / c(B, C)), the reference regions in
@@ -275,7 +284,15 @@ Fields that change dispatch:
   tests/test_ratios.py.  Particle ratios within one system link two
   species' records the same way (ALICE 1244523 K/pi, p/pi vs pT and
   integrated); a ratio's `scale` multiplies it (Lambda/K0S =
-  (Lambda + Lambdabar) / (2 K0S): 0.5).
+  (Lambda + Lambdabar) / (2 K0S): 0.5).  `ratio_type: system_combination`
+  (`combination: mean`) is no ratio: one observable over two systems
+  combined (STAR's "Ru+Ru and Zr+Zr combined": 2928639's T_n and r_n), the
+  mean of its two linked records, each on its own system's simulation set,
+  in the same joint jackknife (`joint_jackknife(..., mean=)`); its values
+  in the record, the per-system sides value-less when not published
+  (`experimental_values: false`).  The mean stands for the pooled events of
+  two samples of about equal size (to second order in the systems'
+  difference for a ratio of correlators); tests/test_ratios.py.
 - Flow-[pT] correlations (`observable_type: flow_pT_correlations`, key
   `rho_vn2_pT`, analysis/flow_pt.py): value_type `rho_n`, rho(v_n^2,
   [pT]) = cov_n / sqrt(var(v_n^2) c_k), `cov_n` (GeV), or

@@ -13,6 +13,15 @@ function of two means; for samples whose events are paired (common random
 numbers, same event order, or the same events) it also captures their
 correlation.
 
+A record of ratio_type system_combination (`combination: mean`) is no
+ratio: it is one observable over two collision systems combined (STAR's
+"Ru+Ru and Zr+Zr combined"), the mean of its two linked records, each
+computed on its own system's simulation set, with the same joint jackknife
+(joint_jackknife's `mean` rows).  The mean of the two systems' values
+stands for the measurement on the pooled events: equal for a mean over
+events of equal size samples, and to second order in the difference
+between the systems for a ratio of correlators.
+
 Within one system (ratio_type centrality_ratio / rapidity_ratio) a ratio
 may fix the denominator's class (`denominator_class`: ATLAS O+O spectra in
 each class over 70-80%) and normalize each side's spectrum by its
@@ -247,20 +256,23 @@ def label_key(label):
     return str(label).split(' [')[0].strip()
 
 
-def joint_jackknife(num_full, num_rep, den_full, den_rep):
+def joint_jackknife(num_full, num_rep, den_full, den_rep, mean=None):
     """Ratio of the full-sample estimates, errors and covariance from paired
     delete-one-block replicates (no bias correction, as in run_pipeline).
 
     num_full, den_full: (n,) full-sample estimates; num_rep, den_rep:
     (n_blocks, n) replicates with block k removed.  Both sides must use the
-    same number of blocks.
+    same number of blocks.  mean: (n,) bool, the rows that are the mean of
+    the two sides instead of their ratio (system_combination records).
     """
     num_rep, den_rep = np.atleast_2d(num_rep), np.atleast_2d(den_rep)
     if num_rep.shape != den_rep.shape:
         raise ValueError(f'replicate shapes differ: {num_rep.shape} vs {den_rep.shape}')
+    nf, df = np.asarray(num_full, float), np.asarray(den_full, float)
+    m = np.zeros(nf.shape, bool) if mean is None else np.asarray(mean, bool)
     with np.errstate(divide='ignore', invalid='ignore'):
-        r_hat = np.asarray(num_full, float) / np.asarray(den_full, float)
-        r_i = num_rep / den_rep
+        r_hat = np.where(m, 0.5 * (nf + df), nf / df)
+        r_i = np.where(m, 0.5 * (num_rep + den_rep), num_rep / den_rep)
     nb = r_i.shape[0]
     with np.errstate(invalid='ignore'):            # a side without particles: NaN, kept
         mean = r_i.mean(axis=0)

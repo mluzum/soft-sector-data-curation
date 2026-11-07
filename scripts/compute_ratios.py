@@ -39,6 +39,11 @@ numerator_values / denominator_values are then the normalized sides.  A
 ratio's `scale` multiplies numerator / denominator (ALICE's Lambda/K0S,
 (Lambda + Lambdabar) / (2 K0S): 0.5).
 
+A record of ratio_type system_combination (`combination: mean`; STAR's
+"Ru+Ru and Zr+Zr combined") is the mean of its two linked records, the
+numerator side on the numerator set and the denominator side on the
+denominator set, with the same joint jackknife (analysis/ratios.py).
+
 Output (HDF5, group "ratios"): values, errors, covariance, labels
 ("<ratio value_type> | <quantity>"), exp_values, exp_errors (the ratio
 record's points aligned by centrality class and, for a ratio vs pT or
@@ -239,6 +244,12 @@ def main():
         if not (r.get("numerator_record") and r.get("denominator_record")):
             skipped.append((r.get("value_type"), "no numerator/denominator records linked"))
             continue
+        if r.get("ratio_type") == "system_combination" and (
+                r.get("combination") != "mean"
+                or any(r.get(k) for k in ("scale", "side_normalization", "denominator_class"))):
+            skipped.append((r.get("value_type"), "system_combination: combination mean, without scale, "
+                                                 "side_normalization or denominator_class"))
+            continue
         if r.get("status") == "preliminary" and not a.include_preliminary:
             skipped.append((r.get("value_type"), "preliminary (--include-preliminary to compute it)"))
             continue
@@ -307,9 +318,12 @@ def main():
             df.append(d_side[dk][0]); dr.append(d_side[dk][1]); dv.append(d_side[dk][2])
             x = exp.get(exp_key(k, bool(var)), (np.nan, np.nan))
             ev.append(x[0]); ee.append(x[1])
-    # a ratio record's scale (ALICE Lambda/K0S = (Lambda + Lambdabar) / (2 K0S): 0.5)
+    # a ratio record's scale (ALICE Lambda/K0S = (Lambda + Lambdabar) / (2 K0S): 0.5); a
+    # system_combination record's mean of its sides
     sc = np.array([float(ratios[i][1].get("scale") or 1.0) for i in rec_idx])
-    corr, err, cov = joint_jackknife(np.array(nf) * sc, np.array(nr).T * sc, np.array(df), np.array(dr).T)
+    mean = np.array([ratios[i][1].get("ratio_type") == "system_combination" for i in rec_idx], bool)
+    corr, err, cov = joint_jackknife(np.array(nf) * sc, np.array(nr).T * sc, np.array(df), np.array(dr).T,
+                                     mean=mean)
 
     with h5py.File(a.output, "w") as h:
         g = h.create_group("ratios")

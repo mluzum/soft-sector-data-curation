@@ -2362,6 +2362,59 @@ def _prepare_rnn(kind):
     return prepare
 
 
+def _prepare_tn(kind):
+    def prepare(container, params):
+        """T_n{ba; dc} (analysis.eta_regions.core_tn): a, d the
+        decorrelation reference at -|eta_ref| and +|eta_ref|, b, c the
+        record's |eta| window at negative and positive eta."""
+        from analysis.eta_regions import TN_TERMS
+        from analysis.flow_pt import distinct
+        harms = [int(h) for h in (params.get('harmonics') or [])]
+        if len(harms) != 1:
+            raise ValueError("T_n: one harmonic")
+        n = harms[0]
+        ref = params.get('decorrelation_reference') or {}
+        r_eta = ref.get('eta') or {}
+        r_lo, r_hi = float(r_eta['min']), float(r_eta['max'])
+        r_pt = ref.get('pT') or {}
+        r_pt = (float(r_pt.get('min', 0.0)), float(r_pt.get('max', 100.0)))
+        single = params.get('single_range') or {}
+        eta, pt = single.get('eta'), tuple(single.get('pT') or (0.0, 100.0))
+        if not eta or None in tuple(eta) or float(eta[0]) < 0 or r_lo < 0:
+            raise ValueError("T_n: kinematic_range.eta and decorrelation_reference.eta in |eta| (non-negative)")
+        lo, hi = float(eta[0]), float(eta[1])
+        if r_lo < hi:
+            raise ValueError("T_n: the reference windows must lie beyond the record's |eta| window")
+        windows = {'a': ([(-r_hi, -r_lo)], r_pt), 'b': ([(-hi, -lo)], pt),
+                   'c': ([(lo, hi)], pt), 'd': ([(r_lo, r_hi)], r_pt)}
+        S = _eta_region_cellsums(container, kind, windows)
+        if n >= S.H:
+            raise ValueError(f"T_{n}: harmonic {n} not stored")
+        members = {'f1': (('b', n), ('c', n), ('a', -n), ('d', -n)),
+                   'f2': (('b', n), ('c', -n), ('a', -n), ('d', n)),
+                   'bd': (('b', n), ('d', -n)), 'ac': (('a', n), ('c', -n)),
+                   'ad': (('a', n), ('d', -n)), 'bc': (('b', n), ('c', -n)),
+                   'ba': (('b', n), ('a', -n)), 'dc': (('d', n), ('c', -n))}
+        out, counts = {}, {}
+        for k in TN_TERMS:
+            m = members[k]
+            out[k] = np.real(distinct(S, [(x, h, 0) for x, h in m]))[:, None]
+            key = tuple(sorted(x for x, _ in m))
+            if key not in counts:
+                counts[key] = np.real(distinct(S, [(x, 0, 0) for x in key]))[:, None]
+            out['c' + k] = counts[key]
+        if S.missing:       # 2D only: disjoint 3D windows have no coincidences
+            print(f"  note: harmonics {sorted(S.missing)} not stored; their coincidence terms dropped")
+        return out
+    prepare.__name__ = f'prepare_tn_{kind}'
+    return prepare
+
+
+def _wrap_tn(data, w):
+    from analysis.eta_regions import core_tn
+    return core_tn(data, w)
+
+
 def _wrap_vn2_partner(data, w):
     from analysis.eta_regions import core_vn2
     return core_vn2(data, w)
@@ -4034,6 +4087,13 @@ PIPELINE_DISPATCH = {
         "n_obs_per_cent": None,
         "description": "r_{n|n}(eta): opposite- over same-side correlation with a reference at +-|eta_ref|",
     },
+    "tn_four_plane": {
+        "core_fn": _wrap_tn,
+        "prepare_data_2d": _prepare_tn('2d'),
+        "prepare_data_3d": _prepare_tn('3d'),
+        "n_obs_per_cent": None,
+        "description": "T_n{ba; dc}: four-plane correlator, scalar-product analog (STAR, particle level)",
+    },
     "vn_3x2pc": {
         "core_fn": _wrap_vn_3x2pc,
         "prepare_data_2d": prepare_vn_3x2pc_2d,
@@ -4225,7 +4285,7 @@ SINGLE_ROW_KEYS = frozenset({
     'spectra_invariant_yield', 'dET_deta', 'sc_mn', 'nac_mn', 'radial_flow',
     'vn_cumulant_combination', 'v1_even_factorization', 'rho_vn2_pT', 'mode_coupling',
     'plane_corr_sp', 'plane_corr_ge', 'flow_vector_fluct', 'vn_mixed_plane', 'vn2_eta_partner', 'rnn_decorrelation',
-    'vn_3x2pc',
+    'tn_four_plane', 'vn_3x2pc',
 })
 
 
