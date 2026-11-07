@@ -189,7 +189,10 @@ optional_fields:
     description: >
       NSC: the <v_n^2> of the denominator from two-particle correlations
       between the two halves of the window separated by this gap (ALICE:
-      |Delta eta| > 1).  Absent: from the same particles as SC.
+      |Delta eta| > 1).  Absent: from the same particles as SC.  A
+      symmetric cumulant with `particles: AB` and `subevents` A, B (ALICE
+      2825785) has every term across the subevents (<<m, n | -m, -n>>,
+      <<m | -m>>, <<n | -n>>) and no normalization gap.
     example: 1.0
   estimator:
     type: string

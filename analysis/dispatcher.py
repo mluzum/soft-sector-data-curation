@@ -505,7 +505,7 @@ def reference_status(record):
 
 # ── combinations of cumulant orders (v_n{6}/v_n{4}, differences, gamma1) ──
 
-COMBINATION_KINDS = {'ratio': 2, 'difference': 2, 'gamma1': 3}
+COMBINATION_KINDS = {'ratio': 2, 'difference': 2, 'gamma1': 3, 'mean_flow': 2, 'flow_fluctuation': 2}
 COMBINATION_ENTRY = {
     'compute': 'vn_cumulant_combination',
     'requires': [],
@@ -519,7 +519,10 @@ def combination_terms(record):
 
     ``cumulant_combination``: kind ratio (v{a}/v{b}) | difference (v{a} -
     v{b}) | gamma1 (-6 sqrt2 v{4}^2 (v{4} - v{6}) / (v{2}^2 - v{4}^2)^{3/2},
-    orders [2, 4, 6]); ``orders``; optional ``scale`` (a factor on the
+    orders [2, 4, 6]) | mean_flow (<v_n> = sqrt((v{2}^2 + v{4}^2) / 2)) |
+    flow_fluctuation (sigma_{v_n} = sqrt((v{2}^2 - v{4}^2) / 2)), both orders
+    [2, 4] (ALICE 2825785 Eq. 6: v{2}^2 = <v>^2 + sigma^2, v{4}^2 = <v>^2 -
+    sigma^2), signed squares and signed roots; ``orders``; optional ``scale`` (a factor on the
     result, e.g. 1/11); optional ``two_particle``: {particles, subevents,
     eta_gap, flow_reference} for the v{2} term (ALICE's gamma1 uses v2{2,
     |Delta eta| > 1}; CMS's 2PC v{2} its own associated-pT reference);
@@ -542,14 +545,16 @@ def combination_terms(record):
         raise ValueError(f"cumulant_combination {kind}: orders {orders} (orders 2, 4, 6, 8)")
     if kind == 'gamma1' and orders != [2, 4, 6]:
         raise ValueError("cumulant_combination gamma1 takes orders [2, 4, 6]")
+    if kind in ('mean_flow', 'flow_fluctuation') and orders != [2, 4]:
+        raise ValueError(f"cumulant_combination {kind} takes orders [2, 4]")
     if record.get('dimensionality', 'integrated') != 'integrated':
         raise ValueError("cumulant_combination is implemented for integrated records")
     harmonics = comb.get('harmonics')
     if harmonics is None:
         harmonics = [int(record.get('harmonic', 2))] * len(orders)
     else:
-        if kind == 'gamma1':
-            raise ValueError("cumulant_combination gamma1 takes the record's harmonic")
+        if kind in ('gamma1', 'mean_flow', 'flow_fluctuation'):
+            raise ValueError(f"cumulant_combination {kind} takes the record's harmonic")
         harmonics = [int(h) for h in harmonics]
         if len(harmonics) != len(orders) or any(not 1 <= h <= 10 for h in harmonics):
             raise ValueError(f"cumulant_combination harmonics {harmonics}: one per order, 1-10")
@@ -792,6 +797,9 @@ def resolve(record):
                                      f"is implemented")
                 if "normalized" not in record:
                     raise ValueError("symmetric_cumulant record needs 'normalized' (true: NSC, false: SC)")
+                if record.get("particles") not in (None, "AB"):
+                    raise ValueError(f"symmetric cumulant: particles {record.get('particles')!r} (AB: m, n in "
+                                     "one subevent and -m, -n in the other; or one window)")
             # Linear and mode-coupled harmonics: [k, n, m] with k = n + m, or
             # [k, n, m, l] with k = n + m + l, a known quantity, two subevents
             # A, B or one window, pT-differential or integrated

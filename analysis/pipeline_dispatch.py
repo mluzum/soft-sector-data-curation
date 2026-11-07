@@ -2570,6 +2570,43 @@ def _sc_settings(params):
     return harms[0], harms[1], eta, pt, gap
 
 
+def _sc_subevents(params):
+    """{A: (eta, pT), B: (eta, pT)} of a two-subevent SC record (particles AB), else None."""
+    sr = params.get('subevent_ranges') or {}
+    if not sr:
+        return None
+    if sorted(sr) != ['A', 'B']:
+        raise ValueError("symmetric cumulant: two subevents A and B (particles: AB)")
+    if params.get('normalization_eta_gap') is not None:
+        raise ValueError("symmetric cumulant: subevents or normalization_eta_gap, not both")
+    out = {}
+    for lab, r in sr.items():
+        eta, pt = tuple(r.get('eta') or (None, None)), tuple(r.get('pT') or (None, None))
+        if None in eta or None in pt:
+            raise ValueError(f"symmetric cumulant: subevent {lab} needs eta and pT")
+        out[lab] = (eta, pt)
+    return out
+
+
+def _sc_sub_data(S, m, n, normalized):
+    """Two-subevent SC(m, n) (the generic framework with an eta gap): <<m, n |
+    -m, -n>> with m, n in one subevent and -m, -n in the other, <<m | -m>>,
+    <<n | -n>> across them; both orientations pooled; distinct particles
+    (analysis.flow_pt.distinct), tuple-count event weights."""
+    from analysis.flow_pt import distinct
+    out = {'N4': 0.0, 'D4': 0.0, 'N2m': 0.0, 'N2n': 0.0, 'D2': 0.0}
+    for X, Y in (('A', 'B'), ('B', 'A')):
+        out['N4'] = out['N4'] + distinct(S, [(X, m, 0), (X, n, 0), (Y, -m, 0), (Y, -n, 0)])
+        out['D4'] = out['D4'] + np.real(distinct(S, [(X, 0, 0), (X, 0, 0), (Y, 0, 0), (Y, 0, 0)]))
+        out['N2m'] = out['N2m'] + distinct(S, [(X, m, 0), (Y, -m, 0)])
+        out['N2n'] = out['N2n'] + distinct(S, [(X, n, 0), (Y, -n, 0)])
+        out['D2'] = out['D2'] + np.real(distinct(S, [(X, 0, 0), (Y, 0, 0)]))
+    if S.missing:
+        print(f"  note: harmonics {sorted(S.missing)} not stored; their coincidence terms dropped")
+    out['normalized'] = bool(normalized)
+    return out
+
+
 def _sc_check_harmonics(m, n, n_harm):
     if m + n >= n_harm:
         raise ValueError(f"SC({m},{n}) needs Q_{m + n}; the container stores harmonics below {n_harm}")
@@ -2590,6 +2627,19 @@ def prepare_sc_2d(qv, params):
     m, n, eta, pt, gap = _sc_settings(params)
     _sc_check_harmonics(m, n, qv.Qn.shape[2])
     idx, _cf = charged_species_indices(getattr(qv, 'pdg_ids', None))
+    subs = _sc_subevents(params)
+    if subs:
+        from analysis.qvector import _overlap_fractions, _pt_squared
+        from analysis.flow_pt import CellSums
+        ix = list(idx)
+        Qn = np.moveaxis(qv.Qn[:, ix], 2, -1)               # (ev, species, pT, h)
+        c = Qn[..., 0].real
+        wins = {}
+        for lab, (e, p) in subs.items():
+            jac = _make_jacobian_list(qv.pt_centers, qv.masses, e[0], e[1])[ix, :] / (2.0 * qv.rap_max)
+            fpt = np.asarray(_overlap_fractions(qv.pt_bin_edges, p[0], p[1], _pt_squared), dtype=float)
+            wins[lab] = jac * fpt[np.newaxis, :]
+        return _sc_sub_data(CellSums(Qn, c, c, c, wins, qv.nsamples), m, n, params.get('normalized'))
     lo, hi = _find_pt_slice_edges(qv.pt_bin_edges, pt[0], pt[1])
 
     def sample(window):
@@ -2610,6 +2660,13 @@ def prepare_sc_3d(grid, params):
     from analysis.correlators import Container3D, sc_arrays, two_particle_gap
     m, n, eta, pt, gap = _sc_settings(params)
     _sc_check_harmonics(m, n, grid.Qn.shape[-1])
+    subs = _sc_subevents(params)
+    if subs:
+        from analysis.flow_pt import CellSums
+        c = grid.Qn[..., 0].real
+        wins = {lab: np.asarray(grid.window_weights(e[0], e[1], p[0], p[1], fractional=True), dtype=float)
+                for lab, (e, p) in subs.items()}
+        return _sc_sub_data(CellSums(grid.Qn, c, c, c, wins, grid.nsamples), m, n, params.get('normalized'))
     win = (eta[0], eta[1], pt[0], pt[1])
     out = sc_arrays(Container3D(grid, win, grid, win, True), m, n)
     if gap is not None:
@@ -3929,6 +3986,12 @@ def _combination_value(kind, v, scale):
         out = v[0] / v[1] if v[1] != 0 and np.isfinite(v[1]) else np.nan
     elif kind == 'difference':
         out = v[0] - v[1]
+    elif kind in ('mean_flow', 'flow_fluctuation'):
+        # v{2}^2 = <v>^2 + sigma^2, v{4}^2 = <v>^2 - sigma^2 (signed squares
+        # of the signed v{2}, v{4}; a signed root of the result)
+        s2, s4 = (np.sign(x) * x * x for x in v)
+        half = 0.5 * (s2 + s4 if kind == 'mean_flow' else s2 - s4)
+        out = np.sign(half) * np.sqrt(abs(half))
     else:                                  # gamma1: v{2}, v{4}, v{6}
         v2, v4, v6 = v
         den = v2 ** 2 - v4 ** 2
@@ -3970,7 +4033,8 @@ PIPELINE_DISPATCH['vn_cumulant_combination'] = {
     # receives the unselected container; each term selects its own
     "selects_species": True,
     "n_obs_per_cent": 1,
-    "description": "v_n{2k} combination (ratio, difference, gamma1) of several orders or harmonics",
+    "description": "v_n{2k} combination (ratio, difference, gamma1, mean flow, flow fluctuation) of several "
+                   "orders or harmonics",
 }
 
 

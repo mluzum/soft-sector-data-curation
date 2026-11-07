@@ -7,6 +7,8 @@ Checks, on 2D and 3D containers with fluctuating v2:
   - every combination equals the formula applied to the separately
     computed v2{2}, v2{4}, v2{6}, v2{8} (machine precision);
   - gamma1 with a two-subevent v2{2} term (ALICE's v2{2, |Delta eta| > 1});
+  - mean flow <v2> = sqrt((v{2}^2 + v{4}^2)/2) and fluctuation sigma =
+    sqrt((v{2}^2 - v{4}^2)/2) with the gapped v{2} (ALICE 2825785);
   - a ratio of harmonics, v3{2}/v2{2} with the gap (harmonics [3, 2]);
   - a v{2} term with its own gap and reference (CMS v2{4}/v2{2, 2PC});
   - the jackknife error of v2{6}/v2{4} is far below the uncorrelated
@@ -71,7 +73,8 @@ def test_dispatch():
     check('dispatches to vn_cumulant_combination',
           resolve(rec(comb={'kind': 'ratio', 'orders': [6, 4]}))['compute'] == 'vn_cumulant_combination')
     for bad in ({'kind': 'ratio', 'orders': [6]}, {'kind': 'gamma1', 'orders': [2, 4, 8]},
-                {'kind': 'product', 'orders': [4, 2]}, {'kind': 'ratio', 'orders': [5, 4]}):
+                {'kind': 'product', 'orders': [4, 2]}, {'kind': 'ratio', 'orders': [5, 4]},
+                {'kind': 'mean_flow', 'orders': [2, 6]}, {'kind': 'flow_fluctuation', 'orders': [4, 2]}):
         try:
             resolve(rec(comb=bad))
             ok = False
@@ -94,6 +97,10 @@ def test_combinations_equal_formula():
                        -6 * np.sqrt(2) * v[4] ** 2 * (v[4] - v[6]) / (v[2] ** 2 - v[4] ** 2) ** 1.5),
             'gamma1 gap': ({'kind': 'gamma1', 'two_particle': SUB},
                            -6 * np.sqrt(2) * v[4] ** 2 * (v[4] - v[6]) / (v2gap ** 2 - v[4] ** 2) ** 1.5),
+            '<v2>': ({'kind': 'mean_flow', 'orders': [2, 4], 'two_particle': SUB},
+                     np.sqrt((v2gap ** 2 + v[4] ** 2) / 2)),
+            'sigma_v2': ({'kind': 'flow_fluctuation', 'orders': [2, 4], 'two_particle': SUB},
+                         np.sqrt((v2gap ** 2 - v[4] ** 2) / 2)),
         }
         for name, (comb, want) in expect.items():
             got = run(rec(comb=comb), kind)[0]

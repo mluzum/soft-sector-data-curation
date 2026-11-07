@@ -305,7 +305,12 @@ Fields that change dispatch:
   `sc_mn`): two harmonics only, and `normalized` is required (true: NSC =
   SC / (<v_m^2><v_n^2>)); `normalization_eta_gap` takes the denominator
   from the two halves of the window separated by the gap (ALICE, STAR:
-  |Delta eta| > 1).  SC of three harmonics is refused.
+  |Delta eta| > 1).  With `particles: AB` (subevents A, B; ALICE 2825785's
+  |Delta eta| > 0.8 on the multiparticle correlations) every term is
+  across the subevents: <<m, n | -m, -n>> with m, n in one and -m, -n in
+  the other, <<m | -m>>, <<n | -n>>, both orientations pooled
+  (`_sc_sub_data`, flow_pt.distinct); a normalization gap is then
+  refused.  SC of three harmonics is refused.
 - Linear and mode-coupled flow harmonics (`correlation_type:
   mode_coupling`, key `mode_coupling`, analysis/mode_coupling.py):
   harmonics [k, n, m] with k = n + m, or [k, n, m, l] with k = n + m + l
@@ -682,7 +687,9 @@ near c_4 = 0, ratios) the correction is unstable (zr96c2 dp0001, v2{4}
   tests/test_missing_harmonics.py).
 - **Combinations of cumulant orders** (`cumulant_combination`: ratio,
   difference with optional `scale`, gamma1 = -6 sqrt2 v{4}^2 (v{4} - v{6}) /
-  (v{2}^2 - v{4}^2)^{3/2}; `two_particle` for a gapped v{2} term, with
+  (v{2}^2 - v{4}^2)^{3/2}, mean_flow <v_n> = sqrt((v{2}^2 + v{4}^2)/2) and
+  flow_fluctuation sigma_{v_n} = sqrt((v{2}^2 - v{4}^2)/2) (ALICE 2825785,
+  signed squares and roots); `two_particle` for a gapped v{2} term, with
   its own `flow_reference` when it has one (CMS's 2PC, 1-3 GeV/c associated);
   `harmonics` for terms of different harmonics, v3{2}/v2{2} = orders [2, 2],
   harmonics [3, 2]): computed

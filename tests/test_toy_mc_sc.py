@@ -15,8 +15,13 @@ Checks:
     on the 2D container (Jacobian weights), with and without the
     normalization gap; the old |Q_n|^2/M^2 estimator would be biased by the
     1/M self-correlations;
-  - refusals: SC of three harmonics, a record without 'normalized', and a
-    harmonic the container does not store (SC(4,2) needs Q6).
+  - two subevents (particles AB; ALICE 2825785's |Delta eta| > 0.8): <<m,
+    n | -m, -n>> with m, n in one subevent and -m, -n in the other, both
+    orientations pooled: equal on 3D to the closed form from the subevents'
+    Q-vectors, and SC, NSC recover the truth on 2D and 3D;
+  - refusals: SC of three harmonics, a record without 'normalized', a
+    harmonic the container does not store (SC(4,2) needs Q6), and subevents
+    with a normalization gap.
 Until November 2026 sc_mn used |Q_n|^2/M^2 (no self-correlation removal),
 ignored the pT window and the weights in 2D, never normalized, and read
 three-harmonic SC as SC of the first two.
@@ -78,6 +83,34 @@ def _events():
     _CACHE['ev'] = dict(events=events, grid=grid, qv=qv, sc=truth_sc,
                         nsc=truth_sc / (np.mean(v2s ** 2) * np.mean(v3s ** 2)))
     return _CACHE['ev']
+
+
+SUB_A, SUB_B = (-1.0, -0.2), (0.2, 1.0)    # the toy fills |eta| < 1
+
+
+def record_sub(m=3, n=2, normalized=False):
+    r = record(m, n, normalized)
+    r.update(particles='AB', subevents={lab: {'kinematic_range': {'eta': {'min': w[0], 'max': w[1]},
+                                                                  'pT': {'min': 0.2, 'max': 5.0}}}
+                                        for lab, w in (('A', SUB_A), ('B', SUB_B))})
+    return r
+
+
+def closed_form_sub(events, m, n):
+    """Two-subevent SC(m,n) from the subevents' Q-vectors (disjoint windows)."""
+    acc = np.zeros(5)
+    for e in events:
+        q = {}
+        for lab, w in (('A', SUB_A), ('B', SUB_B)):
+            s = (e['eta'] >= w[0]) & (e['eta'] < w[1]) & (e['pt'] >= 0.2) & (e['pt'] < 5.0)
+            phi = e['phi'][s]
+            q[lab] = {h: np.exp(1j * h * phi).sum() for h in (m, n, m + n)}
+            q[lab]['M'] = float(len(phi))
+        a, b = q['A'], q['B']
+        four = (a[m] * a[n] - a[m + n]) * np.conj(b[m] * b[n] - b[m + n])
+        acc += [2 * four.real, 2 * a['M'] * (a['M'] - 1) * b['M'] * (b['M'] - 1),
+                2 * np.real(a[m] * np.conj(b[m])), 2 * np.real(a[n] * np.conj(b[n])), 2 * a['M'] * b['M']]
+    return acc[0] / acc[1] - (acc[2] / acc[4]) * (acc[3] / acc[4])
 
 
 def record(m=3, n=2, normalized=False, gap=None):
@@ -160,6 +193,28 @@ def test_physics():
     print(f'      old estimator: SC = {sc_old:.3e} (truth {fx["sc"]:.3e})')
 
 
+def test_subevents():
+    print('test_subevents')
+    fx = _events()
+    got, want = production(record_sub(), '3D'), closed_form_sub(fx['events'], 3, 2)
+    check('3D two-subevent SC(3,2) == closed form from the subevent Q-vectors', abs(got - want) < 1e-9 * abs(want),
+          f'{got:.6e} vs {want:.6e}')
+    for dim in ('3D', '2D'):
+        for norm, truth in ((False, fx['sc']), (True, fx['nsc'])):
+            rec = record_sub(normalized=norm)
+            v = production(rec, dim)
+            e = jk_error(lambda w, rec=rec, dim=dim: production(rec, dim, w))
+            check(f"{dim} two-subevent {'NSC' if norm else 'SC'}(3,2) = {truth:.3e}",
+                  abs(v - truth) < 3 * e + 0.05 * abs(truth), f'{v:.3e} +- {e:.1e}')
+    r = record_sub(normalized=True)
+    r['normalization_eta_gap'] = 0.8
+    try:
+        production(r, '3D')
+        check('subevents with a normalization gap refused', False)
+    except ValueError:
+        check('subevents with a normalization gap refused', True)
+
+
 def test_refusals():
     print('test_refusals')
     r3 = record()
@@ -184,7 +239,7 @@ def test_refusals():
 
 
 if __name__ == '__main__':
-    tests = [test_engine_matches_closed_form, test_physics, test_refusals]
+    tests = [test_engine_matches_closed_form, test_physics, test_subevents, test_refusals]
     n_pass = 0
     for t in tests:
         try:
