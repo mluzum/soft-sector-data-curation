@@ -11,6 +11,12 @@
     <v_2 v_3 v_5 cos(...)> / sqrt(<v_2^2><v_3^2><v_5^2>) of the generated
     events, 2D and 3D;
   - without coupling <cos 4(Phi_2 - Phi_4)> is consistent with zero;
+  - the Gaussian Estimator (estimator GE, one window: ALICE), sqrt(pi/4)
+    N / sqrt(D): equal to explicit sums over distinct tuples on a small 3D
+    sample (<cos 4(Psi_4 - Psi_2)>, <cos(2 Psi_2 + 3 Psi_3 - 5 Psi_5)>), and
+    recovering sqrt(pi/4) <v_4 v_2^2 cos 4(Psi_4 - Psi_2)> / sqrt(<v_4^2
+    v_2^4>), the three-plane and the twelve-particle <cos 8(Psi_4 - Psi_2)>
+    of the generated events, 2D and 3D;
   - the EP method, planes with sum c n != 0, missing subevents and harmonics
     the container does not store are refused.
 Run: python3 tests/test_toy_mc_plane_correlations.py
@@ -51,7 +57,14 @@ def _fx(coupled=True):
                            nonlinear={4: (1.2, 2, 2), 5: (1.6, 2, 3)} if coupled else None)
         ev, tr = generate_events(cfg)
         v, ps = tr['vn_ebe'], tr['psi']
-        truth = {'two': np.mean(v[2] ** 2 * v[4] * np.cos(4 * (ps[2] - ps[4])))
+        ge = np.sqrt(np.pi / 4.0)
+        truth = {'ge_42': ge * np.mean(v[4] * v[2] ** 2 * np.cos(4 * (ps[4] - ps[2])))
+                 / np.sqrt(np.mean(v[4] ** 2 * v[2] ** 4)),
+                 'ge_235': ge * np.mean(v[2] * v[3] * v[5] * np.cos(2 * ps[2] + 3 * ps[3] - 5 * ps[5]))
+                 / np.sqrt(np.mean(v[2] ** 2 * v[3] ** 2 * v[5] ** 2)),
+                 'ge_8_42': ge * np.mean(v[4] ** 2 * v[2] ** 4 * np.cos(8 * (ps[4] - ps[2])))
+                 / np.sqrt(np.mean(v[4] ** 4 * v[2] ** 8)),
+                 'two': np.mean(v[2] ** 2 * v[4] * np.cos(4 * (ps[2] - ps[4])))
                  / np.sqrt(np.mean(v[2] ** 4) * np.mean(v[4] ** 2)),
                  'three': np.mean(v[2] * v[3] * v[5] * np.cos(2 * ps[2] + 3 * ps[3] - 5 * ps[5]))
                  / np.sqrt(np.mean(v[2] ** 2) * np.mean(v[3] ** 2) * np.mean(v[5] ** 2))}
@@ -145,6 +158,75 @@ def test_refused():
     except ValueError:
         ok = True
     check('refused a plane harmonic the container does not store (Q_12)', ok)
+
+
+def rec_ge(planes, eta=(-2.0, 2.0), **extra):
+    r = rec(planes, None, estimator='GE',
+            kinematic_range={'eta': {'min': eta[0], 'max': eta[1]}, 'pT': {'min': 0.0, 'max': 100.0}})
+    del r['plane_subevents']
+    r.update(extra)
+    return r
+
+
+def _brute_ge(events, planes, eta, max_ev=4):
+    """sqrt(pi/4) N / sqrt(D) from explicit ordered tuples of distinct
+    particles in the window, events weighted by their tuple counts."""
+    num = [n if c > 0 else -n for n, c in planes for _ in range(abs(c))]
+    den = [n for n, c in planes for _ in range(abs(c))] + [-n for n, c in planes for _ in range(abs(c))]
+    acc = {}
+    for ev in events[:max_ev]:
+        phi = ev['phi'][(ev['eta'] >= eta[0]) & (ev['eta'] < eta[1])]
+        for key, hs in (('N', num), ('D', den)):
+            e = np.exp(1j * np.outer(hs, phi))                  # (members, particles)
+            s, n = 0j, 0
+            for t in itertools.permutations(range(len(phi)), len(hs)):
+                s += np.prod(e[np.arange(len(hs)), t])
+                n += 1
+            acc[key] = acc.get(key, 0j) + s
+            acc['W' + key] = acc.get('W' + key, 0) + n
+    d = acc['D'].real / acc['WD']
+    return np.sqrt(np.pi / 4.0) * (acc['N'].real / acc['WN']) / (np.sign(d) * np.sqrt(abs(d)))
+
+
+def test_ge_exact():
+    cfg = ToyGenConfig(n_events=4, mult_mean=40, mult_sigma=3, seed=31, rap_max=1.6,
+                       flow={2: dict(kind='const', value=0.15), 3: dict(kind='const', value=0.08),
+                             4: dict(kind='const', value=0.05), 5: dict(kind='const', value=0.04)},
+                       nonlinear={4: (1.0, 2, 2), 5: (1.0, 2, 3)})
+    events, truth = generate_events(cfg)
+    grid = make_qgrid_data(events, truth, n_eta=32, n_pt=30, n_harm=13, eta_half=1.6)
+    edges = np.linspace(-1.6, 1.6, 33)
+    eta = (edges[12], edges[20])
+    for planes in ([(4, 1), (2, -2)], [(2, 1), (3, 1), (5, -1)]):
+        r = rec_ge(planes, eta=eta, centrality={'classes': ['0-100%'], 'eta': [{'min': -3.9, 'max': -3.0}]},
+                   kinematic_range={'eta': {'min': eta[0], 'max': eta[1]}, 'pT': {'min': 0.0, 'max': 3.0}})
+        v, _ = evaluate(r, grid=grid, cent_method='simple', with_jackknife=False)
+        want = _brute_ge([dict(ev, phi=ev['phi'][ev['pt'] < 3.0], eta=ev['eta'][ev['pt'] < 3.0]) for ev in events],
+                         planes, eta)
+        check(f'3D GE {planes} = explicit tuple sums', np.isclose(v[0], want, rtol=1e-8), f'{v[0]:.8f} vs {want:.8f}')
+
+
+def test_ge_truth():
+    check('dispatches GE to plane_corr_ge', resolve(rec_ge([(4, 1), (2, -2)]))['compute'] == 'plane_corr_ge')
+    for kind in ('3d', '2d'):
+        for planes, key in (([(4, 1), (2, -2)], 'ge_42'), ([(2, 1), (3, 1), (5, -1)], 'ge_235'),
+                            ([(4, 2), (2, -4)], 'ge_8_42')):
+            v, e = run(rec_ge(planes), kind)
+            t = _fx()['truth'][key]
+            check(f'{kind} GE {planes}: {v[0]:.4f} +- {e[0]:.4f} vs generated {t:.4f}',
+                  abs(v[0] - t) < 3 * e[0] + 0.02)
+    v, e = run(rec_ge([(4, 1), (2, -2)]), '3d', coupled=False)
+    check('3D GE, no coupling: consistent with 0', abs(v[0]) < 4 * e[0] + 0.03, f'{v} +- {e}')
+    for bad in (dict(plane_subevents=TWO), dict(planes=[{'harmonic': 4, 'coefficient': 1},
+                                                        {'harmonic': 2, 'coefficient': -1}])):
+        r = rec_ge([(4, 1), (2, -2)])
+        r.update(bad)
+        try:
+            evaluate(r, grid=_fx()['3d'], cent_method='simple', with_jackknife=False)
+            ok = False
+        except ValueError:
+            ok = True
+        check(f'GE refused {list(bad)}', ok)
 
 
 if __name__ == '__main__':

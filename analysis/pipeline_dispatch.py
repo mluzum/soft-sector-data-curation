@@ -1931,6 +1931,73 @@ def _wrap_plane_corr(data, w):
     from analysis import plane_correlations
     return plane_correlations.core(data, w)
 
+
+# ── symmetry-plane correlations, Gaussian Estimator (ALICE; one window) ──
+
+def _plane_corr_ge_planes(params):
+    planes = [(int(p['harmonic']), int(p['coefficient'])) for p in (params.get('planes') or [])]
+    if len(planes) < 2 or any(c == 0 or n < 1 for n, c in planes) or sum(n * c for n, c in planes) != 0 \
+            or len({n for n, _ in planes}) != len(planes):
+        raise ValueError(f"plane correlation (GE): planes {planes} must be two or more distinct (n, c), c != 0, "
+                         "sum c n = 0")
+    return planes
+
+
+def _plane_corr_ge_data(S, planes):
+    from analysis import plane_correlations
+    top = max(n for n, _ in planes)
+    if top >= S.H:
+        raise ValueError(f"plane correlation needs Q_{top}; the container stores harmonics below {S.H}")
+    out = plane_correlations.ge_terms(S, planes)
+    if S.missing:
+        print(f"  note: harmonics {sorted(S.missing)} not stored; their coincidence terms dropped")
+    return out
+
+
+def _poi_window(params):
+    full = params.get('poi_range') or {}
+    eta, pt = tuple(full.get('eta') or (None, None)), tuple(full.get('pT') or (None, None))
+    if None in eta or None in pt:
+        raise ValueError("plane correlation (GE) needs kinematic_range eta and pT")
+    return eta, pt
+
+
+def prepare_plane_corr_ge_2d(qv, params):
+    """Charged species of the boost-invariant container, the record's window
+    a weight per (species, pT bin): the eta-window Jacobian over the plateau
+    times the pT share (analysis.flow_pt.CellSums)."""
+    from analysis.qvector import _overlap_fractions, _pt_squared
+    from analysis.flow_pt import CellSums
+    planes = _plane_corr_ge_planes(params)
+    eta, pt = _poi_window(params)
+    idx = list(charged_species_indices(getattr(qv, 'pdg_ids', None))[0])
+    Qn = np.moveaxis(qv.Qn[:, idx], 2, -1)                  # (ev, species, pT, h)
+    c = Qn[..., 0].real
+    jac = _make_jacobian_list(qv.pt_centers, qv.masses, eta[0], eta[1])[idx, :] / (2.0 * qv.rap_max)
+    fpt = np.asarray(_overlap_fractions(qv.pt_bin_edges, pt[0], pt[1], _pt_squared), dtype=float)
+    win = jac * fpt[np.newaxis, :]
+    m = win > 0     # the window's cells only: hundreds of power sums
+    S = CellSums(Qn[:, m], c[:, m], c[:, m], c[:, m], {'full': win[m]}, qv.nsamples)
+    return _plane_corr_ge_data(S, planes)
+
+
+def prepare_plane_corr_ge_3d(grid, params):
+    """Unit-weight cells of the charged grid, the record's window the cells'
+    overlap shares (QGridData.window_weights)."""
+    from analysis.flow_pt import CellSums
+    planes = _plane_corr_ge_planes(params)
+    eta, pt = _poi_window(params)
+    win = np.asarray(grid.window_weights(eta[0], eta[1], pt[0], pt[1], fractional=True), dtype=float)
+    m = win > 0     # the window's cells only (a copy of a few percent of the grid): hundreds of power sums
+    Qn = grid.Qn[:, m]
+    c = Qn[..., 0].real
+    return _plane_corr_ge_data(CellSums(Qn, c, c, c, {'full': win[m]}, grid.nsamples), planes)
+
+
+def _wrap_plane_corr_ge(data, w):
+    from analysis import plane_correlations
+    return plane_correlations.core_ge(data, w)
+
 # ── pT-dependent flow-vector fluctuations (analysis.flow_vector_fluct) ──
 
 def _fvf_settings(params):
@@ -3812,6 +3879,13 @@ PIPELINE_DISPATCH = {
         "n_obs_per_cent": None,
         "description": "symmetry-plane correlations <cos(sum c_i n_i Phi_i)>, scalar-product method (subevents)",
     },
+    "plane_corr_ge": {
+        "core_fn": _wrap_plane_corr_ge,
+        "prepare_data_2d": prepare_plane_corr_ge_2d,
+        "prepare_data_3d": prepare_plane_corr_ge_3d,
+        "n_obs_per_cent": None,
+        "description": "symmetry-plane correlations <cos(sum c_i n_i Psi_i)>, Gaussian Estimator (one window)",
+    },
     "pT_fluct": {
         "core_fn": _wrap_pT_fluct,
         "prepare_data_2d": prepare_pT_fluct_2d,
@@ -3971,7 +4045,7 @@ SINGLE_ROW_KEYS = frozenset({
     'vn2_ep', 'vn3_ep', 'mean_pt', 'yield_dNch_deta', 'yield_dNch_deta_per_eta',
     'spectra_invariant_yield', 'dET_deta', 'sc_mn', 'nac_mn', 'radial_flow',
     'vn_cumulant_combination', 'v1_even_factorization', 'rho_vn2_pT', 'mode_coupling',
-    'plane_corr_sp', 'flow_vector_fluct', 'vn_mixed_plane', 'vn2_eta_partner', 'rnn_decorrelation',
+    'plane_corr_sp', 'plane_corr_ge', 'flow_vector_fluct', 'vn_mixed_plane', 'vn2_eta_partner', 'rnn_decorrelation',
     'vn_3x2pc',
 })
 

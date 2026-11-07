@@ -1,4 +1,5 @@
-"""Symmetry-plane correlations in the scalar-product (SP) method (ATLAS PRC 90 024905).
+"""Symmetry-plane correlations: the scalar-product (SP) method (ATLAS PRC 90 024905) and the
+Gaussian Estimator (GE; ALICE EPJC 83 (2023) 576, PRC 111 (2025) 064913).
 
 A correlator <cos(sum_i c_i n_i Phi_{n_i})> (sum c_i n_i = 0) is measured from
 flow vectors of subevents, each plane i from its own subevent, weighted by
@@ -25,6 +26,18 @@ any number of members by the generating function prod_i (1 + sum_t s_t
 z_{i,t}) (analysis.flow_pt.distinct_gf), so that coincidences vanish
 between disjoint 3D windows and are removed on 2D containers, where every
 particle has a share in every window.  Events are weighted equally (each q normalized per event).
+
+Gaussian Estimator (one window, all distinct particles; Bilandzic, Lesch,
+Taghavi, PRC 102 (2020) 024910):
+
+  <cos(sum_i c_i n_i Psi_{n_i})>_GE = sqrt(pi/4) N / sqrt(D),
+  N = <<e^{i sum_i sum_{|c_i| particles} sign(c_i) n_i phi}>>   (sum |c_i| particles)
+    = <prod v_{n_i}^{|c_i|} cos(sum c_i n_i Psi_{n_i})>,
+  D = <<... with every harmonic once positive and once negative>>
+    = <prod v_{n_i}^{2|c_i|}>                                   (2 sum |c_i| particles),
+
+multi-particle correlators over distinct particles (distinct_gf), events
+weighted by their tuple counts (ALICE's generic framework); signed root of D.
 """
 import numpy as np
 
@@ -104,3 +117,22 @@ def core(d, w):
                     res = res * _sroot(ac)
             vals.append(num / res)
         return np.array([np.mean(vals)])
+
+
+def ge_terms(S, planes, window='full'):
+    """Per-event sums of the GE's numerator and denominator and their tuple
+    counts; planes [(n, c)]."""
+    k = sum(abs(c) for _, c in planes)
+    num = [(window, n if c > 0 else -n, abs(c)) for n, c in planes]
+    den = [(window, n, abs(c)) for n, c in planes] + [(window, -n, abs(c)) for n, c in planes]
+    return {'N': np.real(distinct_gf(S, num)), 'WN': np.real(distinct_gf(S, [(window, 0, k)])),
+            'D': np.real(distinct_gf(S, den)), 'WD': np.real(distinct_gf(S, [(window, 0, 2 * k)]))}
+
+
+def core_ge(d, w):
+    """One centrality class: sqrt(pi/4) N / sqrt(D) (length-1 array)."""
+    with np.errstate(divide='ignore', invalid='ignore'):
+        wn, wd = np.sum(w * d['WN']), np.sum(w * d['WD'])
+        num = np.sum(w * d['N']) / wn if wn > 0 else np.nan
+        den = np.sum(w * d['D']) / wd if wd > 0 else np.nan
+        return np.array([np.sqrt(np.pi / 4.0) * num / _sroot(den)])

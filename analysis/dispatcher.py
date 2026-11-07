@@ -322,7 +322,7 @@ DISPATCH_TABLE_BY_TYPE = {
         "requires_per_ct": {
             "mode_coupling": [["kinematic_range.eta"], "harmonics", "correlation_type", "quantity"],
             "plane_correlation": [["kinematic_range.eta"], "harmonics", "correlation_type", "planes",
-                                  "plane_subevents", "estimator"],
+                                  "estimator"],
             "pT_flow_vector_fluctuations": [["kinematic_range.eta"], "harmonics", "correlation_type", "quantity",
                                             "flow_reference.pT"],
             "longitudinal_decorrelation": [["kinematic_range.eta"], "harmonics", "correlation_type", "quantity",
@@ -842,22 +842,33 @@ def resolve(record):
                     raise ValueError("factorization ratio r_n needs trigger_pT")
                 if "four" in needs(q) and not record.get("four_particle_subevents"):
                     raise ValueError(f"flow-vector fluctuations ({q}): four_particle_subevents A and B")
+            # The Gaussian Estimator (ALICE): multi-particle correlators in
+            # one window, any number of planes (key plane_corr_ge).
             if entry.get("compute") == "plane_corr_sp":
-                if record.get("estimator") != "SP":
-                    raise ValueError(f"plane correlation: estimator {record.get('estimator')!r}; only the "
-                                     "scalar-product method (SP) is computed (EP depends on the detector's "
-                                     "event-plane resolution)")
+                if record.get("estimator") not in ("SP", "GE"):
+                    raise ValueError(f"plane correlation: estimator {record.get('estimator')!r}; the "
+                                     "scalar-product method (SP) and the Gaussian Estimator (GE) are computed "
+                                     "(EP depends on the detector's event-plane resolution)")
+                ge = record.get("estimator") == "GE"
                 planes = record.get("planes") or []
                 try:
                     pl = [(int(p["harmonic"]), int(p["coefficient"])) for p in planes]
                 except (KeyError, TypeError, ValueError):
                     raise ValueError(f"plane correlation: planes {planes!r} need harmonic and coefficient")
-                if len(pl) not in (2, 3) or any(c == 0 or n < 1 for n, c in pl) or sum(n * c for n, c in pl):
-                    raise ValueError(f"plane correlation: planes {pl} must be two or three (n, c), n >= 1, "
-                                     "c != 0, sum c n = 0")
+                if (len(pl) < 2 or (len(pl) > 3 and not ge) or any(c == 0 or n < 1 for n, c in pl)
+                        or sum(n * c for n, c in pl) or len({n for n, _ in pl}) != len(pl)):
+                    raise ValueError(f"plane correlation: planes {pl} must be distinct (n, c), two or three for "
+                                     "SP, n >= 1, c != 0, sum c n = 0")
                 if sorted(int(h) for h in record.get("harmonics") or []) != sorted(n for n, _ in pl):
                     raise ValueError(f"plane correlation: harmonics {record.get('harmonics')} are not the "
                                      f"planes' {[n for n, _ in pl]}")
+                if not ge and not record.get("plane_subevents"):
+                    raise ValueError("plane correlation (SP): plane_subevents (the planes' subevents)")
+                if ge:
+                    if record.get("plane_subevents"):
+                        raise ValueError("plane correlation (GE): one window (kinematic_range), no plane_subevents")
+                    entry = dict(entry)
+                    entry["compute"] = "plane_corr_ge"
             # For particle_yields, choose per-eta vs integrated based on
             # whether the record has eta bin edges (differential_eta).
             if obs_type == "particle_yields":

@@ -139,10 +139,12 @@ optional_fields:
     type: list
     required: false
     description: >
-      plane_correlation: the planes of <cos(sum_i c_i n_i Phi_{n_i})>, two or
-      three {harmonic: n_i, coefficient: c_i}, c_i != 0, sum c_i n_i = 0
-      (<cos 4(Phi_2 - Phi_4)>: [{harmonic: 2, coefficient: 2}, {harmonic: 4,
-      coefficient: -1}]).
+      plane_correlation: the planes of <cos(sum_i c_i n_i Phi_{n_i})>
+      {harmonic: n_i, coefficient: c_i}, distinct n_i, c_i != 0, sum c_i n_i
+      = 0 (<cos 4(Phi_2 - Phi_4)>: [{harmonic: 2, coefficient: 2},
+      {harmonic: 4, coefficient: -1}]); two or three for SP, any number for
+      GE (ALICE: up to five).  For GE, |c_i| particles carry harmonic
+      sign(c_i) n_i.
     example: [{harmonic: 2, coefficient: 2}, {harmonic: 4, coefficient: -1}]
   plane_subevents:
     type: object
@@ -194,9 +196,12 @@ optional_fields:
     required: false
     description: >
       Estimator used. Common values: 'standard' (default SC), 'GE' (Gaussian
-      estimator for event-plane correlations), 'SP' (scalar product), 'EP'
-      (event plane).  plane_correlation computes SP only: EP depends on the
-      detector's event-plane resolution.
+      estimator for symmetry-plane correlations), 'SP' (scalar product), 'EP'
+      (event plane).  plane_correlation computes SP (subevents,
+      plane_subevents) and GE (one window, the record's kinematic_range:
+      sqrt(pi/4) N / sqrt(D), N the sum |c_i|-particle correlator, D the
+      2 sum |c_i|-particle <prod v^{2|c_i|}>; key plane_corr_ge); EP depends
+      on the detector's event-plane resolution.
     example: "GE"
   value_type:
     type: string

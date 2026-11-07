@@ -338,16 +338,24 @@ Fields that change dispatch:
   `plane_corr_sp`, analysis/plane_correlations.py): <cos(sum c_i n_i
   Phi_{n_i})>, `planes` [{harmonic, coefficient}] (two or three, sum c n =
   0), each plane from its own subevent (`plane_subevents`: P, N or A, B, C,
-  lists of eta ranges), scalar-product method only (`estimator: SP`; EP
+  lists of eta ranges), the scalar-product method (`estimator: SP`; EP
   depends on the detector's event-plane resolution, refused): <Re prod
   q_n^c> over the resolutions sqrt(<q_X^c q_Y^c*>), three subevents for
   the plane in B, ATLAS's assignments and types averaged.  Each q^c is a
   sum over distinct c-tuples of the subevent per event over their number
   (any number of members: the generating function `distinct_gf`), events
   weighted equally.  ATLAS 1283339 (the E_T-weighted calorimeter flow
-  vectors from charged particles with unit weights);
-  tests/test_toy_mc_plane_correlations.py (distinct_gf against explicit
-  tuples to six members, the generated correlations on 2D and 3D).
+  vectors from charged particles with unit weights).  The Gaussian
+  Estimator (`estimator: GE`, key plane_corr_ge; ALICE 2628969, 2825788):
+  one window (the record's kinematic_range), any number of planes,
+  sqrt(pi/4) N / sqrt(D) with N = <<e^{i sum sign(c) n phi}>> over sum |c|
+  distinct particles (prod v^|c| cos(...)) and D = <prod v_n^{2|c|}> over
+  twice as many (up to twelve: distinct_gf), tuple-count event weights,
+  signed root of D; the prepares keep only the window's cells (hundreds of
+  power sums).  tests/test_toy_mc_plane_correlations.py (distinct_gf
+  against explicit tuples to six members; SP: the generated correlations
+  on 2D and 3D; GE: explicit tuple sums on 3D, the GE of the generated
+  flow, to twelve particles, on 2D and 3D).
 - pT-dependent flow-vector fluctuations (`correlation_type:
   pT_flow_vector_fluctuations`, key `flow_vector_fluct`,
   analysis/flow_vector_fluct.py; ALICE 2771093): one harmonic, POI pT
