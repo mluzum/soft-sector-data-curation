@@ -1,0 +1,783 @@
+observable_type: mean_pT_fluctuations
+inspire_id: '2937844'
+version: 1
+hepdata_file: figure_30_upper_row_d_.yaml
+dv_index: 0
+hepdata_table_label: 'Figure 30 upper row d: Data from Figure 30, upper row panel d, 2subevent method, 0.2<p_{T}<3 GeV/c (column
+  0, Au+Au)'
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 55-60%
+  - 50-55%
+  - 47.5-50%
+  - 45-47.5%
+  - 42.5-45%
+  - 40-42.5%
+  - 37.5-40%
+  - 35-37.5%
+  - 32.5-35%
+  - 30-32.5%
+  - 27.5-30%
+  - 25-27.5%
+  - 22.5-25%
+  - 20-22.5%
+  - 17.5-20%
+  - 15-17.5%
+  - 12.5-15%
+  - 10-12.5%
+  - 8.75-10%
+  - 7.5-8.75%
+  - 6.25-7.5%
+  - 5-6.25%
+  - 4-5%
+  - 3-4%
+  - 2-3%
+  - 1-2%
+  - 0.75-1%
+  - 0.5-0.75%
+  - 0.2-0.5%
+  - 0-0.2%
+  estimator:
+    name: Nch_rec
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  pT:
+    min: 0.15
+    max: 100.0
+  notes: N_ch^rec, reconstructed TPC tracks |eta| < 0.5, pT > 0.15 GeV/c (Glauber-matched percentiles); nominal classes rebuilt
+    from the tabulated mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 3.0
+observable: pT_correlator
+particles: AB
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -1.0
+        max: -0.1
+      pT:
+        min: 0.2
+        max: 3.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.1
+        max: 1.0
+      pT:
+        min: 0.2
+        max: 3.0
+averaging: events
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -0.5
+    max: 0.5
+  pT:
+    min: 0.15
+    max: 100.0
+dimensionality: integrated
+value_type: <dpt1_dpt2>
+notes:
+  value: 'STAR Collaboration, Rep. Prog. Phys. 88 (2025) 108601, arXiv:2506.17785, Fig. 30. <(dpT)^2>: two-subevent <(dpT)^2>
+    = <(pT_i - <pT>)(pT_j - <pT>)>, i and j across -1 < eta < -0.1 and 0.1 < eta < 1, event averages, at fixed N_ch^rec; charged
+    particles |eta| < 1, 0.2 < pT < 3 GeV/c, Au+Au 200 GeV. Errors: stat and syst.'
+---
+observable_type: mean_pT_fluctuations
+inspire_id: '2937844'
+version: 1
+hepdata_file: figure_30_upper_row_d_.yaml
+dv_index: 1
+hepdata_table_label: 'Figure 30 upper row d: Data from Figure 30, upper row panel d, 2subevent method, 0.2<p_{T}<3 GeV/c (column
+  1, U+U)'
+collision_system:
+  energy_gev: 193.0
+  reaction: U U --> CHARGED X
+centrality:
+  classes:
+  - 55-60%
+  - 50-55%
+  - 47.5-50%
+  - 45-47.5%
+  - 42.5-45%
+  - 40-42.5%
+  - 37.5-40%
+  - 35-37.5%
+  - 32.5-35%
+  - 30-32.5%
+  - 27.5-30%
+  - 25-27.5%
+  - 22.5-25%
+  - 20-22.5%
+  - 17.5-20%
+  - 15-17.5%
+  - 12.5-15%
+  - 10-12.5%
+  - 8.75-10%
+  - 7.5-8.75%
+  - 6.25-7.5%
+  - 5-6.25%
+  - 4-5%
+  - 3-4%
+  - 2-3%
+  - 1-2%
+  - 0.75-1%
+  - 0.5-0.75%
+  - 0.2-0.5%
+  - 0-0.2%
+  estimator:
+    name: Nch_rec
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  pT:
+    min: 0.15
+    max: 100.0
+  notes: N_ch^rec, reconstructed TPC tracks |eta| < 0.5, pT > 0.15 GeV/c (Glauber-matched percentiles); nominal classes rebuilt
+    from the tabulated mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 3.0
+observable: pT_correlator
+particles: AB
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -1.0
+        max: -0.1
+      pT:
+        min: 0.2
+        max: 3.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.1
+        max: 1.0
+      pT:
+        min: 0.2
+        max: 3.0
+averaging: events
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -0.5
+    max: 0.5
+  pT:
+    min: 0.15
+    max: 100.0
+dimensionality: integrated
+value_type: <dpt1_dpt2>
+notes:
+  value: 'STAR Collaboration, Rep. Prog. Phys. 88 (2025) 108601, arXiv:2506.17785, Fig. 30. <(dpT)^2>: two-subevent <(dpT)^2>
+    = <(pT_i - <pT>)(pT_j - <pT>)>, i and j across -1 < eta < -0.1 and 0.1 < eta < 1, event averages, at fixed N_ch^rec; charged
+    particles |eta| < 1, 0.2 < pT < 3 GeV/c, U+U 193 GeV. Errors: stat and syst.'
+---
+observable_type: mean_pT_fluctuations
+inspire_id: '2937844'
+version: 1
+hepdata_file: figure_32_upper_row_d_.yaml
+dv_index: 0
+hepdata_table_label: 'Figure 32 upper row d: Data from Figure 32, upper row panel d, 2subevent method, 0.5<p_{T}<3 GeV/c (column
+  0, Au+Au)'
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 55-60%
+  - 50-55%
+  - 47.5-50%
+  - 45-47.5%
+  - 42.5-45%
+  - 40-42.5%
+  - 37.5-40%
+  - 35-37.5%
+  - 32.5-35%
+  - 30-32.5%
+  - 27.5-30%
+  - 25-27.5%
+  - 22.5-25%
+  - 20-22.5%
+  - 17.5-20%
+  - 15-17.5%
+  - 12.5-15%
+  - 10-12.5%
+  - 8.75-10%
+  - 7.5-8.75%
+  - 6.25-7.5%
+  - 5-6.25%
+  - 4-5%
+  - 3-4%
+  - 2-3%
+  - 1-2%
+  - 0.75-1%
+  - 0.5-0.75%
+  - 0.2-0.5%
+  - 0-0.2%
+  estimator:
+    name: Nch_rec
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  pT:
+    min: 0.15
+    max: 100.0
+  notes: N_ch^rec, reconstructed TPC tracks |eta| < 0.5, pT > 0.15 GeV/c (Glauber-matched percentiles); nominal classes rebuilt
+    from the tabulated mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.5
+    max: 3.0
+observable: pT_correlator
+particles: AB
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -1.0
+        max: -0.1
+      pT:
+        min: 0.5
+        max: 3.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.1
+        max: 1.0
+      pT:
+        min: 0.5
+        max: 3.0
+averaging: events
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -0.5
+    max: 0.5
+  pT:
+    min: 0.15
+    max: 100.0
+dimensionality: integrated
+value_type: <dpt1_dpt2>
+notes:
+  value: 'STAR Collaboration, Rep. Prog. Phys. 88 (2025) 108601, arXiv:2506.17785, Fig. 32. <(dpT)^2>: two-subevent <(dpT)^2>
+    = <(pT_i - <pT>)(pT_j - <pT>)>, i and j across -1 < eta < -0.1 and 0.1 < eta < 1, event averages, at fixed N_ch^rec; charged
+    particles |eta| < 1, 0.5 < pT < 3 GeV/c, Au+Au 200 GeV. Errors: stat and syst.'
+---
+observable_type: mean_pT_fluctuations
+inspire_id: '2937844'
+version: 1
+hepdata_file: figure_32_upper_row_d_.yaml
+dv_index: 1
+hepdata_table_label: 'Figure 32 upper row d: Data from Figure 32, upper row panel d, 2subevent method, 0.5<p_{T}<3 GeV/c (column
+  1, U+U)'
+collision_system:
+  energy_gev: 193.0
+  reaction: U U --> CHARGED X
+centrality:
+  classes:
+  - 55-60%
+  - 50-55%
+  - 47.5-50%
+  - 45-47.5%
+  - 42.5-45%
+  - 40-42.5%
+  - 37.5-40%
+  - 35-37.5%
+  - 32.5-35%
+  - 30-32.5%
+  - 27.5-30%
+  - 25-27.5%
+  - 22.5-25%
+  - 20-22.5%
+  - 17.5-20%
+  - 15-17.5%
+  - 12.5-15%
+  - 10-12.5%
+  - 8.75-10%
+  - 7.5-8.75%
+  - 6.25-7.5%
+  - 5-6.25%
+  - 4-5%
+  - 3-4%
+  - 2-3%
+  - 1-2%
+  - 0.75-1%
+  - 0.5-0.75%
+  - 0.2-0.5%
+  - 0-0.2%
+  estimator:
+    name: Nch_rec
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  pT:
+    min: 0.15
+    max: 100.0
+  notes: N_ch^rec, reconstructed TPC tracks |eta| < 0.5, pT > 0.15 GeV/c (Glauber-matched percentiles); nominal classes rebuilt
+    from the tabulated mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.5
+    max: 3.0
+observable: pT_correlator
+particles: AB
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -1.0
+        max: -0.1
+      pT:
+        min: 0.5
+        max: 3.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.1
+        max: 1.0
+      pT:
+        min: 0.5
+        max: 3.0
+averaging: events
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -0.5
+    max: 0.5
+  pT:
+    min: 0.15
+    max: 100.0
+dimensionality: integrated
+value_type: <dpt1_dpt2>
+notes:
+  value: 'STAR Collaboration, Rep. Prog. Phys. 88 (2025) 108601, arXiv:2506.17785, Fig. 32. <(dpT)^2>: two-subevent <(dpT)^2>
+    = <(pT_i - <pT>)(pT_j - <pT>)>, i and j across -1 < eta < -0.1 and 0.1 < eta < 1, event averages, at fixed N_ch^rec; charged
+    particles |eta| < 1, 0.5 < pT < 3 GeV/c, U+U 193 GeV. Errors: stat and syst.'
+---
+observable_type: mean_pT_fluctuations
+inspire_id: '2937844'
+version: 1
+hepdata_file: figure_34_upper_row_d_.yaml
+dv_index: 0
+hepdata_table_label: 'Figure 34 upper row d: Data from Figure 34, upper row panel d, 2subevent method, 0.2<p_{T}<2 GeV/c (column
+  0, Au+Au)'
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 55-60%
+  - 50-55%
+  - 47.5-50%
+  - 45-47.5%
+  - 42.5-45%
+  - 40-42.5%
+  - 37.5-40%
+  - 35-37.5%
+  - 32.5-35%
+  - 30-32.5%
+  - 27.5-30%
+  - 25-27.5%
+  - 22.5-25%
+  - 20-22.5%
+  - 17.5-20%
+  - 15-17.5%
+  - 12.5-15%
+  - 10-12.5%
+  - 8.75-10%
+  - 7.5-8.75%
+  - 6.25-7.5%
+  - 5-6.25%
+  - 4-5%
+  - 3-4%
+  - 2-3%
+  - 1-2%
+  - 0.75-1%
+  - 0.5-0.75%
+  - 0.2-0.5%
+  - 0-0.2%
+  estimator:
+    name: Nch_rec
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  pT:
+    min: 0.15
+    max: 100.0
+  notes: N_ch^rec, reconstructed TPC tracks |eta| < 0.5, pT > 0.15 GeV/c (Glauber-matched percentiles); nominal classes rebuilt
+    from the tabulated mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+observable: pT_correlator
+particles: AB
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -1.0
+        max: -0.1
+      pT:
+        min: 0.2
+        max: 2.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.1
+        max: 1.0
+      pT:
+        min: 0.2
+        max: 2.0
+averaging: events
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -0.5
+    max: 0.5
+  pT:
+    min: 0.15
+    max: 100.0
+dimensionality: integrated
+value_type: <dpt1_dpt2>
+notes:
+  value: 'STAR Collaboration, Rep. Prog. Phys. 88 (2025) 108601, arXiv:2506.17785, Fig. 34. <(dpT)^2>: two-subevent <(dpT)^2>
+    = <(pT_i - <pT>)(pT_j - <pT>)>, i and j across -1 < eta < -0.1 and 0.1 < eta < 1, event averages, at fixed N_ch^rec; charged
+    particles |eta| < 1, 0.2 < pT < 2 GeV/c, Au+Au 200 GeV. Errors: stat and syst.'
+---
+observable_type: mean_pT_fluctuations
+inspire_id: '2937844'
+version: 1
+hepdata_file: figure_34_upper_row_d_.yaml
+dv_index: 1
+hepdata_table_label: 'Figure 34 upper row d: Data from Figure 34, upper row panel d, 2subevent method, 0.2<p_{T}<2 GeV/c (column
+  1, U+U)'
+collision_system:
+  energy_gev: 193.0
+  reaction: U U --> CHARGED X
+centrality:
+  classes:
+  - 55-60%
+  - 50-55%
+  - 47.5-50%
+  - 45-47.5%
+  - 42.5-45%
+  - 40-42.5%
+  - 37.5-40%
+  - 35-37.5%
+  - 32.5-35%
+  - 30-32.5%
+  - 27.5-30%
+  - 25-27.5%
+  - 22.5-25%
+  - 20-22.5%
+  - 17.5-20%
+  - 15-17.5%
+  - 12.5-15%
+  - 10-12.5%
+  - 8.75-10%
+  - 7.5-8.75%
+  - 6.25-7.5%
+  - 5-6.25%
+  - 4-5%
+  - 3-4%
+  - 2-3%
+  - 1-2%
+  - 0.75-1%
+  - 0.5-0.75%
+  - 0.2-0.5%
+  - 0-0.2%
+  estimator:
+    name: Nch_rec
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  pT:
+    min: 0.15
+    max: 100.0
+  notes: N_ch^rec, reconstructed TPC tracks |eta| < 0.5, pT > 0.15 GeV/c (Glauber-matched percentiles); nominal classes rebuilt
+    from the tabulated mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+observable: pT_correlator
+particles: AB
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -1.0
+        max: -0.1
+      pT:
+        min: 0.2
+        max: 2.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.1
+        max: 1.0
+      pT:
+        min: 0.2
+        max: 2.0
+averaging: events
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -0.5
+    max: 0.5
+  pT:
+    min: 0.15
+    max: 100.0
+dimensionality: integrated
+value_type: <dpt1_dpt2>
+notes:
+  value: 'STAR Collaboration, Rep. Prog. Phys. 88 (2025) 108601, arXiv:2506.17785, Fig. 34. <(dpT)^2>: two-subevent <(dpT)^2>
+    = <(pT_i - <pT>)(pT_j - <pT>)>, i and j across -1 < eta < -0.1 and 0.1 < eta < 1, event averages, at fixed N_ch^rec; charged
+    particles |eta| < 1, 0.2 < pT < 2 GeV/c, U+U 193 GeV. Errors: stat and syst.'
+---
+observable_type: mean_pT_fluctuations
+inspire_id: '2937844'
+version: 1
+hepdata_file: figure_36_upper_row_d_.yaml
+dv_index: 0
+hepdata_table_label: 'Figure 36 upper row d: Data from Figure 36, upper row panel d, 2subevent method, 0.5<p_{T}<2 GeV/c (column
+  0, Au+Au)'
+collision_system:
+  energy_gev: 200.0
+  reaction: AU AU --> CHARGED X
+centrality:
+  classes:
+  - 55-60%
+  - 50-55%
+  - 47.5-50%
+  - 45-47.5%
+  - 42.5-45%
+  - 40-42.5%
+  - 37.5-40%
+  - 35-37.5%
+  - 32.5-35%
+  - 30-32.5%
+  - 27.5-30%
+  - 25-27.5%
+  - 22.5-25%
+  - 20-22.5%
+  - 17.5-20%
+  - 15-17.5%
+  - 12.5-15%
+  - 10-12.5%
+  - 8.75-10%
+  - 7.5-8.75%
+  - 6.25-7.5%
+  - 5-6.25%
+  - 4-5%
+  - 3-4%
+  - 2-3%
+  - 1-2%
+  - 0.75-1%
+  - 0.5-0.75%
+  - 0.2-0.5%
+  - 0-0.2%
+  estimator:
+    name: Nch_rec
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  pT:
+    min: 0.15
+    max: 100.0
+  notes: N_ch^rec, reconstructed TPC tracks |eta| < 0.5, pT > 0.15 GeV/c (Glauber-matched percentiles); nominal classes rebuilt
+    from the tabulated mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.5
+    max: 2.0
+observable: pT_correlator
+particles: AB
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -1.0
+        max: -0.1
+      pT:
+        min: 0.5
+        max: 2.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.1
+        max: 1.0
+      pT:
+        min: 0.5
+        max: 2.0
+averaging: events
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -0.5
+    max: 0.5
+  pT:
+    min: 0.15
+    max: 100.0
+dimensionality: integrated
+value_type: <dpt1_dpt2>
+notes:
+  value: 'STAR Collaboration, Rep. Prog. Phys. 88 (2025) 108601, arXiv:2506.17785, Fig. 36. <(dpT)^2>: two-subevent <(dpT)^2>
+    = <(pT_i - <pT>)(pT_j - <pT>)>, i and j across -1 < eta < -0.1 and 0.1 < eta < 1, event averages, at fixed N_ch^rec; charged
+    particles |eta| < 1, 0.5 < pT < 2 GeV/c, Au+Au 200 GeV. Errors: stat and syst.'
+---
+observable_type: mean_pT_fluctuations
+inspire_id: '2937844'
+version: 1
+hepdata_file: figure_36_upper_row_d_.yaml
+dv_index: 1
+hepdata_table_label: 'Figure 36 upper row d: Data from Figure 36, upper row panel d, 2subevent method, 0.5<p_{T}<2 GeV/c (column
+  1, U+U)'
+collision_system:
+  energy_gev: 193.0
+  reaction: U U --> CHARGED X
+centrality:
+  classes:
+  - 55-60%
+  - 50-55%
+  - 47.5-50%
+  - 45-47.5%
+  - 42.5-45%
+  - 40-42.5%
+  - 37.5-40%
+  - 35-37.5%
+  - 32.5-35%
+  - 30-32.5%
+  - 27.5-30%
+  - 25-27.5%
+  - 22.5-25%
+  - 20-22.5%
+  - 17.5-20%
+  - 15-17.5%
+  - 12.5-15%
+  - 10-12.5%
+  - 8.75-10%
+  - 7.5-8.75%
+  - 6.25-7.5%
+  - 5-6.25%
+  - 4-5%
+  - 3-4%
+  - 2-3%
+  - 1-2%
+  - 0.75-1%
+  - 0.5-0.75%
+  - 0.2-0.5%
+  - 0-0.2%
+  estimator:
+    name: Nch_rec
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  pT:
+    min: 0.15
+    max: 100.0
+  notes: N_ch^rec, reconstructed TPC tracks |eta| < 0.5, pT > 0.15 GeV/c (Glauber-matched percentiles); nominal classes rebuilt
+    from the tabulated mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -1.0
+    max: 1.0
+  pT:
+    min: 0.5
+    max: 2.0
+observable: pT_correlator
+particles: AB
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -1.0
+        max: -0.1
+      pT:
+        min: 0.5
+        max: 2.0
+  B:
+    kinematic_range:
+      eta:
+        min: 0.1
+        max: 1.0
+      pT:
+        min: 0.5
+        max: 2.0
+averaging: events
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -0.5
+    max: 0.5
+  pT:
+    min: 0.15
+    max: 100.0
+dimensionality: integrated
+value_type: <dpt1_dpt2>
+notes:
+  value: 'STAR Collaboration, Rep. Prog. Phys. 88 (2025) 108601, arXiv:2506.17785, Fig. 36. <(dpT)^2>: two-subevent <(dpT)^2>
+    = <(pT_i - <pT>)(pT_j - <pT>)>, i and j across -1 < eta < -0.1 and 0.1 < eta < 1, event averages, at fixed N_ch^rec; charged
+    particles |eta| < 1, 0.5 < pT < 2 GeV/c, U+U 193 GeV. Errors: stat and syst.'
