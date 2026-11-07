@@ -1,0 +1,844 @@
+observable_type: flow_vn
+inspire_id: '2848254'
+version: 1
+hepdata_file: pPb_v2pion_pt.yaml
+dv_index: 0
+hepdata_table_label: $v_2${2, $1.1<|\Delta\eta|< 7.8$} of $\mathrm{\pi}^{\pm}$ as a function of $p_{\mathrm{T}}$ in high-multiplicity
+  p--Pb collisions at $\sqrt{s_{\mathrm{NN}}} = 5.02$ TeV.
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> CHARGED X
+  frame: lab
+  rapidity_shift: -0.465
+  forward_beam: Pb
+centrality:
+  classes:
+  - 0-20%
+  estimator:
+    name: V0A
+    observable: amplitude
+    detector: V0A
+  eta:
+  - min: 2.8
+    max: 5.1
+  notes: V0A amplitude (Pb-going side), lab frame.
+particle_id:
+  species: pi+ + pi-
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2464
+    max: 7.5203
+    bin_ranges:
+    - - 0.2464
+      - 0.4212
+    - - 0.4212
+      - 0.6006
+    - - 0.6006
+      - 0.7936
+    - - 0.7936
+      - 1.008
+    - - 1.008
+      - 1.2457
+    - - 1.2457
+      - 1.4933
+    - - 1.4933
+      - 1.7407
+    - - 1.7407
+      - 1.9906
+    - - 1.9906
+      - 2.2415
+    - - 2.2415
+      - 2.5421
+    - - 2.5421
+      - 2.9679
+    - - 2.9679
+      - 3.4689
+    - - 3.4689
+      - 4.0573
+    - - 4.0573
+      - 4.9126
+    - - 4.9126
+      - 6.1268
+    - - 6.1268
+      - 7.5203
+harmonic: 2
+method: three_subevent_2pc
+dimensionality: differential_pT
+flow_reference:
+  subevents:
+    B:
+      eta:
+      - min: 1.7
+        max: 5.1
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -3.1
+        max: -1.7
+      pT:
+        min: 0.0
+        max: 100.0
+  detector: FMD
+  notes: 'B: FMD1,2 (1.7 < eta < 5.1), C: FMD3 (-3.1 < eta < -1.7), all pT; v2 = sqrt(V(POI, B) V(POI, C) / V(B, C)).'
+value_type: v2
+notes:
+  value: 'ALICE, Nature Commun. 17 (2026) 2585, arXiv:2411.09323. v2(pT) of pi+ + pi- (|eta| < 0.8) from three sets of two-particle
+    correlations with the FMD (Eq. A.2), non-flow removed by a template fit to low-multiplicity events; p-Pb 5.02 TeV 0-20%
+    V0A; pT bins from the midpoints between the tabulated mean pT. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2848254'
+version: 1
+hepdata_file: pPb_v2kaon_pt.yaml
+dv_index: 0
+hepdata_table_label: $v_2${2, $1.1<|\Delta\eta|< 7.8$} of $\mathrm{K}^{\pm}$ as a function of $p_{\mathrm{T}}$ in high-multiplicity
+  p--Pb collisions at $\sqrt{s_{\mathrm{NN}}} = 5.02$ TeV.
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> CHARGED X
+  frame: lab
+  rapidity_shift: -0.465
+  forward_beam: Pb
+centrality:
+  classes:
+  - 0-20%
+  estimator:
+    name: V0A
+    observable: amplitude
+    detector: V0A
+  eta:
+  - min: 2.8
+    max: 5.1
+  notes: V0A amplitude (Pb-going side), lab frame.
+particle_id:
+  species: K+ + K-
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2464
+    max: 8.6724
+    bin_ranges:
+    - - 0.2464
+      - 0.4212
+    - - 0.4212
+      - 0.6006
+    - - 0.6006
+      - 0.7936
+    - - 0.7936
+      - 1.008
+    - - 1.008
+      - 1.2457
+    - - 1.2457
+      - 1.4933
+    - - 1.4933
+      - 1.7407
+    - - 1.7407
+      - 2.0407
+    - - 2.0407
+      - 2.467
+    - - 2.467
+      - 3.0479
+    - - 3.0479
+      - 4.0171
+    - - 4.0171
+      - 5.9946
+    - - 5.9946
+      - 8.6724
+harmonic: 2
+method: three_subevent_2pc
+dimensionality: differential_pT
+flow_reference:
+  subevents:
+    B:
+      eta:
+      - min: 1.7
+        max: 5.1
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -3.1
+        max: -1.7
+      pT:
+        min: 0.0
+        max: 100.0
+  detector: FMD
+  notes: 'B: FMD1,2 (1.7 < eta < 5.1), C: FMD3 (-3.1 < eta < -1.7), all pT; v2 = sqrt(V(POI, B) V(POI, C) / V(B, C)).'
+value_type: v2
+notes:
+  value: 'ALICE, Nature Commun. 17 (2026) 2585, arXiv:2411.09323. v2(pT) of K+ + K- (|eta| < 0.8) from three sets of two-particle
+    correlations with the FMD (Eq. A.2), non-flow removed by a template fit to low-multiplicity events; p-Pb 5.02 TeV 0-20%
+    V0A; pT bins from the midpoints between the tabulated mean pT. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2848254'
+version: 1
+hepdata_file: pPb_v2proton_pt.yaml
+dv_index: 0
+hepdata_table_label: $v_2${2, $1.1<|\Delta\eta|< 7.8$} of p + $\rm\overline p$ as a function of $p_{\mathrm{T}}$ in high-multiplicity
+  p--Pb collisions at $\sqrt{s_{\mathrm{NN}}} = 5.02$ TeV.
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> CHARGED X
+  frame: lab
+  rapidity_shift: -0.465
+  forward_beam: Pb
+centrality:
+  classes:
+  - 0-20%
+  estimator:
+    name: V0A
+    observable: amplitude
+    detector: V0A
+  eta:
+  - min: 2.8
+    max: 5.1
+  notes: V0A amplitude (Pb-going side), lab frame.
+particle_id:
+  species: p + pbar
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.4125
+    max: 7.7826
+    bin_ranges:
+    - - 0.4125
+      - 0.6046
+    - - 0.6046
+      - 0.8001
+    - - 0.8001
+      - 1.0101
+    - - 1.0101
+      - 1.2425
+    - - 1.2425
+      - 1.4918
+    - - 1.4918
+      - 1.744
+    - - 1.744
+      - 2.0448
+    - - 2.0448
+      - 2.4704
+    - - 2.4704
+      - 3.0496
+    - - 3.0496
+      - 3.9479
+    - - 3.9479
+      - 5.6052
+    - - 5.6052
+      - 7.7826
+harmonic: 2
+method: three_subevent_2pc
+dimensionality: differential_pT
+flow_reference:
+  subevents:
+    B:
+      eta:
+      - min: 1.7
+        max: 5.1
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -3.1
+        max: -1.7
+      pT:
+        min: 0.0
+        max: 100.0
+  detector: FMD
+  notes: 'B: FMD1,2 (1.7 < eta < 5.1), C: FMD3 (-3.1 < eta < -1.7), all pT; v2 = sqrt(V(POI, B) V(POI, C) / V(B, C)).'
+value_type: v2
+notes:
+  value: 'ALICE, Nature Commun. 17 (2026) 2585, arXiv:2411.09323. v2(pT) of p + pbar (|eta| < 0.8) from three sets of two-particle
+    correlations with the FMD (Eq. A.2), non-flow removed by a template fit to low-multiplicity events; p-Pb 5.02 TeV 0-20%
+    V0A; pT bins from the midpoints between the tabulated mean pT. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2848254'
+version: 1
+hepdata_file: pPb_v2K0S_pt.yaml
+dv_index: 0
+hepdata_table_label: $v_2${2, $1.1<|\Delta\eta|< 7.8$} of $\rm K^0_\rm S$ as a function of $p_{\mathrm{T}}$ in high-multiplicity
+  p--Pb collisions at $\sqrt{s_{\mathrm{NN}}} = 5.02$ TeV.
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> CHARGED X
+  frame: lab
+  rapidity_shift: -0.465
+  forward_beam: Pb
+centrality:
+  classes:
+  - 0-20%
+  estimator:
+    name: V0A
+    observable: amplitude
+    detector: V0A
+  eta:
+  - min: 2.8
+    max: 5.1
+  notes: V0A amplitude (Pb-going side), lab frame.
+particle_id:
+  species: K0_S
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.5434
+    max: 8.3832
+    bin_ranges:
+    - - 0.5434
+      - 1.0024
+    - - 1.0024
+      - 1.4781
+    - - 1.4781
+      - 1.9717
+    - - 1.9717
+      - 2.4697
+    - - 2.4697
+      - 3.0566
+    - - 3.0566
+      - 4.0326
+    - - 4.0326
+      - 5.9092
+    - - 5.9092
+      - 8.3832
+  y:
+    min: -0.5
+    max: 0.5
+harmonic: 2
+method: three_subevent_2pc
+dimensionality: differential_pT
+flow_reference:
+  subevents:
+    B:
+      eta:
+      - min: 1.7
+        max: 5.1
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -3.1
+        max: -1.7
+      pT:
+        min: 0.0
+        max: 100.0
+  detector: FMD
+  notes: 'B: FMD1,2 (1.7 < eta < 5.1), C: FMD3 (-3.1 < eta < -1.7), all pT; v2 = sqrt(V(POI, B) V(POI, C) / V(B, C)).'
+value_type: v2
+notes:
+  value: 'ALICE, Nature Commun. 17 (2026) 2585, arXiv:2411.09323. v2(pT) of K0_S (|y| < 0.5) from three sets of two-particle
+    correlations with the FMD (Eq. A.2), non-flow removed by a template fit to low-multiplicity events; p-Pb 5.02 TeV 0-20%
+    V0A; pT bins from the midpoints between the tabulated mean pT. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2848254'
+version: 1
+hepdata_file: pPb_v2Lambda_pt.yaml
+dv_index: 0
+hepdata_table_label: $v_2${2, $1.1<|\Delta\eta|< 7.8$} of $\Lambda$ + $\overline \Lambda$ as a function of $p_{\mathrm{T}}$
+  in high-multiplicity p--Pb collisions at $\sqrt{s_{\mathrm{NN}}} = 5.02$ TeV.
+collision_system:
+  energy_gev: 5020.0
+  reaction: P PB --> CHARGED X
+  frame: lab
+  rapidity_shift: -0.465
+  forward_beam: Pb
+centrality:
+  classes:
+  - 0-20%
+  estimator:
+    name: V0A
+    observable: amplitude
+    detector: V0A
+  eta:
+  - min: 2.8
+    max: 5.1
+  notes: V0A amplitude (Pb-going side), lab frame.
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.6016
+    max: 8.1291
+    bin_ranges:
+    - - 0.6016
+      - 1.037
+    - - 1.037
+      - 1.4953
+    - - 1.4953
+      - 1.982
+    - - 1.982
+      - 2.4756
+    - - 2.4756
+      - 3.0569
+    - - 3.0569
+      - 3.9997
+    - - 3.9997
+      - 5.7822
+    - - 5.7822
+      - 8.1291
+  y:
+    min: -0.5
+    max: 0.5
+harmonic: 2
+method: three_subevent_2pc
+dimensionality: differential_pT
+flow_reference:
+  subevents:
+    B:
+      eta:
+      - min: 1.7
+        max: 5.1
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -3.1
+        max: -1.7
+      pT:
+        min: 0.0
+        max: 100.0
+  detector: FMD
+  notes: 'B: FMD1,2 (1.7 < eta < 5.1), C: FMD3 (-3.1 < eta < -1.7), all pT; v2 = sqrt(V(POI, B) V(POI, C) / V(B, C)).'
+value_type: v2
+notes:
+  value: 'ALICE, Nature Commun. 17 (2026) 2585, arXiv:2411.09323. v2(pT) of Lambda + Lambdabar (|y| < 0.5) from three sets
+    of two-particle correlations with the FMD (Eq. A.2), non-flow removed by a template fit to low-multiplicity events; p-Pb
+    5.02 TeV 0-20% V0A; pT bins from the midpoints between the tabulated mean pT. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2848254'
+version: 1
+hepdata_file: pp_v2pion_pt.yaml
+dv_index: 0
+hepdata_table_label: $v_2${2, $1.1<|\Delta\eta|< 6.4$} of $\mathrm{\pi}^{\pm}$ as a function of $p_{\mathrm{T}}$ in high-multiplicity
+  pp collisions at $\sqrt{s_{\mathrm{NN}}} = 13$ TeV.
+collision_system:
+  energy_gev: 13000.0
+  reaction: P P --> CHARGED X
+centrality:
+  classes:
+  - 0-0.07%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+  notes: V0M amplitude (high-multiplicity trigger), with Nch(|eta| < 0.8, 0.2 < pT < 3 GeV/c) > 25.
+particle_id:
+  species: pi+ + pi-
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.1982
+    max: 8.0796
+    bin_ranges:
+    - - 0.1982
+      - 0.3949
+    - - 0.3949
+      - 0.5908
+    - - 0.5908
+      - 0.789
+    - - 0.789
+      - 1.0027
+    - - 1.0027
+      - 1.2409
+    - - 1.2409
+      - 1.4914
+    - - 1.4914
+      - 1.7422
+    - - 1.7422
+      - 1.9928
+    - - 1.9928
+      - 2.2428
+    - - 2.2428
+      - 2.5441
+    - - 2.5441
+      - 2.9719
+    - - 2.9719
+      - 3.4743
+    - - 3.4743
+      - 4.0702
+    - - 4.0702
+      - 4.921
+    - - 4.921
+      - 6.3113
+    - - 6.3113
+      - 8.0796
+harmonic: 2
+method: three_subevent_2pc
+dimensionality: differential_pT
+flow_reference:
+  subevents:
+    B:
+      eta:
+      - min: 1.7
+        max: 5.1
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -3.1
+        max: -1.7
+      pT:
+        min: 0.0
+        max: 100.0
+  detector: FMD
+  notes: 'B: FMD1,2 (1.7 < eta < 5.1), C: FMD3 (-3.1 < eta < -1.7), all pT; v2 = sqrt(V(POI, B) V(POI, C) / V(B, C)).'
+value_type: v2
+notes:
+  value: 'ALICE, Nature Commun. 17 (2026) 2585, arXiv:2411.09323. v2(pT) of pi+ + pi- (|eta| < 0.8) from three sets of two-particle
+    correlations with the FMD (Eq. A.2), non-flow removed by a template fit to low-multiplicity events; pp 13 TeV 0-0.07%
+    V0M; pT bins from the midpoints between the tabulated mean pT. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2848254'
+version: 1
+hepdata_file: pp_v2kaon_pt.yaml
+dv_index: 0
+hepdata_table_label: $v_2${2, $1.1<|\Delta\eta|< 6.4$} of $\rm K^+$ + $\rm K^-$ as a function of $p_{\mathrm{T}}$ in high-multiplicity
+  pp collisions at $\sqrt{s_{\mathrm{NN}}} = 13$ TeV.
+collision_system:
+  energy_gev: 13000.0
+  reaction: P P --> CHARGED X
+centrality:
+  classes:
+  - 0-0.07%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+  notes: V0M amplitude (high-multiplicity trigger), with Nch(|eta| < 0.8, 0.2 < pT < 3 GeV/c) > 25.
+particle_id:
+  species: K+ + K-
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2418
+    max: 8.7668
+    bin_ranges:
+    - - 0.2418
+      - 0.4205
+    - - 0.4205
+      - 0.6016
+    - - 0.6016
+      - 0.7945
+    - - 0.7945
+      - 1.0088
+    - - 1.0088
+      - 1.2461
+    - - 1.2461
+      - 1.4939
+    - - 1.4939
+      - 1.7418
+    - - 1.7418
+      - 2.0434
+    - - 2.0434
+      - 2.4708
+    - - 2.4708
+      - 3.0506
+    - - 3.0506
+      - 3.9876
+    - - 3.9876
+      - 5.9855
+    - - 5.9855
+      - 8.7668
+harmonic: 2
+method: three_subevent_2pc
+dimensionality: differential_pT
+flow_reference:
+  subevents:
+    B:
+      eta:
+      - min: 1.7
+        max: 5.1
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -3.1
+        max: -1.7
+      pT:
+        min: 0.0
+        max: 100.0
+  detector: FMD
+  notes: 'B: FMD1,2 (1.7 < eta < 5.1), C: FMD3 (-3.1 < eta < -1.7), all pT; v2 = sqrt(V(POI, B) V(POI, C) / V(B, C)).'
+value_type: v2
+notes:
+  value: 'ALICE, Nature Commun. 17 (2026) 2585, arXiv:2411.09323. v2(pT) of K+ + K- (|eta| < 0.8) from three sets of two-particle
+    correlations with the FMD (Eq. A.2), non-flow removed by a template fit to low-multiplicity events; pp 13 TeV 0-0.07%
+    V0M; pT bins from the midpoints between the tabulated mean pT. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2848254'
+version: 1
+hepdata_file: pp_v2proton_pt.yaml
+dv_index: 0
+hepdata_table_label: $v_2${2, $1.1<|\Delta\eta|< 6.4$} of p + $\rm\overline p$ as a function of $p_{\mathrm{T}}$ in high-multiplicity
+  pp collisions at $\sqrt{s_{\mathrm{NN}}} = 13$ TeV.
+collision_system:
+  energy_gev: 13000.0
+  reaction: P P --> CHARGED X
+centrality:
+  classes:
+  - 0-0.07%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+  notes: V0M amplitude (high-multiplicity trigger), with Nch(|eta| < 0.8, 0.2 < pT < 3 GeV/c) > 25.
+particle_id:
+  species: p + pbar
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2892
+    max: 7.7009
+    bin_ranges:
+    - - 0.2892
+      - 0.4351
+    - - 0.4351
+      - 0.6041
+    - - 0.6041
+      - 0.8002
+    - - 0.8002
+      - 1.0101
+    - - 1.0101
+      - 1.243
+    - - 1.243
+      - 1.4928
+    - - 1.4928
+      - 1.7445
+    - - 1.7445
+      - 2.0471
+    - - 2.0471
+      - 2.4746
+    - - 2.4746
+      - 3.0596
+    - - 3.0596
+      - 3.9629
+    - - 3.9629
+      - 5.5874
+    - - 5.5874
+      - 7.7009
+harmonic: 2
+method: three_subevent_2pc
+dimensionality: differential_pT
+flow_reference:
+  subevents:
+    B:
+      eta:
+      - min: 1.7
+        max: 5.1
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -3.1
+        max: -1.7
+      pT:
+        min: 0.0
+        max: 100.0
+  detector: FMD
+  notes: 'B: FMD1,2 (1.7 < eta < 5.1), C: FMD3 (-3.1 < eta < -1.7), all pT; v2 = sqrt(V(POI, B) V(POI, C) / V(B, C)).'
+value_type: v2
+notes:
+  value: 'ALICE, Nature Commun. 17 (2026) 2585, arXiv:2411.09323. v2(pT) of p + pbar (|eta| < 0.8) from three sets of two-particle
+    correlations with the FMD (Eq. A.2), non-flow removed by a template fit to low-multiplicity events; pp 13 TeV 0-0.07%
+    V0M; pT bins from the midpoints between the tabulated mean pT. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2848254'
+version: 1
+hepdata_file: pp_v2K0S_pt.yaml
+dv_index: 0
+hepdata_table_label: $v_2${2, $1.1<|\Delta\eta|< 6.4$} of $\rm K^0_\rm S$ as a function of $p_{\mathrm{T}}$ in high-multiplicity
+  pp collisions at $\sqrt{s_{\mathrm{NN}}} = 13$ TeV.
+collision_system:
+  energy_gev: 13000.0
+  reaction: P P --> CHARGED X
+centrality:
+  classes:
+  - 0-0.07%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+  notes: V0M amplitude (high-multiplicity trigger), with Nch(|eta| < 0.8, 0.2 < pT < 3 GeV/c) > 25.
+particle_id:
+  species: K0_S
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.5427
+    max: 8.4785
+    bin_ranges:
+    - - 0.5427
+      - 1.0031
+    - - 1.0031
+      - 1.4799
+    - - 1.4799
+      - 2.0589
+    - - 2.0589
+      - 2.8976
+    - - 2.8976
+      - 4.0542
+    - - 4.0542
+      - 5.9627
+    - - 5.9627
+      - 8.4785
+  y:
+    min: -0.5
+    max: 0.5
+harmonic: 2
+method: three_subevent_2pc
+dimensionality: differential_pT
+flow_reference:
+  subevents:
+    B:
+      eta:
+      - min: 1.7
+        max: 5.1
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -3.1
+        max: -1.7
+      pT:
+        min: 0.0
+        max: 100.0
+  detector: FMD
+  notes: 'B: FMD1,2 (1.7 < eta < 5.1), C: FMD3 (-3.1 < eta < -1.7), all pT; v2 = sqrt(V(POI, B) V(POI, C) / V(B, C)).'
+value_type: v2
+notes:
+  value: 'ALICE, Nature Commun. 17 (2026) 2585, arXiv:2411.09323. v2(pT) of K0_S (|y| < 0.5) from three sets of two-particle
+    correlations with the FMD (Eq. A.2), non-flow removed by a template fit to low-multiplicity events; pp 13 TeV 0-0.07%
+    V0M; pT bins from the midpoints between the tabulated mean pT. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2848254'
+version: 1
+hepdata_file: pp_v2Lambda_pt.yaml
+dv_index: 0
+hepdata_table_label: $v_2${2, $1.1<|\Delta\eta|< 6.4$} of $\Lambda$ + $\overline \Lambda$ as a function of $p_{\mathrm{T}}$
+  in high-multiplicity pp collisions at $\sqrt{s_{\mathrm{NN}}} = 13$ TeV.
+collision_system:
+  energy_gev: 13000.0
+  reaction: P P --> CHARGED X
+centrality:
+  classes:
+  - 0-0.07%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+  notes: V0M amplitude (high-multiplicity trigger), with Nch(|eta| < 0.8, 0.2 < pT < 3 GeV/c) > 25.
+particle_id:
+  species: Lambda + Lambdabar
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.5917
+    max: 8.2333
+    bin_ranges:
+    - - 0.5917
+      - 1.0336
+    - - 1.0336
+      - 1.4964
+    - - 1.4964
+      - 1.9846
+    - - 1.9846
+      - 2.4787
+    - - 2.4787
+      - 3.0651
+    - - 3.0651
+      - 4.0273
+    - - 4.0273
+      - 5.8449
+    - - 5.8449
+      - 8.2333
+  y:
+    min: -0.5
+    max: 0.5
+harmonic: 2
+method: three_subevent_2pc
+dimensionality: differential_pT
+flow_reference:
+  subevents:
+    B:
+      eta:
+      - min: 1.7
+        max: 5.1
+      pT:
+        min: 0.0
+        max: 100.0
+    C:
+      eta:
+      - min: -3.1
+        max: -1.7
+      pT:
+        min: 0.0
+        max: 100.0
+  detector: FMD
+  notes: 'B: FMD1,2 (1.7 < eta < 5.1), C: FMD3 (-3.1 < eta < -1.7), all pT; v2 = sqrt(V(POI, B) V(POI, C) / V(B, C)).'
+value_type: v2
+notes:
+  value: 'ALICE, Nature Commun. 17 (2026) 2585, arXiv:2411.09323. v2(pT) of Lambda + Lambdabar (|y| < 0.5) from three sets
+    of two-particle correlations with the FMD (Eq. A.2), non-flow removed by a template fit to low-multiplicity events; pp
+    13 TeV 0-0.07% V0M; pT bins from the midpoints between the tabulated mean pT. Errors: stat and sys.'
