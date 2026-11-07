@@ -1,0 +1,8447 @@
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab1.yaml
+dv_index: 0
+hepdata_table_label: $v_{2}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Pb}-\mathrm{Pb}$ at $\sqrt{s_{\mathrm{NN}}}=5.023\,\mathrm{Te\!V}$
+  (V_2_2, 0-5%)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 2
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - &id002
+      min: -1.0
+      max: -0.8
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - &id001
+      min: 0.8
+      max: 1.0
+    notes: 'POI at eta > 0: reference TPC -1.0 < eta < -0.8, partner 0.8 < eta < 1.0.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - *id001
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - *id002
+    notes: 'POI at eta < 0: reference TPC 0.8 < eta < 1.0, partner -1.0 < eta < -0.8.'
+  notes: reference particles from the TPC on the other side, 0.8 < |eta| < 1.0
+value_type: V_2_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_2{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the TPC on the other side,
+    0.8 < |eta| < 1.0, normalized by the correlation of the reference with its mirror region (Eqs. 1, 2; HEPData gap (0.8,
+    2.6)); bins symmetrized in eta by the collaboration; Pb-Pb 5.02 TeV 0-5%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab1.yaml
+dv_index: 1
+hepdata_table_label: $v_{2}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Pb}-\mathrm{Pb}$ at $\sqrt{s_{\mathrm{NN}}}=5.023\,\mathrm{Te\!V}$
+  (V_2_2, 5-10%)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 5-10%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 2
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - &id002
+      min: -1.0
+      max: -0.8
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - &id001
+      min: 0.8
+      max: 1.0
+    notes: 'POI at eta > 0: reference TPC -1.0 < eta < -0.8, partner 0.8 < eta < 1.0.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - *id001
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - *id002
+    notes: 'POI at eta < 0: reference TPC 0.8 < eta < 1.0, partner -1.0 < eta < -0.8.'
+  notes: reference particles from the TPC on the other side, 0.8 < |eta| < 1.0
+value_type: V_2_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_2{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the TPC on the other side,
+    0.8 < |eta| < 1.0, normalized by the correlation of the reference with its mirror region (Eqs. 1, 2; HEPData gap (0.8,
+    2.6)); bins symmetrized in eta by the collaboration; Pb-Pb 5.02 TeV 5-10%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab1.yaml
+dv_index: 2
+hepdata_table_label: $v_{2}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Pb}-\mathrm{Pb}$ at $\sqrt{s_{\mathrm{NN}}}=5.023\,\mathrm{Te\!V}$
+  (V_2_2, 10-20%)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 10-20%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 2
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - &id002
+      min: -1.0
+      max: -0.8
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - &id001
+      min: 0.8
+      max: 1.0
+    notes: 'POI at eta > 0: reference TPC -1.0 < eta < -0.8, partner 0.8 < eta < 1.0.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - *id001
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - *id002
+    notes: 'POI at eta < 0: reference TPC 0.8 < eta < 1.0, partner -1.0 < eta < -0.8.'
+  notes: reference particles from the TPC on the other side, 0.8 < |eta| < 1.0
+value_type: V_2_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_2{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the TPC on the other side,
+    0.8 < |eta| < 1.0, normalized by the correlation of the reference with its mirror region (Eqs. 1, 2; HEPData gap (0.8,
+    2.6)); bins symmetrized in eta by the collaboration; Pb-Pb 5.02 TeV 10-20%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab1.yaml
+dv_index: 3
+hepdata_table_label: $v_{2}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Pb}-\mathrm{Pb}$ at $\sqrt{s_{\mathrm{NN}}}=5.023\,\mathrm{Te\!V}$
+  (V_2_2, 20-30%)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 20-30%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 2
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - &id002
+      min: -1.0
+      max: -0.8
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - &id001
+      min: 0.8
+      max: 1.0
+    notes: 'POI at eta > 0: reference TPC -1.0 < eta < -0.8, partner 0.8 < eta < 1.0.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - *id001
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - *id002
+    notes: 'POI at eta < 0: reference TPC 0.8 < eta < 1.0, partner -1.0 < eta < -0.8.'
+  notes: reference particles from the TPC on the other side, 0.8 < |eta| < 1.0
+value_type: V_2_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_2{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the TPC on the other side,
+    0.8 < |eta| < 1.0, normalized by the correlation of the reference with its mirror region (Eqs. 1, 2; HEPData gap (0.8,
+    2.6)); bins symmetrized in eta by the collaboration; Pb-Pb 5.02 TeV 20-30%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab1.yaml
+dv_index: 4
+hepdata_table_label: $v_{2}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Pb}-\mathrm{Pb}$ at $\sqrt{s_{\mathrm{NN}}}=5.023\,\mathrm{Te\!V}$
+  (V_2_2, 30-40%)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 30-40%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 2
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - &id002
+      min: -1.0
+      max: -0.8
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - &id001
+      min: 0.8
+      max: 1.0
+    notes: 'POI at eta > 0: reference TPC -1.0 < eta < -0.8, partner 0.8 < eta < 1.0.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - *id001
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - *id002
+    notes: 'POI at eta < 0: reference TPC 0.8 < eta < 1.0, partner -1.0 < eta < -0.8.'
+  notes: reference particles from the TPC on the other side, 0.8 < |eta| < 1.0
+value_type: V_2_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_2{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the TPC on the other side,
+    0.8 < |eta| < 1.0, normalized by the correlation of the reference with its mirror region (Eqs. 1, 2; HEPData gap (0.8,
+    2.6)); bins symmetrized in eta by the collaboration; Pb-Pb 5.02 TeV 30-40%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab1.yaml
+dv_index: 5
+hepdata_table_label: $v_{2}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Pb}-\mathrm{Pb}$ at $\sqrt{s_{\mathrm{NN}}}=5.023\,\mathrm{Te\!V}$
+  (V_2_2, 40-50%)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 40-50%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 2
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - &id002
+      min: -1.0
+      max: -0.8
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - &id001
+      min: 0.8
+      max: 1.0
+    notes: 'POI at eta > 0: reference TPC -1.0 < eta < -0.8, partner 0.8 < eta < 1.0.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - *id001
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - *id002
+    notes: 'POI at eta < 0: reference TPC 0.8 < eta < 1.0, partner -1.0 < eta < -0.8.'
+  notes: reference particles from the TPC on the other side, 0.8 < |eta| < 1.0
+value_type: V_2_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_2{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the TPC on the other side,
+    0.8 < |eta| < 1.0, normalized by the correlation of the reference with its mirror region (Eqs. 1, 2; HEPData gap (0.8,
+    2.6)); bins symmetrized in eta by the collaboration; Pb-Pb 5.02 TeV 40-50%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab1.yaml
+dv_index: 6
+hepdata_table_label: $v_{2}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Pb}-\mathrm{Pb}$ at $\sqrt{s_{\mathrm{NN}}}=5.023\,\mathrm{Te\!V}$
+  (V_2_2, 50-60%)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 50-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 2
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - &id002
+      min: -1.0
+      max: -0.8
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - &id001
+      min: 0.8
+      max: 1.0
+    notes: 'POI at eta > 0: reference TPC -1.0 < eta < -0.8, partner 0.8 < eta < 1.0.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - *id001
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - *id002
+    notes: 'POI at eta < 0: reference TPC 0.8 < eta < 1.0, partner -1.0 < eta < -0.8.'
+  notes: reference particles from the TPC on the other side, 0.8 < |eta| < 1.0
+value_type: V_2_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_2{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the TPC on the other side,
+    0.8 < |eta| < 1.0, normalized by the correlation of the reference with its mirror region (Eqs. 1, 2; HEPData gap (0.8,
+    2.6)); bins symmetrized in eta by the collaboration; Pb-Pb 5.02 TeV 50-60%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab2.yaml
+dv_index: 0
+hepdata_table_label: $v_{3}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Pb}-\mathrm{Pb}$ at $\sqrt{s_{\mathrm{NN}}}=5.023\,\mathrm{Te\!V}$
+  (V_3_2, 0-5%)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 3
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - &id002
+      min: -1.0
+      max: -0.8
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - &id001
+      min: 0.8
+      max: 1.0
+    notes: 'POI at eta > 0: reference TPC -1.0 < eta < -0.8, partner 0.8 < eta < 1.0.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - *id001
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - *id002
+    notes: 'POI at eta < 0: reference TPC 0.8 < eta < 1.0, partner -1.0 < eta < -0.8.'
+  notes: reference particles from the TPC on the other side, 0.8 < |eta| < 1.0
+value_type: V_3_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_3{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the TPC on the other side,
+    0.8 < |eta| < 1.0, normalized by the correlation of the reference with its mirror region (Eqs. 1, 2; HEPData gap (0.8,
+    2.6)); bins symmetrized in eta by the collaboration; Pb-Pb 5.02 TeV 0-5%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab2.yaml
+dv_index: 1
+hepdata_table_label: $v_{3}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Pb}-\mathrm{Pb}$ at $\sqrt{s_{\mathrm{NN}}}=5.023\,\mathrm{Te\!V}$
+  (V_3_2, 5-10%)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 5-10%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 3
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - &id002
+      min: -1.0
+      max: -0.8
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - &id001
+      min: 0.8
+      max: 1.0
+    notes: 'POI at eta > 0: reference TPC -1.0 < eta < -0.8, partner 0.8 < eta < 1.0.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - *id001
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - *id002
+    notes: 'POI at eta < 0: reference TPC 0.8 < eta < 1.0, partner -1.0 < eta < -0.8.'
+  notes: reference particles from the TPC on the other side, 0.8 < |eta| < 1.0
+value_type: V_3_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_3{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the TPC on the other side,
+    0.8 < |eta| < 1.0, normalized by the correlation of the reference with its mirror region (Eqs. 1, 2; HEPData gap (0.8,
+    2.6)); bins symmetrized in eta by the collaboration; Pb-Pb 5.02 TeV 5-10%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab2.yaml
+dv_index: 2
+hepdata_table_label: $v_{3}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Pb}-\mathrm{Pb}$ at $\sqrt{s_{\mathrm{NN}}}=5.023\,\mathrm{Te\!V}$
+  (V_3_2, 10-20%)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 10-20%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 3
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - &id002
+      min: -1.0
+      max: -0.8
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - &id001
+      min: 0.8
+      max: 1.0
+    notes: 'POI at eta > 0: reference TPC -1.0 < eta < -0.8, partner 0.8 < eta < 1.0.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - *id001
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - *id002
+    notes: 'POI at eta < 0: reference TPC 0.8 < eta < 1.0, partner -1.0 < eta < -0.8.'
+  notes: reference particles from the TPC on the other side, 0.8 < |eta| < 1.0
+value_type: V_3_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_3{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the TPC on the other side,
+    0.8 < |eta| < 1.0, normalized by the correlation of the reference with its mirror region (Eqs. 1, 2; HEPData gap (0.8,
+    2.6)); bins symmetrized in eta by the collaboration; Pb-Pb 5.02 TeV 10-20%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab2.yaml
+dv_index: 3
+hepdata_table_label: $v_{3}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Pb}-\mathrm{Pb}$ at $\sqrt{s_{\mathrm{NN}}}=5.023\,\mathrm{Te\!V}$
+  (V_3_2, 20-30%)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 20-30%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 3
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - &id002
+      min: -1.0
+      max: -0.8
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - &id001
+      min: 0.8
+      max: 1.0
+    notes: 'POI at eta > 0: reference TPC -1.0 < eta < -0.8, partner 0.8 < eta < 1.0.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - *id001
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - *id002
+    notes: 'POI at eta < 0: reference TPC 0.8 < eta < 1.0, partner -1.0 < eta < -0.8.'
+  notes: reference particles from the TPC on the other side, 0.8 < |eta| < 1.0
+value_type: V_3_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_3{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the TPC on the other side,
+    0.8 < |eta| < 1.0, normalized by the correlation of the reference with its mirror region (Eqs. 1, 2; HEPData gap (0.8,
+    2.6)); bins symmetrized in eta by the collaboration; Pb-Pb 5.02 TeV 20-30%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab2.yaml
+dv_index: 4
+hepdata_table_label: $v_{3}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Pb}-\mathrm{Pb}$ at $\sqrt{s_{\mathrm{NN}}}=5.023\,\mathrm{Te\!V}$
+  (V_3_2, 30-40%)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 30-40%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 3
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - &id002
+      min: -1.0
+      max: -0.8
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - &id001
+      min: 0.8
+      max: 1.0
+    notes: 'POI at eta > 0: reference TPC -1.0 < eta < -0.8, partner 0.8 < eta < 1.0.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - *id001
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - *id002
+    notes: 'POI at eta < 0: reference TPC 0.8 < eta < 1.0, partner -1.0 < eta < -0.8.'
+  notes: reference particles from the TPC on the other side, 0.8 < |eta| < 1.0
+value_type: V_3_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_3{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the TPC on the other side,
+    0.8 < |eta| < 1.0, normalized by the correlation of the reference with its mirror region (Eqs. 1, 2; HEPData gap (0.8,
+    2.6)); bins symmetrized in eta by the collaboration; Pb-Pb 5.02 TeV 30-40%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab2.yaml
+dv_index: 5
+hepdata_table_label: $v_{3}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Pb}-\mathrm{Pb}$ at $\sqrt{s_{\mathrm{NN}}}=5.023\,\mathrm{Te\!V}$
+  (V_3_2, 40-50%)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 40-50%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 3
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - &id002
+      min: -1.0
+      max: -0.8
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - &id001
+      min: 0.8
+      max: 1.0
+    notes: 'POI at eta > 0: reference TPC -1.0 < eta < -0.8, partner 0.8 < eta < 1.0.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - *id001
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - *id002
+    notes: 'POI at eta < 0: reference TPC 0.8 < eta < 1.0, partner -1.0 < eta < -0.8.'
+  notes: reference particles from the TPC on the other side, 0.8 < |eta| < 1.0
+value_type: V_3_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_3{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the TPC on the other side,
+    0.8 < |eta| < 1.0, normalized by the correlation of the reference with its mirror region (Eqs. 1, 2; HEPData gap (0.8,
+    2.6)); bins symmetrized in eta by the collaboration; Pb-Pb 5.02 TeV 40-50%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab2.yaml
+dv_index: 6
+hepdata_table_label: $v_{3}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Pb}-\mathrm{Pb}$ at $\sqrt{s_{\mathrm{NN}}}=5.023\,\mathrm{Te\!V}$
+  (V_3_2, 50-60%)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 50-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 3
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - &id002
+      min: -1.0
+      max: -0.8
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - &id001
+      min: 0.8
+      max: 1.0
+    notes: 'POI at eta > 0: reference TPC -1.0 < eta < -0.8, partner 0.8 < eta < 1.0.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - *id001
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - *id002
+    notes: 'POI at eta < 0: reference TPC 0.8 < eta < 1.0, partner -1.0 < eta < -0.8.'
+  notes: reference particles from the TPC on the other side, 0.8 < |eta| < 1.0
+value_type: V_3_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_3{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the TPC on the other side,
+    0.8 < |eta| < 1.0, normalized by the correlation of the reference with its mirror region (Eqs. 1, 2; HEPData gap (0.8,
+    2.6)); bins symmetrized in eta by the collaboration; Pb-Pb 5.02 TeV 50-60%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab3.yaml
+dv_index: 0
+hepdata_table_label: $v_{4}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Pb}-\mathrm{Pb}$ at $\sqrt{s_{\mathrm{NN}}}=5.023\,\mathrm{Te\!V}$
+  (V_4_2, 0-5%)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 4
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - &id002
+      min: -1.0
+      max: -0.8
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - &id001
+      min: 0.8
+      max: 1.0
+    notes: 'POI at eta > 0: reference TPC -1.0 < eta < -0.8, partner 0.8 < eta < 1.0.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - *id001
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - *id002
+    notes: 'POI at eta < 0: reference TPC 0.8 < eta < 1.0, partner -1.0 < eta < -0.8.'
+  notes: reference particles from the TPC on the other side, 0.8 < |eta| < 1.0
+value_type: V_4_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_4{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the TPC on the other side,
+    0.8 < |eta| < 1.0, normalized by the correlation of the reference with its mirror region (Eqs. 1, 2; HEPData gap (0.8,
+    2.6)); bins symmetrized in eta by the collaboration; Pb-Pb 5.02 TeV 0-5%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab3.yaml
+dv_index: 1
+hepdata_table_label: $v_{4}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Pb}-\mathrm{Pb}$ at $\sqrt{s_{\mathrm{NN}}}=5.023\,\mathrm{Te\!V}$
+  (V_4_2, 5-10%)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 5-10%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 4
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - &id002
+      min: -1.0
+      max: -0.8
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - &id001
+      min: 0.8
+      max: 1.0
+    notes: 'POI at eta > 0: reference TPC -1.0 < eta < -0.8, partner 0.8 < eta < 1.0.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - *id001
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - *id002
+    notes: 'POI at eta < 0: reference TPC 0.8 < eta < 1.0, partner -1.0 < eta < -0.8.'
+  notes: reference particles from the TPC on the other side, 0.8 < |eta| < 1.0
+value_type: V_4_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_4{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the TPC on the other side,
+    0.8 < |eta| < 1.0, normalized by the correlation of the reference with its mirror region (Eqs. 1, 2; HEPData gap (0.8,
+    2.6)); bins symmetrized in eta by the collaboration; Pb-Pb 5.02 TeV 5-10%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab3.yaml
+dv_index: 2
+hepdata_table_label: $v_{4}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Pb}-\mathrm{Pb}$ at $\sqrt{s_{\mathrm{NN}}}=5.023\,\mathrm{Te\!V}$
+  (V_4_2, 10-20%)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 10-20%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 4
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - &id002
+      min: -1.0
+      max: -0.8
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - &id001
+      min: 0.8
+      max: 1.0
+    notes: 'POI at eta > 0: reference TPC -1.0 < eta < -0.8, partner 0.8 < eta < 1.0.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - *id001
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - *id002
+    notes: 'POI at eta < 0: reference TPC 0.8 < eta < 1.0, partner -1.0 < eta < -0.8.'
+  notes: reference particles from the TPC on the other side, 0.8 < |eta| < 1.0
+value_type: V_4_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_4{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the TPC on the other side,
+    0.8 < |eta| < 1.0, normalized by the correlation of the reference with its mirror region (Eqs. 1, 2; HEPData gap (0.8,
+    2.6)); bins symmetrized in eta by the collaboration; Pb-Pb 5.02 TeV 10-20%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab3.yaml
+dv_index: 3
+hepdata_table_label: $v_{4}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Pb}-\mathrm{Pb}$ at $\sqrt{s_{\mathrm{NN}}}=5.023\,\mathrm{Te\!V}$
+  (V_4_2, 20-30%)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 20-30%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 4
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - &id002
+      min: -1.0
+      max: -0.8
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - &id001
+      min: 0.8
+      max: 1.0
+    notes: 'POI at eta > 0: reference TPC -1.0 < eta < -0.8, partner 0.8 < eta < 1.0.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - *id001
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - *id002
+    notes: 'POI at eta < 0: reference TPC 0.8 < eta < 1.0, partner -1.0 < eta < -0.8.'
+  notes: reference particles from the TPC on the other side, 0.8 < |eta| < 1.0
+value_type: V_4_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_4{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the TPC on the other side,
+    0.8 < |eta| < 1.0, normalized by the correlation of the reference with its mirror region (Eqs. 1, 2; HEPData gap (0.8,
+    2.6)); bins symmetrized in eta by the collaboration; Pb-Pb 5.02 TeV 20-30%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab3.yaml
+dv_index: 4
+hepdata_table_label: $v_{4}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Pb}-\mathrm{Pb}$ at $\sqrt{s_{\mathrm{NN}}}=5.023\,\mathrm{Te\!V}$
+  (V_4_2, 30-40%)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 30-40%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 4
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - &id002
+      min: -1.0
+      max: -0.8
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - &id001
+      min: 0.8
+      max: 1.0
+    notes: 'POI at eta > 0: reference TPC -1.0 < eta < -0.8, partner 0.8 < eta < 1.0.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - *id001
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - *id002
+    notes: 'POI at eta < 0: reference TPC 0.8 < eta < 1.0, partner -1.0 < eta < -0.8.'
+  notes: reference particles from the TPC on the other side, 0.8 < |eta| < 1.0
+value_type: V_4_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_4{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the TPC on the other side,
+    0.8 < |eta| < 1.0, normalized by the correlation of the reference with its mirror region (Eqs. 1, 2; HEPData gap (0.8,
+    2.6)); bins symmetrized in eta by the collaboration; Pb-Pb 5.02 TeV 30-40%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab3.yaml
+dv_index: 5
+hepdata_table_label: $v_{4}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Pb}-\mathrm{Pb}$ at $\sqrt{s_{\mathrm{NN}}}=5.023\,\mathrm{Te\!V}$
+  (V_4_2, 40-50%)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 40-50%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 4
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - &id002
+      min: -1.0
+      max: -0.8
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - &id001
+      min: 0.8
+      max: 1.0
+    notes: 'POI at eta > 0: reference TPC -1.0 < eta < -0.8, partner 0.8 < eta < 1.0.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - *id001
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - *id002
+    notes: 'POI at eta < 0: reference TPC 0.8 < eta < 1.0, partner -1.0 < eta < -0.8.'
+  notes: reference particles from the TPC on the other side, 0.8 < |eta| < 1.0
+value_type: V_4_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_4{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the TPC on the other side,
+    0.8 < |eta| < 1.0, normalized by the correlation of the reference with its mirror region (Eqs. 1, 2; HEPData gap (0.8,
+    2.6)); bins symmetrized in eta by the collaboration; Pb-Pb 5.02 TeV 40-50%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab4.yaml
+dv_index: 0
+hepdata_table_label: $v_{2}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Pb}-\mathrm{Pb}$ at $\sqrt{s_{\mathrm{NN}}}=5.023\,\mathrm{Te\!V}$
+  (V_2_2, 0-5%)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 2
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - min: -3.5
+      max: -1.8
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: 1.8
+      max: 5.0
+    notes: 'POI at eta > 0: reference FMD A, partner FMD D.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - min: 1.8
+      max: 5.0
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: -3.5
+      max: -1.8
+    notes: 'POI at eta < 0: reference FMD D, partner FMD A.'
+  notes: 'reference particles from the FMD on the other side (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5)'
+value_type: V_2_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_2{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the FMD on the other side
+    (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5), normalized by the correlation of the reference with its mirror region (Eqs.
+    1, 2; HEPData gap (2.0, 3.8)); bins symmetrized in eta by the collaboration; Pb-Pb 5.02 TeV 0-5%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab4.yaml
+dv_index: 1
+hepdata_table_label: $v_{2}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Pb}-\mathrm{Pb}$ at $\sqrt{s_{\mathrm{NN}}}=5.023\,\mathrm{Te\!V}$
+  (V_2_2, 5-10%)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 5-10%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 2
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - min: -3.5
+      max: -1.8
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: 1.8
+      max: 5.0
+    notes: 'POI at eta > 0: reference FMD A, partner FMD D.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - min: 1.8
+      max: 5.0
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: -3.5
+      max: -1.8
+    notes: 'POI at eta < 0: reference FMD D, partner FMD A.'
+  notes: 'reference particles from the FMD on the other side (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5)'
+value_type: V_2_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_2{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the FMD on the other side
+    (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5), normalized by the correlation of the reference with its mirror region (Eqs.
+    1, 2; HEPData gap (2.0, 3.8)); bins symmetrized in eta by the collaboration; Pb-Pb 5.02 TeV 5-10%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab4.yaml
+dv_index: 2
+hepdata_table_label: $v_{2}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Pb}-\mathrm{Pb}$ at $\sqrt{s_{\mathrm{NN}}}=5.023\,\mathrm{Te\!V}$
+  (V_2_2, 10-20%)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 10-20%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 2
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - min: -3.5
+      max: -1.8
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: 1.8
+      max: 5.0
+    notes: 'POI at eta > 0: reference FMD A, partner FMD D.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - min: 1.8
+      max: 5.0
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: -3.5
+      max: -1.8
+    notes: 'POI at eta < 0: reference FMD D, partner FMD A.'
+  notes: 'reference particles from the FMD on the other side (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5)'
+value_type: V_2_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_2{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the FMD on the other side
+    (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5), normalized by the correlation of the reference with its mirror region (Eqs.
+    1, 2; HEPData gap (2.0, 3.8)); bins symmetrized in eta by the collaboration; Pb-Pb 5.02 TeV 10-20%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab4.yaml
+dv_index: 3
+hepdata_table_label: $v_{2}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Pb}-\mathrm{Pb}$ at $\sqrt{s_{\mathrm{NN}}}=5.023\,\mathrm{Te\!V}$
+  (V_2_2, 20-30%)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 20-30%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 2
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - min: -3.5
+      max: -1.8
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: 1.8
+      max: 5.0
+    notes: 'POI at eta > 0: reference FMD A, partner FMD D.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - min: 1.8
+      max: 5.0
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: -3.5
+      max: -1.8
+    notes: 'POI at eta < 0: reference FMD D, partner FMD A.'
+  notes: 'reference particles from the FMD on the other side (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5)'
+value_type: V_2_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_2{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the FMD on the other side
+    (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5), normalized by the correlation of the reference with its mirror region (Eqs.
+    1, 2; HEPData gap (2.0, 3.8)); bins symmetrized in eta by the collaboration; Pb-Pb 5.02 TeV 20-30%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab4.yaml
+dv_index: 4
+hepdata_table_label: $v_{2}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Pb}-\mathrm{Pb}$ at $\sqrt{s_{\mathrm{NN}}}=5.023\,\mathrm{Te\!V}$
+  (V_2_2, 30-40%)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 30-40%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 2
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - min: -3.5
+      max: -1.8
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: 1.8
+      max: 5.0
+    notes: 'POI at eta > 0: reference FMD A, partner FMD D.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - min: 1.8
+      max: 5.0
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: -3.5
+      max: -1.8
+    notes: 'POI at eta < 0: reference FMD D, partner FMD A.'
+  notes: 'reference particles from the FMD on the other side (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5)'
+value_type: V_2_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_2{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the FMD on the other side
+    (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5), normalized by the correlation of the reference with its mirror region (Eqs.
+    1, 2; HEPData gap (2.0, 3.8)); bins symmetrized in eta by the collaboration; Pb-Pb 5.02 TeV 30-40%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab4.yaml
+dv_index: 5
+hepdata_table_label: $v_{2}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Pb}-\mathrm{Pb}$ at $\sqrt{s_{\mathrm{NN}}}=5.023\,\mathrm{Te\!V}$
+  (V_2_2, 40-50%)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 40-50%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 2
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - min: -3.5
+      max: -1.8
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: 1.8
+      max: 5.0
+    notes: 'POI at eta > 0: reference FMD A, partner FMD D.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - min: 1.8
+      max: 5.0
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: -3.5
+      max: -1.8
+    notes: 'POI at eta < 0: reference FMD D, partner FMD A.'
+  notes: 'reference particles from the FMD on the other side (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5)'
+value_type: V_2_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_2{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the FMD on the other side
+    (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5), normalized by the correlation of the reference with its mirror region (Eqs.
+    1, 2; HEPData gap (2.0, 3.8)); bins symmetrized in eta by the collaboration; Pb-Pb 5.02 TeV 40-50%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab4.yaml
+dv_index: 6
+hepdata_table_label: $v_{2}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Pb}-\mathrm{Pb}$ at $\sqrt{s_{\mathrm{NN}}}=5.023\,\mathrm{Te\!V}$
+  (V_2_2, 50-60%)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 50-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 2
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - min: -3.5
+      max: -1.8
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: 1.8
+      max: 5.0
+    notes: 'POI at eta > 0: reference FMD A, partner FMD D.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - min: 1.8
+      max: 5.0
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: -3.5
+      max: -1.8
+    notes: 'POI at eta < 0: reference FMD D, partner FMD A.'
+  notes: 'reference particles from the FMD on the other side (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5)'
+value_type: V_2_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_2{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the FMD on the other side
+    (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5), normalized by the correlation of the reference with its mirror region (Eqs.
+    1, 2; HEPData gap (2.0, 3.8)); bins symmetrized in eta by the collaboration; Pb-Pb 5.02 TeV 50-60%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab5.yaml
+dv_index: 0
+hepdata_table_label: $v_{3}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Pb}-\mathrm{Pb}$ at $\sqrt{s_{\mathrm{NN}}}=5.023\,\mathrm{Te\!V}$
+  (V_3_2, 0-5%)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 3
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - min: -3.5
+      max: -1.8
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: 1.8
+      max: 5.0
+    notes: 'POI at eta > 0: reference FMD A, partner FMD D.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - min: 1.8
+      max: 5.0
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: -3.5
+      max: -1.8
+    notes: 'POI at eta < 0: reference FMD D, partner FMD A.'
+  notes: 'reference particles from the FMD on the other side (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5)'
+value_type: V_3_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_3{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the FMD on the other side
+    (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5), normalized by the correlation of the reference with its mirror region (Eqs.
+    1, 2; HEPData gap (2.0, 3.8)); bins symmetrized in eta by the collaboration; Pb-Pb 5.02 TeV 0-5%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab5.yaml
+dv_index: 1
+hepdata_table_label: $v_{3}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Pb}-\mathrm{Pb}$ at $\sqrt{s_{\mathrm{NN}}}=5.023\,\mathrm{Te\!V}$
+  (V_3_2, 5-10%)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 5-10%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 3
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - min: -3.5
+      max: -1.8
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: 1.8
+      max: 5.0
+    notes: 'POI at eta > 0: reference FMD A, partner FMD D.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - min: 1.8
+      max: 5.0
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: -3.5
+      max: -1.8
+    notes: 'POI at eta < 0: reference FMD D, partner FMD A.'
+  notes: 'reference particles from the FMD on the other side (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5)'
+value_type: V_3_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_3{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the FMD on the other side
+    (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5), normalized by the correlation of the reference with its mirror region (Eqs.
+    1, 2; HEPData gap (2.0, 3.8)); bins symmetrized in eta by the collaboration; Pb-Pb 5.02 TeV 5-10%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab5.yaml
+dv_index: 2
+hepdata_table_label: $v_{3}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Pb}-\mathrm{Pb}$ at $\sqrt{s_{\mathrm{NN}}}=5.023\,\mathrm{Te\!V}$
+  (V_3_2, 10-20%)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 10-20%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 3
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - min: -3.5
+      max: -1.8
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: 1.8
+      max: 5.0
+    notes: 'POI at eta > 0: reference FMD A, partner FMD D.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - min: 1.8
+      max: 5.0
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: -3.5
+      max: -1.8
+    notes: 'POI at eta < 0: reference FMD D, partner FMD A.'
+  notes: 'reference particles from the FMD on the other side (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5)'
+value_type: V_3_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_3{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the FMD on the other side
+    (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5), normalized by the correlation of the reference with its mirror region (Eqs.
+    1, 2; HEPData gap (2.0, 3.8)); bins symmetrized in eta by the collaboration; Pb-Pb 5.02 TeV 10-20%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab5.yaml
+dv_index: 3
+hepdata_table_label: $v_{3}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Pb}-\mathrm{Pb}$ at $\sqrt{s_{\mathrm{NN}}}=5.023\,\mathrm{Te\!V}$
+  (V_3_2, 20-30%)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 20-30%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 3
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - min: -3.5
+      max: -1.8
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: 1.8
+      max: 5.0
+    notes: 'POI at eta > 0: reference FMD A, partner FMD D.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - min: 1.8
+      max: 5.0
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: -3.5
+      max: -1.8
+    notes: 'POI at eta < 0: reference FMD D, partner FMD A.'
+  notes: 'reference particles from the FMD on the other side (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5)'
+value_type: V_3_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_3{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the FMD on the other side
+    (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5), normalized by the correlation of the reference with its mirror region (Eqs.
+    1, 2; HEPData gap (2.0, 3.8)); bins symmetrized in eta by the collaboration; Pb-Pb 5.02 TeV 20-30%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab5.yaml
+dv_index: 4
+hepdata_table_label: $v_{3}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Pb}-\mathrm{Pb}$ at $\sqrt{s_{\mathrm{NN}}}=5.023\,\mathrm{Te\!V}$
+  (V_3_2, 30-40%)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 30-40%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 3
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - min: -3.5
+      max: -1.8
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: 1.8
+      max: 5.0
+    notes: 'POI at eta > 0: reference FMD A, partner FMD D.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - min: 1.8
+      max: 5.0
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: -3.5
+      max: -1.8
+    notes: 'POI at eta < 0: reference FMD D, partner FMD A.'
+  notes: 'reference particles from the FMD on the other side (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5)'
+value_type: V_3_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_3{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the FMD on the other side
+    (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5), normalized by the correlation of the reference with its mirror region (Eqs.
+    1, 2; HEPData gap (2.0, 3.8)); bins symmetrized in eta by the collaboration; Pb-Pb 5.02 TeV 30-40%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab5.yaml
+dv_index: 5
+hepdata_table_label: $v_{3}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Pb}-\mathrm{Pb}$ at $\sqrt{s_{\mathrm{NN}}}=5.023\,\mathrm{Te\!V}$
+  (V_3_2, 40-50%)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 40-50%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 3
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - min: -3.5
+      max: -1.8
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: 1.8
+      max: 5.0
+    notes: 'POI at eta > 0: reference FMD A, partner FMD D.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - min: 1.8
+      max: 5.0
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: -3.5
+      max: -1.8
+    notes: 'POI at eta < 0: reference FMD D, partner FMD A.'
+  notes: 'reference particles from the FMD on the other side (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5)'
+value_type: V_3_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_3{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the FMD on the other side
+    (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5), normalized by the correlation of the reference with its mirror region (Eqs.
+    1, 2; HEPData gap (2.0, 3.8)); bins symmetrized in eta by the collaboration; Pb-Pb 5.02 TeV 40-50%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab5.yaml
+dv_index: 6
+hepdata_table_label: $v_{3}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Pb}-\mathrm{Pb}$ at $\sqrt{s_{\mathrm{NN}}}=5.023\,\mathrm{Te\!V}$
+  (V_3_2, 50-60%)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 50-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 3
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - min: -3.5
+      max: -1.8
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: 1.8
+      max: 5.0
+    notes: 'POI at eta > 0: reference FMD A, partner FMD D.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - min: 1.8
+      max: 5.0
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: -3.5
+      max: -1.8
+    notes: 'POI at eta < 0: reference FMD D, partner FMD A.'
+  notes: 'reference particles from the FMD on the other side (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5)'
+value_type: V_3_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_3{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the FMD on the other side
+    (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5), normalized by the correlation of the reference with its mirror region (Eqs.
+    1, 2; HEPData gap (2.0, 3.8)); bins symmetrized in eta by the collaboration; Pb-Pb 5.02 TeV 50-60%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab6.yaml
+dv_index: 0
+hepdata_table_label: $v_{4}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Pb}-\mathrm{Pb}$ at $\sqrt{s_{\mathrm{NN}}}=5.023\,\mathrm{Te\!V}$
+  (V_4_2, 0-5%)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 4
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - min: -3.5
+      max: -1.8
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: 1.8
+      max: 5.0
+    notes: 'POI at eta > 0: reference FMD A, partner FMD D.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - min: 1.8
+      max: 5.0
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: -3.5
+      max: -1.8
+    notes: 'POI at eta < 0: reference FMD D, partner FMD A.'
+  notes: 'reference particles from the FMD on the other side (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5)'
+value_type: V_4_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_4{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the FMD on the other side
+    (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5), normalized by the correlation of the reference with its mirror region (Eqs.
+    1, 2; HEPData gap (2.0, 3.8)); bins symmetrized in eta by the collaboration; Pb-Pb 5.02 TeV 0-5%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab6.yaml
+dv_index: 1
+hepdata_table_label: $v_{4}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Pb}-\mathrm{Pb}$ at $\sqrt{s_{\mathrm{NN}}}=5.023\,\mathrm{Te\!V}$
+  (V_4_2, 5-10%)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 5-10%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 4
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - min: -3.5
+      max: -1.8
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: 1.8
+      max: 5.0
+    notes: 'POI at eta > 0: reference FMD A, partner FMD D.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - min: 1.8
+      max: 5.0
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: -3.5
+      max: -1.8
+    notes: 'POI at eta < 0: reference FMD D, partner FMD A.'
+  notes: 'reference particles from the FMD on the other side (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5)'
+value_type: V_4_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_4{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the FMD on the other side
+    (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5), normalized by the correlation of the reference with its mirror region (Eqs.
+    1, 2; HEPData gap (2.0, 3.8)); bins symmetrized in eta by the collaboration; Pb-Pb 5.02 TeV 5-10%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab6.yaml
+dv_index: 2
+hepdata_table_label: $v_{4}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Pb}-\mathrm{Pb}$ at $\sqrt{s_{\mathrm{NN}}}=5.023\,\mathrm{Te\!V}$
+  (V_4_2, 10-20%)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 10-20%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 4
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - min: -3.5
+      max: -1.8
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: 1.8
+      max: 5.0
+    notes: 'POI at eta > 0: reference FMD A, partner FMD D.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - min: 1.8
+      max: 5.0
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: -3.5
+      max: -1.8
+    notes: 'POI at eta < 0: reference FMD D, partner FMD A.'
+  notes: 'reference particles from the FMD on the other side (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5)'
+value_type: V_4_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_4{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the FMD on the other side
+    (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5), normalized by the correlation of the reference with its mirror region (Eqs.
+    1, 2; HEPData gap (2.0, 3.8)); bins symmetrized in eta by the collaboration; Pb-Pb 5.02 TeV 10-20%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab6.yaml
+dv_index: 3
+hepdata_table_label: $v_{4}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Pb}-\mathrm{Pb}$ at $\sqrt{s_{\mathrm{NN}}}=5.023\,\mathrm{Te\!V}$
+  (V_4_2, 20-30%)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 20-30%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 4
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - min: -3.5
+      max: -1.8
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: 1.8
+      max: 5.0
+    notes: 'POI at eta > 0: reference FMD A, partner FMD D.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - min: 1.8
+      max: 5.0
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: -3.5
+      max: -1.8
+    notes: 'POI at eta < 0: reference FMD D, partner FMD A.'
+  notes: 'reference particles from the FMD on the other side (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5)'
+value_type: V_4_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_4{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the FMD on the other side
+    (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5), normalized by the correlation of the reference with its mirror region (Eqs.
+    1, 2; HEPData gap (2.0, 3.8)); bins symmetrized in eta by the collaboration; Pb-Pb 5.02 TeV 20-30%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab6.yaml
+dv_index: 4
+hepdata_table_label: $v_{4}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Pb}-\mathrm{Pb}$ at $\sqrt{s_{\mathrm{NN}}}=5.023\,\mathrm{Te\!V}$
+  (V_4_2, 30-40%)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 30-40%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 4
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - min: -3.5
+      max: -1.8
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: 1.8
+      max: 5.0
+    notes: 'POI at eta > 0: reference FMD A, partner FMD D.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - min: 1.8
+      max: 5.0
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: -3.5
+      max: -1.8
+    notes: 'POI at eta < 0: reference FMD D, partner FMD A.'
+  notes: 'reference particles from the FMD on the other side (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5)'
+value_type: V_4_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_4{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the FMD on the other side
+    (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5), normalized by the correlation of the reference with its mirror region (Eqs.
+    1, 2; HEPData gap (2.0, 3.8)); bins symmetrized in eta by the collaboration; Pb-Pb 5.02 TeV 30-40%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab6.yaml
+dv_index: 5
+hepdata_table_label: $v_{4}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Pb}-\mathrm{Pb}$ at $\sqrt{s_{\mathrm{NN}}}=5.023\,\mathrm{Te\!V}$
+  (V_4_2, 40-50%)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 40-50%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 4
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - min: -3.5
+      max: -1.8
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: 1.8
+      max: 5.0
+    notes: 'POI at eta > 0: reference FMD A, partner FMD D.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - min: 1.8
+      max: 5.0
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: -3.5
+      max: -1.8
+    notes: 'POI at eta < 0: reference FMD D, partner FMD A.'
+  notes: 'reference particles from the FMD on the other side (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5)'
+value_type: V_4_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_4{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the FMD on the other side
+    (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5), normalized by the correlation of the reference with its mirror region (Eqs.
+    1, 2; HEPData gap (2.0, 3.8)); bins symmetrized in eta by the collaboration; Pb-Pb 5.02 TeV 40-50%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab12.yaml
+dv_index: 0
+hepdata_table_label: $v_{2}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Xe}-\mathrm{Xe}$ at $\sqrt{s_{\mathrm{NN}}}=5.44\,\mathrm{Te\!V}$
+  (V_2_2, 0-5%)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 2
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - &id002
+      min: -1.0
+      max: -0.4
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - &id001
+      min: 0.4
+      max: 1.0
+    notes: 'POI at eta > 0: reference TPC -1.0 < eta < -0.4, partner 0.4 < eta < 1.0.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - *id001
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - *id002
+    notes: 'POI at eta < 0: reference TPC 0.4 < eta < 1.0, partner -1.0 < eta < -0.4.'
+  notes: reference particles from the TPC on the other side, 0.4 < |eta| < 1.0
+value_type: V_2_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_2{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the TPC on the other side,
+    0.4 < |eta| < 1.0, normalized by the correlation of the reference with its mirror region (Eqs. 1, 2; HEPData gap (0.4,
+    2.2)); bins symmetrized in eta by the collaboration; Xe-Xe 5.44 TeV 0-5%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab12.yaml
+dv_index: 1
+hepdata_table_label: $v_{2}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Xe}-\mathrm{Xe}$ at $\sqrt{s_{\mathrm{NN}}}=5.44\,\mathrm{Te\!V}$
+  (V_2_2, 5-10%)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 5-10%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 2
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - &id002
+      min: -1.0
+      max: -0.4
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - &id001
+      min: 0.4
+      max: 1.0
+    notes: 'POI at eta > 0: reference TPC -1.0 < eta < -0.4, partner 0.4 < eta < 1.0.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - *id001
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - *id002
+    notes: 'POI at eta < 0: reference TPC 0.4 < eta < 1.0, partner -1.0 < eta < -0.4.'
+  notes: reference particles from the TPC on the other side, 0.4 < |eta| < 1.0
+value_type: V_2_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_2{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the TPC on the other side,
+    0.4 < |eta| < 1.0, normalized by the correlation of the reference with its mirror region (Eqs. 1, 2; HEPData gap (0.4,
+    2.2)); bins symmetrized in eta by the collaboration; Xe-Xe 5.44 TeV 5-10%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab12.yaml
+dv_index: 2
+hepdata_table_label: $v_{2}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Xe}-\mathrm{Xe}$ at $\sqrt{s_{\mathrm{NN}}}=5.44\,\mathrm{Te\!V}$
+  (V_2_2, 10-20%)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 10-20%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 2
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - &id002
+      min: -1.0
+      max: -0.4
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - &id001
+      min: 0.4
+      max: 1.0
+    notes: 'POI at eta > 0: reference TPC -1.0 < eta < -0.4, partner 0.4 < eta < 1.0.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - *id001
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - *id002
+    notes: 'POI at eta < 0: reference TPC 0.4 < eta < 1.0, partner -1.0 < eta < -0.4.'
+  notes: reference particles from the TPC on the other side, 0.4 < |eta| < 1.0
+value_type: V_2_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_2{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the TPC on the other side,
+    0.4 < |eta| < 1.0, normalized by the correlation of the reference with its mirror region (Eqs. 1, 2; HEPData gap (0.4,
+    2.2)); bins symmetrized in eta by the collaboration; Xe-Xe 5.44 TeV 10-20%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab12.yaml
+dv_index: 3
+hepdata_table_label: $v_{2}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Xe}-\mathrm{Xe}$ at $\sqrt{s_{\mathrm{NN}}}=5.44\,\mathrm{Te\!V}$
+  (V_2_2, 20-30%)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 20-30%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 2
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - &id002
+      min: -1.0
+      max: -0.4
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - &id001
+      min: 0.4
+      max: 1.0
+    notes: 'POI at eta > 0: reference TPC -1.0 < eta < -0.4, partner 0.4 < eta < 1.0.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - *id001
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - *id002
+    notes: 'POI at eta < 0: reference TPC 0.4 < eta < 1.0, partner -1.0 < eta < -0.4.'
+  notes: reference particles from the TPC on the other side, 0.4 < |eta| < 1.0
+value_type: V_2_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_2{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the TPC on the other side,
+    0.4 < |eta| < 1.0, normalized by the correlation of the reference with its mirror region (Eqs. 1, 2; HEPData gap (0.4,
+    2.2)); bins symmetrized in eta by the collaboration; Xe-Xe 5.44 TeV 20-30%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab12.yaml
+dv_index: 4
+hepdata_table_label: $v_{2}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Xe}-\mathrm{Xe}$ at $\sqrt{s_{\mathrm{NN}}}=5.44\,\mathrm{Te\!V}$
+  (V_2_2, 30-40%)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 30-40%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 2
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - &id002
+      min: -1.0
+      max: -0.4
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - &id001
+      min: 0.4
+      max: 1.0
+    notes: 'POI at eta > 0: reference TPC -1.0 < eta < -0.4, partner 0.4 < eta < 1.0.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - *id001
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - *id002
+    notes: 'POI at eta < 0: reference TPC 0.4 < eta < 1.0, partner -1.0 < eta < -0.4.'
+  notes: reference particles from the TPC on the other side, 0.4 < |eta| < 1.0
+value_type: V_2_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_2{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the TPC on the other side,
+    0.4 < |eta| < 1.0, normalized by the correlation of the reference with its mirror region (Eqs. 1, 2; HEPData gap (0.4,
+    2.2)); bins symmetrized in eta by the collaboration; Xe-Xe 5.44 TeV 30-40%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab12.yaml
+dv_index: 5
+hepdata_table_label: $v_{2}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Xe}-\mathrm{Xe}$ at $\sqrt{s_{\mathrm{NN}}}=5.44\,\mathrm{Te\!V}$
+  (V_2_2, 40-50%)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 40-50%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 2
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - &id002
+      min: -1.0
+      max: -0.4
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - &id001
+      min: 0.4
+      max: 1.0
+    notes: 'POI at eta > 0: reference TPC -1.0 < eta < -0.4, partner 0.4 < eta < 1.0.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - *id001
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - *id002
+    notes: 'POI at eta < 0: reference TPC 0.4 < eta < 1.0, partner -1.0 < eta < -0.4.'
+  notes: reference particles from the TPC on the other side, 0.4 < |eta| < 1.0
+value_type: V_2_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_2{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the TPC on the other side,
+    0.4 < |eta| < 1.0, normalized by the correlation of the reference with its mirror region (Eqs. 1, 2; HEPData gap (0.4,
+    2.2)); bins symmetrized in eta by the collaboration; Xe-Xe 5.44 TeV 40-50%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab12.yaml
+dv_index: 6
+hepdata_table_label: $v_{2}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Xe}-\mathrm{Xe}$ at $\sqrt{s_{\mathrm{NN}}}=5.44\,\mathrm{Te\!V}$
+  (V_2_2, 50-60%)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 50-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 2
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - &id002
+      min: -1.0
+      max: -0.4
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - &id001
+      min: 0.4
+      max: 1.0
+    notes: 'POI at eta > 0: reference TPC -1.0 < eta < -0.4, partner 0.4 < eta < 1.0.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - *id001
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - *id002
+    notes: 'POI at eta < 0: reference TPC 0.4 < eta < 1.0, partner -1.0 < eta < -0.4.'
+  notes: reference particles from the TPC on the other side, 0.4 < |eta| < 1.0
+value_type: V_2_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_2{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the TPC on the other side,
+    0.4 < |eta| < 1.0, normalized by the correlation of the reference with its mirror region (Eqs. 1, 2; HEPData gap (0.4,
+    2.2)); bins symmetrized in eta by the collaboration; Xe-Xe 5.44 TeV 50-60%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab13.yaml
+dv_index: 0
+hepdata_table_label: $v_{3}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Xe}-\mathrm{Xe}$ at $\sqrt{s_{\mathrm{NN}}}=5.44\,\mathrm{Te\!V}$
+  (V_3_2, 0-5%)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 3
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - &id002
+      min: -1.0
+      max: -0.4
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - &id001
+      min: 0.4
+      max: 1.0
+    notes: 'POI at eta > 0: reference TPC -1.0 < eta < -0.4, partner 0.4 < eta < 1.0.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - *id001
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - *id002
+    notes: 'POI at eta < 0: reference TPC 0.4 < eta < 1.0, partner -1.0 < eta < -0.4.'
+  notes: reference particles from the TPC on the other side, 0.4 < |eta| < 1.0
+value_type: V_3_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_3{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the TPC on the other side,
+    0.4 < |eta| < 1.0, normalized by the correlation of the reference with its mirror region (Eqs. 1, 2; HEPData gap (0.4,
+    2.2)); bins symmetrized in eta by the collaboration; Xe-Xe 5.44 TeV 0-5%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab13.yaml
+dv_index: 1
+hepdata_table_label: $v_{3}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Xe}-\mathrm{Xe}$ at $\sqrt{s_{\mathrm{NN}}}=5.44\,\mathrm{Te\!V}$
+  (V_3_2, 5-10%)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 5-10%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 3
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - &id002
+      min: -1.0
+      max: -0.4
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - &id001
+      min: 0.4
+      max: 1.0
+    notes: 'POI at eta > 0: reference TPC -1.0 < eta < -0.4, partner 0.4 < eta < 1.0.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - *id001
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - *id002
+    notes: 'POI at eta < 0: reference TPC 0.4 < eta < 1.0, partner -1.0 < eta < -0.4.'
+  notes: reference particles from the TPC on the other side, 0.4 < |eta| < 1.0
+value_type: V_3_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_3{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the TPC on the other side,
+    0.4 < |eta| < 1.0, normalized by the correlation of the reference with its mirror region (Eqs. 1, 2; HEPData gap (0.4,
+    2.2)); bins symmetrized in eta by the collaboration; Xe-Xe 5.44 TeV 5-10%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab13.yaml
+dv_index: 2
+hepdata_table_label: $v_{3}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Xe}-\mathrm{Xe}$ at $\sqrt{s_{\mathrm{NN}}}=5.44\,\mathrm{Te\!V}$
+  (V_3_2, 10-20%)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 10-20%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 3
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - &id002
+      min: -1.0
+      max: -0.4
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - &id001
+      min: 0.4
+      max: 1.0
+    notes: 'POI at eta > 0: reference TPC -1.0 < eta < -0.4, partner 0.4 < eta < 1.0.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - *id001
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - *id002
+    notes: 'POI at eta < 0: reference TPC 0.4 < eta < 1.0, partner -1.0 < eta < -0.4.'
+  notes: reference particles from the TPC on the other side, 0.4 < |eta| < 1.0
+value_type: V_3_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_3{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the TPC on the other side,
+    0.4 < |eta| < 1.0, normalized by the correlation of the reference with its mirror region (Eqs. 1, 2; HEPData gap (0.4,
+    2.2)); bins symmetrized in eta by the collaboration; Xe-Xe 5.44 TeV 10-20%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab13.yaml
+dv_index: 3
+hepdata_table_label: $v_{3}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Xe}-\mathrm{Xe}$ at $\sqrt{s_{\mathrm{NN}}}=5.44\,\mathrm{Te\!V}$
+  (V_3_2, 20-30%)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 20-30%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 3
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - &id002
+      min: -1.0
+      max: -0.4
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - &id001
+      min: 0.4
+      max: 1.0
+    notes: 'POI at eta > 0: reference TPC -1.0 < eta < -0.4, partner 0.4 < eta < 1.0.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - *id001
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - *id002
+    notes: 'POI at eta < 0: reference TPC 0.4 < eta < 1.0, partner -1.0 < eta < -0.4.'
+  notes: reference particles from the TPC on the other side, 0.4 < |eta| < 1.0
+value_type: V_3_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_3{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the TPC on the other side,
+    0.4 < |eta| < 1.0, normalized by the correlation of the reference with its mirror region (Eqs. 1, 2; HEPData gap (0.4,
+    2.2)); bins symmetrized in eta by the collaboration; Xe-Xe 5.44 TeV 20-30%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab13.yaml
+dv_index: 4
+hepdata_table_label: $v_{3}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Xe}-\mathrm{Xe}$ at $\sqrt{s_{\mathrm{NN}}}=5.44\,\mathrm{Te\!V}$
+  (V_3_2, 30-40%)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 30-40%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 3
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - &id002
+      min: -1.0
+      max: -0.4
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - &id001
+      min: 0.4
+      max: 1.0
+    notes: 'POI at eta > 0: reference TPC -1.0 < eta < -0.4, partner 0.4 < eta < 1.0.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - *id001
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - *id002
+    notes: 'POI at eta < 0: reference TPC 0.4 < eta < 1.0, partner -1.0 < eta < -0.4.'
+  notes: reference particles from the TPC on the other side, 0.4 < |eta| < 1.0
+value_type: V_3_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_3{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the TPC on the other side,
+    0.4 < |eta| < 1.0, normalized by the correlation of the reference with its mirror region (Eqs. 1, 2; HEPData gap (0.4,
+    2.2)); bins symmetrized in eta by the collaboration; Xe-Xe 5.44 TeV 30-40%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab13.yaml
+dv_index: 5
+hepdata_table_label: $v_{3}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Xe}-\mathrm{Xe}$ at $\sqrt{s_{\mathrm{NN}}}=5.44\,\mathrm{Te\!V}$
+  (V_3_2, 40-50%)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 40-50%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 3
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - &id002
+      min: -1.0
+      max: -0.4
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - &id001
+      min: 0.4
+      max: 1.0
+    notes: 'POI at eta > 0: reference TPC -1.0 < eta < -0.4, partner 0.4 < eta < 1.0.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - *id001
+    pT:
+      min: 0.2
+      max: 5.0
+    partner:
+    - *id002
+    notes: 'POI at eta < 0: reference TPC 0.4 < eta < 1.0, partner -1.0 < eta < -0.4.'
+  notes: reference particles from the TPC on the other side, 0.4 < |eta| < 1.0
+value_type: V_3_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_3{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the TPC on the other side,
+    0.4 < |eta| < 1.0, normalized by the correlation of the reference with its mirror region (Eqs. 1, 2; HEPData gap (0.4,
+    2.2)); bins symmetrized in eta by the collaboration; Xe-Xe 5.44 TeV 40-50%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab14.yaml
+dv_index: 0
+hepdata_table_label: $v_{2}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Xe}-\mathrm{Xe}$ at $\sqrt{s_{\mathrm{NN}}}=5.44\,\mathrm{Te\!V}$
+  (V_2_2, 0-5%)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 2
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - min: -3.5
+      max: -1.8
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: 1.8
+      max: 5.0
+    notes: 'POI at eta > 0: reference FMD A, partner FMD D.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - min: 1.8
+      max: 5.0
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: -3.5
+      max: -1.8
+    notes: 'POI at eta < 0: reference FMD D, partner FMD A.'
+  notes: 'reference particles from the FMD on the other side (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5)'
+value_type: V_2_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_2{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the FMD on the other side
+    (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5), normalized by the correlation of the reference with its mirror region (Eqs.
+    1, 2; HEPData gap (2.0, 3.8)); bins symmetrized in eta by the collaboration; Xe-Xe 5.44 TeV 0-5%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab14.yaml
+dv_index: 1
+hepdata_table_label: $v_{2}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Xe}-\mathrm{Xe}$ at $\sqrt{s_{\mathrm{NN}}}=5.44\,\mathrm{Te\!V}$
+  (V_2_2, 5-10%)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 5-10%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 2
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - min: -3.5
+      max: -1.8
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: 1.8
+      max: 5.0
+    notes: 'POI at eta > 0: reference FMD A, partner FMD D.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - min: 1.8
+      max: 5.0
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: -3.5
+      max: -1.8
+    notes: 'POI at eta < 0: reference FMD D, partner FMD A.'
+  notes: 'reference particles from the FMD on the other side (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5)'
+value_type: V_2_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_2{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the FMD on the other side
+    (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5), normalized by the correlation of the reference with its mirror region (Eqs.
+    1, 2; HEPData gap (2.0, 3.8)); bins symmetrized in eta by the collaboration; Xe-Xe 5.44 TeV 5-10%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab14.yaml
+dv_index: 2
+hepdata_table_label: $v_{2}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Xe}-\mathrm{Xe}$ at $\sqrt{s_{\mathrm{NN}}}=5.44\,\mathrm{Te\!V}$
+  (V_2_2, 10-20%)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 10-20%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 2
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - min: -3.5
+      max: -1.8
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: 1.8
+      max: 5.0
+    notes: 'POI at eta > 0: reference FMD A, partner FMD D.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - min: 1.8
+      max: 5.0
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: -3.5
+      max: -1.8
+    notes: 'POI at eta < 0: reference FMD D, partner FMD A.'
+  notes: 'reference particles from the FMD on the other side (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5)'
+value_type: V_2_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_2{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the FMD on the other side
+    (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5), normalized by the correlation of the reference with its mirror region (Eqs.
+    1, 2; HEPData gap (2.0, 3.8)); bins symmetrized in eta by the collaboration; Xe-Xe 5.44 TeV 10-20%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab14.yaml
+dv_index: 3
+hepdata_table_label: $v_{2}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Xe}-\mathrm{Xe}$ at $\sqrt{s_{\mathrm{NN}}}=5.44\,\mathrm{Te\!V}$
+  (V_2_2, 20-30%)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 20-30%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 2
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - min: -3.5
+      max: -1.8
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: 1.8
+      max: 5.0
+    notes: 'POI at eta > 0: reference FMD A, partner FMD D.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - min: 1.8
+      max: 5.0
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: -3.5
+      max: -1.8
+    notes: 'POI at eta < 0: reference FMD D, partner FMD A.'
+  notes: 'reference particles from the FMD on the other side (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5)'
+value_type: V_2_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_2{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the FMD on the other side
+    (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5), normalized by the correlation of the reference with its mirror region (Eqs.
+    1, 2; HEPData gap (2.0, 3.8)); bins symmetrized in eta by the collaboration; Xe-Xe 5.44 TeV 20-30%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab14.yaml
+dv_index: 4
+hepdata_table_label: $v_{2}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Xe}-\mathrm{Xe}$ at $\sqrt{s_{\mathrm{NN}}}=5.44\,\mathrm{Te\!V}$
+  (V_2_2, 30-40%)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 30-40%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 2
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - min: -3.5
+      max: -1.8
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: 1.8
+      max: 5.0
+    notes: 'POI at eta > 0: reference FMD A, partner FMD D.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - min: 1.8
+      max: 5.0
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: -3.5
+      max: -1.8
+    notes: 'POI at eta < 0: reference FMD D, partner FMD A.'
+  notes: 'reference particles from the FMD on the other side (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5)'
+value_type: V_2_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_2{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the FMD on the other side
+    (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5), normalized by the correlation of the reference with its mirror region (Eqs.
+    1, 2; HEPData gap (2.0, 3.8)); bins symmetrized in eta by the collaboration; Xe-Xe 5.44 TeV 30-40%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab14.yaml
+dv_index: 5
+hepdata_table_label: $v_{2}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Xe}-\mathrm{Xe}$ at $\sqrt{s_{\mathrm{NN}}}=5.44\,\mathrm{Te\!V}$
+  (V_2_2, 40-50%)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 40-50%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 2
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - min: -3.5
+      max: -1.8
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: 1.8
+      max: 5.0
+    notes: 'POI at eta > 0: reference FMD A, partner FMD D.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - min: 1.8
+      max: 5.0
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: -3.5
+      max: -1.8
+    notes: 'POI at eta < 0: reference FMD D, partner FMD A.'
+  notes: 'reference particles from the FMD on the other side (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5)'
+value_type: V_2_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_2{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the FMD on the other side
+    (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5), normalized by the correlation of the reference with its mirror region (Eqs.
+    1, 2; HEPData gap (2.0, 3.8)); bins symmetrized in eta by the collaboration; Xe-Xe 5.44 TeV 40-50%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab14.yaml
+dv_index: 6
+hepdata_table_label: $v_{2}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Xe}-\mathrm{Xe}$ at $\sqrt{s_{\mathrm{NN}}}=5.44\,\mathrm{Te\!V}$
+  (V_2_2, 50-60%)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 50-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 2
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - min: -3.5
+      max: -1.8
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: 1.8
+      max: 5.0
+    notes: 'POI at eta > 0: reference FMD A, partner FMD D.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - min: 1.8
+      max: 5.0
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: -3.5
+      max: -1.8
+    notes: 'POI at eta < 0: reference FMD D, partner FMD A.'
+  notes: 'reference particles from the FMD on the other side (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5)'
+value_type: V_2_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_2{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the FMD on the other side
+    (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5), normalized by the correlation of the reference with its mirror region (Eqs.
+    1, 2; HEPData gap (2.0, 3.8)); bins symmetrized in eta by the collaboration; Xe-Xe 5.44 TeV 50-60%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab15.yaml
+dv_index: 0
+hepdata_table_label: $v_{3}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Xe}-\mathrm{Xe}$ at $\sqrt{s_{\mathrm{NN}}}=5.44\,\mathrm{Te\!V}$
+  (V_3_2, 0-5%)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 3
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - min: -3.5
+      max: -1.8
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: 1.8
+      max: 5.0
+    notes: 'POI at eta > 0: reference FMD A, partner FMD D.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - min: 1.8
+      max: 5.0
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: -3.5
+      max: -1.8
+    notes: 'POI at eta < 0: reference FMD D, partner FMD A.'
+  notes: 'reference particles from the FMD on the other side (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5)'
+value_type: V_3_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_3{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the FMD on the other side
+    (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5), normalized by the correlation of the reference with its mirror region (Eqs.
+    1, 2; HEPData gap (2.0, 3.8)); bins symmetrized in eta by the collaboration; Xe-Xe 5.44 TeV 0-5%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab15.yaml
+dv_index: 1
+hepdata_table_label: $v_{3}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Xe}-\mathrm{Xe}$ at $\sqrt{s_{\mathrm{NN}}}=5.44\,\mathrm{Te\!V}$
+  (V_3_2, 5-10%)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 5-10%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 3
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - min: -3.5
+      max: -1.8
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: 1.8
+      max: 5.0
+    notes: 'POI at eta > 0: reference FMD A, partner FMD D.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - min: 1.8
+      max: 5.0
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: -3.5
+      max: -1.8
+    notes: 'POI at eta < 0: reference FMD D, partner FMD A.'
+  notes: 'reference particles from the FMD on the other side (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5)'
+value_type: V_3_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_3{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the FMD on the other side
+    (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5), normalized by the correlation of the reference with its mirror region (Eqs.
+    1, 2; HEPData gap (2.0, 3.8)); bins symmetrized in eta by the collaboration; Xe-Xe 5.44 TeV 5-10%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab15.yaml
+dv_index: 2
+hepdata_table_label: $v_{3}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Xe}-\mathrm{Xe}$ at $\sqrt{s_{\mathrm{NN}}}=5.44\,\mathrm{Te\!V}$
+  (V_3_2, 10-20%)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 10-20%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 3
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - min: -3.5
+      max: -1.8
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: 1.8
+      max: 5.0
+    notes: 'POI at eta > 0: reference FMD A, partner FMD D.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - min: 1.8
+      max: 5.0
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: -3.5
+      max: -1.8
+    notes: 'POI at eta < 0: reference FMD D, partner FMD A.'
+  notes: 'reference particles from the FMD on the other side (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5)'
+value_type: V_3_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_3{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the FMD on the other side
+    (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5), normalized by the correlation of the reference with its mirror region (Eqs.
+    1, 2; HEPData gap (2.0, 3.8)); bins symmetrized in eta by the collaboration; Xe-Xe 5.44 TeV 10-20%. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2679248'
+version: 1
+hepdata_file: tab15.yaml
+dv_index: 3
+hepdata_table_label: $v_{3}\{2\}$ versus $\eta$ for $x^{\pm}$ in $\mathrm{Xe}-\mathrm{Xe}$ at $\sqrt{s_{\mathrm{NN}}}=5.44\,\mathrm{Te\!V}$
+  (V_3_2, 20-30%)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 20-30%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -3.36
+    max: 4.8
+    bin_ranges:
+    - - -3.36
+      - -3.12
+    - - -3.12
+      - -2.88
+    - - -2.88
+      - -2.64
+    - - -2.64
+      - -2.4
+    - - -2.4
+      - -2.16
+    - - -2.16
+      - -1.92
+    - - -1.92
+      - -1.68
+    - - -1.2
+      - -0.96
+    - - -0.96
+      - -0.72
+    - - -0.72
+      - -0.48
+    - - -0.48
+      - -0.24
+    - - -0.24
+      - 0.0
+    - - 0.0
+      - 0.24
+    - - 0.24
+      - 0.48
+    - - 0.48
+      - 0.72
+    - - 0.72
+      - 0.96
+    - - 0.96
+      - 1.2
+    - - 1.68
+      - 1.92
+    - - 1.92
+      - 2.16
+    - - 2.16
+      - 2.4
+    - - 2.4
+      - 2.64
+    - - 2.64
+      - 2.88
+    - - 2.88
+      - 3.12
+    - - 3.12
+      - 3.36
+    - - 3.36
+      - 3.6
+    - - 3.6
+      - 3.84
+    - - 3.84
+      - 4.08
+    - - 4.08
+      - 4.32
+    - - 4.32
+      - 4.56
+    - - 4.56
+      - 4.8
+  pT:
+    min: 0.0
+    max: 100.0
+harmonic: 3
+method: cumulant
+cumulant_order: 2
+dimensionality: differential_eta
+flow_reference:
+  segments:
+  - applies_to_eta:
+      min: 0.0
+      max: 5.0
+    eta:
+    - min: -3.5
+      max: -1.8
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: 1.8
+      max: 5.0
+    notes: 'POI at eta > 0: reference FMD A, partner FMD D.'
+  - applies_to_eta:
+      min: -3.5
+      max: 0.0
+    eta:
+    - min: 1.8
+      max: 5.0
+    pT:
+      min: 0.0
+      max: 100.0
+    partner:
+    - min: -3.5
+      max: -1.8
+    notes: 'POI at eta < 0: reference FMD D, partner FMD A.'
+  notes: 'reference particles from the FMD on the other side (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5)'
+value_type: V_3_2
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 850 (2024) 138477 (corrigendum PLB 853 (2024) 138659), arXiv:2307.11116. v_3{2}(eta)
+    of charged particles (midrapidity extrapolated to pT = 0, FMD all pT), reference particles from the FMD on the other side
+    (A: -3.5 < eta < -1.8, D: 1.8 < eta < 5), normalized by the correlation of the reference with its mirror region (Eqs.
+    1, 2; HEPData gap (2.0, 3.8)); bins symmetrized in eta by the collaboration; Xe-Xe 5.44 TeV 20-30%. Errors: stat and sys.'
