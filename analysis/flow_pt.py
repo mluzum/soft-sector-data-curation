@@ -194,19 +194,27 @@ def event_sums(S, n, cov_methods, var_terms, ck_window):
         out[f'W_{m}'] = np.real(_distinct_union(S, [_member(X, 0, 0), _member(Y, 0, 0), _member(Z, 0, 0)]))
         out[f'PZ_{m}'] = sum(np.real(S(0, [w], 1)) for w in Z)
         out[f'NZ_{m}'] = sum(np.real(S(0, [w], 0)) for w in Z)
-    for term in sorted(set(var_terms.values())):
+    for term in sorted(set(var_terms.values()) - {'none'}):
         if term == 'standard':
             a, c = 'full', 'full'
         elif term == 'two_subevent':
             a, c = 'A', 'C'
         else:
-            raise ValueError(f'var(v_n^2) term {term!r} (standard | two_subevent)')
+            raise ValueError(f'var(v_n^2) term {term!r} (standard | two_subevent | none)')
         out[f'N2_{term}'] = np.real(distinct(S, [(a, n, 0), (c, -n, 0)]))
         out[f'D2_{term}'] = np.real(distinct(S, [(a, 0, 0), (c, 0, 0)]))
         if term == var_terms.get('c4'):
             out[f'N4_{term}'] = np.real(distinct(S, [(a, n, 0), (a, n, 0), (c, -n, 0), (c, -n, 0)]))
             out[f'D4_{term}'] = np.real(distinct(S, [(a, 0, 0), (a, 0, 0), (c, 0, 0), (c, 0, 0)]))
     K = ck_window
+    if K == 'two_subevent':
+        # STAR 2937844: pairs i in A, j in C, deviations from the full
+        # window's mean pT (compute_pT_fluct's `sub`)
+        K = 'full'
+        out['ck_sub'] = {'na': np.real(S(0, ['A'], 0)), 's1a': np.real(S(0, ['A'], 1)),
+                         'nb': np.real(S(0, ['C'], 0)), 's1b': np.real(S(0, ['C'], 1)),
+                         'c0': np.real(S(0, ['A', 'C'], 0)), 'c1': np.real(S(0, ['A', 'C'], 1)),
+                         'c2': np.real(S(0, ['A', 'C'], 2))}
     out['ck_n'] = np.real(S(0, [K], 0))
     out['ck_s1'] = np.real(S(0, [K], 1))
     out['ck_s2'] = np.real(S(0, [K, K], 2))
@@ -273,14 +281,19 @@ def core(d, w):
     def k2(term):
         return np.sum(w * d[f'N2_{term}']) / np.sum(w * d[f'D2_{term}'])
 
-    k4 = np.sum(w * d[f'N4_{t4}']) / np.sum(w * d[f'D4_{t4}'])
-    var = k4 - 2.0 * k2(t4) ** 2 + k2(t2) ** 2
-    if mult is not None:
-        for term, f in ((t4, -2.0), (t2, 1.0)):
-            D = d[f'D2_{term}']
-            e2 = np.divide(d[f'N2_{term}'], D, out=np.zeros_like(D), where=D > 0)
-            var += f * _trend_var(e2, mult, w * D)
-    ck = compute_pT_fluct(d['ck_s1'], d['ck_s2'], d['ck_n'], w, d['ck_t0'], d['ck_t1'], mult, raw=True)[0]
+    if t4 == 'none':
+        # STAR's rho_n (2937844 Eq. 6): <v_n^2>^2 in place of var(v_n^2)
+        var = k2(t2) ** 2
+    else:
+        k4 = np.sum(w * d[f'N4_{t4}']) / np.sum(w * d[f'D4_{t4}'])
+        var = k4 - 2.0 * k2(t4) ** 2 + k2(t2) ** 2
+        if mult is not None:
+            for term, f in ((t4, -2.0), (t2, 1.0)):
+                D = d[f'D2_{term}']
+                e2 = np.divide(d[f'N2_{term}'], D, out=np.zeros_like(D), where=D > 0)
+                var += f * _trend_var(e2, mult, w * D)
+    ck = compute_pT_fluct(d['ck_s1'], d['ck_s2'], d['ck_n'], w, d['ck_t0'], d['ck_t1'], mult, raw=True,
+                          sub=d.get('ck_sub'))[0]
     P = var * ck
     if not np.isfinite(P) or P == 0:
         return nan

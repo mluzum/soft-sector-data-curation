@@ -965,7 +965,8 @@ def compute_vn2_sp(q_poi, q_ref, n_poi, n_ref, w, same_window=False,
 
 
 @register("pT_fluct")
-def compute_pT_fluct(s1, s2, n, w, t0=None, t1=None, mult=None, raw=False, events=False, squared=False):
+def compute_pT_fluct(s1, s2, n, w, t0=None, t1=None, mult=None, raw=False, events=False, squared=False,
+                     sub=None):
     """√⟨ΔpTi ΔpTj⟩ / ⟨⟨pT⟩⟩ for one centrality class.
 
     Per-event sums over particles with acceptance weights a_i (the
@@ -991,19 +992,29 @@ def compute_pT_fluct(s1, s2, n, w, t0=None, t1=None, mult=None, raw=False, event
     negative value (signed root, as for v_n{2}).  raw: the covariance
     ⟨ΔpTi ΔpTj⟩ itself (GeV², value_type '<dpt1_dpt2>'); squared: over the
     squared mean, ⟨ΔpTi ΔpTj⟩ / ⟨⟨pT⟩⟩² (value_type '<dpt1_dpt2>/<pT>^2').
+    sub: two subevents (STAR 2937844), the pairs i in A, j in B: {na, s1a,
+    nb, s1b} their sums and {c0, c1, c2} = Σ a_A a_B pT^k of the particles
+    in both (zero for disjoint 3D windows); P_k = (S1A - M S0A)(S1B - M
+    S0B) - (c2 - 2 M c1 + M² c0) over S0A S0B - c0 pairs.  M and the
+    normalization stay those of the full window (s1, n), STAR's ⟨[pT]⟩.
     """
     nan = np.array([np.nan])
     if w.sum() < 2:
         return nan
     t0 = n if t0 is None else t0
     t1 = s1 if t1 is None else t1
-    npairs = np.maximum(n * n - t0, 0.0)
+    if sub is not None:
+        npairs = np.maximum(sub['na'] * sub['nb'] - sub['c0'], 0.0)
+    else:
+        npairs = np.maximum(n * n - t0, 0.0)
     if events:
         sel = (w > 0) & (npairs > 1e-12) & (n > 0)
         if sel.sum() < 2:
             return nan
         s1, s2, n, w, t0, t1, npairs = (x[sel] for x in (s1, s2, n, w, t0, t1, npairs))
         mult = None if mult is None else mult[sel]
+        if sub is not None:
+            sub = {k: v[sel] for k, v in sub.items()}
         y = s1 / n
         u = w
         m_bar = np.average(y, weights=w)
@@ -1020,7 +1031,11 @@ def compute_pT_fluct(s1, s2, n, w, t0=None, t1=None, mult=None, raw=False, event
         var = np.average(dm ** 2, weights=u)
         if var > 0:
             M = m_bar + np.average(dm * (y - m_bar), weights=u) / var * dm
-    P = (s1 - M * n) ** 2 - (s2 - 2.0 * M * t1 + M ** 2 * t0)
+    if sub is not None:
+        P = ((sub['s1a'] - M * sub['na']) * (sub['s1b'] - M * sub['nb'])
+             - (sub['c2'] - 2.0 * M * sub['c1'] + M ** 2 * sub['c0']))
+    else:
+        P = (s1 - M * n) ** 2 - (s2 - 2.0 * M * t1 + M ** 2 * t0)
     if events:
         C = np.average(P / npairs, weights=w)
     else:

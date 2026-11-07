@@ -58,14 +58,20 @@ optional_fields:
       Windows of var(v_n^2) = c_n{4} + c_n{2}^2: each 'standard' (the full
       window) or 'two_subevent' (<<4>>_{AA|CC} and <<2>>_{A|C}).  ALICE
       (v_n{2}^4 - v_n{4}^4 from subevents): both two_subevent, the
-      default; ATLAS: c4 standard, c2 two_subevent.
+      default; ATLAS: c4 standard, c2 two_subevent; STAR 2937844: c4
+      standard, c2 two_subevent for rho_n^pcc (Eq. 5), and c4 'none' for
+      rho_n (Eq. 6): <v_n^2>^2 alone, rho_n = cov_n / (<v_n^2>
+      sqrt(<(dpT)^2>)).
     fields:
       c4: {type: string, required: true, example: "two_subevent"}
       c2: {type: string, required: true, example: "two_subevent"}
   ck_window:
     type: string
     required: false
-    description: "Window of the pairs of c_k: 'full', 'A', 'B' (the default) or 'C'."
+    description: >
+      Window of the pairs of c_k: 'full', 'A', 'B' (the default) or 'C', or
+      'two_subevent' (STAR 2937844: pairs i in A, j in C, deviations from
+      the full window's mean pT).
     example: "B"
   multiplicity_baseline:
     type: object

@@ -298,6 +298,51 @@ def test_pT_fluct_squared_normalized():
         assert_close(f"{tag}: <dpT dpT>/<pT>^2 vs brute force", sq, ref, tol)
 
 
+def _two_sub_ref(events, full, a, b, pt, average):
+    """<dpT_i dpT_j> over pairs i in a, j in b (disjoint windows), deviations
+    from the full window's mean pT: pooled (pairs) or the mean of the event
+    averages (events, STAR 2937844 Eq. 7)."""
+    def sel(e, w):
+        return (e['eta'] >= w[0]) & (e['eta'] < w[1]) & (e['pt'] >= pt[0]) & (e['pt'] < pt[1])
+    rows = []
+    for e in events:
+        pf, pa, pb = e['pt'][sel(e, full)], e['pt'][sel(e, a)], e['pt'][sel(e, b)]
+        if len(pa) and len(pb) and len(pf):
+            rows.append((pf, pa, pb))
+    if average == 'events':
+        M = np.mean([pf.mean() for pf, _, _ in rows])
+        return float(np.mean([(pa - M).sum() * (pb - M).sum() / (len(pa) * len(pb)) for _, pa, pb in rows]))
+    M = np.concatenate([pf for pf, _, _ in rows]).mean()
+    return float(sum((pa - M).sum() * (pb - M).sum() for _, pa, pb in rows)
+                 / sum(len(pa) * len(pb) for _, pa, pb in rows))
+
+
+def test_pT_fluct_two_subevent():
+    """Two subevents (particles AB; STAR 2937844: i in -1 < eta < -0.1, j in
+    0.1 < eta < 1, deviations from the full window's mean pT): the raw
+    covariance against the brute force over the pairs across the
+    subevents, both averagings -- exact on 3D cells (windows on edges),
+    within 10% on 2D -- and equal to the one-window value for the toy's
+    eta-independent rescale."""
+    fx = _fx(0.10)
+    g = fx['grid']
+    full = snap_window(g.eta_edges, -1.0, 1.0)
+    a, b = snap_window(g.eta_edges, -1.0, -0.1), snap_window(g.eta_edges, 0.1, 1.0)
+    pt = snap_window(g.pt_edges, 0.2, 2.0)
+    subs = {lab: {'kinematic_range': {'eta': {'min': w[0], 'max': w[1]}, 'pT': {'min': pt[0], 'max': pt[1]}}}
+            for lab, w in (('A', a), ('B', b))}
+    for tag, cont, tol in (('3D', dict(grid=g), 1e-9), ('2D', dict(qv=fx['qv']), 0.10)):
+        for average in ('pairs', 'events'):
+            rec = record_pT_fluct(eta=full, pt=pt, cent_classes=('0-100%',))
+            rec.update(value_type='<dpt1_dpt2>', averaging=average)
+            one = evaluate(rec, cent_method='simple', with_jackknife=False, **cont)[0][0]
+            rec.update(particles='AB', subevents=subs)
+            two = evaluate(rec, cent_method='simple', with_jackknife=False, **cont)[0][0]
+            ref = _two_sub_ref(fx['events'], full, a, b, pt, average)
+            assert_close(f"{tag}, {average}: two-subevent <dpT dpT> vs brute force", two, ref, tol)
+            assert_close(f"{tag}, {average}: two-subevent = one window (no eta structure)", two, one, 0.12)
+
+
 def test_pT_fluct_3d_cut_cells():
     """3D windows that cut cells (eta |eta| < 0.5 on 0.24-wide cells, pT
     0.15-2.0 on 0.037 GeV cells): a cut cell's particles carry its overlap

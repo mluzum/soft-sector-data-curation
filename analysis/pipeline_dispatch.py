@@ -1520,7 +1520,10 @@ def prepare_pT_fluct_2d(qv, params):
     """
     from analysis.qvector import _overlap_fractions, _pt_squared
     z = np.full(qv.n_events, np.nan)
-    sk = params.get('single_range', {})
+    subs = _pT_fluct_subevents(params)
+    # with subevents single_range is subevent A's: the full window (the mean
+    # pT) is the record's own
+    sk = params.get('poi_range', {}) if subs else params.get('single_range', {})
     eta = sk.get('eta', (-1, 1))
     species_idx, _, found = _get_species_selection(params.get('particle_id'), qv)
     if not found:
@@ -1564,7 +1567,44 @@ def prepare_pT_fluct_2d(qv, params):
     base = _pT_fluct_baseline(params, (lo, hi))
     if base is not None:   # charged multiplicity in the baseline windows
         out['mult'] = _baseline_mult_2d(qv, base)
+    if subs:
+        ws = {}
+        for lab, (e, p) in subs.items():
+            p = (lo if p[0] is None else float(p[0]), hi if p[1] is None else float(p[1]))
+            wl = (_make_jacobian_list(qv.pt_centers, qv.masses, e[0], e[1]) / (2.0 * qv.rap_max)
+                  * np.asarray(_overlap_fractions(qv.pt_bin_edges, p[0], p[1], _pt_squared), dtype=float)[None, :])
+            ws[lab] = wl[species_idx, :] if species_idx is not None else wl
+        out['sub'] = _pT_fluct_sub_sums(c, s1_src, s2_src, ws['A'], ws['B'], ns,
+                                        lambda arr, wt: (arr * wt).sum(axis=(1, 2)))
     return out
+
+
+def _pT_fluct_subevents(params):
+    """{A: (eta, pT), B: (eta, pT)} of a two-subevent pT-fluctuation record
+    (particles AB: STAR 2937844, i in A and j in B), else None."""
+    sr = params.get('subevent_ranges') or {}
+    if not sr:
+        return None
+    if sorted(sr) != ['A', 'B']:
+        raise ValueError("pT fluctuations: two subevents A and B (particles: AB)")
+    out = {}
+    for lab, r in sr.items():
+        eta = tuple(r.get('eta') or (None, None))
+        if None in eta:
+            raise ValueError(f"pT fluctuations: subevent {lab} needs an eta window")
+        out[lab] = (eta, tuple(r.get('pT') or (None, None)))
+    return out
+
+
+def _pT_fluct_sub_sums(c, s1_src, s2_src, aA, aB, ns, wsum):
+    """Per-event sums of the pairs across subevents A and B
+    (compute_pT_fluct's `sub`): each subevent's S0, S1 (weight a/ns) and the
+    sums over particles in both, Σ a_A a_B pT^k / ns^2."""
+    ns2 = ns * ns
+    ab = aA * aB
+    return {'na': wsum(c, aA) / ns, 's1a': wsum(s1_src, aA) / ns, 'nb': wsum(c, aB) / ns,
+            's1b': wsum(s1_src, aB) / ns, 'c0': wsum(c, ab) / ns2, 'c1': wsum(s1_src, ab) / ns2,
+            'c2': wsum(s2_src, ab) / ns2}
 
 
 def prepare_pT_fluct_3d(grid, params):
@@ -1579,7 +1619,8 @@ def prepare_pT_fluct_3d(grid, params):
     z = np.full(grid.n_events, np.nan)
     if getattr(grid, 'pt_integrated', False):
         return {'s1': z, 's2': z, 'n': z}
-    sk = params.get('single_range', {})
+    subs = _pT_fluct_subevents(params)
+    sk = params.get('poi_range', {}) if subs else params.get('single_range', {})
     eta = sk.get('eta', (-1, 1))
     if eta[0] is None or eta[1] is None:
         return {'s1': z, 's2': z, 'n': z}
@@ -1603,6 +1644,13 @@ def prepare_pT_fluct_3d(grid, params):
     base = _pT_fluct_baseline(params, pt)
     if base is not None:   # multiplicity in the baseline windows (cut cells by overlap)
         out['mult'] = _baseline_mult_3d(grid, base)
+    if subs:
+        ws = {}
+        for lab, (e, p) in subs.items():
+            p = (pt[0] if p[0] is None else float(p[0]), pt[1] if p[1] is None else float(p[1]))
+            ws[lab] = np.asarray(grid.window_weights(e[0], e[1], p[0], p[1], fractional=True), dtype=float)
+        out['sub'] = _pT_fluct_sub_sums(c, s1_src, s2_src, ws['A'], ws['B'], ns,
+                                        lambda arr, wt: np.einsum('ijk,jk->i', arr, wt))
     return out
 
 
@@ -1654,7 +1702,7 @@ PT_FLUCT_SQUARED = '<dpt1_dpt2>/<pT>^2'
 def _wrap_pT_fluct(data, w):
     return compute_pT_fluct(data['s1'], data['s2'], data['n'], w, data.get('t0'), data.get('t1'),
                             data.get('mult'), raw=data.get('raw', False), events=data.get('events', False),
-                            squared=data.get('squared', False))
+                            squared=data.get('squared', False), sub=data.get('sub'))
 
 
 # ── flow-[pT] correlations rho(v_n^2, [pT]) (analysis.flow_pt) ──
@@ -1679,7 +1727,13 @@ def _rho_settings(params):
     for label, r in (params.get('subevent_ranges') or {}).items():
         pt = r.get('pT') or (None, None)
         wins[label] = (tuple(r['eta']), f_pt if None in pt else tuple(pt))
-    used = {ck} | {w for m in cov_methods for grp in COV_WINDOWS[m] for w in grp}
+    if var_terms.get('c2') == 'none' or not set(var_terms.values()) <= {'standard', 'two_subevent', 'none'}:
+        raise ValueError(f"rho(v_n^2, [pT]): variance_terms {var_terms} (c4 standard | two_subevent | none: "
+                         "<v_n^2>^2 alone, STAR's rho_n; c2 standard | two_subevent)")
+    if ck not in ('full', 'A', 'B', 'C', 'two_subevent'):
+        raise ValueError(f"rho(v_n^2, [pT]): ck_window {ck!r} (full | A | B | C | two_subevent)")
+    used = ({'full', 'A', 'C'} if ck == 'two_subevent' else {ck})
+    used |= {w for m in cov_methods for grp in COV_WINDOWS[m] for w in grp}
     used |= {'A', 'C'} if 'two_subevent' in var_terms.values() else set()
     missing = sorted(used - set(wins))
     if missing:
@@ -3986,6 +4040,8 @@ def _combination_value(kind, v, scale):
         out = v[0] / v[1] if v[1] != 0 and np.isfinite(v[1]) else np.nan
     elif kind == 'difference':
         out = v[0] - v[1]
+    elif kind == 'square':
+        out = np.sign(v[0]) * v[0] * v[0]
     elif kind in ('mean_flow', 'flow_fluctuation'):
         # v{2}^2 = <v>^2 + sigma^2, v{4}^2 = <v>^2 - sigma^2 (signed squares
         # of the signed v{2}, v{4}; a signed root of the result)
@@ -4033,8 +4089,8 @@ PIPELINE_DISPATCH['vn_cumulant_combination'] = {
     # receives the unselected container; each term selects its own
     "selects_species": True,
     "n_obs_per_cent": 1,
-    "description": "v_n{2k} combination (ratio, difference, gamma1, mean flow, flow fluctuation) of several "
-                   "orders or harmonics",
+    "description": "v_n{2k} combination (ratio, difference, gamma1, mean flow, flow fluctuation, square) of "
+                   "several orders or harmonics",
 }
 
 

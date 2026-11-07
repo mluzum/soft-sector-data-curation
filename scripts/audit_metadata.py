@@ -331,7 +331,9 @@ def _extra_checks(doc, raw, sel_dv, sel_q, desc, flag):
             flag("error", f"median |value| {sorted(vals)[len(vals) // 2]:.3g}: percent without a unit "
                           f"(value_scale) or not a flow coefficient")
         has_gap = (doc.get("particles") or doc.get("eta_gap") is not None or doc.get("flow_reference")
-                   or doc.get("method") in ("scalar_product", "event_plane"))
+                   or doc.get("method") in ("scalar_product", "event_plane")
+                   # a cumulant combination's gapped v{2} term (STAR's two-subevent <v_n^2>)
+                   or (doc.get("cumulant_combination") or {}).get("two_particle"))
         if _GAP_TEXT.search(text) and not has_gap:
             flag("warning", "table mentions an eta gap or subevents; the record has none")
     species = (doc.get("particle_id") or {}).get("species")

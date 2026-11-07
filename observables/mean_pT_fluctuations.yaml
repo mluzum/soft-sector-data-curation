@@ -62,6 +62,21 @@ optional_fields:
       normalization by the mean of the event means).  They differ when the
       multiplicity varies across the class.
     example: "events"
+  particles:
+    type: string
+    required: false
+    allowed: [AB]
+    description: >
+      AB: two subevents (STAR 2937844: i from -1 < eta < -0.1, j from 0.1 <
+      eta < 1): the pairs across `subevents` A and B, deviations from the
+      mean pT of the record's own window (kinematic_range), STAR's
+      <[pT]>.  Absent: all pairs of the window.
+    example: AB
+  subevents:
+    type: object
+    required: false
+    description: "particles AB: {A, B: {kinematic_range: {eta, pT}}} (pT default the record's)."
+    example: {A: {kinematic_range: {eta: {min: -1.0, max: -0.1}}}, B: {kinematic_range: {eta: {min: 0.1, max: 1.0}}}}
   multiplicity_baseline:
     type: object
     required: false

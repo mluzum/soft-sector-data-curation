@@ -505,7 +505,7 @@ def reference_status(record):
 
 # ── combinations of cumulant orders (v_n{6}/v_n{4}, differences, gamma1) ──
 
-COMBINATION_KINDS = {'ratio': 2, 'difference': 2, 'gamma1': 3, 'mean_flow': 2, 'flow_fluctuation': 2}
+COMBINATION_KINDS = {'ratio': 2, 'difference': 2, 'gamma1': 3, 'mean_flow': 2, 'flow_fluctuation': 2, 'square': 1}
 COMBINATION_ENTRY = {
     'compute': 'vn_cumulant_combination',
     'requires': [],
@@ -522,7 +522,9 @@ def combination_terms(record):
     orders [2, 4, 6]) | mean_flow (<v_n> = sqrt((v{2}^2 + v{4}^2) / 2)) |
     flow_fluctuation (sigma_{v_n} = sqrt((v{2}^2 - v{4}^2) / 2)), both orders
     [2, 4] (ALICE 2825785 Eq. 6: v{2}^2 = <v>^2 + sigma^2, v{4}^2 = <v>^2 -
-    sigma^2), signed squares and signed roots; ``orders``; optional ``scale`` (a factor on the
+    sigma^2), signed squares and signed roots | square (one order: the
+    signed square sign(v) v^2, e.g. <v_n^2> = c_n{2}, STAR 2937844);
+    ``orders``; optional ``scale`` (a factor on the
     result, e.g. 1/11); optional ``two_particle``: {particles, subevents,
     eta_gap, flow_reference} for the v{2} term (ALICE's gamma1 uses v2{2,
     |Delta eta| > 1}; CMS's 2PC v{2} its own associated-pT reference);

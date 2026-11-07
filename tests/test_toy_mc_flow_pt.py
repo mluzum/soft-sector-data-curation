@@ -7,7 +7,13 @@
 - rho_n against the correlation injected between each event's v_2^2 and
   its pT scale (2D and 3D, every method), and zero without it (no
   self-correlation bias where flow and [pT] share particles);
-- events of nsamples particlizations (weights 1/nsamples).
+- events of nsamples particlizations (weights 1/nsamples);
+- STAR 2937844's normalizations: rho_n = cov / (<v_n^2> sqrt(<(dpT)^2>))
+  (variance_terms c4 none) and the two-subevent <(dpT)^2> (ck_window
+  two_subevent) equal, on 3D, the ratio of the separately computed
+  two-subevent cov_n, <v_2^2> (cumulant_combination square) and
+  <dpT_i dpT_j> (pT fluctuations with particles AB); rho_n^pcc with the
+  two-subevent c_k and rho_n recover their injected values.
 Run: python3 tests/test_toy_mc_flow_pt.py
 """
 import os
@@ -193,9 +199,53 @@ def test_oversampled():
               f'{got:.6e} vs {ref:.6e}')
 
 
+def test_star_normalizations():
+    """STAR's rho_n (Eq. 6) and rho_n^pcc (Eq. 5) with two-subevent <v_n^2>
+    and <(dpT)^2> (pairs from A and C, deviations from the full window's
+    mean pT)."""
+    print('test_star_normalizations')
+    fx = _fixture(0.5)
+    sub_ac = {lab: {'kinematic_range': {'eta': {'min': w[0], 'max': w[1]}, 'pT': {'min': PT[0], 'max': PT[1]}}}
+              for lab, w in (('A', A), ('B', C))}
+    kr = {'eta': {'min': FULL[0], 'max': FULL[1]}, 'pT': {'min': PT[0], 'max': PT[1]}}
+    cent = dict(classes=['0-100%'], eta=[dict(min=-3.9, max=-3.0), dict(min=3.0, max=3.9)])
+    v2sq = dict(observable_type='flow_vn', method='cumulant', cumulant_order=2, harmonic=2,
+                dimensionality='integrated', value_type='<v2^2>', hepdata_file='toy.yaml', inspire_id='0',
+                version=1, particle_id={'species': 'charged'}, kinematic_range=kr, centrality=cent,
+                cumulant_combination={'kind': 'square', 'orders': [2],
+                                      'two_particle': {'particles': 'AB', 'subevents': sub_ac}})
+    dpt = dict(observable_type='mean_pT_fluctuations', value_type='<dpt1_dpt2>', hepdata_file='toy.yaml',
+               inspire_id='0', version=1, particle_id={'species': 'charged'}, kinematic_range=kr, centrality=cent,
+               particles='AB', subevents=sub_ac)
+    simple = {'c4': 'none', 'c2': 'two_subevent'}
+    v = vg = None
+    for tag, cont in (('3D', dict(grid=fx['grid'])), ('2D', dict(qv=fx['qv']))):
+        def ev(r, jk=False):
+            return evaluate(r, cent_method='simple', with_jackknife=jk, **cont)
+        cov = ev(record_rho(value_type='cov_n', method='two_subevent'))[0][0]
+        c2 = ev(v2sq)[0][0]
+        ck = ev(dpt)[0][0]
+        rho = ev(record_rho(method='two_subevent', variance_terms=simple, ck_window='two_subevent'))[0][0]
+        if tag == '3D':
+            want = cov / (c2 * np.sqrt(ck))
+            check('3D rho_n = cov / (<v2^2> sqrt(<dpT^2>)), two-subevent terms', abs(rho - want) < 1e-9 * abs(want),
+                  f'{rho:.8f} vs {want:.8f}')
+        t = fx['truth']
+        v2s = t['vn_ebe'][2] ** 2
+        r_pcc = np.corrcoef(v2s, t['pt_rescale'])[0, 1]
+        r_simple = r_pcc * v2s.std() / v2s.mean()
+        v, e = ev(record_rho(method='two_subevent', variance_terms=simple, ck_window='two_subevent'), jk=True)
+        check(f'{tag} rho_n (simple) = {r_simple:.3f}', abs(v[0] - r_simple) < 3 * e[0] + 0.02,
+              f'{v[0]:.3f} +- {e[0]:.3f}')
+        vg, eg = ev(record_rho(method='two_subevent', variance_terms={'c4': 'standard', 'c2': 'two_subevent'},
+                               ck_window='two_subevent'), jk=True)
+        check(f'{tag} rho_n^pcc (two-subevent c_k) = {r_pcc:.3f}', abs(vg[0] - r_pcc) < 3 * eg[0] + 0.02,
+              f'{vg[0]:.3f} +- {eg[0]:.3f}')
+
+
 if __name__ == '__main__':
     tests = [test_cov_exact_3d, test_oversampled, test_rho_injected, test_rho_uncorrelated,
-             test_multiplicity_baseline]
+             test_multiplicity_baseline, test_star_normalizations]
     n_pass = n_fail = 0
     for t in tests:
         try:

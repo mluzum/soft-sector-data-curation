@@ -299,8 +299,12 @@ Fields that change dispatch:
   subevent cov exact against explicit particle triplets (others within
   0.1%), the injected rho on 2D and 3D, zero without it, oversampled
   events, the baseline.  ATLAS's points carry no class edges: classes run
-  midway between the tabulated mean centralities.  rho(v_m^2, v_n^2,
-  [pT]) (ALICE Table 4) is not computed.
+  midway between the tabulated mean centralities.  STAR 2937844:
+  `variance_terms.c4: none` gives rho_n = cov_n / (<v_n^2>
+  sqrt(<(dpT)^2>)) (Eq. 6), and `ck_window: two_subevent` the pairs of c_k
+  across A and C (deviations from the full window's mean pT);
+  tests/test_toy_mc_flow_pt.py (both equal the separately computed terms
+  on 3D).  rho(v_m^2, v_n^2, [pT]) (ALICE Table 4) is not computed.
 - Symmetric cumulants (`correlation_type: symmetric_cumulant`, key
   `sc_mn`): two harmonics only, and `normalized` is required (true: NSC =
   SC / (<v_m^2><v_n^2>)); `normalization_eta_gap` takes the denominator
@@ -640,10 +644,13 @@ near c_4 = 0, ratios) the correction is unstable (zr96c2 dp0001, v2{4}
   Pb-Pb 2.76 TeV), an eta window gave NaN on 2D, dy mode ignored the pT
   window, 3D took whole cells (and an upper limit on a cell edge the next
   cell too: pT 0.15-2.0 on 0.2 GeV cells summed 0.2-2.2), and STAR records
-  were computed with ALICE's averaging and the class mean;
+  were computed with ALICE's averaging and the class mean.  `particles:
+  AB` (STAR 2937844): the pairs i in subevent A, j in B, deviations from
+  the mean pT of the record's window (`compute_pT_fluct`'s `sub`; the
+  particles in both windows removed on 2D);
   tests/test_toy_mc_fluct_et.py (2D eta windows within 2-6% of the brute
   force, 3D exact on cell edges and within 3% across cut cells, oversampled
-  events).
+  events, two subevents exact on 3D).
 - **Charge-scaled 3D grids**: normalized observables (flow, correlations,
   mean pT and its fluctuations) are computed on unit weights
   (`pipeline_dispatch._unit_weights`); only `ABSOLUTE_KEYS` keep the
@@ -689,7 +696,8 @@ near c_4 = 0, ratios) the correction is unstable (zr96c2 dp0001, v2{4}
   difference with optional `scale`, gamma1 = -6 sqrt2 v{4}^2 (v{4} - v{6}) /
   (v{2}^2 - v{4}^2)^{3/2}, mean_flow <v_n> = sqrt((v{2}^2 + v{4}^2)/2) and
   flow_fluctuation sigma_{v_n} = sqrt((v{2}^2 - v{4}^2)/2) (ALICE 2825785,
-  signed squares and roots); `two_particle` for a gapped v{2} term, with
+  signed squares and roots), square sign(v) v^2 of one order (STAR's <v_n^2>
+  = c_n{2}); `two_particle` for a gapped v{2} term, with
   its own `flow_reference` when it has one (CMS's 2PC, 1-3 GeV/c associated);
   `harmonics` for terms of different harmonics, v3{2}/v2{2} = orders [2, 2],
   harmonics [3, 2]): computed
