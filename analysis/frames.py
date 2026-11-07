@@ -101,6 +101,11 @@ def to_container_frame(rec, container):
             window(skr.get('y'))
         if isinstance(fr, dict) and fr.get('eta'):
             r['flow_reference']['eta'] = window_list(fr['eta'])
+        # reference regions of the 3x2PC and mixed-plane estimators
+        for key in ('subevents', 'resolution_subevents'):
+            for name, sub in ((fr or {}).get(key) or {}).items() if isinstance(fr, dict) else ():
+                etas = sub.get('eta')
+                r['flow_reference'][key][name]['eta'] = window_list(etas if isinstance(etas, list) else [etas])
     except (ValueError, KeyError, TypeError) as e:
         return None, f'window not mappable ({e})'
     r['collision_system'] = dict(r['collision_system'], frame='nn_cms', rapidity_shift=0.0,

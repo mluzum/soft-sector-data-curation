@@ -2224,6 +2224,140 @@ def _wrap_rnn(data, w):
     return core_rnn(data, w)
 
 
+# ── flow from three sets of two-particle correlations, 3x2PC (analysis.three_sub_2pc) ──
+
+def _poi_windows_of(params):
+    """[(var, (lo, hi), (pT_lo, pT_hi))] per POI bin (or the one window) of a
+    flow_vn record: pT bins in its y or eta window, or y / eta bins."""
+    single = params.get('single_range') or {}
+    var = params.get('differential_var') if params.get('dimensionality') != 'integrated' else None
+    bins = [tuple(b) for b in (params.get('differential_bins') or [])]
+    y_win = single.get('y')
+    base_var, base = ('y', tuple(y_win)) if y_win and None not in tuple(y_win) else ('eta', single.get('eta'))
+    pt_full = tuple(single.get('pT') or (0.0, 100.0))
+    if var == 'pT':
+        return [(base_var, base, b) for b in bins]
+    if var in ('y', 'eta'):
+        return [(var, b, pt_full) for b in bins]
+    return [(base_var, base, pt_full)]
+
+
+def _3x2pc_refs(params):
+    fr = params.get('flow_reference_raw') or {}
+    subs = fr.get('subevents') or {}
+    if sorted(subs) != ['B', 'C']:
+        raise ValueError("3x2PC: flow_reference.subevents B and C (the two reference regions)")
+    return {k: _mixed_plane_windows({'eta': v.get('eta'), 'pT': v.get('pT')}, 'A') for k, v in subs.items()}
+
+
+def prepare_vn_3x2pc_2d(qv, params):
+    """POI of the record's species (2D species axis: its eta-window Jacobian,
+    or the flat-y share of a rapidity window, times the pT share) and charged
+    references B, C; distinct pairs (analysis.flow_pt.CellSums)."""
+    from analysis.qvector import _overlap_fractions, _pt_squared
+    from analysis.flow_pt import CellSums, distinct
+    n = int(params.get('harmonic', 2))
+    refs = _3x2pc_refs(params)
+    pdg_ids = getattr(qv, 'pdg_ids', None)
+    ch_idx = list(charged_species_indices(pdg_ids)[0])
+    pid = _poi_species(params)
+    if is_charged(pid.get('species')):
+        p_idx = ch_idx
+    else:
+        p_idx, _cf, found = _get_species_selection(pid, qv)
+        if not found:
+            raise ValueError(f"species {pid.get('species')!r} not in the container")
+        p_idx = list(range(qv.Qn.shape[1])) if p_idx is None else list(p_idx)
+    idx = sorted(set(ch_idx) | set(p_idx))
+    pos = {s: i for i, s in enumerate(idx)}
+    Qn = np.moveaxis(qv.Qn[:, idx], 2, -1)
+    if n >= Qn.shape[-1]:
+        raise ValueError(f"3x2PC v_{n}: harmonic not stored")
+    c = Qn[..., 0].real
+
+    def pt_share(lo, hi):
+        return np.asarray(_overlap_fractions(qv.pt_bin_edges, lo, hi, _pt_squared), dtype=float)[np.newaxis, :]
+
+    def eta_w(windows, species):
+        jac = sum(_make_jacobian_list(qv.pt_centers, qv.masses, lo, hi)[idx, :] for lo, hi in windows) \
+            / (2.0 * qv.rap_max)
+        mask = np.zeros((len(idx), 1))
+        mask[[pos[s] for s in species]] = 1.0
+        return jac * mask
+    W = {}
+    for k, (etas, pt) in refs.items():
+        W[k] = eta_w(etas, ch_idx) * pt_share(*pt)
+    for b, (v, (lo, hi), pt) in enumerate(_poi_windows_of(params)):
+        if v == 'y':
+            share = max(0.0, min(hi, qv.rap_max) - max(lo, -qv.rap_max)) / (2.0 * qv.rap_max)
+            mask = np.zeros((len(idx), 1))
+            mask[[pos[s] for s in p_idx]] = share
+            W[f'P{b}'] = mask * pt_share(*pt)
+        else:
+            W[f'P{b}'] = eta_w([(lo, hi)], p_idx) * pt_share(*pt)
+    S = CellSums(Qn, c, None, None, W, qv.nsamples)
+    return _3x2pc_sums(S, n, len(W) - 2, distinct)
+
+
+def _3x2pc_sums(S, n, nb, distinct):
+    def corr(x, y):
+        return (np.real(distinct(S, [(x, n, 0), (y, -n, 0)])), np.real(distinct(S, [(x, 0, 0), (y, 0, 0)])))
+    out = {'ab': [], 'cab': [], 'ac': [], 'cac': []}
+    for b in range(nb):
+        for k, ref in (('ab', 'B'), ('ac', 'C')):
+            num, cnt = corr(f'P{b}', ref)
+            out[k].append(num)
+            out['c' + k].append(cnt)
+    res = {k: np.stack(v, axis=1) for k, v in out.items()}
+    res['bc'], res['cbc'] = corr('B', 'C')
+    return res
+
+
+def prepare_vn_3x2pc_3d(container, params):
+    """POI from the record's species grid (y or eta window per pT cell,
+    _poi_cell_weights), references B, C from the charged grid; a POI that
+    may share particles with B or C is refused."""
+    from analysis.flow_pt import CellSums
+    n = int(params.get('harmonic', 2))
+    refs = _3x2pc_refs(params)
+    pid = _poi_species(params)
+    poi = _unit_weights(container.select(pid))
+    ref = _unit_weights(container.select({'species': 'charged'}))
+    if n >= poi.Qn.shape[-1] or n >= ref.Qn.shape[-1]:
+        raise ValueError(f"3x2PC v_{n}: harmonic not stored")
+    W = {k: sum(np.asarray(ref.window_weights(lo, hi, pt[0], pt[1], fractional=True), float) for lo, hi in etas)
+         for k, (etas, pt) in refs.items()}
+    S = CellSums(ref.Qn, ref.Qn[..., 0].real, None, None, W, ref.nsamples)
+    q = {k: S(n, [k]) for k in W}
+    m = {k: np.real(S(0, [k])) for k in W}
+    if np.any((W['B'] > 0) & (W['C'] > 0)):
+        raise ValueError("3x2PC: the reference regions B and C overlap")
+    single = params.get('single_range') or {}
+    within = _poi_within_charged(container, pid)
+    out = {'ab': [], 'cab': [], 'ac': [], 'cac': []}
+    for v, (lo, hi), pt in _poi_windows_of(params):
+        Wp = _poi_cell_weights(poi, v, lo, hi, pt, params.get('momentum_range'),
+                               single.get('eta') if v == 'y' else None)
+        for k in ('B', 'C'):
+            etas = refs[k][0]
+            if within and (np.any((Wp > 0) & (W[k] > 0)) if Wp.shape == W[k].shape else
+                           any(not (hi <= a or lo >= b_) for a, b_ in etas)):
+                raise ValueError(f"3x2PC: the particles of interest may share particles with reference {k}")
+        a = poi._weighted(Wp)
+        for key, k in (('ab', 'B'), ('ac', 'C')):
+            out[key].append(np.real(a[:, n] * np.conj(q[k])))
+            out['c' + key].append(a[:, 0].real * m[k])
+    res = {k: np.stack(v, axis=1) for k, v in out.items()}
+    res['bc'] = np.real(q['B'] * np.conj(q['C']))
+    res['cbc'] = m['B'] * m['C']
+    return res
+
+
+def _wrap_vn_3x2pc(data, w):
+    from analysis import three_sub_2pc
+    return three_sub_2pc.core(data, w)
+
+
 # ── radial flow: v0, v0(pT), normalized covariance (analysis.radial_flow) ──
 
 def _radial_flow_settings(params):
@@ -3636,6 +3770,14 @@ PIPELINE_DISPATCH = {
         "n_obs_per_cent": None,
         "description": "r_{n|n}(eta): opposite- over same-side correlation with a reference at +-|eta_ref|",
     },
+    "vn_3x2pc": {
+        "core_fn": _wrap_vn_3x2pc,
+        "prepare_data_2d": prepare_vn_3x2pc_2d,
+        "prepare_data_3d": prepare_vn_3x2pc_3d,
+        "selects_species": True,
+        "n_obs_per_cent": None,
+        "description": "v_n of the POI from three two-particle correlations (3x2PC): sqrt(c_AB c_AC / c_BC)",
+    },
     "plane_corr_sp": {
         "core_fn": _wrap_plane_corr,
         "prepare_data_2d": prepare_plane_corr_2d,
@@ -3803,6 +3945,7 @@ SINGLE_ROW_KEYS = frozenset({
     'spectra_invariant_yield', 'dET_deta', 'sc_mn', 'nac_mn', 'radial_flow',
     'vn_cumulant_combination', 'v1_even_factorization', 'rho_vn2_pT', 'mode_coupling',
     'plane_corr_sp', 'flow_vector_fluct', 'vn_mixed_plane', 'vn2_eta_partner', 'rnn_decorrelation',
+    'vn_3x2pc',
 })
 
 

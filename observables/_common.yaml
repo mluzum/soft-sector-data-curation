@@ -387,6 +387,16 @@ flow_reference:
       fields:
         min: {type: float, required: true, example: 0.0}
         max: {type: float, required: true, example: 4.0}
+    subevents:
+      type: object
+      required: false
+      description: >
+        method three_subevent_2pc (3x2PC): the two reference regions B and
+        C, each {eta: [{min, max}], pT: {min, max}};
+        v_n = sqrt(c(POI, B) c(POI, C) / c(B, C)), c the two-particle
+        correlations (PHENIX's 3x2PC; ALICE 2848254 Eq. A.2).  Mapped into
+        the container frame with the record (analysis/frames.py).
+      example: {B: {eta: [{min: 1.7, max: 5.1}]}, C: {eta: [{min: -3.1, max: -1.7}]}}
     partner:
       type: list
       required: false

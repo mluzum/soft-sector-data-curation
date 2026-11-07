@@ -177,6 +177,17 @@ Fields that change dispatch:
   tests/test_toy_mc_eta_regions.py (3D: both equal the correlators of the
   generated flow vectors, r falls with |eta|; r = 1 and v = sqrt(<v^2>)
   without the twist, 2D and 3D).
+- Three sets of two-particle correlations (`method: three_subevent_2pc`,
+  key vn_3x2pc, analysis/three_sub_2pc.py; ALICE 2848254, PHENIX's 3x2PC):
+  v_n(POI) = sqrt(c(POI, B) c(POI, C) / c(B, C)), the reference regions in
+  `flow_reference.subevents` B, C; distinct pairs, pair-count event
+  weights; the POI the record's species in an eta or y window (2D: the
+  species axis; 3D: the species grid, a POI that may share particles with
+  B or C refused).  The experiments' non-flow removal (template fits)
+  leaves the flow a model without non-flow computes.  analysis/frames.py
+  maps flow_reference.subevents (and resolution_subevents) with the
+  record; tests/test_toy_mc_3x2pc.py (the generated v2(pT), 2D and 3D, eta
+  and y windows; the frame flip).
 - `kinematic_range.y.mass`: a rapidity window with one assumed mass (PHOBOS
   and ATLAS y_pi): spectra, yields (a window, or per y bin) and <pT>.
 - Per-bin yields and <pT>: eta bins (`dimensionality: differential_eta`)

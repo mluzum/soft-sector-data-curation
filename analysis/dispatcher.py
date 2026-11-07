@@ -98,6 +98,26 @@ DISPATCH_TABLE = {
         "requires": ["flow_reference.eta", "flow_reference.harmonic", "flow_reference.resolution_subevents"],
         "description": "v_n relative to a lower-order plane (differential_eta)",
     },
+    ("three_subevent_2pc", None, None, "integrated"): {
+        "compute": "vn_3x2pc",
+        "requires": ["flow_reference.subevents.B.eta", "flow_reference.subevents.C.eta"],
+        "description": "v_n from three two-particle correlations, 3x2PC (integrated)",
+    },
+    ("three_subevent_2pc", None, None, "differential_pT"): {
+        "compute": "vn_3x2pc",
+        "requires": ["flow_reference.subevents.B.eta", "flow_reference.subevents.C.eta"],
+        "description": "v_n from three two-particle correlations, 3x2PC (differential_pT)",
+    },
+    ("three_subevent_2pc", None, None, "differential_eta"): {
+        "compute": "vn_3x2pc",
+        "requires": ["flow_reference.subevents.B.eta", "flow_reference.subevents.C.eta"],
+        "description": "v_n from three two-particle correlations, 3x2PC (differential_eta)",
+    },
+    ("three_subevent_2pc", None, None, "differential_y"): {
+        "compute": "vn_3x2pc",
+        "requires": ["flow_reference.subevents.B.eta", "flow_reference.subevents.C.eta"],
+        "description": "v_n from three two-particle correlations, 3x2PC (differential_y)",
+    },
     ("cumulant_partner", 2, None, "differential_eta"): {
         "compute": "vn2_eta_partner",
         "requires": ["flow_reference.segments", ["kinematic_range.eta.bins", "kinematic_range.eta.bin_ranges"]],
