@@ -87,8 +87,13 @@ def check_record(record, path):
         warnings.append(f"unknown observable_type: {obs_type}")
     else:
         required = schema.get("required_fields", {})
+        # A side of a ratio published only as a ratio (experimental_values:
+        # false) has no table of its own: its values are in the ratio record.
+        valueless = record.get("experimental_values") is False
         for name, defn in required.items():
             req = defn.get("required", True)
+            if valueless and name == "hepdata_file":
+                continue
             if req and name not in record:
                 warnings.append(f"missing required field: {name}")
 

@@ -14,26 +14,33 @@ The pipeline reads those fields and applies the record's exact cuts to the
 simulation. A model is then compared with the data on the same footing,
 record by record, for any selection of measurements.
 
-- **6,377 records** from 131 publications (STAR, PHENIX, BRAHMS, PHOBOS,
-  ALICE, ATLAS, CMS, LHCb), built from the HEPData tables in `hepdata_raw/`.
+- **9,972 records** from 199 publications (STAR, PHENIX, BRAHMS, PHOBOS,
+  ALICE, ATLAS, CMS), built from the HEPData tables in `hepdata_raw/`.
   **Every record can be computed from a simulation and compared with its
   data by the tools here**: it dispatches to a computation, its centrality
-  classes are percentile bins, and its experimental values load
+  classes are percentile bins (or ranges of the estimator's track count),
+  and its experimental values load
   (`tests/test_public_records.py` enforces this).  The point of the
   database is that automation; the bare numbers are already on HEPData.
   Measurements that cannot be computed yet (observable types without a
   computation, minimum-bias or p+p records, tables without a reader) are
   curated separately and join as they become computable.
 - **Observables computed from simulations:**
-  - flow: v_n{2,4,6,8}, with η-gap and subevent methods, and pT- and
-    η-differential;
-  - correlations: scalar-product and event-plane estimators, symmetric
-    cumulants and normalized correlations;
+  - flow: v_n{2,4,6,8}, with η-gap and subevent methods, pT- and
+    η-differential, scalar-product and event-plane estimators, and
+    combinations of cumulant orders (v{4}/v{2}, mean flow and its
+    fluctuations, γ1); directed flow v1; flow relative to a lower-order
+    plane;
+  - flow correlations: symmetric cumulants of two and three harmonics,
+    linear and mode-coupled harmonics, symmetry-plane correlations, and
+    flow decorrelation in η and pT;
+  - flow-[pT] correlations ρ(v_n², [pT]) and mean-pT fluctuations;
   - identified and charged yields, spectra, mean pT and dE_T/dη;
   - radial-flow fluctuations: v0, v0(pT) and the [pT]-spectrum covariance
     from two pseudorapidity subevents;
-  - ratios between collision systems (e.g. Ru+Ru / Zr+Zr) from two
-    simulation sets.
+  - ratios between collision systems or energies (e.g. Ru+Ru / Zr+Zr,
+    U+U / Au+Au) from two simulation sets, and between centralities,
+    rapidity windows or species within one.
   - Errors are a block jackknife with a full covariance matrix across
     observables.
 - **Any simulation:** a simulation enters through one of two in-memory
