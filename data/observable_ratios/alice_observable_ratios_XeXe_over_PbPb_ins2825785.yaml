@@ -1,0 +1,588 @@
+observable_type: observable_ratios
+inspire_id: '2825785'
+version: 1
+hepdata_file: Table1c.yaml
+dv_index: 0
+hepdata_table_label: 'Table 1c: Ratio between Xe$-$Xe and Pb$-$Pb charged particle $v_2\{2, \left | \Delta\eta \right | >
+  1.0\}$ as a function of centrality.'
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X, PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-45%
+  - 45-50%
+  - 50-55%
+  - 55-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 3.0
+observable: v2
+value_type: $v_{2}${2}(Xe$-$Xe)/$v_{2}${2}(Pb$-$Pb)
+ratio_type: system_ratio
+numerator: Xe+Xe 5.44 TeV
+denominator: Pb+Pb 5.02 TeV
+numerator_system: Xe+Xe 5.44 TeV
+denominator_system: Pb+Pb 5.02 TeV
+numerator_record: data/flow_vn/alice_flow_vn_nuclear_structure_XeXe_PbPb_ins2825785.yaml#0
+denominator_record: data/flow_vn/alice_flow_vn_nuclear_structure_XeXe_PbPb_ins2825785.yaml#1
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 869 (2025) 139855, arXiv:2409.04343. Ratio Xe-Xe (5.44 TeV) / Pb-Pb (5.02 TeV) of
+    v2{2, |Delta eta| > 1.0}, two subevents -0.8 < eta < -0.5 and 0.5 < eta < 0.8. Errors: stat and sys.'
+harmonic: 2
+---
+observable_type: observable_ratios
+inspire_id: '2825785'
+version: 1
+hepdata_file: Table1d.yaml
+dv_index: 0
+hepdata_table_label: 'Table 1d: Ratio between Xe$-$Xe and Pb$-$Pb charged particle $v_2\{4\}$ as a function of centrality.'
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X, PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-4%
+  - 4-7%
+  - 7-10%
+  - 10-15%
+  - 15-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 3.0
+observable: v2
+value_type: $v_{2}${4}(Xe$-$Xe)/$v_{2}${4}(Pb$-$Pb)
+ratio_type: system_ratio
+numerator: Xe+Xe 5.44 TeV
+denominator: Pb+Pb 5.02 TeV
+numerator_system: Xe+Xe 5.44 TeV
+denominator_system: Pb+Pb 5.02 TeV
+numerator_record: data/flow_vn/alice_flow_vn_nuclear_structure_XeXe_PbPb_ins2825785.yaml#2
+denominator_record: data/flow_vn/alice_flow_vn_nuclear_structure_XeXe_PbPb_ins2825785.yaml#3
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 869 (2025) 139855, arXiv:2409.04343. Ratio Xe-Xe (5.44 TeV) / Pb-Pb (5.02 TeV) of
+    v2{4}, |eta| < 0.8, no gap. Errors: stat and sys.'
+harmonic: 2
+---
+observable_type: observable_ratios
+inspire_id: '2825785'
+version: 1
+hepdata_file: Table2c.yaml
+dv_index: 0
+hepdata_table_label: 'Table 2c: Ratio between Xe$-$Xe and Pb$-$Pb charged particle $\langle v_2 \rangle$ as a function of
+  centrality.'
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X, PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-4%
+  - 4-7%
+  - 7-10%
+  - 10-15%
+  - 15-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 3.0
+observable: v2
+value_type: $\langle v_2 \rangle$(Xe$-$Xe)/$\langle v_2 \rangle$(Pb$-$Pb)
+ratio_type: system_ratio
+numerator: Xe+Xe 5.44 TeV
+denominator: Pb+Pb 5.02 TeV
+numerator_system: Xe+Xe 5.44 TeV
+denominator_system: Pb+Pb 5.02 TeV
+numerator_record: data/flow_vn/alice_flow_vn_nuclear_structure_XeXe_PbPb_ins2825785.yaml#4
+denominator_record: data/flow_vn/alice_flow_vn_nuclear_structure_XeXe_PbPb_ins2825785.yaml#5
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 869 (2025) 139855, arXiv:2409.04343. Ratio Xe-Xe (5.44 TeV) / Pb-Pb (5.02 TeV) of
+    <v2> = sqrt((v2{2}^2 + v2{4}^2)/2) (Eq. 6), v2{2} with |Delta eta| > 1.0. Errors: stat and sys.'
+harmonic: 2
+---
+observable_type: observable_ratios
+inspire_id: '2825785'
+version: 1
+hepdata_file: Table2d.yaml
+dv_index: 0
+hepdata_table_label: 'Table 2d: Ratio between Xe$-$Xe and Pb$-$Pb charged particle $\sigma_{v_2}$ as a function of centrality.'
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X, PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-4%
+  - 4-7%
+  - 7-10%
+  - 10-15%
+  - 15-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 3.0
+observable: v2
+value_type: $\sigma_{v_{2}}$(Xe$-$Xe)/$\sigma_{v_{2}}$(Pb$-$Pb)
+ratio_type: system_ratio
+numerator: Xe+Xe 5.44 TeV
+denominator: Pb+Pb 5.02 TeV
+numerator_system: Xe+Xe 5.44 TeV
+denominator_system: Pb+Pb 5.02 TeV
+numerator_record: data/flow_vn/alice_flow_vn_nuclear_structure_XeXe_PbPb_ins2825785.yaml#6
+denominator_record: data/flow_vn/alice_flow_vn_nuclear_structure_XeXe_PbPb_ins2825785.yaml#7
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 869 (2025) 139855, arXiv:2409.04343. Ratio Xe-Xe (5.44 TeV) / Pb-Pb (5.02 TeV) of
+    sigma_v2 = sqrt((v2{2}^2 - v2{4}^2)/2) (Eq. 6), v2{2} with |Delta eta| > 1.0. Errors: stat and sys.'
+harmonic: 2
+---
+observable_type: observable_ratios
+inspire_id: '2825785'
+version: 1
+hepdata_file: Table3c.yaml
+dv_index: 0
+hepdata_table_label: 'Table 3c: Ratio between Xe$-$Xe and Pb$-$Pb charged particle $v_3\{2, \left | \Delta\eta \right | >
+  0.8\}$ as a function of centrality.'
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X, PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-25%
+  - 25-30%
+  - 30-35%
+  - 35-40%
+  - 40-50%
+  - 50-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 3.0
+observable: v3
+value_type: $v_{3}${2}(Xe$-$Xe)/$v_{3}${2}(Pb$-$Pb)
+ratio_type: system_ratio
+numerator: Xe+Xe 5.44 TeV
+denominator: Pb+Pb 5.02 TeV
+numerator_system: Xe+Xe 5.44 TeV
+denominator_system: Pb+Pb 5.02 TeV
+numerator_record: data/flow_vn/alice_flow_vn_nuclear_structure_XeXe_PbPb_ins2825785.yaml#8
+denominator_record: data/flow_vn/alice_flow_vn_nuclear_structure_XeXe_PbPb_ins2825785.yaml#9
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 869 (2025) 139855, arXiv:2409.04343. Ratio Xe-Xe (5.44 TeV) / Pb-Pb (5.02 TeV) of
+    v3{2, |Delta eta| > 0.8}, subevents -0.8 < eta < -0.4 and 0.4 < eta < 0.8. Errors: stat and sys.'
+harmonic: 3
+---
+observable_type: observable_ratios
+inspire_id: '2825785'
+version: 1
+hepdata_file: Table3d.yaml
+dv_index: 0
+hepdata_table_label: 'Table 3d: Ratio between Xe$-$Xe and Pb$-$Pb charged particle $v_4\{2, \left | \Delta\eta \right | >
+  0.8\}$ as a function of centrality.'
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X, PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-4%
+  - 4-7%
+  - 7-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 3.0
+observable: v4
+value_type: $v_{4}${2}(Xe$-$Xe)/$v_{4}${2}(Pb$-$Pb)
+ratio_type: system_ratio
+numerator: Xe+Xe 5.44 TeV
+denominator: Pb+Pb 5.02 TeV
+numerator_system: Xe+Xe 5.44 TeV
+denominator_system: Pb+Pb 5.02 TeV
+numerator_record: data/flow_vn/alice_flow_vn_nuclear_structure_XeXe_PbPb_ins2825785.yaml#10
+denominator_record: data/flow_vn/alice_flow_vn_nuclear_structure_XeXe_PbPb_ins2825785.yaml#11
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 869 (2025) 139855, arXiv:2409.04343. Ratio Xe-Xe (5.44 TeV) / Pb-Pb (5.02 TeV) of
+    v4{2, |Delta eta| > 0.8}, subevents -0.8 < eta < -0.4 and 0.4 < eta < 0.8. Errors: stat and sys.'
+harmonic: 4
+---
+observable_type: observable_ratios
+inspire_id: '2825785'
+version: 1
+hepdata_file: Table4c.yaml
+dv_index: 0
+hepdata_table_label: 'Table 4c: Ratio between Xe$-$Xe and Pb$-$Pb charged particle $v_{4,22}$ as a function of centrality.'
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X, PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-4%
+  - 4-7%
+  - 7-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 3.0
+observable: v4_22
+value_type: $v_{4,22}$(Xe$-$Xe)/$v_{4,22}$(Pb$-$Pb)
+ratio_type: system_ratio
+numerator: Xe+Xe 5.44 TeV
+denominator: Pb+Pb 5.02 TeV
+numerator_system: Xe+Xe 5.44 TeV
+denominator_system: Pb+Pb 5.02 TeV
+numerator_record: data/flow_harmonic_correlations/alice_flow_harmonic_correlations_nuclear_structure_XeXe_PbPb_ins2825785.yaml#0
+denominator_record: data/flow_harmonic_correlations/alice_flow_harmonic_correlations_nuclear_structure_XeXe_PbPb_ins2825785.yaml#1
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 869 (2025) 139855, arXiv:2409.04343. Ratio Xe-Xe (5.44 TeV) / Pb-Pb (5.02 TeV) of
+    v_{4,22} = Re<V4 V2*^2> / sqrt(<|V2|^4>) (Eq. 9). Errors: stat and sys.'
+---
+observable_type: observable_ratios
+inspire_id: '2825785'
+version: 1
+hepdata_file: Table4d.yaml
+dv_index: 0
+hepdata_table_label: 'Table 4d: Ratio between Xe$-$Xe and Pb$-$Pb charged particle $\rho_{4,22}$ as a function of centrality.'
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X, PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-4%
+  - 4-7%
+  - 7-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 3.0
+observable: rho_4_22
+value_type: $\rho_{4,22}$(Xe$-$Xe)/$\rho_{4,22}$(Pb$-$Pb)
+ratio_type: system_ratio
+numerator: Xe+Xe 5.44 TeV
+denominator: Pb+Pb 5.02 TeV
+numerator_system: Xe+Xe 5.44 TeV
+denominator_system: Pb+Pb 5.02 TeV
+numerator_record: data/flow_harmonic_correlations/alice_flow_harmonic_correlations_nuclear_structure_XeXe_PbPb_ins2825785.yaml#2
+denominator_record: data/flow_harmonic_correlations/alice_flow_harmonic_correlations_nuclear_structure_XeXe_PbPb_ins2825785.yaml#3
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 869 (2025) 139855, arXiv:2409.04343. Ratio Xe-Xe (5.44 TeV) / Pb-Pb (5.02 TeV) of
+    rho_{4,22} = v_{4,22} / v4{2} (Eq. 10). Errors: stat and sys.'
+---
+observable_type: observable_ratios
+inspire_id: '2825785'
+version: 1
+hepdata_file: TableA1c.yaml
+dv_index: 0
+hepdata_table_label: 'Table A1c: Ratio between Xe$-$Xe and Pb$-$Pb charged particle $v_4^{\rm L}$ as a function of centrality.'
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X, PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-4%
+  - 4-7%
+  - 7-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 3.0
+observable: v4_L
+value_type: $v_{4}^{\rm L}$(Xe$-$Xe)/$v_{4}^{\rm L}$(Pb$-$Pb)
+ratio_type: system_ratio
+numerator: Xe+Xe 5.44 TeV
+denominator: Pb+Pb 5.02 TeV
+numerator_system: Xe+Xe 5.44 TeV
+denominator_system: Pb+Pb 5.02 TeV
+numerator_record: data/flow_harmonic_correlations/alice_flow_harmonic_correlations_nuclear_structure_XeXe_PbPb_ins2825785.yaml#4
+denominator_record: data/flow_harmonic_correlations/alice_flow_harmonic_correlations_nuclear_structure_XeXe_PbPb_ins2825785.yaml#5
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 869 (2025) 139855, arXiv:2409.04343. Ratio Xe-Xe (5.44 TeV) / Pb-Pb (5.02 TeV) of
+    v4^L = sqrt(v4{2}^2 - v_{4,22}^2). Errors: stat and sys.'
+---
+observable_type: observable_ratios
+inspire_id: '2825785'
+version: 1
+hepdata_file: TableA1d.yaml
+dv_index: 0
+hepdata_table_label: 'Table A1d: Ratio between Xe$-$Xe and Pb$-$Pb charged particle $\chi_{4,22}$ as a function of centrality.'
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X, PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-4%
+  - 4-7%
+  - 7-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 3.0
+observable: chi_4_22
+value_type: $\chi_{4,22}$(Xe$-$Xe)/$\chi_{4,22}$(Pb$-$Pb)
+ratio_type: system_ratio
+numerator: Xe+Xe 5.44 TeV
+denominator: Pb+Pb 5.02 TeV
+numerator_system: Xe+Xe 5.44 TeV
+denominator_system: Pb+Pb 5.02 TeV
+numerator_record: data/flow_harmonic_correlations/alice_flow_harmonic_correlations_nuclear_structure_XeXe_PbPb_ins2825785.yaml#6
+denominator_record: data/flow_harmonic_correlations/alice_flow_harmonic_correlations_nuclear_structure_XeXe_PbPb_ins2825785.yaml#7
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 869 (2025) 139855, arXiv:2409.04343. Ratio Xe-Xe (5.44 TeV) / Pb-Pb (5.02 TeV) of
+    chi_{4,22} = v_{4,22} / sqrt(<|V2|^4>) (Eq. 11). Errors: stat and sys.'
+---
+observable_type: observable_ratios
+inspire_id: '2825785'
+version: 1
+hepdata_file: TableA2Bottom.yaml
+dv_index: 0
+hepdata_table_label: 'Table A2Bottom: Ratio between Xe$-$Xe and Pb$-$Pb charged particle NSC$(3,2)$ as a function of centrality.'
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X, PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-15%
+  - 15-20%
+  - 20-25%
+  - 25-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 3.0
+observable: NSC_3_2
+value_type: NSC(3,2)(Xe$-$Xe)/NSC(3,2)(Pb$-$Pb)
+ratio_type: system_ratio
+numerator: Xe+Xe 5.44 TeV
+denominator: Pb+Pb 5.02 TeV
+numerator_system: Xe+Xe 5.44 TeV
+denominator_system: Pb+Pb 5.02 TeV
+numerator_record: data/flow_harmonic_correlations/alice_flow_harmonic_correlations_nuclear_structure_XeXe_PbPb_ins2825785.yaml#8
+denominator_record: data/flow_harmonic_correlations/alice_flow_harmonic_correlations_nuclear_structure_XeXe_PbPb_ins2825785.yaml#9
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 869 (2025) 139855, arXiv:2409.04343. Ratio Xe-Xe (5.44 TeV) / Pb-Pb (5.02 TeV) of
+    NSC(3,2) = (<<3,2|-3,-2>> - <<3|-3>><<2|-2>>) / (<<3|-3>><<2|-2>>), the multiparticle correlation with |Delta eta| > 0.8:
+    3, 2 in one subevent and -3, -2 in the other (curated reading of Sec. 2). Errors: stat and sys.'

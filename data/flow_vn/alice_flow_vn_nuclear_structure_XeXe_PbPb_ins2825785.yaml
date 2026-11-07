@@ -1,0 +1,837 @@
+observable_type: flow_vn
+inspire_id: '2825785'
+version: 1
+hepdata_file: Table1a.yaml
+dv_index: 0
+hepdata_table_label: 'Table 1a: Charged particle $v_2\{2, \left | \Delta\eta \right | > 1.0\}$ as a function of centrality
+  in Xe$-$Xe and Pb$-$Pb collisions at $\sqrt{s_\mathrm{NN}}$ = 5.44 TeV and $\sqrt{s_\mathrm{NN}}$ = 5.02 TeV, respectively.
+  (column 0, Xe-Xe)'
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-45%
+  - 45-50%
+  - 50-55%
+  - 55-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 3.0
+cumulant_order: 2
+harmonic: 2
+method: cumulant
+particles: AB
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        max: -0.5
+        min: -0.8
+      pT:
+        max: 3.0
+        min: 0.2
+  B:
+    kinematic_range:
+      eta:
+        max: 0.8
+        min: 0.5
+      pT:
+        max: 3.0
+        min: 0.2
+dimensionality: integrated
+value_type: $v_{2}${2}(Xe$-$Xe)
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 869 (2025) 139855, arXiv:2409.04343. v2{2, |Delta eta| > 1.0}, two subevents -0.8
+    < eta < -0.5 and 0.5 < eta < 0.8; charged particles |eta| < 0.8, 0.2 < pT < 3.0 GeV/c, Xe+Xe 5.44 TeV, V0M centrality.
+    Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2825785'
+version: 1
+hepdata_file: Table1a.yaml
+dv_index: 1
+hepdata_table_label: 'Table 1a: Charged particle $v_2\{2, \left | \Delta\eta \right | > 1.0\}$ as a function of centrality
+  in Xe$-$Xe and Pb$-$Pb collisions at $\sqrt{s_\mathrm{NN}}$ = 5.44 TeV and $\sqrt{s_\mathrm{NN}}$ = 5.02 TeV, respectively.
+  (column 1, Pb-Pb)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-45%
+  - 45-50%
+  - 50-55%
+  - 55-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 3.0
+cumulant_order: 2
+harmonic: 2
+method: cumulant
+particles: AB
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        max: -0.5
+        min: -0.8
+      pT:
+        max: 3.0
+        min: 0.2
+  B:
+    kinematic_range:
+      eta:
+        max: 0.8
+        min: 0.5
+      pT:
+        max: 3.0
+        min: 0.2
+dimensionality: integrated
+value_type: $v_{2}${2}(Pb$-$Pb)
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 869 (2025) 139855, arXiv:2409.04343. v2{2, |Delta eta| > 1.0}, two subevents -0.8
+    < eta < -0.5 and 0.5 < eta < 0.8; charged particles |eta| < 0.8, 0.2 < pT < 3.0 GeV/c, Pb+Pb 5.02 TeV, V0M centrality.
+    Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2825785'
+version: 1
+hepdata_file: Table1b.yaml
+dv_index: 0
+hepdata_table_label: 'Table 1b: Charged particle $v_2\{4\}$ as a function of centrality in Xe$-$Xe and Pb$-$Pb collisions
+  at $\sqrt{s_\mathrm{NN}}$ = 5.44 TeV and $\sqrt{s_\mathrm{NN}}$ = 5.02 TeV, respectively. (column 0, Xe-Xe)'
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 0-4%
+  - 4-7%
+  - 7-10%
+  - 10-15%
+  - 15-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 3.0
+cumulant_order: 4
+harmonic: 2
+method: cumulant
+dimensionality: integrated
+value_type: $v_{2}${4}(Xe$-$Xe)
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 869 (2025) 139855, arXiv:2409.04343. v2{4}, |eta| < 0.8, no gap; charged particles
+    |eta| < 0.8, 0.2 < pT < 3.0 GeV/c, Xe+Xe 5.44 TeV, V0M centrality. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2825785'
+version: 1
+hepdata_file: Table1b.yaml
+dv_index: 1
+hepdata_table_label: 'Table 1b: Charged particle $v_2\{4\}$ as a function of centrality in Xe$-$Xe and Pb$-$Pb collisions
+  at $\sqrt{s_\mathrm{NN}}$ = 5.44 TeV and $\sqrt{s_\mathrm{NN}}$ = 5.02 TeV, respectively. (column 1, Pb-Pb)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-4%
+  - 4-7%
+  - 7-10%
+  - 10-15%
+  - 15-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 3.0
+cumulant_order: 4
+harmonic: 2
+method: cumulant
+dimensionality: integrated
+value_type: $v_{2}${4}(Pb$-$Pb)
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 869 (2025) 139855, arXiv:2409.04343. v2{4}, |eta| < 0.8, no gap; charged particles
+    |eta| < 0.8, 0.2 < pT < 3.0 GeV/c, Pb+Pb 5.02 TeV, V0M centrality. Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2825785'
+version: 1
+hepdata_file: Table2a.yaml
+dv_index: 0
+hepdata_table_label: 'Table 2a: Charged particle $\langle v_2 \rangle$ as a function of centrality in Xe$-$Xe and Pb$-$Pb
+  collisions at $\sqrt{s_\mathrm{NN}}$ = 5.44 TeV and $\sqrt{s_\mathrm{NN}}$ = 5.02 TeV, respectively. (column 0, Xe-Xe)'
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 0-4%
+  - 4-7%
+  - 7-10%
+  - 10-15%
+  - 15-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 3.0
+cumulant_combination:
+  kind: mean_flow
+  orders:
+  - 2
+  - 4
+  two_particle:
+    particles: AB
+    subevents:
+      A:
+        kinematic_range:
+          eta:
+            max: -0.5
+            min: -0.8
+          pT:
+            max: 3.0
+            min: 0.2
+      B:
+        kinematic_range:
+          eta:
+            max: 0.8
+            min: 0.5
+          pT:
+            max: 3.0
+            min: 0.2
+cumulant_order: 4
+harmonic: 2
+method: cumulant
+dimensionality: integrated
+value_type: $\langle v_2 \rangle$(Xe$-$Xe)
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 869 (2025) 139855, arXiv:2409.04343. <v2> = sqrt((v2{2}^2 + v2{4}^2)/2) (Eq. 6),
+    v2{2} with |Delta eta| > 1.0; charged particles |eta| < 0.8, 0.2 < pT < 3.0 GeV/c, Xe+Xe 5.44 TeV, V0M centrality. Errors:
+    stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2825785'
+version: 1
+hepdata_file: Table2a.yaml
+dv_index: 1
+hepdata_table_label: 'Table 2a: Charged particle $\langle v_2 \rangle$ as a function of centrality in Xe$-$Xe and Pb$-$Pb
+  collisions at $\sqrt{s_\mathrm{NN}}$ = 5.44 TeV and $\sqrt{s_\mathrm{NN}}$ = 5.02 TeV, respectively. (column 1, Pb-Pb)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-4%
+  - 4-7%
+  - 7-10%
+  - 10-15%
+  - 15-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 3.0
+cumulant_combination:
+  kind: mean_flow
+  orders:
+  - 2
+  - 4
+  two_particle:
+    particles: AB
+    subevents:
+      A:
+        kinematic_range:
+          eta:
+            max: -0.5
+            min: -0.8
+          pT:
+            max: 3.0
+            min: 0.2
+      B:
+        kinematic_range:
+          eta:
+            max: 0.8
+            min: 0.5
+          pT:
+            max: 3.0
+            min: 0.2
+cumulant_order: 4
+harmonic: 2
+method: cumulant
+dimensionality: integrated
+value_type: $\langle v_2 \rangle$(Pb$-$Pb)
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 869 (2025) 139855, arXiv:2409.04343. <v2> = sqrt((v2{2}^2 + v2{4}^2)/2) (Eq. 6),
+    v2{2} with |Delta eta| > 1.0; charged particles |eta| < 0.8, 0.2 < pT < 3.0 GeV/c, Pb+Pb 5.02 TeV, V0M centrality. Errors:
+    stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2825785'
+version: 1
+hepdata_file: Table2b.yaml
+dv_index: 0
+hepdata_table_label: 'Table 2b: Charged particle $\sigma_{v_2}$ as a function of centrality in Xe$-$Xe and Pb$-$Pb collisions
+  at $\sqrt{s_\mathrm{NN}}$ = 5.44 TeV and $\sqrt{s_\mathrm{NN}}$ = 5.02 TeV, respectively. (column 0, Xe-Xe)'
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 0-4%
+  - 4-7%
+  - 7-10%
+  - 10-15%
+  - 15-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 3.0
+cumulant_combination:
+  kind: flow_fluctuation
+  orders:
+  - 2
+  - 4
+  two_particle:
+    particles: AB
+    subevents:
+      A:
+        kinematic_range:
+          eta:
+            max: -0.5
+            min: -0.8
+          pT:
+            max: 3.0
+            min: 0.2
+      B:
+        kinematic_range:
+          eta:
+            max: 0.8
+            min: 0.5
+          pT:
+            max: 3.0
+            min: 0.2
+cumulant_order: 4
+harmonic: 2
+method: cumulant
+dimensionality: integrated
+value_type: $\sigma_{v_{2}}$(Xe$-$Xe)
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 869 (2025) 139855, arXiv:2409.04343. sigma_v2 = sqrt((v2{2}^2 - v2{4}^2)/2) (Eq.
+    6), v2{2} with |Delta eta| > 1.0; charged particles |eta| < 0.8, 0.2 < pT < 3.0 GeV/c, Xe+Xe 5.44 TeV, V0M centrality.
+    Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2825785'
+version: 1
+hepdata_file: Table2b.yaml
+dv_index: 1
+hepdata_table_label: 'Table 2b: Charged particle $\sigma_{v_2}$ as a function of centrality in Xe$-$Xe and Pb$-$Pb collisions
+  at $\sqrt{s_\mathrm{NN}}$ = 5.44 TeV and $\sqrt{s_\mathrm{NN}}$ = 5.02 TeV, respectively. (column 1, Pb-Pb)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-4%
+  - 4-7%
+  - 7-10%
+  - 10-15%
+  - 15-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 3.0
+cumulant_combination:
+  kind: flow_fluctuation
+  orders:
+  - 2
+  - 4
+  two_particle:
+    particles: AB
+    subevents:
+      A:
+        kinematic_range:
+          eta:
+            max: -0.5
+            min: -0.8
+          pT:
+            max: 3.0
+            min: 0.2
+      B:
+        kinematic_range:
+          eta:
+            max: 0.8
+            min: 0.5
+          pT:
+            max: 3.0
+            min: 0.2
+cumulant_order: 4
+harmonic: 2
+method: cumulant
+dimensionality: integrated
+value_type: $\sigma_{v_{2}}$(Pb$-$Pb)
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 869 (2025) 139855, arXiv:2409.04343. sigma_v2 = sqrt((v2{2}^2 - v2{4}^2)/2) (Eq.
+    6), v2{2} with |Delta eta| > 1.0; charged particles |eta| < 0.8, 0.2 < pT < 3.0 GeV/c, Pb+Pb 5.02 TeV, V0M centrality.
+    Errors: stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2825785'
+version: 1
+hepdata_file: Table3a.yaml
+dv_index: 0
+hepdata_table_label: 'Table 3a: Charged particle $v_3\{2, \left | \Delta\eta \right | > 0.8\}$ as a function of centrality
+  in Xe$-$Xe and Pb$-$Pb collisions at $\sqrt{s_\mathrm{NN}}$ = 5.44 TeV and $\sqrt{s_\mathrm{NN}}$ = 5.02 TeV, respectively.
+  (column 0, Xe-Xe)'
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-25%
+  - 25-30%
+  - 30-35%
+  - 35-40%
+  - 40-50%
+  - 50-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 3.0
+cumulant_order: 2
+harmonic: 3
+method: cumulant
+particles: AB
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        max: -0.4
+        min: -0.8
+      pT:
+        max: 3.0
+        min: 0.2
+  B:
+    kinematic_range:
+      eta:
+        max: 0.8
+        min: 0.4
+      pT:
+        max: 3.0
+        min: 0.2
+dimensionality: integrated
+value_type: $v_{3}${2}(Xe$-$Xe)
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 869 (2025) 139855, arXiv:2409.04343. v3{2, |Delta eta| > 0.8}, subevents -0.8 < eta
+    < -0.4 and 0.4 < eta < 0.8; charged particles |eta| < 0.8, 0.2 < pT < 3.0 GeV/c, Xe+Xe 5.44 TeV, V0M centrality. Errors:
+    stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2825785'
+version: 1
+hepdata_file: Table3a.yaml
+dv_index: 1
+hepdata_table_label: 'Table 3a: Charged particle $v_3\{2, \left | \Delta\eta \right | > 0.8\}$ as a function of centrality
+  in Xe$-$Xe and Pb$-$Pb collisions at $\sqrt{s_\mathrm{NN}}$ = 5.44 TeV and $\sqrt{s_\mathrm{NN}}$ = 5.02 TeV, respectively.
+  (column 1, Pb-Pb)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-25%
+  - 25-30%
+  - 30-35%
+  - 35-40%
+  - 40-50%
+  - 50-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 3.0
+cumulant_order: 2
+harmonic: 3
+method: cumulant
+particles: AB
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        max: -0.4
+        min: -0.8
+      pT:
+        max: 3.0
+        min: 0.2
+  B:
+    kinematic_range:
+      eta:
+        max: 0.8
+        min: 0.4
+      pT:
+        max: 3.0
+        min: 0.2
+dimensionality: integrated
+value_type: $v_{3}${2}(Pb$-$Pb)
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 869 (2025) 139855, arXiv:2409.04343. v3{2, |Delta eta| > 0.8}, subevents -0.8 < eta
+    < -0.4 and 0.4 < eta < 0.8; charged particles |eta| < 0.8, 0.2 < pT < 3.0 GeV/c, Pb+Pb 5.02 TeV, V0M centrality. Errors:
+    stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2825785'
+version: 1
+hepdata_file: Table3b.yaml
+dv_index: 0
+hepdata_table_label: 'Table 3b: Charged particle $v_4\{2, \left | \Delta\eta \right | > 0.8\}$ as a function of centrality
+  in Xe$-$Xe and Pb$-$Pb collisions at $\sqrt{s_\mathrm{NN}}$ = 5.44 TeV and $\sqrt{s_\mathrm{NN}}$ = 5.02 TeV, respectively.
+  (column 0, Xe-Xe)'
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 0-4%
+  - 4-7%
+  - 7-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 3.0
+cumulant_order: 2
+harmonic: 4
+method: cumulant
+particles: AB
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        max: -0.4
+        min: -0.8
+      pT:
+        max: 3.0
+        min: 0.2
+  B:
+    kinematic_range:
+      eta:
+        max: 0.8
+        min: 0.4
+      pT:
+        max: 3.0
+        min: 0.2
+dimensionality: integrated
+value_type: $v_{4}${2}(Xe$-$Xe)
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 869 (2025) 139855, arXiv:2409.04343. v4{2, |Delta eta| > 0.8}, subevents -0.8 < eta
+    < -0.4 and 0.4 < eta < 0.8; charged particles |eta| < 0.8, 0.2 < pT < 3.0 GeV/c, Xe+Xe 5.44 TeV, V0M centrality. Errors:
+    stat and sys.'
+---
+observable_type: flow_vn
+inspire_id: '2825785'
+version: 1
+hepdata_file: Table3b.yaml
+dv_index: 1
+hepdata_table_label: 'Table 3b: Charged particle $v_4\{2, \left | \Delta\eta \right | > 0.8\}$ as a function of centrality
+  in Xe$-$Xe and Pb$-$Pb collisions at $\sqrt{s_\mathrm{NN}}$ = 5.44 TeV and $\sqrt{s_\mathrm{NN}}$ = 5.02 TeV, respectively.
+  (column 1, Pb-Pb)'
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-4%
+  - 4-7%
+  - 7-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  - 50-60%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 3.0
+cumulant_order: 2
+harmonic: 4
+method: cumulant
+particles: AB
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        max: -0.4
+        min: -0.8
+      pT:
+        max: 3.0
+        min: 0.2
+  B:
+    kinematic_range:
+      eta:
+        max: 0.8
+        min: 0.4
+      pT:
+        max: 3.0
+        min: 0.2
+dimensionality: integrated
+value_type: $v_{4}${2}(Pb$-$Pb)
+notes:
+  value: 'S. Acharya et al. (ALICE), PLB 869 (2025) 139855, arXiv:2409.04343. v4{2, |Delta eta| > 0.8}, subevents -0.8 < eta
+    < -0.4 and 0.4 < eta < 0.8; charged particles |eta| < 0.8, 0.2 < pT < 3.0 GeV/c, Pb+Pb 5.02 TeV, V0M centrality. Errors:
+    stat and sys.'
