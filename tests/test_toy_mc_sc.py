@@ -19,9 +19,13 @@ Checks:
     n | -m, -n>> with m, n in one subevent and -m, -n in the other, both
     orientations pooled: equal on 3D to the closed form from the subevents'
     Q-vectors, and SC, NSC recover the truth on 2D and 3D;
-  - refusals: SC of three harmonics, a record without 'normalized', a
-    harmonic the container does not store (SC(4,2) needs Q6), and subevents
-    with a normalization gap.
+  - three harmonics SC(k, l, m) (ALICE 1839720, Eq. 5): equal on 3D to
+    explicit sums over distinct particle tuples, and SC(2,3,5), NSC(2,3,5)
+    recover the third joint cumulant of (v2^2, v3^2, v5^2) of toy events
+    with V5 = V5^L + chi V2 V3, on 2D and 3D;
+  - refusals: SC of four harmonics, a record without 'normalized', a
+    harmonic the container does not store (SC(4,2) needs Q6, SC(2,3,5)
+    Q10), and subevents with a normalization gap.
 Until November 2026 sc_mn used |Q_n|^2/M^2 (no self-correlation removal),
 ignored the pT window and the weights in 2D, never normalized, and read
 three-harmonic SC as SC of the first two.
@@ -215,11 +219,100 @@ def test_subevents():
         check('subevents with a normalization gap refused', True)
 
 
+def _sc3_brute(events, harms, eta, pt):
+    """SC(k, l, m) of Eq. 5 from explicit sums over distinct tuples
+    (ordered permutations) of each event's particles in the window."""
+    import itertools
+    k, l, m = harms
+    acc = {}
+
+    def add(key, phis, hs):
+        n = len(phis)
+        if n < len(hs):
+            acc[key] = acc.get(key, 0j) + 0
+            acc['W' + key] = acc.get('W' + key, 0)
+            return
+        P = np.array(list(itertools.permutations(range(n), len(hs))))
+        e = np.exp(1j * np.array(hs)[None, :] * phis[P])
+        acc[key] = acc.get(key, 0j) + np.prod(e, axis=1).sum()
+        acc['W' + key] = acc.get('W' + key, 0) + len(P)
+    for e in events:
+        s = (e['eta'] >= eta[0]) & (e['eta'] < eta[1]) & (e['pt'] >= pt[0]) & (e['pt'] < pt[1])
+        ph = e['phi'][s]
+        add('6', ph, [k, l, m, -k, -l, -m])
+        for a, b in ((k, l), (k, m), (l, m)):
+            add(f'4{a}{b}', ph, [a, b, -a, -b])
+        for a in (k, l, m):
+            add(f'2{a}', ph, [a, -a])
+    c = {key: (acc[key] / acc['W' + key]).real for key in acc if not key.startswith('W')}
+    return (c['6'] - c[f'4{k}{l}'] * c[f'2{m}'] - c[f'4{k}{m}'] * c[f'2{l}'] - c[f'4{l}{m}'] * c[f'2{k}']
+            + 2 * c[f'2{k}'] * c[f'2{l}'] * c[f'2{m}'])
+
+
+def record3(harms=(2, 3, 5), normalized=False):
+    r = record(harms[0], harms[1], normalized)
+    r['harmonics'] = list(harms)
+    return r
+
+
+def test_three_harmonics():
+    print('test_three_harmonics')
+    from analysis.toy_mc import ToyGenConfig, generate_events, evaluate, make_qgrid_data, make_qvector_data
+    # explicit tuple sums on a few small events (windows on cell edges)
+    rng = np.random.default_rng(3)
+    small = []
+    for _ in range(4):
+        m = 22
+        phi = rng.uniform(0, 2 * np.pi, m)
+        small.append({'phi': phi, 'eta': rng.uniform(-1, 1, m), 'pt': rng.exponential(0.5, m) + 0.2,
+                      'species_idx': np.zeros(m, int), 'mass': np.full(m, SPECIES_MASSES[0])})
+    grid = particles_to_qgrid_data(small, np.round(np.linspace(-6, 6, 121), 10), np.round(np.linspace(0, 10, 101), 10),
+                                   n_harm=13, cent_mult=np.array([len(e['phi']) for e in small], float),
+                                   masses=SPECIES_MASSES)
+    for harms in ((2, 3, 4), (2, 3, 5)):
+        r = record3(harms)
+        p = extract_measurement_params(r)
+        ent = get_pipeline_entry(resolve(r)['compute'])
+        got = float(ent['core_fn'](ent['prepare_data_3d'](grid, p), np.ones(len(small)))[0])
+        want = _sc3_brute(small, harms, ETA, (0.2, 5.0))
+        check(f'3D SC{harms} == explicit distinct-tuple sums', abs(got - want) <= 1e-9 * abs(want) + 1e-15,
+              f'{got:.6e} vs {want:.6e}')
+    # V5 = V5^L + chi V2 V3 with fluctuating v2, v3: SC(2,3,5) != 0
+    # SC(2,3,5) = chi^2 Var(v2^2) Var(v3^2) for independent v2, v3; its noise is
+    # dominated by <<2>>_5's times <<4>>_{2,3}, so a large chi and multiplicity
+    cfg = ToyGenConfig(n_events=4000, mult_mean=4000, mult_sigma=150, seed=31, rap_max=1.2,
+                       flow={2: dict(kind='const', value=0.08), 3: dict(kind='const', value=0.04),
+                             5: dict(kind='const', value=0.004)},
+                       fluctuate={2: 0.04, 3: 0.02, 5: 0.002}, nonlinear={5: (4.0, 2, 3)})
+    ev, tr = generate_events(cfg)
+    v = tr['vn_ebe']
+    a, b, c = v[2] ** 2, v[3] ** 2, v[5] ** 2
+    E = np.mean
+    truth = (E(a * b * c) - E(a * b) * E(c) - E(a * c) * E(b) - E(b * c) * E(a) + 2 * E(a) * E(b) * E(c))
+    truth_n = truth / (E(a) * E(b) * E(c))
+    conts = (('3D', dict(grid=make_qgrid_data(ev, tr, n_eta=24, n_pt=30, n_harm=11, eta_half=1.2))),
+             ('2D', dict(qv=make_qvector_data(ev, tr, n_pt=30, n_harm=11))))
+    for tag, cont in conts:
+        for norm, t in ((False, truth), (True, truth_n)):
+            r = record3((2, 3, 5), norm)
+            r['centrality'] = {'classes': ['0-100%'], 'eta': [{'min': -3.9, 'max': -3.0}]}
+            val, err = evaluate(r, cent_method='simple', with_jackknife=True, **cont)
+            check(f"{tag} {'NSC' if norm else 'SC'}(2,3,5) = {t:.3e}", abs(val[0] - t) < 3 * err[0] + 0.15 * abs(t),
+                  f'{val[0]:.3e} +- {err[0]:.1e}')
+    r = record3((2, 3, 5))
+    small_h = make_qgrid_data(ev[:50], tr, n_eta=24, n_pt=30, n_harm=9, eta_half=1.2)
+    try:
+        get_pipeline_entry('sc_mn')['prepare_data_3d'](small_h, extract_measurement_params(r))
+        check('SC(2,3,5) without Q10 refused', False)
+    except ValueError:
+        check('SC(2,3,5) without Q10 refused', True)
+
+
 def test_refusals():
     print('test_refusals')
     r3 = record()
-    r3['harmonics'] = [2, 3, 4]
-    for name, rec in (('three harmonics', r3), ('no normalized field', {k: v for k, v in record().items()
+    r3['harmonics'] = [2, 3, 4, 5]
+    for name, rec in (('four harmonics', r3), ('no normalized field', {k: v for k, v in record().items()
                                                                         if k != 'normalized'})):
         try:
             resolve(rec)
@@ -239,7 +332,7 @@ def test_refusals():
 
 
 if __name__ == '__main__':
-    tests = [test_engine_matches_closed_form, test_physics, test_subevents, test_refusals]
+    tests = [test_engine_matches_closed_form, test_physics, test_subevents, test_three_harmonics, test_refusals]
     n_pass = 0
     for t in tests:
         try:

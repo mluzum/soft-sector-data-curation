@@ -179,9 +179,9 @@ optional_fields:
     type: boolean
     required: false
     description: >
-      symmetric_cumulant: true for NSC(m,n) = SC(m,n) / (<v_m^2><v_n^2>),
-      false for SC(m,n).  Required by the computation (SC(m,n) only, two
-      harmonics).
+      symmetric_cumulant: true for NSC(m,n) = SC(m,n) / (<v_m^2><v_n^2>)
+      (NSC(k,l,m) = SC(k,l,m) / (<v_k^2><v_l^2><v_m^2>)), false for SC.
+      Required by the computation (two or three harmonics).
     example: true
   normalization_eta_gap:
     type: float

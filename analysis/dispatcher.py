@@ -794,9 +794,9 @@ def resolve(record):
             # November 2026 NSC records were compared with unnormalized SC.
             if entry.get("compute") == "sc_mn":
                 harms = record.get("harmonics") or []
-                if len(harms) != 2:
-                    raise ValueError(f"symmetric cumulant of {len(harms)} harmonics {harms}: only SC(m, n) "
-                                     f"is implemented")
+                if len(harms) not in (2, 3):
+                    raise ValueError(f"symmetric cumulant of {len(harms)} harmonics {harms}: SC(m, n) or "
+                                     f"SC(k, l, m)")
                 if "normalized" not in record:
                     raise ValueError("symmetric_cumulant record needs 'normalized' (true: NSC, false: SC)")
                 if record.get("particles") not in (None, "AB"):

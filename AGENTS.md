@@ -314,7 +314,12 @@ Fields that change dispatch:
   across the subevents: <<m, n | -m, -n>> with m, n in one and -m, -n in
   the other, <<m | -m>>, <<n | -n>>, both orientations pooled
   (`_sc_sub_data`, flow_pt.distinct); a normalization gap is then
-  refused.  SC of three harmonics is refused.
+  refused.  Three harmonics (ALICE 1839720): SC(k, l, m) = <<k,l,m,-k,-l,-m>>
+  - <<k,l,-k,-l>><<m,-m>> - ... + 2<<k,-k>><<l,-l>><<m,-m>> (Eq. 5) in one
+  window (`_sc3_data`: distinct_gf for the six-particle term), NSC over
+  <<k,-k>><<l,-l>><<m,-m>>; refused unless the container stores harmonics
+  up to k+l+m (the coincidence terms of a small difference, as SC(m, n)
+  needs Q_{m+n}).  More harmonics are refused.
 - Linear and mode-coupled flow harmonics (`correlation_type:
   mode_coupling`, key `mode_coupling`, analysis/mode_coupling.py):
   harmonics [k, n, m] with k = n + m, or [k, n, m, l] with k = n + m + l
@@ -732,7 +737,8 @@ near c_4 = 0, ratios) the correction is unstable (zr96c2 dp0001, v2{4}
   SC(m,n) = <<4>>_{m,n,-m,-n} - <<2>>_m <<2>>_n over distinct particles
   (2D Jacobian weights or 3D unit weights), event weights the numbers of
   4-tuples and pairs; needs Q_{m+n} (the prepare raises otherwise).
-  tests/test_toy_mc_sc.py.  Until November 2026 it used |Q_n|^2/M^2 (no
+  tests/test_toy_mc_sc.py (also two subevents, and SC(k, l, m): explicit
+  tuple sums on 3D, the third cumulant of mode-coupled toy events).  Until November 2026 it used |Q_n|^2/M^2 (no
   self-correlation removal), ignored the pT window and the 2D weights,
   never normalized, and read SC of three harmonics as SC of the first two.
 - **Scalar product / event plane, differential** (`vn2_sp_diff_*`, which

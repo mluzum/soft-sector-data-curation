@@ -2613,8 +2613,13 @@ def _wrap_radial_flow(data, w):
 def _sc_settings(params):
     """(m, n, eta window, pT window, normalization gap or None) of an SC record."""
     harms = [int(h) for h in (params.get('harmonics') or [])]
-    if len(harms) != 2:
-        raise ValueError(f"symmetric cumulant of harmonics {harms}: only SC(m, n) is implemented")
+    if len(harms) == 3:
+        if len(set(harms)) != 3 or min(harms) < 1:
+            raise ValueError(f"symmetric cumulant SC(k, l, m): three distinct harmonics, got {harms}")
+        if params.get('subevent_ranges') or params.get('normalization_eta_gap') is not None:
+            raise ValueError("symmetric cumulant SC(k, l, m): one window (no subevents, no normalization gap)")
+    elif len(harms) != 2:
+        raise ValueError(f"symmetric cumulant of harmonics {harms}: SC(m, n) or SC(k, l, m)")
     sk = params.get('single_range', {})
     eta = tuple(sk.get('eta', (-0.8, 0.8)))
     pt = tuple(sk.get('pT', (0.2, 5.0)))
@@ -2622,6 +2627,30 @@ def _sc_settings(params):
         raise ValueError("symmetric cumulant needs kinematic_range.eta")
     gap = params.get('normalization_eta_gap')
     return harms[0], harms[1], eta, pt, gap
+
+
+def _sc3_data(S, harms, normalized):
+    """SC(k, l, m) (ALICE PRL 127 (2021) 092302, Eq. 5): the six-, four- and
+    two-particle correlators of one window over distinct particles
+    (flow_pt.distinct_gf, flow_pt.distinct), tuple-count event weights."""
+    from analysis.flow_pt import distinct, distinct_gf
+    k, l, m = harms
+    W = 'full'
+    out = {'N6': np.real(distinct_gf(S, [(W, h, 1) for h in (k, l, m, -k, -l, -m)])),
+           'D6': np.real(distinct_gf(S, [(W, 0, 6)])),
+           'D4': np.real(distinct(S, [(W, 0, 0)] * 4)), 'D2': np.real(distinct(S, [(W, 0, 0)] * 2))}
+    for a, b in ((k, l), (k, m), (l, m)):
+        out[f'N4_{a}{b}'] = np.real(distinct(S, [(W, a, 0), (W, b, 0), (W, -a, 0), (W, -b, 0)]))
+    for a in (k, l, m):
+        out[f'N2_{a}'] = np.real(distinct(S, [(W, a, 0), (W, -a, 0)]))
+    out.update(three=tuple(harms), normalized=bool(normalized))
+    return out
+
+
+def _sc3_check(harms, n_harm):
+    if sum(harms) >= n_harm:
+        raise ValueError(f"SC{tuple(harms)} needs Q up to {sum(harms)} (its coincidence terms); the container "
+                         f"stores harmonics below {n_harm}")
 
 
 def _sc_subevents(params):
@@ -2679,6 +2708,19 @@ def prepare_sc_2d(qv, params):
     of the window separated by the gap."""
     from analysis.correlators import Container2D, sc_arrays, two_particle_gap
     m, n, eta, pt, gap = _sc_settings(params)
+    harms = [int(h) for h in params.get('harmonics')]
+    if len(harms) == 3:
+        from analysis.qvector import _overlap_fractions, _pt_squared
+        from analysis.flow_pt import CellSums
+        _sc3_check(harms, qv.Qn.shape[2])
+        ix = list(charged_species_indices(getattr(qv, 'pdg_ids', None))[0])
+        Qn = np.moveaxis(qv.Qn[:, ix], 2, -1)
+        c = Qn[..., 0].real
+        jac = _make_jacobian_list(qv.pt_centers, qv.masses, eta[0], eta[1])[ix, :] / (2.0 * qv.rap_max)
+        win = jac * np.asarray(_overlap_fractions(qv.pt_bin_edges, pt[0], pt[1], _pt_squared), dtype=float)[None, :]
+        msk = win > 0
+        return _sc3_data(CellSums(Qn[:, msk], c[:, msk], c[:, msk], c[:, msk], {'full': win[msk]}, qv.nsamples),
+                         harms, params.get('normalized'))
     _sc_check_harmonics(m, n, qv.Qn.shape[2])
     idx, _cf = charged_species_indices(getattr(qv, 'pdg_ids', None))
     subs = _sc_subevents(params)
@@ -2713,6 +2755,15 @@ def prepare_sc_3d(grid, params):
     """SC(m, n) on a unit-weight charged grid (see prepare_sc_2d)."""
     from analysis.correlators import Container3D, sc_arrays, two_particle_gap
     m, n, eta, pt, gap = _sc_settings(params)
+    harms = [int(h) for h in params.get('harmonics')]
+    if len(harms) == 3:
+        from analysis.flow_pt import CellSums
+        _sc3_check(harms, grid.Qn.shape[-1])
+        win = np.asarray(grid.window_weights(eta[0], eta[1], pt[0], pt[1], fractional=True), dtype=float)
+        msk = win > 0
+        Qn = grid.Qn[:, msk]
+        c = Qn[..., 0].real
+        return _sc3_data(CellSums(Qn, c, c, c, {'full': win[msk]}, grid.nsamples), harms, params.get('normalized'))
     _sc_check_harmonics(m, n, grid.Qn.shape[-1])
     subs = _sc_subevents(params)
     if subs:
@@ -2737,6 +2788,14 @@ def _wrap_sc(data, w):
     distinct 4-tuples and pairs); normalized: divided by <<2>>_m <<2>>_n,
     from the gapped subevents when the record gives a gap."""
     from analysis.correlators import _avg
+    if 'three' in data:
+        k, l, m = data['three']
+        two = {a: _avg(data[f'N2_{a}'], data['D2'], w) for a in (k, l, m)}
+        four = {(a, b): _avg(data[f'N4_{a}{b}'], data['D4'], w) for a, b in ((k, l), (k, m), (l, m))}
+        six = _avg(data['N6'], data['D6'], w)
+        sc = (six - four[k, l] * two[m] - four[k, m] * two[l] - four[l, m] * two[k]
+              + 2.0 * two[k] * two[l] * two[m])
+        return np.array([sc / (two[k] * two[l] * two[m]) if data.get('normalized') else sc])
     four = _avg(data['N4'], data['D4'], w)
     c2m, c2n = _avg(data['N2m'], data['D2'], w), _avg(data['N2n'], data['D2'], w)
     sc = four - c2m * c2n
