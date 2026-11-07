@@ -1,0 +1,421 @@
+observable_type: flow_harmonic_correlations
+inspire_id: '2928639'
+version: 1
+experimental_values: false
+hepdata_table_label: T_2{ba; dc}, particle level, TPC/EPD, Ru+Ru 200 GeV (a side of the Ru+Ru and Zr+Zr combination; no values
+  per system published)
+collision_system:
+  energy_gev: 200.0
+  reaction: Ru+Ru
+centrality:
+  classes:
+  - 55-60%
+  - 50-55%
+  - 45-50%
+  - 40-45%
+  - 35-40%
+  - 30-35%
+  - 25-30%
+  - 20-25%
+  - 15-20%
+  - 10-15%
+  - 5-10%
+  - 0-5%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  pT:
+    min: 0.2
+    max: 100.0
+  normalization:
+    estimator_threshold: 50
+    fraction_above: 0.4712
+    efficiency: 0.87
+    notes: 'STAR isobar centrality (RefMult |eta| < 0.5, pT > 0.2 GeV/c): percentiles of a Case-3 Glauber total in which Ntrk
+      >= 50 holds fraction_above (F50 as for 1914564, derived by the isobar analysis); actual ranges of these 5% classes not
+      published.  Efficiency 0.87 (TPC 85-90%).'
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: 0.1
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+observable: T_2
+correlation_type: longitudinal_decorrelation
+harmonics:
+- 2
+quantity: T_n
+dimensionality: integrated
+decorrelation_reference:
+  eta:
+    min: 2.1
+    max: 5.1
+  pT:
+    min: 0.0
+    max: 100.0
+  detector: EPD
+  notes: EPD at 2.1 < |eta| < 5.1 (nMIP-weighted tiles in the paper; charged particles with unit weights here), both sides.
+value_type: T_2 Ru+Ru TPC/EPD
+notes:
+  value: 'STAR Collaboration, PRC 113 (2026) 024908, arXiv:2506.02330, Eqs. 17-19: T_2{ba; dc} = <<sin 2(phi_b - psi_a) sin
+    2(psi_d - phi_c)>> / (<cos 2(phi_b - psi_a)><cos 2(psi_d - phi_c)>), tracks b, c at -1 < eta < -0.1 and 0.1 < eta < 1
+    (0.2 < pT < 2 GeV/c), planes a, d from the EPD east and west; Ru+Ru 200 GeV.  The side of a combined record (the values).'
+---
+observable_type: flow_harmonic_correlations
+inspire_id: '2928639'
+version: 1
+experimental_values: false
+hepdata_table_label: T_2{ba; dc}, particle level, TPC/EPD, Zr+Zr 200 GeV (a side of the Ru+Ru and Zr+Zr combination; no values
+  per system published)
+collision_system:
+  energy_gev: 200.0
+  reaction: Zr+Zr
+centrality:
+  classes:
+  - 55-60%
+  - 50-55%
+  - 45-50%
+  - 40-45%
+  - 35-40%
+  - 30-35%
+  - 25-30%
+  - 20-25%
+  - 15-20%
+  - 10-15%
+  - 5-10%
+  - 0-5%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  pT:
+    min: 0.2
+    max: 100.0
+  normalization:
+    estimator_threshold: 50
+    fraction_above: 0.459
+    efficiency: 0.87
+    notes: 'STAR isobar centrality (RefMult |eta| < 0.5, pT > 0.2 GeV/c): percentiles of a Case-3 Glauber total in which Ntrk
+      >= 50 holds fraction_above (F50 as for 1914564, derived by the isobar analysis); actual ranges of these 5% classes not
+      published.  Efficiency 0.87 (TPC 85-90%).'
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: 0.1
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+observable: T_2
+correlation_type: longitudinal_decorrelation
+harmonics:
+- 2
+quantity: T_n
+dimensionality: integrated
+decorrelation_reference:
+  eta:
+    min: 2.1
+    max: 5.1
+  pT:
+    min: 0.0
+    max: 100.0
+  detector: EPD
+  notes: EPD at 2.1 < |eta| < 5.1 (nMIP-weighted tiles in the paper; charged particles with unit weights here), both sides.
+value_type: T_2 Zr+Zr TPC/EPD
+notes:
+  value: 'STAR Collaboration, PRC 113 (2026) 024908, arXiv:2506.02330, Eqs. 17-19: T_2{ba; dc} = <<sin 2(phi_b - psi_a) sin
+    2(psi_d - phi_c)>> / (<cos 2(phi_b - psi_a)><cos 2(psi_d - phi_c)>), tracks b, c at -1 < eta < -0.1 and 0.1 < eta < 1
+    (0.2 < pT < 2 GeV/c), planes a, d from the EPD east and west; Zr+Zr 200 GeV.  The side of a combined record (the values).'
+---
+observable_type: flow_harmonic_correlations
+inspire_id: '2928639'
+version: 1
+experimental_values: false
+hepdata_table_label: T_3{ba; dc}, particle level, TPC/EPD, Ru+Ru 200 GeV (a side of the Ru+Ru and Zr+Zr combination; no values
+  per system published)
+collision_system:
+  energy_gev: 200.0
+  reaction: Ru+Ru
+centrality:
+  classes:
+  - 55-60%
+  - 50-55%
+  - 45-50%
+  - 40-45%
+  - 35-40%
+  - 30-35%
+  - 25-30%
+  - 20-25%
+  - 15-20%
+  - 10-15%
+  - 5-10%
+  - 0-5%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  pT:
+    min: 0.2
+    max: 100.0
+  normalization:
+    estimator_threshold: 50
+    fraction_above: 0.4712
+    efficiency: 0.87
+    notes: 'STAR isobar centrality (RefMult |eta| < 0.5, pT > 0.2 GeV/c): percentiles of a Case-3 Glauber total in which Ntrk
+      >= 50 holds fraction_above (F50 as for 1914564, derived by the isobar analysis); actual ranges of these 5% classes not
+      published.  Efficiency 0.87 (TPC 85-90%).'
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: 0.1
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+observable: T_3
+correlation_type: longitudinal_decorrelation
+harmonics:
+- 3
+quantity: T_n
+dimensionality: integrated
+decorrelation_reference:
+  eta:
+    min: 2.1
+    max: 5.1
+  pT:
+    min: 0.0
+    max: 100.0
+  detector: EPD
+  notes: EPD at 2.1 < |eta| < 5.1 (nMIP-weighted tiles in the paper; charged particles with unit weights here), both sides.
+value_type: T_3 Ru+Ru TPC/EPD
+notes:
+  value: 'STAR Collaboration, PRC 113 (2026) 024908, arXiv:2506.02330, Eqs. 17-19: T_3{ba; dc} = <<sin 3(phi_b - psi_a) sin
+    3(psi_d - phi_c)>> / (<cos 3(phi_b - psi_a)><cos 3(psi_d - phi_c)>), tracks b, c at -1 < eta < -0.1 and 0.1 < eta < 1
+    (0.2 < pT < 2 GeV/c), planes a, d from the EPD east and west; Ru+Ru 200 GeV.  The side of a combined record (the values).'
+---
+observable_type: flow_harmonic_correlations
+inspire_id: '2928639'
+version: 1
+experimental_values: false
+hepdata_table_label: T_3{ba; dc}, particle level, TPC/EPD, Zr+Zr 200 GeV (a side of the Ru+Ru and Zr+Zr combination; no values
+  per system published)
+collision_system:
+  energy_gev: 200.0
+  reaction: Zr+Zr
+centrality:
+  classes:
+  - 55-60%
+  - 50-55%
+  - 45-50%
+  - 40-45%
+  - 35-40%
+  - 30-35%
+  - 25-30%
+  - 20-25%
+  - 15-20%
+  - 10-15%
+  - 5-10%
+  - 0-5%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  pT:
+    min: 0.2
+    max: 100.0
+  normalization:
+    estimator_threshold: 50
+    fraction_above: 0.459
+    efficiency: 0.87
+    notes: 'STAR isobar centrality (RefMult |eta| < 0.5, pT > 0.2 GeV/c): percentiles of a Case-3 Glauber total in which Ntrk
+      >= 50 holds fraction_above (F50 as for 1914564, derived by the isobar analysis); actual ranges of these 5% classes not
+      published.  Efficiency 0.87 (TPC 85-90%).'
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: 0.1
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+observable: T_3
+correlation_type: longitudinal_decorrelation
+harmonics:
+- 3
+quantity: T_n
+dimensionality: integrated
+decorrelation_reference:
+  eta:
+    min: 2.1
+    max: 5.1
+  pT:
+    min: 0.0
+    max: 100.0
+  detector: EPD
+  notes: EPD at 2.1 < |eta| < 5.1 (nMIP-weighted tiles in the paper; charged particles with unit weights here), both sides.
+value_type: T_3 Zr+Zr TPC/EPD
+notes:
+  value: 'STAR Collaboration, PRC 113 (2026) 024908, arXiv:2506.02330, Eqs. 17-19: T_3{ba; dc} = <<sin 3(phi_b - psi_a) sin
+    3(psi_d - phi_c)>> / (<cos 3(phi_b - psi_a)><cos 3(psi_d - phi_c)>), tracks b, c at -1 < eta < -0.1 and 0.1 < eta < 1
+    (0.2 < pT < 2 GeV/c), planes a, d from the EPD east and west; Zr+Zr 200 GeV.  The side of a combined record (the values).'
+---
+observable_type: flow_harmonic_correlations
+inspire_id: '2928639'
+version: 1
+experimental_values: false
+hepdata_table_label: T_2{ba; dc}, particle level, TPC/BBC, Ru+Ru 200 GeV (a side of the Ru+Ru and Zr+Zr combination; no values
+  per system published)
+collision_system:
+  energy_gev: 200.0
+  reaction: Ru+Ru
+centrality:
+  classes:
+  - 55-60%
+  - 50-55%
+  - 45-50%
+  - 40-45%
+  - 35-40%
+  - 30-35%
+  - 25-30%
+  - 20-25%
+  - 15-20%
+  - 10-15%
+  - 5-10%
+  - 0-5%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  pT:
+    min: 0.2
+    max: 100.0
+  normalization:
+    estimator_threshold: 50
+    fraction_above: 0.4712
+    efficiency: 0.87
+    notes: 'STAR isobar centrality (RefMult |eta| < 0.5, pT > 0.2 GeV/c): percentiles of a Case-3 Glauber total in which Ntrk
+      >= 50 holds fraction_above (F50 as for 1914564, derived by the isobar analysis); actual ranges of these 5% classes not
+      published.  Efficiency 0.87 (TPC 85-90%).'
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: 0.1
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+observable: T_2
+correlation_type: longitudinal_decorrelation
+harmonics:
+- 2
+quantity: T_n
+dimensionality: integrated
+decorrelation_reference:
+  eta:
+    min: 3.3
+    max: 5.0
+  pT:
+    min: 0.0
+    max: 100.0
+  detector: BBC
+  notes: BBC at 3.3 < |eta| < 5.0 (tiles weighted by their signal in the paper; charged particles with unit weights here),
+    both sides.
+value_type: T_2 Ru+Ru TPC/BBC
+notes:
+  value: 'STAR Collaboration, PRC 113 (2026) 024908, arXiv:2506.02330, Eqs. 17-19: T_2{ba; dc} = <<sin 2(phi_b - psi_a) sin
+    2(psi_d - phi_c)>> / (<cos 2(phi_b - psi_a)><cos 2(psi_d - phi_c)>), tracks b, c at -1 < eta < -0.1 and 0.1 < eta < 1
+    (0.2 < pT < 2 GeV/c), planes a, d from the BBC east and west; Ru+Ru 200 GeV.  The side of a combined record (the values).'
+---
+observable_type: flow_harmonic_correlations
+inspire_id: '2928639'
+version: 1
+experimental_values: false
+hepdata_table_label: T_2{ba; dc}, particle level, TPC/BBC, Zr+Zr 200 GeV (a side of the Ru+Ru and Zr+Zr combination; no values
+  per system published)
+collision_system:
+  energy_gev: 200.0
+  reaction: Zr+Zr
+centrality:
+  classes:
+  - 55-60%
+  - 50-55%
+  - 45-50%
+  - 40-45%
+  - 35-40%
+  - 30-35%
+  - 25-30%
+  - 20-25%
+  - 15-20%
+  - 10-15%
+  - 5-10%
+  - 0-5%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  pT:
+    min: 0.2
+    max: 100.0
+  normalization:
+    estimator_threshold: 50
+    fraction_above: 0.459
+    efficiency: 0.87
+    notes: 'STAR isobar centrality (RefMult |eta| < 0.5, pT > 0.2 GeV/c): percentiles of a Case-3 Glauber total in which Ntrk
+      >= 50 holds fraction_above (F50 as for 1914564, derived by the isobar analysis); actual ranges of these 5% classes not
+      published.  Efficiency 0.87 (TPC 85-90%).'
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: 0.1
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+observable: T_2
+correlation_type: longitudinal_decorrelation
+harmonics:
+- 2
+quantity: T_n
+dimensionality: integrated
+decorrelation_reference:
+  eta:
+    min: 3.3
+    max: 5.0
+  pT:
+    min: 0.0
+    max: 100.0
+  detector: BBC
+  notes: BBC at 3.3 < |eta| < 5.0 (tiles weighted by their signal in the paper; charged particles with unit weights here),
+    both sides.
+value_type: T_2 Zr+Zr TPC/BBC
+notes:
+  value: 'STAR Collaboration, PRC 113 (2026) 024908, arXiv:2506.02330, Eqs. 17-19: T_2{ba; dc} = <<sin 2(phi_b - psi_a) sin
+    2(psi_d - phi_c)>> / (<cos 2(phi_b - psi_a)><cos 2(psi_d - phi_c)>), tracks b, c at -1 < eta < -0.1 and 0.1 < eta < 1
+    (0.2 < pT < 2 GeV/c), planes a, d from the BBC east and west; Zr+Zr 200 GeV.  The side of a combined record (the values).'

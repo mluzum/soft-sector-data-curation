@@ -1,0 +1,296 @@
+observable_type: observable_ratios
+inspire_id: '2928639'
+version: 1
+hepdata_file: fig8_left.yaml
+dv_index: 0
+hepdata_table_label: 'Fig. 8 Data Table 12: Centrality dependence of ratio obserbavle $r_{2}$ (Particle-level) vs $r^{ si}_{2}$
+  (Q-level) for the second-order anisotropic flow in Ru+Ru and Zr+Zr collisions combined.'
+collision_system:
+  energy_gev: 200.0
+  reaction: Ru+Ru and Zr+Zr
+centrality:
+  classes:
+  - 75-80%
+  - 70-75%
+  - 65-70%
+  - 60-65%
+  - 55-60%
+  - 50-55%
+  - 45-50%
+  - 40-45%
+  - 35-40%
+  - 30-35%
+  - 25-30%
+  - 20-25%
+  - 15-20%
+  - 10-15%
+  - 5-10%
+  - 0-5%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  pT:
+    min: 0.2
+    max: 100.0
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: 0.1
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+observable: r_2
+value_type: $r_{2}$ for Ru+Ru and Zr+Zr combined
+numerator: Ru+Ru
+denominator: Zr+Zr
+ratio_type: system_combination
+combination: mean
+numerator_system: Ru+Ru
+denominator_system: Zr+Zr
+numerator_record: data/flow_harmonic_correlations/star_flow_harmonic_correlations_plane_decorrelation_isobar_ins2928639.yaml#0
+denominator_record: data/flow_harmonic_correlations/star_flow_harmonic_correlations_plane_decorrelation_isobar_ins2928639.yaml#1
+notes:
+  value: 'STAR Collaboration, PRC 113 (2026) 024908, arXiv:2506.02330, Fig. 8 Data Table 12: r_2 (Eqs. 2, 22, 23, particle
+    level), as Fig. 7 per system, TPC tracks 0.2 < pT < 2 GeV/c; Ru+Ru and Zr+Zr combined, computed as the mean of the two
+    systems (each on its own simulation, with its own centrality normalization).  Errors: stat and syst.'
+---
+observable_type: observable_ratios
+inspire_id: '2928639'
+version: 1
+hepdata_file: fig8_right.yaml
+dv_index: 0
+hepdata_table_label: 'Fig. 8 Data Table 13: Centrality dependence of ratio obserbavle $r_{3}$ (Particle-level) vs $r^{ si}_{3}$
+  (Q-level) for the third-order anisotropic flow in Ru+Ru and Zr+Zr collisions combined.'
+collision_system:
+  energy_gev: 200.0
+  reaction: Ru+Ru and Zr+Zr
+centrality:
+  classes:
+  - 55-60%
+  - 50-55%
+  - 45-50%
+  - 40-45%
+  - 35-40%
+  - 30-35%
+  - 25-30%
+  - 20-25%
+  - 15-20%
+  - 10-15%
+  - 5-10%
+  - 0-5%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  pT:
+    min: 0.2
+    max: 100.0
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: 0.1
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+observable: r_3
+value_type: $r_{3}$ for Ru+Ru and Zr+Zr combined
+numerator: Ru+Ru
+denominator: Zr+Zr
+ratio_type: system_combination
+combination: mean
+numerator_system: Ru+Ru
+denominator_system: Zr+Zr
+numerator_record: data/flow_harmonic_correlations/star_flow_harmonic_correlations_plane_decorrelation_isobar_ins2928639.yaml#2
+denominator_record: data/flow_harmonic_correlations/star_flow_harmonic_correlations_plane_decorrelation_isobar_ins2928639.yaml#3
+notes:
+  value: 'STAR Collaboration, PRC 113 (2026) 024908, arXiv:2506.02330, Fig. 8 Data Table 13: r_3 (Eqs. 2, 22, 23, particle
+    level), as Fig. 7 per system, TPC tracks 0.2 < pT < 2 GeV/c; Ru+Ru and Zr+Zr combined, computed as the mean of the two
+    systems (each on its own simulation, with its own centrality normalization).  Errors: stat and syst.'
+---
+observable_type: observable_ratios
+inspire_id: '2928639'
+version: 1
+hepdata_file: fig9_left.yaml
+dv_index: 0
+hepdata_table_label: 'Fig. 9 Data Table 14: Centrality dependence of $T_{2}$ obserbavle (Particle-level vs Q-level calculations)
+  for the second-order anisotropic flow in Ru+Ru and Zr+Zr collisions combined. The TPC and EPD are used in the calculations.'
+collision_system:
+  energy_gev: 200.0
+  reaction: Ru+Ru and Zr+Zr
+centrality:
+  classes:
+  - 55-60%
+  - 50-55%
+  - 45-50%
+  - 40-45%
+  - 35-40%
+  - 30-35%
+  - 25-30%
+  - 20-25%
+  - 15-20%
+  - 10-15%
+  - 5-10%
+  - 0-5%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  pT:
+    min: 0.2
+    max: 100.0
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: 0.1
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+observable: T_2
+value_type: '$T_{2}$: Particle-level'
+numerator: Ru+Ru
+denominator: Zr+Zr
+ratio_type: system_combination
+combination: mean
+numerator_system: Ru+Ru
+denominator_system: Zr+Zr
+numerator_record: data/flow_harmonic_correlations/star_flow_harmonic_correlations_four_plane_sides_isobar_ins2928639.yaml#0
+denominator_record: data/flow_harmonic_correlations/star_flow_harmonic_correlations_four_plane_sides_isobar_ins2928639.yaml#1
+notes:
+  value: 'STAR Collaboration, PRC 113 (2026) 024908, arXiv:2506.02330, Fig. 9 Data Table 14: T_2{ba; dc} (Eqs. 17-19, particle
+    level): tracks b, c at -1 < eta < -0.1 and 0.1 < eta < 1, planes a, d from the EPD east and west, TPC tracks 0.2 < pT
+    < 2 GeV/c; Ru+Ru and Zr+Zr combined, computed as the mean of the two systems (each on its own simulation, with its own
+    centrality normalization).  Errors: stat and syst.'
+---
+observable_type: observable_ratios
+inspire_id: '2928639'
+version: 1
+hepdata_file: fig9_right.yaml
+dv_index: 0
+hepdata_table_label: 'Fig. 9 Data Table 15: Centrality dependence of $T_{3}$ obserbavle (Particle-level vs Q-level calculations)
+  for the third-order anisotropic flow in Ru+Ru and Zr+Zr collisions combined. The TPC and EPD are used in the calculations.'
+collision_system:
+  energy_gev: 200.0
+  reaction: Ru+Ru and Zr+Zr
+centrality:
+  classes:
+  - 55-60%
+  - 50-55%
+  - 45-50%
+  - 40-45%
+  - 35-40%
+  - 30-35%
+  - 25-30%
+  - 20-25%
+  - 15-20%
+  - 10-15%
+  - 5-10%
+  - 0-5%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  pT:
+    min: 0.2
+    max: 100.0
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: 0.1
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+observable: T_3
+value_type: '$T_{3}$: Particle-level'
+numerator: Ru+Ru
+denominator: Zr+Zr
+ratio_type: system_combination
+combination: mean
+numerator_system: Ru+Ru
+denominator_system: Zr+Zr
+numerator_record: data/flow_harmonic_correlations/star_flow_harmonic_correlations_four_plane_sides_isobar_ins2928639.yaml#2
+denominator_record: data/flow_harmonic_correlations/star_flow_harmonic_correlations_four_plane_sides_isobar_ins2928639.yaml#3
+notes:
+  value: 'STAR Collaboration, PRC 113 (2026) 024908, arXiv:2506.02330, Fig. 9 Data Table 15: T_3{ba; dc} (Eqs. 17-19, particle
+    level): tracks b, c at -1 < eta < -0.1 and 0.1 < eta < 1, planes a, d from the EPD east and west, TPC tracks 0.2 < pT
+    < 2 GeV/c; Ru+Ru and Zr+Zr combined, computed as the mean of the two systems (each on its own simulation, with its own
+    centrality normalization).  Errors: stat and syst.'
+---
+observable_type: observable_ratios
+inspire_id: '2928639'
+version: 1
+hepdata_file: fig10.yaml
+dv_index: 0
+hepdata_table_label: 'Fig. 10 Data Table 16: Centrality dependence of $T_{2}$ obserbavle for the second-order anisotropic
+  flow in isobar (Ru+Ru and Zr+Zr collisions combined) vs Au+Au collisions. The TPC and BBC are used in the calculations.'
+collision_system:
+  energy_gev: 200.0
+  reaction: Ru+Ru and Zr+Zr
+centrality:
+  classes:
+  - 55-60%
+  - 50-55%
+  - 45-50%
+  - 40-45%
+  - 35-40%
+  - 30-35%
+  - 25-30%
+  - 20-25%
+  - 15-20%
+  - 10-15%
+  - 5-10%
+  - 0-5%
+  estimator:
+    name: RefMult
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.5
+    max: 0.5
+  pT:
+    min: 0.2
+    max: 100.0
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: 0.1
+    max: 1.0
+  pT:
+    min: 0.2
+    max: 2.0
+observable: T_2
+value_type: '$T_{2}$: Particle-level (TPC/BBC)'
+numerator: Ru+Ru
+denominator: Zr+Zr
+ratio_type: system_combination
+combination: mean
+numerator_system: Ru+Ru
+denominator_system: Zr+Zr
+numerator_record: data/flow_harmonic_correlations/star_flow_harmonic_correlations_four_plane_sides_isobar_ins2928639.yaml#4
+denominator_record: data/flow_harmonic_correlations/star_flow_harmonic_correlations_four_plane_sides_isobar_ins2928639.yaml#5
+notes:
+  value: 'STAR Collaboration, PRC 113 (2026) 024908, arXiv:2506.02330, Fig. 10 Data Table 16: T_2{ba; dc} (Eqs. 17-19, particle
+    level): tracks b, c at -1 < eta < -0.1 and 0.1 < eta < 1, planes a, d from the BBC east and west, TPC tracks 0.2 < pT
+    < 2 GeV/c; Ru+Ru and Zr+Zr combined, computed as the mean of the two systems (each on its own simulation, with its own
+    centrality normalization).  Errors: stat and syst.'
