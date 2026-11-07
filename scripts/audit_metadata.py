@@ -214,9 +214,10 @@ def _systems(text):
     ('Pb$-$Pb') and 'OO' were reported as mismatches."""
     text = str(text)
     arrow = r"-->|\\implies|\\rightarrow|=>"
-    # several reactions ('Ne Ne --> CHARGED X  +  O O --> CHARGED X'): the
-    # initial state of each
-    reactions = re.split(r"\s\+\s", text) if len(re.findall(arrow, text)) > 1 else [text]
+    # several reactions ('Ne Ne --> CHARGED X  +  O O --> CHARGED X', 'XE XE
+    # --> CHARGED X, PB PB --> CHARGED X'): the initial state of each (until
+    # November 2026 a comma-separated pair parsed as its first system)
+    reactions = re.split(r"\s\+\s|[,;]", text) if len(re.findall(arrow, text)) > 1 else [text]
     parts = [p for r in reactions
              for p in re.split(r",|;|/|\band\b|\bover\b", re.split(arrow, r)[0], flags=re.I)]
     out = set()

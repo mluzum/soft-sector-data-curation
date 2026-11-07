@@ -48,6 +48,7 @@ def test_parsers():
     sy = {'Pb$-$Pb': {('Pb', 'Pb')}, 'PB PB --> X': {('Pb', 'Pb')}, 'OO': {('O', 'O')},
           'Ne+Ne and O+O': {('Ne', 'Ne'), ('O', 'O')}, 'Ne$-$Ne, OO': {('Ne', 'Ne'), ('O', 'O')},
           'Ne Ne --> CHARGED X  +  O O --> CHARGED X': {('Ne', 'Ne'), ('O', 'O')},
+          'XE XE --> CHARGED X, PB PB --> CHARGED X': {('Pb', 'Pb'), ('Xe', 'Xe')},
           'DEUT AU --> CHARGED X': {('Au', 'd')}, 'd+Au': {('Au', 'd')}, 'Au+Cu': {('Au', 'Cu')},
           'Au+Au 200 GeV': {('Au', 'Au')}, 'unknown': None}
     got = {k: A._systems(k) for k in sy}
