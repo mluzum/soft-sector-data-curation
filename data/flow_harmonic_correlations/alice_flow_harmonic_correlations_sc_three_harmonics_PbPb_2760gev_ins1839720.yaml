@@ -1,0 +1,282 @@
+observable_type: flow_harmonic_correlations
+inspire_id: '1839720'
+version: 1
+hepdata_file: data1.yaml
+dv_index: 0
+hepdata_table_label: 'Table 1: Centrality dependence of ${\rm SC}(2,3,4)$ in Pb--Pb collisions at $\sqrt{s_{\rm NN}} = 2.76$~TeV.'
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  estimator:
+    name: CL1
+    observable: Nch
+    detector: SPD
+  eta:
+  - min: -1.4
+    max: 1.4
+  notes: 'the SPD (default), curated as CL1: clusters in the outer SPD layer, |eta_lab| < 1.4.'
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 5.0
+observable: SC_234
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 3
+- 4
+normalized: false
+dimensionality: integrated
+value_type: SC(2,3,4)
+notes:
+  value: 'S. Acharya et al. (ALICE), PRL 127 (2021) 092302, arXiv:2101.02579. SC(2, 3, 4), the third cumulant of v_k^2, v_l^2,
+    v_m^2 (Eq. 2), from the six-, four- and two-particle correlators of Eq. 5 over all distinct charged particles |eta| <
+    0.8, 0.2 < pT < 5.0 GeV/c (no eta gap), Pb-Pb 2.76 TeV. Errors: stat and sys.'
+---
+observable_type: flow_harmonic_correlations
+inspire_id: '1839720'
+version: 1
+hepdata_file: data2.yaml
+dv_index: 0
+hepdata_table_label: 'Table 2: Centrality dependence of ${\rm SC}(2,3,5)$ in Pb--Pb collisions at $\sqrt{s_{\rm NN}} = 2.76$~TeV.'
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  estimator:
+    name: CL1
+    observable: Nch
+    detector: SPD
+  eta:
+  - min: -1.4
+    max: 1.4
+  notes: 'the SPD (default), curated as CL1: clusters in the outer SPD layer, |eta_lab| < 1.4.'
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 5.0
+observable: SC_235
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 3
+- 5
+normalized: false
+dimensionality: integrated
+value_type: SC(2,3,5)
+notes:
+  value: 'S. Acharya et al. (ALICE), PRL 127 (2021) 092302, arXiv:2101.02579. SC(2, 3, 5), the third cumulant of v_k^2, v_l^2,
+    v_m^2 (Eq. 2), from the six-, four- and two-particle correlators of Eq. 5 over all distinct charged particles |eta| <
+    0.8, 0.2 < pT < 5.0 GeV/c (no eta gap), Pb-Pb 2.76 TeV. Errors: stat and sys.'
+---
+observable_type: flow_harmonic_correlations
+inspire_id: '1839720'
+version: 1
+hepdata_file: data3.yaml
+dv_index: 0
+hepdata_table_label: 'Table 3: Centrality dependence of ${\rm SC}(2,4,6)$ in Pb--Pb collisions at $\sqrt{s_{\rm NN}} = 2.76$~TeV.'
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  estimator:
+    name: CL1
+    observable: Nch
+    detector: SPD
+  eta:
+  - min: -1.4
+    max: 1.4
+  notes: 'the SPD (default), curated as CL1: clusters in the outer SPD layer, |eta_lab| < 1.4.'
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 5.0
+observable: SC_246
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 4
+- 6
+normalized: false
+dimensionality: integrated
+value_type: SC(2,4,6)
+notes:
+  value: 'S. Acharya et al. (ALICE), PRL 127 (2021) 092302, arXiv:2101.02579. SC(2, 4, 6), the third cumulant of v_k^2, v_l^2,
+    v_m^2 (Eq. 2), from the six-, four- and two-particle correlators of Eq. 5 over all distinct charged particles |eta| <
+    0.8, 0.2 < pT < 5.0 GeV/c (no eta gap), Pb-Pb 2.76 TeV. Errors: stat and sys.'
+---
+observable_type: flow_harmonic_correlations
+inspire_id: '1839720'
+version: 1
+hepdata_file: data4.yaml
+dv_index: 0
+hepdata_table_label: 'Table 4: Centrality dependence of ${\rm SC}(3,4,5)$ in Pb--Pb collisions at $\sqrt{s_{\rm NN}} = 2.76$~TeV.'
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  estimator:
+    name: CL1
+    observable: Nch
+    detector: SPD
+  eta:
+  - min: -1.4
+    max: 1.4
+  notes: 'the SPD (default), curated as CL1: clusters in the outer SPD layer, |eta_lab| < 1.4.'
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 5.0
+observable: SC_345
+correlation_type: symmetric_cumulant
+harmonics:
+- 3
+- 4
+- 5
+normalized: false
+dimensionality: integrated
+value_type: SC(3,4,5)
+notes:
+  value: 'S. Acharya et al. (ALICE), PRL 127 (2021) 092302, arXiv:2101.02579. SC(3, 4, 5), the third cumulant of v_k^2, v_l^2,
+    v_m^2 (Eq. 2), from the six-, four- and two-particle correlators of Eq. 5 over all distinct charged particles |eta| <
+    0.8, 0.2 < pT < 5.0 GeV/c (no eta gap), Pb-Pb 2.76 TeV. Errors: stat and sys.'
+---
+observable_type: flow_harmonic_correlations
+inspire_id: '1839720'
+version: 1
+hepdata_file: data5.yaml
+dv_index: 0
+hepdata_table_label: 'Table 5: Centrality dependence of ${\rm NSC}(2,3,4)$ in Pb--Pb collisions at $\sqrt{s_{\rm NN}} = 2.76$~TeV.'
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-5%
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  estimator:
+    name: CL1
+    observable: Nch
+    detector: SPD
+  eta:
+  - min: -1.4
+    max: 1.4
+  notes: 'the SPD (default), curated as CL1: clusters in the outer SPD layer, |eta_lab| < 1.4.'
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 5.0
+observable: NSC_234
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 3
+- 4
+normalized: true
+dimensionality: integrated
+value_type: NSC(2,3,4)
+notes:
+  value: 'S. Acharya et al. (ALICE), PRL 127 (2021) 092302, arXiv:2101.02579. NSC(2, 3, 4) = SC / (<v_2^2><v_3^2><v_4^2>)
+    (Eq. 3), from the six-, four- and two-particle correlators of Eq. 5 over all distinct charged particles |eta| < 0.8, 0.2
+    < pT < 5.0 GeV/c (no eta gap), Pb-Pb 2.76 TeV. Errors: stat and sys.'
+---
+observable_type: flow_harmonic_correlations
+inspire_id: '1839720'
+version: 1
+hepdata_file: data6.yaml
+dv_index: 0
+hepdata_table_label: 'Table 6: Centrality dependence of ${\rm NSC}(2,3,5)$ in Pb--Pb collisions at $\sqrt{s_{\rm NN}} = 2.76$~TeV.'
+collision_system:
+  energy_gev: 2760.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 5-10%
+  - 10-20%
+  - 20-30%
+  - 30-40%
+  - 40-50%
+  estimator:
+    name: CL1
+    observable: Nch
+    detector: SPD
+  eta:
+  - min: -1.4
+    max: 1.4
+  notes: 'the SPD (default), curated as CL1: clusters in the outer SPD layer, |eta_lab| < 1.4.'
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.2
+    max: 5.0
+observable: NSC_235
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 3
+- 5
+normalized: true
+dimensionality: integrated
+value_type: NSC(2,3,5)
+notes:
+  value: 'S. Acharya et al. (ALICE), PRL 127 (2021) 092302, arXiv:2101.02579. NSC(2, 3, 5) = SC / (<v_2^2><v_3^2><v_5^2>)
+    (Eq. 3), from the six-, four- and two-particle correlators of Eq. 5 over all distinct charged particles |eta| < 0.8, 0.2
+    < pT < 5.0 GeV/c (no eta gap), Pb-Pb 2.76 TeV. Errors: stat and sys.'
