@@ -387,6 +387,18 @@ flow_reference:
       fields:
         min: {type: float, required: true, example: 0.0}
         max: {type: float, required: true, example: 4.0}
+    partner:
+      type: list
+      required: false
+      description: >
+        In a `segments` entry of a cumulant_order-2 flow_vn record: the
+        region X whose correlation with the reference Y normalizes the
+        differential flow, v'(eta) = <<cos n(phi' - phi^Y)>> / sqrt(<<cos
+        n(phi^X - phi^Y)>>) (ALICE 2679248: the reference on the side opposite
+        the POI, X its mirror); eta windows {min, max}, pT `partner_pT`
+        (default the segment's).  Key vn2_eta_partner
+        (analysis/eta_regions.py).
+      example: [{min: 0.8, max: 1.0}]
     harmonic:
       type: integer
       required: false

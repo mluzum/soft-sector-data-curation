@@ -2097,6 +2097,133 @@ def _wrap_vn_mixed_plane(data, w):
     return mixed_plane.core(data, w)
 
 
+# ── eta-differential flow with side-dependent references; decorrelation (analysis.eta_regions) ──
+
+def _eta_region_cellsums(container, kind, windows):
+    """CellSums of the charged particles with the named windows {name: ([(eta_lo,
+    eta_hi)], (pT_lo, pT_hi))}: 2D Jacobian x pT share per (species, pT
+    cell), 3D cell overlap shares."""
+    from analysis.flow_pt import CellSums
+    if kind == '2d':
+        from analysis.qvector import _overlap_fractions, _pt_squared
+        qv = container
+        idx = list(charged_species_indices(getattr(qv, 'pdg_ids', None))[0])
+        Qn = np.moveaxis(qv.Qn[:, idx], 2, -1)
+        c = Qn[..., 0].real
+        W = {}
+        for name, (etas, pt) in windows.items():
+            jac = sum(_make_jacobian_list(qv.pt_centers, qv.masses, lo, hi)[idx, :] for lo, hi in etas) \
+                / (2.0 * qv.rap_max)
+            fpt = np.asarray(_overlap_fractions(qv.pt_bin_edges, pt[0], pt[1], _pt_squared), dtype=float)
+            W[name] = jac * fpt[np.newaxis, :]
+        return CellSums(Qn, c, None, None, W, qv.nsamples)
+    grid = _unit_weights(container)
+    W = {name: sum(np.asarray(grid.window_weights(lo, hi, pt[0], pt[1], fractional=True), float)
+                   for lo, hi in etas) for name, (etas, pt) in windows.items()}
+    return CellSums(grid.Qn, grid.Qn[..., 0].real, None, None, W, grid.nsamples)
+
+
+def _segment_for_bin(fr, lo, hi):
+    """The flow_reference segment whose applies_to_eta contains the bin."""
+    for seg in fr.get('segments') or []:
+        a = seg.get('applies_to_eta') or {}
+        if float(a.get('min', -1e9)) <= lo and hi <= float(a.get('max', 1e9)):
+            return seg
+    raise ValueError(f"no flow_reference segment applies to the eta bin [{lo}, {hi}]")
+
+
+def _windows_of(spec, default_pt):
+    etas = spec if isinstance(spec, list) else (spec.get('eta') or [])
+    pt = (spec.get('pT') if isinstance(spec, dict) else None) or {}
+    return ([(float(e['min']), float(e['max'])) for e in etas],
+            (float(pt.get('min', default_pt[0])), float(pt.get('max', default_pt[1]))))
+
+
+def _prepare_vn2_partner(kind):
+    def prepare(container, params):
+        """v'_n(eta): POI per bin, the reference Y of its side and the
+        partner X (analysis.eta_regions.core_vn2)."""
+        from analysis.flow_pt import distinct
+        n = int(params.get('harmonic', 2))
+        fr = params.get('flow_reference_raw') or {}
+        bins = params.get('differential_bins') or []
+        pt = (params.get('single_range') or {}).get('pT') or (0.0, 100.0)
+        windows, per_bin = {}, []
+        for b, (lo, hi) in enumerate(bins):
+            seg = _segment_for_bin(fr, lo, hi)
+            y = _windows_of(seg, (0.0, 100.0))
+            x = _windows_of({'eta': seg.get('partner'), 'pT': seg.get('partner_pT') or seg.get('pT')}, (0.0, 100.0))
+            ky, kx = f'Y{y}', f'X{x}'
+            windows[f'P{b}'] = ([(lo, hi)], tuple(pt))
+            windows[ky], windows[kx] = y, x
+            per_bin.append((f'P{b}', ky, kx))
+        S = _eta_region_cellsums(container, kind, windows)
+        if n >= S.H:
+            raise ValueError(f"v_{n}(eta): harmonic {n} not stored")
+        cols = {k: [] for k in ('num', 'cnt', 'xy', 'cxy')}
+        for p, y, x in per_bin:
+            cols['num'].append(np.real(distinct(S, [(p, n, 0), (y, -n, 0)])))
+            cols['cnt'].append(np.real(distinct(S, [(p, 0, 0), (y, 0, 0)])))
+            cols['xy'].append(np.real(distinct(S, [(x, n, 0), (y, -n, 0)])))
+            cols['cxy'].append(np.real(distinct(S, [(x, 0, 0), (y, 0, 0)])))
+        return {k: np.stack(v, axis=1) for k, v in cols.items()}
+    prepare.__name__ = f'prepare_vn2_partner_{kind}'
+    return prepare
+
+
+def _prepare_rnn(kind):
+    def prepare(container, params):
+        """r_{n|n}(eta) per |eta| bin, the reference at +-|eta_ref| (both
+        orientations pooled; analysis.eta_regions.core_rnn)."""
+        from analysis.flow_pt import distinct
+        harms = [int(h) for h in (params.get('harmonics') or [])]
+        if len(harms) != 1:
+            raise ValueError("r_{n|n}: one harmonic")
+        n = harms[0]
+        ref = params.get('decorrelation_reference') or {}
+        r_eta = ref.get('eta') or {}
+        r_lo, r_hi = float(r_eta['min']), float(r_eta['max'])
+        r_pt = ref.get('pT') or {}
+        r_pt = (float(r_pt.get('min', 0.0)), float(r_pt.get('max', 100.0)))
+        bins = params.get('differential_bins') or []
+        pt = (params.get('single_range') or {}).get('pT') or (0.0, 100.0)
+        if any(lo < 0 for lo, _ in bins):
+            raise ValueError("r_{n|n}: bins in |eta| (non-negative)")
+        windows = {'Yneg': ([(-r_hi, -r_lo)], r_pt), 'Ypos': ([(r_lo, r_hi)], r_pt)}
+        for b, (lo, hi) in enumerate(bins):
+            windows[f'P+{b}'] = ([(lo, hi)], tuple(pt))
+            windows[f'P-{b}'] = ([(-hi, -lo)], tuple(pt))
+        S = _eta_region_cellsums(container, kind, windows)
+        if n >= S.H:
+            raise ValueError(f"r_{{{n}|{n}}}: harmonic {n} not stored")
+        cols = {k: [] for k in ('opp', 'copp', 'same', 'csame')}
+
+        def pair(p, y):
+            return np.real(distinct(S, [(p, n, 0), (y, -n, 0)])), np.real(distinct(S, [(p, 0, 0), (y, 0, 0)]))
+        for b in range(len(bins)):
+            o1, c1 = pair(f'P+{b}', 'Yneg')
+            o2, c2 = pair(f'P-{b}', 'Ypos')
+            s1, d1 = pair(f'P-{b}', 'Yneg')
+            s2, d2 = pair(f'P+{b}', 'Ypos')
+            cols['opp'].append(o1 + o2)
+            cols['copp'].append(c1 + c2)
+            cols['same'].append(s1 + s2)
+            cols['csame'].append(d1 + d2)
+        return {k: np.stack(v, axis=1) for k, v in cols.items()}
+    prepare.__name__ = f'prepare_rnn_{kind}'
+    return prepare
+
+
+def _wrap_vn2_partner(data, w):
+    from analysis.eta_regions import core_vn2
+    return core_vn2(data, w)
+
+
+def _wrap_rnn(data, w):
+    from analysis.eta_regions import core_rnn
+    return core_rnn(data, w)
+
+
 # ── radial flow: v0, v0(pT), normalized covariance (analysis.radial_flow) ──
 
 def _radial_flow_settings(params):
@@ -3495,6 +3622,20 @@ PIPELINE_DISPATCH = {
         "n_obs_per_cent": None,
         "description": "v_n relative to a lower-order plane (mixed harmonic, scalar-product analog of STAR's EP)",
     },
+    "vn2_eta_partner": {
+        "core_fn": _wrap_vn2_partner,
+        "prepare_data_2d": _prepare_vn2_partner('2d'),
+        "prepare_data_3d": _prepare_vn2_partner('3d'),
+        "n_obs_per_cent": None,
+        "description": "v_n{2}(eta): reference of the bin's side, normalized by its partner region (ALICE)",
+    },
+    "rnn_decorrelation": {
+        "core_fn": _wrap_rnn,
+        "prepare_data_2d": _prepare_rnn('2d'),
+        "prepare_data_3d": _prepare_rnn('3d'),
+        "n_obs_per_cent": None,
+        "description": "r_{n|n}(eta): opposite- over same-side correlation with a reference at +-|eta_ref|",
+    },
     "plane_corr_sp": {
         "core_fn": _wrap_plane_corr,
         "prepare_data_2d": prepare_plane_corr_2d,
@@ -3661,7 +3802,7 @@ SINGLE_ROW_KEYS = frozenset({
     'vn2_ep', 'vn3_ep', 'mean_pt', 'yield_dNch_deta', 'yield_dNch_deta_per_eta',
     'spectra_invariant_yield', 'dET_deta', 'sc_mn', 'nac_mn', 'radial_flow',
     'vn_cumulant_combination', 'v1_even_factorization', 'rho_vn2_pT', 'mode_coupling',
-    'plane_corr_sp', 'flow_vector_fluct', 'vn_mixed_plane',
+    'plane_corr_sp', 'flow_vector_fluct', 'vn_mixed_plane', 'vn2_eta_partner', 'rnn_decorrelation',
 })
 
 

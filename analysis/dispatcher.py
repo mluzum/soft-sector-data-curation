@@ -98,6 +98,11 @@ DISPATCH_TABLE = {
         "requires": ["flow_reference.eta", "flow_reference.harmonic", "flow_reference.resolution_subevents"],
         "description": "v_n relative to a lower-order plane (differential_eta)",
     },
+    ("cumulant_partner", 2, None, "differential_eta"): {
+        "compute": "vn2_eta_partner",
+        "requires": ["flow_reference.segments", ["kinematic_range.eta.bins", "kinematic_range.eta.bin_ranges"]],
+        "description": "v_n{2}(eta), side-dependent reference normalized by its partner region",
+    },
     ("cumulant", 6, None, "integrated"): {
         "compute": "vn6_single",
         "requires": ["kinematic_range.eta", "kinematic_range.pT"],
@@ -290,6 +295,7 @@ DISPATCH_TABLE_BY_TYPE = {
             "mode_coupling": "mode_coupling",
             "plane_correlation": "plane_corr_sp",
             "pT_flow_vector_fluctuations": "flow_vector_fluct",
+            "longitudinal_decorrelation": "rnn_decorrelation",
         },
         "requires": [["kinematic_range.eta", "centrality.eta"],
                      "harmonics", "correlation_type"],
@@ -299,6 +305,8 @@ DISPATCH_TABLE_BY_TYPE = {
                                   "plane_subevents", "estimator"],
             "pT_flow_vector_fluctuations": [["kinematic_range.eta"], "harmonics", "correlation_type", "quantity",
                                             "flow_reference.pT"],
+            "longitudinal_decorrelation": [["kinematic_range.eta"], "harmonics", "correlation_type", "quantity",
+                                           "decorrelation_reference.eta"],
             "event_plane_correlation": [
                 ["kinematic_range.eta", "centrality.eta"],
                 "harmonics", "correlation_type",
@@ -697,6 +705,11 @@ def resolve(record):
     # Records with no declared reference keep the amplitude path, which is
     # then explicitly only an approximation of the reported observable.
     _fr = record.get("flow_reference") if isinstance(record.get("flow_reference"), dict) else {}
+    # v_n{2}(eta) with side-dependent reference regions normalized by a
+    # partner region (ALICE 2679248): analysis.eta_regions.
+    if method == "cumulant" and order == 2 and particles is None and \
+            any("partner" in (s or {}) for s in (_fr.get("segments") or [])):
+        method = "cumulant_partner"
     # Flow relative to a lower-order plane (STAR's v2{Psi_1} at 3-4.5 GeV):
     # the mixed-harmonic estimator (analysis.mixed_plane).
     if method == "event_plane" and _fr.get("harmonic") is not None and \
@@ -786,6 +799,14 @@ def resolve(record):
             # pT-dependent flow-vector fluctuations (ALICE 2771093): one
             # harmonic, pT bins, the correlators each quantity needs
             # (analysis.flow_vector_fluct).
+            if entry.get("compute") == "rnn_decorrelation":
+                if record.get("quantity") != "r_nn":
+                    raise ValueError(f"longitudinal decorrelation: quantity {record.get('quantity')!r} (r_nn: the "
+                                     "opposite- over same-side correlation; others not computed)")
+                if len(record.get("harmonics") or []) != 1:
+                    raise ValueError("r_{n|n}: one harmonic")
+                if record.get("dimensionality") != "differential_eta":
+                    raise ValueError("r_{n|n}: dimensionality differential_eta (|eta| bins)")
             if entry.get("compute") == "flow_vector_fluct":
                 from analysis.flow_vector_fluct import QUANTITIES, needs
                 q = record.get("quantity")
@@ -1164,6 +1185,8 @@ def extract_measurement_params(exp_rec):
         # and the trigger pT of r_n
         'four_particle_subevents': exp_rec.get('four_particle_subevents'),
         'trigger_pT': _kr_pT({'pT': exp_rec['trigger_pT']}) if exp_rec.get('trigger_pT') else None,
+        # r_{n|n}(eta): the reference window at +-|eta_ref|
+        'decorrelation_reference': exp_rec.get('decorrelation_reference'),
         # Experiment-defined centrality normalization (threshold_anchor) and
         # a detector efficiency for detector-level yields.
         'cent_normalization': cent.get('normalization'),

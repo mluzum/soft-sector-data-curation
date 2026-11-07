@@ -163,6 +163,20 @@ Fields that change dispatch:
   y_beam).  ToyGenConfig.plane_lock correlates Psi_n with Psi_m;
   tests/test_toy_mc_mixed_plane.py (v2 <cos 2(Psi_2 - Psi_1)> recovered,
   zero for independent planes).
+- Side-dependent references and decorrelation (analysis/eta_regions.py;
+  ALICE 2679248): a cumulant_order-2 v_n(eta) whose
+  `flow_reference.segments` carry a `partner` region (key
+  vn2_eta_partner): each bin correlated with the reference of its side,
+  divided by sqrt(<<cos n(phi^X - phi^Y)>>), the reference with its partner
+  (not |Q_Y|^2, which ignores the decorrelation between the two).
+  `correlation_type: longitudinal_decorrelation` with `quantity: r_nn`
+  (key rnn_decorrelation): r_{n|n}(eta) = opposite- over same-side
+  correlation with `decorrelation_reference` at +-|eta_ref|, both
+  orientations pooled.  Distinct particles, pair-count event weights; on 2D
+  containers r = 1.  ToyGenConfig.plane_eta_twist turns Psi_n with eta;
+  tests/test_toy_mc_eta_regions.py (3D: both equal the correlators of the
+  generated flow vectors, r falls with |eta|; r = 1 and v = sqrt(<v^2>)
+  without the twist, 2D and 3D).
 - `kinematic_range.y.mass`: a rapidity window with one assumed mass (PHOBOS
   and ATLAS y_pi): spectra, yields (a window, or per y bin) and <pT>.
 - Per-bin yields and <pT>: eta bins (`dimensionality: differential_eta`)

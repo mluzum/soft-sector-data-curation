@@ -125,7 +125,8 @@ class ToyGenConfig:
                                          'proton': 0.35},
                  pt_min=0.05, pt_max=3.0,
                  flow=None, fluctuate=None, pt_rescale_sigma=0.0,
-                 eta_shape=None, vn_pt_corr=None, nonlinear=None, plane_twist=None, plane_lock=None):
+                 eta_shape=None, vn_pt_corr=None, nonlinear=None, plane_twist=None, plane_lock=None,
+                 plane_eta_twist=None):
         """
         flow : dict harmonic → dict(kind='const'|'linear', value=..., pt0=...)
                 e.g. {2: dict(kind='const', value=0.05)}
@@ -170,6 +171,10 @@ class ToyGenConfig:
         # N(0, sigma) (a separate stream), <cos h(Psi_h - Psi_m)> = exp(-h^2
         # sigma^2 / 2)
         self.plane_lock = plane_lock or {}
+        # longitudinal decorrelation {h: sigma}: Psi_h(eta) = Psi_h + delta_e
+        # eta, delta_e ~ N(0, sigma) per event (a separate stream;
+        # truth['plane_eta_twist'][h])
+        self.plane_eta_twist = plane_eta_twist or {}
 
 
 def _eta_shape(shape, eta, s_idx, names):
@@ -234,6 +239,8 @@ def generate_events(cfg: ToyGenConfig):
 
     twist = {h: np.random.RandomState(cfg.seed + 104729 + h).normal(0.0, sig, cfg.n_events)
              for h, (sig, _pt0) in cfg.plane_twist.items()}
+    eta_twist = {h: np.random.RandomState(cfg.seed + 130363 + h).normal(0.0, sig, cfg.n_events)
+                 for h, sig in cfg.plane_eta_twist.items()}
 
     k_pre = None
     if cfg.vn_pt_corr and cfg.pt_rescale_sigma > 0:
@@ -267,7 +274,7 @@ def generate_events(cfg: ToyGenConfig):
 
         mass_arr = sp_mass[s_idx]
         y = rng.uniform(-cfg.rap_max, cfg.rap_max, M)
-        if cfg.eta_shape:
+        if cfg.eta_shape or eta_twist:
             _mT = np.sqrt(mass_arr ** 2 + pt ** 2)
             eta_pre = np.arcsinh(_mT * np.sinh(y) / pt)
         vn_funcs, psis = [], []
@@ -279,10 +286,12 @@ def generate_events(cfg: ToyGenConfig):
             if h in cfg.eta_shape:
                 f = f * _eta_shape(cfg.eta_shape[h], eta_pre, s_idx, names)
             vn_funcs.append(f)
+            ps_e = psi[h][e]
             if h in twist:
-                psis.append(psi[h][e] + twist[h][e] * (pt - cfg.plane_twist[h][1]))
-            else:
-                psis.append(psi[h][e])
+                ps_e = ps_e + twist[h][e] * (pt - cfg.plane_twist[h][1])
+            if h in eta_twist:
+                ps_e = ps_e + eta_twist[h][e] * eta_pre
+            psis.append(ps_e)
         phi = _sample_phi(rng, vn_funcs, psis, M, harms)
 
         if cfg.pt_rescale_sigma > 0:
@@ -305,7 +314,7 @@ def generate_events(cfg: ToyGenConfig):
         events.append(dict(y=y, eta=eta, pt=pt, phi=phi,
                            species_idx=s_idx, mass=mass_arr))
 
-    truth = dict(psi=psi, vn_ebe=vn_ebe, cfg=cfg, pt_rescale=k_pre, plane_twist=twist,
+    truth = dict(psi=psi, vn_ebe=vn_ebe, cfg=cfg, pt_rescale=k_pre, plane_twist=twist, plane_eta_twist=eta_twist,
                  species_names=[SPECIES_NAMES[i] for i in sp_names],
                  masses=sp_mass, temps=sp_temp)
     return events, truth

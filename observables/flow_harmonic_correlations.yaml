@@ -74,7 +74,7 @@ optional_fields:
     type: string
     required: false
     allowed: [C, v_inclusive, v_mode_coupled, v_linear, chi, rho, v_ratio, r, A_f, M_f, angle_lower_limit,
-              magnitude_upper_limit]
+              magnitude_upper_limit, r_nn]
     description: >
       mode_coupling (harmonics [k, n, m], k = n + m): C = <<cos(k phi_1 - n
       phi_2 - m phi_3)>>; v_inclusive = v_k{2}; v_mode_coupled = C /
@@ -92,7 +92,8 @@ optional_fields:
       pT_flow_vector_fluctuations (one harmonic, per POI pT bin): v_ratio =
       v_n{2}/v_n[2]; r = r_n(pT_a, pT_trigger); A_f, M_f (ALICE Eqs. 10,
       14); angle_lower_limit = sqrt((A_f + 1)/2); magnitude_upper_limit =
-      v_ratio / sqrt((A_f + 1)/2).
+      v_ratio / sqrt((A_f + 1)/2).  longitudinal_decorrelation: r_nn (see
+      decorrelation_reference).
     example: chi
   chi_denominator:
     type: string
@@ -103,6 +104,16 @@ optional_fields:
       the default) or by sqrt(<v_n^2><v_m^2>) (factorized: STAR's
       differential chi_{5,23}).
     example: factorized
+  decorrelation_reference:
+    type: object
+    required: false
+    description: >
+      longitudinal_decorrelation (quantity r_nn): the reference window
+      {eta: {min, max}} in |eta| (both signs) and its pT; r_{n|n}(eta) =
+      <<cos n(phi(-eta) - phi_ref)>> / <<cos n(phi(eta) - phi_ref)>>, the POI
+      in the record's |eta| bins, both orientations pooled
+      (analysis/eta_regions.py; ALICE 2679248, the r_n of CMS and ATLAS).
+    example: {eta: {min: 2.0, max: 2.4}, pT: {min: 0.0, max: 100.0}}
   four_particle_subevents:
     type: object
     required: false
