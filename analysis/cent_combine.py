@@ -26,10 +26,36 @@ part of the class more, which the experiments' combination avoids).
 
 The jackknife sees the combined value as one estimator: replicates delete
 events from every sub-class at once.
+
+Classes in the estimator's track count (``multiplicity_bins``) may combine
+cells of one track instead (STAR's centrality-bin-width correction; its
+isobar results: "computed in unit N_ch bins and averaged into the wider
+bins"):
+
+    centrality:
+      multiplicity_bins: {efficiency: 0.87}
+      combined_from: unit_multiplicity
+      combination_weight: events               # the default here
+
+Cell k holds the events of N_trk = k, each with weight P(N_trk = k | eff N)
+(analysis.weights.MultiplicityBinWeights on edges (k, k + 1)), so every cell
+has its own means (<<pT>>, the reference of a covariance) and the trivial
+dependence of the observable on N_trk across the class drops out.  The
+cells are averaged with their expected events n_k = sum_e P(N_trk = k | eff
+N_e).  For an event average linear in the event weights (a yield) the
+combination equals the class value; it differs for ratios of sums and for
+fluctuations.  A cell of fewer than two expected events is left out
+(MIN_CELL_EVENTS: the cores need two events' weight, and some return 0
+below it); with a model's events spread over the cells this drops only the
+sparse tail of the class's distribution.  Percentile classes are refused
+(their cells would need the experiment's track counts at the class edges).
 """
+import math
+
 import numpy as np
 
 WEIGHTS = ('yield', 'charged_yield', 'events')
+MIN_CELL_EVENTS = 2.0
 
 
 def _edges(label):
@@ -45,7 +71,11 @@ def combination_plan(cent):
     'weight': 'yield' | 'charged_yield' | 'events'}.  Raises ValueError when
     the sub-classes do not tile every class exactly.
     """
-    if not isinstance(cent, dict) or cent.get('combined_from') != 'analysis_classes':
+    if not isinstance(cent, dict):
+        return None
+    if cent.get('combined_from') == 'unit_multiplicity' and cent.get('multiplicity_bins'):
+        return unit_cell_plan(cent)
+    if cent.get('combined_from') != 'analysis_classes':
         return None
     classes = [_edges(c) for c in cent.get('classes') or []]
     weight = cent.get('combination_weight', 'yield')
@@ -86,6 +116,32 @@ def combination_plan(cent):
     return {'sub_edges': sub, 'groups': groups, 'weight': weight}
 
 
+def unit_cell_plan(cent):
+    """Classes in track count from cells of one track: class 'lo-hi' (lo <=
+    N_trk < hi, integer counts) holds the cells (k, k + 1), k = ceil(lo) ...
+    ceil(hi) - 1; cells shared by classes are computed once."""
+    weight = cent.get('combination_weight', 'events')
+    if weight not in WEIGHTS:
+        raise ValueError(f"centrality.combination_weight {weight!r}: one of {WEIGHTS}")
+    if cent.get('analysis_classes') is not None or cent.get('analysis_class_width') is not None:
+        raise ValueError("combined_from unit_multiplicity combines cells of one track: "
+                         "analysis_classes and analysis_class_width do not apply")
+    sub, groups, index = [], [], {}
+    for c in cent.get('classes') or []:
+        lo, hi = _edges(c)
+        cells = range(math.ceil(lo), math.ceil(hi))
+        if not cells:
+            raise ValueError(f"class {c} holds no integer track count")
+        idx = []
+        for k in cells:
+            if k not in index:
+                index[k] = len(sub)
+                sub.append((float(k), float(k + 1)))
+            idx.append(index[k])
+        groups.append(idx)
+    return {'sub_edges': sub, 'groups': groups, 'weight': weight, 'min_sub_weight': MIN_CELL_EVENTS}
+
+
 def yield_params(params, weight):
     """Measurement params of the yield that weights the sub-classes."""
     poi = params.get('poi_range') or {}
@@ -111,13 +167,17 @@ def prepare_yield(container, params, weight, is_2d):
     return entry['prepare_data_3d'](container_for_prepare(container, yp, entry), yp)
 
 
-def wrap_core(core_fn, min_weight=0.0):
+def wrap_core(core_fn, min_weight=0.0, plan=None):
     """A core over one combined class: (data, W[events, k]) -> values.
 
     ``data`` is {'obs': the observable's data, 'yield': yield data or None};
     W holds the weights of the class's k sub-classes.  Sub-classes with total
-    weight below ``min_weight`` (beyond the anchor) are left out.
+    weight below ``min_weight`` (beyond the anchor), or below the plan's
+    ``min_sub_weight`` (cells of one track: two events), are left out; a
+    class without any gives NaN.
     """
+    floor = max(float(min_weight), float((plan or {}).get('min_sub_weight', 0.0)))
+
     def core(data, W):
         W = np.asarray(W, dtype=float)
         if W.ndim == 1:
@@ -126,7 +186,7 @@ def wrap_core(core_fn, min_weight=0.0):
         for j in range(W.shape[1]):
             w = W[:, j]
             sw = w.sum()
-            if sw < min_weight or sw <= 0:
+            if sw < floor or sw <= 0:
                 continue
             v = np.atleast_1d(np.asarray(core_fn(data['obs'], w), dtype=float))
             yd = data.get('yield')
@@ -139,8 +199,8 @@ def wrap_core(core_fn, min_weight=0.0):
                 y = float(np.sum(w * np.asarray(_pt_subcell_corrected(yd, w)['Q0'], dtype=float)))
             vals.append(v)
             ys.append(y)
-        if not vals:
-            return np.array([np.nan])
+        if not vals:            # the shape of the class's values, all NaN
+            return np.full(len(np.atleast_1d(core_fn(data['obs'], W.sum(axis=1)))), np.nan)
         ys = np.asarray(ys)
         if not np.all(np.isfinite(ys)) or ys.sum() <= 0:
             return np.full(len(vals[0]), np.nan)

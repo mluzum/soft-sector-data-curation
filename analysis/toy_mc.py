@@ -791,7 +791,7 @@ def evaluate(record, qv=None, grid=None, with_jackknife=True,
         yd = prepare_yield(qv if qv is not None else grid_unselected, params, plan['weight'],
                            qv is not None)
         data = {'obs': data, 'yield': yd}
-        entry = dict(entry, core_fn=wrap_core(entry['core_fn'], min_weight))
+        entry = dict(entry, core_fn=wrap_core(entry['core_fn'], min_weight, plan))
         groups = plan['groups']
     _combined_raw = _combined_raw_factory(data, cw, entry, n_cent, min_weight, groups)
 

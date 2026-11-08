@@ -444,15 +444,28 @@ Fields that change dispatch:
   a positives-only grid; 2D: never a package's own `cent_mult`).  On 2D
   containers N is the event's expected count, so classes select on it
   without the binomial window noise of realized counts (toy: the top
-  class's dN/deta 8% higher than with realized counts);
-  tests/test_toy_mc_multiplicity_bins.py (3D and 2D within 0.1% of
-  explicit Poisson draws, run_pipeline = toy harness).
+  class's dN/deta 8% higher than with realized counts).
+  `combined_from: unit_multiplicity` (STAR's isobar results: every
+  observable in unit N_trk bins, averaged into the wider bins): each class
+  from cells of one track, cell k each event with weight P(N_trk = k),
+  every cell its own means (<<pT>>, a covariance's reference), averaged
+  with the cells' expected events (`combination_weight`, default events;
+  analysis/cent_combine.py `unit_cell_plan`), so the trivial dependence on
+  N_trk across a class drops out (zr96c2 hydro: <v2^2 dpT> -1.6% at N_trk
+  120-200).  Equal to the class value for a yield.  A cell under two
+  expected events is left out (MIN_CELL_EVENTS: the cores' minimum), and a
+  class of such cells only is NaN; with percentile classes the option is
+  refused.  tests/test_toy_mc_multiplicity_bins.py (3D and 2D within 0.1%
+  of explicit Poisson draws, run_pipeline = toy harness; cells: <dpT dpT>
+  exact against particle sums per cell, below the whole class when <pT>
+  rises with N).
 - `efficiency_corrected: false` with `detector_efficiency` (yields,
   spectra) is computed as efficiency x N; without it, refused.
 - `centrality.combined_from: unit_multiplicity`: class values combined
   from bins of one unit of the estimator multiplicity (STAR's
-  centrality-bin-width correction); refused, since the pipeline computes
-  over the whole class.
+  centrality-bin-width correction); computed for classes in track count
+  (`multiplicity_bins`, above), refused for percentile classes, since
+  their cells would need the experiment's track counts at the edges.
 - `centrality.combined_from: analysis_classes`: class values averaged from
   narrower percentile classes (`analysis_classes`, or
   `analysis_class_width`: ALICE 1%), weighted by `combination_weight`

@@ -21,6 +21,20 @@ Checks, on toy events with a broad multiplicity distribution:
 - run_pipeline on a 2D simulation package gives the toy harness's values
   (its own code paths: the weights factory, no anchor);
 - refusals: percent labels, overlapping ranges, actual_classes.
+
+Cells of one track (`combined_from: unit_multiplicity`, STAR's isobar
+procedure: every observable in unit N_trk bins, averaged into the wider
+bins with the number of events), on toy events whose <pT> rises with the
+multiplicity:
+- <dpT_i dpT_j> per class equals explicit particle sums: each cell k with
+  event weights P(N_trk = k | eff N), its own <<pT>>, the cells averaged
+  with their expected events (cells under two events left out);
+- the cell average removes the spread of <pT> across the class: below the
+  whole-class value in every class;
+- for a yield (linear in the event weights) it equals the whole class;
+- run_pipeline on a 2D package gives the toy harness's values (mean pT);
+- refusals: percentile classes, analysis_classes or a class width with
+  cells, percentile sub-classes of track-count classes.
 Run: python3 tests/test_toy_mc_multiplicity_bins.py
 """
 import copy
@@ -205,7 +219,132 @@ def main():
                   got is not None and len(got) == len(want) and np.allclose(got, want, rtol=1e-9))
 
 
+UNIT_CLASSES = ['80-120', '120-160', '160-200']
+
+
+def unit_cells():
+    """Classes in track count averaged over cells of one track."""
+    import scipy.stats
+    from analysis.dispatcher import resolve
+    from analysis.cent_combine import MIN_CELL_EVENTS
+    print("\n  cells of one track (combined_from: unit_multiplicity)")
+    cfg = ToyGenConfig(n_events=6000, mult_mean=260, mult_sigma=80, rap_max=1.6, seed=91, pt_min=0.05,
+                       pt_max=3.0, flow={2: dict(kind='const', value=0.05)})
+    events, _ = generate_events(cfg)
+    from analysis.converters import y_to_eta
+    for ev in events:              # <pT> rising with the multiplicity; the grid ends at 3 GeV
+        ev['pt'] = ev['pt'] * (1.0 + 0.3 * (len(ev['pt']) - 260.0) / 260.0)
+        ev['eta'] = y_to_eta(ev['y'], ev['pt'], ev['mass'])          # the grid bins eta from y
+        keep = ev['pt'] < 3.0
+        for k in list(ev):
+            if isinstance(ev[k], np.ndarray) and len(ev[k]) == len(keep):
+                ev[k] = ev[k][keep]
+    grid = make_qgrid_data(events, {'cfg': cfg}, n_eta=64, n_pt=59, eta_half=1.6)
+    cent = dict(RECORD['centrality'], classes=list(UNIT_CLASSES))
+    fl = dict(observable_type='mean_pT_fluctuations', value_type='<dpt1_dpt2>', observable='mean_pT_fluctuations',
+              hepdata_file='toy.yaml', inspire_id='0', version=1, particle_id=dict(species='charged'),
+              kinematic_range=dict(eta=dict(min=OBS_ETA[0], max=OBS_ETA[1]), pT=dict(min=0.2, max=2.0)),
+              centrality=cent)
+    cells = copy.deepcopy(fl)
+    cells['centrality']['combined_from'] = 'unit_multiplicity'
+
+    # explicit: the estimator count (charged = 2 x stored) and the window sums per event
+    N = np.array([2 * np.count_nonzero((np.abs(ev['eta']) < 0.5) & (ev['pt'] >= EST_PT)) for ev in events])
+    sums = []
+    for ev in events:
+        p = ev['pt'][(ev['eta'] >= OBS_ETA[0]) & (ev['eta'] < OBS_ETA[1]) & (ev['pt'] >= 0.2) & (ev['pt'] < 2.0)]
+        sums.append((len(p), p.sum(), (p ** 2).sum()))
+    S0, S1, S2 = (np.array(x, float) for x in zip(*sums))
+
+    def cov(w):                    # pairs pooled, deviations from the mean pT of the weighted events
+        M = np.sum(w * S1) / np.sum(w * S0)
+        P = (S1 - M * S0) ** 2 - (S2 - 2 * M * S1 + M ** 2 * S0)
+        return np.sum(w * P) / np.sum(w * (S0 * S0 - S0))
+    want, whole_x, short = [], [], []
+    for c in UNIT_CLASSES:
+        lo, hi = (int(x) for x in c.split('-'))
+        f = np.array([scipy.stats.poisson.pmf(k, EFF * N) for k in range(lo, hi)])     # cells x events
+        nk = f.sum(axis=1)
+        short.append(int(np.count_nonzero(nk < MIN_CELL_EVENTS)))
+        ok = nk >= MIN_CELL_EVENTS
+        want.append(np.sum([n * cov(fk) for n, fk in zip(nk[ok], f[ok])]) / nk[ok].sum())
+        whole_x.append(cov(f.sum(axis=0)))
+    want, whole_x = np.array(want), np.array(whole_x)
+    got, err = evaluate(cells, grid=grid, cent_method='poisson', n_blocks=20)
+    whole, _ = evaluate(fl, grid=grid, cent_method='poisson', with_jackknife=False)
+    print(f"    <dpT dpT> (GeV^2): cells {got} +- {err}\n      explicit {want}; whole classes {whole} "
+          f"(explicit {whole_x}); cells under {MIN_CELL_EVENTS:g} events per class {short}")
+    check('cells: <dpT_i dpT_j> equals explicit particle sums per cell, averaged with the events',
+          np.allclose(got, want, rtol=1e-9, atol=0), f'{got} vs {want}')
+    check('whole classes equal explicit particle sums (reference)', np.allclose(whole, whole_x, rtol=1e-9))
+    check('the cell average removes the spread of <pT> across the class (below the whole class)',
+          np.all(got < whole), f'{got} vs {whole}')
+    check('jackknife errors finite and positive', np.all(np.isfinite(err) & (err > 0)))
+
+    ych = dict(RECORD, centrality=copy.deepcopy(cells['centrality']))
+    yw, _ = evaluate(dict(RECORD, centrality=cent), grid=grid, with_jackknife=False, min_weight=0.0)
+    yc, _ = evaluate(ych, grid=grid, with_jackknife=False, min_weight=0.0)
+    check('a yield: the cell average equals the whole class (no cell under two events here)',
+          sum(short) == 0 and np.allclose(yc, yw, rtol=1e-9), f'{yc} vs {yw}')
+
+    def refused(mod, base=cells):
+        rec = copy.deepcopy(base)
+        mod(rec['centrality'])
+        try:
+            resolve(rec)
+        except ValueError:
+            return True
+        return False
+    check('cells of percentile classes refused', refused(lambda c: (
+        c.pop('multiplicity_bins'), c.update(classes=['0-10%', '10-20%']))))
+    check('cells with analysis_class_width refused', refused(lambda c: c.update(analysis_class_width=2.0)))
+    check('percentile sub-classes of track-count classes refused', refused(
+        lambda c: c.update(combined_from='analysis_classes', analysis_class_width=10.0)))
+
+    # run_pipeline on a 2D simulation package: mean pT from cells, as the toy harness
+    import test_sim_package as tsp
+    from scripts.run_pipeline import load_2d_group
+    with tempfile.TemporaryDirectory() as tmp:
+        pkg, data, *_ = tsp._package(tmp, "toy_adapter_mbins_cells")
+        rec = dict(observable_type='mean_pT', value_type='mean_pT', observable='mean_pT', hepdata_file='cells_toy.yaml',
+                   inspire_id='0', version=1, particle_id=dict(species='charged'),
+                   collision_system={'energy_gev': 200.0, 'reaction': 'AU AU --> CHARGED X'},
+                   kinematic_range={'eta': {'min': 0.5, 'max': 1.0}, 'pT': {'min': 0.2, 'max': 3.0}},
+                   centrality=dict(RECORD['centrality'], classes=['10-20', '20-40', '40-60'],
+                                   combined_from='unit_multiplicity'))
+        rdir = Path(tmp) / "records" / "data" / "mean_pT"
+        rdir.mkdir(parents=True)
+        yaml.safe_dump(rec, open(rdir / "cells.yaml", "w"))
+        out = Path(tmp) / "out.h5"
+        r = subprocess.run([sys.executable, "scripts/run_pipeline.py", "--sim-package", str(pkg),
+                            "--variant", "plain", "--design-point", "0", "--n-jk-blocks", "10",
+                            "--extra-records", str(Path(tmp) / "records" / "data"), "--type", "mean_pT",
+                            "--reaction", "AU AU --> CHARGED X", "--energy", "200", "--output", str(out)],
+                           cwd=ROOT, capture_output=True, text=True)
+        check("run_pipeline succeeds (cells of one track)", r.returncode == 0, r.stdout[-1500:] + r.stderr[-1500:])
+        if r.returncode == 0:
+            import h5py
+            got = None
+            with h5py.File(out, "r") as f:
+                for g in f.values():
+                    if "labels" in g:
+                        labs = [x.decode() for x in g["labels"][:]]
+                        idx = [i for i, l in enumerate(labs) if 'cells_toy.yaml' in l]
+                        if idx:
+                            got = np.asarray(g["values"][:])[idx]
+            qv2 = load_2d_group(str(data), 0)
+            want, _ = evaluate(rec, qv=qv2, cent_method='poisson', with_jackknife=False)
+            whole, _ = evaluate(dict(rec, centrality=dict(rec['centrality'], combined_from=None)), qv=qv2,
+                                cent_method='poisson', with_jackknife=False)
+            print(f"    mean pT: run_pipeline {None if got is None else got.round(5)}  toy harness "
+                  f"{want.round(5)}  whole classes {whole.round(5)}")
+            check("run_pipeline equals the toy harness (cells of one track; 10-20: every cell under "
+                  "two events, NaN)", got is not None and len(got) == len(want) and np.isnan(want[0])
+                  and np.all(np.isfinite(want[1:])) and np.allclose(got, want, rtol=1e-9, equal_nan=True))
+
+
 if __name__ == '__main__':
     main()
+    unit_cells()
     print(f"\n{sum(results)}/{len(results)} passed")
     sys.exit(0 if all(results) else 1)

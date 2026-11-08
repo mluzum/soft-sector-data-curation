@@ -139,7 +139,8 @@ centrality:
         with that probability (analysis.weights.MultiplicityBinWeights):
         STAR's isobar ratios vs N_trk(|eta| < 0.5), ATLAS N_ch^rec, CMS
         N_trk^offline.  Absolute: no anchor, actual_classes,
-        normalization, combined_from or points.
+        normalization or points; combined_from only unit_multiplicity
+        (cells of one track).
       fields:
         efficiency:
           type: float
@@ -192,9 +193,13 @@ centrality:
         or `analysis_class_width`), averaged with `combination_weight`
         (e.g. ALICE 1% bins weighted by the charged-particle yield, PHENIX
         0-50% from 10% classes weighted by the particle's multiplicity).
-        analysis_classes are computed per sub-class and combined
-        (analysis/cent_combine.py); unit_multiplicity is refused (the
-        pipeline computes over the whole class).
+        Both are computed per sub-class and combined
+        (analysis/cent_combine.py).  unit_multiplicity needs classes in
+        track count (multiplicity_bins: STAR's isobar results, every
+        observable in unit N_trk bins averaged into the wider bins): cell
+        k holds each event with weight P(N_trk = k), the cells averaged
+        with `combination_weight` (default events; cells under two
+        expected events left out).  With percentile classes it is refused.
       example: "unit_multiplicity"
     analysis_class_width:
       type: float
@@ -209,10 +214,11 @@ centrality:
       required: false
       allowed: [yield, charged_yield, events]
       description: >
-        With combined_from analysis_classes: the weight of each sub-class
-        value.  yield (default): the yield of the record's species in its
-        acceptance; charged_yield: of charged particles in that acceptance;
-        events: the number of events (a plain average for equal widths).
+        With combined_from: the weight of each sub-class value.  yield
+        (the default for analysis_classes): the yield of the record's
+        species in its acceptance; charged_yield: of charged particles in
+        that acceptance; events (the default for unit_multiplicity): the
+        number of events (a plain average for equal widths).
       example: "charged_yield"
     analysis_classes:
       type: list

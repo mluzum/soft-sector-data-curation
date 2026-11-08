@@ -594,11 +594,13 @@ def resolve(record):
         return dict(COMBINATION_ENTRY)
 
     # Classes in the estimator's track count are absolute: no percentile
-    # machinery (actual ranges, a cross-section normalization, sub-class
-    # combination, points) applies to them.
+    # machinery (actual ranges, a cross-section normalization, percentile
+    # sub-classes, points) applies to them.  Cells of one track
+    # (combined_from: unit_multiplicity) do: analysis.cent_combine.
     cent_ = record.get("centrality") or {}
     if cent_.get("multiplicity_bins"):
-        clash = [k for k in ("actual_classes", "normalization", "combined_from", "points") if cent_.get(k)]
+        clash = [k for k in ("actual_classes", "normalization", "combined_from", "points") if cent_.get(k)
+                 and not (k == "combined_from" and cent_.get(k) == "unit_multiplicity")]
         if clash:
             raise ValueError(f"centrality.multiplicity_bins with {', '.join(clash)}: classes in track count "
                              f"are absolute")
@@ -653,14 +655,16 @@ def resolve(record):
             f"{record.get('value_type')!r} classes come from spectator "
             f"neutrons ({est.get('detector')}); a model without spectators "
             f"cannot form that centrality")
-    if isinstance(cent, dict) and cent.get("combined_from") == "unit_multiplicity":
+    if (isinstance(cent, dict) and cent.get("combined_from") == "unit_multiplicity"
+            and not cent.get("multiplicity_bins")):
         raise ValueError(
             f"{record.get('value_type')!r} combines values measured in "
-            f"unit-multiplicity bins; the pipeline computes over the whole "
-            f"centrality class")
+            f"unit-multiplicity bins of percentile classes; the pipeline computes "
+            f"cells of one track only for classes in track count (multiplicity_bins)")
     # Classes averaged from narrower percentile classes (ALICE 1%, PHENIX
-    # 10%): computed per sub-class and combined (analysis.cent_combine);
-    # sub-classes that do not tile every class are refused.
+    # 10%), or classes in track count from cells of one track: computed per
+    # sub-class and combined (analysis.cent_combine); sub-classes that do
+    # not tile every class are refused.
     combination_plan(cent)
 
     # A species the simulations cannot provide (heavy flavour, quarkonia,

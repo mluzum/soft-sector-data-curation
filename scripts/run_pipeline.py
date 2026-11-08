@@ -1047,7 +1047,8 @@ def main():
                     if rt is None:
                         continue
                     inner = _d.get('core_fn') or get_pipeline_entry(_d['dispatch_key'])['core_fn']
-                    _d['core_fn'] = wrap_combined_core(inner, args.min_cent_weight)
+                    _d['core_fn'] = wrap_combined_core(inner, args.min_cent_weight,
+                                                       params_list[-1]['cent_combine'])
                     _d['data_dict'] = {'obs': _d['data_dict'], 'yield': rt['yield']}
                     _d['prep_key'] = None       # the wrapper is the record's own
                     _d['cent_w'] = rt['cent_w']
