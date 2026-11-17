@@ -583,7 +583,33 @@ Centrality (`analysis/weights.py`):
   and calibrated (tests/test_jackknife_centrality.py).  The Poisson edges
   are searched from the full sample's crossings, and each edge is computed
   once per sample (2.1 s -> 0.5 s for 40k events and 16 classes, 0.2 s per
-  replicate).
+  replicate);
+- importance-sampled campaigns (a container's `event_weights`, w = 1/P of
+  an event accepted with probability P from its initial-state centrality;
+  iEBE-MUSIC docs/importance_sampling.md): every event average takes w
+  (`combine_weights`), and so does the centrality: the edges count each
+  event w times (Poisson: the weighted mean CDF; sharp: an event occupies
+  w of the count axis and is shared across an edge), a threshold
+  normalization counts sum w, and the sample's coverage is f = sum w /
+  n_ref with n_ref the campaign's exact total from the adapter's anchor
+  (iebe_music: n_collided / coverage of its first phase).  An anchor's
+  `covered_cent` (a selection that accepts nothing beyond it) empties the
+  percentile classes reaching beyond it (classes in track count are not
+  checked against it); classes a few percent inside such a cut are
+  biased (initial and final orderings differ), so campaigns use a floor on
+  P instead.  A replicate keeps the share of n_ref of the events it keeps
+  (the selection does not depend on the id).  Floors on the number of
+  events (`--min-cent-weight`, the two events of a unit-multiplicity cell)
+  count simulated events (the class weights without w); errors are the
+  jackknife's, so the effective size enters by itself.  Unit weights give
+  the unweighted results (sharp edges: when the edges fall on whole events).
+  tests/test_toy_mc_importance_sampling.py (weight k = k copies, exactly;
+  a weighted toy subset reproduces the full sample per class, the subset
+  without its weights does not; a hard cut), tests/test_sim_package.py
+  (run_pipeline: weight k = k copies to 1e-10).  zr96c2 dp0001 (CE) with a
+  simulated selection (P = 1, 0.4, 0.15 at 0-10, 10-30, 30-100% of TRENTo
+  multiplicity, 1189 of 3885 events): 89 flow observables within 2.9 sigma
+  of the full sample, the 0-10% classes equal with equal errors.
 
 Central values are the full-sample estimates; errors and the covariance
 come from a delete-block jackknife (20 blocks by default).  The jackknife

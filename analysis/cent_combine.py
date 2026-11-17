@@ -170,11 +170,14 @@ def prepare_yield(container, params, weight, is_2d):
 def wrap_core(core_fn, min_weight=0.0, plan=None):
     """A core over one combined class: (data, W[events, k]) -> values.
 
-    ``data`` is {'obs': the observable's data, 'yield': yield data or None};
-    W holds the weights of the class's k sub-classes.  Sub-classes with total
+    ``data`` is {'obs': the observable's data, 'yield': yield data or None,
+    'event_weights': the container's importance weights or None}; W holds
+    the weights of the class's k sub-classes.  Sub-classes with total
     weight below ``min_weight`` (beyond the anchor), or below the plan's
     ``min_sub_weight`` (cells of one track: two events), are left out; a
-    class without any gives NaN.
+    class without any gives NaN.  The floor counts simulated events, so it
+    applies to W over the importance weights (a weight-10 event is still
+    one event); the combination weight ('events') is the weighted count.
     """
     floor = max(float(min_weight), float((plan or {}).get('min_sub_weight', 0.0)))
 
@@ -183,10 +186,12 @@ def wrap_core(core_fn, min_weight=0.0, plan=None):
         if W.ndim == 1:
             W = W[:, None]
         vals, ys = [], []
+        ew = data.get('event_weights')
         for j in range(W.shape[1]):
             w = W[:, j]
             sw = w.sum()
-            if sw < floor or sw <= 0:
+            raw = sw if ew is None else float(np.sum(w / ew))
+            if raw < floor or sw <= 0:
                 continue
             v = np.atleast_1d(np.asarray(core_fn(data['obs'], w), dtype=float))
             yd = data.get('yield')

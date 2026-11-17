@@ -230,7 +230,8 @@ def run_method(qv, cent_Q0, cent_edges, cent_edges_pct, cent_classes,
     """
     n_cent = len(cent_edges)
     n_sim = len(cent_Q0)
-    anchor = resolve_anchor(cent_anchor if cent_anchor is not None else 1.0, n_sim)
+    anchor = resolve_anchor(cent_anchor if cent_anchor is not None else 1.0, n_sim,
+                            sum_w=None if event_weights is None else float(np.sum(event_weights)))
 
     # Single-acceptance (no subevents): the gap subevents coincide, so the
     # η-gap estimator must reduce to v_n{2} — set the cross-term to the

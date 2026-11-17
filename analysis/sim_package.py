@@ -227,7 +227,7 @@ def _build_2d(arrays: dict, where: str) -> QVectorData:
     kw["nsamples"] = _per_event(kw["nsamples"], "nsamples", n_ev, where, positive=True)
     for nm in ("cent_mult", "event_weights"):
         if nm in kw:
-            kw[nm] = _per_event(kw[nm], nm, n_ev, where)
+            kw[nm] = _per_event(kw[nm], nm, n_ev, where, positive=(nm == "event_weights"))
     kw["rap_max"] = float(kw["rap_max"])
     _check(kw["rap_max"] > 0, where, "rap_max must be > 0")
     _moments(kw, ("sum_pt", "sum_pt2", "sum_mT"), (n_ev, n_sp, n_pt), where)
@@ -257,7 +257,7 @@ def _build_3d(arrays: dict, where: str, pdg=None) -> QGridData:
     kw["nsamples"] = _per_event(kw["nsamples"], "nsamples", n_ev, where, positive=True)
     kw["cent_mult"] = _per_event(kw["cent_mult"], "cent_mult", n_ev, where)
     if "event_weights" in kw:
-        kw["event_weights"] = _per_event(kw["event_weights"], "event_weights", n_ev, where)
+        kw["event_weights"] = _per_event(kw["event_weights"], "event_weights", n_ev, where, positive=True)
     _check(isinstance(kw["positives_only"], (bool, np.bool_)), where,
            "positives_only must be True or False (it sets the charge factor)")
     kw["positives_only"] = bool(kw["positives_only"])
@@ -289,6 +289,10 @@ def build_container(arrays: dict, kind: str, where: str = "adapter"):
             grids, combined=_build_3d(comb, f"{where} combined") if comb is not None else None)
         n = {g.n_events for g in grids.values()}
         _check(len(n) <= 1, where, f"species grids disagree on n_events: {sorted(n)}")
+        ews = [g.event_weights for g in list(grids.values()) + [obj.combined] if g is not None]
+        _check(all(e is None for e in ews) or all(
+            e is not None and np.array_equal(e, ews[0]) for e in ews), where,
+            "species grids (and the combined grid) must carry the same event_weights, or none")
     elif kind == "3d":
         obj = _build_3d(arrays, where)
     else:

@@ -115,7 +115,9 @@ def main():
                 print("anchor       none from the package (full set = 100%, unless "
                       "--cent-anchor)")
             else:
-                an = resolve_anchor(spec, obj.n_events)
+                ew = getattr(obj, "event_weights", None)
+                an = resolve_anchor(spec, obj.n_events,
+                                    sum_w=None if ew is None else float(np.sum(ew)))
                 print(f"anchor       {spec} -> f={an['f']:.4f}, events cover "
                       f"0-{an['anchor_cent']:.1f}% centrality")
     except (SimPackageError, OSError, KeyError, ValueError) as e:

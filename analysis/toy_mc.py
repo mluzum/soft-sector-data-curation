@@ -658,6 +658,7 @@ def _combined_raw_factory(data, cw, entry, n_cent, min_weight=0.01, groups=None)
     def _combined_raw(mask):
         dm = _mask_dict(data, mask)
         W = centrality.weights(edges, mask)
+        W_raw = centrality.weights(edges, mask, raw=True)      # minimum weights count simulated events
         # Excluded bins (total weight below min_weight) emit NaN of the SAME
         # length as a real output so the flat cent-major layout stays aligned
         # for _extract_with_ncent.  Learn that length from the first real bin.
@@ -665,7 +666,7 @@ def _combined_raw_factory(data, cw, entry, n_cent, min_weight=0.01, groups=None)
         ref_len = None
         for ic in range(n_cent):
             w = class_weights(W, ic, groups)
-            if np.sum(w) < min_weight:
+            if np.sum(class_weights(W_raw, ic, groups)) < min_weight:
                 out.append(None)  # placeholder; filled below
                 continue
             val = np.atleast_1d(entry['core_fn'](dm, w))
@@ -769,14 +770,17 @@ def evaluate(record, qv=None, grid=None, with_jackknife=True,
     else:
         raise ValueError("provide qv or grid")
 
+    # importance weights of the container's events (run_pipeline likewise)
+    ew = getattr(qv if qv is not None else grid_unselected, 'event_weights', None)
     anchor = resolve_anchor(cent_anchor if cent_anchor is not None else 1.0,
-                            n_events)
+                            n_events, sum_w=None if ew is None else float(np.sum(ew)))
     norm = params.get('cent_normalization')
     # experiment-defined normalization, as run_pipeline; the class edges and
     # the normalization are rebuilt in each jackknife replicate
     eff = float(norm.get('efficiency', 1.0)) if norm else 1.0
     from analysis.weights import estimator_weights
     centrality = estimator_weights(cent_method, mult, anchor, efficiency=eff, normalization=norm,
+                                   event_weights=ew,
                                    multiplicity_bins=params.get('cent_multiplicity_bins'))
     edges = params['cent_edges'] or [(0, 100)]
     # Listed order is preserved (helper sorts internally as needed).
@@ -790,7 +794,7 @@ def evaluate(record, qv=None, grid=None, with_jackknife=True,
         cw = (centrality, plan['sub_edges'])
         yd = prepare_yield(qv if qv is not None else grid_unselected, params, plan['weight'],
                            qv is not None)
-        data = {'obs': data, 'yield': yd}
+        data = {'obs': data, 'yield': yd, 'event_weights': ew}
         entry = dict(entry, core_fn=wrap_core(entry['core_fn'], min_weight, plan))
         groups = plan['groups']
     _combined_raw = _combined_raw_factory(data, cw, entry, n_cent, min_weight, groups)

@@ -193,6 +193,18 @@ non-positive `nsamples`.  `anchor` returns anything `resolve_anchor`
 accepts (the coverage of the loaded events in the total cross section;
 §"Centrality anchor" in AGENTS.md); `--cent-anchor` overrides it.
 
+`event_weights` (finite, > 0) are importance weights: a campaign that
+simulates each drawn event with a probability P gives it w = 1/P, and the
+pipeline weights every event average and the centrality percentiles with
+it (each event counts as w events).  Such an adapter's `anchor` gives the
+campaign's exact total as `{"n_ref": N}` (the collided draws in the whole
+cross section; the coverage is then sum w / N), and `covered_cent` when no
+events were accepted beyond that centrality.  Physically empty events
+(a collision without freeze-out) are returned as events without particles,
+with their weight; events that were lost (failed jobs) are not events, and
+their weight belongs to the survivors of their selection bin (iebe_music
+does this).  Species grids of a 3D collection carry the same weights.
+
 The adapter module is searched for in this order: `--adapter-path`,
 `$SIM_ADAPTERS_PATH`, `<package>/software/<adapter.repo>` (where the
 package's `setup.sh` clones it), `<adapter.repo>` next to this repository's

@@ -163,6 +163,8 @@ def test_build_container():
         ("species mismatch refused", lambda a: a.update(masses=[0.14])),
         ("zero nsamples refused", lambda a: a["nsamples"].__setitem__(0, 0)),
         ("bad sum_pt shape refused", lambda a: a.update(sum_pt=np.ones((4, 2)))),
+        ("zero event weight refused", lambda a: a.update(event_weights=np.array([1.0, 0.0, 2.0, 1.0]))),
+        ("NaN event weight refused", lambda a: a.update(event_weights=np.array([1.0, np.nan, 2.0, 1.0]))),
     ]:
         a = _arrays_2d()
         edit(a)
@@ -175,6 +177,9 @@ def test_build_container():
     m = build_container({"species": {"211": _arrays_3d(), 2212: _arrays_3d()},
                          "combined": _arrays_3d()}, "3d")
     check("3d multi-species", isinstance(m, MultiSpeciesGrid) and sorted(m.grids) == [211, 2212])
+    w1, w2 = dict(_arrays_3d(), event_weights=np.ones(3)), dict(_arrays_3d(), event_weights=np.full(3, 2.0))
+    check("3d species with different event weights refused",
+          raises(lambda: build_container({"species": {211: w1, 2212: w2}, "combined": None}, "3d")))
     check("unknown container kind", raises(lambda: build_container(_arrays_2d(), "4d")))
 
 
@@ -280,6 +285,92 @@ def test_pipeline_matches_legacy_2d():
                             cwd=ROOT, capture_output=True, text=True)
         check("missing --variant is a usage error",
               r3.returncode == 2 and "choose a variant" in r3.stderr)
+
+
+WEIGHTED_ADAPTER = '''
+import numpy as np
+from pathlib import Path
+API_VERSION = 1
+
+class Sim:
+    def __init__(self, root):
+        self.root = Path(root)
+    def design_points(self):
+        return [0]
+    def load(self, dp, variant):
+        d = np.load(self.root / "events.npz")
+        out = {"Qn": d["Qn"], "pt_bin_edges": d["edges"],
+               "masses": [0.13957, 0.49368, 0.93827, 1.18937, 1.32132],
+               "species_names": ["pion", "kaon", "proton", "Sigma", "Xi"],
+               "nsamples": d["nsamples"], "rap_max": 1.0}
+        if "event_weights" in d:
+            out["event_weights"] = d["event_weights"]
+        return out
+    def anchor(self, dp):
+        return {"n_ref": float(np.load(self.root / "events.npz")["n_ref"])}
+    def source_files(self, dp):
+        return [self.root / "events.npz"]
+
+def open_simulation(data_root, package_dir):
+    return Sim(data_root)
+'''
+
+
+def _weighted_package(tmp, name, qn, ns, n_ref, weights=None):
+    tmp = Path(tmp) / name
+    data, pkg = tmp / "data", tmp / "pkg"
+    data.mkdir(parents=True)
+    arrays = dict(Qn=qn, nsamples=ns, edges=PTCUTS, n_ref=n_ref)
+    if weights is not None:
+        arrays["event_weights"] = weights
+    np.savez(data / "events.npz", **arrays)
+    adir = pkg / "software" / "toy-adapters"
+    adir.mkdir(parents=True)
+    module = f"toy_adapter_{name}"
+    (adir / f"{module}.py").write_text(textwrap.dedent(WEIGHTED_ADAPTER))
+    (pkg / "simulation.yaml").write_text(MANIFEST.format(
+        data_root="../data", module=module, variants="null").replace("  options: {scale: 2.0}\n", ""))
+    (pkg / "design.csv").write_text("label,eta_over_s\ndesign_0000,0.1\n")
+    sys.modules.pop(module, None)
+    return pkg
+
+
+def test_pipeline_weighted_events():
+    """Importance weights through run_pipeline: events of integer weight k
+    give the values of a package holding k copies of each (the centrality
+    edges, the anchor and every event average count an event k times)."""
+    qn, ns = _jetscape_qns(n_ev=300, seed=8)
+    k = np.random.default_rng(4).integers(1, 4, len(ns)).astype(float)
+    idx = np.repeat(np.arange(len(ns)), k.astype(int))
+    with tempfile.TemporaryDirectory() as tmp:
+        pw = _weighted_package(tmp, "w", qn, ns, k.sum() / 0.9, weights=k)
+        pd = _weighted_package(tmp, "d", qn[idx], ns[idx], len(idx) / 0.9)
+        common = [sys.executable, "scripts/run_pipeline.py", "--type", "flow_vn", "particle_yields",
+                  "--reaction", "AU AU --> CHARGED X", "--energy", "200",
+                  "--value-type-regex", r"^(v2\{2\}|dNch_deta|dN_dy)$", "--design-point", "0",
+                  "--n-jk-blocks", "10"]
+        out = {}
+        for tag, pkg in (("w", pw), ("d", pd)):
+            out[tag] = Path(tmp) / f"{tag}.h5"
+            r = subprocess.run(common + ["--sim-package", str(pkg), "--output", str(out[tag])],
+                               cwd=ROOT, capture_output=True, text=True,
+                               env=dict(os.environ, OPENBLAS_NUM_THREADS="1"))
+            if r.returncode != 0:
+                print(r.stdout[-1500:], r.stderr[-1500:])
+            check(f"weighted pipeline run ({tag}) succeeds", r.returncode == 0)
+            if tag == "w":
+                check("run reports the event weights",
+                      "Event weights: sum" in r.stdout and "f=0.9000" in r.stdout)
+        if not all(p.is_file() for p in out.values()):
+            return
+        a, b = _h5_groups(out["w"]), _h5_groups(out["d"])
+        n = sum(len(g["values"]) for g in a.values())
+        check(f"same groups and labels ({n} observables)",
+              sorted(a) == sorted(b) and n > 0
+              and all(np.array_equal(a[g]["labels"], b[g]["labels"]) for g in a))
+        check("weight k = k copies: identical values to 1e-10",
+              all(np.allclose(a[g]["values"], b[g]["values"], rtol=1e-10, atol=1e-14, equal_nan=True)
+                  for g in a))
 
 
 def test_campaign_driver_and_collector():
@@ -401,6 +492,7 @@ if __name__ == "__main__":
     test_build_container()
     test_package()
     test_pipeline_matches_legacy_2d()
+    test_pipeline_weighted_events()
     test_campaign_driver_and_collector()
     failed = [n for n, ok in results if not ok]
     print(f"\n{len(results) - len(failed)}/{len(results)} passed")

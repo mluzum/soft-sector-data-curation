@@ -955,6 +955,13 @@ def main():
             group_event_weights = getattr(qv, 'event_weights', None)
             if group_event_weights is not None:
                 group_event_weights = np.asarray(group_event_weights, dtype=float)
+                if not (np.all(np.isfinite(group_event_weights)) and np.all(group_event_weights > 0)):
+                    print("  Event weights must be finite and positive -- skipping group")
+                    continue
+                ess = group_event_weights.sum() ** 2 / np.sum(group_event_weights ** 2)
+                print(f"  Event weights: sum {group_event_weights.sum():.6g} over {n_events} events "
+                      f"(effective size {ess:.0f}, weights {group_event_weights.min():.4g}-"
+                      f"{group_event_weights.max():.4g})")
 
             # Orientation of a 3D container (asymmetric systems): the
             # package's system entry, else sim_frames in the config.
@@ -975,7 +982,8 @@ def main():
             if anchor_spec is None:
                 anchor_spec = _get_cent_anchor(cfg, reaction, energy)
             anchor = resolve_anchor(
-                anchor_spec if anchor_spec is not None else 1.0, n_events)
+                anchor_spec if anchor_spec is not None else 1.0, n_events,
+                sum_w=None if group_event_weights is None else float(group_event_weights.sum()))
             print(f"  Centrality anchor: f={anchor['f']:.4f} "
                   f"(anchor_cent={anchor['anchor_cent']:.1f}%, "
                   f"n_ref={anchor['n_ref']:.0f})")
@@ -1049,7 +1057,8 @@ def main():
                     inner = _d.get('core_fn') or get_pipeline_entry(_d['dispatch_key'])['core_fn']
                     _d['core_fn'] = wrap_combined_core(inner, args.min_cent_weight,
                                                        params_list[-1]['cent_combine'])
-                    _d['data_dict'] = {'obs': _d['data_dict'], 'yield': rt['yield']}
+                    _d['data_dict'] = {'obs': _d['data_dict'], 'yield': rt['yield'],
+                                       'event_weights': group_event_weights}
                     _d['prep_key'] = None       # the wrapper is the record's own
                     _d['cent_w'] = rt['cent_w']
                     _d['cent'] = rt['cent']
@@ -1420,8 +1429,10 @@ def main():
                 # with enough weight.  A replicate rebuilds the weights from
                 # the events it keeps; a class it leaves without weight gives
                 # NaN (the full-sample estimate, replaced by the jackknife).
+                # Minimum weights count simulated events: the class weights
+                # without the importance weights (raw).
                 for qd in dd_list:
-                    W = qd['cent'][0].weights(qd['cent'][1])
+                    W = qd['cent'][0].weights(qd['cent'][1], raw=True)
                     qd['cent_inc'] = [ic for ic in range(qd['n_cent']) if
                                       class_weights(W, ic, qd.get('combine_groups')).sum()
                                       >= args.min_cent_weight]
@@ -1437,9 +1448,10 @@ def main():
                             core_fn = pipe['core_fn']
                         n_bins = qd.get('n_bins', 1)
                         W = qd['cent'][0].weights(qd['cent'][1], mask)
+                        W_raw = qd['cent'][0].weights(qd['cent'][1], mask, raw=True)
                         for ic in qd['cent_inc']:
                             w = class_weights(W, ic, qd.get('combine_groups'))
-                            if not w.sum() >= args.min_cent_weight:
+                            if not class_weights(W_raw, ic, qd.get('combine_groups')).sum() >= args.min_cent_weight:
                                 obs.extend([np.nan] * n_bins)
                                 continue
                             vals = core_fn(data_masked, w)

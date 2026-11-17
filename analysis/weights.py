@@ -28,13 +28,26 @@ def _parse_anchor_str(s):
     return d
 
 
-def resolve_anchor(spec, n_sim):
+def resolve_anchor(spec, n_sim, sum_w=None):
     """Resolve an anchor specification to canonical (f, n_ref, anchor_cent).
 
     The canonical internal quantity is the coverage fraction ``f``: the
     simulation covers the central fraction ``f`` of the total cross section.
     Derived quantities: ``n_ref = n_sim / f`` (reference total event count)
     and ``anchor_cent = 100 * f`` (centrality % at the sim's peripheral edge).
+
+    Weighted events (importance-sampled campaigns: each simulated event
+    stands for w = 1/P_accept drawn events): ``sum_w``, the sum of the
+    weights, takes the place of n_sim as the sample's event count.  Such a
+    campaign knows its total exactly (the collided draws of its first
+    phase, over the fraction of the cross section they cover), so its
+    adapter gives ``n_ref``, and the coverage is f = sum_w / n_ref (below 1
+    when the selection accepts no events beyond some centrality).  A
+    selection that accepts no events beyond a centrality states it as
+    ``covered_cent`` (percent): classes reaching beyond it get no weight
+    (CentralityWeights), since the events there do not exist and those
+    near it are missing their neighbours (classes within a few percent of
+    the cut are biased: initial- and final-state orderings differ).
 
     Accepted ``spec`` forms:
       * float ``v`` in (0, 1]            -> coverage fraction ``f = v``
@@ -44,22 +57,26 @@ def resolve_anchor(spec, n_sim):
           - ``n_ref``       : reference total event count
           - ``sigma_tot`` + ``b_max``      : uniform-b sampling, f = pi*b_max^2/sigma_tot
           - ``sigma_tot`` + ``sigma_eff``  : f = sigma_eff/sigma_tot
+          - with any of these, optionally ``covered_cent`` (above)
 
     Parameters
     ----------
     spec : float | dict | str
     n_sim : int — number of events in the loaded simulation set (used as the
             percentile denominator when ``f`` is given).
+    sum_w : float or None — sum of the per-event weights (None: unweighted).
 
     Returns
     -------
-    dict with keys ``f``, ``n_ref``, ``anchor_cent``.
+    dict with keys ``f``, ``n_ref``, ``anchor_cent`` (and ``covered_cent``
+    when the spec gives it).
     """
     if isinstance(spec, str):
         spec = _parse_anchor_str(spec)
 
     f = None
     n_ref = None
+    covered = None
 
     if isinstance(spec, (int, float)):
         v = float(spec)
@@ -71,6 +88,9 @@ def resolve_anchor(spec, n_sim):
             n_ref = v
     elif isinstance(spec, dict):
         d = {k.lower(): float(v) for k, v in spec.items()}
+        covered = d.pop('covered_cent', None)
+        if covered is not None and not 0 < covered <= 100:
+            raise ValueError(f"covered_cent must be in (0, 100], got {covered}")
         if 'f' in d:
             f = d['f']
         elif 'n_ref' in d or 'nref' in d:
@@ -93,27 +113,33 @@ def resolve_anchor(spec, n_sim):
     else:
         raise ValueError(f"unsupported anchor spec type: {type(spec)!r}")
 
-    # Normalise to (f, n_ref).
+    # Normalise to (f, n_ref).  W: the sample's event count (sum of weights).
+    W = float(n_sim) if sum_w is None else float(sum_w)
+    if not W > 0:
+        raise ValueError(f"sum of event weights must be positive, got {W}")
     if f is None:
         n_ref = float(n_ref)
         if n_ref <= 0:
             raise ValueError(f"n_ref must be positive, got {n_ref}")
-        f = n_sim / n_ref
+        f = W / n_ref
     else:
         f = float(f)
         if f <= 0:
             raise ValueError(f"coverage fraction f must be > 0, got {f}")
-        n_ref = n_sim / f
+        n_ref = W / f
 
     # The simulation cannot cover more than the full cross section.
     if f > 1.0:
         warnings.warn(
             f"anchor implies f={f:.4f} > 1 (sim exceeds full cross section); "
-            f"clamping f=1, n_ref=n_sim={n_sim}", stacklevel=2)
+            f"clamping f=1, n_ref=n_sim={W:g}", stacklevel=2)
         f = 1.0
-        n_ref = float(n_sim)
+        n_ref = W
 
-    return {'f': f, 'n_ref': n_ref, 'anchor_cent': 100.0 * f}
+    out = {'f': f, 'n_ref': n_ref, 'anchor_cent': 100.0 * f}
+    if covered is not None and covered < 100.0:
+        out['covered_cent'] = covered
+    return out
 
 
 def threshold_anchor(event_var, method, threshold, fraction_above, efficiency=1.0,
@@ -137,6 +163,9 @@ def threshold_anchor(event_var, method, threshold, fraction_above, efficiency=1.
     was clamped to 1, which replaced the normalization by n_ref = n_sim at
     low-multiplicity design points: <N> 40-50% off by up to 80%, zr96c2.)
 
+    With event weights (importance sampling) p is the weighted mean and the
+    sample's count is the sum of the weights: n_ref = sum w / f.
+
     Returns dict f, n_ref, anchor_cent (= 100 f, may exceed 100), p_above.
     """
     x = float(efficiency) * np.asarray(event_var, dtype=float)
@@ -149,7 +178,8 @@ def threshold_anchor(event_var, method, threshold, fraction_above, efficiency=1.
     if p <= 0:
         raise ValueError(f'no simulated event reaches the estimator threshold {threshold}')
     f = float(fraction_above) / p
-    return {'f': f, 'n_ref': len(x) / f, 'anchor_cent': 100.0 * f, 'p_above': p}
+    n_sample = len(x) if event_weights is None else float(np.sum(w))
+    return {'f': f, 'n_ref': n_sample / f, 'anchor_cent': 100.0 * f, 'p_above': p}
 
 
 def cent_bins_partial(cent_edges, anchor_cent):
@@ -217,7 +247,7 @@ def direct_cent_weights(event_var, cent_edges):
 
 
 def cent_weights(method, event_var, cent_edges, n_ref=None, efficiency=1.0,
-                 anchor_cent=100.0, *, _edges=None, _hints=None):
+                 anchor_cent=100.0, *, event_weights=None, _edges=None, _hints=None):
     """Centrality weights robust to class listing order.
 
     Curated ``centrality.classes`` follow HEPData table order, which is
@@ -234,6 +264,9 @@ def cent_weights(method, event_var, cent_edges, n_ref=None, efficiency=1.0,
     cent_edges : list[(lo, hi)] — centrality bins in listed order
     n_ref : reference total for simple percentiles (default n_events)
     efficiency, anchor_cent : poisson options
+    event_weights : (n_events,) float or None — importance weights: the
+        percentile edges count each event w times (the returned weights are
+        class memberships, not yet multiplied by w: combine_weights)
     _edges, _hints : a sample's _PoissonEdges and a larger sample's
         crossings (CentralityWeights)
     """
@@ -258,14 +291,14 @@ def cent_weights(method, event_var, cent_edges, n_ref=None, efficiency=1.0,
                                  + [float(hi) for (_, hi) in asc])
             w_asc = direct_cent_weights_percentile(
                 event_var, edges_pct,
-                n_ref=n_ref if n_ref is not None else n)
+                n_ref=n_ref if n_ref is not None else n, event_weights=event_weights)
         else:
             n_ref_eff = n_ref if n_ref is not None else n
             cols = []
             for lo, hi in asc:
                 one = direct_cent_weights_percentile(
                     event_var, np.array([float(lo), float(hi)]),
-                    n_ref=n_ref_eff)
+                    n_ref=n_ref_eff, event_weights=event_weights)
                 cols.append(one[:, 0])
             w_asc = np.column_stack(cols)
     elif method == "poisson":
@@ -273,13 +306,13 @@ def cent_weights(method, event_var, cent_edges, n_ref=None, efficiency=1.0,
         # to its own percentile range, so disjoint classes are handled.
         w_asc = poisson_cdf_cent_weights(
             event_var, asc, efficiency=efficiency, anchor_cent=anchor_cent,
-            _edges=_edges, _hints=_hints)
+            event_weights=event_weights, _edges=_edges, _hints=_hints)
     else:
         raise ValueError(f"unknown cent method {method!r}")
     return w_asc[:, inv]
 
 
-def direct_cent_weights_percentile(event_var, cent_pct_edges, n_ref=None):
+def direct_cent_weights_percentile(event_var, cent_pct_edges, n_ref=None, event_weights=None):
     """One-hot centrality bins from a sorted event variable (percentile edges).
 
     The percentile axis is anchored to a reference total event count ``n_ref``.
@@ -295,13 +328,28 @@ def direct_cent_weights_percentile(event_var, cent_pct_edges, n_ref=None):
     event_var : (n_events,) float — quantity used for ranking (e.g. multiplicity)
     cent_pct_edges : (m+1,) float — percentile boundaries in [0, 100]
     n_ref : float or None — reference total event count (default = n_events)
+    event_weights : (n_events,) float or None — importance weights: event k
+        (in descending order) occupies [C_{k-1}, C_k) of the count axis,
+        C the cumulative weight, and its membership of a class is the
+        fraction of that interval inside the class (an event across an
+        edge is shared).  n_ref is then in the same units (sum of weights).
     """
     sorted_idx = np.argsort(-event_var)
     n = len(event_var)
     if n_ref is None:
-        n_ref = n
+        n_ref = n if event_weights is None else float(np.sum(event_weights))
     n_ref = float(n_ref)
     weights = np.zeros((n, len(cent_pct_edges) - 1), dtype=np.float64)
+    if event_weights is not None:
+        w = np.asarray(event_weights, dtype=float)[sorted_idx]
+        upper = np.cumsum(w)
+        lower = upper - w
+        for i in range(len(cent_pct_edges) - 1):
+            L = cent_pct_edges[i] / 100 * n_ref
+            H = cent_pct_edges[i + 1] / 100 * n_ref
+            inside = np.clip(np.minimum(upper, H) - np.maximum(lower, L), 0.0, None)
+            weights[sorted_idx, i] = inside / w
+        return weights
     for i in range(len(cent_pct_edges) - 1):
         lo = int(cent_pct_edges[i] / 100 * n_ref)
         hi = int(cent_pct_edges[i + 1] / 100 * n_ref)
@@ -349,7 +397,7 @@ def _find_cdf_crossing(Q0, target, M_min=0, M_max=100000):
 
 
 def poisson_cdf_cent_weights(Q0ch, centbins, efficiency=1.0, anchor_cent=100.0, *,
-                             _edges=None, _hints=None):
+                             event_weights=None, _edges=None, _hints=None):
     """Poisson-fluctuation centrality weights via CDF inversion.
 
     Each hydro event's smooth charged multiplicity Q0ch is interpreted as
@@ -378,6 +426,12 @@ def poisson_cdf_cent_weights(Q0ch, centbins, efficiency=1.0, anchor_cent=100.0, 
     event weight 1 and the most peripheral class of a list collected the
     events beyond it (found by the isobar analysis, zr96c2 dp0001).
 
+    With importance weights the mean over events is weighted, mean_i ->
+    sum_i w_i P(N_i <= M) / sum_i w_i, and f = sum w / n_ref
+    (resolve_anchor), so the fraction of the total above M is sum_i w_i
+    P(N_i > M) / n_ref: each event counts as the w drawn events it stands
+    for.
+
     Parameters
     ----------
     Q0ch: (n_events,) array -- smooth charged multiplicity per event
@@ -385,6 +439,7 @@ def poisson_cdf_cent_weights(Q0ch, centbins, efficiency=1.0, anchor_cent=100.0, 
     efficiency: float -- effective Poisson mean = efficiency x Q0ch
     anchor_cent: float -- upper percentile of the sim-covered cross section
                 (default 100 = full set)
+    event_weights: (n_events,) float or None -- importance weights (above)
 
     Returns: (n_events, n_cent_bins) float -- probabilities per class.
     """
@@ -395,7 +450,7 @@ def poisson_cdf_cent_weights(Q0ch, centbins, efficiency=1.0, anchor_cent=100.0, 
     # the simulation's most peripheral events then lie beyond 100%.
     if not f > 0.0:
         raise ValueError(f"anchor_cent={anchor_cent} must be positive")
-    pe = _edges if _edges is not None else _PoissonEdges(efficiency * np.asarray(Q0ch))
+    pe = _edges if _edges is not None else _PoissonEdges(efficiency * np.asarray(Q0ch), event_weights)
     weights = np.zeros((pe.nev, len(centbins)))
 
     def sim_target(frac):
@@ -417,11 +472,17 @@ class _PoissonEdges:
     once, whatever classes share it.  ``crossings`` records the count found
     for each edge percentile; a smaller sample (a jackknife replicate)
     starts its search there (``hints``) instead of bisecting [0, max]: the
-    same count, since the mean CDF is monotone in the count."""
+    same count, since the mean CDF is monotone in the count.  With importance
+    weights ``w`` every mean over events is weighted."""
 
-    def __init__(self, x):
+    def __init__(self, x, w=None):
         self.x = np.asarray(x, dtype=float)
         self.nev = len(self.x)
+        self.w = None if w is None else np.asarray(w, dtype=float)
+        if self.w is not None:
+            if self.w.shape != self.x.shape:
+                raise ValueError(f"event weights {self.w.shape} for {self.x.shape} events")
+            self.wsum = float(np.sum(self.w))
         m = np.max(self.x) if self.nev else 0.0
         self.max_search = int(m + 4.0 * np.sqrt(m)) + 1
         self.crossings = {}
@@ -437,8 +498,11 @@ class _PoissonEdges:
         v = self._mean.get(M)
         if v is None:
             c = self._arr[M] = scipy.stats.poisson.cdf(M, self.x)    # kept for this edge's below()
-            v = self._mean[M] = np.mean(c)
+            v = self._mean[M] = self._avg(c)
         return v
+
+    def _avg(self, c):
+        return np.mean(c) if self.w is None else float(np.dot(self.w, c)) / self.wsum
 
     def _bisect(self, left, right, target):
         while left < right:
@@ -488,7 +552,7 @@ class _PoissonEdges:
             if pct is not None:
                 self.crossings[pct] = M
             c_hi, c_lo = self.cdf(M), self.cdf(M - 1)
-            m_hi, m_lo = c_hi.mean(), c_lo.mean()
+            m_hi, m_lo = self._avg(c_hi), self._avg(c_lo)
             phi = (target - m_lo) / (m_hi - m_lo) if m_hi > m_lo else 1.0
             b = self._below[target] = c_lo + min(max(phi, 0.0), 1.0) * (c_hi - c_lo)
             self._arr = {}
@@ -511,7 +575,15 @@ class CentralityWeights:
     tests/test_jackknife_centrality.py).
 
     ``weights(edges, mask)``: (n_kept, n_classes), the class weights times
-    the event weights (``raw=True``: without them).  ``mask`` None, or one
+    the event weights (``raw=True``: without them).
+
+    Importance weights (``event_weights``, w = 1/P_accept) also set the
+    percentiles: each event counts as w events in the edges and in a
+    normalization, the coverage is f = sum w / n_ref, and a replicate keeps
+    the share of n_ref of the events it keeps (deleting a block of event
+    ids deletes that share of the draws; the selection does not depend on
+    the id).  An anchor's ``covered_cent`` (a selection that accepts no
+    events beyond it) empties every class reaching beyond it.  ``mask`` None, or one
     keeping every event, gives the full sample's (kept); another mask's are
     kept until the next mask, so the records of one replicate share them.
     The arrays are read-only: they are shared.
@@ -524,12 +596,14 @@ class CentralityWeights:
         self.method = method
         self.x = np.asarray(event_var, dtype=float)
         self.n = len(self.x)
-        anchor = anchor or {'f': 1.0, 'n_ref': float(self.n)}
+        self.event_weights = None if event_weights is None else np.asarray(event_weights, dtype=float)
+        anchor = anchor or {'f': 1.0, 'n_ref': float(self.n if self.event_weights is None
+                                                     else np.sum(self.event_weights))}
         self.f, self.n_ref = float(anchor['f']), float(anchor['n_ref'])
+        self.covered = anchor.get('covered_cent')
         self.efficiency = float(efficiency)
         self.normalization = None if not normalization else (
             float(normalization['estimator_threshold']), float(normalization['fraction_above']))
-        self.event_weights = None if event_weights is None else np.asarray(event_weights, dtype=float)
         self._full = {}
         self._mask, self._rep = None, {}
         self._hints = {}
@@ -550,12 +624,13 @@ class CentralityWeights:
         memo, m = self._state(mask)
         if 'anchor' not in memo:
             x = self.x if m is None else self.x[m]
+            ew = None if self.event_weights is None else (
+                self.event_weights if m is None else self.event_weights[m])
             if self.normalization is None:
                 n_ref = self.n_ref if m is None else self.n_ref * (len(x) / self.n)
-                memo['anchor'] = {'f': self.f, 'n_ref': n_ref, 'anchor_cent': 100.0 * self.f}
+                f = self.f if ew is None or m is None else float(np.sum(ew)) / n_ref
+                memo['anchor'] = {'f': f, 'n_ref': n_ref, 'anchor_cent': 100.0 * f}
             else:
-                ew = None if self.event_weights is None else (
-                    self.event_weights if m is None else self.event_weights[m])
                 thr, frac = self.normalization
                 memo['anchor'] = threshold_anchor(x, self.method, thr, frac,
                                                   efficiency=self.efficiency, event_weights=ew)
@@ -566,21 +641,26 @@ class CentralityWeights:
         key = tuple((float(lo), float(hi)) for lo, hi in edges)
         if ('raw', key) not in memo:
             x = self.x if m is None else self.x[m]
+            ew = None if self.event_weights is None else (
+                self.event_weights if m is None else self.event_weights[m])
             a = self.anchor(mask)
             if self.method == 'simple':
-                W = cent_weights('simple', x, list(key), n_ref=a['n_ref'])
+                W = cent_weights('simple', x, list(key), n_ref=a['n_ref'], event_weights=ew)
             else:
                 if 'edges' not in memo:
-                    memo['edges'] = _PoissonEdges(self.efficiency * x)
+                    memo['edges'] = _PoissonEdges(self.efficiency * x, ew)
                 W = cent_weights('poisson', x, list(key), efficiency=self.efficiency,
                                  anchor_cent=a['anchor_cent'], _edges=memo['edges'],
                                  _hints=None if m is None else self._hints)
                 if m is None:
                     self._hints.update(memo['edges'].crossings)
+            if self.covered is not None:
+                beyond = [i for i, (lo, hi) in enumerate(key) if hi > self.covered + 1e-9]
+                if beyond:
+                    W = np.array(W)
+                    W[:, beyond] = 0.0
             W.setflags(write=False)
             memo[('raw', key)] = W
-            ew = None if self.event_weights is None else (
-                self.event_weights if m is None else self.event_weights[m])
             C = combine_weights(W, ew)
             if C is not W:
                 C.setflags(write=False)
