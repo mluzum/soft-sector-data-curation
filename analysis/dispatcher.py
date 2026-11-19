@@ -514,6 +514,14 @@ COMBINATION_ENTRY = {
 }
 
 
+MULTI_CUMULANT_ENTRY = {
+    'compute': 'multi_cumulant',
+    'requires': [],
+    'description': 'multi-particle cumulants (standard or three-subevent method), normalized by two-subevent '
+                   'c_n{2}, at fixed reference multiplicity (analysis.multi_cumulants)',
+}
+
+
 def combination_terms(record):
     """The per-order sub-records of a ``cumulant_combination`` record.
 
@@ -620,7 +628,7 @@ def resolve(record):
     # Refuse a ratio of flow coefficients rather than return a coefficient
     # that the record does not claim.  A silent substitution here is worse
     # than a visible failure: the value is plausible and the label is wrong.
-    if is_coefficient_ratio(record.get('value_type')):
+    if is_coefficient_ratio(record.get('value_type')) and record.get('cumulant_method') is None:
         raise ValueError(
             f"value_type {record.get('value_type')!r} is a ratio/power of "
             f"flow coefficients, which is not itself a coefficient; no v_n "
@@ -683,6 +691,15 @@ def resolve(record):
         raise ValueError(
             f"particle_spectra value_type {record.get('value_type')!r}: the pipeline computes "
             f"'invariant_yield' (1/(2 pi pT) d2N/(dpT dy)) or 'dN_dpT_dy'")
+
+    # Multi-particle cumulants with the standard or three-subevent method,
+    # normalized by two-subevent c_n{2}, in narrow reference event classes
+    # (ATLAS JHEP 01 (2020) 051; analysis.multi_cumulants): nc_n{4},
+    # v_n{4}/v_n{2}, sc, nsc, ac, nac of one method.
+    if record.get("cumulant_method") is not None:
+        from analysis import multi_cumulants
+        multi_cumulants.check_record(record)
+        return dict(MULTI_CUMULANT_ENTRY)
 
     # Directed flow.  Rapidity-odd v1 needs an eta-odd reference (windows at
     # eta < 0 weighted -1) and a sign convention; the even-harmonic
@@ -1225,6 +1242,19 @@ def extract_measurement_params(exp_rec):
         # symmetric cumulants: NSC (divided by <<2>>_m <<2>>_n) and the eta
         # gap of those two-particle terms
         'normalized': bool(exp_rec.get('normalized')),
+        # multi-particle cumulants (analysis.multi_cumulants): the method, the
+        # quantity, the order and (ratio) the denominator's order;
+        # correlation_type for flow_harmonic_correlations records
+        'cumulant_method': exp_rec.get('cumulant_method'),
+        'cumulant_quantity': exp_rec.get('cumulant_quantity'),
+        'cumulant_order': exp_rec.get('cumulant_order'),
+        'ratio_order': exp_rec.get('ratio_order'),
+        'normalization_subevents': {
+            lab: {'eta': _kr_eta((v or {}).get('kinematic_range') or top_kr),
+                  'pT': _kr_pT((v or {}).get('kinematic_range') or top_kr)}
+            for lab, v in (exp_rec.get('normalization_subevents') or {}).items()},
+        'correlation_type': (exp_rec.get('correlation_type')
+                             if exp_rec.get('observable_type') == 'flow_harmonic_correlations' else None),
         'normalization_eta_gap': exp_rec.get('normalization_eta_gap'),
         # mode coupling: chi's denominator, <v_n^2 v_m^2> (default) or
         # 'factorized' <v_n^2><v_m^2> (STAR's differential chi_{5,23})

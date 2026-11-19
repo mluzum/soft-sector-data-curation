@@ -1,0 +1,8475 @@
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure10_panel1_pt0.yaml
+dv_index: 0
+hepdata_table_label: nsc_2_3{4}, standard, 0.5<pT<5.0 GeV (Page 18)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+dimensionality: integrated
+value_type: nsc_2_3{4}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 3
+observable: nsc_2_3
+cumulant_method: standard
+normalized: true
+normalization_subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 0.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 0.5
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 18. nsc_{2,3}{4} = sc / (c_2{2} c_3{2}) (Eq. 10);
+    the standard method (|eta| < 2.5); charged particles 0.5 < pT < 5 GeV; FCal Sigma E_T centrality. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure10_panel1_pt1.yaml
+dv_index: 0
+hepdata_table_label: nsc_2_3{4}, standard, 1.0<pT<5.0 GeV (Page 18)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 1.0
+    max: 5.0
+dimensionality: integrated
+value_type: nsc_2_3{4}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 3
+observable: nsc_2_3
+cumulant_method: standard
+normalized: true
+normalization_subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 1.0
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 1.0
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 18. nsc_{2,3}{4} = sc / (c_2{2} c_3{2}) (Eq. 10);
+    the standard method (|eta| < 2.5); charged particles 1 < pT < 5 GeV; FCal Sigma E_T centrality. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure10_panel1_pt2.yaml
+dv_index: 0
+hepdata_table_label: nsc_2_3{4}, standard, 1.5<pT<5.0 GeV (Page 18)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 1.5
+    max: 5.0
+dimensionality: integrated
+value_type: nsc_2_3{4}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 3
+observable: nsc_2_3
+cumulant_method: standard
+normalized: true
+normalization_subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 1.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 1.5
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 18. nsc_{2,3}{4} = sc / (c_2{2} c_3{2}) (Eq. 10);
+    the standard method (|eta| < 2.5); charged particles 1.5 < pT < 5 GeV; FCal Sigma E_T centrality. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure10_panel1_pt3.yaml
+dv_index: 0
+hepdata_table_label: nsc_2_3{4}, standard, 2.0<pT<5.0 GeV (Page 18)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 2.0
+    max: 5.0
+dimensionality: integrated
+value_type: nsc_2_3{4}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 3
+observable: nsc_2_3
+cumulant_method: standard
+normalized: true
+normalization_subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 2.0
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 2.0
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 18. nsc_{2,3}{4} = sc / (c_2{2} c_3{2}) (Eq. 10);
+    the standard method (|eta| < 2.5); charged particles 2 < pT < 5 GeV; FCal Sigma E_T centrality. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure10_panel2_pt0.yaml
+dv_index: 0
+hepdata_table_label: nsc_2_3{4}, 3-subevent, 0.5<pT<5.0 GeV (Page 18)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+dimensionality: integrated
+value_type: nsc_2_3{4}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 3
+observable: nsc_2_3
+cumulant_method: three_subevent
+normalized: true
+particles: AABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 0.5
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.8333
+        max: 0.8333
+      pT:
+        min: 0.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 0.5
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 18. nsc_{2,3}{4} = sc / (c_2{2} c_3{2}) (Eq. 10);
+    the three-subevent method (a, b, c = A, B, C; the mean of the three interchanged measurements); charged particles 0.5
+    < pT < 5 GeV; FCal Sigma E_T centrality. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure10_panel2_pt1.yaml
+dv_index: 0
+hepdata_table_label: nsc_2_3{4}, 3-subevent, 1.0<pT<5.0 GeV (Page 18)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 1.0
+    max: 5.0
+dimensionality: integrated
+value_type: nsc_2_3{4}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 3
+observable: nsc_2_3
+cumulant_method: three_subevent
+normalized: true
+particles: AABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 1.0
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.8333
+        max: 0.8333
+      pT:
+        min: 1.0
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 1.0
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 18. nsc_{2,3}{4} = sc / (c_2{2} c_3{2}) (Eq. 10);
+    the three-subevent method (a, b, c = A, B, C; the mean of the three interchanged measurements); charged particles 1 <
+    pT < 5 GeV; FCal Sigma E_T centrality. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure10_panel2_pt2.yaml
+dv_index: 0
+hepdata_table_label: nsc_2_3{4}, 3-subevent, 1.5<pT<5.0 GeV (Page 18)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 1.5
+    max: 5.0
+dimensionality: integrated
+value_type: nsc_2_3{4}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 3
+observable: nsc_2_3
+cumulant_method: three_subevent
+normalized: true
+particles: AABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 1.5
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.8333
+        max: 0.8333
+      pT:
+        min: 1.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 1.5
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 18. nsc_{2,3}{4} = sc / (c_2{2} c_3{2}) (Eq. 10);
+    the three-subevent method (a, b, c = A, B, C; the mean of the three interchanged measurements); charged particles 1.5
+    < pT < 5 GeV; FCal Sigma E_T centrality. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure10_panel2_pt3.yaml
+dv_index: 0
+hepdata_table_label: nsc_2_3{4}, 3-subevent, 2.0<pT<5.0 GeV (Page 18)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 2.0
+    max: 5.0
+dimensionality: integrated
+value_type: nsc_2_3{4}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 3
+observable: nsc_2_3
+cumulant_method: three_subevent
+normalized: true
+particles: AABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 2.0
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.8333
+        max: 0.8333
+      pT:
+        min: 2.0
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 2.0
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 18. nsc_{2,3}{4} = sc / (c_2{2} c_3{2}) (Eq. 10);
+    the three-subevent method (a, b, c = A, B, C; the mean of the three interchanged measurements); charged particles 2 <
+    pT < 5 GeV; FCal Sigma E_T centrality. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure11_panel1_pt0.yaml
+dv_index: 0
+hepdata_table_label: nsc_2_4{4}, standard, 0.5<pT<5.0 GeV (Page 19)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+dimensionality: integrated
+value_type: nsc_2_4{4}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 4
+observable: nsc_2_4
+cumulant_method: standard
+normalized: true
+normalization_subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 0.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 0.5
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 19. nsc_{2,4}{4} = sc / (c_2{2} c_4{2}) (Eq. 10);
+    the standard method (|eta| < 2.5); charged particles 0.5 < pT < 5 GeV; FCal Sigma E_T centrality. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure11_panel1_pt1.yaml
+dv_index: 0
+hepdata_table_label: nsc_2_4{4}, standard, 1.0<pT<5.0 GeV (Page 19)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 1.0
+    max: 5.0
+dimensionality: integrated
+value_type: nsc_2_4{4}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 4
+observable: nsc_2_4
+cumulant_method: standard
+normalized: true
+normalization_subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 1.0
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 1.0
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 19. nsc_{2,4}{4} = sc / (c_2{2} c_4{2}) (Eq. 10);
+    the standard method (|eta| < 2.5); charged particles 1 < pT < 5 GeV; FCal Sigma E_T centrality. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure11_panel1_pt2.yaml
+dv_index: 0
+hepdata_table_label: nsc_2_4{4}, standard, 1.5<pT<5.0 GeV (Page 19)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 1.5
+    max: 5.0
+dimensionality: integrated
+value_type: nsc_2_4{4}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 4
+observable: nsc_2_4
+cumulant_method: standard
+normalized: true
+normalization_subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 1.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 1.5
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 19. nsc_{2,4}{4} = sc / (c_2{2} c_4{2}) (Eq. 10);
+    the standard method (|eta| < 2.5); charged particles 1.5 < pT < 5 GeV; FCal Sigma E_T centrality. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure11_panel1_pt3.yaml
+dv_index: 0
+hepdata_table_label: nsc_2_4{4}, standard, 2.0<pT<5.0 GeV (Page 19)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 2.0
+    max: 5.0
+dimensionality: integrated
+value_type: nsc_2_4{4}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 4
+observable: nsc_2_4
+cumulant_method: standard
+normalized: true
+normalization_subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 2.0
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 2.0
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 19. nsc_{2,4}{4} = sc / (c_2{2} c_4{2}) (Eq. 10);
+    the standard method (|eta| < 2.5); charged particles 2 < pT < 5 GeV; FCal Sigma E_T centrality. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure11_panel2_pt0.yaml
+dv_index: 0
+hepdata_table_label: nsc_2_4{4}, 3-subevent, 0.5<pT<5.0 GeV (Page 19)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+dimensionality: integrated
+value_type: nsc_2_4{4}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 4
+observable: nsc_2_4
+cumulant_method: three_subevent
+normalized: true
+particles: AABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 0.5
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.8333
+        max: 0.8333
+      pT:
+        min: 0.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 0.5
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 19. nsc_{2,4}{4} = sc / (c_2{2} c_4{2}) (Eq. 10);
+    the three-subevent method (a, b, c = A, B, C; the mean of the three interchanged measurements); charged particles 0.5
+    < pT < 5 GeV; FCal Sigma E_T centrality. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure11_panel2_pt1.yaml
+dv_index: 0
+hepdata_table_label: nsc_2_4{4}, 3-subevent, 1.0<pT<5.0 GeV (Page 19)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 1.0
+    max: 5.0
+dimensionality: integrated
+value_type: nsc_2_4{4}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 4
+observable: nsc_2_4
+cumulant_method: three_subevent
+normalized: true
+particles: AABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 1.0
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.8333
+        max: 0.8333
+      pT:
+        min: 1.0
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 1.0
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 19. nsc_{2,4}{4} = sc / (c_2{2} c_4{2}) (Eq. 10);
+    the three-subevent method (a, b, c = A, B, C; the mean of the three interchanged measurements); charged particles 1 <
+    pT < 5 GeV; FCal Sigma E_T centrality. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure11_panel2_pt2.yaml
+dv_index: 0
+hepdata_table_label: nsc_2_4{4}, 3-subevent, 1.5<pT<5.0 GeV (Page 19)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 1.5
+    max: 5.0
+dimensionality: integrated
+value_type: nsc_2_4{4}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 4
+observable: nsc_2_4
+cumulant_method: three_subevent
+normalized: true
+particles: AABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 1.5
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.8333
+        max: 0.8333
+      pT:
+        min: 1.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 1.5
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 19. nsc_{2,4}{4} = sc / (c_2{2} c_4{2}) (Eq. 10);
+    the three-subevent method (a, b, c = A, B, C; the mean of the three interchanged measurements); charged particles 1.5
+    < pT < 5 GeV; FCal Sigma E_T centrality. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure11_panel2_pt3.yaml
+dv_index: 0
+hepdata_table_label: nsc_2_4{4}, 3-subevent, 2.0<pT<5.0 GeV (Page 19)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 2.0
+    max: 5.0
+dimensionality: integrated
+value_type: nsc_2_4{4}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 4
+observable: nsc_2_4
+cumulant_method: three_subevent
+normalized: true
+particles: AABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 2.0
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.8333
+        max: 0.8333
+      pT:
+        min: 2.0
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 2.0
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 19. nsc_{2,4}{4} = sc / (c_2{2} c_4{2}) (Eq. 10);
+    the three-subevent method (a, b, c = A, B, C; the mean of the three interchanged measurements); charged particles 2 <
+    pT < 5 GeV; FCal Sigma E_T centrality. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure12_panel1_pt0.yaml
+dv_index: 0
+hepdata_table_label: nac_2{3}, standard, 0.5<pT<5.0 GeV (Page 20)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+dimensionality: integrated
+value_type: nac_2{3}
+observable_type: flow_harmonic_correlations
+correlation_type: asymmetric_cumulant
+harmonics:
+- 2
+observable: nac_2
+cumulant_method: standard
+normalized: true
+normalization_subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 0.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 0.5
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 20. nac_2{3} = ac / sqrt((2 c_2{2}^2 + c_2{4}) c_4{2})
+    (Eq. 11); the standard method (|eta| < 2.5); charged particles 0.5 < pT < 5 GeV; FCal Sigma E_T centrality. Errors: stat
+    and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure12_panel1_pt1.yaml
+dv_index: 0
+hepdata_table_label: nac_2{3}, standard, 1.0<pT<5.0 GeV (Page 20)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 1.0
+    max: 5.0
+dimensionality: integrated
+value_type: nac_2{3}
+observable_type: flow_harmonic_correlations
+correlation_type: asymmetric_cumulant
+harmonics:
+- 2
+observable: nac_2
+cumulant_method: standard
+normalized: true
+normalization_subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 1.0
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 1.0
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 20. nac_2{3} = ac / sqrt((2 c_2{2}^2 + c_2{4}) c_4{2})
+    (Eq. 11); the standard method (|eta| < 2.5); charged particles 1 < pT < 5 GeV; FCal Sigma E_T centrality. Errors: stat
+    and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure12_panel1_pt2.yaml
+dv_index: 0
+hepdata_table_label: nac_2{3}, standard, 1.5<pT<5.0 GeV (Page 20)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 1.5
+    max: 5.0
+dimensionality: integrated
+value_type: nac_2{3}
+observable_type: flow_harmonic_correlations
+correlation_type: asymmetric_cumulant
+harmonics:
+- 2
+observable: nac_2
+cumulant_method: standard
+normalized: true
+normalization_subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 1.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 1.5
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 20. nac_2{3} = ac / sqrt((2 c_2{2}^2 + c_2{4}) c_4{2})
+    (Eq. 11); the standard method (|eta| < 2.5); charged particles 1.5 < pT < 5 GeV; FCal Sigma E_T centrality. Errors: stat
+    and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure12_panel1_pt3.yaml
+dv_index: 0
+hepdata_table_label: nac_2{3}, standard, 2.0<pT<5.0 GeV (Page 20)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 2.0
+    max: 5.0
+dimensionality: integrated
+value_type: nac_2{3}
+observable_type: flow_harmonic_correlations
+correlation_type: asymmetric_cumulant
+harmonics:
+- 2
+observable: nac_2
+cumulant_method: standard
+normalized: true
+normalization_subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 2.0
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 2.0
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 20. nac_2{3} = ac / sqrt((2 c_2{2}^2 + c_2{4}) c_4{2})
+    (Eq. 11); the standard method (|eta| < 2.5); charged particles 2 < pT < 5 GeV; FCal Sigma E_T centrality. Errors: stat
+    and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure12_panel2_pt0.yaml
+dv_index: 0
+hepdata_table_label: nac_2{3}, 3-subevent, 0.5<pT<5.0 GeV (Page 20)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+dimensionality: integrated
+value_type: nac_2{3}
+observable_type: flow_harmonic_correlations
+correlation_type: asymmetric_cumulant
+harmonics:
+- 2
+observable: nac_2
+cumulant_method: three_subevent
+normalized: true
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 0.5
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.8333
+        max: 0.8333
+      pT:
+        min: 0.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 0.5
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 20. nac_2{3} = ac / sqrt((2 c_2{2}^2 + c_2{4}) c_4{2})
+    (Eq. 11); the three-subevent method (a, b, c = A, B, C; the mean of the three interchanged measurements); charged particles
+    0.5 < pT < 5 GeV; FCal Sigma E_T centrality. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure12_panel2_pt1.yaml
+dv_index: 0
+hepdata_table_label: nac_2{3}, 3-subevent, 1.0<pT<5.0 GeV (Page 20)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 1.0
+    max: 5.0
+dimensionality: integrated
+value_type: nac_2{3}
+observable_type: flow_harmonic_correlations
+correlation_type: asymmetric_cumulant
+harmonics:
+- 2
+observable: nac_2
+cumulant_method: three_subevent
+normalized: true
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 1.0
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.8333
+        max: 0.8333
+      pT:
+        min: 1.0
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 1.0
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 20. nac_2{3} = ac / sqrt((2 c_2{2}^2 + c_2{4}) c_4{2})
+    (Eq. 11); the three-subevent method (a, b, c = A, B, C; the mean of the three interchanged measurements); charged particles
+    1 < pT < 5 GeV; FCal Sigma E_T centrality. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure12_panel2_pt2.yaml
+dv_index: 0
+hepdata_table_label: nac_2{3}, 3-subevent, 1.5<pT<5.0 GeV (Page 20)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 1.5
+    max: 5.0
+dimensionality: integrated
+value_type: nac_2{3}
+observable_type: flow_harmonic_correlations
+correlation_type: asymmetric_cumulant
+harmonics:
+- 2
+observable: nac_2
+cumulant_method: three_subevent
+normalized: true
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 1.5
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.8333
+        max: 0.8333
+      pT:
+        min: 1.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 1.5
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 20. nac_2{3} = ac / sqrt((2 c_2{2}^2 + c_2{4}) c_4{2})
+    (Eq. 11); the three-subevent method (a, b, c = A, B, C; the mean of the three interchanged measurements); charged particles
+    1.5 < pT < 5 GeV; FCal Sigma E_T centrality. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure12_panel2_pt3.yaml
+dv_index: 0
+hepdata_table_label: nac_2{3}, 3-subevent, 2.0<pT<5.0 GeV (Page 20)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 2.0
+    max: 5.0
+dimensionality: integrated
+value_type: nac_2{3}
+observable_type: flow_harmonic_correlations
+correlation_type: asymmetric_cumulant
+harmonics:
+- 2
+observable: nac_2
+cumulant_method: three_subevent
+normalized: true
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 2.0
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.8333
+        max: 0.8333
+      pT:
+        min: 2.0
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 2.0
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 20. nac_2{3} = ac / sqrt((2 c_2{2}^2 + c_2{4}) c_4{2})
+    (Eq. 11); the three-subevent method (a, b, c = A, B, C; the mean of the three interchanged measurements); charged particles
+    2 < pT < 5 GeV; FCal Sigma E_T centrality. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure19_panel1_pt0.yaml
+dv_index: 0
+hepdata_table_label: nsc_2_3{4, Et}, standard, 0.5<pT<5.0 GeV (Page 26)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 65.54-75.01%
+  - 59.44-65.54%
+  - 54.75-59.44%
+  - 50.86-54.75%
+  - 47.51-50.86%
+  - 44.53-47.51%
+  - 41.85-44.53%
+  - 39.4-41.85%
+  - 37.13-39.4%
+  - 35.03-37.13%
+  - 33.06-35.03%
+  - 31.2-33.06%
+  - 29.45-31.2%
+  - 27.79-29.45%
+  - 26.21-27.79%
+  - 24.71-26.21%
+  - 23.27-24.71%
+  - 21.9-23.27%
+  - 20.58-21.9%
+  - 19.32-20.58%
+  - 18.11-19.32%
+  - 16.94-18.11%
+  - 15.82-16.94%
+  - 14.74-15.82%
+  - 13.7-14.74%
+  - 12.7-13.7%
+  - 11.73-12.7%
+  - 10.8-11.73%
+  - 9.896-10.8%
+  - 9.027-9.896%
+  - 8.188-9.027%
+  - 7.379-8.188%
+  - 6.599-7.379%
+  - 5.846-6.599%
+  - 5.122-5.846%
+  - 4.423-5.122%
+  - 3.75-4.423%
+  - 3.103-3.75%
+  - 2.479-3.103%
+  - 1.882-2.479%
+  - 1.318-1.882%
+  - 0.8125-1.318%
+  - 0.4142-0.8125%
+  - 0.1632-0.4142%
+  - 0.04655-0.1632%
+  - 0.009146-0.04655%
+  - 0.001203-0.009146%
+  - 0.0001026-0.001203%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T intervals of the table (mean <Sigma E_T> per point) as percentiles of the published Sigma E_T distribution
+    (HEPData figure2_panel1).
+table_rows:
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+- 8
+- 9
+- 10
+- 11
+- 12
+- 13
+- 14
+- 15
+- 16
+- 17
+- 18
+- 19
+- 20
+- 21
+- 22
+- 23
+- 24
+- 25
+- 26
+- 27
+- 28
+- 29
+- 30
+- 31
+- 32
+- 33
+- 34
+- 35
+- 36
+- 37
+- 38
+- 39
+- 40
+- 41
+- 42
+- 43
+- 44
+- 45
+- 46
+- 47
+- 48
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+dimensionality: integrated
+value_type: nsc_2_3{4, Et}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 3
+observable: nsc_2_3
+cumulant_method: standard
+normalized: true
+normalization_subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 0.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 0.5
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 26. nsc_{2,3}{4} = sc / (c_2{2} c_3{2}) (Eq. 10);
+    the standard method (|eta| < 2.5); charged particles 0.5 < pT < 5 GeV; <Sigma E_T> intervals. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure19_panel1_pt1.yaml
+dv_index: 0
+hepdata_table_label: nsc_2_3{4, Et}, standard, 1.0<pT<5.0 GeV (Page 26)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 65.54-75.01%
+  - 59.44-65.54%
+  - 54.75-59.44%
+  - 50.86-54.75%
+  - 47.51-50.86%
+  - 44.53-47.51%
+  - 41.85-44.53%
+  - 39.4-41.85%
+  - 37.13-39.4%
+  - 35.03-37.13%
+  - 33.06-35.03%
+  - 31.2-33.06%
+  - 29.45-31.2%
+  - 27.79-29.45%
+  - 26.21-27.79%
+  - 24.71-26.21%
+  - 23.27-24.71%
+  - 21.9-23.27%
+  - 20.58-21.9%
+  - 19.32-20.58%
+  - 18.11-19.32%
+  - 16.94-18.11%
+  - 15.82-16.94%
+  - 14.74-15.82%
+  - 13.7-14.74%
+  - 12.7-13.7%
+  - 11.73-12.7%
+  - 10.8-11.73%
+  - 9.896-10.8%
+  - 9.027-9.896%
+  - 8.188-9.027%
+  - 7.379-8.188%
+  - 6.599-7.379%
+  - 5.846-6.599%
+  - 5.122-5.846%
+  - 4.423-5.122%
+  - 3.75-4.423%
+  - 3.103-3.75%
+  - 2.479-3.103%
+  - 1.882-2.479%
+  - 1.318-1.882%
+  - 0.8125-1.318%
+  - 0.4142-0.8125%
+  - 0.1632-0.4142%
+  - 0.04655-0.1632%
+  - 0.009146-0.04655%
+  - 0.001203-0.009146%
+  - 0.0001026-0.001203%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T intervals of the table (mean <Sigma E_T> per point) as percentiles of the published Sigma E_T distribution
+    (HEPData figure2_panel1).
+table_rows:
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+- 8
+- 9
+- 10
+- 11
+- 12
+- 13
+- 14
+- 15
+- 16
+- 17
+- 18
+- 19
+- 20
+- 21
+- 22
+- 23
+- 24
+- 25
+- 26
+- 27
+- 28
+- 29
+- 30
+- 31
+- 32
+- 33
+- 34
+- 35
+- 36
+- 37
+- 38
+- 39
+- 40
+- 41
+- 42
+- 43
+- 44
+- 45
+- 46
+- 47
+- 48
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 1.0
+    max: 5.0
+dimensionality: integrated
+value_type: nsc_2_3{4, Et}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 3
+observable: nsc_2_3
+cumulant_method: standard
+normalized: true
+normalization_subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 1.0
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 1.0
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 26. nsc_{2,3}{4} = sc / (c_2{2} c_3{2}) (Eq. 10);
+    the standard method (|eta| < 2.5); charged particles 1 < pT < 5 GeV; <Sigma E_T> intervals. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure19_panel1_pt2.yaml
+dv_index: 0
+hepdata_table_label: nsc_2_3{4, Et}, standard, 1.5<pT<5.0 GeV (Page 26)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 65.54-75.01%
+  - 59.44-65.54%
+  - 54.75-59.44%
+  - 50.86-54.75%
+  - 47.51-50.86%
+  - 44.53-47.51%
+  - 41.85-44.53%
+  - 39.4-41.85%
+  - 37.13-39.4%
+  - 35.03-37.13%
+  - 33.06-35.03%
+  - 31.2-33.06%
+  - 29.45-31.2%
+  - 27.79-29.45%
+  - 26.21-27.79%
+  - 24.71-26.21%
+  - 23.27-24.71%
+  - 21.9-23.27%
+  - 20.58-21.9%
+  - 19.32-20.58%
+  - 18.11-19.32%
+  - 16.94-18.11%
+  - 15.82-16.94%
+  - 14.74-15.82%
+  - 13.7-14.74%
+  - 12.7-13.7%
+  - 11.73-12.7%
+  - 10.8-11.73%
+  - 9.896-10.8%
+  - 9.027-9.896%
+  - 8.188-9.027%
+  - 7.379-8.188%
+  - 6.599-7.379%
+  - 5.846-6.599%
+  - 5.122-5.846%
+  - 4.423-5.122%
+  - 3.75-4.423%
+  - 3.103-3.75%
+  - 2.479-3.103%
+  - 1.882-2.479%
+  - 1.318-1.882%
+  - 0.8125-1.318%
+  - 0.4142-0.8125%
+  - 0.1632-0.4142%
+  - 0.04655-0.1632%
+  - 0.009146-0.04655%
+  - 0.001203-0.009146%
+  - 0.0001026-0.001203%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T intervals of the table (mean <Sigma E_T> per point) as percentiles of the published Sigma E_T distribution
+    (HEPData figure2_panel1).
+table_rows:
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+- 8
+- 9
+- 10
+- 11
+- 12
+- 13
+- 14
+- 15
+- 16
+- 17
+- 18
+- 19
+- 20
+- 21
+- 22
+- 23
+- 24
+- 25
+- 26
+- 27
+- 28
+- 29
+- 30
+- 31
+- 32
+- 33
+- 34
+- 35
+- 36
+- 37
+- 38
+- 39
+- 40
+- 41
+- 42
+- 43
+- 44
+- 45
+- 46
+- 47
+- 48
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 1.5
+    max: 5.0
+dimensionality: integrated
+value_type: nsc_2_3{4, Et}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 3
+observable: nsc_2_3
+cumulant_method: standard
+normalized: true
+normalization_subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 1.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 1.5
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 26. nsc_{2,3}{4} = sc / (c_2{2} c_3{2}) (Eq. 10);
+    the standard method (|eta| < 2.5); charged particles 1.5 < pT < 5 GeV; <Sigma E_T> intervals. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure19_panel1_pt3.yaml
+dv_index: 0
+hepdata_table_label: nsc_2_3{4, Et}, standard, 2.0<pT<5.0 GeV (Page 26)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 65.54-75.01%
+  - 59.44-65.54%
+  - 54.75-59.44%
+  - 50.86-54.75%
+  - 47.51-50.86%
+  - 44.53-47.51%
+  - 41.85-44.53%
+  - 39.4-41.85%
+  - 37.13-39.4%
+  - 35.03-37.13%
+  - 33.06-35.03%
+  - 31.2-33.06%
+  - 29.45-31.2%
+  - 27.79-29.45%
+  - 26.21-27.79%
+  - 24.71-26.21%
+  - 23.27-24.71%
+  - 21.9-23.27%
+  - 20.58-21.9%
+  - 19.32-20.58%
+  - 18.11-19.32%
+  - 16.94-18.11%
+  - 15.82-16.94%
+  - 14.74-15.82%
+  - 13.7-14.74%
+  - 12.7-13.7%
+  - 11.73-12.7%
+  - 10.8-11.73%
+  - 9.896-10.8%
+  - 9.027-9.896%
+  - 8.188-9.027%
+  - 7.379-8.188%
+  - 6.599-7.379%
+  - 5.846-6.599%
+  - 5.122-5.846%
+  - 4.423-5.122%
+  - 3.75-4.423%
+  - 3.103-3.75%
+  - 2.479-3.103%
+  - 1.882-2.479%
+  - 1.318-1.882%
+  - 0.8125-1.318%
+  - 0.4142-0.8125%
+  - 0.1632-0.4142%
+  - 0.04655-0.1632%
+  - 0.009146-0.04655%
+  - 0.001203-0.009146%
+  - 0.0001026-0.001203%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T intervals of the table (mean <Sigma E_T> per point) as percentiles of the published Sigma E_T distribution
+    (HEPData figure2_panel1).
+table_rows:
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+- 8
+- 9
+- 10
+- 11
+- 12
+- 13
+- 14
+- 15
+- 16
+- 17
+- 18
+- 19
+- 20
+- 21
+- 22
+- 23
+- 24
+- 25
+- 26
+- 27
+- 28
+- 29
+- 30
+- 31
+- 32
+- 33
+- 34
+- 35
+- 36
+- 37
+- 38
+- 39
+- 40
+- 41
+- 42
+- 43
+- 44
+- 45
+- 46
+- 47
+- 48
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 2.0
+    max: 5.0
+dimensionality: integrated
+value_type: nsc_2_3{4, Et}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 3
+observable: nsc_2_3
+cumulant_method: standard
+normalized: true
+normalization_subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 2.0
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 2.0
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 26. nsc_{2,3}{4} = sc / (c_2{2} c_3{2}) (Eq. 10);
+    the standard method (|eta| < 2.5); charged particles 2 < pT < 5 GeV; <Sigma E_T> intervals. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure19_panel2_pt0.yaml
+dv_index: 0
+hepdata_table_label: nsc_2_4{4, Et}, standard, 0.5<pT<5.0 GeV (Page 26)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 59.44-65.54%
+  - 54.75-59.44%
+  - 50.86-54.75%
+  - 47.51-50.86%
+  - 44.53-47.51%
+  - 41.85-44.53%
+  - 39.4-41.85%
+  - 37.13-39.4%
+  - 35.03-37.13%
+  - 33.06-35.03%
+  - 31.2-33.06%
+  - 29.45-31.2%
+  - 27.79-29.45%
+  - 26.21-27.79%
+  - 24.71-26.21%
+  - 23.27-24.71%
+  - 21.9-23.27%
+  - 20.58-21.9%
+  - 19.32-20.58%
+  - 18.11-19.32%
+  - 16.94-18.11%
+  - 15.82-16.94%
+  - 14.74-15.82%
+  - 13.7-14.74%
+  - 12.7-13.7%
+  - 11.73-12.7%
+  - 10.8-11.73%
+  - 9.896-10.8%
+  - 9.027-9.896%
+  - 8.188-9.027%
+  - 7.379-8.188%
+  - 6.599-7.379%
+  - 5.846-6.599%
+  - 5.122-5.846%
+  - 4.423-5.122%
+  - 3.75-4.423%
+  - 3.103-3.75%
+  - 2.479-3.103%
+  - 1.882-2.479%
+  - 1.318-1.882%
+  - 0.8125-1.318%
+  - 0.4142-0.8125%
+  - 0.1632-0.4142%
+  - 0.04655-0.1632%
+  - 0.009146-0.04655%
+  - 0.001203-0.009146%
+  - 0.0001026-0.001203%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T intervals of the table (mean <Sigma E_T> per point) as percentiles of the published Sigma E_T distribution
+    (HEPData figure2_panel1).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+dimensionality: integrated
+value_type: nsc_2_4{4, Et}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 4
+observable: nsc_2_4
+cumulant_method: standard
+normalized: true
+normalization_subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 0.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 0.5
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 26. nsc_{2,4}{4} = sc / (c_2{2} c_4{2}) (Eq. 10);
+    the standard method (|eta| < 2.5); charged particles 0.5 < pT < 5 GeV; <Sigma E_T> intervals. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure19_panel2_pt1.yaml
+dv_index: 0
+hepdata_table_label: nsc_2_4{4, Et}, standard, 1.0<pT<5.0 GeV (Page 26)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 59.44-65.54%
+  - 54.75-59.44%
+  - 50.86-54.75%
+  - 47.51-50.86%
+  - 44.53-47.51%
+  - 41.85-44.53%
+  - 39.4-41.85%
+  - 37.13-39.4%
+  - 35.03-37.13%
+  - 33.06-35.03%
+  - 31.2-33.06%
+  - 29.45-31.2%
+  - 27.79-29.45%
+  - 26.21-27.79%
+  - 24.71-26.21%
+  - 23.27-24.71%
+  - 21.9-23.27%
+  - 20.58-21.9%
+  - 19.32-20.58%
+  - 18.11-19.32%
+  - 16.94-18.11%
+  - 15.82-16.94%
+  - 14.74-15.82%
+  - 13.7-14.74%
+  - 12.7-13.7%
+  - 11.73-12.7%
+  - 10.8-11.73%
+  - 9.896-10.8%
+  - 9.027-9.896%
+  - 8.188-9.027%
+  - 7.379-8.188%
+  - 6.599-7.379%
+  - 5.846-6.599%
+  - 5.122-5.846%
+  - 4.423-5.122%
+  - 3.75-4.423%
+  - 3.103-3.75%
+  - 2.479-3.103%
+  - 1.882-2.479%
+  - 1.318-1.882%
+  - 0.8125-1.318%
+  - 0.4142-0.8125%
+  - 0.1632-0.4142%
+  - 0.04655-0.1632%
+  - 0.009146-0.04655%
+  - 0.001203-0.009146%
+  - 0.0001026-0.001203%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T intervals of the table (mean <Sigma E_T> per point) as percentiles of the published Sigma E_T distribution
+    (HEPData figure2_panel1).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 1.0
+    max: 5.0
+dimensionality: integrated
+value_type: nsc_2_4{4, Et}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 4
+observable: nsc_2_4
+cumulant_method: standard
+normalized: true
+normalization_subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 1.0
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 1.0
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 26. nsc_{2,4}{4} = sc / (c_2{2} c_4{2}) (Eq. 10);
+    the standard method (|eta| < 2.5); charged particles 1 < pT < 5 GeV; <Sigma E_T> intervals. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure19_panel2_pt2.yaml
+dv_index: 0
+hepdata_table_label: nsc_2_4{4, Et}, standard, 1.5<pT<5.0 GeV (Page 26)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 59.44-65.54%
+  - 54.75-59.44%
+  - 50.86-54.75%
+  - 47.51-50.86%
+  - 44.53-47.51%
+  - 41.85-44.53%
+  - 39.4-41.85%
+  - 37.13-39.4%
+  - 35.03-37.13%
+  - 33.06-35.03%
+  - 31.2-33.06%
+  - 29.45-31.2%
+  - 27.79-29.45%
+  - 26.21-27.79%
+  - 24.71-26.21%
+  - 23.27-24.71%
+  - 21.9-23.27%
+  - 20.58-21.9%
+  - 19.32-20.58%
+  - 18.11-19.32%
+  - 16.94-18.11%
+  - 15.82-16.94%
+  - 14.74-15.82%
+  - 13.7-14.74%
+  - 12.7-13.7%
+  - 11.73-12.7%
+  - 10.8-11.73%
+  - 9.896-10.8%
+  - 9.027-9.896%
+  - 8.188-9.027%
+  - 7.379-8.188%
+  - 6.599-7.379%
+  - 5.846-6.599%
+  - 5.122-5.846%
+  - 4.423-5.122%
+  - 3.75-4.423%
+  - 3.103-3.75%
+  - 2.479-3.103%
+  - 1.882-2.479%
+  - 1.318-1.882%
+  - 0.8125-1.318%
+  - 0.4142-0.8125%
+  - 0.1632-0.4142%
+  - 0.04655-0.1632%
+  - 0.009146-0.04655%
+  - 0.001203-0.009146%
+  - 0.0001026-0.001203%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T intervals of the table (mean <Sigma E_T> per point) as percentiles of the published Sigma E_T distribution
+    (HEPData figure2_panel1).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 1.5
+    max: 5.0
+dimensionality: integrated
+value_type: nsc_2_4{4, Et}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 4
+observable: nsc_2_4
+cumulant_method: standard
+normalized: true
+normalization_subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 1.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 1.5
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 26. nsc_{2,4}{4} = sc / (c_2{2} c_4{2}) (Eq. 10);
+    the standard method (|eta| < 2.5); charged particles 1.5 < pT < 5 GeV; <Sigma E_T> intervals. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure19_panel2_pt3.yaml
+dv_index: 0
+hepdata_table_label: nsc_2_4{4, Et}, standard, 2.0<pT<5.0 GeV (Page 26)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 59.44-65.54%
+  - 54.75-59.44%
+  - 50.86-54.75%
+  - 47.51-50.86%
+  - 44.53-47.51%
+  - 41.85-44.53%
+  - 39.4-41.85%
+  - 37.13-39.4%
+  - 35.03-37.13%
+  - 33.06-35.03%
+  - 31.2-33.06%
+  - 29.45-31.2%
+  - 27.79-29.45%
+  - 26.21-27.79%
+  - 24.71-26.21%
+  - 23.27-24.71%
+  - 21.9-23.27%
+  - 20.58-21.9%
+  - 19.32-20.58%
+  - 18.11-19.32%
+  - 16.94-18.11%
+  - 15.82-16.94%
+  - 14.74-15.82%
+  - 13.7-14.74%
+  - 12.7-13.7%
+  - 11.73-12.7%
+  - 10.8-11.73%
+  - 9.896-10.8%
+  - 9.027-9.896%
+  - 8.188-9.027%
+  - 7.379-8.188%
+  - 6.599-7.379%
+  - 5.846-6.599%
+  - 5.122-5.846%
+  - 4.423-5.122%
+  - 3.75-4.423%
+  - 3.103-3.75%
+  - 2.479-3.103%
+  - 1.882-2.479%
+  - 1.318-1.882%
+  - 0.8125-1.318%
+  - 0.4142-0.8125%
+  - 0.1632-0.4142%
+  - 0.04655-0.1632%
+  - 0.009146-0.04655%
+  - 0.001203-0.009146%
+  - 0.0001026-0.001203%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T intervals of the table (mean <Sigma E_T> per point) as percentiles of the published Sigma E_T distribution
+    (HEPData figure2_panel1).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 2.0
+    max: 5.0
+dimensionality: integrated
+value_type: nsc_2_4{4, Et}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 4
+observable: nsc_2_4
+cumulant_method: standard
+normalized: true
+normalization_subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 2.0
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 2.0
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 26. nsc_{2,4}{4} = sc / (c_2{2} c_4{2}) (Eq. 10);
+    the standard method (|eta| < 2.5); charged particles 2 < pT < 5 GeV; <Sigma E_T> intervals. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure19_panel3_pt0.yaml
+dv_index: 0
+hepdata_table_label: nac_2{3, Et}, standard, 0.5<pT<5.0 GeV (Page 26)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 65.54-75.01%
+  - 59.44-65.54%
+  - 54.75-59.44%
+  - 50.86-54.75%
+  - 47.51-50.86%
+  - 44.53-47.51%
+  - 41.85-44.53%
+  - 39.4-41.85%
+  - 37.13-39.4%
+  - 35.03-37.13%
+  - 33.06-35.03%
+  - 31.2-33.06%
+  - 29.45-31.2%
+  - 27.79-29.45%
+  - 26.21-27.79%
+  - 24.71-26.21%
+  - 23.27-24.71%
+  - 21.9-23.27%
+  - 20.58-21.9%
+  - 19.32-20.58%
+  - 18.11-19.32%
+  - 16.94-18.11%
+  - 15.82-16.94%
+  - 14.74-15.82%
+  - 13.7-14.74%
+  - 12.7-13.7%
+  - 11.73-12.7%
+  - 10.8-11.73%
+  - 9.896-10.8%
+  - 9.027-9.896%
+  - 8.188-9.027%
+  - 7.379-8.188%
+  - 6.599-7.379%
+  - 5.846-6.599%
+  - 5.122-5.846%
+  - 4.423-5.122%
+  - 3.75-4.423%
+  - 3.103-3.75%
+  - 2.479-3.103%
+  - 1.882-2.479%
+  - 1.318-1.882%
+  - 0.8125-1.318%
+  - 0.4142-0.8125%
+  - 0.1632-0.4142%
+  - 0.04655-0.1632%
+  - 0.009146-0.04655%
+  - 0.001203-0.009146%
+  - 0.0001026-0.001203%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T intervals of the table (mean <Sigma E_T> per point) as percentiles of the published Sigma E_T distribution
+    (HEPData figure2_panel1).
+table_rows:
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+- 8
+- 9
+- 10
+- 11
+- 12
+- 13
+- 14
+- 15
+- 16
+- 17
+- 18
+- 19
+- 20
+- 21
+- 22
+- 23
+- 24
+- 25
+- 26
+- 27
+- 28
+- 29
+- 30
+- 31
+- 32
+- 33
+- 34
+- 35
+- 36
+- 37
+- 38
+- 39
+- 40
+- 41
+- 42
+- 43
+- 44
+- 45
+- 46
+- 47
+- 48
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+dimensionality: integrated
+value_type: nac_2{3, Et}
+observable_type: flow_harmonic_correlations
+correlation_type: asymmetric_cumulant
+harmonics:
+- 2
+observable: nac_2
+cumulant_method: standard
+normalized: true
+normalization_subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 0.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 0.5
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 26. nac_2{3} = ac / sqrt((2 c_2{2}^2 + c_2{4}) c_4{2})
+    (Eq. 11); the standard method (|eta| < 2.5); charged particles 0.5 < pT < 5 GeV; <Sigma E_T> intervals. Errors: stat and
+    syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure19_panel3_pt1.yaml
+dv_index: 0
+hepdata_table_label: nac_2{3, Et}, standard, 1.0<pT<5.0 GeV (Page 26)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 65.54-75.01%
+  - 59.44-65.54%
+  - 54.75-59.44%
+  - 50.86-54.75%
+  - 47.51-50.86%
+  - 44.53-47.51%
+  - 41.85-44.53%
+  - 39.4-41.85%
+  - 37.13-39.4%
+  - 35.03-37.13%
+  - 33.06-35.03%
+  - 31.2-33.06%
+  - 29.45-31.2%
+  - 27.79-29.45%
+  - 26.21-27.79%
+  - 24.71-26.21%
+  - 23.27-24.71%
+  - 21.9-23.27%
+  - 20.58-21.9%
+  - 19.32-20.58%
+  - 18.11-19.32%
+  - 16.94-18.11%
+  - 15.82-16.94%
+  - 14.74-15.82%
+  - 13.7-14.74%
+  - 12.7-13.7%
+  - 11.73-12.7%
+  - 10.8-11.73%
+  - 9.896-10.8%
+  - 9.027-9.896%
+  - 8.188-9.027%
+  - 7.379-8.188%
+  - 6.599-7.379%
+  - 5.846-6.599%
+  - 5.122-5.846%
+  - 4.423-5.122%
+  - 3.75-4.423%
+  - 3.103-3.75%
+  - 2.479-3.103%
+  - 1.882-2.479%
+  - 1.318-1.882%
+  - 0.8125-1.318%
+  - 0.4142-0.8125%
+  - 0.1632-0.4142%
+  - 0.04655-0.1632%
+  - 0.009146-0.04655%
+  - 0.001203-0.009146%
+  - 0.0001026-0.001203%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T intervals of the table (mean <Sigma E_T> per point) as percentiles of the published Sigma E_T distribution
+    (HEPData figure2_panel1).
+table_rows:
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+- 8
+- 9
+- 10
+- 11
+- 12
+- 13
+- 14
+- 15
+- 16
+- 17
+- 18
+- 19
+- 20
+- 21
+- 22
+- 23
+- 24
+- 25
+- 26
+- 27
+- 28
+- 29
+- 30
+- 31
+- 32
+- 33
+- 34
+- 35
+- 36
+- 37
+- 38
+- 39
+- 40
+- 41
+- 42
+- 43
+- 44
+- 45
+- 46
+- 47
+- 48
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 1.0
+    max: 5.0
+dimensionality: integrated
+value_type: nac_2{3, Et}
+observable_type: flow_harmonic_correlations
+correlation_type: asymmetric_cumulant
+harmonics:
+- 2
+observable: nac_2
+cumulant_method: standard
+normalized: true
+normalization_subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 1.0
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 1.0
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 26. nac_2{3} = ac / sqrt((2 c_2{2}^2 + c_2{4}) c_4{2})
+    (Eq. 11); the standard method (|eta| < 2.5); charged particles 1 < pT < 5 GeV; <Sigma E_T> intervals. Errors: stat and
+    syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure19_panel3_pt2.yaml
+dv_index: 0
+hepdata_table_label: nac_2{3, Et}, standard, 1.5<pT<5.0 GeV (Page 26)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 65.54-75.01%
+  - 59.44-65.54%
+  - 54.75-59.44%
+  - 50.86-54.75%
+  - 47.51-50.86%
+  - 44.53-47.51%
+  - 41.85-44.53%
+  - 39.4-41.85%
+  - 37.13-39.4%
+  - 35.03-37.13%
+  - 33.06-35.03%
+  - 31.2-33.06%
+  - 29.45-31.2%
+  - 27.79-29.45%
+  - 26.21-27.79%
+  - 24.71-26.21%
+  - 23.27-24.71%
+  - 21.9-23.27%
+  - 20.58-21.9%
+  - 19.32-20.58%
+  - 18.11-19.32%
+  - 16.94-18.11%
+  - 15.82-16.94%
+  - 14.74-15.82%
+  - 13.7-14.74%
+  - 12.7-13.7%
+  - 11.73-12.7%
+  - 10.8-11.73%
+  - 9.896-10.8%
+  - 9.027-9.896%
+  - 8.188-9.027%
+  - 7.379-8.188%
+  - 6.599-7.379%
+  - 5.846-6.599%
+  - 5.122-5.846%
+  - 4.423-5.122%
+  - 3.75-4.423%
+  - 3.103-3.75%
+  - 2.479-3.103%
+  - 1.882-2.479%
+  - 1.318-1.882%
+  - 0.8125-1.318%
+  - 0.4142-0.8125%
+  - 0.1632-0.4142%
+  - 0.04655-0.1632%
+  - 0.009146-0.04655%
+  - 0.001203-0.009146%
+  - 0.0001026-0.001203%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T intervals of the table (mean <Sigma E_T> per point) as percentiles of the published Sigma E_T distribution
+    (HEPData figure2_panel1).
+table_rows:
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+- 8
+- 9
+- 10
+- 11
+- 12
+- 13
+- 14
+- 15
+- 16
+- 17
+- 18
+- 19
+- 20
+- 21
+- 22
+- 23
+- 24
+- 25
+- 26
+- 27
+- 28
+- 29
+- 30
+- 31
+- 32
+- 33
+- 34
+- 35
+- 36
+- 37
+- 38
+- 39
+- 40
+- 41
+- 42
+- 43
+- 44
+- 45
+- 46
+- 47
+- 48
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 1.5
+    max: 5.0
+dimensionality: integrated
+value_type: nac_2{3, Et}
+observable_type: flow_harmonic_correlations
+correlation_type: asymmetric_cumulant
+harmonics:
+- 2
+observable: nac_2
+cumulant_method: standard
+normalized: true
+normalization_subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 1.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 1.5
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 26. nac_2{3} = ac / sqrt((2 c_2{2}^2 + c_2{4}) c_4{2})
+    (Eq. 11); the standard method (|eta| < 2.5); charged particles 1.5 < pT < 5 GeV; <Sigma E_T> intervals. Errors: stat and
+    syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure19_panel3_pt3.yaml
+dv_index: 0
+hepdata_table_label: nac_2{3, Et}, standard, 2.0<pT<5.0 GeV (Page 26)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 65.54-75.01%
+  - 59.44-65.54%
+  - 54.75-59.44%
+  - 50.86-54.75%
+  - 47.51-50.86%
+  - 44.53-47.51%
+  - 41.85-44.53%
+  - 39.4-41.85%
+  - 37.13-39.4%
+  - 35.03-37.13%
+  - 33.06-35.03%
+  - 31.2-33.06%
+  - 29.45-31.2%
+  - 27.79-29.45%
+  - 26.21-27.79%
+  - 24.71-26.21%
+  - 23.27-24.71%
+  - 21.9-23.27%
+  - 20.58-21.9%
+  - 19.32-20.58%
+  - 18.11-19.32%
+  - 16.94-18.11%
+  - 15.82-16.94%
+  - 14.74-15.82%
+  - 13.7-14.74%
+  - 12.7-13.7%
+  - 11.73-12.7%
+  - 10.8-11.73%
+  - 9.896-10.8%
+  - 9.027-9.896%
+  - 8.188-9.027%
+  - 7.379-8.188%
+  - 6.599-7.379%
+  - 5.846-6.599%
+  - 5.122-5.846%
+  - 4.423-5.122%
+  - 3.75-4.423%
+  - 3.103-3.75%
+  - 2.479-3.103%
+  - 1.882-2.479%
+  - 1.318-1.882%
+  - 0.8125-1.318%
+  - 0.4142-0.8125%
+  - 0.1632-0.4142%
+  - 0.04655-0.1632%
+  - 0.009146-0.04655%
+  - 0.001203-0.009146%
+  - 0.0001026-0.001203%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: Sigma E_T intervals of the table (mean <Sigma E_T> per point) as percentiles of the published Sigma E_T distribution
+    (HEPData figure2_panel1).
+table_rows:
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+- 8
+- 9
+- 10
+- 11
+- 12
+- 13
+- 14
+- 15
+- 16
+- 17
+- 18
+- 19
+- 20
+- 21
+- 22
+- 23
+- 24
+- 25
+- 26
+- 27
+- 28
+- 29
+- 30
+- 31
+- 32
+- 33
+- 34
+- 35
+- 36
+- 37
+- 38
+- 39
+- 40
+- 41
+- 42
+- 43
+- 44
+- 45
+- 46
+- 47
+- 48
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 2.0
+    max: 5.0
+dimensionality: integrated
+value_type: nac_2{3, Et}
+observable_type: flow_harmonic_correlations
+correlation_type: asymmetric_cumulant
+harmonics:
+- 2
+observable: nac_2
+cumulant_method: standard
+normalized: true
+normalization_subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 2.0
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 2.0
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 26. nac_2{3} = ac / sqrt((2 c_2{2}^2 + c_2{4}) c_4{2})
+    (Eq. 11); the standard method (|eta| < 2.5); charged particles 2 < pT < 5 GeV; <Sigma E_T> intervals. Errors: stat and
+    syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure19_panel4_pt0.yaml
+dv_index: 0
+hepdata_table_label: nsc_2_3{4, Nch}, standard, 0.5<pT<5.0 GeV (Page 26)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 59.73-69.39%
+  - 53.35-59.73%
+  - 48.41-53.35%
+  - 44.29-48.41%
+  - 40.72-44.29%
+  - 37.54-40.72%
+  - 34.67-37.54%
+  - 32.03-34.67%
+  - 29.6-32.03%
+  - 27.33-29.6%
+  - 25.2-27.33%
+  - 23.2-25.2%
+  - 21.31-23.2%
+  - 19.52-21.31%
+  - 17.82-19.52%
+  - 16.2-17.82%
+  - 14.66-16.2%
+  - 13.19-14.66%
+  - 11.79-13.19%
+  - 10.45-11.79%
+  - 9.17-10.45%
+  - 7.949-9.17%
+  - 6.785-7.949%
+  - 5.676-6.785%
+  - 4.622-5.676%
+  - 3.622-4.622%
+  - 2.678-3.622%
+  - 1.801-2.678%
+  - 1.042-1.801%
+  - 0.4821-1.042%
+  - 0.1659-0.4821%
+  - 0.03991-0.1659%
+  - 0.006452-0.03991%
+  - 0.0006826-0.006452%
+  - 0.00004645-0.0006826%
+  estimator:
+    name: Nch_rec
+    observable: Nch
+    detector: ID
+    efficiency: 0.6
+  eta:
+  - min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+  notes: N_ch^rec intervals of the table (mean <N_ch^rec> per point) as percentiles of the published N_ch^rec distribution
+    (HEPData figure2_panel2); reconstructed tracks, efficiency 0.6 (see the curation script).
+table_rows:
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+- 8
+- 9
+- 10
+- 11
+- 12
+- 13
+- 14
+- 15
+- 16
+- 17
+- 18
+- 19
+- 20
+- 21
+- 22
+- 23
+- 24
+- 25
+- 26
+- 27
+- 28
+- 29
+- 30
+- 31
+- 32
+- 33
+- 34
+- 35
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+dimensionality: integrated
+value_type: nsc_2_3{4, Nch}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 3
+observable: nsc_2_3
+cumulant_method: standard
+normalized: true
+normalization_subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 0.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 0.5
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 26. nsc_{2,3}{4} = sc / (c_2{2} c_3{2}) (Eq. 10);
+    the standard method (|eta| < 2.5); charged particles 0.5 < pT < 5 GeV; <N_ch^rec> intervals (reconstructed tracks). Errors:
+    stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in unit N_ch^rec intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure19_panel4_pt1.yaml
+dv_index: 0
+hepdata_table_label: nsc_2_3{4, Nch}, standard, 1.0<pT<5.0 GeV (Page 26)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 59.73-69.39%
+  - 53.35-59.73%
+  - 48.41-53.35%
+  - 44.29-48.41%
+  - 40.72-44.29%
+  - 37.54-40.72%
+  - 34.67-37.54%
+  - 32.03-34.67%
+  - 29.6-32.03%
+  - 27.33-29.6%
+  - 25.2-27.33%
+  - 23.2-25.2%
+  - 21.31-23.2%
+  - 19.52-21.31%
+  - 17.82-19.52%
+  - 16.2-17.82%
+  - 14.66-16.2%
+  - 13.19-14.66%
+  - 11.79-13.19%
+  - 10.45-11.79%
+  - 9.17-10.45%
+  - 7.949-9.17%
+  - 6.785-7.949%
+  - 5.676-6.785%
+  - 4.622-5.676%
+  - 3.622-4.622%
+  - 2.678-3.622%
+  - 1.801-2.678%
+  - 1.042-1.801%
+  - 0.4821-1.042%
+  - 0.1659-0.4821%
+  - 0.03991-0.1659%
+  - 0.006452-0.03991%
+  - 0.0006826-0.006452%
+  - 0.00004645-0.0006826%
+  estimator:
+    name: Nch_rec
+    observable: Nch
+    detector: ID
+    efficiency: 0.6
+  eta:
+  - min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+  notes: N_ch^rec intervals of the table (mean <N_ch^rec> per point) as percentiles of the published N_ch^rec distribution
+    (HEPData figure2_panel2); reconstructed tracks, efficiency 0.6 (see the curation script).
+table_rows:
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+- 8
+- 9
+- 10
+- 11
+- 12
+- 13
+- 14
+- 15
+- 16
+- 17
+- 18
+- 19
+- 20
+- 21
+- 22
+- 23
+- 24
+- 25
+- 26
+- 27
+- 28
+- 29
+- 30
+- 31
+- 32
+- 33
+- 34
+- 35
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 1.0
+    max: 5.0
+dimensionality: integrated
+value_type: nsc_2_3{4, Nch}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 3
+observable: nsc_2_3
+cumulant_method: standard
+normalized: true
+normalization_subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 1.0
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 1.0
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 26. nsc_{2,3}{4} = sc / (c_2{2} c_3{2}) (Eq. 10);
+    the standard method (|eta| < 2.5); charged particles 1 < pT < 5 GeV; <N_ch^rec> intervals (reconstructed tracks). Errors:
+    stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in unit N_ch^rec intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure19_panel4_pt2.yaml
+dv_index: 0
+hepdata_table_label: nsc_2_3{4, Nch}, standard, 1.5<pT<5.0 GeV (Page 26)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 59.73-69.39%
+  - 53.35-59.73%
+  - 48.41-53.35%
+  - 44.29-48.41%
+  - 40.72-44.29%
+  - 37.54-40.72%
+  - 34.67-37.54%
+  - 32.03-34.67%
+  - 29.6-32.03%
+  - 27.33-29.6%
+  - 25.2-27.33%
+  - 23.2-25.2%
+  - 21.31-23.2%
+  - 19.52-21.31%
+  - 17.82-19.52%
+  - 16.2-17.82%
+  - 14.66-16.2%
+  - 13.19-14.66%
+  - 11.79-13.19%
+  - 10.45-11.79%
+  - 9.17-10.45%
+  - 7.949-9.17%
+  - 6.785-7.949%
+  - 5.676-6.785%
+  - 4.622-5.676%
+  - 3.622-4.622%
+  - 2.678-3.622%
+  - 1.801-2.678%
+  - 1.042-1.801%
+  - 0.4821-1.042%
+  - 0.1659-0.4821%
+  - 0.03991-0.1659%
+  - 0.006452-0.03991%
+  - 0.0006826-0.006452%
+  - 0.00004645-0.0006826%
+  estimator:
+    name: Nch_rec
+    observable: Nch
+    detector: ID
+    efficiency: 0.6
+  eta:
+  - min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+  notes: N_ch^rec intervals of the table (mean <N_ch^rec> per point) as percentiles of the published N_ch^rec distribution
+    (HEPData figure2_panel2); reconstructed tracks, efficiency 0.6 (see the curation script).
+table_rows:
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+- 8
+- 9
+- 10
+- 11
+- 12
+- 13
+- 14
+- 15
+- 16
+- 17
+- 18
+- 19
+- 20
+- 21
+- 22
+- 23
+- 24
+- 25
+- 26
+- 27
+- 28
+- 29
+- 30
+- 31
+- 32
+- 33
+- 34
+- 35
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 1.5
+    max: 5.0
+dimensionality: integrated
+value_type: nsc_2_3{4, Nch}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 3
+observable: nsc_2_3
+cumulant_method: standard
+normalized: true
+normalization_subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 1.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 1.5
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 26. nsc_{2,3}{4} = sc / (c_2{2} c_3{2}) (Eq. 10);
+    the standard method (|eta| < 2.5); charged particles 1.5 < pT < 5 GeV; <N_ch^rec> intervals (reconstructed tracks). Errors:
+    stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in unit N_ch^rec intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure19_panel4_pt3.yaml
+dv_index: 0
+hepdata_table_label: nsc_2_3{4, Nch}, standard, 2.0<pT<5.0 GeV (Page 26)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 59.73-69.39%
+  - 53.35-59.73%
+  - 48.41-53.35%
+  - 44.29-48.41%
+  - 40.72-44.29%
+  - 37.54-40.72%
+  - 34.67-37.54%
+  - 32.03-34.67%
+  - 29.6-32.03%
+  - 27.33-29.6%
+  - 25.2-27.33%
+  - 23.2-25.2%
+  - 21.31-23.2%
+  - 19.52-21.31%
+  - 17.82-19.52%
+  - 16.2-17.82%
+  - 14.66-16.2%
+  - 13.19-14.66%
+  - 11.79-13.19%
+  - 10.45-11.79%
+  - 9.17-10.45%
+  - 7.949-9.17%
+  - 6.785-7.949%
+  - 5.676-6.785%
+  - 4.622-5.676%
+  - 3.622-4.622%
+  - 2.678-3.622%
+  - 1.801-2.678%
+  - 1.042-1.801%
+  - 0.4821-1.042%
+  - 0.1659-0.4821%
+  - 0.03991-0.1659%
+  - 0.006452-0.03991%
+  - 0.0006826-0.006452%
+  - 0.00004645-0.0006826%
+  estimator:
+    name: Nch_rec
+    observable: Nch
+    detector: ID
+    efficiency: 0.6
+  eta:
+  - min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+  notes: N_ch^rec intervals of the table (mean <N_ch^rec> per point) as percentiles of the published N_ch^rec distribution
+    (HEPData figure2_panel2); reconstructed tracks, efficiency 0.6 (see the curation script).
+table_rows:
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+- 8
+- 9
+- 10
+- 11
+- 12
+- 13
+- 14
+- 15
+- 16
+- 17
+- 18
+- 19
+- 20
+- 21
+- 22
+- 23
+- 24
+- 25
+- 26
+- 27
+- 28
+- 29
+- 30
+- 31
+- 32
+- 33
+- 34
+- 35
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 2.0
+    max: 5.0
+dimensionality: integrated
+value_type: nsc_2_3{4, Nch}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 3
+observable: nsc_2_3
+cumulant_method: standard
+normalized: true
+normalization_subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 2.0
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 2.0
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 26. nsc_{2,3}{4} = sc / (c_2{2} c_3{2}) (Eq. 10);
+    the standard method (|eta| < 2.5); charged particles 2 < pT < 5 GeV; <N_ch^rec> intervals (reconstructed tracks). Errors:
+    stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in unit N_ch^rec intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure19_panel5_pt0.yaml
+dv_index: 0
+hepdata_table_label: nsc_2_4{4, Nch}, standard, 0.5<pT<5.0 GeV (Page 26)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 59.73-69.39%
+  - 53.35-59.73%
+  - 48.41-53.35%
+  - 44.29-48.41%
+  - 40.72-44.29%
+  - 37.54-40.72%
+  - 34.67-37.54%
+  - 32.03-34.67%
+  - 29.6-32.03%
+  - 27.33-29.6%
+  - 25.2-27.33%
+  - 23.2-25.2%
+  - 21.31-23.2%
+  - 19.52-21.31%
+  - 17.82-19.52%
+  - 16.2-17.82%
+  - 14.66-16.2%
+  - 13.19-14.66%
+  - 11.79-13.19%
+  - 10.45-11.79%
+  - 9.17-10.45%
+  - 7.949-9.17%
+  - 6.785-7.949%
+  - 5.676-6.785%
+  - 4.622-5.676%
+  - 3.622-4.622%
+  - 2.678-3.622%
+  - 1.801-2.678%
+  - 1.042-1.801%
+  - 0.4821-1.042%
+  - 0.1659-0.4821%
+  - 0.03991-0.1659%
+  - 0.006452-0.03991%
+  - 0.0006826-0.006452%
+  - 0.00004645-0.0006826%
+  estimator:
+    name: Nch_rec
+    observable: Nch
+    detector: ID
+    efficiency: 0.6
+  eta:
+  - min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+  notes: N_ch^rec intervals of the table (mean <N_ch^rec> per point) as percentiles of the published N_ch^rec distribution
+    (HEPData figure2_panel2); reconstructed tracks, efficiency 0.6 (see the curation script).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+dimensionality: integrated
+value_type: nsc_2_4{4, Nch}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 4
+observable: nsc_2_4
+cumulant_method: standard
+normalized: true
+normalization_subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 0.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 0.5
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 26. nsc_{2,4}{4} = sc / (c_2{2} c_4{2}) (Eq. 10);
+    the standard method (|eta| < 2.5); charged particles 0.5 < pT < 5 GeV; <N_ch^rec> intervals (reconstructed tracks). Errors:
+    stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in unit N_ch^rec intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure19_panel5_pt1.yaml
+dv_index: 0
+hepdata_table_label: nsc_2_4{4, Nch}, standard, 1.0<pT<5.0 GeV (Page 26)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 59.73-69.39%
+  - 53.35-59.73%
+  - 48.41-53.35%
+  - 44.29-48.41%
+  - 40.72-44.29%
+  - 37.54-40.72%
+  - 34.67-37.54%
+  - 32.03-34.67%
+  - 29.6-32.03%
+  - 27.33-29.6%
+  - 25.2-27.33%
+  - 23.2-25.2%
+  - 21.31-23.2%
+  - 19.52-21.31%
+  - 17.82-19.52%
+  - 16.2-17.82%
+  - 14.66-16.2%
+  - 13.19-14.66%
+  - 11.79-13.19%
+  - 10.45-11.79%
+  - 9.17-10.45%
+  - 7.949-9.17%
+  - 6.785-7.949%
+  - 5.676-6.785%
+  - 4.622-5.676%
+  - 3.622-4.622%
+  - 2.678-3.622%
+  - 1.801-2.678%
+  - 1.042-1.801%
+  - 0.4821-1.042%
+  - 0.1659-0.4821%
+  - 0.03991-0.1659%
+  - 0.006452-0.03991%
+  - 0.0006826-0.006452%
+  - 0.00004645-0.0006826%
+  estimator:
+    name: Nch_rec
+    observable: Nch
+    detector: ID
+    efficiency: 0.6
+  eta:
+  - min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+  notes: N_ch^rec intervals of the table (mean <N_ch^rec> per point) as percentiles of the published N_ch^rec distribution
+    (HEPData figure2_panel2); reconstructed tracks, efficiency 0.6 (see the curation script).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 1.0
+    max: 5.0
+dimensionality: integrated
+value_type: nsc_2_4{4, Nch}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 4
+observable: nsc_2_4
+cumulant_method: standard
+normalized: true
+normalization_subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 1.0
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 1.0
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 26. nsc_{2,4}{4} = sc / (c_2{2} c_4{2}) (Eq. 10);
+    the standard method (|eta| < 2.5); charged particles 1 < pT < 5 GeV; <N_ch^rec> intervals (reconstructed tracks). Errors:
+    stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in unit N_ch^rec intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure19_panel5_pt2.yaml
+dv_index: 0
+hepdata_table_label: nsc_2_4{4, Nch}, standard, 1.5<pT<5.0 GeV (Page 26)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 59.73-69.39%
+  - 53.35-59.73%
+  - 48.41-53.35%
+  - 44.29-48.41%
+  - 40.72-44.29%
+  - 37.54-40.72%
+  - 34.67-37.54%
+  - 32.03-34.67%
+  - 29.6-32.03%
+  - 27.33-29.6%
+  - 25.2-27.33%
+  - 23.2-25.2%
+  - 21.31-23.2%
+  - 19.52-21.31%
+  - 17.82-19.52%
+  - 16.2-17.82%
+  - 14.66-16.2%
+  - 13.19-14.66%
+  - 11.79-13.19%
+  - 10.45-11.79%
+  - 9.17-10.45%
+  - 7.949-9.17%
+  - 6.785-7.949%
+  - 5.676-6.785%
+  - 4.622-5.676%
+  - 3.622-4.622%
+  - 2.678-3.622%
+  - 1.801-2.678%
+  - 1.042-1.801%
+  - 0.4821-1.042%
+  - 0.1659-0.4821%
+  - 0.03991-0.1659%
+  - 0.006452-0.03991%
+  - 0.0006826-0.006452%
+  - 0.00004645-0.0006826%
+  estimator:
+    name: Nch_rec
+    observable: Nch
+    detector: ID
+    efficiency: 0.6
+  eta:
+  - min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+  notes: N_ch^rec intervals of the table (mean <N_ch^rec> per point) as percentiles of the published N_ch^rec distribution
+    (HEPData figure2_panel2); reconstructed tracks, efficiency 0.6 (see the curation script).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 1.5
+    max: 5.0
+dimensionality: integrated
+value_type: nsc_2_4{4, Nch}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 4
+observable: nsc_2_4
+cumulant_method: standard
+normalized: true
+normalization_subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 1.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 1.5
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 26. nsc_{2,4}{4} = sc / (c_2{2} c_4{2}) (Eq. 10);
+    the standard method (|eta| < 2.5); charged particles 1.5 < pT < 5 GeV; <N_ch^rec> intervals (reconstructed tracks). Errors:
+    stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in unit N_ch^rec intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure19_panel5_pt3.yaml
+dv_index: 0
+hepdata_table_label: nsc_2_4{4, Nch}, standard, 2.0<pT<5.0 GeV (Page 26)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 59.73-69.39%
+  - 53.35-59.73%
+  - 48.41-53.35%
+  - 44.29-48.41%
+  - 40.72-44.29%
+  - 37.54-40.72%
+  - 34.67-37.54%
+  - 32.03-34.67%
+  - 29.6-32.03%
+  - 27.33-29.6%
+  - 25.2-27.33%
+  - 23.2-25.2%
+  - 21.31-23.2%
+  - 19.52-21.31%
+  - 17.82-19.52%
+  - 16.2-17.82%
+  - 14.66-16.2%
+  - 13.19-14.66%
+  - 11.79-13.19%
+  - 10.45-11.79%
+  - 9.17-10.45%
+  - 7.949-9.17%
+  - 6.785-7.949%
+  - 5.676-6.785%
+  - 4.622-5.676%
+  - 3.622-4.622%
+  - 2.678-3.622%
+  - 1.801-2.678%
+  - 1.042-1.801%
+  - 0.4821-1.042%
+  - 0.1659-0.4821%
+  - 0.03991-0.1659%
+  - 0.006452-0.03991%
+  - 0.0006826-0.006452%
+  - 0.00004645-0.0006826%
+  estimator:
+    name: Nch_rec
+    observable: Nch
+    detector: ID
+    efficiency: 0.6
+  eta:
+  - min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+  notes: N_ch^rec intervals of the table (mean <N_ch^rec> per point) as percentiles of the published N_ch^rec distribution
+    (HEPData figure2_panel2); reconstructed tracks, efficiency 0.6 (see the curation script).
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 2.0
+    max: 5.0
+dimensionality: integrated
+value_type: nsc_2_4{4, Nch}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 4
+observable: nsc_2_4
+cumulant_method: standard
+normalized: true
+normalization_subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 2.0
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 2.0
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 26. nsc_{2,4}{4} = sc / (c_2{2} c_4{2}) (Eq. 10);
+    the standard method (|eta| < 2.5); charged particles 2 < pT < 5 GeV; <N_ch^rec> intervals (reconstructed tracks). Errors:
+    stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in unit N_ch^rec intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure19_panel6_pt0.yaml
+dv_index: 0
+hepdata_table_label: nac_2{3, Nch}, standard, 0.5<pT<5.0 GeV (Page 26)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 59.73-69.39%
+  - 53.35-59.73%
+  - 48.41-53.35%
+  - 44.29-48.41%
+  - 40.72-44.29%
+  - 37.54-40.72%
+  - 34.67-37.54%
+  - 32.03-34.67%
+  - 29.6-32.03%
+  - 27.33-29.6%
+  - 25.2-27.33%
+  - 23.2-25.2%
+  - 21.31-23.2%
+  - 19.52-21.31%
+  - 17.82-19.52%
+  - 16.2-17.82%
+  - 14.66-16.2%
+  - 13.19-14.66%
+  - 11.79-13.19%
+  - 10.45-11.79%
+  - 9.17-10.45%
+  - 7.949-9.17%
+  - 6.785-7.949%
+  - 5.676-6.785%
+  - 4.622-5.676%
+  - 3.622-4.622%
+  - 2.678-3.622%
+  - 1.801-2.678%
+  - 1.042-1.801%
+  - 0.4821-1.042%
+  - 0.1659-0.4821%
+  - 0.03991-0.1659%
+  - 0.006452-0.03991%
+  - 0.0006826-0.006452%
+  - 0.00004645-0.0006826%
+  estimator:
+    name: Nch_rec
+    observable: Nch
+    detector: ID
+    efficiency: 0.6
+  eta:
+  - min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+  notes: N_ch^rec intervals of the table (mean <N_ch^rec> per point) as percentiles of the published N_ch^rec distribution
+    (HEPData figure2_panel2); reconstructed tracks, efficiency 0.6 (see the curation script).
+table_rows:
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+- 8
+- 9
+- 10
+- 11
+- 12
+- 13
+- 14
+- 15
+- 16
+- 17
+- 18
+- 19
+- 20
+- 21
+- 22
+- 23
+- 24
+- 25
+- 26
+- 27
+- 28
+- 29
+- 30
+- 31
+- 32
+- 33
+- 34
+- 35
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+dimensionality: integrated
+value_type: nac_2{3, Nch}
+observable_type: flow_harmonic_correlations
+correlation_type: asymmetric_cumulant
+harmonics:
+- 2
+observable: nac_2
+cumulant_method: standard
+normalized: true
+normalization_subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 0.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 0.5
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 26. nac_2{3} = ac / sqrt((2 c_2{2}^2 + c_2{4}) c_4{2})
+    (Eq. 11); the standard method (|eta| < 2.5); charged particles 0.5 < pT < 5 GeV; <N_ch^rec> intervals (reconstructed tracks).
+    Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in unit N_ch^rec intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure19_panel6_pt1.yaml
+dv_index: 0
+hepdata_table_label: nac_2{3, Nch}, standard, 1.0<pT<5.0 GeV (Page 26)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 59.73-69.39%
+  - 53.35-59.73%
+  - 48.41-53.35%
+  - 44.29-48.41%
+  - 40.72-44.29%
+  - 37.54-40.72%
+  - 34.67-37.54%
+  - 32.03-34.67%
+  - 29.6-32.03%
+  - 27.33-29.6%
+  - 25.2-27.33%
+  - 23.2-25.2%
+  - 21.31-23.2%
+  - 19.52-21.31%
+  - 17.82-19.52%
+  - 16.2-17.82%
+  - 14.66-16.2%
+  - 13.19-14.66%
+  - 11.79-13.19%
+  - 10.45-11.79%
+  - 9.17-10.45%
+  - 7.949-9.17%
+  - 6.785-7.949%
+  - 5.676-6.785%
+  - 4.622-5.676%
+  - 3.622-4.622%
+  - 2.678-3.622%
+  - 1.801-2.678%
+  - 1.042-1.801%
+  - 0.4821-1.042%
+  - 0.1659-0.4821%
+  - 0.03991-0.1659%
+  - 0.006452-0.03991%
+  - 0.0006826-0.006452%
+  - 0.00004645-0.0006826%
+  estimator:
+    name: Nch_rec
+    observable: Nch
+    detector: ID
+    efficiency: 0.6
+  eta:
+  - min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+  notes: N_ch^rec intervals of the table (mean <N_ch^rec> per point) as percentiles of the published N_ch^rec distribution
+    (HEPData figure2_panel2); reconstructed tracks, efficiency 0.6 (see the curation script).
+table_rows:
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+- 8
+- 9
+- 10
+- 11
+- 12
+- 13
+- 14
+- 15
+- 16
+- 17
+- 18
+- 19
+- 20
+- 21
+- 22
+- 23
+- 24
+- 25
+- 26
+- 27
+- 28
+- 29
+- 30
+- 31
+- 32
+- 33
+- 34
+- 35
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 1.0
+    max: 5.0
+dimensionality: integrated
+value_type: nac_2{3, Nch}
+observable_type: flow_harmonic_correlations
+correlation_type: asymmetric_cumulant
+harmonics:
+- 2
+observable: nac_2
+cumulant_method: standard
+normalized: true
+normalization_subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 1.0
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 1.0
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 26. nac_2{3} = ac / sqrt((2 c_2{2}^2 + c_2{4}) c_4{2})
+    (Eq. 11); the standard method (|eta| < 2.5); charged particles 1 < pT < 5 GeV; <N_ch^rec> intervals (reconstructed tracks).
+    Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in unit N_ch^rec intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure19_panel6_pt2.yaml
+dv_index: 0
+hepdata_table_label: nac_2{3, Nch}, standard, 1.5<pT<5.0 GeV (Page 26)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 59.73-69.39%
+  - 53.35-59.73%
+  - 48.41-53.35%
+  - 44.29-48.41%
+  - 40.72-44.29%
+  - 37.54-40.72%
+  - 34.67-37.54%
+  - 32.03-34.67%
+  - 29.6-32.03%
+  - 27.33-29.6%
+  - 25.2-27.33%
+  - 23.2-25.2%
+  - 21.31-23.2%
+  - 19.52-21.31%
+  - 17.82-19.52%
+  - 16.2-17.82%
+  - 14.66-16.2%
+  - 13.19-14.66%
+  - 11.79-13.19%
+  - 10.45-11.79%
+  - 9.17-10.45%
+  - 7.949-9.17%
+  - 6.785-7.949%
+  - 5.676-6.785%
+  - 4.622-5.676%
+  - 3.622-4.622%
+  - 2.678-3.622%
+  - 1.801-2.678%
+  - 1.042-1.801%
+  - 0.4821-1.042%
+  - 0.1659-0.4821%
+  - 0.03991-0.1659%
+  - 0.006452-0.03991%
+  - 0.0006826-0.006452%
+  - 0.00004645-0.0006826%
+  estimator:
+    name: Nch_rec
+    observable: Nch
+    detector: ID
+    efficiency: 0.6
+  eta:
+  - min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+  notes: N_ch^rec intervals of the table (mean <N_ch^rec> per point) as percentiles of the published N_ch^rec distribution
+    (HEPData figure2_panel2); reconstructed tracks, efficiency 0.6 (see the curation script).
+table_rows:
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+- 8
+- 9
+- 10
+- 11
+- 12
+- 13
+- 14
+- 15
+- 16
+- 17
+- 18
+- 19
+- 20
+- 21
+- 22
+- 23
+- 24
+- 25
+- 26
+- 27
+- 28
+- 29
+- 30
+- 31
+- 32
+- 33
+- 34
+- 35
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 1.5
+    max: 5.0
+dimensionality: integrated
+value_type: nac_2{3, Nch}
+observable_type: flow_harmonic_correlations
+correlation_type: asymmetric_cumulant
+harmonics:
+- 2
+observable: nac_2
+cumulant_method: standard
+normalized: true
+normalization_subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 1.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 1.5
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 26. nac_2{3} = ac / sqrt((2 c_2{2}^2 + c_2{4}) c_4{2})
+    (Eq. 11); the standard method (|eta| < 2.5); charged particles 1.5 < pT < 5 GeV; <N_ch^rec> intervals (reconstructed tracks).
+    Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in unit N_ch^rec intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure19_panel6_pt3.yaml
+dv_index: 0
+hepdata_table_label: nac_2{3, Nch}, standard, 2.0<pT<5.0 GeV (Page 26)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 59.73-69.39%
+  - 53.35-59.73%
+  - 48.41-53.35%
+  - 44.29-48.41%
+  - 40.72-44.29%
+  - 37.54-40.72%
+  - 34.67-37.54%
+  - 32.03-34.67%
+  - 29.6-32.03%
+  - 27.33-29.6%
+  - 25.2-27.33%
+  - 23.2-25.2%
+  - 21.31-23.2%
+  - 19.52-21.31%
+  - 17.82-19.52%
+  - 16.2-17.82%
+  - 14.66-16.2%
+  - 13.19-14.66%
+  - 11.79-13.19%
+  - 10.45-11.79%
+  - 9.17-10.45%
+  - 7.949-9.17%
+  - 6.785-7.949%
+  - 5.676-6.785%
+  - 4.622-5.676%
+  - 3.622-4.622%
+  - 2.678-3.622%
+  - 1.801-2.678%
+  - 1.042-1.801%
+  - 0.4821-1.042%
+  - 0.1659-0.4821%
+  - 0.03991-0.1659%
+  - 0.006452-0.03991%
+  - 0.0006826-0.006452%
+  - 0.00004645-0.0006826%
+  estimator:
+    name: Nch_rec
+    observable: Nch
+    detector: ID
+    efficiency: 0.6
+  eta:
+  - min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+  notes: N_ch^rec intervals of the table (mean <N_ch^rec> per point) as percentiles of the published N_ch^rec distribution
+    (HEPData figure2_panel2); reconstructed tracks, efficiency 0.6 (see the curation script).
+table_rows:
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+- 8
+- 9
+- 10
+- 11
+- 12
+- 13
+- 14
+- 15
+- 16
+- 17
+- 18
+- 19
+- 20
+- 21
+- 22
+- 23
+- 24
+- 25
+- 26
+- 27
+- 28
+- 29
+- 30
+- 31
+- 32
+- 33
+- 34
+- 35
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 2.0
+    max: 5.0
+dimensionality: integrated
+value_type: nac_2{3, Nch}
+observable_type: flow_harmonic_correlations
+correlation_type: asymmetric_cumulant
+harmonics:
+- 2
+observable: nac_2
+cumulant_method: standard
+normalized: true
+normalization_subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 2.0
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 2.0
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta:
+  - min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 26. nac_2{3} = ac / sqrt((2 c_2{2}^2 + c_2{4}) c_4{2})
+    (Eq. 11); the standard method (|eta| < 2.5); charged particles 2 < pT < 5 GeV; <N_ch^rec> intervals (reconstructed tracks).
+    Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in unit N_ch^rec intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure28_panel1_pt0.yaml
+dv_index: 0
+hepdata_table_label: sc_2_3{4}, standard, 0.5<pT<5.0 GeV (Page 31)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  - 70-72%
+  - 72-74%
+  - 74-76%
+  - 76-78%
+  - 78-80%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+dimensionality: integrated
+value_type: sc_2_3{4}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 3
+observable: sc_2_3
+cumulant_method: standard
+normalized: false
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 31. sc_{2,3}{4} (Eq. 6); the standard method (|eta|
+    < 2.5); charged particles 0.5 < pT < 5 GeV; FCal Sigma E_T centrality. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure28_panel1_pt1.yaml
+dv_index: 0
+hepdata_table_label: sc_2_3{4}, standard, 1.0<pT<5.0 GeV (Page 31)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  - 70-72%
+  - 72-74%
+  - 74-76%
+  - 76-78%
+  - 78-80%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 1.0
+    max: 5.0
+dimensionality: integrated
+value_type: sc_2_3{4}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 3
+observable: sc_2_3
+cumulant_method: standard
+normalized: false
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 31. sc_{2,3}{4} (Eq. 6); the standard method (|eta|
+    < 2.5); charged particles 1 < pT < 5 GeV; FCal Sigma E_T centrality. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure28_panel1_pt2.yaml
+dv_index: 0
+hepdata_table_label: sc_2_3{4}, standard, 1.5<pT<5.0 GeV (Page 31)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  - 70-72%
+  - 72-74%
+  - 74-76%
+  - 76-78%
+  - 78-80%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 1.5
+    max: 5.0
+dimensionality: integrated
+value_type: sc_2_3{4}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 3
+observable: sc_2_3
+cumulant_method: standard
+normalized: false
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 31. sc_{2,3}{4} (Eq. 6); the standard method (|eta|
+    < 2.5); charged particles 1.5 < pT < 5 GeV; FCal Sigma E_T centrality. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure28_panel1_pt3.yaml
+dv_index: 0
+hepdata_table_label: sc_2_3{4}, standard, 2.0<pT<5.0 GeV (Page 31)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  - 70-72%
+  - 72-74%
+  - 74-76%
+  - 76-78%
+  - 78-80%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 2.0
+    max: 5.0
+dimensionality: integrated
+value_type: sc_2_3{4}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 3
+observable: sc_2_3
+cumulant_method: standard
+normalized: false
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 31. sc_{2,3}{4} (Eq. 6); the standard method (|eta|
+    < 2.5); charged particles 2 < pT < 5 GeV; FCal Sigma E_T centrality. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure28_panel2_pt0.yaml
+dv_index: 0
+hepdata_table_label: sc_2_3{4}, 3-subevent, 0.5<pT<5.0 GeV (Page 31)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  - 70-72%
+  - 72-74%
+  - 74-76%
+  - 76-78%
+  - 78-80%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+dimensionality: integrated
+value_type: sc_2_3{4}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 3
+observable: sc_2_3
+cumulant_method: three_subevent
+normalized: false
+particles: AABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 0.5
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.8333
+        max: 0.8333
+      pT:
+        min: 0.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 0.5
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 31. sc_{2,3}{4} (Eq. 6); the three-subevent method
+    (a, b, c = A, B, C; the mean of the three interchanged measurements); charged particles 0.5 < pT < 5 GeV; FCal Sigma E_T
+    centrality. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure28_panel2_pt1.yaml
+dv_index: 0
+hepdata_table_label: sc_2_3{4}, 3-subevent, 1.0<pT<5.0 GeV (Page 31)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  - 70-72%
+  - 72-74%
+  - 74-76%
+  - 76-78%
+  - 78-80%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 1.0
+    max: 5.0
+dimensionality: integrated
+value_type: sc_2_3{4}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 3
+observable: sc_2_3
+cumulant_method: three_subevent
+normalized: false
+particles: AABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 1.0
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.8333
+        max: 0.8333
+      pT:
+        min: 1.0
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 1.0
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 31. sc_{2,3}{4} (Eq. 6); the three-subevent method
+    (a, b, c = A, B, C; the mean of the three interchanged measurements); charged particles 1 < pT < 5 GeV; FCal Sigma E_T
+    centrality. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure28_panel2_pt2.yaml
+dv_index: 0
+hepdata_table_label: sc_2_3{4}, 3-subevent, 1.5<pT<5.0 GeV (Page 31)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  - 70-72%
+  - 72-74%
+  - 74-76%
+  - 76-78%
+  - 78-80%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 1.5
+    max: 5.0
+dimensionality: integrated
+value_type: sc_2_3{4}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 3
+observable: sc_2_3
+cumulant_method: three_subevent
+normalized: false
+particles: AABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 1.5
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.8333
+        max: 0.8333
+      pT:
+        min: 1.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 1.5
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 31. sc_{2,3}{4} (Eq. 6); the three-subevent method
+    (a, b, c = A, B, C; the mean of the three interchanged measurements); charged particles 1.5 < pT < 5 GeV; FCal Sigma E_T
+    centrality. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure28_panel2_pt3.yaml
+dv_index: 0
+hepdata_table_label: sc_2_3{4}, 3-subevent, 2.0<pT<5.0 GeV (Page 31)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  - 70-72%
+  - 72-74%
+  - 74-76%
+  - 76-78%
+  - 78-80%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 2.0
+    max: 5.0
+dimensionality: integrated
+value_type: sc_2_3{4}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 3
+observable: sc_2_3
+cumulant_method: three_subevent
+normalized: false
+particles: AABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 2.0
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.8333
+        max: 0.8333
+      pT:
+        min: 2.0
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 2.0
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 31. sc_{2,3}{4} (Eq. 6); the three-subevent method
+    (a, b, c = A, B, C; the mean of the three interchanged measurements); charged particles 2 < pT < 5 GeV; FCal Sigma E_T
+    centrality. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure29_panel1_pt0.yaml
+dv_index: 0
+hepdata_table_label: sc_2_4{4}, standard, 0.5<pT<5.0 GeV (Page 32)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  - 70-72%
+  - 72-74%
+  - 74-76%
+  - 76-78%
+  - 78-80%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+dimensionality: integrated
+value_type: sc_2_4{4}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 4
+observable: sc_2_4
+cumulant_method: standard
+normalized: false
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 32. sc_{2,4}{4} (Eq. 6); the standard method (|eta|
+    < 2.5); charged particles 0.5 < pT < 5 GeV; FCal Sigma E_T centrality. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure29_panel1_pt1.yaml
+dv_index: 0
+hepdata_table_label: sc_2_4{4}, standard, 1.0<pT<5.0 GeV (Page 32)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  - 70-72%
+  - 72-74%
+  - 74-76%
+  - 76-78%
+  - 78-80%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 1.0
+    max: 5.0
+dimensionality: integrated
+value_type: sc_2_4{4}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 4
+observable: sc_2_4
+cumulant_method: standard
+normalized: false
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 32. sc_{2,4}{4} (Eq. 6); the standard method (|eta|
+    < 2.5); charged particles 1 < pT < 5 GeV; FCal Sigma E_T centrality. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure29_panel1_pt2.yaml
+dv_index: 0
+hepdata_table_label: sc_2_4{4}, standard, 1.5<pT<5.0 GeV (Page 32)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  - 70-72%
+  - 72-74%
+  - 74-76%
+  - 76-78%
+  - 78-80%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 1.5
+    max: 5.0
+dimensionality: integrated
+value_type: sc_2_4{4}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 4
+observable: sc_2_4
+cumulant_method: standard
+normalized: false
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 32. sc_{2,4}{4} (Eq. 6); the standard method (|eta|
+    < 2.5); charged particles 1.5 < pT < 5 GeV; FCal Sigma E_T centrality. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure29_panel1_pt3.yaml
+dv_index: 0
+hepdata_table_label: sc_2_4{4}, standard, 2.0<pT<5.0 GeV (Page 32)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  - 70-72%
+  - 72-74%
+  - 74-76%
+  - 76-78%
+  - 78-80%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 2.0
+    max: 5.0
+dimensionality: integrated
+value_type: sc_2_4{4}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 4
+observable: sc_2_4
+cumulant_method: standard
+normalized: false
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 32. sc_{2,4}{4} (Eq. 6); the standard method (|eta|
+    < 2.5); charged particles 2 < pT < 5 GeV; FCal Sigma E_T centrality. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure29_panel2_pt0.yaml
+dv_index: 0
+hepdata_table_label: sc_2_4{4}, 3-subevent, 0.5<pT<5.0 GeV (Page 32)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  - 70-72%
+  - 72-74%
+  - 74-76%
+  - 76-78%
+  - 78-80%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+dimensionality: integrated
+value_type: sc_2_4{4}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 4
+observable: sc_2_4
+cumulant_method: three_subevent
+normalized: false
+particles: AABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 0.5
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.8333
+        max: 0.8333
+      pT:
+        min: 0.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 0.5
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 32. sc_{2,4}{4} (Eq. 6); the three-subevent method
+    (a, b, c = A, B, C; the mean of the three interchanged measurements); charged particles 0.5 < pT < 5 GeV; FCal Sigma E_T
+    centrality. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure29_panel2_pt1.yaml
+dv_index: 0
+hepdata_table_label: sc_2_4{4}, 3-subevent, 1.0<pT<5.0 GeV (Page 32)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  - 70-72%
+  - 72-74%
+  - 74-76%
+  - 76-78%
+  - 78-80%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 1.0
+    max: 5.0
+dimensionality: integrated
+value_type: sc_2_4{4}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 4
+observable: sc_2_4
+cumulant_method: three_subevent
+normalized: false
+particles: AABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 1.0
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.8333
+        max: 0.8333
+      pT:
+        min: 1.0
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 1.0
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 32. sc_{2,4}{4} (Eq. 6); the three-subevent method
+    (a, b, c = A, B, C; the mean of the three interchanged measurements); charged particles 1 < pT < 5 GeV; FCal Sigma E_T
+    centrality. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure29_panel2_pt2.yaml
+dv_index: 0
+hepdata_table_label: sc_2_4{4}, 3-subevent, 1.5<pT<5.0 GeV (Page 32)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  - 70-72%
+  - 72-74%
+  - 74-76%
+  - 76-78%
+  - 78-80%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 1.5
+    max: 5.0
+dimensionality: integrated
+value_type: sc_2_4{4}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 4
+observable: sc_2_4
+cumulant_method: three_subevent
+normalized: false
+particles: AABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 1.5
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.8333
+        max: 0.8333
+      pT:
+        min: 1.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 1.5
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 32. sc_{2,4}{4} (Eq. 6); the three-subevent method
+    (a, b, c = A, B, C; the mean of the three interchanged measurements); charged particles 1.5 < pT < 5 GeV; FCal Sigma E_T
+    centrality. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure29_panel2_pt3.yaml
+dv_index: 0
+hepdata_table_label: sc_2_4{4}, 3-subevent, 2.0<pT<5.0 GeV (Page 32)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  - 70-72%
+  - 72-74%
+  - 74-76%
+  - 76-78%
+  - 78-80%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 2.0
+    max: 5.0
+dimensionality: integrated
+value_type: sc_2_4{4}
+observable_type: flow_harmonic_correlations
+correlation_type: symmetric_cumulant
+harmonics:
+- 2
+- 4
+observable: sc_2_4
+cumulant_method: three_subevent
+normalized: false
+particles: AABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 2.0
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.8333
+        max: 0.8333
+      pT:
+        min: 2.0
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 2.0
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 32. sc_{2,4}{4} (Eq. 6); the three-subevent method
+    (a, b, c = A, B, C; the mean of the three interchanged measurements); charged particles 2 < pT < 5 GeV; FCal Sigma E_T
+    centrality. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure30_panel1_pt0.yaml
+dv_index: 0
+hepdata_table_label: ac_2{3}, standard, 0.5<pT<5.0 GeV (Page 32)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  - 70-72%
+  - 72-74%
+  - 74-76%
+  - 76-78%
+  - 78-80%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+dimensionality: integrated
+value_type: ac_2{3}
+observable_type: flow_harmonic_correlations
+correlation_type: asymmetric_cumulant
+harmonics:
+- 2
+observable: ac_2
+cumulant_method: standard
+normalized: false
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 32. ac_2{3} = <<e^{i(n phi1 + n phi2 - 2n phi3)}>>
+    (Eq. 6); the standard method (|eta| < 2.5); charged particles 0.5 < pT < 5 GeV; FCal Sigma E_T centrality. Errors: stat
+    and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure30_panel1_pt1.yaml
+dv_index: 0
+hepdata_table_label: ac_2{3}, standard, 1.0<pT<5.0 GeV (Page 32)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  - 70-72%
+  - 72-74%
+  - 74-76%
+  - 76-78%
+  - 78-80%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 1.0
+    max: 5.0
+dimensionality: integrated
+value_type: ac_2{3}
+observable_type: flow_harmonic_correlations
+correlation_type: asymmetric_cumulant
+harmonics:
+- 2
+observable: ac_2
+cumulant_method: standard
+normalized: false
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 32. ac_2{3} = <<e^{i(n phi1 + n phi2 - 2n phi3)}>>
+    (Eq. 6); the standard method (|eta| < 2.5); charged particles 1 < pT < 5 GeV; FCal Sigma E_T centrality. Errors: stat
+    and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure30_panel1_pt2.yaml
+dv_index: 0
+hepdata_table_label: ac_2{3}, standard, 1.5<pT<5.0 GeV (Page 32)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  - 70-72%
+  - 72-74%
+  - 74-76%
+  - 76-78%
+  - 78-80%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 1.5
+    max: 5.0
+dimensionality: integrated
+value_type: ac_2{3}
+observable_type: flow_harmonic_correlations
+correlation_type: asymmetric_cumulant
+harmonics:
+- 2
+observable: ac_2
+cumulant_method: standard
+normalized: false
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 32. ac_2{3} = <<e^{i(n phi1 + n phi2 - 2n phi3)}>>
+    (Eq. 6); the standard method (|eta| < 2.5); charged particles 1.5 < pT < 5 GeV; FCal Sigma E_T centrality. Errors: stat
+    and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure30_panel1_pt3.yaml
+dv_index: 0
+hepdata_table_label: ac_2{3}, standard, 2.0<pT<5.0 GeV (Page 32)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  - 70-72%
+  - 72-74%
+  - 74-76%
+  - 76-78%
+  - 78-80%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 2.0
+    max: 5.0
+dimensionality: integrated
+value_type: ac_2{3}
+observable_type: flow_harmonic_correlations
+correlation_type: asymmetric_cumulant
+harmonics:
+- 2
+observable: ac_2
+cumulant_method: standard
+normalized: false
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 32. ac_2{3} = <<e^{i(n phi1 + n phi2 - 2n phi3)}>>
+    (Eq. 6); the standard method (|eta| < 2.5); charged particles 2 < pT < 5 GeV; FCal Sigma E_T centrality. Errors: stat
+    and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure30_panel2_pt0.yaml
+dv_index: 0
+hepdata_table_label: ac_2{3}, 3-subevent, 0.5<pT<5.0 GeV (Page 32)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  - 70-72%
+  - 72-74%
+  - 74-76%
+  - 76-78%
+  - 78-80%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+dimensionality: integrated
+value_type: ac_2{3}
+observable_type: flow_harmonic_correlations
+correlation_type: asymmetric_cumulant
+harmonics:
+- 2
+observable: ac_2
+cumulant_method: three_subevent
+normalized: false
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 0.5
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.8333
+        max: 0.8333
+      pT:
+        min: 0.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 0.5
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 32. ac_2{3} = <<e^{i(n phi1 + n phi2 - 2n phi3)}>>
+    (Eq. 6); the three-subevent method (a, b, c = A, B, C; the mean of the three interchanged measurements); charged particles
+    0.5 < pT < 5 GeV; FCal Sigma E_T centrality. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure30_panel2_pt1.yaml
+dv_index: 0
+hepdata_table_label: ac_2{3}, 3-subevent, 1.0<pT<5.0 GeV (Page 32)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  - 70-72%
+  - 72-74%
+  - 74-76%
+  - 76-78%
+  - 78-80%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 1.0
+    max: 5.0
+dimensionality: integrated
+value_type: ac_2{3}
+observable_type: flow_harmonic_correlations
+correlation_type: asymmetric_cumulant
+harmonics:
+- 2
+observable: ac_2
+cumulant_method: three_subevent
+normalized: false
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 1.0
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.8333
+        max: 0.8333
+      pT:
+        min: 1.0
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 1.0
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 32. ac_2{3} = <<e^{i(n phi1 + n phi2 - 2n phi3)}>>
+    (Eq. 6); the three-subevent method (a, b, c = A, B, C; the mean of the three interchanged measurements); charged particles
+    1 < pT < 5 GeV; FCal Sigma E_T centrality. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure30_panel2_pt2.yaml
+dv_index: 0
+hepdata_table_label: ac_2{3}, 3-subevent, 1.5<pT<5.0 GeV (Page 32)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  - 70-72%
+  - 72-74%
+  - 74-76%
+  - 76-78%
+  - 78-80%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 1.5
+    max: 5.0
+dimensionality: integrated
+value_type: ac_2{3}
+observable_type: flow_harmonic_correlations
+correlation_type: asymmetric_cumulant
+harmonics:
+- 2
+observable: ac_2
+cumulant_method: three_subevent
+normalized: false
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 1.5
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.8333
+        max: 0.8333
+      pT:
+        min: 1.5
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 1.5
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 32. ac_2{3} = <<e^{i(n phi1 + n phi2 - 2n phi3)}>>
+    (Eq. 6); the three-subevent method (a, b, c = A, B, C; the mean of the three interchanged measurements); charged particles
+    1.5 < pT < 5 GeV; FCal Sigma E_T centrality. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).
+---
+inspire_id: '1728935'
+version: 1
+hepdata_file: figure30_panel2_pt3.yaml
+dv_index: 0
+hepdata_table_label: ac_2{3}, 3-subevent, 2.0<pT<5.0 GeV (Page 32)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-2%
+  - 2-4%
+  - 4-6%
+  - 6-8%
+  - 8-10%
+  - 10-12%
+  - 12-14%
+  - 14-16%
+  - 16-18%
+  - 18-20%
+  - 20-22%
+  - 22-24%
+  - 24-26%
+  - 26-28%
+  - 28-30%
+  - 30-32%
+  - 32-34%
+  - 34-36%
+  - 36-38%
+  - 38-40%
+  - 40-42%
+  - 42-44%
+  - 44-46%
+  - 46-48%
+  - 48-50%
+  - 50-52%
+  - 52-54%
+  - 54-56%
+  - 56-58%
+  - 58-60%
+  - 60-62%
+  - 62-64%
+  - 64-66%
+  - 66-68%
+  - 68-70%
+  - 70-72%
+  - 72-74%
+  - 74-76%
+  - 76-78%
+  - 78-80%
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta: &id001
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  notes: FCal Sigma E_T classes of equal width; the table gives their mean centralities.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 2.0
+    max: 5.0
+dimensionality: integrated
+value_type: ac_2{3}
+observable_type: flow_harmonic_correlations
+correlation_type: asymmetric_cumulant
+harmonics:
+- 2
+observable: ac_2
+cumulant_method: three_subevent
+normalized: false
+particles: ABC
+subevents:
+  A:
+    kinematic_range:
+      eta:
+        min: -2.5
+        max: -0.8333
+      pT:
+        min: 2.0
+        max: 5.0
+  B:
+    kinematic_range:
+      eta:
+        min: -0.8333
+        max: 0.8333
+      pT:
+        min: 2.0
+        max: 5.0
+  C:
+    kinematic_range:
+      eta:
+        min: 0.8333
+        max: 2.5
+      pT:
+        min: 2.0
+        max: 5.0
+multiplicity_baseline:
+  observable: Nch
+  eta: *id001
+  pT:
+    min: 0.0
+    max: 100.0
+notes:
+  value: 'ATLAS Collaboration, JHEP 01 (2020) 051, arXiv:1904.04808, Page 32. ac_2{3} = <<e^{i(n phi1 + n phi2 - 2n phi3)}>>
+    (Eq. 6); the three-subevent method (a, b, c = A, B, C; the mean of the three interchanged measurements); charged particles
+    2 < pT < 5 GeV; FCal Sigma E_T centrality. Errors: stat and syst.'
+  reference_event_class: ATLAS forms the cumulants in narrow Sigma E_T intervals and combines them with the numbers of events
+    (Sec. 5); computed at fixed multiplicity in the estimator acceptance (multiplicity_baseline).

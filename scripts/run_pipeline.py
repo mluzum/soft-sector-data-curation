@@ -262,14 +262,18 @@ def _record_anchor(params, mult, anchor, args, event_weights=None):
     """(anchor, efficiency) for one record: the group's anchor, or the
     experiment-defined normalization the record states
     (centrality.normalization: estimator_threshold, fraction_above,
-    efficiency -- STAR's isobar classes, analysis.weights.threshold_anchor)."""
+    efficiency -- STAR's isobar classes, analysis.weights.threshold_anchor).
+    Percentile classes of a track-count estimator take its
+    centrality.estimator.efficiency (ATLAS's N_ch^rec), else the run's
+    --poisson-efficiency."""
     mb = params.get('cent_multiplicity_bins')
     if mb:      # classes in track count: absolute, no cross-section anchor
         return ({'f': 1.0, 'n_ref': float(len(mult)), 'anchor_cent': float('inf')},
                 float(mb.get('efficiency', 1.0)))
     norm = params.get('cent_normalization')
     if not norm:
-        return anchor, args.poisson_efficiency
+        est_eff = (params.get('cent_estimator') or {}).get('efficiency')
+        return anchor, (args.poisson_efficiency if est_eff is None else float(est_eff))
     from analysis.weights import threshold_anchor
     eff = float(norm.get('efficiency', 1.0))
     a = threshold_anchor(mult, args.cent_method, float(norm['estimator_threshold']),

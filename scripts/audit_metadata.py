@@ -323,9 +323,13 @@ def _extra_checks(doc, raw, sel_dv, sel_q, desc, flag):
         # (a ratio of cumulant orders, v2{6}/v2{4} ~ 0.99, or gamma1 is no
         # flow coefficient; a difference is)
         combination = (doc.get("cumulant_combination") or {}).get("kind")
+        # (nor are ATLAS's normalized cumulants nc_n{4} ~ -0.5 and ratios of
+        # orders of a cumulant_method record)
+        not_coefficient = combination in ("ratio", "gamma1") or (
+            doc.get("cumulant_method") is not None and doc.get("cumulant_quantity") in ("normalized", "ratio"))
         # (three points at least: with two the median is the larger one --
         # a peripheral Omega at 19.6 GeV, v2 = 0.66 +- 0.11, STAR 1395151)
-        if combination not in ("ratio", "gamma1") and len(vals) >= 3 and "%" not in units and "*100" not in header.replace(" ", "") \
+        if not not_coefficient and len(vals) >= 3 and "%" not in units and "*100" not in header.replace(" ", "") \
                 and not re.search(r"\(\s*%\s*\)", header) \
                 and sorted(vals)[len(vals) // 2] / scale > 0.5:
             flag("error", f"median |value| {sorted(vals)[len(vals) // 2]:.3g}: percent without a unit "

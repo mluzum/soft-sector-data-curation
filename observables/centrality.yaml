@@ -71,6 +71,15 @@ centrality:
             Subdetector name (e.g. "V0", "V0A", "V0C", "FCal", "HF",
             "TPC", "BBC", "ZDC").
           example: "V0"
+        efficiency:
+          type: float
+          required: false
+          description: >
+            Percentile classes of a track count of reconstructed tracks
+            (ATLAS's N_ch^rec): the model's count is Poisson(efficiency x
+            N) in the estimator acceptance (cent method poisson), the
+            detector's resolution; default the run's --poisson-efficiency.
+          example: 0.6
     eta:
       type: list
       required: true

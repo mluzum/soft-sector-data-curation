@@ -1802,6 +1802,69 @@ def _wrap_rho_vn2_pT(data, w):
     return flow_pt.core(data, w)
 
 
+# ── multi-particle cumulants, standard and three-subevent (analysis.multi_cumulants) ──
+
+def _multi_cumulant_data(S, st, mult, n_harm):
+    from analysis import multi_cumulants
+    lead, _coinc = multi_cumulants.needed_harmonics(st)
+    if max(lead) >= n_harm:
+        raise ValueError(f"multi-particle cumulants need Q_{max(lead)}; the container stores harmonics below "
+                         f"{n_harm}")
+    out = multi_cumulants.event_sums(S, st)
+    if S.missing:
+        print(f"  note: harmonics {sorted(S.missing)} not stored; their coincidence terms dropped")
+    if mult is not None:
+        if not np.any(np.asarray(mult) > 0):
+            raise ValueError("multiplicity_baseline: no particles in its windows")
+        out['mult'] = mult
+    return out
+
+
+def prepare_multi_cumulant_2d(qv, params):
+    """Charged species of the boost-invariant container, each window a weight
+    per (species, pT bin): the eta-window Jacobian over the plateau times the
+    pT share (analysis.multi_cumulants.SharedSums)."""
+    from analysis.qvector import _overlap_fractions, _pt_squared
+    from analysis import multi_cumulants
+    st = multi_cumulants.settings(params)
+    idx = list(charged_species_indices(getattr(qv, 'pdg_ids', None))[0])
+    Qn = np.moveaxis(qv.Qn[:, idx], 2, -1)                  # (ev, species, pT, h)
+    windows = {}
+    for name, (eta, pt) in st['windows'].items():
+        jac = _make_jacobian_list(qv.pt_centers, qv.masses, eta[0], eta[1])[idx, :] / (2.0 * qv.rap_max)
+        fpt = np.asarray(_overlap_fractions(qv.pt_bin_edges, pt[0], pt[1], _pt_squared), dtype=float)
+        windows[name] = jac * fpt[np.newaxis, :]
+    tag = ('2d', tuple(idx))
+    S = multi_cumulants.SharedSums(Qn, windows, st['windows'], qv.nsamples, owner=qv.Qn, tag=tag)
+    base = _pT_fluct_baseline(params, st['windows']['full'][1])
+    mult = None
+    if base:
+        key = ('mult', tuple(base[0]), tuple(base[1]))
+        mult = multi_cumulants.cached(qv.Qn, tag, key, lambda: _baseline_mult_2d(qv, base))
+    return _multi_cumulant_data(S, st, mult, Qn.shape[-1])
+
+
+def prepare_multi_cumulant_3d(grid, params):
+    """Unit-weight cells of the charged grid, each window the cells' overlap
+    shares (QGridData.window_weights)."""
+    from analysis import multi_cumulants
+    st = multi_cumulants.settings(params)
+    windows = {name: np.asarray(grid.window_weights(eta[0], eta[1], pt[0], pt[1], fractional=True), dtype=float)
+               for name, (eta, pt) in st['windows'].items()}
+    S = multi_cumulants.SharedSums(grid.Qn, windows, st['windows'], grid.nsamples, tag='3d')
+    base = _pT_fluct_baseline(params, st['windows']['full'][1])
+    mult = None
+    if base:
+        key = ('mult', tuple(base[0]), tuple(base[1]))
+        mult = multi_cumulants.cached(grid.Qn, '3d', key, lambda: _baseline_mult_3d(grid, base))
+    return _multi_cumulant_data(S, st, mult, grid.Qn.shape[-1])
+
+
+def _wrap_multi_cumulant(data, w):
+    from analysis import multi_cumulants
+    return multi_cumulants.core(data, w)
+
+
 # ── linear and mode-coupled flow harmonics (analysis.mode_coupling) ──
 
 def _mode_coupling_settings(params):
@@ -4130,6 +4193,14 @@ PIPELINE_DISPATCH = {
         "n_obs_per_cent": 1,
         "description": "transverse energy per unit eta (grid only)",
     },
+    "multi_cumulant": {
+        "core_fn": _wrap_multi_cumulant,
+        "prepare_data_2d": prepare_multi_cumulant_2d,
+        "prepare_data_3d": prepare_multi_cumulant_3d,
+        "n_obs_per_cent": 1,
+        "description": "multi-particle cumulants, standard or three-subevent method: c_n{2k}, nc_n{2k}, v_n{2k}, "
+                       "ratios, sc, nsc, ac, nac (analysis.multi_cumulants)",
+    },
     "sc_mn": {
         "core_fn": _wrap_sc,
         "prepare_data_2d": prepare_sc_2d,
@@ -4285,7 +4356,7 @@ SINGLE_ROW_KEYS = frozenset({
     'spectra_invariant_yield', 'dET_deta', 'sc_mn', 'nac_mn', 'radial_flow',
     'vn_cumulant_combination', 'v1_even_factorization', 'rho_vn2_pT', 'mode_coupling',
     'plane_corr_sp', 'plane_corr_ge', 'flow_vector_fluct', 'vn_mixed_plane', 'vn2_eta_partner', 'rnn_decorrelation',
-    'tn_four_plane', 'vn_3x2pc',
+    'tn_four_plane', 'vn_3x2pc', 'multi_cumulant',
 })
 
 

@@ -41,6 +41,7 @@ required_fields:
     required: true
     allowed:
       - symmetric_cumulant
+      - asymmetric_cumulant
       - event_plane_correlation
       - multi_harmonic_correlation
       - longitudinal_decorrelation
@@ -190,6 +191,51 @@ optional_fields:
       (NSC(k,l,m) = SC(k,l,m) / (<v_k^2><v_l^2><v_m^2>)), false for SC.
       Required by the computation (two or three harmonics).
     example: true
+  cumulant_method:
+    type: string
+    required: false
+    allowed: [standard, three_subevent]
+    description: >
+      Multi-particle cumulants with ATLAS's methods (JHEP 01 (2020) 051;
+      analysis/multi_cumulants.py, key multi_cumulant): 'standard' (every
+      particle in kinematic_range) or 'three_subevent' (particles ABC,
+      subevents A, B, C; each cumulant the mean of the three measurements
+      with the subevents interchanged; particles AABC, or ABC for
+      ac_n{3}).  Every two-particle cumulant of a normalization (and v_n{2}
+      of a ratio) is c_n{2} between normalization_subevents A and C (default:
+      the three-subevent record's A and C; a standard-method record that
+      normalizes states them).  With multiplicity_baseline, the cumulants are
+      formed at fixed
+      multiplicity in its acceptance (ATLAS's narrow Sigma E_T or N_ch^rec
+      intervals, combined with the numbers of events) and the
+      normalizations and ratios from the combined cumulants.
+      symmetric_cumulant (harmonics [n, m]): sc_{n,m}{4}, normalized nsc =
+      sc / (c_n{2} c_m{2}); asymmetric_cumulant (harmonics [n], this
+      method only): ac_n{3} = <<e^{i(n phi_1 + n phi_2 - 2n phi_3)}>>,
+      normalized nac = ac / sqrt((2 c_n{2}^2 + c_n{4}) c_2n{2}).
+    example: three_subevent
+  normalization_subevents:
+    type: object
+    required: false
+    description: >
+      cumulant_method records: the windows A and C ({A: {kinematic_range},
+      C: {kinematic_range}}) of the two-particle cumulants c_n^{a|c}{2} of a
+      normalization (nc, nsc, nac) or of v_n{2} in a ratio (ATLAS Eq. 7).
+    example: {A: {kinematic_range: {eta: {min: -2.5, max: -0.8333}}}, C: {kinematic_range: {eta: {min: 0.8333, max: 2.5}}}}
+  multiplicity_baseline:
+    type: object
+    required: false
+    description: >
+      cumulant_method records: each correlator's class average taken at the
+      event's multiplicity in these windows (a weighted linear regression
+      within the class), the cumulant formed per event and averaged over the
+      class's events: the counterpart of ATLAS's narrow reference event
+      classes (Sigma E_T: the FCal windows; N_ch^rec: |eta| < 2.5, 0.5 < pT
+      < 5 GeV).
+    fields:
+      observable: {type: string, required: false, example: "Nch"}
+      eta: {type: list, required: true, example: [{min: -4.9, max: -3.2}, {min: 3.2, max: 4.9}]}
+      pT: {type: object, required: false, example: {min: 0.0, max: 100.0}}
   normalization_eta_gap:
     type: float
     required: false

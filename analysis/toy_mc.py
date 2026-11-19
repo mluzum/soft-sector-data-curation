@@ -777,7 +777,9 @@ def evaluate(record, qv=None, grid=None, with_jackknife=True,
     norm = params.get('cent_normalization')
     # experiment-defined normalization, as run_pipeline; the class edges and
     # the normalization are rebuilt in each jackknife replicate
-    eff = float(norm.get('efficiency', 1.0)) if norm else 1.0
+    est_eff = (params.get('cent_estimator') or {}).get('efficiency')
+    eff = (float(norm.get('efficiency', 1.0)) if norm
+           else 1.0 if est_eff is None else float(est_eff))
     from analysis.weights import estimator_weights
     centrality = estimator_weights(cent_method, mult, anchor, efficiency=eff, normalization=norm,
                                    event_weights=ew,

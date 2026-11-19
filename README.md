@@ -14,7 +14,7 @@ The pipeline reads those fields and applies the record's exact cuts to the
 simulation. A model is then compared with the data on the same footing,
 record by record, for any selection of measurements.
 
-- **9,983 records** from 199 publications (STAR, PHENIX, BRAHMS, PHOBOS,
+- **10,214 records** from 199 publications (STAR, PHENIX, BRAHMS, PHOBOS,
   ALICE, ATLAS, CMS), built from the HEPData tables in `hepdata_raw/`.
   **Every record can be computed from a simulation and compared with its
   data by the tools here**: it dispatches to a computation, its centrality
@@ -29,10 +29,12 @@ record by record, for any selection of measurements.
   - flow: v_n{2,4,6,8}, with η-gap and subevent methods, pT- and
     η-differential, scalar-product and event-plane estimators, and
     combinations of cumulant orders (v{4}/v{2}, mean flow and its
-    fluctuations, γ1); directed flow v1; flow relative to a lower-order
-    plane;
+    fluctuations, γ1); normalized cumulants nc_n{4}, nc_n{6} with the
+    standard and three-subevent methods, at fixed reference multiplicity
+    (ATLAS's narrow Σ E_T or N_ch^rec classes, down to ultra-central
+    collisions); directed flow v1; flow relative to a lower-order plane;
   - flow correlations: symmetric cumulants of two and three harmonics,
-    linear and mode-coupled harmonics, symmetry-plane correlations, and
+    asymmetric cumulants ac_n{3}, linear and mode-coupled harmonics, symmetry-plane correlations, and
     flow decorrelation in η (r_n, the four-plane correlator T_n) and pT;
   - flow-[pT] correlations ρ(v_n², [pT]) and mean-pT fluctuations;
   - identified and charged yields, spectra, mean pT and dE_T/dη;

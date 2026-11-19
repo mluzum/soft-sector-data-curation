@@ -322,6 +322,44 @@ Fields that change dispatch:
   across A and C (deviations from the full window's mean pT);
   tests/test_toy_mc_flow_pt.py (both equal the separately computed terms
   on 3D).  rho(v_m^2, v_n^2, [pT]) (ALICE Table 4) is not computed.
+- Multi-particle cumulants with ATLAS's methods (`cumulant_method:
+  standard | three_subevent`, key `multi_cumulant`,
+  analysis/multi_cumulants.py; ATLAS 1728935, JHEP 01 (2020) 051):
+  flow_vn records (harmonic n, cumulant_order 4 or 6, `cumulant_quantity`
+  cumulant | normalized | coefficient | ratio with `ratio_order`: c_n{2k},
+  nc_n{4} = c_n{4}/c_n{2}^2, nc_n{6} = c_n{6}/(4 c_n{2}^3), v_n{2k},
+  v_n{4}/v_n{2}, v_n{6}/v_n{4}) and flow_harmonic_correlations
+  (symmetric_cumulant [n, m]: sc, nsc; asymmetric_cumulant [n]: ac_n{3} =
+  <<e^{i(n phi1 + n phi2 - 2n phi3)}>>, nac = ac / sqrt((2 c_n{2}^2 +
+  c_n{4}) c_2n{2})).  Standard: every particle in kinematic_range;
+  three-subevent (particles AABC, or ABC for ac): subevents A, B, C, each
+  cumulant the mean of the three measurements with the subevents
+  interchanged (c_n{4} = <<4>>_{2X|Y,Z} - 2 <<2>>_{X|Y} <<2>>_{X|Z}).
+  Every two-particle cumulant of a normalization or a ratio is c_n{2}
+  between `normalization_subevents` A and C (default: the three-subevent
+  record's A, C).  `multiplicity_baseline` {eta, pT}: ATLAS forms each
+  cumulant in narrow reference event classes (Sigma E_T, 0.002 TeV; or
+  N_ch^rec, unit bins) and combines them with the numbers of events; the
+  pipeline takes each correlator's average at the event's multiplicity
+  along a weighted linear regression within the class, forms the cumulant
+  per event and averages it over the class's events (exact for narrow
+  intervals when the interval averages are linear in the multiplicity;
+  model intervals would hold a few events each), and normalizations and
+  ratios from the combined cumulants, as the paper.  Sums over distinct
+  particles (flow_pt.CellSums), tuple-count event weights; Q_{n+m} (sc)
+  and Q_{2n} (ac) required, harmonics only in coincidence terms dropped
+  with a note; harmonic 1 refused.  value_type 'v_2{4} / v_2{2}' is not
+  refused as a ratio of coefficients for these records.
+  tests/test_toy_mc_multi_cumulants.py (3D exact against closed-form
+  Q-vector sums for c_2{4}, sc, ac of both methods; v_2{6} and sc equal
+  to vn6_single and sc_mn; nc_2{4}, nc_2{6}, ratios, nsc, nac of a
+  Bessel-Gaussian toy on 2D and 3D; the regression exact against explicit
+  intervals and recovering the fixed-multiplicity nc_2{4} of a toy whose
+  <v_2^2> rises with multiplicity).  The paper's Sigma E_T and N_ch^rec
+  axes: classes from the published distributions
+  (scripts/curate_atlas_cumulants_pbpb_5020.py: grid intervals checked
+  against the tabulated means, percentile scales from the paper's own
+  v_n{2} tables, the knee and trigger anchors reproduced).
 - Symmetric cumulants (`correlation_type: symmetric_cumulant`, key
   `sc_mn`): two harmonics only, and `normalized` is required (true: NSC =
   SC / (<v_m^2><v_n^2>)); `normalization_eta_gap` takes the denominator
@@ -429,6 +467,11 @@ Fields that change dispatch:
   100%; the record's own anchor is written as record_* attrs.  STAR
   isobars (1914564, 2822399): Table III ranges, F50 = 0.4712 (Ru), 0.4590
   (Zr), efficiency 0.87 (scripts/curate_star_isobar_centrality.py).
+- `centrality.estimator.efficiency`: percentile classes of a count of
+  reconstructed tracks (ATLAS's N_ch^rec, 0.6): the model's count is
+  Poisson(efficiency x N) in the estimator acceptance (run_pipeline
+  `_record_anchor`, the toy harness likewise); default the run's
+  `--poisson-efficiency`.
 - `centrality.multiplicity_bins` {efficiency}: the classes are ranges of
   the estimator's track count ('10-20', no '%': 10 <= N_trk < 20), not
   percentiles (STAR's isobar ratios vs N_trk(|eta| < 0.5), ATLAS N_ch^rec,
