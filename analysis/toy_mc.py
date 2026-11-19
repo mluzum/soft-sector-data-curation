@@ -754,7 +754,10 @@ def evaluate(record, qv=None, grid=None, with_jackknife=True,
     if qv is not None:
         data = entry['prepare_data_2d'](qv, params)
         n_events = qv.n_events
-        mult = _cent_mult_2d(qv, params['cent_eta_ranges'], params.get('cent_pT_range') or (None, None))
+        from analysis.pipeline_dispatch import estimator_variable
+        mult = estimator_variable(qv, params, True)       # E_T estimators, as run_pipeline
+        if mult is None:
+            mult = _cent_mult_2d(qv, params['cent_eta_ranges'], params.get('cent_pT_range') or (None, None))
     elif grid is not None:
         # Apply charge-symmetry / species selection once, up front, so the
         # 3D prepares read grid.charge_factor consistently with run_pipeline.
@@ -764,9 +767,11 @@ def evaluate(record, qv=None, grid=None, with_jackknife=True,
         data = entry['prepare_data_3d'](grid, params)
         n_events = grid.n_events
         # the estimator's charged multiplicity in its acceptance, as run_pipeline
-        from analysis.pipeline_dispatch import estimator_multiplicity_3d
-        mult = estimator_multiplicity_3d(grid_unselected, params['cent_eta_ranges'],
-                                         params.get('cent_pT_range') or (None, None))
+        from analysis.pipeline_dispatch import estimator_multiplicity_3d, estimator_variable
+        mult = estimator_variable(grid_unselected, params, False)
+        if mult is None:
+            mult = estimator_multiplicity_3d(grid_unselected, params['cent_eta_ranges'],
+                                             params.get('cent_pT_range') or (None, None))
     else:
         raise ValueError("provide qv or grid")
 

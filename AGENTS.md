@@ -467,6 +467,23 @@ Fields that change dispatch:
   100%; the record's own anchor is written as record_* attrs.  STAR
   isobars (1914564, 2822399): Table III ranges, F50 = 0.4712 (Ru), 0.4590
   (Zr), efficiency 0.87 (scripts/curate_star_isobar_centrality.py).
+- `centrality.estimator.sum: transverse_mass` (optional `mass`, default
+  the pion's): the estimator sums sqrt(pT^2 + mass^2) over the charged
+  particles in its acceptance instead of counting them (ALICE 2933773's
+  TPC E_T; `pipeline_dispatch.estimator_transverse_mass`, a cell's m_T at
+  its mean pT when the container stores sum_pt, else at its mean pT^2).
+  Ranking follows E_T; the variable is E_T / m~, m~ = sum m_T^2 / sum m_T
+  over the sample, so the Poisson weights smear it with E_T's
+  compound-Poisson width.  `observable: ET` alone (ATLAS FCal, CMS HF)
+  still means the charged count; classes in track count refuse it.
+  tests/test_centrality_et_estimator.py (the sums against the particles,
+  2D and 3D; E_T classes select a higher <pT> than N_ch classes in the
+  same window, ALICE's energy bias).
+- `centrality.percentiles: true`: the classes are percentile intervals
+  although they look like kinematic bins to `centrality_classes_suspicious`
+  (non-integer edges within the top few percent: ALICE's 0-0.005% ...
+  4.5-5%, ATLAS's narrow Sigma E_T intervals); parsing, range and overlap
+  are still checked.
 - `centrality.estimator.efficiency`: percentile classes of a count of
   reconstructed tracks (ATLAS's N_ch^rec, 0.6): the model's count is
   Poisson(efficiency x N) in the estimator acceptance (run_pipeline

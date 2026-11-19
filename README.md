@@ -14,7 +14,7 @@ The pipeline reads those fields and applies the record's exact cuts to the
 simulation. A model is then compared with the data on the same footing,
 record by record, for any selection of measurements.
 
-- **10,214 records** from 199 publications (STAR, PHENIX, BRAHMS, PHOBOS,
+- **10,281 records** from 200 publications (STAR, PHENIX, BRAHMS, PHOBOS,
   ALICE, ATLAS, CMS), built from the HEPData tables in `hepdata_raw/`.
   **Every record can be computed from a simulation and compared with its
   data by the tools here**: it dispatches to a computation, its centrality
@@ -37,7 +37,9 @@ record by record, for any selection of measurements.
     asymmetric cumulants ac_n{3}, linear and mode-coupled harmonics, symmetry-plane correlations, and
     flow decorrelation in η (r_n, the four-plane correlator T_n) and pT;
   - flow-[pT] correlations ρ(v_n², [pT]) and mean-pT fluctuations;
-  - identified and charged yields, spectra, mean pT and dE_T/dη;
+  - identified and charged yields, spectra, mean pT and dE_T/dη, also in
+    ultra-central intervals of multiplicity- and E_T-based estimators
+    (ALICE's speed-of-sound data);
   - radial-flow fluctuations: v0, v0(pT) and the [pT]-spectrum covariance
     from two pseudorapidity subevents;
   - ratios between collision systems or energies (e.g. Ru+Ru / Zr+Zr,

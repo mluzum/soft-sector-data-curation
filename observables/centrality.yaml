@@ -71,6 +71,23 @@ centrality:
             Subdetector name (e.g. "V0", "V0A", "V0C", "FCal", "HF",
             "TPC", "BBC", "ZDC").
           example: "V0"
+        sum:
+          type: string
+          required: false
+          allowed: [count, transverse_mass]
+          description: >
+            What the estimator sums over the charged particles in its
+            acceptance: count (the default, also for calorimeter E_T
+            estimators, whose model proxy is the charged multiplicity) or
+            transverse_mass, sum sqrt(pT^2 + mass^2) with one assumed mass
+            (ALICE's TPC E_T: the pion mass, 0.15 <= pT < 50 GeV).  The
+            Poisson smearing then takes E_T's compound-Poisson width.
+          example: transverse_mass
+        mass:
+          type: float
+          required: false
+          description: "sum: transverse_mass: the assumed mass (GeV), default the pion's (0.13957)."
+          example: 0.13957
         efficiency:
           type: float
           required: false
@@ -118,6 +135,16 @@ centrality:
           required: false
           description: Maximum pT [GeV/c] of the estimator acceptance.
           example: 100.0
+    percentiles:
+      type: boolean
+      required: false
+      description: >
+        true: the classes are percentile intervals although they look like
+        kinematic bins to the dispatcher's guard (non-integer edges that do
+        not span the central few to 10 percent: ultra-central intervals,
+        ALICE's 0-0.005% ... 4.5-5%, ATLAS's narrow Sigma E_T intervals).
+        Parsing, range and overlap are still checked.
+      example: true
     points:
       type: list
       required: false

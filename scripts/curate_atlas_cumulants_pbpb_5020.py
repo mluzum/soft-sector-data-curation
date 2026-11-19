@@ -267,12 +267,12 @@ def main():
                     'notes': 'FCal Sigma E_T classes of equal width; the table gives their mean centralities.'}
         elif ref == 'Et':
             classes, rows = interval_classes(xs, dist['Et'], (0.05, 0.1, 0.2, 0.25, 0.5))
-            cent = {'classes': classes, **FCAL,
+            cent = {'classes': classes, **FCAL, 'percentiles': True,
                     'notes': 'Sigma E_T intervals of the table (mean <Sigma E_T> per point) as percentiles of the '
                              'published Sigma E_T distribution (HEPData figure2_panel1).'}
         else:
             classes, rows = interval_classes(xs, dist['Nch'], (50.0, 100.0, 200.0, 250.0, 500.0))
-            cent = {'classes': classes, **NCH,
+            cent = {'classes': classes, **NCH, 'percentiles': True,
                     'notes': 'N_ch^rec intervals of the table (mean <N_ch^rec> per point) as percentiles of the '
                              'published N_ch^rec distribution (HEPData figure2_panel2); reconstructed tracks, '
                              f'efficiency {NCH_EFF} (see the curation script).'}
@@ -280,14 +280,10 @@ def main():
             print(f'  {hf}: no class within 0-{MAX_CENT:g}% (skipped)')
             skipped.append(hf)
             continue
-        if centrality_classes_suspicious(classes):
-            # non-integer classes that do not reach the central few percent
-            # look like kinematic bins to the dispatcher's guard (v_2{6}/v_2{4}
-            # at 2-5 GeV vs <Sigma E_T> starts at 5.1%); its centrality-axis
-            # table (Fig. 7) is curated
-            print(f'  {hf}: classes {classes[-1]}..{classes[0]} fail the percentile guard (skipped)')
-            skipped.append(hf)
-            continue
+        # interval classes are percentile intervals by construction
+        # (centrality.percentiles; the guard would take, e.g., v_2{6}/v_2{4}
+        # at 2-5 GeV vs <Sigma E_T>, 5.1-55%, for kinematic bins)
+        assert not centrality_classes_suspicious(classes, ref is not None), (hf, classes)
         assert [e['label'] for e in dv['values'][0]['errors']] == ['stat. uncertainty', 'syst. uncertainty'], hf
         d = {'inspire_id': '1728935', 'version': VERSION, 'hepdata_file': hf, 'dv_index': 0,
              'hepdata_table_label': f'{desc} ({s.get("location", hf)})',
@@ -379,8 +375,7 @@ def main():
         for d in docs:
             d['staging_reason'] = ('ATLAS 1728935 table not curated: distributions (Figs. 1-2), harmonic 1 (Figs. '
                                    '8-9), ratios between reference event classes (Fig. 14), N_ch^rec-class results '
-                                   'against <Sigma E_T> (Figs. 16-20), classes the percentile guard rejects (Fig. 18 '
-                                   'at 2-5 GeV), or the values of a curated table; see '
+                                   'against <Sigma E_T> (Figs. 16-20), or the values of a curated table; see '
                                    'scripts/curate_atlas_cumulants_pbpb_5020.py')
         with open(STAGED, 'w') as fh:
             yaml.safe_dump_all(docs, fh, sort_keys=False, default_flow_style=False, width=120)

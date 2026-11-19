@@ -396,7 +396,7 @@ def multiplicity_classes_invalid(classes):
     return any(srt[i][1] > srt[i + 1][0] + 1e-9 for i in range(len(srt) - 1))
 
 
-def centrality_classes_suspicious(classes):
+def centrality_classes_suspicious(classes, declared=False):
     """True when `centrality.classes` is not a list of percentile bins.
 
     2203 curated records carry something else in that field -- overwhelmingly
@@ -444,6 +444,12 @@ def centrality_classes_suspicious(classes):
     # reaches a few percent.  Deliberately conservative: this gate exists to
     # catch UNAMBIGUOUS errors, not to guess.  The broader non-integer signal
     # is still reported by validate_metadata.py as a curation hint.
+    # A record that declares its classes percentile intervals
+    # (centrality.percentiles: ultra-central intervals within the top 5%,
+    # ALICE 2933773: 0-0.005% ... 4.5-5%) skips this guess; the checks above
+    # (parsing, range, overlap) still apply.
+    if declared:
+        return False
     if any(lo != int(lo) or hi != int(hi) for lo, hi in spans):
         # A genuine percentile list starts near the most-central bin and
         # runs well out into peripheral territory.  Kinematic bin sets do
@@ -658,6 +664,10 @@ def resolve(record):
     # whole class, which keeps the multiplicity fluctuations inside it.
     cent = record.get("centrality")
     est = (cent or {}).get("estimator") if isinstance(cent, dict) else None
+    if isinstance(est, dict) and est.get("sum", "count") not in ("count", "transverse_mass"):
+        raise ValueError(f"centrality.estimator.sum {est.get('sum')!r} (count | transverse_mass)")
+    if isinstance(est, dict) and est.get("sum") == "transverse_mass" and (cent or {}).get("multiplicity_bins"):
+        raise ValueError("classes in track count need a counting estimator, not transverse mass")
     if isinstance(est, dict) and est.get("observable") == "spectator_neutrons":
         raise ValueError(
             f"{record.get('value_type')!r} classes come from spectator "
@@ -1152,7 +1162,7 @@ def extract_measurement_params(exp_rec):
     # own check: numeric ranges without '%'.
     mult_bins = cent.get('multiplicity_bins') or None
     cent_suspicious = (multiplicity_classes_invalid(cent_classes) if mult_bins
-                       else centrality_classes_suspicious(cent_classes))
+                       else centrality_classes_suspicious(cent_classes, bool(cent.get('percentiles'))))
 
     dim = exp_rec.get('dimensionality', 'integrated')
     diff_var, diff_bins, diff_fixed = extract_differential_bins(exp_rec)

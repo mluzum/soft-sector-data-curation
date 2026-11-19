@@ -4326,6 +4326,88 @@ def estimator_multiplicity_3d(container, eta_ranges, pt_range=(None, None)):
     return cf * m / np.maximum(np.asarray(g.nsamples, dtype=np.float64), 1e-30)
 
 
+PION_MASS = 0.13957
+
+
+def estimator_transverse_mass(container, eta_ranges, pt_range=(None, None), mass=PION_MASS, is_2d=False):
+    """Per event (sum m_T, sum m_T^2) of the charged particles in a
+    centrality estimator's acceptance, m_T = sqrt(pT^2 + mass^2) with one
+    assumed mass for every track (ALICE's E_T estimator: the pion mass).
+    Cells a window cuts count with their overlap (uniform in eta, and in
+    pT^2); a cell's m_T at its mean pT in the event when the container
+    stores sum pT per cell (sum_pt), else at its mean pT^2 (uniform in
+    pT^2: 0.5% high for a toy spectrum falling across 0.1 GeV cells); per
+    particlization (over nsamples), with the charged multiplicity's charge
+    factor."""
+    from analysis.qvector import _overlap_fractions, _pt_squared
+    lo = 0.0 if pt_range[0] is None else float(pt_range[0])
+    hi = 1e9 if pt_range[1] is None else float(pt_range[1])
+    if is_2d:
+        idx, cf = charged_species_indices(getattr(container, 'pdg_ids', None))
+        idx = list(idx)
+        edges = np.asarray(container.pt_bin_edges, dtype=float)
+        c = container.Qn[:, idx, 0, :].real                          # (ev, species, pT)
+        spt = getattr(container, 'sum_pt', None)
+        spt = None if spt is None else np.asarray(spt)[:, idx, :]
+        ns = np.asarray(container.nsamples, dtype=float)
+    else:
+        g, cf = _charged_estimator(container)
+        if getattr(g, 'rapidity_binned', False) or getattr(g, 'pt_integrated', False):
+            raise ValueError("an E_T estimator needs an eta-binned grid with pT bins")
+        edges = np.asarray(g.pt_edges, dtype=float)
+        c = g.Qn[..., 0].real                                         # (ev, eta, pT)
+        spt = getattr(g, 'sum_pt', None)
+        ns = np.asarray(g.nsamples, dtype=float)
+    fp = np.asarray(_overlap_fractions(edges, lo, hi, _pt_squared), dtype=float)
+    mt_c = np.sqrt(0.5 * (edges[:-1] ** 2 + edges[1:] ** 2) + mass ** 2)
+    if spt is not None:          # per event and cell: m_T at the cell's mean pT
+        with np.errstate(divide='ignore', invalid='ignore'):
+            mpt = np.where(c > 0, np.asarray(spt, dtype=float) / np.where(c > 0, c, 1.0), 0.0)
+        mt = np.where(c > 0, np.sqrt(mpt ** 2 + mass ** 2), 0.0)
+    else:
+        mt = np.broadcast_to(mt_c, c.shape)
+    t1, t2 = c * mt, c * mt ** 2
+    s1 = np.zeros(len(ns))
+    s2 = np.zeros(len(ns))
+    for emin, emax in eta_ranges:
+        if is_2d:
+            jac = _make_jacobian_list(container.pt_centers, container.masses, emin, emax)[idx, :] \
+                / (2.0 * container.rap_max)
+            w = jac * fp[np.newaxis, :]
+        else:
+            fe = np.asarray(_overlap_fractions(g.eta_edges, emin, emax), dtype=float)
+            w = fe[:, np.newaxis] * fp[np.newaxis, :]
+        s1 += np.einsum('eij,ij->e', t1, w)
+        s2 += np.einsum('eij,ij->e', t2, w)
+    return cf * s1 / np.maximum(ns, 1e-30), cf * s2 / np.maximum(ns, 1e-30)
+
+
+ESTIMATOR_SUMS = ('count', 'transverse_mass')
+
+
+def estimator_variable(container, params, is_2d):
+    """The per-event variable of a record whose estimator sums transverse
+    mass (centrality.estimator.sum: transverse_mass; ALICE's E_T in the TPC),
+    else None (the charged multiplicity).  It is E_T in units of m~ = sum m_T^2
+    / sum m_T over the sample: a Poisson count of that mean has E_T's
+    compound-Poisson relative variance, sum m_T^2 / (sum m_T)^2, so the
+    Poisson centrality weights smear it as the detector sums fluctuate;
+    ranking follows E_T."""
+    est = params.get('cent_estimator') or {}
+    kind = est.get('sum', 'count') if isinstance(est, dict) else 'count'
+    if kind not in ESTIMATOR_SUMS:
+        raise ValueError(f"centrality.estimator.sum {kind!r} (one of {', '.join(ESTIMATOR_SUMS)})")
+    if kind == 'count':
+        return None
+    s1, s2 = estimator_transverse_mass(container, params.get('cent_eta_ranges') or [],
+                                       params.get('cent_pT_range') or (None, None),
+                                       float(est.get('mass', PION_MASS)), is_2d)
+    tot = float(np.sum(s1))
+    if not tot > 0:
+        raise ValueError("E_T estimator: no particles in its acceptance")
+    return s1 * tot / float(np.sum(s2))
+
+
 def _unit_weights(grid):
     """The grid with a charge-symmetry scaling undone.
 

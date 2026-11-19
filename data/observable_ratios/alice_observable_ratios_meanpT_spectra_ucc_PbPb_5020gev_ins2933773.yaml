@@ -1,0 +1,1867 @@
+observable_type: observable_ratios
+inspire_id: '2933773'
+version: 1
+hepdata_file: figure_4a.yaml
+dv_index: 0
+hepdata_table_label: <pT>/<pT>^(0-5%), estimator I (Figure 4a)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-0.005%
+  - 0.005-0.01%
+  - 0.01-0.02%
+  - 0.02-0.03%
+  - 0.03-0.04%
+  - 0.04-0.05%
+  - 0.05-0.075%
+  - 0.075-0.1%
+  - 0.1-0.2%
+  - 0.2-0.3%
+  - 0.3-0.4%
+  - 0.4-0.5%
+  - 0.5-0.6%
+  - 0.6-0.7%
+  - 0.7-0.8%
+  - 0.8-0.9%
+  - 0.9-1%
+  - 1-1.5%
+  - 1.5-2%
+  - 2-2.5%
+  - 2.5-3%
+  - 3-3.5%
+  - 3.5-4%
+  - 4-4.5%
+  - 4.5-5%
+  estimator:
+    name: TPC
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.8
+    max: 0.8
+  percentiles: true
+  pT:
+    min: 0.15
+    max: 50.0
+  notes: Estimator N_ch of TPC tracks (0.15 <= pT < 50 GeV) in |eta| <= 0.8 (I) (Table 1); narrow centrality intervals of
+    Fig. 1 (interval centres), each point over the estimator's 0-5% class.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.0
+    max: 10.0
+observable: mean_pT
+value_type: $\langle p_{\mathrm{T}} \rangle / \langle p_{\mathrm{T}} \rangle ^{\mathrm{0-5\%}}$
+ratio_type: centrality_ratio
+numerator: class
+denominator: 0-5%
+numerator_system: Pb+Pb
+denominator_system: Pb+Pb
+numerator_record: data/mean_pT/alice_mean_pT_ucc_sides_PbPb_5020gev_ins2933773.yaml#0
+denominator_record: data/mean_pT/alice_mean_pT_ucc_sides_PbPb_5020gev_ins2933773.yaml#1
+denominator_class: 0-5%
+dimensionality: integrated
+notes:
+  value: 'ALICE Collaboration, JHEP 11 (2025) 076, arXiv:2506.10394, Figure 4a. <pT>/<pT>^(0-5%) of charged particles in |eta|
+    <= 0.8 (0 <= pT <= 10 GeV), events classified by N_ch of TPC tracks (0.15 <= pT < 50 GeV) in |eta| <= 0.8 (I). The abscissa,
+    <dN_ch/deta>/<dN_ch/deta>^(0-5%), is tabulated without uncertainties. Errors: stat and syst.'
+---
+observable_type: observable_ratios
+inspire_id: '2933773'
+version: 1
+hepdata_file: figure_4b.yaml
+dv_index: 0
+hepdata_table_label: <pT>/<pT>^(0-5%), estimator II (Figure 4b)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-0.005%
+  - 0.005-0.01%
+  - 0.01-0.02%
+  - 0.02-0.03%
+  - 0.03-0.04%
+  - 0.04-0.05%
+  - 0.05-0.075%
+  - 0.075-0.1%
+  - 0.1-0.2%
+  - 0.2-0.3%
+  - 0.3-0.4%
+  - 0.4-0.5%
+  - 0.5-0.6%
+  - 0.6-0.7%
+  - 0.7-0.8%
+  - 0.8-0.9%
+  - 0.9-1%
+  - 1-1.5%
+  - 1.5-2%
+  - 2-2.5%
+  - 2.5-3%
+  - 3-3.5%
+  - 3.5-4%
+  - 4-4.5%
+  - 4.5-5%
+  estimator:
+    name: TPC
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.8
+    max: -0.5
+  - min: 0.5
+    max: 0.8
+  percentiles: true
+  pT:
+    min: 0.15
+    max: 50.0
+  notes: Estimator N_ch of TPC tracks (0.15 <= pT < 50 GeV) in 0.5 <= |eta| < 0.8 (II) (Table 1); narrow centrality intervals
+    of Fig. 1 (interval centres), each point over the estimator's 0-5% class.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.3
+    max: 0.3
+  pT:
+    min: 0.0
+    max: 10.0
+observable: mean_pT
+value_type: $\langle p_{\mathrm{T}} \rangle / \langle p_{\mathrm{T}} \rangle ^{\mathrm{0-5\%}}$
+ratio_type: centrality_ratio
+numerator: class
+denominator: 0-5%
+numerator_system: Pb+Pb
+denominator_system: Pb+Pb
+numerator_record: data/mean_pT/alice_mean_pT_ucc_sides_PbPb_5020gev_ins2933773.yaml#2
+denominator_record: data/mean_pT/alice_mean_pT_ucc_sides_PbPb_5020gev_ins2933773.yaml#3
+denominator_class: 0-5%
+dimensionality: integrated
+notes:
+  value: 'ALICE Collaboration, JHEP 11 (2025) 076, arXiv:2506.10394, Figure 4b. <pT>/<pT>^(0-5%) of charged particles in |eta|
+    <= 0.3 (0 <= pT <= 10 GeV), events classified by N_ch of TPC tracks (0.15 <= pT < 50 GeV) in 0.5 <= |eta| < 0.8 (II).
+    The abscissa, <dN_ch/deta>/<dN_ch/deta>^(0-5%), is tabulated without uncertainties. Errors: stat and syst.'
+---
+observable_type: observable_ratios
+inspire_id: '2933773'
+version: 1
+hepdata_file: figure_4c.yaml
+dv_index: 0
+hepdata_table_label: <pT>/<pT>^(0-5%), estimator III (Figure 4c)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-0.005%
+  - 0.005-0.01%
+  - 0.01-0.02%
+  - 0.02-0.03%
+  - 0.03-0.04%
+  - 0.04-0.05%
+  - 0.05-0.075%
+  - 0.075-0.1%
+  - 0.1-0.2%
+  - 0.2-0.3%
+  - 0.3-0.4%
+  - 0.4-0.5%
+  - 0.5-0.6%
+  - 0.6-0.7%
+  - 0.7-0.8%
+  - 0.8-0.9%
+  - 0.9-1%
+  - 1-1.5%
+  - 1.5-2%
+  - 2-2.5%
+  - 2.5-3%
+  - 3-3.5%
+  - 3.5-4%
+  - 4-4.5%
+  - 4.5-5%
+  estimator:
+    name: TPC
+    observable: ET
+    detector: TPC
+    sum: transverse_mass
+  eta:
+  - min: -0.8
+    max: 0.8
+  percentiles: true
+  pT:
+    min: 0.15
+    max: 50.0
+  notes: Estimator E_T, the summed transverse mass of TPC tracks with the pion mass (0.15 <= pT < 50 GeV), in |eta| <= 0.8
+    (III) (Table 1); narrow centrality intervals of Fig. 1 (interval centres), each point over the estimator's 0-5% class.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.0
+    max: 10.0
+observable: mean_pT
+value_type: $\langle p_{\mathrm{T}} \rangle / \langle p_{\mathrm{T}} \rangle ^{\mathrm{0-5\%}}$
+ratio_type: centrality_ratio
+numerator: class
+denominator: 0-5%
+numerator_system: Pb+Pb
+denominator_system: Pb+Pb
+numerator_record: data/mean_pT/alice_mean_pT_ucc_sides_PbPb_5020gev_ins2933773.yaml#4
+denominator_record: data/mean_pT/alice_mean_pT_ucc_sides_PbPb_5020gev_ins2933773.yaml#5
+denominator_class: 0-5%
+dimensionality: integrated
+notes:
+  value: 'ALICE Collaboration, JHEP 11 (2025) 076, arXiv:2506.10394, Figure 4c. <pT>/<pT>^(0-5%) of charged particles in |eta|
+    <= 0.8 (0 <= pT <= 10 GeV), events classified by E_T, the summed transverse mass of TPC tracks with the pion mass (0.15
+    <= pT < 50 GeV), in |eta| <= 0.8 (III). The abscissa, <dN_ch/deta>/<dN_ch/deta>^(0-5%), is tabulated without uncertainties.
+    Errors: stat and syst.'
+---
+observable_type: observable_ratios
+inspire_id: '2933773'
+version: 1
+hepdata_file: figure_4d.yaml
+dv_index: 0
+hepdata_table_label: <pT>/<pT>^(0-5%), estimator IV (Figure 4d)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-0.005%
+  - 0.005-0.01%
+  - 0.01-0.02%
+  - 0.02-0.03%
+  - 0.03-0.04%
+  - 0.04-0.05%
+  - 0.05-0.075%
+  - 0.075-0.1%
+  - 0.1-0.2%
+  - 0.2-0.3%
+  - 0.3-0.4%
+  - 0.4-0.5%
+  - 0.5-0.6%
+  - 0.6-0.7%
+  - 0.7-0.8%
+  - 0.8-0.9%
+  - 0.9-1%
+  - 1-1.5%
+  - 1.5-2%
+  - 2-2.5%
+  - 2.5-3%
+  - 3-3.5%
+  - 3.5-4%
+  - 4-4.5%
+  - 4.5-5%
+  estimator:
+    name: TPC
+    observable: ET
+    detector: TPC
+    sum: transverse_mass
+  eta:
+  - min: -0.8
+    max: -0.5
+  - min: 0.5
+    max: 0.8
+  percentiles: true
+  pT:
+    min: 0.15
+    max: 50.0
+  notes: Estimator E_T, the summed transverse mass of TPC tracks with the pion mass (0.15 <= pT < 50 GeV), in 0.5 <= |eta|
+    < 0.8 (IV) (Table 1); narrow centrality intervals of Fig. 1 (interval centres), each point over the estimator's 0-5% class.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.3
+    max: 0.3
+  pT:
+    min: 0.0
+    max: 10.0
+observable: mean_pT
+value_type: $\langle p_{\mathrm{T}} \rangle / \langle p_{\mathrm{T}} \rangle ^{\mathrm{0-5\%}}$
+ratio_type: centrality_ratio
+numerator: class
+denominator: 0-5%
+numerator_system: Pb+Pb
+denominator_system: Pb+Pb
+numerator_record: data/mean_pT/alice_mean_pT_ucc_sides_PbPb_5020gev_ins2933773.yaml#6
+denominator_record: data/mean_pT/alice_mean_pT_ucc_sides_PbPb_5020gev_ins2933773.yaml#7
+denominator_class: 0-5%
+dimensionality: integrated
+notes:
+  value: 'ALICE Collaboration, JHEP 11 (2025) 076, arXiv:2506.10394, Figure 4d. <pT>/<pT>^(0-5%) of charged particles in |eta|
+    <= 0.3 (0 <= pT <= 10 GeV), events classified by E_T, the summed transverse mass of TPC tracks with the pion mass (0.15
+    <= pT < 50 GeV), in 0.5 <= |eta| < 0.8 (IV). The abscissa, <dN_ch/deta>/<dN_ch/deta>^(0-5%), is tabulated without uncertainties.
+    Errors: stat and syst.'
+---
+observable_type: observable_ratios
+inspire_id: '2933773'
+version: 1
+hepdata_file: figure_4e.yaml
+dv_index: 0
+hepdata_table_label: <pT>/<pT>^(0-5%), estimator V (Figure 4e)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-0.005%
+  - 0.005-0.01%
+  - 0.01-0.02%
+  - 0.02-0.03%
+  - 0.03-0.04%
+  - 0.04-0.05%
+  - 0.05-0.075%
+  - 0.075-0.1%
+  - 0.1-0.2%
+  - 0.2-0.3%
+  - 0.3-0.4%
+  - 0.4-0.5%
+  - 0.5-0.6%
+  - 0.6-0.7%
+  - 0.7-0.8%
+  - 0.8-0.9%
+  - 0.9-1%
+  - 1-1.5%
+  - 1.5-2%
+  - 2-2.5%
+  - 2.5-3%
+  - 3-3.5%
+  - 3.5-4%
+  - 4-4.5%
+  - 4.5-5%
+  estimator:
+    name: SPD
+    observable: Nch
+    detector: SPD
+  eta:
+  - min: -0.8
+    max: 0.8
+  percentiles: true
+  notes: Estimator SPD tracklets (no pT selection) in |eta| <= 0.8 (V) (Table 1); narrow centrality intervals of Fig. 1 (interval
+    centres), each point over the estimator's 0-5% class.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.0
+    max: 10.0
+observable: mean_pT
+value_type: $\langle p_{\mathrm{T}} \rangle / \langle p_{\mathrm{T}} \rangle ^{\mathrm{0-5\%}}$
+ratio_type: centrality_ratio
+numerator: class
+denominator: 0-5%
+numerator_system: Pb+Pb
+denominator_system: Pb+Pb
+numerator_record: data/mean_pT/alice_mean_pT_ucc_sides_PbPb_5020gev_ins2933773.yaml#8
+denominator_record: data/mean_pT/alice_mean_pT_ucc_sides_PbPb_5020gev_ins2933773.yaml#9
+denominator_class: 0-5%
+dimensionality: integrated
+notes:
+  value: 'ALICE Collaboration, JHEP 11 (2025) 076, arXiv:2506.10394, Figure 4e. <pT>/<pT>^(0-5%) of charged particles in |eta|
+    <= 0.8 (0 <= pT <= 10 GeV), events classified by SPD tracklets (no pT selection) in |eta| <= 0.8 (V). The abscissa, <dN_ch/deta>/<dN_ch/deta>^(0-5%),
+    is tabulated without uncertainties. Errors: stat and syst.'
+---
+observable_type: observable_ratios
+inspire_id: '2933773'
+version: 1
+hepdata_file: figure_4f.yaml
+dv_index: 0
+hepdata_table_label: <pT>/<pT>^(0-5%), estimator VI (Figure 4f)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-0.005%
+  - 0.005-0.01%
+  - 0.01-0.02%
+  - 0.02-0.03%
+  - 0.03-0.04%
+  - 0.04-0.05%
+  - 0.05-0.075%
+  - 0.075-0.1%
+  - 0.1-0.2%
+  - 0.2-0.3%
+  - 0.3-0.4%
+  - 0.4-0.5%
+  - 0.5-0.6%
+  - 0.6-0.7%
+  - 0.7-0.8%
+  - 0.8-0.9%
+  - 0.9-1%
+  - 1-1.5%
+  - 1.5-2%
+  - 2-2.5%
+  - 2.5-3%
+  - 3-3.5%
+  - 3.5-4%
+  - 4-4.5%
+  - 4.5-5%
+  estimator:
+    name: SPD
+    observable: Nch
+    detector: SPD
+  eta:
+  - min: -0.8
+    max: -0.5
+  - min: 0.5
+    max: 0.8
+  percentiles: true
+  notes: Estimator SPD tracklets (no pT selection) in 0.5 <= |eta| < 0.8 (VI) (Table 1); narrow centrality intervals of Fig.
+    1 (interval centres), each point over the estimator's 0-5% class.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.3
+    max: 0.3
+  pT:
+    min: 0.0
+    max: 10.0
+observable: mean_pT
+value_type: $\langle p_{\mathrm{T}} \rangle / \langle p_{\mathrm{T}} \rangle ^{\mathrm{0-5\%}}$
+ratio_type: centrality_ratio
+numerator: class
+denominator: 0-5%
+numerator_system: Pb+Pb
+denominator_system: Pb+Pb
+numerator_record: data/mean_pT/alice_mean_pT_ucc_sides_PbPb_5020gev_ins2933773.yaml#10
+denominator_record: data/mean_pT/alice_mean_pT_ucc_sides_PbPb_5020gev_ins2933773.yaml#11
+denominator_class: 0-5%
+dimensionality: integrated
+notes:
+  value: 'ALICE Collaboration, JHEP 11 (2025) 076, arXiv:2506.10394, Figure 4f. <pT>/<pT>^(0-5%) of charged particles in |eta|
+    <= 0.3 (0 <= pT <= 10 GeV), events classified by SPD tracklets (no pT selection) in 0.5 <= |eta| < 0.8 (VI). The abscissa,
+    <dN_ch/deta>/<dN_ch/deta>^(0-5%), is tabulated without uncertainties. Errors: stat and syst.'
+---
+observable_type: observable_ratios
+inspire_id: '2933773'
+version: 1
+hepdata_file: figure_4g.yaml
+dv_index: 0
+hepdata_table_label: <pT>/<pT>^(0-5%), estimator VII (Figure 4g)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-0.005%
+  - 0.005-0.01%
+  - 0.01-0.02%
+  - 0.02-0.03%
+  - 0.03-0.04%
+  - 0.04-0.05%
+  - 0.05-0.075%
+  - 0.075-0.1%
+  - 0.1-0.2%
+  - 0.2-0.3%
+  - 0.3-0.4%
+  - 0.4-0.5%
+  - 0.5-0.6%
+  - 0.6-0.7%
+  - 0.7-0.8%
+  - 0.8-0.9%
+  - 0.9-1%
+  - 1-1.5%
+  - 1.5-2%
+  - 2-2.5%
+  - 2.5-3%
+  - 3-3.5%
+  - 3.5-4%
+  - 4-4.5%
+  - 4.5-5%
+  estimator:
+    name: SPD
+    observable: Nch
+    detector: SPD
+  eta:
+  - min: -0.6
+    max: -0.3
+  - min: 0.3
+    max: 0.6
+  percentiles: true
+  notes: Estimator SPD tracklets (no pT selection) in 0.3 < |eta| < 0.6 (VII) (Table 1); narrow centrality intervals of Fig.
+    1 (interval centres), each point over the estimator's 0-5% class.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.3
+    max: 0.3
+  pT:
+    min: 0.0
+    max: 10.0
+observable: mean_pT
+value_type: $\langle p_{\mathrm{T}} \rangle / \langle p_{\mathrm{T}} \rangle ^{\mathrm{0-5\%}}$
+ratio_type: centrality_ratio
+numerator: class
+denominator: 0-5%
+numerator_system: Pb+Pb
+denominator_system: Pb+Pb
+numerator_record: data/mean_pT/alice_mean_pT_ucc_sides_PbPb_5020gev_ins2933773.yaml#12
+denominator_record: data/mean_pT/alice_mean_pT_ucc_sides_PbPb_5020gev_ins2933773.yaml#13
+denominator_class: 0-5%
+dimensionality: integrated
+notes:
+  value: 'ALICE Collaboration, JHEP 11 (2025) 076, arXiv:2506.10394, Figure 4g. <pT>/<pT>^(0-5%) of charged particles in |eta|
+    <= 0.3 (0 <= pT <= 10 GeV), events classified by SPD tracklets (no pT selection) in 0.3 < |eta| < 0.6 (VII). The abscissa,
+    <dN_ch/deta>/<dN_ch/deta>^(0-5%), is tabulated without uncertainties. Errors: stat and syst.'
+---
+observable_type: observable_ratios
+inspire_id: '2933773'
+version: 1
+hepdata_file: figure_4h.yaml
+dv_index: 0
+hepdata_table_label: <pT>/<pT>^(0-5%), estimator VIII (Figure 4h)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-0.005%
+  - 0.005-0.01%
+  - 0.01-0.02%
+  - 0.02-0.03%
+  - 0.03-0.04%
+  - 0.04-0.05%
+  - 0.05-0.075%
+  - 0.075-0.1%
+  - 0.1-0.2%
+  - 0.2-0.3%
+  - 0.3-0.4%
+  - 0.4-0.5%
+  - 0.5-0.6%
+  - 0.6-0.7%
+  - 0.7-0.8%
+  - 0.8-0.9%
+  - 0.9-1%
+  - 1-1.5%
+  - 1.5-2%
+  - 2-2.5%
+  - 2.5-3%
+  - 3-3.5%
+  - 3.5-4%
+  - 4-4.5%
+  - 4.5-5%
+  estimator:
+    name: SPD
+    observable: Nch
+    detector: SPD
+  eta:
+  - min: -1.0
+    max: -0.7
+  - min: 0.7
+    max: 1.0
+  percentiles: true
+  notes: Estimator SPD tracklets (no pT selection) in 0.7 <= |eta| < 1 (VIII) (Table 1); narrow centrality intervals of Fig.
+    1 (interval centres), each point over the estimator's 0-5% class.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.3
+    max: 0.3
+  pT:
+    min: 0.0
+    max: 10.0
+observable: mean_pT
+value_type: $\langle p_{\mathrm{T}} \rangle / \langle p_{\mathrm{T}} \rangle ^{\mathrm{0-5\%}}$
+ratio_type: centrality_ratio
+numerator: class
+denominator: 0-5%
+numerator_system: Pb+Pb
+denominator_system: Pb+Pb
+numerator_record: data/mean_pT/alice_mean_pT_ucc_sides_PbPb_5020gev_ins2933773.yaml#14
+denominator_record: data/mean_pT/alice_mean_pT_ucc_sides_PbPb_5020gev_ins2933773.yaml#15
+denominator_class: 0-5%
+dimensionality: integrated
+notes:
+  value: 'ALICE Collaboration, JHEP 11 (2025) 076, arXiv:2506.10394, Figure 4h. <pT>/<pT>^(0-5%) of charged particles in |eta|
+    <= 0.3 (0 <= pT <= 10 GeV), events classified by SPD tracklets (no pT selection) in 0.7 <= |eta| < 1 (VIII). The abscissa,
+    <dN_ch/deta>/<dN_ch/deta>^(0-5%), is tabulated without uncertainties. Errors: stat and syst.'
+---
+observable_type: observable_ratios
+inspire_id: '2933773'
+version: 1
+hepdata_file: figure_4i.yaml
+dv_index: 0
+hepdata_table_label: <pT>/<pT>^(0-5%), estimator IX (Figure 4i)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-0.1%
+  - 0.1-0.2%
+  - 0.2-0.3%
+  - 0.3-0.4%
+  - 0.4-0.5%
+  - 0.5-0.6%
+  - 0.6-0.7%
+  - 0.7-0.8%
+  - 0.8-0.9%
+  - 0.9-1%
+  - 1-1.5%
+  - 1.5-2%
+  - 2-2.5%
+  - 2.5-3%
+  - 3-3.5%
+  - 3.5-4%
+  - 4-4.5%
+  - 4.5-5%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+  percentiles: true
+  notes: Estimator the V0 amplitude, -3.7 < eta < -1.7 and 2.8 < eta < 5.1 (IX) (Table 1); narrow centrality intervals of
+    Fig. 1 (interval centres), each point over the estimator's 0-5% class.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.0
+    max: 10.0
+observable: mean_pT
+value_type: $\langle p_{\mathrm{T}} \rangle / \langle p_{\mathrm{T}} \rangle ^{\mathrm{0-5\%}}$
+ratio_type: centrality_ratio
+numerator: class
+denominator: 0-5%
+numerator_system: Pb+Pb
+denominator_system: Pb+Pb
+numerator_record: data/mean_pT/alice_mean_pT_ucc_sides_PbPb_5020gev_ins2933773.yaml#16
+denominator_record: data/mean_pT/alice_mean_pT_ucc_sides_PbPb_5020gev_ins2933773.yaml#17
+denominator_class: 0-5%
+dimensionality: integrated
+notes:
+  value: 'ALICE Collaboration, JHEP 11 (2025) 076, arXiv:2506.10394, Figure 4i. <pT>/<pT>^(0-5%) of charged particles in |eta|
+    <= 0.8 (0 <= pT <= 10 GeV), events classified by the V0 amplitude, -3.7 < eta < -1.7 and 2.8 < eta < 5.1 (IX). The abscissa,
+    <dN_ch/deta>/<dN_ch/deta>^(0-5%), is tabulated without uncertainties. Errors: stat and syst.'
+---
+observable_type: observable_ratios
+inspire_id: '2933773'
+version: 1
+hepdata_file: figure_8.yaml
+dv_index: 0
+hepdata_table_label: <pT>/<pT>^(0-5%), estimator Fig8 (Figure 8)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-0.005%
+  - 0.005-0.01%
+  - 0.01-0.02%
+  - 0.02-0.03%
+  - 0.03-0.04%
+  - 0.04-0.05%
+  - 0.05-0.075%
+  - 0.075-0.1%
+  - 0.1-0.2%
+  - 0.2-0.3%
+  - 0.3-0.4%
+  - 0.4-0.5%
+  - 0.5-0.6%
+  - 0.6-0.7%
+  - 0.7-0.8%
+  - 0.8-0.9%
+  - 0.9-1%
+  - 1-1.5%
+  - 1.5-2%
+  - 2-2.5%
+  - 2.5-3%
+  - 3-3.5%
+  - 3.5-4%
+  - 4-4.5%
+  - 4.5-5%
+  estimator:
+    name: TPC
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.8
+    max: -0.5
+  - min: 0.5
+    max: 0.8
+  percentiles: true
+  pT:
+    min: 0.45
+    max: 50.0
+  notes: Estimator N_ch of TPC tracks with 0.45 <= pT <= 50 GeV in 0.5 <= |eta| <= 0.8 (Table 1); narrow centrality intervals
+    of Fig. 1 (interval centres), each point over the estimator's 0-5% class.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.3
+    max: 0.3
+  pT:
+    min: 0.0
+    max: 10.0
+observable: mean_pT
+value_type: $\langle p_{\mathrm{T}} \rangle / \langle p_{\mathrm{T}} \rangle ^{\mathrm{0-5\%}}$
+ratio_type: centrality_ratio
+numerator: class
+denominator: 0-5%
+numerator_system: Pb+Pb
+denominator_system: Pb+Pb
+numerator_record: data/mean_pT/alice_mean_pT_ucc_sides_PbPb_5020gev_ins2933773.yaml#18
+denominator_record: data/mean_pT/alice_mean_pT_ucc_sides_PbPb_5020gev_ins2933773.yaml#19
+denominator_class: 0-5%
+dimensionality: integrated
+notes:
+  value: 'ALICE Collaboration, JHEP 11 (2025) 076, arXiv:2506.10394, Figure 8. <pT>/<pT>^(0-5%) of charged particles in |eta|
+    <= 0.3 (0 <= pT <= 10 GeV), events classified by N_ch of TPC tracks with 0.45 <= pT <= 50 GeV in 0.5 <= |eta| <= 0.8.
+    The abscissa, <dN_ch/deta>/<dN_ch/deta>^(0-5%), is tabulated without uncertainties. Errors: stat and syst.'
+---
+observable_type: observable_ratios
+inspire_id: '2933773'
+version: 1
+hepdata_file: figure_2a.yaml
+dv_index: 0
+hepdata_table_label: normalized spectrum 0-0.005% / 0-5%, estimator II (Figure 2a)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-0.005%
+  estimator:
+    name: TPC
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.8
+    max: -0.5
+  - min: 0.5
+    max: 0.8
+  percentiles: true
+  pT:
+    min: 0.15
+    max: 50.0
+  notes: Estimator N_ch of TPC tracks (0.15 <= pT < 50 GeV) in 0.5 <= |eta| < 0.8 (II) (Table 1); narrow centrality intervals
+    of Fig. 1 (interval centres), each point over the estimator's 0-5% class.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.3
+    max: 0.3
+  pT:
+    min: 0.15
+    max: 10.0
+    bins:
+    - 0.15
+    - 0.2
+    - 0.4
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+    - 2.0
+    - 3.0
+    - 5.0
+    - 10.0
+observable: invariant_yield
+value_type: $(\mathrm{d}N_{\mathrm{ch}}/\mathrm{d}\eta)^{\mathrm{Centrality}}/(\mathrm{d}N_{\mathrm{ch}}/\mathrm{d}\eta)^{\mathrm{0-5\%}}$
+ratio_type: centrality_ratio
+numerator: 0-0.005%
+denominator: 0-5%
+numerator_system: Pb+Pb
+denominator_system: Pb+Pb
+numerator_record: data/particle_spectra/alice_particle_spectra_ucc_sides_PbPb_5020gev_ins2933773.yaml#0
+denominator_record: data/particle_spectra/alice_particle_spectra_ucc_sides_PbPb_5020gev_ins2933773.yaml#1
+denominator_class: 0-5%
+side_normalization:
+  pT:
+    min: 0.0
+    max: 10.0
+dimensionality: differential_pT
+notes:
+  value: 'ALICE Collaboration, JHEP 11 (2025) 076, arXiv:2506.10394, Figure 2a. d2N/(<dN_ch/deta> deta dpT) in 0-0.005% over
+    the same in 0-5%, charged particles in |eta| <= 0.3, events classified by N_ch of TPC tracks (0.15 <= pT < 50 GeV) in
+    0.5 <= |eta| < 0.8 (II); each spectrum over its yield in 0 <= pT <= 10 GeV (side_normalization). Errors: stat (the paper
+    shows no systematic ones: they largely cancel).'
+---
+observable_type: observable_ratios
+inspire_id: '2933773'
+version: 1
+hepdata_file: figure_2a.yaml
+dv_index: 1
+hepdata_table_label: normalized spectrum 0.03-0.04% / 0-5%, estimator II (Figure 2a)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0.03-0.04%
+  estimator:
+    name: TPC
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.8
+    max: -0.5
+  - min: 0.5
+    max: 0.8
+  percentiles: true
+  pT:
+    min: 0.15
+    max: 50.0
+  notes: Estimator N_ch of TPC tracks (0.15 <= pT < 50 GeV) in 0.5 <= |eta| < 0.8 (II) (Table 1); narrow centrality intervals
+    of Fig. 1 (interval centres), each point over the estimator's 0-5% class.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.3
+    max: 0.3
+  pT:
+    min: 0.15
+    max: 10.0
+    bins:
+    - 0.15
+    - 0.2
+    - 0.4
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+    - 2.0
+    - 3.0
+    - 5.0
+    - 10.0
+observable: invariant_yield
+value_type: $(\mathrm{d}N_{\mathrm{ch}}/\mathrm{d}\eta)^{\mathrm{Centrality}}/(\mathrm{d}N_{\mathrm{ch}}/\mathrm{d}\eta)^{\mathrm{0-5\%}}$
+ratio_type: centrality_ratio
+numerator: 0.03-0.04%
+denominator: 0-5%
+numerator_system: Pb+Pb
+denominator_system: Pb+Pb
+numerator_record: data/particle_spectra/alice_particle_spectra_ucc_sides_PbPb_5020gev_ins2933773.yaml#2
+denominator_record: data/particle_spectra/alice_particle_spectra_ucc_sides_PbPb_5020gev_ins2933773.yaml#1
+denominator_class: 0-5%
+side_normalization:
+  pT:
+    min: 0.0
+    max: 10.0
+dimensionality: differential_pT
+notes:
+  value: 'ALICE Collaboration, JHEP 11 (2025) 076, arXiv:2506.10394, Figure 2a. d2N/(<dN_ch/deta> deta dpT) in 0.03-0.04%
+    over the same in 0-5%, charged particles in |eta| <= 0.3, events classified by N_ch of TPC tracks (0.15 <= pT < 50 GeV)
+    in 0.5 <= |eta| < 0.8 (II); each spectrum over its yield in 0 <= pT <= 10 GeV (side_normalization). Errors: stat (the
+    paper shows no systematic ones: they largely cancel).'
+---
+observable_type: observable_ratios
+inspire_id: '2933773'
+version: 1
+hepdata_file: figure_2a.yaml
+dv_index: 2
+hepdata_table_label: normalized spectrum 0.1-0.2% / 0-5%, estimator II (Figure 2a)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0.1-0.2%
+  estimator:
+    name: TPC
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.8
+    max: -0.5
+  - min: 0.5
+    max: 0.8
+  percentiles: true
+  pT:
+    min: 0.15
+    max: 50.0
+  notes: Estimator N_ch of TPC tracks (0.15 <= pT < 50 GeV) in 0.5 <= |eta| < 0.8 (II) (Table 1); narrow centrality intervals
+    of Fig. 1 (interval centres), each point over the estimator's 0-5% class.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.3
+    max: 0.3
+  pT:
+    min: 0.15
+    max: 10.0
+    bins:
+    - 0.15
+    - 0.2
+    - 0.4
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+    - 2.0
+    - 3.0
+    - 5.0
+    - 10.0
+observable: invariant_yield
+value_type: $(\mathrm{d}N_{\mathrm{ch}}/\mathrm{d}\eta)^{\mathrm{Centrality}}/(\mathrm{d}N_{\mathrm{ch}}/\mathrm{d}\eta)^{\mathrm{0-5\%}}$
+ratio_type: centrality_ratio
+numerator: 0.1-0.2%
+denominator: 0-5%
+numerator_system: Pb+Pb
+denominator_system: Pb+Pb
+numerator_record: data/particle_spectra/alice_particle_spectra_ucc_sides_PbPb_5020gev_ins2933773.yaml#3
+denominator_record: data/particle_spectra/alice_particle_spectra_ucc_sides_PbPb_5020gev_ins2933773.yaml#1
+denominator_class: 0-5%
+side_normalization:
+  pT:
+    min: 0.0
+    max: 10.0
+dimensionality: differential_pT
+notes:
+  value: 'ALICE Collaboration, JHEP 11 (2025) 076, arXiv:2506.10394, Figure 2a. d2N/(<dN_ch/deta> deta dpT) in 0.1-0.2% over
+    the same in 0-5%, charged particles in |eta| <= 0.3, events classified by N_ch of TPC tracks (0.15 <= pT < 50 GeV) in
+    0.5 <= |eta| < 0.8 (II); each spectrum over its yield in 0 <= pT <= 10 GeV (side_normalization). Errors: stat (the paper
+    shows no systematic ones: they largely cancel).'
+---
+observable_type: observable_ratios
+inspire_id: '2933773'
+version: 1
+hepdata_file: figure_2a.yaml
+dv_index: 3
+hepdata_table_label: normalized spectrum 0.9-1% / 0-5%, estimator II (Figure 2a)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0.9-1%
+  estimator:
+    name: TPC
+    observable: Nch
+    detector: TPC
+  eta:
+  - min: -0.8
+    max: -0.5
+  - min: 0.5
+    max: 0.8
+  percentiles: true
+  pT:
+    min: 0.15
+    max: 50.0
+  notes: Estimator N_ch of TPC tracks (0.15 <= pT < 50 GeV) in 0.5 <= |eta| < 0.8 (II) (Table 1); narrow centrality intervals
+    of Fig. 1 (interval centres), each point over the estimator's 0-5% class.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.3
+    max: 0.3
+  pT:
+    min: 0.15
+    max: 10.0
+    bins:
+    - 0.15
+    - 0.2
+    - 0.4
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+    - 2.0
+    - 3.0
+    - 5.0
+    - 10.0
+observable: invariant_yield
+value_type: $(\mathrm{d}N_{\mathrm{ch}}/\mathrm{d}\eta)^{\mathrm{Centrality}}/(\mathrm{d}N_{\mathrm{ch}}/\mathrm{d}\eta)^{\mathrm{0-5\%}}$
+ratio_type: centrality_ratio
+numerator: 0.9-1%
+denominator: 0-5%
+numerator_system: Pb+Pb
+denominator_system: Pb+Pb
+numerator_record: data/particle_spectra/alice_particle_spectra_ucc_sides_PbPb_5020gev_ins2933773.yaml#4
+denominator_record: data/particle_spectra/alice_particle_spectra_ucc_sides_PbPb_5020gev_ins2933773.yaml#1
+denominator_class: 0-5%
+side_normalization:
+  pT:
+    min: 0.0
+    max: 10.0
+dimensionality: differential_pT
+notes:
+  value: 'ALICE Collaboration, JHEP 11 (2025) 076, arXiv:2506.10394, Figure 2a. d2N/(<dN_ch/deta> deta dpT) in 0.9-1% over
+    the same in 0-5%, charged particles in |eta| <= 0.3, events classified by N_ch of TPC tracks (0.15 <= pT < 50 GeV) in
+    0.5 <= |eta| < 0.8 (II); each spectrum over its yield in 0 <= pT <= 10 GeV (side_normalization). Errors: stat (the paper
+    shows no systematic ones: they largely cancel).'
+---
+observable_type: observable_ratios
+inspire_id: '2933773'
+version: 1
+hepdata_file: figure_2b.yaml
+dv_index: 0
+hepdata_table_label: normalized spectrum 0-0.005% / 0-5%, estimator IV (Figure 2b)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-0.005%
+  estimator:
+    name: TPC
+    observable: ET
+    detector: TPC
+    sum: transverse_mass
+  eta:
+  - min: -0.8
+    max: -0.5
+  - min: 0.5
+    max: 0.8
+  percentiles: true
+  pT:
+    min: 0.15
+    max: 50.0
+  notes: Estimator E_T, the summed transverse mass of TPC tracks with the pion mass (0.15 <= pT < 50 GeV), in 0.5 <= |eta|
+    < 0.8 (IV) (Table 1); narrow centrality intervals of Fig. 1 (interval centres), each point over the estimator's 0-5% class.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.3
+    max: 0.3
+  pT:
+    min: 0.15
+    max: 10.0
+    bins:
+    - 0.15
+    - 0.2
+    - 0.4
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+    - 2.0
+    - 3.0
+    - 5.0
+    - 10.0
+observable: invariant_yield
+value_type: $(\mathrm{d}N_{\mathrm{ch}}/\mathrm{d}\eta)^{\mathrm{Centrality}}/(\mathrm{d}N_{\mathrm{ch}}/\mathrm{d}\eta)^{\mathrm{0-5\%}}$
+ratio_type: centrality_ratio
+numerator: 0-0.005%
+denominator: 0-5%
+numerator_system: Pb+Pb
+denominator_system: Pb+Pb
+numerator_record: data/particle_spectra/alice_particle_spectra_ucc_sides_PbPb_5020gev_ins2933773.yaml#5
+denominator_record: data/particle_spectra/alice_particle_spectra_ucc_sides_PbPb_5020gev_ins2933773.yaml#6
+denominator_class: 0-5%
+side_normalization:
+  pT:
+    min: 0.0
+    max: 10.0
+dimensionality: differential_pT
+notes:
+  value: 'ALICE Collaboration, JHEP 11 (2025) 076, arXiv:2506.10394, Figure 2b. d2N/(<dN_ch/deta> deta dpT) in 0-0.005% over
+    the same in 0-5%, charged particles in |eta| <= 0.3, events classified by E_T, the summed transverse mass of TPC tracks
+    with the pion mass (0.15 <= pT < 50 GeV), in 0.5 <= |eta| < 0.8 (IV); each spectrum over its yield in 0 <= pT <= 10 GeV
+    (side_normalization). Errors: stat (the paper shows no systematic ones: they largely cancel).'
+---
+observable_type: observable_ratios
+inspire_id: '2933773'
+version: 1
+hepdata_file: figure_2b.yaml
+dv_index: 1
+hepdata_table_label: normalized spectrum 0.03-0.04% / 0-5%, estimator IV (Figure 2b)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0.03-0.04%
+  estimator:
+    name: TPC
+    observable: ET
+    detector: TPC
+    sum: transverse_mass
+  eta:
+  - min: -0.8
+    max: -0.5
+  - min: 0.5
+    max: 0.8
+  percentiles: true
+  pT:
+    min: 0.15
+    max: 50.0
+  notes: Estimator E_T, the summed transverse mass of TPC tracks with the pion mass (0.15 <= pT < 50 GeV), in 0.5 <= |eta|
+    < 0.8 (IV) (Table 1); narrow centrality intervals of Fig. 1 (interval centres), each point over the estimator's 0-5% class.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.3
+    max: 0.3
+  pT:
+    min: 0.15
+    max: 10.0
+    bins:
+    - 0.15
+    - 0.2
+    - 0.4
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+    - 2.0
+    - 3.0
+    - 5.0
+    - 10.0
+observable: invariant_yield
+value_type: $(\mathrm{d}N_{\mathrm{ch}}/\mathrm{d}\eta)^{\mathrm{Centrality}}/(\mathrm{d}N_{\mathrm{ch}}/\mathrm{d}\eta)^{\mathrm{0-5\%}}$
+ratio_type: centrality_ratio
+numerator: 0.03-0.04%
+denominator: 0-5%
+numerator_system: Pb+Pb
+denominator_system: Pb+Pb
+numerator_record: data/particle_spectra/alice_particle_spectra_ucc_sides_PbPb_5020gev_ins2933773.yaml#7
+denominator_record: data/particle_spectra/alice_particle_spectra_ucc_sides_PbPb_5020gev_ins2933773.yaml#6
+denominator_class: 0-5%
+side_normalization:
+  pT:
+    min: 0.0
+    max: 10.0
+dimensionality: differential_pT
+notes:
+  value: 'ALICE Collaboration, JHEP 11 (2025) 076, arXiv:2506.10394, Figure 2b. d2N/(<dN_ch/deta> deta dpT) in 0.03-0.04%
+    over the same in 0-5%, charged particles in |eta| <= 0.3, events classified by E_T, the summed transverse mass of TPC
+    tracks with the pion mass (0.15 <= pT < 50 GeV), in 0.5 <= |eta| < 0.8 (IV); each spectrum over its yield in 0 <= pT <=
+    10 GeV (side_normalization). Errors: stat (the paper shows no systematic ones: they largely cancel).'
+---
+observable_type: observable_ratios
+inspire_id: '2933773'
+version: 1
+hepdata_file: figure_2b.yaml
+dv_index: 2
+hepdata_table_label: normalized spectrum 0.1-0.2% / 0-5%, estimator IV (Figure 2b)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0.1-0.2%
+  estimator:
+    name: TPC
+    observable: ET
+    detector: TPC
+    sum: transverse_mass
+  eta:
+  - min: -0.8
+    max: -0.5
+  - min: 0.5
+    max: 0.8
+  percentiles: true
+  pT:
+    min: 0.15
+    max: 50.0
+  notes: Estimator E_T, the summed transverse mass of TPC tracks with the pion mass (0.15 <= pT < 50 GeV), in 0.5 <= |eta|
+    < 0.8 (IV) (Table 1); narrow centrality intervals of Fig. 1 (interval centres), each point over the estimator's 0-5% class.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.3
+    max: 0.3
+  pT:
+    min: 0.15
+    max: 10.0
+    bins:
+    - 0.15
+    - 0.2
+    - 0.4
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+    - 2.0
+    - 3.0
+    - 5.0
+    - 10.0
+observable: invariant_yield
+value_type: $(\mathrm{d}N_{\mathrm{ch}}/\mathrm{d}\eta)^{\mathrm{Centrality}}/(\mathrm{d}N_{\mathrm{ch}}/\mathrm{d}\eta)^{\mathrm{0-5\%}}$
+ratio_type: centrality_ratio
+numerator: 0.1-0.2%
+denominator: 0-5%
+numerator_system: Pb+Pb
+denominator_system: Pb+Pb
+numerator_record: data/particle_spectra/alice_particle_spectra_ucc_sides_PbPb_5020gev_ins2933773.yaml#8
+denominator_record: data/particle_spectra/alice_particle_spectra_ucc_sides_PbPb_5020gev_ins2933773.yaml#6
+denominator_class: 0-5%
+side_normalization:
+  pT:
+    min: 0.0
+    max: 10.0
+dimensionality: differential_pT
+notes:
+  value: 'ALICE Collaboration, JHEP 11 (2025) 076, arXiv:2506.10394, Figure 2b. d2N/(<dN_ch/deta> deta dpT) in 0.1-0.2% over
+    the same in 0-5%, charged particles in |eta| <= 0.3, events classified by E_T, the summed transverse mass of TPC tracks
+    with the pion mass (0.15 <= pT < 50 GeV), in 0.5 <= |eta| < 0.8 (IV); each spectrum over its yield in 0 <= pT <= 10 GeV
+    (side_normalization). Errors: stat (the paper shows no systematic ones: they largely cancel).'
+---
+observable_type: observable_ratios
+inspire_id: '2933773'
+version: 1
+hepdata_file: figure_2b.yaml
+dv_index: 3
+hepdata_table_label: normalized spectrum 0.9-1% / 0-5%, estimator IV (Figure 2b)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0.9-1%
+  estimator:
+    name: TPC
+    observable: ET
+    detector: TPC
+    sum: transverse_mass
+  eta:
+  - min: -0.8
+    max: -0.5
+  - min: 0.5
+    max: 0.8
+  percentiles: true
+  pT:
+    min: 0.15
+    max: 50.0
+  notes: Estimator E_T, the summed transverse mass of TPC tracks with the pion mass (0.15 <= pT < 50 GeV), in 0.5 <= |eta|
+    < 0.8 (IV) (Table 1); narrow centrality intervals of Fig. 1 (interval centres), each point over the estimator's 0-5% class.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.3
+    max: 0.3
+  pT:
+    min: 0.15
+    max: 10.0
+    bins:
+    - 0.15
+    - 0.2
+    - 0.4
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+    - 2.0
+    - 3.0
+    - 5.0
+    - 10.0
+observable: invariant_yield
+value_type: $(\mathrm{d}N_{\mathrm{ch}}/\mathrm{d}\eta)^{\mathrm{Centrality}}/(\mathrm{d}N_{\mathrm{ch}}/\mathrm{d}\eta)^{\mathrm{0-5\%}}$
+ratio_type: centrality_ratio
+numerator: 0.9-1%
+denominator: 0-5%
+numerator_system: Pb+Pb
+denominator_system: Pb+Pb
+numerator_record: data/particle_spectra/alice_particle_spectra_ucc_sides_PbPb_5020gev_ins2933773.yaml#9
+denominator_record: data/particle_spectra/alice_particle_spectra_ucc_sides_PbPb_5020gev_ins2933773.yaml#6
+denominator_class: 0-5%
+side_normalization:
+  pT:
+    min: 0.0
+    max: 10.0
+dimensionality: differential_pT
+notes:
+  value: 'ALICE Collaboration, JHEP 11 (2025) 076, arXiv:2506.10394, Figure 2b. d2N/(<dN_ch/deta> deta dpT) in 0.9-1% over
+    the same in 0-5%, charged particles in |eta| <= 0.3, events classified by E_T, the summed transverse mass of TPC tracks
+    with the pion mass (0.15 <= pT < 50 GeV), in 0.5 <= |eta| < 0.8 (IV); each spectrum over its yield in 0 <= pT <= 10 GeV
+    (side_normalization). Errors: stat (the paper shows no systematic ones: they largely cancel).'
+---
+observable_type: observable_ratios
+inspire_id: '2933773'
+version: 1
+hepdata_file: figure_2c.yaml
+dv_index: 0
+hepdata_table_label: normalized spectrum 0-0.005% / 0-5%, estimator VI (Figure 2c)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-0.005%
+  estimator:
+    name: SPD
+    observable: Nch
+    detector: SPD
+  eta:
+  - min: -0.8
+    max: -0.5
+  - min: 0.5
+    max: 0.8
+  percentiles: true
+  notes: Estimator SPD tracklets (no pT selection) in 0.5 <= |eta| < 0.8 (VI) (Table 1); narrow centrality intervals of Fig.
+    1 (interval centres), each point over the estimator's 0-5% class.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.3
+    max: 0.3
+  pT:
+    min: 0.15
+    max: 10.0
+    bins:
+    - 0.15
+    - 0.2
+    - 0.4
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+    - 2.0
+    - 3.0
+    - 5.0
+    - 10.0
+observable: invariant_yield
+value_type: $(\mathrm{d}N_{\mathrm{ch}}/\mathrm{d}\eta)^{\mathrm{Centrality}}/(\mathrm{d}N_{\mathrm{ch}}/\mathrm{d}\eta)^{\mathrm{0-5\%}}$
+ratio_type: centrality_ratio
+numerator: 0-0.005%
+denominator: 0-5%
+numerator_system: Pb+Pb
+denominator_system: Pb+Pb
+numerator_record: data/particle_spectra/alice_particle_spectra_ucc_sides_PbPb_5020gev_ins2933773.yaml#10
+denominator_record: data/particle_spectra/alice_particle_spectra_ucc_sides_PbPb_5020gev_ins2933773.yaml#11
+denominator_class: 0-5%
+side_normalization:
+  pT:
+    min: 0.0
+    max: 10.0
+dimensionality: differential_pT
+notes:
+  value: 'ALICE Collaboration, JHEP 11 (2025) 076, arXiv:2506.10394, Figure 2c. d2N/(<dN_ch/deta> deta dpT) in 0-0.005% over
+    the same in 0-5%, charged particles in |eta| <= 0.3, events classified by SPD tracklets (no pT selection) in 0.5 <= |eta|
+    < 0.8 (VI); each spectrum over its yield in 0 <= pT <= 10 GeV (side_normalization). Errors: stat (the paper shows no systematic
+    ones: they largely cancel).'
+---
+observable_type: observable_ratios
+inspire_id: '2933773'
+version: 1
+hepdata_file: figure_2c.yaml
+dv_index: 1
+hepdata_table_label: normalized spectrum 0.03-0.04% / 0-5%, estimator VI (Figure 2c)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0.03-0.04%
+  estimator:
+    name: SPD
+    observable: Nch
+    detector: SPD
+  eta:
+  - min: -0.8
+    max: -0.5
+  - min: 0.5
+    max: 0.8
+  percentiles: true
+  notes: Estimator SPD tracklets (no pT selection) in 0.5 <= |eta| < 0.8 (VI) (Table 1); narrow centrality intervals of Fig.
+    1 (interval centres), each point over the estimator's 0-5% class.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.3
+    max: 0.3
+  pT:
+    min: 0.15
+    max: 10.0
+    bins:
+    - 0.15
+    - 0.2
+    - 0.4
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+    - 2.0
+    - 3.0
+    - 5.0
+    - 10.0
+observable: invariant_yield
+value_type: $(\mathrm{d}N_{\mathrm{ch}}/\mathrm{d}\eta)^{\mathrm{Centrality}}/(\mathrm{d}N_{\mathrm{ch}}/\mathrm{d}\eta)^{\mathrm{0-5\%}}$
+ratio_type: centrality_ratio
+numerator: 0.03-0.04%
+denominator: 0-5%
+numerator_system: Pb+Pb
+denominator_system: Pb+Pb
+numerator_record: data/particle_spectra/alice_particle_spectra_ucc_sides_PbPb_5020gev_ins2933773.yaml#12
+denominator_record: data/particle_spectra/alice_particle_spectra_ucc_sides_PbPb_5020gev_ins2933773.yaml#11
+denominator_class: 0-5%
+side_normalization:
+  pT:
+    min: 0.0
+    max: 10.0
+dimensionality: differential_pT
+notes:
+  value: 'ALICE Collaboration, JHEP 11 (2025) 076, arXiv:2506.10394, Figure 2c. d2N/(<dN_ch/deta> deta dpT) in 0.03-0.04%
+    over the same in 0-5%, charged particles in |eta| <= 0.3, events classified by SPD tracklets (no pT selection) in 0.5
+    <= |eta| < 0.8 (VI); each spectrum over its yield in 0 <= pT <= 10 GeV (side_normalization). Errors: stat (the paper shows
+    no systematic ones: they largely cancel).'
+---
+observable_type: observable_ratios
+inspire_id: '2933773'
+version: 1
+hepdata_file: figure_2c.yaml
+dv_index: 2
+hepdata_table_label: normalized spectrum 0.1-0.2% / 0-5%, estimator VI (Figure 2c)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0.1-0.2%
+  estimator:
+    name: SPD
+    observable: Nch
+    detector: SPD
+  eta:
+  - min: -0.8
+    max: -0.5
+  - min: 0.5
+    max: 0.8
+  percentiles: true
+  notes: Estimator SPD tracklets (no pT selection) in 0.5 <= |eta| < 0.8 (VI) (Table 1); narrow centrality intervals of Fig.
+    1 (interval centres), each point over the estimator's 0-5% class.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.3
+    max: 0.3
+  pT:
+    min: 0.15
+    max: 10.0
+    bins:
+    - 0.15
+    - 0.2
+    - 0.4
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+    - 2.0
+    - 3.0
+    - 5.0
+    - 10.0
+observable: invariant_yield
+value_type: $(\mathrm{d}N_{\mathrm{ch}}/\mathrm{d}\eta)^{\mathrm{Centrality}}/(\mathrm{d}N_{\mathrm{ch}}/\mathrm{d}\eta)^{\mathrm{0-5\%}}$
+ratio_type: centrality_ratio
+numerator: 0.1-0.2%
+denominator: 0-5%
+numerator_system: Pb+Pb
+denominator_system: Pb+Pb
+numerator_record: data/particle_spectra/alice_particle_spectra_ucc_sides_PbPb_5020gev_ins2933773.yaml#13
+denominator_record: data/particle_spectra/alice_particle_spectra_ucc_sides_PbPb_5020gev_ins2933773.yaml#11
+denominator_class: 0-5%
+side_normalization:
+  pT:
+    min: 0.0
+    max: 10.0
+dimensionality: differential_pT
+notes:
+  value: 'ALICE Collaboration, JHEP 11 (2025) 076, arXiv:2506.10394, Figure 2c. d2N/(<dN_ch/deta> deta dpT) in 0.1-0.2% over
+    the same in 0-5%, charged particles in |eta| <= 0.3, events classified by SPD tracklets (no pT selection) in 0.5 <= |eta|
+    < 0.8 (VI); each spectrum over its yield in 0 <= pT <= 10 GeV (side_normalization). Errors: stat (the paper shows no systematic
+    ones: they largely cancel).'
+---
+observable_type: observable_ratios
+inspire_id: '2933773'
+version: 1
+hepdata_file: figure_2c.yaml
+dv_index: 3
+hepdata_table_label: normalized spectrum 0.9-1% / 0-5%, estimator VI (Figure 2c)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0.9-1%
+  estimator:
+    name: SPD
+    observable: Nch
+    detector: SPD
+  eta:
+  - min: -0.8
+    max: -0.5
+  - min: 0.5
+    max: 0.8
+  percentiles: true
+  notes: Estimator SPD tracklets (no pT selection) in 0.5 <= |eta| < 0.8 (VI) (Table 1); narrow centrality intervals of Fig.
+    1 (interval centres), each point over the estimator's 0-5% class.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.3
+    max: 0.3
+  pT:
+    min: 0.15
+    max: 10.0
+    bins:
+    - 0.15
+    - 0.2
+    - 0.4
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+    - 2.0
+    - 3.0
+    - 5.0
+    - 10.0
+observable: invariant_yield
+value_type: $(\mathrm{d}N_{\mathrm{ch}}/\mathrm{d}\eta)^{\mathrm{Centrality}}/(\mathrm{d}N_{\mathrm{ch}}/\mathrm{d}\eta)^{\mathrm{0-5\%}}$
+ratio_type: centrality_ratio
+numerator: 0.9-1%
+denominator: 0-5%
+numerator_system: Pb+Pb
+denominator_system: Pb+Pb
+numerator_record: data/particle_spectra/alice_particle_spectra_ucc_sides_PbPb_5020gev_ins2933773.yaml#14
+denominator_record: data/particle_spectra/alice_particle_spectra_ucc_sides_PbPb_5020gev_ins2933773.yaml#11
+denominator_class: 0-5%
+side_normalization:
+  pT:
+    min: 0.0
+    max: 10.0
+dimensionality: differential_pT
+notes:
+  value: 'ALICE Collaboration, JHEP 11 (2025) 076, arXiv:2506.10394, Figure 2c. d2N/(<dN_ch/deta> deta dpT) in 0.9-1% over
+    the same in 0-5%, charged particles in |eta| <= 0.3, events classified by SPD tracklets (no pT selection) in 0.5 <= |eta|
+    < 0.8 (VI); each spectrum over its yield in 0 <= pT <= 10 GeV (side_normalization). Errors: stat (the paper shows no systematic
+    ones: they largely cancel).'
+---
+observable_type: observable_ratios
+inspire_id: '2933773'
+version: 1
+hepdata_file: figure_2d.yaml
+dv_index: 0
+hepdata_table_label: normalized spectrum 0-0.1% / 0-5%, estimator IX (Figure 2d)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0-0.1%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+  percentiles: true
+  notes: Estimator the V0 amplitude, -3.7 < eta < -1.7 and 2.8 < eta < 5.1 (IX) (Table 1); narrow centrality intervals of
+    Fig. 1 (interval centres), each point over the estimator's 0-5% class.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.15
+    max: 10.0
+    bins:
+    - 0.15
+    - 0.2
+    - 0.4
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+    - 2.0
+    - 3.0
+    - 5.0
+    - 10.0
+observable: invariant_yield
+value_type: $(\mathrm{d}N_{\mathrm{ch}}/\mathrm{d}\eta)^{\mathrm{Centrality}}/(\mathrm{d}N_{\mathrm{ch}}/\mathrm{d}\eta)^{\mathrm{0-5\%}}$
+ratio_type: centrality_ratio
+numerator: 0-0.1%
+denominator: 0-5%
+numerator_system: Pb+Pb
+denominator_system: Pb+Pb
+numerator_record: data/particle_spectra/alice_particle_spectra_ucc_sides_PbPb_5020gev_ins2933773.yaml#15
+denominator_record: data/particle_spectra/alice_particle_spectra_ucc_sides_PbPb_5020gev_ins2933773.yaml#16
+denominator_class: 0-5%
+side_normalization:
+  pT:
+    min: 0.0
+    max: 10.0
+dimensionality: differential_pT
+notes:
+  value: 'ALICE Collaboration, JHEP 11 (2025) 076, arXiv:2506.10394, Figure 2d. d2N/(<dN_ch/deta> deta dpT) in 0-0.1% over
+    the same in 0-5%, charged particles in |eta| <= 0.8, events classified by the V0 amplitude, -3.7 < eta < -1.7 and 2.8
+    < eta < 5.1 (IX); each spectrum over its yield in 0 <= pT <= 10 GeV (side_normalization). Errors: stat (the paper shows
+    no systematic ones: they largely cancel).'
+---
+observable_type: observable_ratios
+inspire_id: '2933773'
+version: 1
+hepdata_file: figure_2d.yaml
+dv_index: 1
+hepdata_table_label: normalized spectrum 0.4-0.5% / 0-5%, estimator IX (Figure 2d)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0.4-0.5%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+  percentiles: true
+  notes: Estimator the V0 amplitude, -3.7 < eta < -1.7 and 2.8 < eta < 5.1 (IX) (Table 1); narrow centrality intervals of
+    Fig. 1 (interval centres), each point over the estimator's 0-5% class.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.15
+    max: 10.0
+    bins:
+    - 0.15
+    - 0.2
+    - 0.4
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+    - 2.0
+    - 3.0
+    - 5.0
+    - 10.0
+observable: invariant_yield
+value_type: $(\mathrm{d}N_{\mathrm{ch}}/\mathrm{d}\eta)^{\mathrm{Centrality}}/(\mathrm{d}N_{\mathrm{ch}}/\mathrm{d}\eta)^{\mathrm{0-5\%}}$
+ratio_type: centrality_ratio
+numerator: 0.4-0.5%
+denominator: 0-5%
+numerator_system: Pb+Pb
+denominator_system: Pb+Pb
+numerator_record: data/particle_spectra/alice_particle_spectra_ucc_sides_PbPb_5020gev_ins2933773.yaml#17
+denominator_record: data/particle_spectra/alice_particle_spectra_ucc_sides_PbPb_5020gev_ins2933773.yaml#16
+denominator_class: 0-5%
+side_normalization:
+  pT:
+    min: 0.0
+    max: 10.0
+dimensionality: differential_pT
+notes:
+  value: 'ALICE Collaboration, JHEP 11 (2025) 076, arXiv:2506.10394, Figure 2d. d2N/(<dN_ch/deta> deta dpT) in 0.4-0.5% over
+    the same in 0-5%, charged particles in |eta| <= 0.8, events classified by the V0 amplitude, -3.7 < eta < -1.7 and 2.8
+    < eta < 5.1 (IX); each spectrum over its yield in 0 <= pT <= 10 GeV (side_normalization). Errors: stat (the paper shows
+    no systematic ones: they largely cancel).'
+---
+observable_type: observable_ratios
+inspire_id: '2933773'
+version: 1
+hepdata_file: figure_2d.yaml
+dv_index: 2
+hepdata_table_label: normalized spectrum 0.7-0.8% / 0-5%, estimator IX (Figure 2d)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0.7-0.8%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+  percentiles: true
+  notes: Estimator the V0 amplitude, -3.7 < eta < -1.7 and 2.8 < eta < 5.1 (IX) (Table 1); narrow centrality intervals of
+    Fig. 1 (interval centres), each point over the estimator's 0-5% class.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.15
+    max: 10.0
+    bins:
+    - 0.15
+    - 0.2
+    - 0.4
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+    - 2.0
+    - 3.0
+    - 5.0
+    - 10.0
+observable: invariant_yield
+value_type: $(\mathrm{d}N_{\mathrm{ch}}/\mathrm{d}\eta)^{\mathrm{Centrality}}/(\mathrm{d}N_{\mathrm{ch}}/\mathrm{d}\eta)^{\mathrm{0-5\%}}$
+ratio_type: centrality_ratio
+numerator: 0.7-0.8%
+denominator: 0-5%
+numerator_system: Pb+Pb
+denominator_system: Pb+Pb
+numerator_record: data/particle_spectra/alice_particle_spectra_ucc_sides_PbPb_5020gev_ins2933773.yaml#18
+denominator_record: data/particle_spectra/alice_particle_spectra_ucc_sides_PbPb_5020gev_ins2933773.yaml#16
+denominator_class: 0-5%
+side_normalization:
+  pT:
+    min: 0.0
+    max: 10.0
+dimensionality: differential_pT
+notes:
+  value: 'ALICE Collaboration, JHEP 11 (2025) 076, arXiv:2506.10394, Figure 2d. d2N/(<dN_ch/deta> deta dpT) in 0.7-0.8% over
+    the same in 0-5%, charged particles in |eta| <= 0.8, events classified by the V0 amplitude, -3.7 < eta < -1.7 and 2.8
+    < eta < 5.1 (IX); each spectrum over its yield in 0 <= pT <= 10 GeV (side_normalization). Errors: stat (the paper shows
+    no systematic ones: they largely cancel).'
+---
+observable_type: observable_ratios
+inspire_id: '2933773'
+version: 1
+hepdata_file: figure_2d.yaml
+dv_index: 3
+hepdata_table_label: normalized spectrum 0.9-1% / 0-5%, estimator IX (Figure 2d)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0.9-1%
+  estimator:
+    name: V0M
+    observable: amplitude
+    detector: V0
+  eta:
+  - min: -3.7
+    max: -1.7
+  - min: 2.8
+    max: 5.1
+  percentiles: true
+  notes: Estimator the V0 amplitude, -3.7 < eta < -1.7 and 2.8 < eta < 5.1 (IX) (Table 1); narrow centrality intervals of
+    Fig. 1 (interval centres), each point over the estimator's 0-5% class.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.8
+    max: 0.8
+  pT:
+    min: 0.15
+    max: 10.0
+    bins:
+    - 0.15
+    - 0.2
+    - 0.4
+    - 0.6
+    - 0.8
+    - 1.0
+    - 1.2
+    - 1.4
+    - 1.6
+    - 1.8
+    - 2.0
+    - 3.0
+    - 5.0
+    - 10.0
+observable: invariant_yield
+value_type: $(\mathrm{d}N_{\mathrm{ch}}/\mathrm{d}\eta)^{\mathrm{Centrality}}/(\mathrm{d}N_{\mathrm{ch}}/\mathrm{d}\eta)^{\mathrm{0-5\%}}$
+ratio_type: centrality_ratio
+numerator: 0.9-1%
+denominator: 0-5%
+numerator_system: Pb+Pb
+denominator_system: Pb+Pb
+numerator_record: data/particle_spectra/alice_particle_spectra_ucc_sides_PbPb_5020gev_ins2933773.yaml#19
+denominator_record: data/particle_spectra/alice_particle_spectra_ucc_sides_PbPb_5020gev_ins2933773.yaml#16
+denominator_class: 0-5%
+side_normalization:
+  pT:
+    min: 0.0
+    max: 10.0
+dimensionality: differential_pT
+notes:
+  value: 'ALICE Collaboration, JHEP 11 (2025) 076, arXiv:2506.10394, Figure 2d. d2N/(<dN_ch/deta> deta dpT) in 0.9-1% over
+    the same in 0-5%, charged particles in |eta| <= 0.8, events classified by the V0 amplitude, -3.7 < eta < -1.7 and 2.8
+    < eta < 5.1 (IX); each spectrum over its yield in 0 <= pT <= 10 GeV (side_normalization). Errors: stat (the paper shows
+    no systematic ones: they largely cancel).'

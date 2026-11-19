@@ -287,6 +287,7 @@ def _record_anchor(params, mult, anchor, args, event_weights=None):
     return a, eff
 from analysis.pipeline_dispatch import (
     get_pipeline_entry, PTCUTS, container_for_prepare, SINGLE_ROW_KEYS, estimator_multiplicity_3d,
+    estimator_variable,
 )
 
 
@@ -1188,7 +1189,10 @@ def main():
                     # a package's own estimator multiplicity ranks the events
                     # for percentiles; classes in track count need the count
                     # in the record's estimator acceptance
-                    if getattr(qv, 'cent_mult', None) is not None and not params.get('cent_multiplicity_bins'):
+                    et_var = estimator_variable(qv, params, True)
+                    if et_var is not None:      # the record's estimator sums transverse mass
+                        cent_mult = et_var
+                    elif getattr(qv, 'cent_mult', None) is not None and not params.get('cent_multiplicity_bins'):
                         cent_mult = np.asarray(qv.cent_mult, dtype=float)
                     else:
                         cent_mult = np.zeros(n_events)
@@ -1286,8 +1290,10 @@ def main():
                     # 10x event-to-event so ranking the scaled values scrambles
                     # bins (found Sep 2026: +13% on v22_int 0-5%).  The Poisson
                     # path needs the physical per-run mean as its base too.
-                    cent_mult_3d = estimator_multiplicity_3d(
-                        qv, cent_eta_ranges, params.get('cent_pT_range') or (None, None))
+                    cent_mult_3d = estimator_variable(qv, params, False)
+                    if cent_mult_3d is None:
+                        cent_mult_3d = estimator_multiplicity_3d(
+                            qv, cent_eta_ranges, params.get('cent_pT_range') or (None, None))
                     rec_anchor, rec_eff = _record_anchor(params, cent_mult_3d, anchor, args,
                                                          group_event_weights)
                     cw = _centrality(cent_mult_3d, rec_eff, params)
