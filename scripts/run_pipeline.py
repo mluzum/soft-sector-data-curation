@@ -1236,6 +1236,8 @@ def main():
                             cent_mult += cent_partial
                     rec_anchor, rec_eff = _record_anchor(params, cent_mult, anchor, args,
                                                          group_event_weights)
+                    if dispatch_key == 'event_fraction':     # the fraction of the cross section
+                        params['anchor_nref_per_event'] = float(rec_anchor['n_ref']) / len(cent_mult)
                     cw = _centrality(cent_mult, rec_eff, params, qv, True)
                     cent = (cw, tuple(map(tuple, cent_edges)))
                     cent_w = cw.weights(cent_edges, raw=True)
@@ -1325,6 +1327,8 @@ def main():
                             qv, cent_eta_ranges, params.get('cent_pT_range') or (None, None))
                     rec_anchor, rec_eff = _record_anchor(params, cent_mult_3d, anchor, args,
                                                          group_event_weights)
+                    if dispatch_key == 'event_fraction':     # the fraction of the cross section
+                        params['anchor_nref_per_event'] = float(rec_anchor['n_ref']) / len(cent_mult_3d)
                     cw = _centrality(cent_mult_3d, rec_eff, params, qv, False)
                     cent = (cw, tuple(map(tuple, cent_edges)))
                     cent_w_3d = cw.weights(cent_edges, raw=True)

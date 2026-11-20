@@ -14,7 +14,7 @@ The pipeline reads those fields and applies the record's exact cuts to the
 simulation. A model is then compared with the data on the same footing,
 record by record, for any selection of measurements.
 
-- **10,314 records** from 202 publications (STAR, PHENIX, BRAHMS, PHOBOS,
+- **10,322 records** from 202 publications (STAR, PHENIX, BRAHMS, PHOBOS,
   ALICE, ATLAS, CMS), built from the HEPData tables in `hepdata_raw/`.
   **Every record can be computed from a simulation and compared with its
   data by the tools here**: it dispatches to a computation, its centrality
@@ -43,6 +43,9 @@ record by record, for any selection of measurements.
     ultra-central intervals of multiplicity- and E_T-based estimators and
     against the normalized multiplicity (the speed-of-sound data of ALICE,
     ATLAS and CMS);
+  - multiplicity distributions: the fraction of the cross section in
+    intervals of a centrality estimator or of the normalized multiplicity
+    (the ultra-central knee of ALICE, ATLAS and CMS);
   - radial-flow fluctuations: v0, v0(pT) and the [pT]-spectrum covariance
     from two pseudorapidity subevents;
   - ratios between collision systems or energies (e.g. Ru+Ru / Zr+Zr,

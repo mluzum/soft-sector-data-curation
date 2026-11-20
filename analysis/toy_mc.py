@@ -751,6 +751,17 @@ def evaluate(record, qv=None, grid=None, with_jackknife=True,
     if entry is None:
         raise ValueError(f"no pipeline entry for {key}")
 
+    # the group's anchor: an event fraction's prepare takes its total per
+    # simulated event (run_pipeline likewise)
+    container0 = qv if qv is not None else grid
+    if container0 is None:
+        raise ValueError("provide qv or grid")
+    ew = getattr(container0, 'event_weights', None)
+    anchor = resolve_anchor(cent_anchor if cent_anchor is not None else 1.0,
+                            container0.n_events, sum_w=None if ew is None else float(np.sum(ew)))
+    if key == 'event_fraction':
+        params['anchor_nref_per_event'] = float(anchor['n_ref']) / container0.n_events
+
     if qv is not None:
         data = entry['prepare_data_2d'](qv, params)
         n_events = qv.n_events
@@ -775,10 +786,8 @@ def evaluate(record, qv=None, grid=None, with_jackknife=True,
     else:
         raise ValueError("provide qv or grid")
 
-    # importance weights of the container's events (run_pipeline likewise)
-    ew = getattr(qv if qv is not None else grid_unselected, 'event_weights', None)
-    anchor = resolve_anchor(cent_anchor if cent_anchor is not None else 1.0,
-                            n_events, sum_w=None if ew is None else float(np.sum(ew)))
+    # importance weights of the container's events (run_pipeline likewise):
+    # ew and anchor above
     norm = params.get('cent_normalization')
     # experiment-defined normalization, as run_pipeline; the class edges and
     # the normalization are rebuilt in each jackknife replicate

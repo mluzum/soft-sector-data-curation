@@ -8,6 +8,16 @@ description: >
   model multiplicity) is supplied.  The high-multiplicity tail and the ratio
   between systems are sensitive to nuclear structure.
 
+  Computed form (value_type `event_fraction`, normalization `cross_section`):
+  the fraction of the inelastic cross section in each centrality class --
+  ALICE's and CMS's event fractions in intervals of a centrality estimator
+  labelled by N_ch / N_ch^{0-5%} (centrality.abscissa_bins), ATLAS's
+  distribution of N_ch / N_ch^{5%} (centrality.multiplicity_bins with
+  normalized_to).  The model value is the class's events (importance weights
+  included) over the anchor's total, rebuilt in each jackknife replicate
+  (pipeline key event_fraction).  A distribution normalized to its own
+  classes is a ratio record (centrality_ratio) over the classes' union.
+
 composes:
   - _common#collision_system
   - _common#kinematic_range
@@ -15,6 +25,7 @@ composes:
 optional_composes:
   - _common#particle_id
   - _common#notes
+  - centrality#centrality
 
 required_fields:
   observable:
@@ -25,7 +36,10 @@ required_fields:
   value_type:
     type: string
     required: true
-    description: The distribution as labelled by the publication.
+    description: >
+      The distribution as labelled by the publication, or 'event_fraction'
+      for the computed form (the fraction of the cross section in each
+      centrality class).
     example: "P(N_trk^offline)"
   efficiency_corrected:
     type: boolean
@@ -47,6 +61,24 @@ optional_fields:
   dimensionality:
     type: string
     required: false
-    allowed: [differential_multiplicity]
-    description: The independent variable is the multiplicity itself.
+    allowed: [differential_multiplicity, integrated]
+    description: >
+      The independent variable is the multiplicity itself
+      (differential_multiplicity), or the classes are the binning
+      (integrated: event_fraction records).
     example: "differential_multiplicity"
+  normalization:
+    type: string
+    required: false
+    allowed: [cross_section]
+    description: >
+      For value_type event_fraction: the fractions are of the inelastic
+      cross section (the experiments' centrality normalization).
+    example: "cross_section"
+  value_scale:
+    type: float
+    required: false
+    description: >
+      A factor the tabulated values carry (load_experimental divides by it):
+      an arbitrarily normalized density converted to fractions per class.
+    example: 1.0

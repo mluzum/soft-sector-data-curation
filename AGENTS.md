@@ -511,7 +511,12 @@ Fields that change dispatch:
   N_trk = Poisson(efficiency x N); R from the events' own distribution
   with the group's anchor and importance weights, rebuilt in each
   jackknife replicate (`weights.NormalizedMultiplicityBinWeights`);
-  tests/test_normalized_multiplicity_bins.py.
+  tests/test_normalized_multiplicity_bins.py.  ATLAS's N_ch^{5%} is the
+  count above which 5.063% (Pb+Pb) or 5.099% (Xe+Xe) of the cross section
+  lies: its distribution (Suppl. Fig. 3, arbitrary normalization) against
+  the FCal centrality at fixed N_ch (Aux. Fig. 2b), which equals the N_ch
+  percentile where the distribution is flat in centrality
+  (scripts/curate_atlas_pt_moments_ucc_5tev.py; 5.0 until November 2026).
 - `centrality.abscissa_bins` {eta, pT, reference_class}: classes of the
   estimator labelled on another count's scale (CMS 2747107: 50 GeV
   intervals of HF E_T reported at N_ch / N_ch^0 of |eta| < 0.5): a class
@@ -522,7 +527,32 @@ Fields that change dispatch:
   experiment's; scale and reference rebuilt per replicate
   (`weights.AbscissaBinWeights`; run_pipeline `_abscissa_counts`, the toy
   harness likewise).  A ratio's denominator side at its reference class
-  is an ordinary percentile record.  tests/test_abscissa_bins.py.
+  is an ordinary percentile record.  The estimator may sum transverse mass
+  (ALICE's TPC E_T).  tests/test_abscissa_bins.py.  Where the experiment
+  tabulates each interval's mean abscissa and event fraction but not its
+  edges (ALICE 2933773 Fig. 3, CMS 2747107 Fig. 2), the edges are solved
+  from them (`analysis/interval_edges.py`: the density exponential within
+  each interval, the means matched within 2e-4 with smooth widths;
+  midpoints between the means sit up to 0.06 of a width low in a steep
+  tail, the fractions there several percent high);
+  tests/test_interval_edges.py.
+- Multiplicity distributions in classes (`observable_type:
+  multiplicity_distribution`, `value_type: event_fraction`,
+  `normalization: cross_section`; key `event_fraction`): the fraction of
+  the cross section in each class -- the class's events (importance
+  weights included) over the record's anchor total, a replicate's total
+  the share of the events it keeps (run_pipeline and the toy harness pass
+  n_ref per simulated event as the param `anchor_nref_per_event`).  ALICE
+  2933773 Fig. 3 and CMS 2747107 Fig. 2 on the abscissa scale, ATLAS
+  2806288 Suppl. Fig. 3 in units of N_ch^{5%} (its arbitrary normalization
+  fixed by Aux. Fig. 2b: `value_scale`).  A distribution normalized to its
+  own classes (CMS: the 44 intervals, summing to 0.99112) is a
+  centrality_ratio record over the classes' union with that `scale`.
+  Classes in absolute track count and threshold normalizations are
+  refused (no cross-section total); other multiplicity_distribution
+  records (detector-level P(N_trk)) are not dispatched.  Percentile
+  classes hold their width exactly (zero jackknife error).
+  tests/test_event_fraction.py.
 - `centrality.multiplicity_bins` {efficiency}: the classes are ranges of
   the estimator's track count ('10-20', no '%': 10 <= N_trk < 20), not
   percentiles (STAR's isobar ratios vs N_trk(|eta| < 0.5), ATLAS N_ch^rec,

@@ -526,6 +526,34 @@ PT_MOMENTS_ENTRY = {
     'description': 'higher moments of the event-by-event mean pT: k2, k3, gamma, Gamma, kappa (analysis.pt_moments)',
 }
 
+EVENT_FRACTION_ENTRY = {
+    'compute': 'event_fraction',
+    'requires': ['centrality.classes'],
+    'description': 'the fraction of the cross section in each class (multiplicity distributions in classes)',
+}
+
+
+def _check_event_fraction(record):
+    """multiplicity_distribution records with value_type event_fraction: the
+    fraction of the cross section in each class needs the cross-section
+    anchor (classes in percentiles, on an abscissa scale, or in units of
+    the count at a percentile), not classes in absolute track count or an
+    experiment-defined threshold normalization (whose replicate totals are
+    not the share of the events kept)."""
+    if record.get("normalization") != "cross_section":
+        raise ValueError(f"event_fraction: normalization {record.get('normalization')!r} (cross_section; a "
+                         f"distribution normalized otherwise is a ratio record over the classes' union)")
+    cent_ = record.get("centrality") or {}
+    if not cent_.get("classes"):
+        raise ValueError("event_fraction needs centrality classes")
+    mb = cent_.get("multiplicity_bins")
+    if mb and not (isinstance(mb, dict) and mb.get("normalized_to")):
+        raise ValueError("event_fraction: classes in absolute track count have no cross-section anchor")
+    clash = [k for k in ("normalization", "combined_from", "points", "actual_classes") if cent_.get(k)]
+    if clash:
+        raise ValueError(f"event_fraction with centrality.{', '.join(clash)} is not implemented")
+
+
 MULTI_CUMULANT_ENTRY = {
     'compute': 'multi_cumulant',
     'requires': [],
@@ -636,8 +664,6 @@ def resolve(record):
         if multiplicity_classes_invalid(cent_.get("classes")):
             raise ValueError(f"centrality.abscissa_bins: classes {cent_.get('classes')} are not ranges 'lo-hi' "
                              f"of the abscissa scale")
-        if cent_.get("estimator", {}).get("sum") == "transverse_mass":
-            raise ValueError("centrality.abscissa_bins with a transverse-mass estimator is not implemented")
     if cent_.get("multiplicity_bins"):
         clash = [k for k in ("actual_classes", "normalization", "combined_from", "points") if cent_.get(k)
                  and not (k == "combined_from" and cent_.get(k) == "unit_multiplicity")]
@@ -754,6 +780,16 @@ def resolve(record):
         from analysis import pt_moments
         pt_moments.check_record(record)
         return dict(PT_MOMENTS_ENTRY)
+    # The fraction of the cross section in each class: multiplicity
+    # distributions in classes (ALICE's and CMS's P(N_ch/N_ch^0), ATLAS's
+    # N_ch/N_ch^{5%}); other multiplicity_distribution records (detector-level
+    # P(N_trk)) are not dispatched.
+    if record.get("observable_type") == "multiplicity_distribution":
+        if record.get("value_type") != "event_fraction":
+            raise ValueError(f"multiplicity_distribution value_type {record.get('value_type')!r}: the pipeline "
+                             f"computes 'event_fraction' (the fraction of the cross section in each class)")
+        _check_event_fraction(record)
+        return dict(EVENT_FRACTION_ENTRY)
 
     # Directed flow.  Rapidity-odd v1 needs an eta-odd reference (windows at
     # eta < 0 weighted -1) and a sign convention; the even-harmonic

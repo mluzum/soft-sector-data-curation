@@ -1919,6 +1919,29 @@ def _wrap_pt_moments(data, w):
     return pt_moments.core(data, w)
 
 
+# ── Event fractions (multiplicity distributions in classes) ─────────────────
+
+def prepare_event_fraction(container, params):
+    """The fraction of the cross section in a class (multiplicity_distribution
+    records with value_type event_fraction: ALICE's and CMS's P(N_ch/N^0),
+    ATLAS's distribution of N_ch/N_ch^{5%}).  Per event a one, and the
+    anchor's total per simulated event (n_ref / n, set by run_pipeline and
+    the toy harness from the record's anchor): a replicate's n_ref is the
+    share of the events it keeps (weights.CentralityWeights.anchor)."""
+    s = params.get('anchor_nref_per_event')
+    if s is None or not float(s) > 0:
+        raise ValueError('event_fraction: no anchor (anchor_nref_per_event is set by run_pipeline and the toy '
+                         'harness)')
+    return {'one': np.ones(container.n_events), 'nref_per_event': float(s)}
+
+
+def _wrap_event_fraction(data, w):
+    """sum of the class weights (importance weights included) over the
+    replicate's n_ref."""
+    n = len(data['one'])
+    return np.array([float(np.sum(w)) / (n * data['nref_per_event'])]) if n else np.array([np.nan])
+
+
 def _wrap_multi_cumulant(data, w):
     from analysis import multi_cumulants
     return multi_cumulants.core(data, w)
@@ -4260,6 +4283,13 @@ PIPELINE_DISPATCH = {
         "description": "higher moments of the event-by-event mean pT: c_n, k2, k3, gamma, Gamma, kappa "
                        "(analysis.pt_moments)",
     },
+    "event_fraction": {
+        "core_fn": _wrap_event_fraction,
+        "prepare_data_2d": prepare_event_fraction,
+        "prepare_data_3d": prepare_event_fraction,
+        "n_obs_per_cent": 1,
+        "description": "the fraction of the cross section in a class (multiplicity distributions in classes)",
+    },
     "multi_cumulant": {
         "core_fn": _wrap_multi_cumulant,
         "prepare_data_2d": prepare_multi_cumulant_2d,
@@ -4505,7 +4535,7 @@ SINGLE_ROW_KEYS = frozenset({
     'spectra_invariant_yield', 'dET_deta', 'sc_mn', 'nac_mn', 'radial_flow',
     'vn_cumulant_combination', 'v1_even_factorization', 'rho_vn2_pT', 'mode_coupling',
     'plane_corr_sp', 'plane_corr_ge', 'flow_vector_fluct', 'vn_mixed_plane', 'vn2_eta_partner', 'rnn_decorrelation',
-    'tn_four_plane', 'vn_3x2pc', 'multi_cumulant', 'pT_moments',
+    'tn_four_plane', 'vn_3x2pc', 'multi_cumulant', 'pT_moments', 'event_fraction',
 })
 
 

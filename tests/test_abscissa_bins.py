@@ -15,7 +15,9 @@ Checks:
   - 'poisson': weights are probabilities of the estimator interval;
   - a jackknife replicate rebuilds the scale; a class beyond the scale's
     reach (labels above the largest conditional mean) is empty;
-  - run through the toy harness (a mean-pT record), and refusals.
+  - run through the toy harness (a mean-pT record), and refusals;
+  - an E_T estimator (transverse-mass sum): event fractions of the E_T
+    intervals.
 Run: python3 tests/test_abscissa_bins.py
 """
 import os
@@ -112,6 +114,27 @@ def test_harness_and_refusals():
     vals, errs = evaluate(_record(), grid=grid, n_blocks=10)
     check('harness: three classes, finite', np.all(np.isfinite(vals)) and np.all(errs > 0), f'{vals}')
     check('  <pT> rises with the abscissa (the toy: hotter for larger sources)', vals[2] > vals[0])
+    # an E_T estimator (ALICE's TPC E_T, Fig. 3c of JHEP 11 (2025) 076): the
+    # classes are intervals of the E_T variable the pipeline ranks on
+    from analysis.dispatcher import extract_measurement_params
+    from analysis.pipeline_dispatch import estimator_multiplicity_3d, estimator_variable
+    from analysis.weights import resolve_anchor
+    r = _record(classes=('0.6-0.75', '0.75-0.85', '0.85-0.95'))     # within the scale's reach
+    r['centrality']['estimator'] = {'name': 'TPC', 'observable': 'ET', 'sum': 'transverse_mass'}
+    r['observable_type'], r['value_type'], r['observable'] = 'multiplicity_distribution', 'event_fraction', 'event_fraction'
+    r.update(normalization='cross_section', efficiency_corrected=True)
+    vet, _ = evaluate(r, grid=grid, n_blocks=10, cent_method='simple')
+    params = extract_measurement_params(r)
+    et = estimator_variable(grid, params, False)
+    check('  E_T estimator: the transverse-mass variable', et is not None and not np.allclose(
+        et, estimator_multiplicity_3d(grid, params['cent_eta_ranges'], (None, None))))
+    ab = r['centrality']['abscissa_bins']
+    absc = estimator_multiplicity_3d(grid, [(w['min'], w['max']) for w in ab['eta']], (0.0, 100.0))
+    aw = AbscissaBinWeights('simple', et, absc, resolve_anchor(1.0, grid.n_events), reference_class=(0.0, 5.0))
+    lims = aw.edges_in_estimator([(0.6, 0.75), (0.75, 0.85), (0.85, 0.95)])
+    want = np.array([np.mean((et >= a) & (et < b)) for a, b in lims])
+    check('E_T estimator: event fractions of the E_T intervals', np.allclose(vet, want, atol=1e-12),
+          f'{vet} vs {want}')
     for name, change in (('no reference class', {'reference_class': None}),
                          ('a reference class beyond 100%', {'reference_class': '90-110%'})):
         r = _record()

@@ -34,18 +34,35 @@ denominator_class 0-5%) whose sides hold no values (the results are
 published only as ratios; experimental_values: false), the spectra each
 over their 0-10 GeV yield (side_normalization).  The <dN_ch/deta> ratios
 (the abscissae of Figs. 4, 7, 8) have no uncertainties and are not records.
-Not curated: <N_part> (Fig. 1, a Glauber/ZDC quantity), the event-fraction
-distributions (Fig. 3), c_s^2 (Fig. 6, a fit), and the higher moments of
-[pT] (Fig. 7: their multiplicity intervals are not published -- the points
-do not match the Fig. 1 intervals).
+The event-fraction distributions (Fig. 3: estimators IX, I, III): per
+interval of the estimator the fraction of the cross section (the
+fraction-weighted mean of <dN_ch/deta>^norm over the top intervals reaches 1
+where they hold 5.0%: fractions of the cross section) at the interval's
+mean <dN_ch/deta>^norm; the intervals' edges are not published.  Model
+counterpart: classes of the estimator on the <dN_ch/deta>^norm scale
+(centrality.abscissa_bins: |eta| <= 0.8, 0 <= pT <= 10 GeV, over the
+estimator's 0-5% class), the edges solved from the tabulated means and
+fractions (analysis.interval_edges: the density exponential within each
+interval -- midpoints between the means would put the classes up to 0.06
+of a width low in the tail, the model's fractions there several percent
+high);
+multiplicity_distribution records, value_type event_fraction.
+Not curated: <N_part> (Fig. 1, a Glauber/ZDC quantity), c_s^2 (Fig. 6, a
+fit), and the higher moments of [pT] (Fig. 7: their multiplicity intervals
+are not published -- the points do not match the Fig. 1 intervals).
 
 Run from the repository root:  python scripts/curate_alice_meanpt_ucc_pbpb_5020.py
 """
 import glob
 import os
 import re
+import sys
 
+import numpy as np
 import yaml
+
+sys.path.insert(0, os.getcwd())
+from analysis.interval_edges import edges_from_means  # noqa: E402
 
 try:
     from yaml import CSafeLoader as Loader
@@ -58,6 +75,7 @@ CITE = 'ALICE Collaboration, JHEP 11 (2025) 076, arXiv:2506.10394'
 OUT_RATIO = 'data/observable_ratios/alice_observable_ratios_meanpT_spectra_ucc_PbPb_5020gev_ins2933773.yaml'
 OUT_MPT = 'data/mean_pT/alice_mean_pT_ucc_sides_PbPb_5020gev_ins2933773.yaml'
 OUT_SPEC = 'data/particle_spectra/alice_particle_spectra_ucc_sides_PbPb_5020gev_ins2933773.yaml'
+OUT_FRAC = 'data/multiplicity_distribution/alice_multiplicity_distribution_event_fraction_ucc_PbPb_5020gev_ins2933773.yaml'
 SYSTEM = {'energy_gev': 5020.0, 'reaction': 'PB PB --> CHARGED X'}
 
 
@@ -98,6 +116,9 @@ FIG4 = {'figure_4a.yaml': 'I', 'figure_4b.yaml': 'II', 'figure_4c.yaml': 'III', 
         'figure_4e.yaml': 'V', 'figure_4f.yaml': 'VI', 'figure_4g.yaml': 'VII', 'figure_4h.yaml': 'VIII',
         'figure_4i.yaml': 'IX', 'figure_8.yaml': 'Fig8'}
 FIG2 = {'figure_2a.yaml': 'II', 'figure_2b.yaml': 'IV', 'figure_2c.yaml': 'VI', 'figure_2d.yaml': 'IX'}
+FIG3 = {'figure_3a.yaml': 'IX', 'figure_3b.yaml': 'I', 'figure_3c.yaml': 'III'}
+DESC3 = {'IX': r'N_{\mathrm{ch}} \in -3.7<\eta<-1.7', 'I': r'N_{\mathrm{ch}} \in |\eta|\leq 0.8',
+         'III': r'E_{\mathrm{T}} \in |\eta|\leq 0.8'}
 # the estimator text each table's description must contain
 DESC_KEY = {'I': r'N_{\mathrm{ch}}$ $\in$ $|\eta| \leq 0.8', 'II': r'0.5 \leq |\eta| \leq 0.8',
             'III': r'E_{\mathrm{T}}$ $\in$ $|\eta| \leq 0.8', 'IV': r'E_{\mathrm{T}}',
@@ -133,6 +154,68 @@ def centrality(label, classes):
     c['notes'] = (f'Estimator {EST_TEXT[label]} (Table 1); narrow centrality intervals of Fig. 1 (interval centres), '
                   'each point over the estimator\'s 0-5% class.')
     return c
+
+
+def fmt(x):
+    return np.format_float_positional(float(x), precision=5, unique=False, fractional=False, trim='-')
+
+
+def fraction_records(subs):
+    """Fig. 3: the fraction of the cross section per estimator interval, at
+    the interval's mean <dN_ch/deta>^norm; classes on that scale, the edges
+    solved from the means and fractions."""
+    out = []
+    for hf, label in FIG3.items():
+        desc = ' '.join(subs[hf]['description'].split())
+        assert DESC3[label].replace(' ', '') in desc.replace(' ', ''), (hf, desc)
+        t = load(hf)
+        iv, dv = t['independent_variables'][0], t['dependent_variables'][0]
+        assert iv['header']['name'].startswith(r'$\langle \mathrm{d}N_{\mathrm{ch}}/\mathrm{d}\eta \rangle'), iv
+        assert dv['header']['name'] == 'Event fraction', dv['header']
+        assert {q['name']: str(q['value']) for q in dv['qualifiers']}['ETARAP'] == '-0.8 to 0.8'
+        x = np.array([v['value'] for v in iv['values']])
+        y = np.array([v['value'] for v in dv['values']])
+        assert [e['label'] for e in dv['values'][0]['errors']] == ['stat.'], hf
+        # fractions of the cross section: the top intervals whose mean is 1 hold 5%
+        F = np.cumsum(y[::-1])[::-1]
+        M = np.cumsum((x * y)[::-1])[::-1] / F
+        k = int(np.where(M >= 1.0)[0][0])
+        f5 = F[k - 1] + (1.0 - M[k - 1]) / (M[k] - M[k - 1]) * (F[k] - F[k - 1])
+        assert abs(f5 - 0.05) < 0.001, (hf, f5)
+        edges, worst = edges_from_means(x, y)
+        assert worst < 1e-3, (hf, worst)
+        labels = [fmt(e) for e in edges]
+        assert all(float(a) < float(b) for a, b in zip(labels[:-1], labels[1:])), hf
+        cls = [f'{a}-{b}' for a, b in zip(labels[:-1], labels[1:])]
+        mids = 0.5 * (x[:-1] + x[1:])
+        print(f'{hf} ({label}): {len(cls)} intervals, {y.sum():.4f} of the cross section ({f5:.4f} where the mean '
+              f'reaches 1); edges from the means within {worst:.1e}, up to '
+              f'{np.max(np.abs(edges[1:-1] - mids) / np.diff(x).mean()):.2f} of a width from the midpoints')
+        est, eta, pt, kind, _ = ESTIMATORS[label]
+        est = dict(est)
+        if kind != 'count':
+            est['sum'] = kind
+        cent = {'classes': cls, 'estimator': est, 'eta': [dict(e) for e in eta]}
+        if pt is not None:
+            cent['pT'] = {'min': pt[0], 'max': pt[1]}
+        cent['abscissa_bins'] = {'eta': [{'min': -0.8, 'max': 0.8}], 'pT': {'min': 0.0, 'max': 10.0},
+                                 'reference_class': '0-5%'}
+        cent['notes'] = (f'Intervals of {EST_TEXT[label]} (Table 1) on the <dN_ch/deta>/<dN_ch/deta>^(0-5%) scale '
+                         '(|eta| <= 0.8, 0 <= pT <= 10 GeV); the edges solved from the tabulated means and fractions '
+                         '(see the curation script).')
+        out.append({
+            'observable_type': 'multiplicity_distribution', 'inspire_id': '2933773', 'version': VERSION,
+            'hepdata_file': hf, 'dv_index': 0,
+            'hepdata_table_label': f'event fraction vs <dN_ch/deta>/<dN_ch/deta>^(0-5%), estimator {label} '
+                                   f'({subs[hf]["name"]})',
+            'collision_system': dict(SYSTEM), 'centrality': cent, 'particle_id': {'species': 'charged'},
+            'kinematic_range': {'eta': {'min': -0.8, 'max': 0.8}, 'pT': {'min': 0.0, 'max': 10.0}},
+            'observable': 'event_fraction', 'value_type': 'event_fraction', 'normalization': 'cross_section',
+            'efficiency_corrected': True, 'dimensionality': 'integrated',
+            'notes': {'value': f'{CITE}, {subs[hf]["name"]}: the fraction of the cross section in each interval of '
+                               f'{EST_TEXT[label]}, at the interval\'s mean <dN_ch/deta>/<dN_ch/deta>^(0-5%) of primary '
+                               'charged particles in |eta| <= 0.8 (0 <= pT <= 10 GeV). Errors: stat.'}})
+    return out
 
 
 def main():
@@ -237,7 +320,8 @@ def main():
                                    f'{EST_TEXT[label]}; each spectrum over its yield in 0 <= pT <= 10 GeV '
                                    '(side_normalization). Errors: stat (the paper shows no systematic ones: they '
                                    'largely cancel).'}})
-    for out, docs in ((OUT_MPT, mpt_sides), (OUT_SPEC, spec_sides), (OUT_RATIO, ratios)):
+    fracs = fraction_records(subs)
+    for out, docs in ((OUT_MPT, mpt_sides), (OUT_SPEC, spec_sides), (OUT_RATIO, ratios), (OUT_FRAC, fracs)):
         os.makedirs(os.path.dirname(out), exist_ok=True)
         with open(out, 'w') as fh:
             yaml.safe_dump_all(docs, fh, sort_keys=False, default_flow_style=False, width=120)
