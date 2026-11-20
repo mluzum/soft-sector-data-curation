@@ -553,6 +553,25 @@ Fields that change dispatch:
   records (detector-level P(N_trk)) are not dispatched.  Percentile
   classes hold their width exactly (zero jackknife error).
   tests/test_event_fraction.py.
+- `centrality.slices` {within, eta, pT, efficiency}: slices of a second
+  count within a percentile class of the estimator (ATLAS 2806288 Fig. 4
+  and Aux. Fig. 4: N_ch slices of the FCal 0-1% and 0-0.5% events): a
+  class 'lo-hi' holds the events of the `within` class whose N_trk =
+  Poisson(efficiency x N) (charged particles in the slice windows)
+  satisfies lo <= N_trk / <N_trk>_within < hi; an event's weight is its
+  weight in the `within` class times the slice's probability; the class
+  mean and the `within` class rebuilt per replicate
+  (`weights.SliceWeights`; run_pipeline `_abscissa_counts`, the toy
+  harness likewise).  Refused with multiplicity_bins, abscissa_bins and
+  the percentile-only options.  tests/test_slice_classes.py.
+- `averaging: events` (mean_pT, integrated): <[pT]>, the mean of the
+  events' [pT] with the class weights (ATLAS's), instead of the pooled
+  sum pT / sum N, which is higher by cov(N, [pT]) / <N> (FCal 0-1%: ~2e-4
+  relative, the size of ATLAS's Fig. 4 errors at Delta = 0); per-bin <pT>
+  refuses it.  tests/test_slice_classes.py.
+- A ratio record's `offset` adds to scale x numerator / denominator
+  (ATLAS's Delta pT / <[pT]>: the ratio minus 1); errors unchanged;
+  tests/test_ratios.py.
 - `centrality.multiplicity_bins` {efficiency}: the classes are ranges of
   the estimator's track count ('10-20', no '%': 10 <= N_trk < 20), not
   percentiles (STAR's isobar ratios vs N_trk(|eta| < 0.5), ATLAS N_ch^rec,

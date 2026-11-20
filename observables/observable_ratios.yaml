@@ -94,6 +94,14 @@ optional_fields:
       (Lambda + Lambdabar) / (2 K0S): the Lambda + Lambdabar side over the
       K0S side, scale 0.5).
     example: 0.5
+  offset:
+    type: number
+    required: false
+    description: >
+      Added to scale x numerator / denominator: ATLAS's Delta pT /
+      <[pT]>_{0-1%} (PRL 133 (2024) 252301, Fig. 4) is the ratio of the
+      slice's <[pT]> to the class's minus 1 (offset -1).  Errors unchanged.
+    example: -1.0
   side_normalization:
     type: object
     required: false

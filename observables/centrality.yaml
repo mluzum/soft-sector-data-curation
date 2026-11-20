@@ -213,6 +213,22 @@ centrality:
         eta: {type: list, required: true, example: [{min: -0.5, max: 0.5}]}
         pT: {type: object, required: false, example: {min: 0.0, max: 100.0}}
         reference_class: {type: string, required: true, example: "0-5%"}
+    slices:
+      type: object
+      required: false
+      description: >
+        Slices of a second count within a percentile class of the estimator
+        (ATLAS 2806288 Fig. 4: N_ch slices of the FCal 0-1% events):
+        `classes` 'lo-hi' (no '%') hold the events of the estimator's
+        `within` class whose N_trk = Poisson(efficiency x N), N the charged
+        particles in `eta`, `pT`, satisfies lo <= N_trk / <N_trk>_within <
+        hi; the class mean and the `within` class rebuilt in each jackknife
+        replicate (analysis.weights.SliceWeights).
+      fields:
+        within: {type: string, required: true, example: "0-1%"}
+        eta: {type: list, required: true, example: [{min: -2.5, max: 2.5}]}
+        pT: {type: object, required: false, example: {min: 0.5, max: 5.0}}
+        efficiency: {type: float, required: false, example: 0.6}
     actual_classes:
       type: list
       required: false

@@ -903,8 +903,79 @@ class AbscissaBinWeights:
         return memo[key]
 
 
+class SliceWeights:
+    """Slices of a second count within a percentile class of the estimator
+    (`centrality.slices`; ATLAS 2806288 Fig. 4: N_ch slices of the events in
+    FCal 0-1%): a class 'lo-hi' holds the events of the estimator's
+    `within` class whose count N_trk in the slice window satisfies lo <=
+    N_trk / <N_trk>_within < hi, N_trk = Poisson(efficiency x N) ('poisson')
+    or efficiency x N ('simple').  An event's weight is its weight in the
+    `within` class times the probability of the slice; <N_trk>_within (the
+    class mean of efficiency x N, importance weights included) and the
+    `within` class are rebuilt in each jackknife replicate."""
+
+    def __init__(self, method, primary, count, within, efficiency=1.0, event_weights=None):
+        if method not in ('simple', 'poisson'):
+            raise ValueError(f"unknown cent method {method!r}")
+        self.method = method
+        self.primary = primary
+        self.x = float(efficiency) * np.asarray(count, dtype=float)
+        self.within = tuple(float(v) for v in within)
+        self.event_weights = None if event_weights is None else np.asarray(event_weights, dtype=float)
+        self._mask, self._rep, self._full = None, {}, {}
+
+    def anchor(self, mask=None):
+        a = dict(self.primary.anchor(mask))
+        a['anchor_cent'] = math.inf
+        return a
+
+    def _memo(self, mask):
+        if mask is None or mask.all():
+            return self._full, None
+        if mask is not self._mask:
+            self._mask, self._rep = mask, {}
+        return self._rep, mask
+
+    def mean(self, mask=None):
+        """<N_trk>_within: the mean of efficiency x N over the `within` class."""
+        memo, m = self._memo(mask)
+        if 'mean' not in memo:
+            w = self.primary.weights([self.within], m, raw=False)[:, 0]
+            x = self.x if m is None else self.x[m]
+            sw = float(np.sum(w))
+            memo['mean'] = float(np.sum(w * x)) / sw if sw > 0 else math.nan
+        return memo['mean']
+
+    def weights(self, edges, mask=None, raw=False):
+        memo, m = self._memo(mask)
+        key = (tuple((float(lo), float(hi)) for lo, hi in edges), raw)
+        if key not in memo:
+            wp = self.primary.weights([self.within], m, raw=True)[:, 0]
+            x = self.x if m is None else self.x[m]
+            M = self.mean(m)
+            W = np.zeros((len(x), len(edges)))
+            if np.isfinite(M) and M > 0:
+                for k, (lo, hi) in enumerate(edges):
+                    a, b = float(lo) * M, float(hi) * M
+                    if self.method == 'poisson':
+                        p = (scipy.stats.poisson.cdf(math.ceil(b) - 1, x)
+                             - scipy.stats.poisson.cdf(math.ceil(a) - 1, x))
+                    else:
+                        p = (x >= a) & (x < b)
+                    W[:, k] = wp * p
+            if not raw:
+                ew = None if self.event_weights is None else (self.event_weights if m is None
+                                                              else self.event_weights[m])
+                W = combine_weights(W, ew)
+            W = np.asarray(W)
+            W.setflags(write=False)
+            memo[key] = W
+        return memo[key]
+
+
 def estimator_weights(method, event_var, anchor=None, efficiency=1.0, normalization=None,
-                      event_weights=None, multiplicity_bins=None, abscissa=None, abscissa_bins=None):
+                      event_weights=None, multiplicity_bins=None, abscissa=None, abscissa_bins=None,
+                      slices=None, slice_counts=None):
     """The weights object of a record's centrality: percentiles
     (CentralityWeights) or, with `multiplicity_bins` (the record's
     centrality.multiplicity_bins), classes in the estimator's track count
@@ -913,7 +984,15 @@ def estimator_weights(method, event_var, anchor=None, efficiency=1.0, normalizat
     NormalizedMultiplicityBinWeights, with the anchor); with `abscissa_bins`
     (the record's centrality.abscissa_bins) and the events' `abscissa`
     counts, classes of the estimator labelled on the abscissa scale
-    (AbscissaBinWeights)."""
+    (AbscissaBinWeights); with `slices` (the record's centrality.slices:
+    {within, efficiency}) and the events' `slice_counts`, slices of that
+    count within a percentile class of the estimator (SliceWeights)."""
+    if slices:
+        if slice_counts is None:
+            raise ValueError("slices need the events' slice counts")
+        primary = CentralityWeights(method, event_var, anchor, efficiency=efficiency, event_weights=event_weights)
+        return SliceWeights(method, primary, slice_counts, slices['within'],
+                            efficiency=float(slices.get('efficiency', 1.0)), event_weights=event_weights)
     if abscissa_bins:
         if abscissa is None:
             raise ValueError("abscissa_bins need the events' abscissa counts")

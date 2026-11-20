@@ -1,0 +1,585 @@
+observable_type: observable_ratios
+inspire_id: '2806288'
+version: 1
+hepdata_file: figure_4_pb_0.yaml
+dv_index: 0
+hepdata_table_label: Delta pT/<[pT]>_0-1% vs Delta N_ch/<N_ch>_0-1%, Pb+Pb, 0.5 < pT < 5 GeV (figure_4_pb_0)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0.8615-0.8813
+  - 0.8813-0.9011
+  - 0.9011-0.9209
+  - 0.9209-0.94065
+  - 0.94065-0.9604
+  - 0.9604-0.9802
+  - 0.9802-1
+  - 1-1.0198
+  - 1.0198-1.0396
+  - 1.0396-1.0594
+  - 1.0594-1.0791
+  - 1.0791-1.0989
+  - 1.0989-1.1187
+  - 1.1187-1.1385
+  - 1.1385-1.1583
+  - 1.1583-1.178
+  - 1.178-1.1978
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  slices:
+    within: 0-1%
+    eta:
+    - min: -2.5
+      max: 2.5
+    pT:
+      min: 0.5
+      max: 5.0
+    efficiency: 0.6
+  notes: 'N_ch slices of the FCal Sigma E_T 0-1% events, labelled N_ch / <N_ch>_0-1% (1 + Delta): charged tracks 0.5 < pT
+    < 5 GeV in |eta| < 2.5, reconstructed tracks, efficiency 0.6; the slices midway between the tabulated centres.'
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+observable: mean_pT
+value_type: $\Delta p_{T}/\left\langle[p_{T}]\right\rangle_{0-1\%}$
+ratio_type: centrality_ratio
+numerator: N_ch slice
+denominator: FCal 0-1%
+numerator_system: Pb+Pb
+denominator_system: Pb+Pb
+numerator_record: data/mean_pT/atlas_mean_pT_nch_slices_sides_PbPb_XeXe_ins2806288.yaml#0
+denominator_record: data/mean_pT/atlas_mean_pT_nch_slices_sides_PbPb_XeXe_ins2806288.yaml#1
+denominator_class: 0-1%
+offset: -1.0
+dimensionality: integrated
+notes:
+  value: 'ATLAS Collaboration, PRL 133 (2024) 252301, arXiv:2407.06413, figure_4_pb_0: (<[pT]>_slice - <[pT]>_0-1%) / <[pT]>_0-1%
+    of charged particles 0.5 < pT < 5 GeV, |eta| < 2.5, in N_ch slices (0.5-5 GeV) of the FCal 0-1% events, against (N_ch
+    - <N_ch>_0-1%) / <N_ch>_0-1%: the ratio of the sides minus 1 (offset). Errors: stat and syst.'
+---
+observable_type: observable_ratios
+inspire_id: '2806288'
+version: 1
+hepdata_file: figure_4_pb_1.yaml
+dv_index: 0
+hepdata_table_label: Delta pT/<[pT]>_0-1% vs Delta N_ch/<N_ch>_0-1%, Pb+Pb, 0.5 < pT < 2 GeV (figure_4_pb_1)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0.8615-0.8813
+  - 0.8813-0.9011
+  - 0.9011-0.9209
+  - 0.9209-0.94065
+  - 0.94065-0.9604
+  - 0.9604-0.9802
+  - 0.9802-1
+  - 1-1.0198
+  - 1.0198-1.0396
+  - 1.0396-1.0594
+  - 1.0594-1.0791
+  - 1.0791-1.0989
+  - 1.0989-1.1187
+  - 1.1187-1.1385
+  - 1.1385-1.1583
+  - 1.1583-1.1779
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  slices:
+    within: 0-1%
+    eta:
+    - min: -2.5
+      max: 2.5
+    pT:
+      min: 0.5
+      max: 5.0
+    efficiency: 0.6
+  notes: 'N_ch slices of the FCal Sigma E_T 0-1% events, labelled N_ch / <N_ch>_0-1% (1 + Delta): charged tracks 0.5 < pT
+    < 5 GeV in |eta| < 2.5, reconstructed tracks, efficiency 0.6; the slices midway between the tabulated centres.'
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 2.0
+observable: mean_pT
+value_type: $\Delta p_{T}/\left\langle[p_{T}]\right\rangle_{0-1\%}$
+ratio_type: centrality_ratio
+numerator: N_ch slice
+denominator: FCal 0-1%
+numerator_system: Pb+Pb
+denominator_system: Pb+Pb
+numerator_record: data/mean_pT/atlas_mean_pT_nch_slices_sides_PbPb_XeXe_ins2806288.yaml#2
+denominator_record: data/mean_pT/atlas_mean_pT_nch_slices_sides_PbPb_XeXe_ins2806288.yaml#3
+denominator_class: 0-1%
+offset: -1.0
+dimensionality: integrated
+notes:
+  value: 'ATLAS Collaboration, PRL 133 (2024) 252301, arXiv:2407.06413, figure_4_pb_1: (<[pT]>_slice - <[pT]>_0-1%) / <[pT]>_0-1%
+    of charged particles 0.5 < pT < 2 GeV, |eta| < 2.5, in N_ch slices (0.5-5 GeV) of the FCal 0-1% events, against (N_ch
+    - <N_ch>_0-1%) / <N_ch>_0-1%: the ratio of the sides minus 1 (offset). Errors: stat and syst.'
+---
+observable_type: observable_ratios
+inspire_id: '2806288'
+version: 1
+hepdata_file: figure_4_xe_0.yaml
+dv_index: 0
+hepdata_table_label: Delta pT/<[pT]>_0-1% vs Delta N_ch/<N_ch>_0-1%, Xe+Xe, 0.5 < pT < 5 GeV (figure_4_xe_0)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 0.8488-0.8656
+  - 0.8656-0.8824
+  - 0.8824-0.8992
+  - 0.8992-0.916
+  - 0.916-0.9328
+  - 0.9328-0.9496
+  - 0.9496-0.9664
+  - 0.9664-0.9832
+  - 0.9832-1
+  - 1-1.0168
+  - 1.0168-1.0336
+  - 1.0336-1.0504
+  - 1.0504-1.0672
+  - 1.0672-1.084
+  - 1.084-1.1008
+  - 1.1008-1.1176
+  - 1.1176-1.1344
+  - 1.1344-1.1513
+  - 1.1513-1.1681
+  - 1.1681-1.1849
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  slices:
+    within: 0-1%
+    eta:
+    - min: -2.5
+      max: 2.5
+    pT:
+      min: 0.5
+      max: 5.0
+    efficiency: 0.6
+  notes: 'N_ch slices of the FCal Sigma E_T 0-1% events, labelled N_ch / <N_ch>_0-1% (1 + Delta): charged tracks 0.5 < pT
+    < 5 GeV in |eta| < 2.5, reconstructed tracks, efficiency 0.6; the slices midway between the tabulated centres.'
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+observable: mean_pT
+value_type: $\Delta p_{T}/\left\langle[p_{T}]\right\rangle_{0-1\%}$
+ratio_type: centrality_ratio
+numerator: N_ch slice
+denominator: FCal 0-1%
+numerator_system: Xe+Xe
+denominator_system: Xe+Xe
+numerator_record: data/mean_pT/atlas_mean_pT_nch_slices_sides_PbPb_XeXe_ins2806288.yaml#4
+denominator_record: data/mean_pT/atlas_mean_pT_nch_slices_sides_PbPb_XeXe_ins2806288.yaml#5
+denominator_class: 0-1%
+offset: -1.0
+dimensionality: integrated
+notes:
+  value: 'ATLAS Collaboration, PRL 133 (2024) 252301, arXiv:2407.06413, figure_4_xe_0: (<[pT]>_slice - <[pT]>_0-1%) / <[pT]>_0-1%
+    of charged particles 0.5 < pT < 5 GeV, |eta| < 2.5, in N_ch slices (0.5-5 GeV) of the FCal 0-1% events, against (N_ch
+    - <N_ch>_0-1%) / <N_ch>_0-1%: the ratio of the sides minus 1 (offset). Errors: stat and syst.'
+---
+observable_type: observable_ratios
+inspire_id: '2806288'
+version: 1
+hepdata_file: figure_4_xe_1.yaml
+dv_index: 0
+hepdata_table_label: Delta pT/<[pT]>_0-1% vs Delta N_ch/<N_ch>_0-1%, Xe+Xe, 0.5 < pT < 2 GeV (figure_4_xe_1)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 0.8488-0.8656
+  - 0.8656-0.8824
+  - 0.8824-0.8992
+  - 0.8992-0.916
+  - 0.916-0.9328
+  - 0.9328-0.9496
+  - 0.9496-0.9664
+  - 0.9664-0.9832
+  - 0.9832-1
+  - 1-1.0168
+  - 1.0168-1.0336
+  - 1.0336-1.0504
+  - 1.0504-1.0672
+  - 1.0672-1.084
+  - 1.084-1.1008
+  - 1.1008-1.1176
+  - 1.1176-1.1344
+  - 1.1344-1.1513
+  - 1.1513-1.1681
+  - 1.1681-1.1849
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  slices:
+    within: 0-1%
+    eta:
+    - min: -2.5
+      max: 2.5
+    pT:
+      min: 0.5
+      max: 5.0
+    efficiency: 0.6
+  notes: 'N_ch slices of the FCal Sigma E_T 0-1% events, labelled N_ch / <N_ch>_0-1% (1 + Delta): charged tracks 0.5 < pT
+    < 5 GeV in |eta| < 2.5, reconstructed tracks, efficiency 0.6; the slices midway between the tabulated centres.'
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 2.0
+observable: mean_pT
+value_type: $\Delta p_{T}/\left\langle[p_{T}]\right\rangle_{0-1\%}$
+ratio_type: centrality_ratio
+numerator: N_ch slice
+denominator: FCal 0-1%
+numerator_system: Xe+Xe
+denominator_system: Xe+Xe
+numerator_record: data/mean_pT/atlas_mean_pT_nch_slices_sides_PbPb_XeXe_ins2806288.yaml#6
+denominator_record: data/mean_pT/atlas_mean_pT_nch_slices_sides_PbPb_XeXe_ins2806288.yaml#7
+denominator_class: 0-1%
+offset: -1.0
+dimensionality: integrated
+notes:
+  value: 'ATLAS Collaboration, PRL 133 (2024) 252301, arXiv:2407.06413, figure_4_xe_1: (<[pT]>_slice - <[pT]>_0-1%) / <[pT]>_0-1%
+    of charged particles 0.5 < pT < 2 GeV, |eta| < 2.5, in N_ch slices (0.5-5 GeV) of the FCal 0-1% events, against (N_ch
+    - <N_ch>_0-1%) / <N_ch>_0-1%: the ratio of the sides minus 1 (offset). Errors: stat and syst.'
+---
+observable_type: observable_ratios
+inspire_id: '2806288'
+version: 1
+hepdata_file: aux_figure_4_pb_0.yaml
+dv_index: 0
+hepdata_table_label: Delta pT/<[pT]>_0-0.5% vs Delta N_ch/<N_ch>_0-0.5%, Pb+Pb, 0.5 < pT < 5 GeV (aux_figure_4_pb_0)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0.86375-0.88325
+  - 0.88325-0.9027
+  - 0.9027-0.92215
+  - 0.92215-0.9416
+  - 0.9416-0.96105
+  - 0.96105-0.98055
+  - 0.98055-1
+  - 1-1.0194
+  - 1.0194-1.0389
+  - 1.0389-1.0584
+  - 1.0584-1.0778
+  - 1.0778-1.0973
+  - 1.0973-1.1168
+  - 1.1168-1.1362
+  - 1.1362-1.1557
+  - 1.1557-1.1751
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  slices:
+    within: 0-0.5%
+    eta:
+    - min: -2.5
+      max: 2.5
+    pT:
+      min: 0.5
+      max: 5.0
+    efficiency: 0.6
+  notes: 'N_ch slices of the FCal Sigma E_T 0-0.5% events, labelled N_ch / <N_ch>_0-0.5% (1 + Delta): charged tracks 0.5 <
+    pT < 5 GeV in |eta| < 2.5, reconstructed tracks, efficiency 0.6; the slices midway between the tabulated centres.'
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+observable: mean_pT
+value_type: $\Delta p_{T}/\left\langle[p_{T}]\right\rangle_{0-0.5\%}$
+ratio_type: centrality_ratio
+numerator: N_ch slice
+denominator: FCal 0-0.5%
+numerator_system: Pb+Pb
+denominator_system: Pb+Pb
+numerator_record: data/mean_pT/atlas_mean_pT_nch_slices_sides_PbPb_XeXe_ins2806288.yaml#8
+denominator_record: data/mean_pT/atlas_mean_pT_nch_slices_sides_PbPb_XeXe_ins2806288.yaml#9
+denominator_class: 0-0.5%
+offset: -1.0
+dimensionality: integrated
+notes:
+  value: 'ATLAS Collaboration, PRL 133 (2024) 252301, arXiv:2407.06413, aux_figure_4_pb_0: (<[pT]>_slice - <[pT]>_0-0.5%)
+    / <[pT]>_0-0.5% of charged particles 0.5 < pT < 5 GeV, |eta| < 2.5, in N_ch slices (0.5-5 GeV) of the FCal 0-0.5% events,
+    against (N_ch - <N_ch>_0-0.5%) / <N_ch>_0-0.5%: the ratio of the sides minus 1 (offset). Errors: stat and syst.'
+---
+observable_type: observable_ratios
+inspire_id: '2806288'
+version: 1
+hepdata_file: aux_figure_4_pb_1.yaml
+dv_index: 0
+hepdata_table_label: Delta pT/<[pT]>_0-0.5% vs Delta N_ch/<N_ch>_0-0.5%, Pb+Pb, 0.5 < pT < 2 GeV (aux_figure_4_pb_1)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0.86375-0.88325
+  - 0.88325-0.9027
+  - 0.9027-0.92215
+  - 0.92215-0.9416
+  - 0.9416-0.96105
+  - 0.96105-0.98055
+  - 0.98055-1
+  - 1-1.0194
+  - 1.0194-1.0389
+  - 1.0389-1.0584
+  - 1.0584-1.0778
+  - 1.0778-1.0973
+  - 1.0973-1.1168
+  - 1.1168-1.1362
+  - 1.1362-1.1557
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  slices:
+    within: 0-0.5%
+    eta:
+    - min: -2.5
+      max: 2.5
+    pT:
+      min: 0.5
+      max: 5.0
+    efficiency: 0.6
+  notes: 'N_ch slices of the FCal Sigma E_T 0-0.5% events, labelled N_ch / <N_ch>_0-0.5% (1 + Delta): charged tracks 0.5 <
+    pT < 5 GeV in |eta| < 2.5, reconstructed tracks, efficiency 0.6; the slices midway between the tabulated centres.'
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 2.0
+observable: mean_pT
+value_type: $\Delta p_{T}/\left\langle[p_{T}]\right\rangle_{0-0.5\%}$
+ratio_type: centrality_ratio
+numerator: N_ch slice
+denominator: FCal 0-0.5%
+numerator_system: Pb+Pb
+denominator_system: Pb+Pb
+numerator_record: data/mean_pT/atlas_mean_pT_nch_slices_sides_PbPb_XeXe_ins2806288.yaml#10
+denominator_record: data/mean_pT/atlas_mean_pT_nch_slices_sides_PbPb_XeXe_ins2806288.yaml#11
+denominator_class: 0-0.5%
+offset: -1.0
+dimensionality: integrated
+notes:
+  value: 'ATLAS Collaboration, PRL 133 (2024) 252301, arXiv:2407.06413, aux_figure_4_pb_1: (<[pT]>_slice - <[pT]>_0-0.5%)
+    / <[pT]>_0-0.5% of charged particles 0.5 < pT < 2 GeV, |eta| < 2.5, in N_ch slices (0.5-5 GeV) of the FCal 0-0.5% events,
+    against (N_ch - <N_ch>_0-0.5%) / <N_ch>_0-0.5%: the ratio of the sides minus 1 (offset). Errors: stat and syst.'
+---
+observable_type: observable_ratios
+inspire_id: '2806288'
+version: 1
+hepdata_file: aux_figure_4_xe_0.yaml
+dv_index: 0
+hepdata_table_label: Delta pT/<[pT]>_0-0.5% vs Delta N_ch/<N_ch>_0-0.5%, Xe+Xe, 0.5 < pT < 5 GeV (aux_figure_4_xe_0)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 0.85185-0.87655
+  - 0.87655-0.90125
+  - 0.90125-0.92595
+  - 0.92595-0.95065
+  - 0.95065-0.97535
+  - 0.97535-1
+  - 1-1.0246
+  - 1.0246-1.0494
+  - 1.0494-1.0741
+  - 1.0741-1.0987
+  - 1.0987-1.1235
+  - 1.1235-1.1482
+  - 1.1482-1.1729
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  slices:
+    within: 0-0.5%
+    eta:
+    - min: -2.5
+      max: 2.5
+    pT:
+      min: 0.5
+      max: 5.0
+    efficiency: 0.6
+  notes: 'N_ch slices of the FCal Sigma E_T 0-0.5% events, labelled N_ch / <N_ch>_0-0.5% (1 + Delta): charged tracks 0.5 <
+    pT < 5 GeV in |eta| < 2.5, reconstructed tracks, efficiency 0.6; the slices midway between the tabulated centres.'
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 5.0
+observable: mean_pT
+value_type: $\Delta p_{T}/\left\langle[p_{T}]\right\rangle_{0-0.5\%}$
+ratio_type: centrality_ratio
+numerator: N_ch slice
+denominator: FCal 0-0.5%
+numerator_system: Xe+Xe
+denominator_system: Xe+Xe
+numerator_record: data/mean_pT/atlas_mean_pT_nch_slices_sides_PbPb_XeXe_ins2806288.yaml#12
+denominator_record: data/mean_pT/atlas_mean_pT_nch_slices_sides_PbPb_XeXe_ins2806288.yaml#13
+denominator_class: 0-0.5%
+offset: -1.0
+dimensionality: integrated
+notes:
+  value: 'ATLAS Collaboration, PRL 133 (2024) 252301, arXiv:2407.06413, aux_figure_4_xe_0: (<[pT]>_slice - <[pT]>_0-0.5%)
+    / <[pT]>_0-0.5% of charged particles 0.5 < pT < 5 GeV, |eta| < 2.5, in N_ch slices (0.5-5 GeV) of the FCal 0-0.5% events,
+    against (N_ch - <N_ch>_0-0.5%) / <N_ch>_0-0.5%: the ratio of the sides minus 1 (offset). Errors: stat and syst.'
+---
+observable_type: observable_ratios
+inspire_id: '2806288'
+version: 1
+hepdata_file: aux_figure_4_xe_1.yaml
+dv_index: 0
+hepdata_table_label: Delta pT/<[pT]>_0-0.5% vs Delta N_ch/<N_ch>_0-0.5%, Xe+Xe, 0.5 < pT < 2 GeV (aux_figure_4_xe_1)
+collision_system:
+  energy_gev: 5440.0
+  reaction: XE XE --> CHARGED X
+centrality:
+  classes:
+  - 0.85185-0.87655
+  - 0.87655-0.90125
+  - 0.90125-0.92595
+  - 0.92595-0.95065
+  - 0.95065-0.97535
+  - 0.97535-1
+  - 1-1.0246
+  - 1.0246-1.0494
+  - 1.0494-1.0741
+  - 1.0741-1.0987
+  - 1.0987-1.1235
+  - 1.1235-1.1482
+  - 1.1482-1.1729
+  estimator:
+    name: FCal
+    observable: ET
+    detector: FCal
+  eta:
+  - min: -4.9
+    max: -3.2
+  - min: 3.2
+    max: 4.9
+  slices:
+    within: 0-0.5%
+    eta:
+    - min: -2.5
+      max: 2.5
+    pT:
+      min: 0.5
+      max: 5.0
+    efficiency: 0.6
+  notes: 'N_ch slices of the FCal Sigma E_T 0-0.5% events, labelled N_ch / <N_ch>_0-0.5% (1 + Delta): charged tracks 0.5 <
+    pT < 5 GeV in |eta| < 2.5, reconstructed tracks, efficiency 0.6; the slices midway between the tabulated centres.'
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -2.5
+    max: 2.5
+  pT:
+    min: 0.5
+    max: 2.0
+observable: mean_pT
+value_type: $\Delta p_{T}/\left\langle[p_{T}]\right\rangle_{0-0.5\%}$
+ratio_type: centrality_ratio
+numerator: N_ch slice
+denominator: FCal 0-0.5%
+numerator_system: Xe+Xe
+denominator_system: Xe+Xe
+numerator_record: data/mean_pT/atlas_mean_pT_nch_slices_sides_PbPb_XeXe_ins2806288.yaml#14
+denominator_record: data/mean_pT/atlas_mean_pT_nch_slices_sides_PbPb_XeXe_ins2806288.yaml#15
+denominator_class: 0-0.5%
+offset: -1.0
+dimensionality: integrated
+notes:
+  value: 'ATLAS Collaboration, PRL 133 (2024) 252301, arXiv:2407.06413, aux_figure_4_xe_1: (<[pT]>_slice - <[pT]>_0-0.5%)
+    / <[pT]>_0-0.5% of charged particles 0.5 < pT < 2 GeV, |eta| < 2.5, in N_ch slices (0.5-5 GeV) of the FCal 0-0.5% events,
+    against (N_ch - <N_ch>_0-0.5%) / <N_ch>_0-0.5%: the ratio of the sides minus 1 (offset). Errors: stat and syst.'

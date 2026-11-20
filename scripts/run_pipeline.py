@@ -278,9 +278,10 @@ def _record_anchor(params, mult, anchor, args, event_weights=None):
     Percentile classes of a track-count estimator take its
     centrality.estimator.efficiency (ATLAS's N_ch^rec), else the run's
     --poisson-efficiency."""
-    if params.get('cent_abscissa_bins'):
-        # classes on an abscissa's scale: the group's anchor sets the
-        # reference percentile class; no class is partial
+    if params.get('cent_abscissa_bins') or params.get('cent_slices'):
+        # classes on an abscissa's scale, or slices within a percentile
+        # class: the group's anchor sets the percentile class; no class is
+        # partial
         est_eff = (params.get('cent_estimator') or {}).get('efficiency')
         return (dict(anchor, anchor_cent=float('inf')),
                 args.poisson_efficiency if est_eff is None else float(est_eff))
@@ -415,7 +416,7 @@ _PREPARE_KEY_SKIP = frozenset({
     'cent_normalization', 'cent_classes_suspicious', 'record_anchor',
     'hepdata_file', 'value_table', 'record_file', 'status', 'inspire_id',
     'version', 'dv_index', 'dv_average', 'table_rows', 'value_scale',
-    'errors_excluded', 'experimental_values', 'cent_multiplicity_bins'})
+    'errors_excluded', 'experimental_values', 'cent_multiplicity_bins', 'cent_slices'})
 
 
 def _freeze(x):
@@ -1044,9 +1045,12 @@ def main():
                 norm = params.get('cent_normalization') or None
                 mb = params.get('cent_multiplicity_bins') or None
                 ab = params.get('cent_abscissa_bins') or None
-                absc = None
+                sl = params.get('cent_slices') or None
+                absc = slc = None
                 if ab:      # the abscissa count of classes on its scale (CMS's N_ch at |eta| < 0.5)
                     absc = _abscissa_counts(container, ab, is_2d_)
+                if sl:      # the sliced count (ATLAS's N_ch in |eta| < 2.5 within FCal 0-1%)
+                    slc = _abscissa_counts(container, sl, is_2d_)
                 key = (hashlib.blake2b(np.ascontiguousarray(mult, dtype=np.float64).tobytes(),
                                        digest_size=16).digest(), float(rec_eff),
                        None if norm is None else (float(norm['estimator_threshold']),
@@ -1054,13 +1058,16 @@ def main():
                        None if mb is None else (float((mb.get('normalized_to') or {}).get('percentile', -1.0)),),
                        None if ab is None else (hashlib.blake2b(np.ascontiguousarray(absc, dtype=np.float64)
                                                                 .tobytes(), digest_size=16).digest(),
-                                                tuple(ab['reference'])))
+                                                tuple(ab['reference'])),
+                       None if sl is None else (hashlib.blake2b(np.ascontiguousarray(slc, dtype=np.float64)
+                                                                .tobytes(), digest_size=16).digest(),
+                                                tuple(sl['within']), float(sl['efficiency'])))
                 if key not in centralities:
                     # percentiles, classes in the estimator's track count, or on an abscissa's scale
                     centralities[key] = estimator_weights(
                         args.cent_method, mult, anchor, efficiency=rec_eff,
                         normalization=norm, event_weights=group_event_weights,
-                        multiplicity_bins=mb, abscissa=absc, abscissa_bins=ab)
+                        multiplicity_bins=mb, abscissa=absc, abscissa_bins=ab, slices=sl, slice_counts=slc)
                 return centralities[key]
 
             def _setup_combination(params, container, cw, is_2d_):

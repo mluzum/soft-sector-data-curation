@@ -386,6 +386,9 @@ def test_within_system():
                 ratio_record("shape_rap_half", (paths["mid"], 0), (paths["fwd"], 0), ratio_type="rapidity_ratio",
                              centrality={"classes": ["0-10%"]}, side_normalization=norm, kinematic_range=kr,
                              scale=0.5),
+                ratio_record("shape_rap_less1", (paths["mid"], 0), (paths["fwd"], 0), ratio_type="rapidity_ratio",
+                             centrality={"classes": ["0-10%"]}, side_normalization=norm, kinematic_range=kr,
+                             offset=-1.0),
                 ratio_record("shape_self", (paths["mid"], 0), (paths["mid"], 0), ratio_type="rapidity_ratio",
                              centrality={"classes": ["0-10%"]}, side_normalization=norm, kinematic_range=kr),
                 ratio_record("shape_straddle", (paths["mid"], 0), (paths["mid"], 0), ratio_type="rapidity_ratio",
@@ -440,7 +443,7 @@ def test_within_system():
             labels = [x.decode() for x in g["labels"][:]]
             v, e, nv = g["values"][:], g["errors"][:], g["numerator_values"][:]
         got = {}
-        for name in ("shape_cent", "shape_rap", "shape_rap_half", "shape_self"):
+        for name in ("shape_cent", "shape_rap", "shape_rap_half", "shape_rap_less1", "shape_self"):
             for i, lab in enumerate(labels):
                 if lab.startswith(name + " |"):
                     got.setdefault((name, lab.split()[-1]), []).append(i)
@@ -463,6 +466,10 @@ def test_within_system():
         check("a ratio's scale multiplies values and errors",
               len(half) == len(idx) and np.allclose(v[half], 0.5 * v[idx], rtol=1e-12)
               and np.allclose(e[half], 0.5 * e[idx], rtol=1e-12))
+        less1 = got.get(("shape_rap_less1", "0-10%"), [])
+        check("a ratio's offset adds to the values, errors unchanged (ATLAS's Delta pT / <[pT]>)",
+              len(less1) == len(idx) and np.allclose(v[less1], v[idx] - 1.0, rtol=1e-12, atol=1e-14)
+              and np.allclose(e[less1], e[idx], rtol=1e-12))
         idx = got.get(("shape_self", "0-10%"), [])
         check("a side over itself: exactly 1, zero error",
               len(idx) == len(edges) - 1 and np.allclose(v[idx], 1, atol=1e-12) and np.allclose(e[idx], 0, atol=1e-12))

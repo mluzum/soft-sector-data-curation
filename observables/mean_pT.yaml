@@ -58,3 +58,13 @@ optional_fields:
     fields:
       min: {type: float, required: false, example: 0}
       max: {type: float, required: false, example: 100}
+  averaging:
+    type: string
+    required: false
+    allowed: [pooled, events]
+    description: >
+      pooled (the default): <pT> of all the class's particles, sum pT over
+      sum N; events: <[pT]>, the mean of the events' [pT] with the class
+      weights (ATLAS's), lower than the pooled value by cov(N, [pT]) / <N>.
+      One window only (integrated).
+    example: "events"

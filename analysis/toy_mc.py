@@ -803,10 +803,18 @@ def evaluate(record, qv=None, grid=None, with_jackknife=True,
         else:
             from analysis.pipeline_dispatch import estimator_multiplicity_3d as _em3
             absc = _em3(grid_unselected, ab['eta'], ab['pT'])
+    sl = params.get('cent_slices')
+    slc = None
+    if sl:                      # slices of a second count within a percentile class, as run_pipeline
+        if qv is not None:
+            slc = sum(_cent_mult_2d(qv, [w], sl['pT']) for w in sl['eta'])
+        else:
+            from analysis.pipeline_dispatch import estimator_multiplicity_3d as _em3s
+            slc = _em3s(grid_unselected, sl['eta'], sl['pT'])
     centrality = estimator_weights(cent_method, mult, anchor, efficiency=eff, normalization=norm,
                                    event_weights=ew,
                                    multiplicity_bins=params.get('cent_multiplicity_bins'),
-                                   abscissa=absc, abscissa_bins=ab)
+                                   abscissa=absc, abscissa_bins=ab, slices=sl, slice_counts=slc)
     edges = params['cent_edges'] or [(0, 100)]
     # Listed order is preserved (helper sorts internally as needed).
     cw = (centrality, edges)

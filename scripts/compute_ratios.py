@@ -246,9 +246,9 @@ def main():
             continue
         if r.get("ratio_type") == "system_combination" and (
                 r.get("combination") != "mean"
-                or any(r.get(k) for k in ("scale", "side_normalization", "denominator_class"))):
+                or any(r.get(k) for k in ("scale", "offset", "side_normalization", "denominator_class"))):
             skipped.append((r.get("value_type"), "system_combination: combination mean, without scale, "
-                                                 "side_normalization or denominator_class"))
+                                                 "offset, side_normalization or denominator_class"))
             continue
         if r.get("status") == "preliminary" and not a.include_preliminary:
             skipped.append((r.get("value_type"), "preliminary (--include-preliminary to compute it)"))
@@ -324,6 +324,9 @@ def main():
     mean = np.array([ratios[i][1].get("ratio_type") == "system_combination" for i in rec_idx], bool)
     corr, err, cov = joint_jackknife(np.array(nf) * sc, np.array(nr).T * sc, np.array(df), np.array(dr).T,
                                      mean=mean)
+    # a ratio record's offset (ATLAS's Delta pT / <[pT]>: the ratio minus 1);
+    # errors and covariance unchanged
+    corr = corr + np.array([float(ratios[i][1].get("offset") or 0.0) for i in rec_idx])
 
     with h5py.File(a.output, "w") as h:
         g = h.create_group("ratios")

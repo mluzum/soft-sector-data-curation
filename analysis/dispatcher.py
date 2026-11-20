@@ -664,6 +664,24 @@ def resolve(record):
         if multiplicity_classes_invalid(cent_.get("classes")):
             raise ValueError(f"centrality.abscissa_bins: classes {cent_.get('classes')} are not ranges 'lo-hi' "
                              f"of the abscissa scale")
+    if cent_.get("slices"):
+        sl = cent_["slices"]
+        if not (isinstance(sl, dict) and sl.get("eta") and sl.get("within")):
+            raise ValueError("centrality.slices needs eta windows and the percentile class they slice (within)")
+        clash = [k for k in ("multiplicity_bins", "abscissa_bins", "actual_classes", "normalization",
+                             "combined_from", "points") if cent_.get(k)]
+        if clash:
+            raise ValueError(f"centrality.slices with {', '.join(clash)} is not implemented")
+        w_ = str(sl["within"])
+        try:
+            lo_, hi_ = (float(v) for v in w_.replace('%', '').split('-'))
+        except ValueError:
+            lo_, hi_ = -1.0, -1.0
+        if '%' not in w_ or not 0.0 <= lo_ < hi_ <= 100.0:
+            raise ValueError(f"centrality.slices.within {w_!r}: a percentile class of the estimator")
+        if multiplicity_classes_invalid(cent_.get("classes")):
+            raise ValueError(f"centrality.slices: classes {cent_.get('classes')} are not ranges 'lo-hi' of the "
+                             f"count over its class mean")
     if cent_.get("multiplicity_bins"):
         clash = [k for k in ("actual_classes", "normalization", "combined_from", "points") if cent_.get(k)
                  and not (k == "combined_from" and cent_.get(k) == "unit_multiplicity")]
@@ -780,6 +798,16 @@ def resolve(record):
         from analysis import pt_moments
         pt_moments.check_record(record)
         return dict(PT_MOMENTS_ENTRY)
+    # <pT>: pooled over the class's particles (the default) or averaged over
+    # its events (ATLAS's <[pT]>), integrated only
+    if record.get("observable_type") == "mean_pT" and record.get("averaging") is not None:
+        if record.get("averaging") not in ("pooled", "events"):
+            raise ValueError(f"mean_pT averaging {record.get('averaging')!r} (pooled | events)")
+        if record.get("averaging") == "events" and (
+                record.get("dimensionality", "integrated") != "integrated"
+                or extract_differential_bins(record)[1]
+                or ((record.get("kinematic_range") or {}).get("y") or {}).get("mass") is not None):
+            raise ValueError("mean_pT averaging events is implemented for one window (integrated)")
     # The fraction of the cross section in each class: multiplicity
     # distributions in classes (ALICE's and CMS's P(N_ch/N_ch^0), ATLAS's
     # N_ch/N_ch^{5%}); other multiplicity_distribution records (detector-level
@@ -1242,8 +1270,16 @@ def extract_measurement_params(exp_rec):
     # own check: numeric ranges without '%'.
     mult_bins = cent.get('multiplicity_bins') or None
     absc = cent.get('abscissa_bins') or None
-    cent_suspicious = (multiplicity_classes_invalid(cent_classes) if (mult_bins or absc)
+    slices = cent.get('slices') or None
+    cent_suspicious = (multiplicity_classes_invalid(cent_classes) if (mult_bins or absc or slices)
                        else centrality_classes_suspicious(cent_classes, bool(cent.get('percentiles'))))
+    slice_spec = None
+    if slices:
+        wr = str(slices.get('within', '')).replace('%', '').split('-')
+        slice_spec = {'eta': [(float(e['min']), float(e['max'])) for e in (slices.get('eta') or [])],
+                      'pT': _kr_pT({'pT': slices.get('pT') or {}}),
+                      'within': (float(wr[0]), float(wr[1])) if len(wr) == 2 else None,
+                      'efficiency': float(slices.get('efficiency', 1.0))}
     absc_spec = None
     if absc:
         ref = str(absc.get('reference_class', '')).replace('%', '').split('-')
@@ -1379,6 +1415,9 @@ def extract_measurement_params(exp_rec):
         # classes of the estimator labelled on an abscissa count's scale
         # (CMS's HF intervals at N_ch / N_ch^0): its windows and reference class
         'cent_abscissa_bins': absc_spec,
+        # slices of a second count within a percentile class of the estimator
+        # (ATLAS's N_ch slices of FCal 0-1%): its windows, class and efficiency
+        'cent_slices': slice_spec,
         'detector_efficiency': exp_rec.get('detector_efficiency'),
         # Asymmetric systems: frame of the record's windows (lab / nn_cms),
         # the centre-of-mass rapidity in the lab, and the +eta beam.

@@ -49,11 +49,25 @@ Records (public): centrality ratios to the reference class
 normalized); the distribution of N_ch / N_ch^{5%} (Suppl. Fig. 3) as the
 fraction of the cross section per class (multiplicity_distribution,
 event_fraction; value_scale the histogram's normalization above), the bins
-within 0-80% of the cross section.  Not curated: the absolute N_ch
-dependence (Figs. 1-2: the model's multiplicity scale differs, Fig. 3
-carries the same information normalized), the [pT] distribution and
-correlations (Fig. 1a, Suppl. Fig. 2), the FCal 0-1% events in N_ch slices
-(Fig. 4: classes of two estimators), and the auxiliary figures.
+within 0-80% of the cross section.
+
+Fig. 4 (and Aux. Fig. 4 for 0-0.5%): the events of FCal Sigma E_T 0-1%
+(0-0.5%) in narrow N_ch slices, Delta pT / <[pT]>_{0-1%} = <[pT]>_slice /
+<[pT]>_{0-1%} - 1 against Delta N_ch / <N_ch>_{0-1%} (the slice centres,
+equally spaced: the slices' edges midway), [pT] in 0.5-5 or 0.5-2 GeV, N_ch
+always 0.5-5 GeV (the paper's N_ch); <[pT]> the mean of the events' [pT]
+(Sec. 2), in the slices and in the whole class.  Model: classes of the
+charged count in |eta| < 2.5, 0.5-5 GeV within the FCal class
+(centrality.slices: N_trk = Poisson(0.6 N) over its mean in the class),
+labelled N_ch / <N_ch>_{0-1%} = 1 + Delta; centrality ratios to the FCal
+class with offset -1, sides <[pT]> averaged over events (averaging: events;
+the pooled <pT> of the class is higher by cov(N_ch, [pT]) / <N_ch>, ~2e-4
+relative, the size of the data's errors at Delta = 0) without values.
+
+Not curated: the absolute N_ch dependence (Figs. 1-2: the model's
+multiplicity scale differs, Fig. 3 carries the same information
+normalized), the [pT] distribution and correlations (Fig. 1a, Suppl. Fig.
+2), and the other auxiliary figures.
 
 Run from the repository root:  python scripts/curate_atlas_pt_moments_ucc_5tev.py
 """
@@ -75,6 +89,12 @@ OUT_RATIO = 'data/observable_ratios/atlas_observable_ratios_pT_moments_ucc_PbPb_
 OUT_MOM = 'data/mean_pT_fluctuations/atlas_mean_pT_fluctuations_moments_sides_PbPb_XeXe_ins2806288.yaml'
 OUT_MPT = 'data/mean_pT/atlas_mean_pT_ucc_sides_PbPb_XeXe_ins2806288.yaml'
 OUT_FRAC = 'data/multiplicity_distribution/atlas_multiplicity_distribution_event_fraction_PbPb_XeXe_ins2806288.yaml'
+OUT_SLICE = 'data/observable_ratios/atlas_observable_ratios_meanpT_nch_slices_ucc_PbPb_XeXe_ins2806288.yaml'
+OUT_SLICE_SIDES = 'data/mean_pT/atlas_mean_pT_nch_slices_sides_PbPb_XeXe_ins2806288.yaml'
+FCAL = {'estimator': {'name': 'FCal', 'observable': 'ET', 'detector': 'FCal'},
+        'eta': [{'min': -4.9, 'max': -3.2}, {'min': 3.2, 'max': 4.9}]}
+# table stem: (FCal class, [pT] upper limit) -- [pT] 0.5 < pT < 5 (_0) or < 2 GeV (_1)
+SLICE_TABLES = {'figure_4': '0-1%', 'aux_figure_4': '0-0.5%'}
 SYSTEMS = {'pb': ({'energy_gev': 5020.0, 'reaction': 'PB PB --> CHARGED X'}, 'Pb+Pb', 4230),
            'xe': ({'energy_gev': 5440.0, 'reaction': 'XE XE --> CHARGED X'}, 'Xe+Xe', 2425)}
 WINDOW = {'eta': {'min': -2.5, 'max': 2.5}, 'pT': {'min': 0.5, 'max': 5.0}}
@@ -158,6 +178,66 @@ def side(q, sysinfo, cls, what, sk):
     return base
 
 
+def slice_records(subs):
+    """Fig. 4 and Aux. Fig. 4: <[pT]> in N_ch slices of the FCal class over
+    its value in the class, minus 1."""
+    ratios, sides = [], []
+    for stem, ref in SLICE_TABLES.items():
+        for sk, sysinfo in SYSTEMS.items():
+            for i, ptmax in ((0, 5.0), (1, 2.0)):
+                hf = f'{stem}_{sk}_{i}.yaml'
+                desc = subs[hf]['description']
+                assert f'< $ {ptmax:g} GeV' in desc and ref.replace('%', '\\%') in desc, (hf, desc)
+                t = load(hf)
+                iv, dv = t['independent_variables'][0], t['dependent_variables'][0]
+                assert iv['header']['name'].startswith('$\\Delta N_{ch}/\\left\\langle N_{ch}\\right\\rangle_'), iv
+                assert dv['header']['name'].startswith('$\\Delta p_{T}/\\left\\langle[p_{T}]\\right\\rangle_'), dv
+                assert [e['label'] for e in dv['values'][0]['errors']] == ['stat. uncertainty', 'syst. uncertainty']
+                x = np.array([v['value'] for v in iv['values']])
+                d = np.diff(x)
+                assert np.allclose(d, d.mean(), atol=2e-4), (hf, d)      # equal slices around 0
+                assert np.min(np.abs(np.abs(x) - d.mean() / 2)) < 2e-4, (hf, x)  # 0 on a slice edge
+                cls = classes(1.0 + x)
+                window = {'eta': dict(WINDOW['eta']), 'pT': {'min': 0.5, 'max': ptmax}}
+                cent = {'classes': cls, **FCAL,
+                        'slices': {'within': ref, 'eta': [dict(WINDOW['eta'])], 'pT': dict(WINDOW['pT']),
+                                   'efficiency': 0.6},
+                        'notes': f'N_ch slices of the FCal Sigma E_T {ref} events, labelled N_ch / <N_ch>_{ref} '
+                                 '(1 + Delta): charged tracks 0.5 < pT < 5 GeV in |eta| < 2.5, reconstructed '
+                                 'tracks, efficiency 0.6; the slices midway between the tabulated centres.'}
+                what = f'<[pT]> ({0.5:g} < pT < {ptmax:g} GeV), {sysinfo[1]}'
+                base = {'observable_type': 'mean_pT', 'inspire_id': '2806288', 'version': VERSION,
+                        'experimental_values': False, 'collision_system': dict(sysinfo[0]),
+                        'particle_id': {'species': 'charged'}, 'kinematic_range': window, 'observable': 'mean_pT',
+                        'value_type': 'mean_pT', 'averaging': 'events', 'dimensionality': 'integrated',
+                        'notes': {'value': f'{CITE}, Sec. 2: <[pT]>, the mean of the events\' [pT] of charged '
+                                           f'particles {0.5:g} < pT < {ptmax:g} GeV, |eta| < 2.5.'}}
+                num = dict(base, centrality=cent,
+                           hepdata_table_label=f'{what} in N_ch slices of FCal {ref} (a side of {hf}; only the '
+                                               'difference to the class is published)')
+                den = dict(base, centrality={'classes': [ref], **FCAL, 'percentiles': True},
+                           hepdata_table_label=f'{what} in FCal {ref} (the denominator side of {hf})')
+                sides.extend([num, den])
+                n_ref, d_ref = f'{OUT_SLICE_SIDES}#{len(sides) - 2}', f'{OUT_SLICE_SIDES}#{len(sides) - 1}'
+                ratios.append({
+                    'observable_type': 'observable_ratios', 'inspire_id': '2806288', 'version': VERSION,
+                    'hepdata_file': hf, 'dv_index': 0,
+                    'hepdata_table_label': f'Delta pT/<[pT]>_{ref} vs Delta N_ch/<N_ch>_{ref}, {sysinfo[1]}, '
+                                           f'0.5 < pT < {ptmax:g} GeV ({hf.split(".")[0]})',
+                    'collision_system': dict(sysinfo[0]), 'centrality': cent, 'particle_id': {'species': 'charged'},
+                    'kinematic_range': window, 'observable': 'mean_pT', 'value_type': dv['header']['name'],
+                    'ratio_type': 'centrality_ratio', 'numerator': 'N_ch slice', 'denominator': f'FCal {ref}',
+                    'numerator_system': sysinfo[1], 'denominator_system': sysinfo[1],
+                    'numerator_record': n_ref, 'denominator_record': d_ref, 'denominator_class': ref,
+                    'offset': -1.0, 'dimensionality': 'integrated',
+                    'notes': {'value': f'{CITE}, {hf.split(".")[0]}: (<[pT]>_slice - <[pT]>_{ref}) / <[pT]>_{ref} '
+                                       f'of charged particles 0.5 < pT < {ptmax:g} GeV, |eta| < 2.5, in N_ch slices '
+                                       f'(0.5-5 GeV) of the FCal {ref} events, against (N_ch - <N_ch>_{ref}) / '
+                                       f'<N_ch>_{ref}: the ratio of the sides minus 1 (offset). Errors: stat and '
+                                       'syst.'}})
+    return ratios, sides
+
+
 def main():
     subs = {s['data_file']: s for s in yaml.load_all(open(os.path.join(RAW, 'submission.yaml')), Loader=Loader)
             if s and 'data_file' in s}
@@ -225,7 +305,9 @@ def main():
                                f'of the cross section per bin ({c:.5f}: the fraction per unit of the histogram, from '
                                'Aux. Fig. 2b where the distribution is flat in centrality; see the curation script). '
                                'The bins within 0-80% of the cross section. Errors: stat.'}})
-    for out, docs in ((OUT_MPT, mpts), (OUT_MOM, moms), (OUT_RATIO, ratios), (OUT_FRAC, fracs)):
+    slice_ratios, slice_sides = slice_records(subs)
+    for out, docs in ((OUT_MPT, mpts), (OUT_MOM, moms), (OUT_RATIO, ratios), (OUT_FRAC, fracs),
+                      (OUT_SLICE_SIDES, slice_sides), (OUT_SLICE, slice_ratios)):
         os.makedirs(os.path.dirname(out), exist_ok=True)
         with open(out, 'w') as fh:
             yaml.safe_dump_all(docs, fh, sort_keys=False, default_flow_style=False, width=120)

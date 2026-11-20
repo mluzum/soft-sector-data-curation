@@ -1450,8 +1450,10 @@ def prepare_mean_pt_2d(qv, params):
     sums, sub = _linear_sums_2d(qv, (('den', 'count', 'count'), ('num', num_src_full, 'pT')), species_idx,
                                 var, windows, mass, sk.get('pT', (0.1, 10)), _shape_mass(params))
     if per_bin:
+        _mean_pt_pooled_only(params)
         return _with_subcell({'num': sums['num'], 'den': sums['den']}, sub)
-    return _with_subcell({'num': sums['num'][:, 0], 'den': sums['den'][:, 0]}, sub)
+    return _with_subcell({'num': sums['num'][:, 0], 'den': sums['den'][:, 0],
+                          'events': params.get('averaging') == 'events'}, sub)
 
 
 def prepare_mean_pt_3d(grid, params):
@@ -1490,8 +1492,15 @@ def prepare_mean_pt_3d(grid, params):
     sums, sub = _linear_sums_3d(grid, (('den', 'count', 'count'), ('num', num_src, 'pT')), var, windows, pt,
                                 None if mass is None else float(mass), _shape_mass(params))
     if per_bin:
+        _mean_pt_pooled_only(params)
         return _with_subcell({'num': sums['num'], 'den': sums['den']}, sub)
-    return _with_subcell({'num': sums['num'][:, 0], 'den': sums['den'][:, 0]}, sub)
+    return _with_subcell({'num': sums['num'][:, 0], 'den': sums['den'][:, 0],
+                          'events': params.get('averaging') == 'events'}, sub)
+
+
+def _mean_pt_pooled_only(params):
+    if params.get('averaging') == 'events':
+        raise ValueError('mean_pT averaging events is implemented for one window (integrated)')
 
 
 def _wrap_mean_pt(data, w):
@@ -1503,6 +1512,16 @@ def _wrap_mean_pt(data, w):
             return np.full(num.shape[1], np.nan)
         d, n = w @ den, w @ num
         return np.where(d > 0, n / np.where(d > 0, d, 1.0), np.nan)
+    if data.get('events'):
+        # <[pT]>: the mean of the events' [pT] with the class weights (an
+        # event without particles in the window has none and is left out);
+        # the pooled sum pT / sum N is higher by cov(N, [pT]) / <N>
+        w = np.asarray(w, dtype=float)
+        ok = (den > 0) & (w > 0)
+        sw = float(np.sum(w[ok]))
+        if not sw > 0:
+            return np.array([np.nan])
+        return np.array([float(np.sum(w[ok] * num[ok] / den[ok])) / sw])
     return compute_mean_pt(num, den, w)
 
 
