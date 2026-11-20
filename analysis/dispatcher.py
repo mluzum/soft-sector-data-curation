@@ -520,6 +520,12 @@ COMBINATION_ENTRY = {
 }
 
 
+PT_MOMENTS_ENTRY = {
+    'compute': 'pT_moments',
+    'requires': [],
+    'description': 'higher moments of the event-by-event mean pT: k2, k3, gamma, Gamma, kappa (analysis.pt_moments)',
+}
+
 MULTI_CUMULANT_ENTRY = {
     'compute': 'multi_cumulant',
     'requires': [],
@@ -618,6 +624,17 @@ def resolve(record):
         if clash:
             raise ValueError(f"centrality.multiplicity_bins with {', '.join(clash)}: classes in track count "
                              f"are absolute")
+        norm_to = (cent_.get("multiplicity_bins") or {}).get("normalized_to") \
+            if isinstance(cent_.get("multiplicity_bins"), dict) else None
+        if norm_to is not None:
+            try:
+                pct = float((norm_to or {}).get("percentile"))
+            except (TypeError, ValueError):
+                pct = float('nan')
+            if not 0.0 < pct < 100.0:
+                raise ValueError("centrality.multiplicity_bins.normalized_to needs a percentile in (0, 100)")
+            if cent_.get("combined_from"):
+                raise ValueError("normalized multiplicity classes are not combined from cells of one track")
         if multiplicity_classes_invalid(cent_.get("classes")):
             raise ValueError(f"centrality.multiplicity_bins: classes {cent_.get('classes')} are not "
                              f"non-overlapping track-count ranges 'lo-hi'")
@@ -710,6 +727,13 @@ def resolve(record):
         from analysis import multi_cumulants
         multi_cumulants.check_record(record)
         return dict(MULTI_CUMULANT_ENTRY)
+    # Higher moments of the event-by-event mean pT: variance, skewness,
+    # kurtosis (ATLAS PRL 133 (2024) 252301; ALICE JHEP 11 (2025) 076;
+    # analysis.pt_moments).
+    if record.get("observable_type") == "mean_pT_fluctuations" and record.get("pT_moment") is not None:
+        from analysis import pt_moments
+        pt_moments.check_record(record)
+        return dict(PT_MOMENTS_ENTRY)
 
     # Directed flow.  Rapidity-odd v1 needs an eta-odd reference (windows at
     # eta < 0 weighted -1) and a sign convention; the even-harmonic
@@ -1259,6 +1283,9 @@ def extract_measurement_params(exp_rec):
         'cumulant_quantity': exp_rec.get('cumulant_quantity'),
         'cumulant_order': exp_rec.get('cumulant_order'),
         'ratio_order': exp_rec.get('ratio_order'),
+        # [pT] moments (analysis.pt_moments): the moment and k_n's normalization
+        'pT_moment': exp_rec.get('pT_moment'),
+        'moment_normalization': exp_rec.get('moment_normalization'),
         'normalization_subevents': {
             lab: {'eta': _kr_eta((v or {}).get('kinematic_range') or top_kr),
                   'pT': _kr_pT((v or {}).get('kinematic_range') or top_kr)}

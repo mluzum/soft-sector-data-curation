@@ -1860,6 +1860,65 @@ def prepare_multi_cumulant_3d(grid, params):
     return _multi_cumulant_data(S, st, mult, grid.Qn.shape[-1])
 
 
+# ── higher moments of the event-by-event mean pT (analysis.pt_moments) ──
+
+def _pt_moments_data(R, q, norm, mult):
+    out = {'R': R, 'quantity': q, 'normalization': norm}
+    if mult is not None:
+        if not np.any(np.asarray(mult) > 0):
+            raise ValueError("multiplicity_baseline: no particles in its windows")
+        out['mult'] = mult
+    return out
+
+
+def prepare_pt_moments_2d(qv, params):
+    """Charged species of the boost-invariant container: per (species, pT)
+    cell the count, sum pT and sum pT^2 (bin centres where not stored), the
+    window weight the eta-window Jacobian over the plateau times the pT
+    share."""
+    from analysis.qvector import _overlap_fractions, _pt_squared
+    from analysis import pt_moments
+    q, norm, (eta, pt) = pt_moments.settings(params)
+    idx = list(charged_species_indices(getattr(qv, 'pdg_ids', None))[0])
+    c = qv.Qn[:, idx, 0, :].real
+    mids = np.asarray(qv.pt_centers, dtype=float)
+    s1 = qv.sum_pt[:, idx] if getattr(qv, 'sum_pt', None) is not None else c * mids
+    s2 = qv.sum_pt2[:, idx] if getattr(qv, 'sum_pt2', None) is not None else None
+    jac = _make_jacobian_list(qv.pt_centers, qv.masses, eta[0], eta[1])[idx, :] / (2.0 * qv.rap_max)
+    a = jac * np.asarray(_overlap_fractions(qv.pt_bin_edges, pt[0], pt[1], _pt_squared), dtype=float)[None, :]
+    n = c.shape[0]
+    R = pt_moments.power_sums(c.reshape(n, -1), np.asarray(s1).reshape(n, -1),
+                              None if s2 is None else np.asarray(s2).reshape(n, -1), a.reshape(-1), qv.nsamples,
+                              pt_moments.ORDER[q])
+    base = _pT_fluct_baseline(params, pt)
+    return _pt_moments_data(R, q, norm, _baseline_mult_2d(qv, base) if base else None)
+
+
+def prepare_pt_moments_3d(grid, params):
+    """Unit-weight cells of the charged grid: count, sum pT and sum pT^2
+    (cell centres where not stored), the window's overlap shares."""
+    from analysis import pt_moments
+    q, norm, (eta, pt) = pt_moments.settings(params)
+    if getattr(grid, 'pt_integrated', False):
+        raise ValueError("[pT] moments need pT-binned grids")
+    c = grid.Qn[..., 0].real
+    mids = 0.5 * (grid.pt_edges[:-1] + grid.pt_edges[1:])
+    s1 = grid.sum_pt if getattr(grid, 'sum_pt', None) is not None else c * mids
+    s2 = grid.sum_pt2 if getattr(grid, 'sum_pt2', None) is not None else None
+    a = np.asarray(grid.window_weights(eta[0], eta[1], pt[0], pt[1], fractional=True), dtype=float)
+    n = c.shape[0]
+    R = pt_moments.power_sums(c.reshape(n, -1), np.asarray(s1).reshape(n, -1),
+                              None if s2 is None else np.asarray(s2).reshape(n, -1),
+                              np.broadcast_to(a, c.shape[1:]).reshape(-1), grid.nsamples, pt_moments.ORDER[q])
+    base = _pT_fluct_baseline(params, pt)
+    return _pt_moments_data(R, q, norm, _baseline_mult_3d(grid, base) if base else None)
+
+
+def _wrap_pt_moments(data, w):
+    from analysis import pt_moments
+    return pt_moments.core(data, w)
+
+
 def _wrap_multi_cumulant(data, w):
     from analysis import multi_cumulants
     return multi_cumulants.core(data, w)
@@ -4193,6 +4252,14 @@ PIPELINE_DISPATCH = {
         "n_obs_per_cent": 1,
         "description": "transverse energy per unit eta (grid only)",
     },
+    "pT_moments": {
+        "core_fn": _wrap_pt_moments,
+        "prepare_data_2d": prepare_pt_moments_2d,
+        "prepare_data_3d": prepare_pt_moments_3d,
+        "n_obs_per_cent": 1,
+        "description": "higher moments of the event-by-event mean pT: c_n, k2, k3, gamma, Gamma, kappa "
+                       "(analysis.pt_moments)",
+    },
     "multi_cumulant": {
         "core_fn": _wrap_multi_cumulant,
         "prepare_data_2d": prepare_multi_cumulant_2d,
@@ -4438,7 +4505,7 @@ SINGLE_ROW_KEYS = frozenset({
     'spectra_invariant_yield', 'dET_deta', 'sc_mn', 'nac_mn', 'radial_flow',
     'vn_cumulant_combination', 'v1_even_factorization', 'rho_vn2_pT', 'mode_coupling',
     'plane_corr_sp', 'plane_corr_ge', 'flow_vector_fluct', 'vn_mixed_plane', 'vn2_eta_partner', 'rnn_decorrelation',
-    'tn_four_plane', 'vn_3x2pc', 'multi_cumulant',
+    'tn_four_plane', 'vn_3x2pc', 'multi_cumulant', 'pT_moments',
 })
 
 

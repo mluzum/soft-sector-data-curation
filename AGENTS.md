@@ -489,6 +489,29 @@ Fields that change dispatch:
   Poisson(efficiency x N) in the estimator acceptance (run_pipeline
   `_record_anchor`, the toy harness likewise); default the run's
   `--poisson-efficiency`.
+- Higher moments of the event-by-event mean pT (`observable_type:
+  mean_pT_fluctuations` with `pT_moment`: c2 | c3 | c4 | k2 | k3 | gamma |
+  Gamma | kappa, key `pT_moments`, analysis/pt_moments.py; ATLAS 2806288,
+  ALICE 2933773): per event the distinct-tuple sums of (p_i - M) with the
+  particles' window weights, from the power sums sum a^m p^j (j <= m <=
+  4) by set partitions; the class values <c_n> with tuple-count event
+  weights, M the class mean <[pT]> (with `multiplicity_baseline`: the
+  mean at the event's multiplicity, ATLAS's unit N_ch^rec intervals).  k2,
+  k3 over M^n (ATLAS) or, `moment_normalization: moment`, over <[pT]^(n)>
+  (ALICE); gamma = c3/c2^(3/2), Gamma = c3 M/c2^2, kappa = c4/c2^2 (the
+  central fourth moment: ALICE's (c4 + 3 c2^2)/c2^2).  A cell's third and
+  fourth powers of pT from its mean and variance (sum_pt, sum_pt2; cell
+  centres where not stored), entering coincidence terms only.
+  tests/test_toy_mc_pt_moments.py (exact against explicit tuples; k2, k3,
+  gamma, Gamma, kappa of a toy with a skewed event temperature, 2D and 3D;
+  the baseline at fixed multiplicity).
+- `centrality.multiplicity_bins.normalized_to` {percentile}: classes in
+  units of the estimator count R above which that percentile of the cross
+  section lies (ATLAS 2806288's N_ch / N_ch^{5%}): lo <= N_trk / R < hi,
+  N_trk = Poisson(efficiency x N); R from the events' own distribution
+  with the group's anchor and importance weights, rebuilt in each
+  jackknife replicate (`weights.NormalizedMultiplicityBinWeights`);
+  tests/test_normalized_multiplicity_bins.py.
 - `centrality.multiplicity_bins` {efficiency}: the classes are ranges of
   the estimator's track count ('10-20', no '%': 10 <= N_trk < 20), not
   percentiles (STAR's isobar ratios vs N_trk(|eta| < 0.5), ATLAS N_ch^rec,

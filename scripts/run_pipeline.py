@@ -267,6 +267,10 @@ def _record_anchor(params, mult, anchor, args, event_weights=None):
     centrality.estimator.efficiency (ATLAS's N_ch^rec), else the run's
     --poisson-efficiency."""
     mb = params.get('cent_multiplicity_bins')
+    if mb and mb.get('normalized_to'):
+        # in units of the count at a percentile of the cross section: the
+        # group's anchor defines the percentile; no class is partial
+        return (dict(anchor, anchor_cent=float('inf')), float(mb.get('efficiency', 1.0)))
     if mb:      # classes in track count: absolute, no cross-section anchor
         return ({'f': 1.0, 'n_ref': float(len(mult)), 'anchor_cent': float('inf')},
                 float(mb.get('efficiency', 1.0)))
@@ -1025,7 +1029,7 @@ def main():
                                        digest_size=16).digest(), float(rec_eff),
                        None if norm is None else (float(norm['estimator_threshold']),
                                                   float(norm['fraction_above'])),
-                       mb is not None)
+                       None if mb is None else (float((mb.get('normalized_to') or {}).get('percentile', -1.0)),))
                 if key not in centralities:
                     # percentiles, or classes in the estimator's track count
                     centralities[key] = estimator_weights(

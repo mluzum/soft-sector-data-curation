@@ -185,6 +185,17 @@ centrality:
             Tracking efficiency of the counted tracks (1.0 for a corrected
             multiplicity).
           example: 0.87
+        normalized_to:
+          type: object
+          required: false
+          description: >
+            {percentile: p}: the classes are in units of the count R above
+            which p percent of the total cross section lies (ATLAS's
+            N_ch / N_ch^{5%}): lo <= N_trk / R < hi, R from the events' own
+            distribution with the group's anchor, rebuilt in each jackknife
+            replicate (analysis.weights.NormalizedMultiplicityBinWeights);
+            not with combined_from.
+          example: {percentile: 5.0}
         notes: {type: string, required: false}
     actual_classes:
       type: list

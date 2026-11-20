@@ -727,14 +727,91 @@ class MultiplicityBinWeights:
         return out
 
 
+class NormalizedMultiplicityBinWeights(MultiplicityBinWeights):
+    """Classes in the estimator's count over a reference count: ATLAS's
+    N_ch / N_ch^{5%} (PRL 133 (2024) 252301), `centrality.multiplicity_bins`
+    {normalized_to: {percentile: p}}.  A class 'lo-hi' holds the events with
+    lo <= N_trk / R < hi, N_trk = Poisson(efficiency x N) ('poisson') or
+    efficiency x N ('simple'), and R the count above which p percent of the
+    total cross section lies: the events' own distribution of efficiency x N
+    with the anchor's coverage f (each event counting its importance
+    weight).  R is part of the estimator, so a jackknife replicate rebuilds
+    it from the events it keeps (as CentralityWeights its edges)."""
+
+    def __init__(self, method, event_var, efficiency=1.0, event_weights=None, anchor=None, percentile=5.0):
+        super().__init__(method, event_var, efficiency=efficiency, event_weights=event_weights)
+        ew = self.event_weights
+        anchor = anchor or {'f': 1.0, 'n_ref': float(self.n if ew is None else np.sum(ew))}
+        self.f, self.n_ref = float(anchor['f']), float(anchor['n_ref'])
+        self.percentile = float(percentile)
+        self._mask, self._rep, self._full_memo = None, {}, {}
+
+    def reference(self, mask=None):
+        """R: the count above which `percentile` percent of the cross section lies."""
+        x = self.x if mask is None else self.x[mask]
+        ew = np.ones(len(x)) if self.event_weights is None else (
+            self.event_weights if mask is None else self.event_weights[mask])
+        n_ref = self.n_ref if mask is None else self.n_ref * (len(x) / self.n)
+        target = self.percentile / 100.0 * n_ref
+        order = np.argsort(-x)
+        xs, cw = x[order], np.cumsum(ew[order])
+        if cw[-1] < target:
+            raise ValueError(f"the sample does not reach {self.percentile}% of the cross section")
+        k = int(np.searchsorted(cw, target))
+        if k == 0:
+            return float(xs[0])
+        frac = (target - cw[k - 1]) / (cw[k] - cw[k - 1])     # interpolate within the event at the edge
+        return float(xs[k - 1] + frac * (xs[k] - xs[k - 1]))
+
+    def anchor(self, mask=None):
+        n = self.n if mask is None else int(np.count_nonzero(mask))
+        return {'f': 1.0, 'n_ref': float(n), 'anchor_cent': math.inf}
+
+    def weights(self, edges, mask=None, raw=False):
+        if mask is not None and mask.all():
+            mask = None
+        if mask is None:
+            memo = self._full_memo
+        else:
+            if mask is not self._mask:
+                self._mask, self._rep = mask, {}
+            memo = self._rep
+        key = (tuple((float(lo), float(hi)) for lo, hi in edges), raw)
+        if key not in memo:
+            R = memo.setdefault('R', self.reference(mask))
+            x = self.x if mask is None else self.x[mask]
+            W = np.empty((len(x), len(edges)))
+            for k, (lo, hi) in enumerate(edges):
+                a, b = float(lo) * R, float(hi) * R
+                if self.method == 'poisson':
+                    ia, ib = math.ceil(a), math.ceil(b) - 1
+                    W[:, k] = (scipy.stats.poisson.cdf(ib, x) - scipy.stats.poisson.cdf(ia - 1, x)) if ib >= ia else 0.0
+                else:
+                    W[:, k] = (x >= a) & (x < b)
+            if not raw:
+                ew = None if self.event_weights is None else (
+                    self.event_weights if mask is None else self.event_weights[mask])
+                W = combine_weights(W, ew)
+            W = np.asarray(W)
+            W.setflags(write=False)
+            memo[key] = W
+        return memo[key]
+
+
 def estimator_weights(method, event_var, anchor=None, efficiency=1.0, normalization=None,
                       event_weights=None, multiplicity_bins=None):
     """The weights object of a record's centrality: percentiles
     (CentralityWeights) or, with `multiplicity_bins` (the record's
     centrality.multiplicity_bins), classes in the estimator's track count
-    (MultiplicityBinWeights, its own efficiency)."""
+    (MultiplicityBinWeights, its own efficiency), or in units of its count at
+    a percentile of the cross section (`normalized_to` {percentile}:
+    NormalizedMultiplicityBinWeights, with the anchor)."""
     if multiplicity_bins:
-        return MultiplicityBinWeights(method, event_var, efficiency=float(multiplicity_bins.get('efficiency', 1.0)),
-                                      event_weights=event_weights)
+        eff = float(multiplicity_bins.get('efficiency', 1.0))
+        norm_to = multiplicity_bins.get('normalized_to')
+        if norm_to:
+            return NormalizedMultiplicityBinWeights(method, event_var, efficiency=eff, event_weights=event_weights,
+                                                    anchor=anchor, percentile=float(norm_to['percentile']))
+        return MultiplicityBinWeights(method, event_var, efficiency=eff, event_weights=event_weights)
     return CentralityWeights(method, event_var, anchor, efficiency=efficiency, normalization=normalization,
                              event_weights=event_weights)
