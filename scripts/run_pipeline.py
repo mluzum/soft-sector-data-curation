@@ -258,6 +258,18 @@ from analysis.cent_combine import (class_weights, prepare_yield as prepare_combi
                                    wrap_core as wrap_combined_core)
 
 
+def _abscissa_counts(container, ab, is_2d):
+    """Per event, the charged count in the windows of a record's
+    centrality.abscissa_bins (2D: the Jacobian-weighted count; 3D: the cells'
+    overlap, per particlization)."""
+    lo, hi = ab['pT']
+    if is_2d:
+        from compute_flow_vn import compute_charged_mult
+        return sum(compute_charged_mult(container, emin, emax, pt_min=0.0 if lo is None else lo, pt_max=hi)
+                   for emin, emax in ab['eta'])
+    return estimator_multiplicity_3d(container, ab['eta'], (lo, hi))
+
+
 def _record_anchor(params, mult, anchor, args, event_weights=None):
     """(anchor, efficiency) for one record: the group's anchor, or the
     experiment-defined normalization the record states
@@ -266,6 +278,12 @@ def _record_anchor(params, mult, anchor, args, event_weights=None):
     Percentile classes of a track-count estimator take its
     centrality.estimator.efficiency (ATLAS's N_ch^rec), else the run's
     --poisson-efficiency."""
+    if params.get('cent_abscissa_bins'):
+        # classes on an abscissa's scale: the group's anchor sets the
+        # reference percentile class; no class is partial
+        est_eff = (params.get('cent_estimator') or {}).get('efficiency')
+        return (dict(anchor, anchor_cent=float('inf')),
+                args.poisson_efficiency if est_eff is None else float(est_eff))
     mb = params.get('cent_multiplicity_bins')
     if mb and mb.get('normalized_to'):
         # in units of the count at a percentile of the cross section: the
@@ -1018,24 +1036,31 @@ def main():
 
             centralities = {}   # one CentralityWeights per estimator multiplicity and normalization
 
-            def _centrality(mult, rec_eff, params):
+            def _centrality(mult, rec_eff, params, container=None, is_2d_=None):
                 # The weights of the record's estimator, rebuilt inside each
                 # jackknife replicate (class edges and normalization from the
                 # events it keeps); shared by the records of one estimator.
                 import hashlib
                 norm = params.get('cent_normalization') or None
                 mb = params.get('cent_multiplicity_bins') or None
+                ab = params.get('cent_abscissa_bins') or None
+                absc = None
+                if ab:      # the abscissa count of classes on its scale (CMS's N_ch at |eta| < 0.5)
+                    absc = _abscissa_counts(container, ab, is_2d_)
                 key = (hashlib.blake2b(np.ascontiguousarray(mult, dtype=np.float64).tobytes(),
                                        digest_size=16).digest(), float(rec_eff),
                        None if norm is None else (float(norm['estimator_threshold']),
                                                   float(norm['fraction_above'])),
-                       None if mb is None else (float((mb.get('normalized_to') or {}).get('percentile', -1.0)),))
+                       None if mb is None else (float((mb.get('normalized_to') or {}).get('percentile', -1.0)),),
+                       None if ab is None else (hashlib.blake2b(np.ascontiguousarray(absc, dtype=np.float64)
+                                                                .tobytes(), digest_size=16).digest(),
+                                                tuple(ab['reference'])))
                 if key not in centralities:
-                    # percentiles, or classes in the estimator's track count
+                    # percentiles, classes in the estimator's track count, or on an abscissa's scale
                     centralities[key] = estimator_weights(
                         args.cent_method, mult, anchor, efficiency=rec_eff,
                         normalization=norm, event_weights=group_event_weights,
-                        multiplicity_bins=mb)
+                        multiplicity_bins=mb, abscissa=absc, abscissa_bins=ab)
                 return centralities[key]
 
             def _setup_combination(params, container, cw, is_2d_):
@@ -1211,7 +1236,7 @@ def main():
                             cent_mult += cent_partial
                     rec_anchor, rec_eff = _record_anchor(params, cent_mult, anchor, args,
                                                          group_event_weights)
-                    cw = _centrality(cent_mult, rec_eff, params)
+                    cw = _centrality(cent_mult, rec_eff, params, qv, True)
                     cent = (cw, tuple(map(tuple, cent_edges)))
                     cent_w = cw.weights(cent_edges, raw=True)
                     params['cent_valid'] = cent_w.sum(axis=0) >= args.min_cent_weight
@@ -1300,7 +1325,7 @@ def main():
                             qv, cent_eta_ranges, params.get('cent_pT_range') or (None, None))
                     rec_anchor, rec_eff = _record_anchor(params, cent_mult_3d, anchor, args,
                                                          group_event_weights)
-                    cw = _centrality(cent_mult_3d, rec_eff, params)
+                    cw = _centrality(cent_mult_3d, rec_eff, params, qv, False)
                     cent = (cw, tuple(map(tuple, cent_edges)))
                     cent_w_3d = cw.weights(cent_edges, raw=True)
                     params['cent_valid'] = cent_w_3d.sum(axis=0) >= args.min_cent_weight

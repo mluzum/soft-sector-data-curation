@@ -197,6 +197,22 @@ centrality:
             not with combined_from.
           example: {percentile: 5.0}
         notes: {type: string, required: false}
+    abscissa_bins:
+      type: object
+      required: false
+      description: >
+        Classes of the estimator labelled on another count's scale (CMS
+        2747107: 50 GeV intervals of HF E_T reported at N_ch / N_ch^0 of
+        |eta| < 0.5): `classes` 'lo-hi' (no '%') hold the events whose
+        estimator lies between the values where the conditional mean of the
+        abscissa count (charged particles in `eta`, `pT`) over its mean in
+        the estimator's `reference_class` equals lo and hi -- intervals of
+        the estimator, as the experiment's, rebuilt in each jackknife
+        replicate (analysis.weights.AbscissaBinWeights).
+      fields:
+        eta: {type: list, required: true, example: [{min: -0.5, max: 0.5}]}
+        pT: {type: object, required: false, example: {min: 0.0, max: 100.0}}
+        reference_class: {type: string, required: true, example: "0-5%"}
     actual_classes:
       type: list
       required: false

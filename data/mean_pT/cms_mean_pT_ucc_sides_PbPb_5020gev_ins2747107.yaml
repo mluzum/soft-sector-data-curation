@@ -1,0 +1,126 @@
+observable_type: mean_pT
+inspire_id: '2747107'
+version: 1
+experimental_values: false
+hepdata_table_label: <pT> of charged particles, |eta| < 0.5, all pT, in E_T^HF intervals (a side of figure_3; only the ratio
+  to 0-5% is published)
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+centrality:
+  classes:
+  - 0.72921-0.73656
+  - 0.73656-0.74626
+  - 0.74626-0.75839
+  - 0.75839-0.77048
+  - 0.77048-0.78255
+  - 0.78255-0.79475
+  - 0.79475-0.80698
+  - 0.80698-0.81915
+  - 0.81915-0.8313
+  - 0.8313-0.84355
+  - 0.84355-0.85585
+  - 0.85585-0.86813
+  - 0.86813-0.88046
+  - 0.88046-0.89284
+  - 0.89284-0.90524
+  - 0.90524-0.91768
+  - 0.91768-0.93017
+  - 0.93017-0.94264
+  - 0.94264-0.95514
+  - 0.95514-0.96766
+  - 0.96766-0.98028
+  - 0.98028-0.99296
+  - 0.99296-1.0055
+  - 1.0055-1.0181
+  - 1.0181-1.0306
+  - 1.0306-1.043
+  - 1.043-1.0551
+  - 1.0551-1.0669
+  - 1.0669-1.0783
+  - 1.0783-1.0894
+  - 1.0894-1.1002
+  - 1.1002-1.1105
+  - 1.1105-1.1206
+  - 1.1206-1.1306
+  - 1.1306-1.1401
+  - 1.1401-1.1496
+  - 1.1496-1.1589
+  - 1.1589-1.1679
+  - 1.1679-1.1766
+  - 1.1766-1.1866
+  - 1.1866-1.1956
+  - 1.1956-1.2026
+  - 1.2026-1.2137
+  - 1.2137-1.2283
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+  abscissa_bins:
+    eta:
+    - min: -0.5
+      max: 0.5
+    pT:
+      min: 0.0
+      max: 100.0
+    reference_class: 0-5%
+  notes: 50 GeV intervals of E_T^HF (3400-5200 GeV, the top 10%), labelled by N_ch/N_ch^0 (|eta| < 0.5, all pT); classes midway
+    between the tabulated points; the model estimator the charged count in 2.9 < |eta| < 5.2.
+particle_id:
+  species: charged
+kinematic_range:
+  eta:
+    min: -0.5
+    max: 0.5
+  pT:
+    min: 0.0
+    max: 100.0
+observable: mean_pT
+value_type: mean_pT
+dimensionality: integrated
+notes:
+  value: 'CMS Collaboration, Rep. Prog. Phys. 87 (2024) 077801, arXiv:2401.06896, Sec. 4: <pT> from the corrected |eta| <
+    0.5 spectra extrapolated to all pT.'
+---
+centrality:
+  classes:
+  - 0-5%
+  estimator:
+    name: HF
+    observable: ET
+    detector: HF
+  eta:
+  - min: -5.2
+    max: -2.9
+  - min: 2.9
+    max: 5.2
+collision_system:
+  energy_gev: 5020.0
+  reaction: PB PB --> CHARGED X
+dimensionality: integrated
+experimental_values: false
+hepdata_table_label: <pT> of charged particles, |eta| < 0.5, all pT, in the 0-5% class of E_T^HF (the 0-5% side of figure_3;
+  only the ratio to 0-5% is published)
+inspire_id: '2747107'
+kinematic_range:
+  eta:
+    max: 0.5
+    min: -0.5
+  pT:
+    max: 100.0
+    min: 0.0
+notes:
+  value: 'CMS Collaboration, Rep. Prog. Phys. 87 (2024) 077801, arXiv:2401.06896, Sec. 4: <pT> from the corrected |eta| <
+    0.5 spectra extrapolated to all pT.'
+observable: mean_pT
+observable_type: mean_pT
+particle_id:
+  species: charged
+value_type: mean_pT
+version: 1

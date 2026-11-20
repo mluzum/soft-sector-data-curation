@@ -26,7 +26,7 @@ sys.path.insert(0, ROOT)
 os.chdir(ROOT)
 
 from analysis.dispatcher import extract_measurement_params, load_experimental, resolve  # noqa: E402
-from analysis.ratios import resolve_link, side_record  # noqa: E402
+from analysis.ratios import resolve_link, side_classes, side_record  # noqa: E402
 
 
 def problem(doc, linked=False):
@@ -73,10 +73,12 @@ def main():
             v, _ = load_experimental(extract_measurement_params(d))
         if v is None:
             bad.append(f'{os.path.relpath(path, ROOT)}#{i}: the ratio\'s experimental values do not load')
-        for link in (d.get('numerator_record'), d.get('denominator_record')):
+        for which, link in (('num', d.get('numerator_record')), ('den', d.get('denominator_record'))):
             try:
                 p, j, side = resolve_link(link, ROOT)
-                why = problem(side_record(side, d), linked=True)
+                # each side at the classes compute_ratios computes it at (a
+                # denominator at the ratio's denominator_class)
+                why = problem(side_record(side, d, side_classes(d, which)), linked=True)
             except ValueError as e:
                 why = str(e)
             if why:

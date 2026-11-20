@@ -786,9 +786,18 @@ def evaluate(record, qv=None, grid=None, with_jackknife=True,
     eff = (float(norm.get('efficiency', 1.0)) if norm
            else 1.0 if est_eff is None else float(est_eff))
     from analysis.weights import estimator_weights
+    ab = params.get('cent_abscissa_bins')
+    absc = None
+    if ab:                      # classes on an abscissa's scale, as run_pipeline
+        if qv is not None:
+            absc = sum(_cent_mult_2d(qv, [w], ab['pT']) for w in ab['eta'])
+        else:
+            from analysis.pipeline_dispatch import estimator_multiplicity_3d as _em3
+            absc = _em3(grid_unselected, ab['eta'], ab['pT'])
     centrality = estimator_weights(cent_method, mult, anchor, efficiency=eff, normalization=norm,
                                    event_weights=ew,
-                                   multiplicity_bins=params.get('cent_multiplicity_bins'))
+                                   multiplicity_bins=params.get('cent_multiplicity_bins'),
+                                   abscissa=absc, abscissa_bins=ab)
     edges = params['cent_edges'] or [(0, 100)]
     # Listed order is preserved (helper sorts internally as needed).
     cw = (centrality, edges)

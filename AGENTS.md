@@ -512,6 +512,17 @@ Fields that change dispatch:
   with the group's anchor and importance weights, rebuilt in each
   jackknife replicate (`weights.NormalizedMultiplicityBinWeights`);
   tests/test_normalized_multiplicity_bins.py.
+- `centrality.abscissa_bins` {eta, pT, reference_class}: classes of the
+  estimator labelled on another count's scale (CMS 2747107: 50 GeV
+  intervals of HF E_T reported at N_ch / N_ch^0 of |eta| < 0.5): a class
+  'lo-hi' holds the events whose estimator lies between the values where
+  the conditional mean of the abscissa count (binned over estimator
+  quantiles, made monotone) over its mean in the reference percentile
+  class equals lo and hi -- intervals of the estimator, as the
+  experiment's; scale and reference rebuilt per replicate
+  (`weights.AbscissaBinWeights`; run_pipeline `_abscissa_counts`, the toy
+  harness likewise).  A ratio's denominator side at its reference class
+  is an ordinary percentile record.  tests/test_abscissa_bins.py.
 - `centrality.multiplicity_bins` {efficiency}: the classes are ranges of
   the estimator's track count ('10-20', no '%': 10 <= N_trk < 20), not
   percentiles (STAR's isobar ratios vs N_trk(|eta| < 0.5), ATLAS N_ch^rec,

@@ -798,14 +798,127 @@ class NormalizedMultiplicityBinWeights(MultiplicityBinWeights):
         return memo[key]
 
 
+def conditional_mean(est, absc, ew=None, n_bins=None, min_per_bin=20):
+    """Monotone conditional mean of `absc` given `est`: binned means over
+    estimator quantiles (equal numbers of events, at least min_per_bin),
+    made non-decreasing, and the bin centres for interpolation.  Returns
+    (centres, means), both increasing."""
+    est = np.asarray(est, dtype=float)
+    absc = np.asarray(absc, dtype=float)
+    w = np.ones(len(est)) if ew is None else np.asarray(ew, dtype=float)
+    order = np.argsort(est, kind='stable')
+    n = len(est)
+    nb = n_bins or max(4, min(200, n // min_per_bin))
+    splits = np.array_split(order, nb)
+    centres = np.array([np.sum(w[s] * est[s]) / np.sum(w[s]) for s in splits])
+    means = np.array([np.sum(w[s] * absc[s]) / np.sum(w[s]) for s in splits])
+    means = np.maximum.accumulate(means)              # monotone (the mean count rises with the estimator)
+    centres = np.maximum.accumulate(centres + np.arange(nb) * 1e-12)
+    return centres, means
+
+
+class AbscissaBinWeights:
+    """Classes of a forward estimator labelled on the abscissa scale
+    (`centrality.abscissa_bins`; CMS's 50 GeV intervals of HF E_T, reported
+    at N_ch / N_ch^0 of |eta| < 0.5): a class 'lo-hi' holds the events
+    whose estimator lies between the values where the conditional mean of
+    the abscissa count A given the estimator, over A^0 (A's mean in the
+    estimator's reference percentile class, 0-5%), equals lo and hi.  Since
+    that mean rises with the estimator, these are intervals of the
+    estimator, as the experiment's; their mean A / A^0 is close to the
+    label.  The estimator count is Poisson(efficiency x N) ('poisson') or
+    efficiency x N ('simple'); the conditional mean, A^0 and the edges are
+    rebuilt in each jackknife replicate."""
+
+    def __init__(self, method, event_var, abscissa, anchor=None, efficiency=1.0, event_weights=None,
+                 reference_class=(0.0, 5.0)):
+        if method not in ('simple', 'poisson'):
+            raise ValueError(f"unknown cent method {method!r}")
+        self.method = method
+        self.efficiency = float(efficiency)
+        self.e = np.asarray(event_var, dtype=float)
+        self.a = np.asarray(abscissa, dtype=float)
+        self.n = len(self.e)
+        self.event_weights = None if event_weights is None else np.asarray(event_weights, dtype=float)
+        self.ref = tuple(float(x) for x in reference_class)
+        self.percentiles = CentralityWeights(method, event_var, anchor, efficiency=efficiency,
+                                             event_weights=event_weights)
+        self._mask, self._rep, self._full = None, {}, {}
+
+    def anchor(self, mask=None):
+        a = dict(self.percentiles.anchor(mask))
+        a['anchor_cent'] = math.inf
+        return a
+
+    def _memo(self, mask):
+        if mask is None or mask.all():
+            return self._full, None
+        if mask is not self._mask:
+            self._mask, self._rep = mask, {}
+        return self._rep, mask
+
+    def scale(self, mask=None):
+        """(centres, means / A^0): the estimator's map onto the abscissa scale."""
+        memo, m = self._memo(mask)
+        if 'scale' not in memo:
+            e = self.e if m is None else self.e[m]
+            a = self.a if m is None else self.a[m]
+            ew = None if self.event_weights is None else (self.event_weights if m is None else self.event_weights[m])
+            wref = self.percentiles.weights([self.ref], m, raw=False)[:, 0]
+            a0 = np.sum(wref * a) / np.sum(wref)
+            c, mu = conditional_mean(self.efficiency * e, a, ew)
+            memo['scale'] = (c, mu / a0)
+        return memo['scale']
+
+    def edges_in_estimator(self, edges, mask=None):
+        """The estimator values (efficiency x N units) of the class edges."""
+        c, s = self.scale(mask)
+        out = []
+        for lo, hi in edges:
+            out.append(tuple(float(np.interp(v, s, c, left=-np.inf, right=np.inf)) for v in (lo, hi)))
+        return out
+
+    def weights(self, edges, mask=None, raw=False):
+        memo, m = self._memo(mask)
+        key = (tuple((float(lo), float(hi)) for lo, hi in edges), raw)
+        if key not in memo:
+            x = self.efficiency * (self.e if m is None else self.e[m])
+            W = np.empty((len(x), len(edges)))
+            for k, (a, b) in enumerate(self.edges_in_estimator(edges, m)):
+                if a == np.inf or b == -np.inf or not b > a:
+                    W[:, k] = 0.0        # beyond the scale's reach (or empty): no events
+                elif self.method == 'poisson':
+                    hi_cdf = np.ones_like(x) if b == np.inf else scipy.stats.poisson.cdf(math.ceil(b) - 1, x)
+                    lo_cdf = np.zeros_like(x) if a == -np.inf else scipy.stats.poisson.cdf(math.ceil(a) - 1, x)
+                    W[:, k] = hi_cdf - lo_cdf
+                else:
+                    W[:, k] = (x >= a) & (x < b)
+            if not raw:
+                ew = None if self.event_weights is None else (self.event_weights if m is None
+                                                              else self.event_weights[m])
+                W = combine_weights(W, ew)
+            W = np.asarray(W)
+            W.setflags(write=False)
+            memo[key] = W
+        return memo[key]
+
+
 def estimator_weights(method, event_var, anchor=None, efficiency=1.0, normalization=None,
-                      event_weights=None, multiplicity_bins=None):
+                      event_weights=None, multiplicity_bins=None, abscissa=None, abscissa_bins=None):
     """The weights object of a record's centrality: percentiles
     (CentralityWeights) or, with `multiplicity_bins` (the record's
     centrality.multiplicity_bins), classes in the estimator's track count
     (MultiplicityBinWeights, its own efficiency), or in units of its count at
     a percentile of the cross section (`normalized_to` {percentile}:
-    NormalizedMultiplicityBinWeights, with the anchor)."""
+    NormalizedMultiplicityBinWeights, with the anchor); with `abscissa_bins`
+    (the record's centrality.abscissa_bins) and the events' `abscissa`
+    counts, classes of the estimator labelled on the abscissa scale
+    (AbscissaBinWeights)."""
+    if abscissa_bins:
+        if abscissa is None:
+            raise ValueError("abscissa_bins need the events' abscissa counts")
+        return AbscissaBinWeights(method, event_var, abscissa, anchor, efficiency=efficiency,
+                                  event_weights=event_weights, reference_class=abscissa_bins['reference'])
     if multiplicity_bins:
         eff = float(multiplicity_bins.get('efficiency', 1.0))
         norm_to = multiplicity_bins.get('normalized_to')

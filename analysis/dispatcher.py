@@ -618,6 +618,26 @@ def resolve(record):
     # sub-classes, points) applies to them.  Cells of one track
     # (combined_from: unit_multiplicity) do: analysis.cent_combine.
     cent_ = record.get("centrality") or {}
+    if cent_.get("abscissa_bins"):
+        ab = cent_["abscissa_bins"]
+        if cent_.get("multiplicity_bins") or any(cent_.get(k) for k in ("actual_classes", "normalization",
+                                                                         "combined_from", "points")):
+            raise ValueError("centrality.abscissa_bins: classes of the estimator on the abscissa scale take no "
+                             "multiplicity_bins, actual_classes, normalization, combined_from or points")
+        if not (isinstance(ab, dict) and ab.get("eta") and ab.get("reference_class")):
+            raise ValueError("centrality.abscissa_bins needs eta windows and a reference_class")
+        ref = str(ab["reference_class"]).replace('%', '').split('-')
+        try:
+            lo_, hi_ = float(ref[0]), float(ref[1])
+        except (ValueError, IndexError):
+            lo_, hi_ = -1.0, -1.0
+        if not 0.0 <= lo_ < hi_ <= 100.0:
+            raise ValueError(f"centrality.abscissa_bins.reference_class {ab['reference_class']!r}: a percentile class")
+        if multiplicity_classes_invalid(cent_.get("classes")):
+            raise ValueError(f"centrality.abscissa_bins: classes {cent_.get('classes')} are not ranges 'lo-hi' "
+                             f"of the abscissa scale")
+        if cent_.get("estimator", {}).get("sum") == "transverse_mass":
+            raise ValueError("centrality.abscissa_bins with a transverse-mass estimator is not implemented")
     if cent_.get("multiplicity_bins"):
         clash = [k for k in ("actual_classes", "normalization", "combined_from", "points") if cent_.get(k)
                  and not (k == "combined_from" and cent_.get(k) == "unit_multiplicity")]
@@ -1185,8 +1205,15 @@ def extract_measurement_params(exp_rec):
     # Classes in the estimator's track count (multiplicity_bins) have their
     # own check: numeric ranges without '%'.
     mult_bins = cent.get('multiplicity_bins') or None
-    cent_suspicious = (multiplicity_classes_invalid(cent_classes) if mult_bins
+    absc = cent.get('abscissa_bins') or None
+    cent_suspicious = (multiplicity_classes_invalid(cent_classes) if (mult_bins or absc)
                        else centrality_classes_suspicious(cent_classes, bool(cent.get('percentiles'))))
+    absc_spec = None
+    if absc:
+        ref = str(absc.get('reference_class', '')).replace('%', '').split('-')
+        absc_spec = {'eta': [(float(e['min']), float(e['max'])) for e in (absc.get('eta') or [])],
+                     'pT': _kr_pT({'pT': absc.get('pT') or {}}),
+                     'reference': (float(ref[0]), float(ref[1])) if len(ref) == 2 else None}
 
     dim = exp_rec.get('dimensionality', 'integrated')
     diff_var, diff_bins, diff_fixed = extract_differential_bins(exp_rec)
@@ -1313,6 +1340,9 @@ def extract_measurement_params(exp_rec):
         # classes in the estimator's track count, N_trk = Poisson(efficiency
         # x N) (analysis.weights.MultiplicityBinWeights); None for percentiles
         'cent_multiplicity_bins': mult_bins,
+        # classes of the estimator labelled on an abscissa count's scale
+        # (CMS's HF intervals at N_ch / N_ch^0): its windows and reference class
+        'cent_abscissa_bins': absc_spec,
         'detector_efficiency': exp_rec.get('detector_efficiency'),
         # Asymmetric systems: frame of the record's windows (lab / nn_cms),
         # the centre-of-mass rapidity in the lab, and the +eta beam.
