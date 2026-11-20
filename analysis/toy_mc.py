@@ -763,7 +763,8 @@ def evaluate(record, qv=None, grid=None, with_jackknife=True,
         params['anchor_nref_per_event'] = float(anchor['n_ref']) / container0.n_events
 
     if qv is not None:
-        data = entry['prepare_data_2d'](qv, params)
+        from analysis.pipeline_dispatch import container_for_prepare_2d
+        data = entry['prepare_data_2d'](container_for_prepare_2d(qv, params), params)
         n_events = qv.n_events
         from analysis.pipeline_dispatch import estimator_variable
         mult = estimator_variable(qv, params, True)       # E_T estimators, as run_pipeline

@@ -684,6 +684,13 @@ Containers (`analysis/qvector.py`):
   complex64; window sums accumulate in double precision, from a lazily
   built summed-area table (`summed_area_tables`; ~2x the complex64 Qn in
   memory, keyed to the Qn object; tests/test_qgrid_window_sums.py).
+- A 2D species axis with a PDG-0 row ("other charged", the iEBE-MUSIC
+  standard output's) is an exact charged decomposition: 'charged' is every
+  charged row (`species.exact_charged_rows`), else the legacy pi + K + p;
+  K0_S = (K0 + K0bar)/2 from 311/-311 rows.  `species_nmax` (highest stored
+  harmonic per row): a record's prepare gets Qn truncated to its species'
+  (`pipeline_dispatch.container_for_prepare_2d`), so a harmonic Lambda or K0
+  does not store is missing, never Q_n = 0.  tests/test_standard_species_axis.py.
 - **Simulation packages** (`analysis/sim_package.py`): `simulation.yaml` plus
   an external adapter returning the container arrays. `build_container`
   validates them. See docs/sim_interface.md §4.

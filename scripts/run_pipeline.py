@@ -309,8 +309,8 @@ def _record_anchor(params, mult, anchor, args, event_weights=None):
     params['record_anchor'] = {k: a[k] for k in ('f', 'n_ref', 'anchor_cent', 'p_above')}
     return a, eff
 from analysis.pipeline_dispatch import (
-    get_pipeline_entry, PTCUTS, container_for_prepare, SINGLE_ROW_KEYS, estimator_multiplicity_3d,
-    estimator_variable,
+    get_pipeline_entry, PTCUTS, container_for_prepare, container_for_prepare_2d, SINGLE_ROW_KEYS,
+    estimator_multiplicity_3d, estimator_variable,
 )
 
 
@@ -1271,7 +1271,8 @@ def main():
                         # Prepare full multi-bin data once (NOT per-bin).
                         # The diff core function returns (n_harm * n_bins,).
                         try:
-                            data_dict, pkey = _prepare_shared(lambda: prepare_fn(qv, params), params, '2d')
+                            data_dict, pkey = _prepare_shared(
+                                lambda: prepare_fn(container_for_prepare_2d(qv, params), params), params, '2d')
                         except Exception as e:
                             print(f"    Skipping: 2D diff prepare failed: {e}")
                             continue
@@ -1290,7 +1291,8 @@ def main():
                         })
                     else:
                         try:
-                            data_dict, pkey = _prepare_shared(lambda: prepare_fn(qv, params), params, '2d')
+                            data_dict, pkey = _prepare_shared(
+                                lambda: prepare_fn(container_for_prepare_2d(qv, params), params), params, '2d')
                         except Exception as e:
                             print(f"    Skipping: 2D prepare failed: {e}")
                             continue

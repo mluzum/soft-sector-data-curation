@@ -170,7 +170,16 @@ The adapter imports numpy and its own readers, never this repository.
 
 - 2D: `Qn`, `pt_bin_edges` (n_pt+1), `masses`, `species_names`,
   `nsamples`, `rap_max`; optional `pdg_ids`, `sum_pt`, `sum_pt2`, `sum_mT`,
-  `cent_mult`, `event_weights`;
+  `cent_mult`, `event_weights`, `species_nmax`, `species_charge`.  With
+  `pdg_ids`, exact charges are resolved per row; a row with PDG id 0,
+  "other charged" (every charged final particle not in another row: Sigma+-,
+  nuclei, ...), makes the axis an exact decomposition, and 'charged' is
+  then the sum of every row with a charge (otherwise pi + K + p).  K0_S is
+  (K0 + K0bar)/2 when the axis has 311 and -311.  `species_nmax` is the
+  highest harmonic stored per row (Qn above it must be zero: not stored); a
+  record of a species with a lower one sees the container truncated there
+  (iEBE-MUSIC standard output: 6 for Lambda and K0).  `species_charge` is
+  checked against the PDG ids (the PDG-0 row: non-zero);
 - 3D: `Qn`, `eta_edges`, `pt_edges`, `cent_mult`, `nsamples`,
   `positives_only` (required: it sets the charge factor); optional
   `event_weights`, `sum_pt`, `sum_pt2`, `sum_ET`.  Several species:

@@ -94,9 +94,43 @@ _PDG_SETS = {
     'phi < k- k+ >':        [333],
 }
 
+# Electric charge of the hadrons a PDG-labelled species axis may hold.
+_PDG_CHARGE = {211: 1, 321: 1, 2212: 1, 3222: 1, 3112: -1, 3312: -1, 3334: -1, 411: 1, 431: 1,
+               111: 0, 130: 0, 310: 0, 311: 0, 333: 0, 2112: 0, 3122: 0, 3212: 0, 3322: 0, 221: 0}
+
+# PDG 0 on a species axis: "other charged", every charged final particle not
+# in another row (iEBE-MUSIC standard output: Sigma+-, nuclei, ...).  Its
+# presence makes the axis an exact decomposition of the charged hadrons:
+# 'charged' is then the sum of every row with a charge (pi, K, p, Xi, Omega
+# and PDG 0), not the legacy pi + K + p.
+OTHER_CHARGED = 0
+
+
+def pdg_charge(pdg):
+    """Electric charge of a hadron PDG id (None if not tabulated; PDG 0,
+    "other charged", has no single charge)."""
+    p = int(pdg)
+    if p == OTHER_CHARGED:
+        return None
+    q = _PDG_CHARGE.get(abs(p))
+    return None if q is None else (q if p > 0 else -q)
+
+
+def exact_charged_rows(pdg_ids):
+    """Indices of the charged rows of an axis that carries the PDG-0 row
+    (an exact decomposition), else None."""
+    if pdg_ids is None:
+        return None
+    pdg_ids = [int(p) for p in pdg_ids]
+    if OTHER_CHARGED not in pdg_ids:
+        return None
+    return [i for i, p in enumerate(pdg_ids) if p == OTHER_CHARGED or (pdg_charge(p) or 0) != 0]
+
+
 # Isospin estimates on a PDG axis: species -> (explicit PDG, charged PDGs to
 # sum, factor on their sum).  The explicit particle is used when the axis has
-# it; otherwise the charged partners, (pi+ + pi-)/2 etc.
+# it; otherwise the charged partners, (pi+ + pi-)/2 etc.  K0_S is (K0 +
+# K0bar)/2 on an axis with both (311, -311: iEBE-MUSIC standard output).
 _ISOSPIN = {
     'pi0':             (111, [211, -211], 0.5),
     'pi+ + pi- + pi0': (None, [211, -211], 1.5),
@@ -124,6 +158,12 @@ def resolve_species_on_axis(species_str, pdg_ids):
     pos = {p: i for i, p in enumerate(pdg_ids)}
 
     key = str(species_str).strip().lower()
+    if key == 'charged':
+        rows = exact_charged_rows(pdg_ids)
+        if rows is not None:
+            return rows, 1.0, True
+    if key in ('k0_s', 'k0s') and 310 not in pos and 311 in pos and -311 in pos:
+        return [pos[311], pos[-311]], 0.5, True
     if key in _ISOSPIN:
         explicit, partners, factor = _ISOSPIN[key]
         if explicit is not None and explicit in pos:
@@ -163,13 +203,17 @@ def resolve_species_on_axis(species_str, pdg_ids):
 
 
 def charged_species_indices(pdg_ids):
-    """Indices of charged stable species (pi, K, p) on a PDG axis.
+    """Indices of charged stable species (pi, K, p) on a PDG axis; every
+    charged row on an axis with the PDG-0 row (exact_charged_rows).
 
     Returns ``(indices, charge_factor)``.  With both charges present the
     factor is 1; with positives-only it is 2 (legacy convention).
     """
     if pdg_ids is None:
         return [0, 1, 2], 2.0
+    rows = exact_charged_rows(pdg_ids)
+    if rows is not None:            # an exact decomposition: every charged row
+        return rows, 1.0
     pdg_ids = [int(p) for p in pdg_ids]
     pos = {p: i for i, p in enumerate(pdg_ids)}
     pos_pdgs = [211, 321, 2212]

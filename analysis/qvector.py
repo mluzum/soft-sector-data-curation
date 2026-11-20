@@ -48,6 +48,15 @@ class QVectorData:
     # exactly storable in flat-y containers; dET/dη = <ΣmT·(1/coshη)> with
     # the analytic window factor applied by the prepare step.
     sum_mT: np.ndarray | None = None
+    # Optional highest stored harmonic per species row (iEBE-MUSIC standard
+    # output: 6 for Lambda and K0, 10 elsewhere): Qn above it is not stored
+    # and a record of that species sees the container truncated to it
+    # (pipeline_dispatch.container_for_prepare_2d).
+    species_nmax: list | None = None
+    # Optional electric charge per species row (documentation and checks;
+    # the PDG-0 row, "other charged", makes 'charged' the sum of the
+    # charged rows: analysis.species).
+    species_charge: list | None = None
 
     def __post_init__(self):
         assert self.Qn.ndim == 4, f"Qn must be 4D [event, species, harmonic, pt], got shape {self.Qn.shape}"
@@ -62,6 +71,10 @@ class QVectorData:
         if self.pdg_ids is not None:
             assert len(self.pdg_ids) == self.Qn.shape[1], \
                 f"pdg_ids length {len(self.pdg_ids)} != species {self.Qn.shape[1]}"
+        for name in ('species_nmax', 'species_charge'):
+            v = getattr(self, name)
+            if v is not None:
+                assert len(v) == self.Qn.shape[1], f"{name} length {len(v)} != species {self.Qn.shape[1]}"
         if self.cent_mult is not None:
             assert len(self.cent_mult) == self.Qn.shape[0], \
                 f"cent_mult length {len(self.cent_mult)} != events {self.Qn.shape[0]}"
@@ -128,6 +141,9 @@ class QVectorData:
                   sim_type=self.sim_type, rap_max=self.rap_max)
         if self.pdg_ids is not None:
             kw['pdg_ids'] = np.asarray(self.pdg_ids, dtype=int)
+        for name in ('species_nmax', 'species_charge'):
+            if getattr(self, name) is not None:
+                kw[name] = np.asarray(getattr(self, name), dtype=int)
         if self.cent_mult is not None:
             kw['cent_mult'] = self.cent_mult
         if self.event_weights is not None:
@@ -151,6 +167,9 @@ class QVectorData:
             kw['species_names'] = list(data['species_names'])
         if 'pdg_ids' in data:
             kw['pdg_ids'] = [int(x) for x in data['pdg_ids']]
+        for name in ('species_nmax', 'species_charge'):
+            if name in data:
+                kw[name] = [int(x) for x in data[name]]
         cm = data.get('cent_mult')
         if cm is not None:
             kw['cent_mult'] = cm

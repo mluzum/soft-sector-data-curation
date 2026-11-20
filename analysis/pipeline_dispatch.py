@@ -4558,6 +4558,28 @@ SINGLE_ROW_KEYS = frozenset({
 })
 
 
+def container_for_prepare_2d(qv, params):
+    """The 2D container a record's prepare receives.  With ``species_nmax``
+    (iEBE-MUSIC standard output: Lambda and K0 to n = 6, every charged row
+    to 10), Qn truncated to the lowest highest harmonic of the rows the
+    record's species selects ('charged' or no species: the charged rows), so
+    a harmonic a row does not store is missing -- dropped from coincidence
+    terms with a note, or refused, as on any container without it -- never
+    read as Q_n = 0.  The charged reference of an identified record is cut
+    with it (no record needs more of those species)."""
+    nmax = getattr(qv, 'species_nmax', None)
+    if nmax is None:
+        return qv
+    species = (params.get('particle_id') or {}).get('species') or 'charged'
+    idx, _cf, found = resolve_species_on_axis(species, getattr(qv, 'pdg_ids', None))
+    rows = list(idx) if found and idx else list(range(len(nmax)))
+    n = min(int(nmax[i]) for i in rows)
+    if n >= qv.Qn.shape[2] - 1:
+        return qv
+    import dataclasses
+    return dataclasses.replace(qv, Qn=qv.Qn[:, :, :n + 1, :], species_nmax=[min(int(m), n) for m in nmax])
+
+
 def container_for_prepare(container, params, entry):
     """The 3D container a prepare receives: species-selected by the record's
     particle_id, or unselected for entries that select species themselves

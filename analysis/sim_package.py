@@ -67,7 +67,7 @@ _REPO_ROOT = Path(__file__).resolve().parent.parent
 _FIELDS_2D_REQUIRED = ("Qn", "pt_bin_edges", "masses", "species_names",
                        "nsamples", "rap_max")
 _FIELDS_2D_OPTIONAL = ("pdg_ids", "sum_pt", "sum_pt2", "sum_mT",
-                       "cent_mult", "event_weights")
+                       "cent_mult", "event_weights", "species_nmax", "species_charge")
 _FIELDS_3D_REQUIRED = ("Qn", "eta_edges", "pt_edges", "cent_mult",
                        "nsamples", "positives_only")
 _FIELDS_3D_OPTIONAL = ("event_weights", "sum_pt", "sum_pt2", "sum_ET")
@@ -224,6 +224,22 @@ def _build_2d(arrays: dict, where: str) -> QVectorData:
     if "pdg_ids" in kw:
         kw["pdg_ids"] = [int(p) for p in kw["pdg_ids"]]
         _check(len(kw["pdg_ids"]) == n_sp, where, "pdg_ids length != n_species")
+    if "species_nmax" in kw:
+        kw["species_nmax"] = [int(n) for n in kw["species_nmax"]]
+        _check(len(kw["species_nmax"]) == n_sp and all(1 <= n <= _n_h - 1 for n in kw["species_nmax"]), where,
+               f"species_nmax: one highest harmonic per species, 1 .. {_n_h - 1}")
+        above = [k for k, n in enumerate(kw["species_nmax"]) if np.any(qn[:, k, n + 1:, :] != 0)]
+        _check(not above, where, f"species {above}: Qn above species_nmax must be empty (not stored)")
+    if "species_charge" in kw:
+        kw["species_charge"] = [int(c) for c in kw["species_charge"]]
+        _check(len(kw["species_charge"]) == n_sp, where, "species_charge length != n_species")
+        if "pdg_ids" in kw:
+            from analysis.species import pdg_charge
+            bad = [(p, c) for p, c in zip(kw["pdg_ids"], kw["species_charge"])
+                   if p != 0 and pdg_charge(p) is not None and pdg_charge(p) != c]
+            _check(not bad, where, f"species_charge disagrees with the PDG ids: {bad}")
+            _check(all(c != 0 for p, c in zip(kw["pdg_ids"], kw["species_charge"]) if p == 0), where,
+                   "the PDG-0 row (other charged) must have a non-zero charge")
     kw["nsamples"] = _per_event(kw["nsamples"], "nsamples", n_ev, where, positive=True)
     for nm in ("cent_mult", "event_weights"):
         if nm in kw:
